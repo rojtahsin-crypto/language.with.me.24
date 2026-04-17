@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Language Master | زیرەکترین ڕێگای فێربوون</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f0ede8;
+            --surface: #faf8f5;
+            --surface2: #ffffff;
+            --border: #e0dbd3;
+            --text: #1a1714;
+            --text2: #6b6560;
+            --accent: #c8401a;
+            --accent2: #e8a020;
+            --accent3: #2a7a5a;
+            --accent-soft: #fdf0eb;
+            --shadow: rgba(30,20,10,0.08);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --font: 'Sora', sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+        }
+        body.dark {
+            --bg: #0f0d0b;
+            --surface: #1a1714;
+            --surface2: #231f1b;
+            --border: #2e2a25;
+            --text: #f5f0e8;
+            --text2: #8a8278;
+            --accent: #e8592a;
+            --accent2: #f0b840;
+            --accent3: #3aaa7a;
+            --accent-soft: #2a1a12;
+            --shadow: rgba(0,0,0,0.3);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* ── زمان دیاریکردن ── */
+        .flag-screen {
+            position: fixed; inset: 0;
+            background: linear-gradient(145deg, #1a0a00 0%, #2d1500 50%, #0a1a0a 100%);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9000;
+            transition: opacity 0.4s;
+        }
+        .flag-inner {
+            text-align: center;
+            animation: fadeSlideIn 0.6s ease;
+        }
+        @keyframes fadeSlideIn {
+            from { opacity:0; transform:translateY(30px); }
+            to { opacity:1; transform:translateY(0); }
+        }
+        .flag-logo {
+            font-size: 3.5rem; font-weight: 800;
+            color: #f5f0e8; margin-bottom: 0.5rem;
+            letter-spacing: -2px;
+        }
+        .flag-logo span { color: #e8592a; }
+        .flag-tagline {
+            color: #8a8278; font-size: 0.95rem;
+            margin-bottom: 3rem; font-weight: 400;
+        }
+        .flags-row {
+            display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+        }
+        .flag-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px; padding: 2rem 2.5rem;
+            cursor: pointer; text-align: center;
+            transition: all 0.25s; color: #f5f0e8;
+        }
+        .flag-card:hover {
+            background: rgba(232,89,42,0.15);
+            border-color: rgba(232,89,42,0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .flag-card img { width: 80px; border-radius: 12px; display: block; margin: 0 auto 1rem; }
+        .flag-card span { font-size: 1.1rem; font-weight: 600; }
+
+        /* ── بەرنامەی سەرەکی ── */
+        .main-app { display: none; flex-direction: column; min-height: 100vh; }
+
+        /* ── بەشی سەرەوە ── */
+        .app-header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1rem; flex-wrap: wrap;
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+        .header-logo {
+            font-size: 1.4rem; font-weight: 800;
+            color: var(--text); letter-spacing: -1px;
+        }
+        .header-logo span { color: var(--accent); }
+        .header-nav {
+            display: flex; gap: 0.3rem;
+            background: var(--bg); padding: 0.4rem;
+            border-radius: 3rem; border: 1px solid var(--border);
+        }
+        .tab-btn {
+            background: transparent; border: none;
+            padding: 0.55rem 1.4rem; border-radius: 2.5rem;
+            font-family: var(--font); font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; color: var(--text2);
+            display: flex; align-items: center; gap: 7px;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--surface2);
+            color: var(--text);
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        .header-actions { display: flex; gap: 0.5rem; }
+        .icon-btn {
+            background: var(--bg); border: 1px solid var(--border);
+            width: 42px; height: 42px; border-radius: 50%;
+            cursor: pointer; font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text2); transition: all 0.2s;
+        }
+        .icon-btn:hover { color: var(--accent); border-color: var(--accent); }
+
+        /* ── گەڕان ── */
+        .search-bar {
+            padding: 1rem 2rem; background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+        .search-wrapper {
+            max-width: 700px; margin: 0 auto;
+            background: var(--bg); border: 1.5px solid var(--border);
+            border-radius: 3rem; display: flex; align-items: center;
+            padding: 0.3rem 0.4rem 0.3rem 1.3rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .search-wrapper:focus-within {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(200,64,26,0.1);
+        }
+        .search-wrapper i { color: var(--text2); font-size: 1rem; }
+        #searchInput {
+            flex: 1; border: none; background: transparent;
+            padding: 0.7rem 0.8rem; font-family: var(--font);
+            font-size: 0.95rem; color: var(--text); outline: none;
+        }
+        #searchInput::placeholder { color: var(--text2); }
+        #searchClearBtn {
+            background: transparent; border: none; color: var(--text2);
+            cursor: pointer; padding: 0.4rem 0.8rem; font-size: 1rem;
+            border-radius: 2rem; display: none;
+        }
+        #searchClearBtn:hover { color: var(--accent); }
+        .search-results-panel {
+            position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+            background: var(--surface2); border: 1px solid var(--border);
+            border-radius: var(--radius); box-shadow: 0 20px 40px var(--shadow);
+            z-index: 999; max-height: 420px; overflow-y: auto;
+            display: none; padding: 0.5rem 0;
+        }
+        .search-result-category {
+            padding: 0.6rem 1.2rem; font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px; color: var(--text2);
+        }
+        .search-result-item {
+            padding: 0.8rem 1.2rem; cursor: pointer;
+            display: flex; align-items: center; gap: 10px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.1s;
+        }
+        .search-result-item:hover { background: var(--bg); }
+        .search-result-icon {
+            width: 32px; height: 32px; background: var(--accent-soft);
+            border-radius: 10px; display: flex; align-items: center;
+            justify-content: center; color: var(--accent); font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .search-result-content { flex: 1; min-width: 0; }
+        .search-result-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 2px; }
+        .search-result-sub { font-size: 0.78rem; color: var(--text2); }
+        .highlight { background: #fef08a; padding: 0 2px; border-radius: 4px; }
+        body.dark .highlight { background: #7a5000; color: #fef08a; }
+
+        /* ── محتوا ── */
+        .app-body {
+            flex: 1; padding: 2rem;
+            max-width: 1100px; margin: 0 auto; width: 100%;
+        }
+        .section-card { display: none; }
+        .section-card.active-section { display: block; animation: fadeIn 0.2s; }
+        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+        /* ── کارتەکانی ڕێزمان ── */
+        .grammar-scroll {
+            max-height: calc(100vh - 220px); overflow-y: auto;
+            padding-right: 4px; scroll-behavior: smooth;
+        }
+        .grammar-scroll::-webkit-scrollbar { width: 4px; }
+        .grammar-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        .grammar-grid {
+            display: grid; grid-template-columns: 1fr; gap: 1rem;
+        }
+        .grammar-card {
+            background: var(--surface2); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.4rem 1.6rem;
+            cursor: default;
+            position: relative; overflow: hidden;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .grammar-card::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+            width: 5px; border-radius: var(--radius) 0 0 var(--radius);
+        }
+        .grammar-card.highlight-card {
+            box-shadow: 0 0 0 3px var(--accent);
+            transform: scale(1.005);
+        }
+        .grammar-card-num {
+            font-family: var(--mono); font-size: 0.7rem; font-weight: 600;
+            color: var(--text2); margin-bottom: 0.5rem;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .grammar-card h3 {
+            font-size: 1.05rem; font-weight: 700;
+            margin-bottom: 0.7rem; color: var(--text);
+        }
+        .grammar-card p {
+            font-size: 0.88rem; color: var(--text2);
+            line-height: 1.7; margin-bottom: 0.8rem;
+        }
+        .grammar-card p strong { color: var(--text); font-weight: 600; }
+        .grammar-card .examples-block {
+            background: var(--bg); border-radius: var(--radius-sm);
+            padding: 0.8rem 1rem; margin-top: 0.6rem;
+            border: 1px solid var(--border);
+        }
+        .grammar-card .examples-block .ex-label {
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.8px; color: var(--text2); margin-bottom: 0.4rem;
+        }
+        .grammar-card .examples-block .ex-line {
+            font-size: 0.85rem; color: var(--text);
+            padding: 0.2rem 0; border-bottom: 1px dashed var(--border);
+        }
+        .grammar-card .examples-block .ex-line:last-child { border-bottom: none; }
+        .grammar-card .examples-block .ex-line em {
+            color: var(--text2); font-style: normal; font-size: 0.8rem;
+        }
+        .example-words {
+            display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem;
+        }
+        .dict-word {
+            background: var(--accent-soft); color: var(--accent);
+            padding: 0.3rem 0.8rem; border-radius: 2rem;
+            font-size: 0.82rem; font-weight: 600; cursor: pointer;
+            border: 1px solid rgba(200,64,26,0.15);
+            display: inline-flex; align-items: center; gap: 5px;
+            transition: background 0.15s;
+        }
+        .dict-word:hover { background: var(--accent); color: white; }
+
+        /* رەنگەکانی ئاستی ڕێزمان */
+        .gc-blue::before { background: #2563eb; }
+        .gc-green::before { background: #16a34a; }
+        .gc-orange::before { background: #ea580c; }
+        .gc-purple::before { background: #7c3aed; }
+        .gc-red::before { background: #dc2626; }
+        .gc-teal::before { background: #0d9488; }
+        .gc-pink::before { background: #db2777; }
+        .gc-yellow::before { background: #ca8a04; }
+
+        /* تاقی ڕاهێنان */
+        .level-strip {
+            display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+        }
+        .level-btn {
+            background: var(--bg); border: 1.5px solid var(--border);
+            padding: 0.5rem 1.3rem; border-radius: 2rem;
+            font-family: var(--font); font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; color: var(--text2); transition: all 0.2s;
+        }
+        .level-btn.active-level {
+            background: var(--accent); border-color: var(--accent); color: white;
+        }
+        .quiz-question-box {
+            background: var(--surface2); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.5rem 1.8rem;
+            font-size: 1.1rem; font-weight: 600; margin-bottom: 1.2rem;
+            border-left: 5px solid var(--accent);
+        }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.7rem; }
+        .quiz-option {
+            background: var(--bg); border: 1.5px solid var(--border);
+            padding: 0.85rem 1.4rem; border-radius: 3rem;
+            cursor: pointer; font-family: var(--font); font-weight: 500;
+            font-size: 0.95rem; color: var(--text);
+            transition: all 0.15s; text-align: left;
+        }
+        .quiz-option:hover:not(.correct-feedback):not(.wrong-feedback) {
+            border-color: var(--accent); background: var(--accent-soft);
+        }
+        .quiz-option.correct-feedback { background: #dcfce7; border-color: #16a34a; color: #14532d; }
+        .quiz-option.wrong-feedback { background: #fee2e2; border-color: #dc2626; color: #7f1d1d; }
+        body.dark .quiz-option.correct-feedback { background: #052e16; color: #86efac; }
+        body.dark .quiz-option.wrong-feedback { background: #350c0c; color: #fca5a5; }
+        .feedback-msg {
+            margin-top: 0.8rem; padding: 0.7rem 1.2rem;
+            border-radius: var(--radius-sm); font-weight: 600; font-size: 0.9rem;
+        }
+        .feedback-correct { background: #dcfce7; color: #14532d; border: 1px solid #16a34a; }
+        .feedback-wrong { background: #fee2e2; color: #7f1d1d; border: 1px solid #dc2626; }
+        body.dark .feedback-correct { background: #052e16; color: #86efac; border-color: #16a34a; }
+        body.dark .feedback-wrong { background: #350c0c; color: #fca5a5; border-color: #dc2626; }
+        .next-btn {
+            background: var(--accent); color: white; border: none;
+            padding: 0.85rem 2rem; border-radius: 3rem;
+            font-family: var(--font); font-weight: 700; font-size: 0.95rem;
+            cursor: pointer; margin-top: 1.2rem; transition: opacity 0.15s;
+        }
+        .next-btn:hover { opacity: 0.88; }
+        .progress-wrap { margin-top: 1.5rem; }
+        .progress-bar-bg {
+            background: var(--border); border-radius: 10px; height: 8px; overflow: hidden;
+        }
+        .progress-fill {
+            background: var(--accent3); height: 100%; width: 0%;
+            border-radius: 10px; transition: width 0.4s;
+        }
+        .progress-label {
+            text-align: right; font-size: 0.8rem; color: var(--text2);
+            margin-top: 0.4rem; font-family: var(--mono);
+        }
+
+        /* تاقیکردنەوە */
+        .test-question-item {
+            background: var(--surface2); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.3rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .test-question-item strong { font-size: 0.95rem; }
+        .test-input {
+            width: 100%; padding: 0.8rem 1.2rem;
+            border-radius: 3rem; border: 1.5px solid var(--border);
+            background: var(--bg); font-family: var(--font);
+            font-size: 0.9rem; color: var(--text); margin-top: 0.8rem;
+            outline: none; transition: border-color 0.2s;
+        }
+        .test-input:focus { border-color: var(--accent); }
+        .test-mc-options { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+        .test-mc-option {
+            padding: 0.4rem 1rem; border: 1.5px solid var(--border);
+            border-radius: 2rem; cursor: pointer; font-size: 0.85rem;
+            font-family: var(--font); color: var(--text);
+            background: var(--bg); font-weight: 500; transition: all 0.15s;
+        }
+        .test-mc-option.selected { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+        .submit-test {
+            background: var(--accent); color: white; border: none;
+            padding: 0.9rem 2.2rem; border-radius: 3rem;
+            font-family: var(--font); font-weight: 700; font-size: 0.95rem;
+            cursor: pointer; margin-top: 1.5rem; transition: opacity 0.15s;
+        }
+        .submit-test:hover { opacity: 0.88; }
+        .test-result-box {
+            background: var(--surface2); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 2rem; margin-top: 1.5rem;
+            text-align: center;
+        }
+        .test-result-box .score-num {
+            font-size: 3rem; font-weight: 800; color: var(--accent); margin-bottom: 0.5rem;
+        }
+
+        /* پیامی popup */
+        .dict-popup {
+            position: fixed; bottom: 24px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--text); color: var(--bg);
+            padding: 12px 24px; border-radius: 3rem;
+            z-index: 1200; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            animation: popUp 0.2s ease;
+            display: flex; align-items: center; gap: 10px;
+        }
+        @keyframes popUp {
+            from { opacity:0; transform: translateX(-50%) translateY(15px); }
+            to { opacity:1; transform: translateX(-50%) translateY(0); }
+        }
+        .highlight-question {
+            box-shadow: 0 0 0 3px var(--accent2), 0 8px 20px var(--shadow);
+            border-radius: var(--radius);
+        }
+
+        footer {
+            text-align: center; padding: 2rem;
+            color: var(--text2); font-size: 0.8rem; border-top: 1px solid var(--border);
+        }
+        @media (max-width: 640px) {
+            .app-header { padding: 0.8rem 1rem; }
+            .app-body { padding: 1rem; }
+            .search-bar { padding: 0.8rem 1rem; }
+            .header-logo { font-size: 1.2rem; }
+            .tab-btn span { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- زمان دیاریکردن -->
+<div id="flagScreen" class="flag-screen">
+    <div class="flag-inner">
+        <div class="flag-logo">Lang<span>.</span>Master</div>
+        <div class="flag-tagline">زیرەکترین ڕێگای فێربوونی زمان</div>
+        <div class="flags-row">
+            <div class="flag-card" data-lang="dutch">
+                <img src="https://flagcdn.com/w160/nl.png" alt="NL">
+                <span>🇳🇱 Nederlands</span>
+            </div>
+            <div class="flag-card" data-lang="french">
+                <img src="https://flagcdn.com/w160/fr.png" alt="FR">
+                <span>🇫🇷 Français</span>
+            </div>
+            <div class="flag-card" data-lang="english">
+                <img src="https://flagcdn.com/w160/gb.png" alt="EN">
+                <span>🇬🇧 English</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- بەرنامەی سەرەکی -->
+<div id="mainApp" class="main-app">
+    <header class="app-header">
+        <div class="header-logo">Lang<span>.</span>Master</div>
+        <nav class="header-nav" role="tablist">
+            <button class="tab-btn active" data-tab="grammar"><i class="fas fa-book-open"></i><span id="tabGrammarText">ڕێزمان</span></button>
+            <button class="tab-btn" data-tab="practice"><i class="fas fa-puzzle-piece"></i><span id="tabPracticeText">ڕاهێنان</span></button>
+            <button class="tab-btn" data-tab="tests"><i class="fas fa-clipboard-list"></i><span id="tabTestsText">تاقیکردنەوە</span></button>
+        </nav>
+<!-- ✅ زیاد بکە لە ناو header-actions -->
+<div class="header-actions">
+    <button class="icon-btn" id="resetLanguageBtn" title="زمان بگۆڕە"><i class="fas fa-globe"></i></button>
+    <button class="icon-btn" id="darkModeToggle" title="دۆخی تاریک"><i class="fas fa-moon"></i></button>
+    <!-- 👇 ئەمە زیاد بکە -->
+    <button class="icon-btn" id="aiHelperBtn" title="یارمەتی هۆشە دەستکرد" style="background:var(--accent);color:white;border:none;">
+        <i class="fas fa-robot"></i>
+    </button>
+</div>    </header>
+
+    <div class="search-bar">
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="گەڕان بۆ ڕێزمان، ڕاهێنان ... (بۆ نموونە OVT یان A2)" autocomplete="off">
+            <button id="searchClearBtn"><i class="fas fa-times"></i></button>
+            <div id="searchResultsPanel" class="search-results-panel"></div>
+        </div>
+    </div>
+
+    <div class="app-body">
+        <!-- ڕێزمان -->
+        <div id="grammarSection" class="section-card active-section">
+            <div class="grammar-scroll">
+                <div id="grammarCardsContainer" class="grammar-grid"></div>
+            </div>
+        </div>
+
+        <!-- ڕاهێنان -->
+        <div id="practiceSection" class="section-card">
+            <div class="level-strip" id="practiceLevelContainer"></div>
+            <div id="practiceQuizArea">
+                <div id="practiceQuestionText" class="quiz-question-box"></div>
+                <div id="practiceOptions" class="quiz-options"></div>
+                <div id="practiceFeedback"></div>
+                <button id="nextPracticeBtn" class="next-btn" style="display:none;">داهاتوو →</button>
+            </div>
+            <div class="progress-wrap">
+                <div class="progress-bar-bg"><div class="progress-fill" id="practiceProgressFill"></div></div>
+                <div class="progress-label" id="practiceProgressText"></div>
+            </div>
+        </div>
+
+        <!-- تاقیکردنەوە -->
+        <div id="testsSection" class="section-card">
+            <div class="level-strip" id="testLevelContainer"></div>
+            <div id="testQuestionsArea"></div>
+            <button id="submitTestBtn" class="submit-test">📊 نیشاندانی ئەنجام</button>
+            <div id="testResultArea"></div>
+        </div>
+    </div>
+<!-- ١. چات مۆدال بگوازەرەوە بۆ پێش </body> -->
+<footer>✨ Language Master | Learn with me | Roj Tahsin ✨</footer>
+</div>  <!-- ← داخستنی main-app -->
+
+<!-- 👇 چات مۆدال لێرە دابنێ (دەرەوەی main-app) -->
+<div id="aiChatModal" style="display:none;position:fixed;bottom:20px;right:20px;width:350px;max-height:500px;background:var(--surface2);border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 40px var(--shadow);z-index:2000;flex-direction:column;overflow:hidden;">
+    <div style="padding:1rem;background:var(--accent);color:white;display:flex;justify-content:space-between;align-items:center;">
+        <strong>🤖 یارمەتیدەری زمان</strong>
+        <button id="closeAiChat" style="background:none;border:none;color:white;font-size:1.2rem;cursor:pointer;">&times;</button>
+    </div>
+    <div id="aiChatMessages" style="flex:1;padding:1rem;overflow-y:auto;font-size:0.9rem;line-height:1.6;"></div>
+    <div style="padding:0.8rem;border-top:1px solid var(--border);display:flex;gap:0.5rem;">
+        <input type="text" id="aiChatInput" placeholder="پرسیارێک بکە..." style="flex:1;padding:0.6rem 1rem;border:1px solid var(--border);border-radius:2rem;outline:none;background:var(--bg);color:var(--text);">
+        <button id="aiChatSend" style="background:var(--accent);color:white;border:none;padding:0.6rem 1.2rem;border-radius:2rem;cursor:pointer;">📤</button>
+    </div>
+</div>
+
+</body>
+</html>
+    <div id="aiChatMessages" style="flex:1;padding:1rem;overflow-y:auto;font-size:0.9rem;line-height:1.6;"></div>
+    <div style="padding:0.8rem;border-top:1px solid var(--border);display:flex;gap:0.5rem;">
+        <input type="text" id="aiChatInput" placeholder="پرسیارێک بکە..." style="flex:1;padding:0.6rem 1rem;border:1px solid var(--border);border-radius:2rem;outline:none;background:var(--bg);color:var(--text);">
+        <button id="aiChatSend" style="background:var(--accent);color:white;border:none;padding:0.6rem 1.2rem;border-radius:2rem;cursor:pointer;">📤</button>
+    </div>
+</div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+// ── داتای ڕێزمانی نیدەرلاندی (٤٠ باب) ──
+const DUTCH_GRAMMAR = [
+  { num:'01', color:'gc-blue', title:'Het Nederlandse alfabet en uitspraak 🔤', explanation:'Het Nederlandse alfabet telt <strong>26 letters</strong>, identiek aan het Engelse alfabet. De uitspraak van sommige letters is uniek voor het Nederlands.', examples:[{nl:'G = harde g (schrapend geluid achter in de keel)',ku:'G = دەنگی توند (لە داوی گوورگدا)'},{nl:'IJ/EI klinkt als "ij" in "blijft"',ku:'IJ/EI = وەک ay بە دەنگی نیدەرلاندی'},{nl:'OE klinkt als "oo" in "boot"',ku:'OE = وەک oo'},{nl:'UI: moeilijk! Probeer "ui" in "huis"',ku:'UI = ئەگین لەگەڵ دەنگی بنیادی'}], words:['goedemorgen','ijs','huis','boek','neus'], keywords:['alfabet','uitspraak','klinkers','medeklinkers','ij','eu','oe','ui'] },
+  { num:'02', color:'gc-green', title:'Lidwoorden en zelfstandige naamwoorden 📝', explanation:'Het Nederlands heeft <strong>drie lidwoorden</strong>: <strong>de</strong> (mannelijk/vrouwelijk), <strong>het</strong> (onzijdig), en <strong>een</strong> (onbepaald). Circa 75% van de woorden is een de-woord.', examples:[{nl:'De man leest een boek.',ku:'پیاوەکە کتێبێک دەخوێنێتەوە.'},{nl:'Het kind speelt buiten.',ku:'منداڵەکە لە دەرەوە یاری دەکات.'},{nl:'Een kat zit op de stoel.',ku:'کتتركێک لەسەر كورسیەکە دانیشتووە.'}], words:['de man','de vrouw','het kind','het boek','een auto'], keywords:['lidwoord','de','het','een','naamwoord','genus'] },
+  { num:'03', color:'gc-orange', title:'Meervoud van zelfstandige naamwoorden 👨‍👩‍👧‍👦', explanation:'De twee hoofdregels zijn <strong>-en</strong> (meest voorkomend) en <strong>-s</strong>. Let op spellingveranderingen! Een kleine groep krijgt <strong>-eren</strong>.', examples:[{nl:'man → mannen (verdubbel medeklinker)',ku:'پیاو → پیاوان'},{nl:'maan → manen (haal dubbele klinker weg)',ku:'مانگ → مانگەکان'},{nl:'kind → kinderen (uitzondering!)',ku:'منداڵ → منداڵان (جیاواز!)'},{nl:'café → cafés (klinker + apostrof + s)',ku:'کافێ → کافێکان'}], words:['mannen','boeken','kinderen','cafés','auto\'s'], keywords:['meervoud','plural','-en','-s','-eren'] },
+  { num:'04', color:'gc-purple', title:'Verkleinwoorden (Diminutieven) 🐣', explanation:'Elk zelfstandig naamwoord kan verkleind worden. Het verkleinwoord is altijd een <strong>het-woord</strong> en eindigt op <strong>-je</strong> (in verschillende varianten).', examples:[{nl:'huis → huisje (-je na medeklinker)',ku:'خانوو → خانووچکه'},{nl:'bloem → bloempje (-pje na -m)',ku:'گوڵ → گوڵچکه'},{nl:'ring → ringetje (-etje na -ng)',ku:'ئەنگوستوانە → ئەنگوستوانەچکه'},{nl:'koning → koninkje (-kje na -ing)',ku:'پاشا → پاشاچکه'}], words:['huisje','bloempje','kindje','boekje','ringetje'], keywords:['verkleinwoord','diminutief','-je','-tje','-pje'] },
+  { num:'05', color:'gc-teal', title:'Bijvoeglijke naamwoorden – verbuiging en trappen 🎨', explanation:'Standaard: voeg <strong>-e</strong> toe. Uitzondering: het-woord + <strong>een</strong> = geen -e! Vergrotende trap: <strong>-er</strong>. Overtreffende trap: <strong>-st</strong>.', examples:[{nl:'De grote man / Een grote man (de-woord: altijd -e)',ku:'پیاوی گەورە'},{nl:'Het grote huis / Een groot huis (het-woord + een = geen -e)',ku:'خانووی گەورە / خانووێکی گەورە'},{nl:'mooi → mooier → mooist',ku:'جوان → جواناتر → جواناترین'},{nl:'Onregelmatig: goed → beter → best',ku:'باش → باشتر → باشترین'}], words:['groot','mooi','klein','beter','best'], keywords:['bijvoeglijk','verbuiging','vergelijking','-er','-st','comparatief','superlatief'] },
+  { num:'06', color:'gc-red', title:'Persoonlijke voornaamwoorden 🙋', explanation:'Het Nederlands heeft beklemtoonde (sterke) en onbeklemtoonde (zwakke) vormen. <strong>Jij</strong> vs <strong>je</strong>, <strong>zij</strong> vs <strong>ze</strong>, <strong>wij</strong> vs <strong>we</strong>.', examples:[{nl:'"Jij moet dat doen, niet ik!" (beklemtoond)',ku:'تۆ دەبێت ئەوە بکەی!'},{nl:'"Heb je honger?" (onbeklemtoond)',ku:'ئایا برسیتی؟'},{nl:'"Ik zie hem / hem zie ik" (object)',ku:'من دەیبینم'},{nl:'"Ik zie hen / Ik geef hun" (hen vs hun)',ku:'دیفەرەنسی hen/hun'}], words:['ik','jij/je','hij','zij/ze','wij/we','jullie','zij/ze'], keywords:['voornaamwoord','pronomen','ik','jij','hij','zij','wij','jullie','hen','hun'] },
+  { num:'07', color:'gc-pink', title:'Aanwijzende, vragende en betrekkelijke vnw. 👆', explanation:'<strong>Aanwijzend</strong>: deze/dit (dichtbij), die/dat (ver). <strong>Vragend</strong>: wie, wat, welk(e). <strong>Betrekkelijk</strong>: die (de-woord), dat (het-woord).', examples:[{nl:'Deze man / Dit huis (dichtbij)',ku:'ئەم پیاوە / ئەم خانووە (نزیک)'},{nl:'Die vrouw / Dat kind (ver weg)',ku:'ئەو ژنە / ئەو منداڵە (دوور)'},{nl:'"Welk boek lees je?" / "Welke film?"',ku:'"کام کتێب؟" / "کام فیلم?"'},{nl:'"De man die daar loopt, is aardig."',ku:'"پیاوەکەی کە لەوێ دەڕواتەوە، سەرخۆشە."'}], words:['deze','dit','die','dat','wie','wat','welke'], keywords:['aanwijzend','vragend','betrekkelijk','die','dat','welk','welke','wie','wat'] },
+  { num:'08', color:'gc-yellow', title:'Onbepaalde voornaamwoorden ❓', explanation:'Onbepaalde voornaamwoorden zijn vaag en niet specifiek. Ze verwijzen naar personen, dingen of hoeveelheden zonder ze precies te benoemen.', examples:[{nl:'"Er klopt iemand op de deur."',ku:'کەسێک دەدەقە بە دەرگاکە.'},{nl:'"Ik heb niets te doen."',ku:'هیچم کاری نییە.'},{nl:'"Ieder kind kreeg een cadeau."',ku:'هەر منداڵێک دیاریێک وەرگرت.'},{nl:'"Alle mensen zijn gelijk."',ku:'هەموو مرۆڤەکان یەکسانن.'}], words:['iemand','niemand','iets','niets','alles','iedereen','elk','sommige'], keywords:['onbepaald','iemand','niemand','iets','niets','alles','elk','sommige'] },
+  { num:'09', color:'gc-blue', title:'Wederkerende en wederkerige werkwoorden 🤝', explanation:'<strong>Wederkerend (reflexief)</strong>: het onderwerp doet iets met zichzelf. <strong>Wederkerig (reciproque)</strong>: twee personen doen iets met <em>elkaar</em>.', examples:[{nl:'"Ik was me." / "Hij scheert zich."',ku:'من خۆم دەشووم. / ئەو ریشەکەی دەبڕێت.'},{nl:'"Jij vergist je." (reflexief)',ku:'تۆ هەڵدەچوینیت.'},{nl:'"Wij zien elkaar elke dag." (wederkerig)',ku:'ئێمە هەموو ڕۆژ یەکدین دەبینین.'},{nl:'"Zij helpen elkaar met huiswerk."',ku:'ئەوان بە تەواوی نانەوەی خۆیان یارمەتی یەکدین دەدەن.'}], words:['me','je','zich','ons','elkaar'], keywords:['wederkerend','reflexief','wederkerig','reciproque','zich','elkaar'] },
+  { num:'10', color:'gc-green', title:'Tegenwoordige tijd (OTT) ⏳', explanation:'Stam = hele werkwoord min <strong>-en</strong>. Stam + t voor jij/u/hij/zij/het. Let op: <strong>inversie</strong> bij "je" → de -t valt weg!', examples:[{nl:'werken → stam: werk',ku:'ستەمی: werk'},{nl:'"Ik werk / Jij werkt / Hij werkt / Wij werken"',ku:'من کار دەکەم / تۆ کار دەکەیت ...'},{nl:'Inversie: "Morgen werk jij?" (geen -t!)',ku:'سبەینێ تۆ کار دەکەیت؟ (بێ -t!)'},{nl:'Zijn: ik ben / jij bent / hij is / wij zijn',ku:'یەکەم کەس: ik ben، دووهەمەکان: zijn'}], words:['ik werk','jij werkt','hij is','wij zijn','jij hebt'], keywords:['tegenwoordige tijd','OTT','presens','stam','inversie','zijn','hebben'] },
+  { num:'11', color:'gc-orange', title:'Verleden tijd (OVT) 📜', explanation:'<strong>Zwakke werkwoorden</strong>: gebruik het ezelsbruggetje <strong>\'t kofschip</strong> (T,K,F,S,C,H,P) → -te(n) of -de(n). <strong>Sterke werkwoorden</strong>: klankverandering in de stam — deze moet je leren!', examples:[{nl:'werken → werk (eindigt op K) → werkte, werkten',ku:'کار کردن → کار کرد (K لە kofschip)'},{nl:'spelen → speel (eindigt op L) → speelde, speelden',ku:'یاری کردن → یاری کرد (L نە لە kofschip)'},{nl:'lopen (sterk) → ik liep',ku:'ڕوون بوون → ڕووا'},{nl:'gaan (sterk) → ik ging',ku:'ڕۆیشتن → ڕۆیشت'}], words:['werkte','speelde','liep','ging','zong','deed'], keywords:['verleden tijd','OVT','kofschip','zwak','sterk','preteritum','-te','-de'] },
+  { num:'12', color:'gc-purple', title:'Voltooide tijd (VTT) ✅', explanation:'Formule: <strong>hebben</strong> of <strong>zijn</strong> + voltooid deelwoord. Deelwoord: ge- + stam + -t (zwak) of -en (sterk). <strong>Zijn</strong> bij verandering van locatie/toestand.', examples:[{nl:'werken → ge+werk+t = gewerkt',ku:'کار کردن → کار کراوە'},{nl:'"Ik heb geslapen. / Hij heeft gewerkt."',ku:'من خەوتووم. / ئەو کاری کردووە.'},{nl:'"Hij is naar huis gegaan." (locatie)',ku:'ئەو ڕۆیشتووەتە ماڵ. (گۆڕینی شوێن)'},{nl:'"De prijs is gestegen." (toestand)',ku:'نرخەکە بەرزتر بووەتەوە. (گۆڕینی حاڵ)'}], words:['gewerkt','gelopen','gegaan','geslapen','gekopen'], keywords:['voltooide tijd','VTT','perfectum','hebben','zijn','deelwoord','ge-'] },
+  { num:'13', color:'gc-teal', title:'Plusquamperfectum (Voltooid Verleden Tijd) 🔙', explanation:'De "voortijd": iets gebeurde <strong>vóór</strong> een ander moment in het verleden. Formule: <strong>had(den)</strong> of <strong>was/waren</strong> + voltooid deelwoord.', examples:[{nl:'"Ik had al gegeten, voordat jij thuiskwam."',ku:'من پێشتر خواردم، پێش ئەوەی تۆ بگەیتە ماڵ.'},{nl:'"Zij was net vertrokken, toen de telefoon ging."',ku:'ئەوزگاکەی ئەوە کە تەلەفۆنەکە لێدا، ئەو رابووبوو.'},{nl:'Formule: had + deelwoord / was + deelwoord',ku:'فۆرمول: had + ناوی بەشداری / was + ناوی بەشداری'}], words:['had gewerkt','was gegaan','hadden gegeten','waren vertrokken'], keywords:['plusquamperfectum','VVT','had','was','waren','voortijd'] },
+  { num:'14', color:'gc-red', title:'Toekomende tijd (OTTT) 🔮', explanation:'Er zijn drie manieren: <strong>zullen + infinitief</strong> (formeel/belofte), <strong>gaan + infinitief</strong> (informeel/plan), of <strong>tegenwoordige tijd + tijdsbepaling</strong> (spreektaal).', examples:[{nl:'"Ik zal je morgen bellen." (belofte)',ku:'بەیانی پەیوەندیت پێوە دەکەم. (قەول)'},{nl:'"Ik ga vanavond koken." (plan)',ku:'ئەمشەو چێشت دروست دەکەم. (پلان)'},{nl:'"Zullen we naar de film gaan?" (voorstel)',ku:'ئایا بڕۆین سینەما؟ (پێشنیار)'},{nl:'"Morgen vertrek ik naar Parijs." (gepland)',ku:'سبەینێ دەمەوێتە پاریس. (پلانکراو)'}], words:['zal bellen','ga koken','zullen gaan','vertrek morgen'], keywords:['toekomst','OTTT','futurum','zullen','gaan'] },
+  { num:'15', color:'gc-pink', title:'Conditionele en Irrealis 🤔', explanation:'Gebruik <strong>zou(den) + infinitief</strong>. Conditioneel: de voorwaarde is nog mogelijk. Irrealis: tegen de feiten in (hypothetisch).', examples:[{nl:'"Zou je het raam willen sluiten?" (beleefd)',ku:'تکایە پەنجەرەکە دادبخرە؟ (به ئەدەب)'},{nl:'"Als ik rijk was, zou ik een vliegtuig kopen." (irrealis)',ku:'ئەگەر دەوڵەمەند بووبایم، فڕۆکەیەک دەکڕیم.'},{nl:'"Als jij eerder was gekomen, had je de taart geproefd."',ku:'ئەگەر زووتر بهاتبایت، تۆرتەکەت تامیزایەکردایە.'}], words:['zou kopen','zouden gaan','had geproefd','was gekomen'], keywords:['conditioneel','irrealis','zou','zouden','voorwaardelijk'] },
+  { num:'16', color:'gc-yellow', title:'Lijdende vorm (Passief) 🎭', explanation:'<strong>Worden + deelwoord</strong>: lopend proces. <strong>Zijn + deelwoord</strong>: resultaat/toestand. Dader benoemen: gebruik <strong>door</strong>.', examples:[{nl:'"Het huis wordt gebouwd." (proces)',ku:'خانووەکە دروست دەکرێت. (پرۆسە)'},{nl:'"Het huis is gebouwd." (resultaat)',ku:'خانووەکە دروستکراوە. (ئەنجام)'},{nl:'"De brief wordt door de postbode bezorgd."',ku:'نامەکە لەلایەن هاوگرتووی پۆستەوە دەگیرێتەوە.'},{nl:'"Er wordt gefloten." (passief zonder dader)',ku:'کەسێک دەئیشووکرێت. (بێ دادەنراو)'}], words:['wordt gebouwd','is gemaakt','werd geschreven','zijn vertrokken'], keywords:['passief','lijdend','worden','passivum','door'] },
+  { num:'17', color:'gc-blue', title:'Scheidbare en onscheidbare werkwoorden 🔀', explanation:'<strong>Scheidbare</strong> werkwoorden: in de hoofdzin splitsen! Voorzetsel naar het einde. <strong>Onscheidbare</strong>: be-, ver-, ont-, ge-, her-, er- — nooit splitsen, geen extra ge- in deelwoord.', examples:[{nl:'"Ik bel mijn moeder op." (scheidbaar)',ku:'من دەتەلەفۆنم بۆ دایکم. (جیاکردنەوە)'},{nl:'"...dat ik mijn moeder opbel." (bijzin: niet splitsen)',ku:'... کە تەلەفۆنی دایکم دەکەم. (لە لاوەک)'},{nl:'"Ik vertaal de tekst." → deelwoord: vertaald (geen ge-!)',ku:'من دەوەرگێڕم. → وەرگێڕاو (بێ ge-!)'},{nl:'"Ik begrijp het." (onscheidbaar)',ku:'من تێدەگەم.'}], words:['opbellen','uitgaan','meenemen','begrijpen','vertalen','herhalenr'], keywords:['scheidbaar','onscheidbaar','voorvoegsel','be-','ver-','ont-','op','uit'] },
+  { num:'18', color:'gc-green', title:'Modale werkwoorden 🛠️', explanation:'Modale werkwoorden "kleuren" het hoofdwerkwoord. Ze staan bijna altijd met een infinitief aan het einde van de zin.', examples:[{nl:'"Ik kan zwemmen." (mogelijkheid)',ku:'دەتوانم مەلە بکەم. (توانا)'},{nl:'"Je mag hier niet roken." (verbod)',ku:'لێرە ناتوانیت جگەرە بکێشیت. (قەدەغە)'},{nl:'"Ik moet naar de dokter." (verplichting)',ku:'دەبێت بچمە دکتۆر. (پێویستی)'},{nl:'"Je hoeft niet te komen." (geen noodzaak)',ku:'پێویست نییە بێیت. (بێ پێویستی)'}], words:['kunnen','mogen','moeten','willen','zullen','hoeven'], keywords:['modaal','kunnen','mogen','moeten','willen','zullen','hoeven'] },
+  { num:'19', color:'gc-orange', title:'Vervangende infinitief (IPP-effect) 🔄', explanation:'Als een modaal werkwoord in de voltooide tijd staat, wordt het voltooid deelwoord <strong>vervangen door de infinitief</strong>. Dit geldt ook voor "zien, horen, laten, blijven".', examples:[{nl:'FOUT: "Ik heb het gewild doen."',ku:'هەڵەیە!'},{nl:'CORRECT: "Ik heb het willen doen."',ku:'درووستە!'},{nl:'"Hij heeft moeten werken."',ku:'ئەو پێویستی بوو کار بکات.'},{nl:'"Zij is blijven staan." (niet: gebleven staan)',ku:'ئەو ئەستایستووە. (ئەستا = rawest)'}], words:['willen doen','moeten werken','blijven staan','laten gaan','zien lopen'], keywords:['IPP','vervangende infinitief','modaal','perfect','blijven','laten'] },
+  { num:'20', color:'gc-purple', title:'Continuïteitsvormen (Duratief) 🚶', explanation:'Om aan te geven dat iets <em>gaande is</em>. Twee methoden: <strong>zijn + aan het + infinitief</strong> (neutraal), of <strong>positiewerkwoord + te + infinitief</strong> (levendiger, met houding).', examples:[{nl:'"Ik ben aan het lezen." (neutraal)',ku:'من خوێندنم هەیە. (ئاسایی)'},{nl:'"Hij zit te lezen." (hij leest + hij zit)',ku:'ئەو دانیشتووە و دەخوێنێتەوە.'},{nl:'"Zij staat te wachten."',ku:'ئەو ئەستاوە و چاوەڕوانە.'},{nl:'"Ik loop te denken." (ڕۆیشتن + بیرکردنەوە)',ku:'من دەڕۆم و بیرم دەکاتەوە.'}], words:['ben aan het lezen','zit te lezen','staat te wachten','loopt te denken'], keywords:['duratief','continuiteit','aan het','zitten te','staan te','lopen te'] },
+  { num:'21', color:'gc-teal', title:'Gebiedende wijs (Imperatief) 🗣️', explanation:'<strong>Enkelvoud/informeel</strong>: gebruik de stam. <strong>Beleefd (u-vorm)</strong>: stam + t. <strong>Wij-aansporing</strong>: Laten we + infinitief.', examples:[{nl:'"Loop!" / "Eet je bord leeg!" (stam, informeel)',ku:'"بڕۆ!" / "بنووشتیت تەواو بکە!" (ئاسایی)'},{nl:'"Loopt u maar door." (stam+t, beleefd)',ku:'"بەدواوە بڕۆیتەوە." (ئەدەبانە)'},{nl:'"Laten we gaan!" (wij-aansporing)',ka:'"با بڕۆین!" (هاندان)'},{nl:'"Zeg dat dan!" / "Doe het nu!"',ku:'"ئەوە بگە!" / "ئێستا بیکە!"'}], words:['loop!','eet!','schrijf!','loopt u','laten we gaan'], keywords:['imperatief','gebiedende','bevel','verzoek','laten we'] },
+  { num:'22', color:'gc-red', title:'Ontkenningen 🚫', explanation:'<strong>Geen</strong>: ontkent een onbepaald zelfstandig naamwoord. <strong>Niet</strong>: ontkent al het andere. Niet staat meestal achter het middenstuk maar vóór de eindgroep.', examples:[{nl:'"Ik heb geen auto." (geen = onbepaald znw.)',ku:'من ئۆتۆمبێلم نییە. (geen = ناوی نامزدنەکراو)'},{nl:'"Ik slaap niet." (niet = werkwoord)',ku:'من نازمووم. (niet = کردار)'},{nl:'"Het is niet mooi." (niet = bijvoeglijk naamwoord)',ku:'جوان نییە. (niet = ناوبەند)'},{nl:'"Ik heb hem gisteren niet gezien." (niet vóór eindgroep)',ku:'من دیرۆژ ئەی نەبینیم.'}], words:['niet','geen','nimmer','nooit','nergens'], keywords:['ontkenning','negatie','niet','geen','nooit','nergens'] },
+  { num:'23', color:'gc-pink', title:'Woordvolgorde 📏', explanation:'De "tangconstructie" is berucht. <strong>Hoofdzin</strong>: O-PV-Rest. <strong>Inversie</strong>: PV op plek 2 als de zin niet met het onderwerp begint. <strong>Bijzin</strong>: alle werkwoorden naar het einde!', examples:[{nl:'Ik koop een boek. (O-PV-Rest)',ku:'من کتێبێک دەکڕم. (ئاسایی)'},{nl:'Morgen koop ik een boek. (inversie)',ku:'سبەینێ کتێبێک دەکڕم. (ئینڤێرسیۆن)'},{nl:'...dat ik een boek koop. (bijzin: PV naar einde!)',ku:'...کە من کتێبێک دەکڕم. (کردار لە کۆتایی)'}], words:['dat','omdat','hoewel','terwijl','toen'], keywords:['woordvolgorde','inversie','tangconstructie','bijzin','hoofdzin','PV'] },
+  { num:'24', color:'gc-yellow', title:'Voegwoorden 🔗', explanation:'<strong>Nevenschikkend (MEOWD)</strong>: Maar, En, Of, Want, Dus — geen effect op volgorde. <strong>Onderschikkend</strong>: sturen werkwoorden naar het einde van de bijzin.', examples:[{nl:'"Ik wil koffie, maar hij drinkt thee." (MEOWD)',ku:'من قاوەم دەوێت، بەڵام ئەو چایی دەخوات.'},{nl:'"Ik blijf thuis omdat ik ziek ben." (onderschikkend)',ku:'لەماڵ دەمێنمەوە چونکە نەخۆشم.'},{nl:'Andere onderschikkenden: dat, als, toen, hoewel, terwijl',ku:'تری: dat, als, toen, hoewel, terwijl'}], words:['maar','en','of','want','dus','omdat','dat','als','hoewel','terwijl'], keywords:['voegwoord','conjunctie','nevenschikkend','onderschikkend','MEOWD','omdat','dat','als'] },
+  { num:'25', color:'gc-blue', title:'Bijzinnen 🧩', explanation:'Bijzinnen kunnen allerlei functies hebben. In elke bijzin gaan <strong>alle werkwoorden</strong> naar het einde.', examples:[{nl:'Tijdsbijzin: "Toen ik klein was..."',ku:'کاتی: "کاتێک منداڵ بووم..."'},{nl:'Reden: "Omdat het regent..."',ku:'هۆکار: "چونکە باران دەبارێت..."'},{nl:'Doel: "Zodat je het begrijpt."',ku:'مەبەست: "تاکوو تێیبگەیت."'},{nl:'Voorwaarde: "Als jij gaat..."',ku:'مەرج: "ئەگەر تۆ بچیت..."'},{nl:'Toegeving: "Hoewel ik moe ben..."',ku:'لێخۆشی: "هەرچەندە ماندووم..."}], words:['omdat','dat','als','toen','hoewel','terwijl','zodat','voordat'], keywords:['bijzin','subzin','tijdsbijzin','reden','doel','voorwaarde','toegeving'] },
+  { num:'26', color:'gc-green', title:'De constructie \'om te\' + infinitief 🎯', explanation:'\'Om te\' + infinitief geeft een <strong>doel</strong> aan: het antwoord op "waarom?". Na "te + bijvoeglijk naamwoord" ook gebruikelijk.', examples:[{nl:'"Ik ga naar de winkel om brood te kopen."',ku:'دەچم بازاڕ نانم بکڕم.'},{nl:'"Hij oefent elke dag om beter te worden."',ku:'ئەو هەموو ڕۆژ ڕاهێنان دەکات تاکوو باشتر بێت.'},{nl:'"Het is te koud om te zwemmen."',ku:'زۆر سارد e مەلە بکەیت.'}], words:['om te kopen','om te gaan','om te leren','om te worden'], keywords:['om te','infinitief','doel','waarom'] },
+  { num:'27', color:'gc-orange', title:'Andere infinitiefconstructies 🛠️', explanation:'Na bepaalde voorzetsels en vaste uitdrukkingen volgt <strong>te + infinitief</strong>: zonder te, in plaats van te, alvorens te, door te.', examples:[{nl:'"Hij vertrok zonder iets te zeggen."',ku:'ئەو رابوو بەبێ ئەوەی هیچی بگوترا.'},{nl:'"Werk in plaats van te klagen."',ku:'کار بکە لە جیاتی گوزارشت.'},{nl:'"Door veel te oefenen, word je beter."',ku:'لەڕێی زۆر ڕاهێنانەوە، باشتر دەبیت.'}], words:['zonder te','in plaats van te','alvorens te','door te'], keywords:['infinitief','zonder te','in plaats van','alvorens','door te'] },
+  { num:'28', color:'gc-purple', title:'Te + infinitief na bijv. naamwoorden en znw. 📌', explanation:'Na bijvoeglijk naamwoord + zijn: te + infinitief (soms met om). Na zelfstandig naamwoord: vaak "om te" + infinitief.', examples:[{nl:'"Het is moeilijk te begrijpen."',ku:'تێگەیشتنی گرانە.'},{nl:'"De tekst is leuk om te lezen."',ku:'دەق خوێندنەوەی جوانە.'},{nl:'"Ik heb zin om een ijsje te eten."',ku:'دەمەوێت ئایس کریم بخوم.'},{nl:'"Het is tijd om te gaan."',ku:'کاتی ڕۆیشتنە.'}], words:['te begrijpen','om te lezen','om te eten','om te gaan'], keywords:['te infinitief','na bijvoeglijk','na zelfstandig','om te'] },
+  { num:'29', color:'gc-teal', title:'Het woord \'er\' 🌟', explanation:'\'Er\' heeft <strong>5 functies</strong>: locatief (plaats), presentatief (nieuw onderwerp), kwantitatief (met telwoord), deel van pronominaal bijwoord, en passief zonder dader.', examples:[{nl:'Locatief: "Ik woon er." (= in Amsterdam)',ku:'شوێنی: "من لەوێ دەژیم."'},{nl:'Presentatief: "Er loopt een man op straat."',ku:'پێشکەشکار: "پیاوێک لە شەقامدا دەڕوات."'},{nl:'Kwantitatief: "Ik heb er drie." (= appels)',ku:'ئەندازەیی: "سێی لام هەن."'},{nl:'Passief: "Er wordt gefloten."',ku:'پاسیڤ: "کەسێک دەئیشووکرێت."'}], words:['er is','er loopt','er zijn','er drie','erop'], keywords:['er','locatief','presentatief','kwantitatief','passief'] },
+  { num:'30', color:'gc-red', title:'Pronominale bijwoorden ↔️', explanation:'In het Nederlands zeg je niet "op het" maar <strong>er/hier/daar + voorzetsel</strong>. Bij vragen gebruik je <strong>waar + voorzetsel</strong>.', examples:[{nl:'"Ik wacht erop." (= op de bus)',ku:'چاوەڕوانی دەکەم. (= بۆ ئۆتۆبێسەکە)'},{nl:'"Ik schrijf hiermee." (= met deze pen)',ku:'پێوە دەنووسم. (= بەم پێنووسانەیەوە)'},{nl:'"Ik ben daarvoor te oud."',ku:'تەمەنم زۆرە بۆ ئەوە.'},{nl:'"Waarop wacht je?" (vragend)',ku:'"بۆ چی چاوەڕوانی دەکەیت?" (پرسیار)'}], words:['erop','erin','ermee','hierop','daarvoor','waarop'], keywords:['pronominaal bijwoord','erop','erin','ermee','hiermee','daarvoor','waarop'] },
+  { num:'31', color:'gc-pink', title:'Bijwoorden 🎭', explanation:'Bijwoorden geven extra informatie over een handeling, eigenschap of andere bijwoorden. Ze worden onderverdeeld naar <strong>tijd, plaats, wijze, graad</strong> en <strong>modaliteit</strong>.', examples:[{nl:'Tijd: nu, straks, gisteren, morgen, altijd, nooit',ku:'کات: ئێستا، داهاتوو، دوێنێ، سبەینێ'},{nl:'Plaats: hier, daar, overal, nergens, ergens',ku:'شوێن: ئێرە، ئەوێ، هەمووشوێن'},{nl:'Graad: heel, erg, nogal, vrij, behoorlijk',ku:'ئاست: زۆر، زۆر زۆر، ئەگەر'},{nl:'Modaliteit: misschien, waarschijnlijk, zeker, helaas',ku:'مۆدالیتی: بەلکو، زۆر ئەگەر، سەرسوڕمان'}], words:['nu','gisteren','hier','heel','misschien','nooit','overal'], keywords:['bijwoord','adverbium','tijd','plaats','wijze','graad','modaliteit'] },
+  { num:'32', color:'gc-yellow', title:'Trappen van vergelijking van bijwoorden 📊', explanation:'Dezelfde regels als voor bijvoeglijke naamwoorden: <strong>-er</strong> voor vergrotende trap en <strong>-st</strong> voor overtreffende trap.', examples:[{nl:'"Hij loopt snel."',ku:'ئەو خێرا دەڕوات.'},{nl:'"Zij loopt sneller."',ku:'ئەو خێراتر دەڕوات.'},{nl:'"Ik loop het snelst."',ku:'من خێراترینم.'},{nl:'Onregelmatig: graag → liever → liefst',ku:'خواستن → زیاتر خواستن → زۆرترین خواستن'}], words:['sneller','snelst','harder','het hardst','liever','liefst'], keywords:['bijwoord','vergelijking','comparatief','superlatief','-er','-st','graag','liever'] },
+  { num:'33', color:'gc-blue', title:'Voorzetsels 📍', explanation:'Voorzetsels staan vast in veel uitdrukkingen. Het is belangrijk om de <strong>vaste combinaties</strong> (werkwoord + voorzetsel) uit het hoofd te leren.', examples:[{nl:'"Ik hou van jou." (houden van)',ku:'دەتخوازم. (houden van)'},{nl:'"Ik wacht op de trein." (wachten op)',ku:'چاوەڕوانی ترەنەکەم. (wachten op)'},{nl:'"Ik denk aan jou." (denken aan)',ku:'بیری تۆم دەکاتەوە. (denken aan)'},{nl:'"Ik luister naar muziek." (luisteren naar)',ku:'گوێم بە مۆسیقایە. (luisteren naar)'}], words:['van','op','aan','naar','voor','over','bij','met'], keywords:['voorzetsel','prepositie','houden van','wachten op','denken aan','luisteren naar'] },
+  { num:'34', color:'gc-green', title:'Telwoorden 🔢', explanation:'<strong>Hoofdtelwoorden</strong>: een, twee, drie... Let op: 21 = eenentwintig (omgekeerd!). <strong>Rangtelwoorden</strong>: eerste, tweede, derde... <strong>Breuken</strong>: een half, een kwart.', examples:[{nl:'21 = eenentwintig (niet: twintig-een!)',ku:'٢١ = eenentwintig (لەوانەیشتر!)'},{nl:'1e: eerste / 2e: tweede / 3e: derde',ku:'یەکەم / دووهەم / سێهەم'},{nl:'1/2 = een half / de helft',ku:'نیو'},{nl:'3/4 = drie kwart',ku:'سێ لەسەر چوار'}], words:['één','tien','twintig','honderd','eerste','tweede','een half','een kwart'], keywords:['telwoord','getal','hoofdtelwoord','rangtelwoord','breuk','eerste','kwart','half'] },
+  { num:'35', color:'gc-orange', title:'Datum en tijd 📅', explanation:'Het Nederlands gebruikt een combinatie van <strong>over</strong> (na het uur/half) en <strong>voor</strong> (voor het uur/half). Let op: "half vier" = 15:30, niet 16:30!', examples:[{nl:'15:00 = vijf uur',ku:'پێنج کاتژمێر'},{nl:'15:15 = kwart over drie',ku:'چارەک تێپەڕی سێ'},{nl:'15:30 = half vier (= op weg naar vier)',ku:'نیوی چوار (= ئامادەبوون بۆ چوار)'},{nl:'15:45 = kwart voor vier',ku:'چارەک بەرلە چوار'}], words:['uur','kwart over','kwart voor','half','middernacht','midddag'], keywords:['tijd','klok','datum','kwart over','kwart voor','half','datum'] },
+  { num:'36', color:'gc-purple', title:'Zinsontleding (Redekundig) 🧐', explanation:'Het benoemen van de <strong>functie</strong> van elke woordgroep in de zin: Onderwerp (O), Gezegde (G), Lijdend Voorwerp (LV), Meewerkend Voorwerp (MV), Bijwoordelijke Bepaling (BWB).', examples:[{nl:'"De bakker heeft vandaag een taart gebakken."',ku:'"نانپەزەکە ئەمڕۆ کیکێکی پەختکردووە."'},{nl:'De bakker = Onderwerp (O)',ku:'نانپەزەکە = کەس (O)'},{nl:'heeft gebakken = Gezegde (G)',ku:'پەختکردووە = کردار (G)'},{nl:'een taart = Lijdend Voorwerp (LV)',ku:'کیکێک = بژێو (LV)'},{nl:'vandaag = Bijwoordelijke Bepaling (BWB)',ku:'ئەمڕۆ = کاتی دیاریکراو (BWB)'}], words:['onderwerp','gezegde','lijdend voorwerp','meewerkend voorwerp','bijwoordelijke bepaling'], keywords:['zinsontleding','redekundig','onderwerp','gezegde','LV','MV','BWB'] },
+  { num:'37', color:'gc-teal', title:'Redekundig ontleden – alle zinsdelen 🧩', explanation:'Aanvullende zinsdelen: <strong>Bijvoeglijke Bepaling</strong> (geeft info over een znw.) en <strong>Bijstelling</strong> (verklarende toevoeging, altijd tussen komma\'s).', examples:[{nl:'"De grote bakker bakt een lekkere taart."',ku:'"نانپەزی گەورەکە کیکێکی تامدار دەپەزێت."'},{nl:'"grote" = Bijvoeglijke Bepaling bij "bakker"',ku:'"گەورە" = تایبەتمەندی بۆ "نانپەز"'},{nl:'"Jan, mijn buurman, is jarig." (bijstelling)',ku:'"یان، دراوسێم، ئەمڕۆ بەرپرسیاری لە زایینی خۆیەتی."'}], words:['bijvoeglijke bepaling','bijstelling','zinsdeel','attribuut'], keywords:['bijvoeglijke bepaling','bijstelling','zinsdeel','redekundig'] },
+  { num:'38', color:'gc-red', title:'Taalkundig ontleden – woordsoorten 🏷️', explanation:'Het benoemen van elke los woord. De <strong>tien woordsoorten</strong> zijn: lidwoord, zelfstandig naamwoord, bijvoeglijk naamwoord, werkwoord, voornaamwoord, telwoord, voorzetsel, bijwoord, voegwoord, tussenwerpsel.', examples:[{nl:'"Hé! De grote man koopt twee boeken."',ku:'"هەی! پیاوی گەورەکە دوو کتێب دەکڕێت."'},{nl:'Hé! = tussenwerpsel (tw)',ku:'هەی! = نێوانکار'},{nl:'de = lidwoord (lw)',ku:'de = ئامرازی دیاری'},{nl:'grote = bijvoeglijk naamwoord (bnw)',ku:'گەورە = ناوبەند'},{nl:'twee = telwoord (telw)',ku:'دوو = ژمارە'}], words:['lidwoord','znw','bnw','werkwoord','vnw','telwoord','vz','bw','vw','tw'], keywords:['taalkundig','woordsoort','lidwoord','werkwoord','voornaamwoord','bijwoord','tussenwerpsel'] },
+  { num:'39', color:'gc-pink', title:'Interpunctie ✍️', explanation:'De Nederlandse interpunctie heeft strikte regels. De komma (,) wordt anders gebruikt dan in het Engels. Let op: <strong>niet</strong> voor "en" of "of" bij korte zinnen, maar <strong>wel</strong> voor onderschikkende voegwoorden.', examples:[{nl:'"Ik koop brood, melk, kaas en eieren." (opsomming)',ku:'نان، شیر، پەنیر و هێلکه دەکڕم. (لیست)'},{nl:'"Ik kom niet, omdat ik ziek ben." (voor onderschikkend)',ku:'نایم، چونکە نەخۆشم. (پێش لاوەک)'},{nl:'"Niet: ik koop brood en melk." (geen komma voor "en")',ku:'کۆما نابێت پێش "و" لە کورتە دانەکانیدا'}], words:['komma','punt','puntkomma','aanhalingstekens','dubbele punt'], keywords:['interpunctie','komma','punt','puntkomma','aanhalingstekens','leesteken'] },
+  { num:'40', color:'gc-yellow', title:'Veelgemaakte fouten en valkuilen ⚠️', explanation:'De zeven meest voorkomende fouten voor leerders van het Nederlands.', examples:[{nl:'❌ "Hun hebben dat gedaan." ✅ "Zij hebben dat gedaan."',ku:'hun = NOOIT als onderwerp!'},{nl:'❌ "groter als" ✅ "groter dan" (vergrotende trap)',ku:'بەرزتر وەک = هەڵە! دەبێت: groter dan'},{nl:'❌ "gevertaald" ✅ "vertaald" (onscheidbaar: geen ge-)',ku:'بێ ge- بۆ ئەو کردارانەی کە بە ver/be/ont دەستپێدەکەن'},{nl:'❌ "ik wil dat doen gewild" ✅ "ik heb dat willen doen" (IPP)',ku:'ئەفیڵی جێگرەوە (IPP) لە ماضی تامی مۆداڵ'}], words:['hun','hen','als','dan','niet','geen','ge-'], keywords:['fouten','valkuilen','hen','hun','als','dan','kofschip','ge-','IPP'] }
+];
+
+const LANG_DATA = {
+    dutch: {
+        code:'nl', dir:'ltr', nativeName:'Nederlands', theme:'#c8401a',
+        ui:{
+            grammarTitle:'Grammatica', practiceTitle:'Oefenen', testTitle:'Toetsen',
+            nextBtn:'Volgende →', submitBtn:'📊 Resultaat bekijken',
+            tabGrammar:'Grammatica', tabPractice:'Oefenen', tabTests:'Toetsen',
+            swipeHint:'veeg', testPlaceholder:'Schrijf je antwoord...',
+            levelPrompt:'Selecteer een niveau om te beginnen',
+            noExercises:'Nog geen oefeningen', ok:'OK',
+            correct:'✓ Correct!', wrong:'✗ Fout! Juiste antwoord: ',
+            completed:'🏆 Niveau voltooid!',
+            congrats:(c,t,p)=>`🎉 Gefeliciteerd! ${c}/${t} (${p}%)`,
+            keepPracticing:(c,t,p)=>`📚 Score: ${c}/${t} (${p}%). Blijf oefenen!`,
+            progress:(curr,total)=>`Vraag ${curr} van ${total}`,
+            searchPlaceholder:'Zoek in grammatica... (bijv. OVT of A2)'
+        },
+        grammarTopics: DUTCH_GRAMMAR,
+        exercises:{
+            A1:[
+                {question:"Hoe zeg je 'good morning'?",options:['Goedenacht','Goedemiddag','Goedemorgen','Dag'],correct:'Goedemorgen'},
+                {question:"Wat is het juiste lidwoord? '___ boek'",options:['de','het','een'],correct:'het'},
+                {question:"Hoe maak je 'man' meervoud?",options:['mans','mannen','manen','man'],correct:'mannen'},
+                {question:"Ik ___ naar school.",options:['ga','gaan','gaat','ging'],correct:'ga'},
+                {question:"Zijn: 'Wij ___'",options:['ben','bent','is','zijn'],correct:'zijn'}
+            ],
+            A2:[
+                {question:"Ik ___ gisteren naar school gegaan.",options:['ben','heb','was','had'],correct:'ben'},
+                {question:"'t Kofschip: werken → verleden tijd?",options:['werkde','werkte','gewerkt','werkten'],correct:'werkte'},
+                {question:"Welk lidwoord? '___ huis'",options:['de','het','een','geen'],correct:'het'},
+                {question:"'Een groot___ huis' — welke uitgang?",options:['groot','grote','groote','groter'],correct:'groot'},
+                {question:"'Ik bel mijn moeder ___' (opbellen)",options:['op','aan','in','uit'],correct:'op'}
+            ],
+            B1:[
+                {question:"Als ik rijk was, ___ ik een groot huis.",options:['koop','kocht','zou kopen','kopen'],correct:'zou kopen'},
+                {question:"'Het huis wordt ___' — dit is een...",options:['actieve zin','passieve zin','bijzin','vraagzin'],correct:'passieve zin'},
+                {question:"Wat is het IPP-effect? 'Ik heb dat ___ doen.'",options:['gewild','gewolld','willen','wil'],correct:'willen'},
+                {question:"Welk is een onscheidbaar werkwoord?",options:['opbellen','meenemen','begrijpen','uitgaan'],correct:'begrijpen'},
+                {question:"'Ik wacht ___ de bus.' → pronominaal bijwoord?",options:['erop','eraan','erin','ervoor'],correct:'erop'}
+            ],
+            B2:[
+                {question:"'Er wordt gefloten.' Dit is passief ___",options:['met dader','zonder dader','met agens','actief'],correct:'zonder dader'},
+                {question:"'Hoewel ik moe ben, werk ik.' Wat voor bijzin?",options:['tijdsbijzin','toegevingsbijzin','reden','doelbijzin'],correct:'toegevingsbijzin'},
+                {question:"Hen vs. Hun: 'Ik geef ___ het boek.'",options:['hen','hun','ze','zij'],correct:'hun'},
+                {question:"Plusquamperfectum formule?",options:['heb/ben + deelwoord','had/was + deelwoord','werd + deelwoord','zou + infinitief'],correct:'had/was + deelwoord'},
+                {question:"Wat is een pronominaal bijwoord?",options:['er + voorzetsel','voorzetsel + het','de + bijwoord','er + lidwoord'],correct:'er + voorzetsel'}
+            ]
+        },
+        tests:{
+            A1:[
+                {type:'mc',text:'Wat is "brood" in het Engels?',options:['Bread','Butter','Cheese','Milk'],correct:'Bread'},
+                {type:'fill',text:'Vul in: Hij ___ (zijn) mijn vriend.',correct:'is'},
+                {type:'fill',text:'Meervoud van "kind"?',correct:'kinderen'},
+                {type:'mc',text:'Welk woord is een lidwoord?',options:['groot','de','snel','nooit'],correct:'de'}
+            ],
+            A2:[
+                {type:'fill',text:'Vul in: Hij ___ (werken) op kantoor.',correct:'werkt'},
+                {type:'fill',text:'Verleden tijd van "spelen"?',correct:'speelde'},
+                {type:'mc',text:'"Een groot___ huis" — welke uitgang?',options:['groote','grote','groot','groter'],correct:'groot'},
+                {type:'fill',text:'Voltooid deelwoord van "kopen"?',correct:'gekocht'}
+            ],
+            B1:[
+                {type:'fill',text:'Zij ___ (hebben) een nieuwe auto gekocht.',correct:'heeft'},
+                {type:'fill',text:'Maak passief: "Ze bouwen het huis." → "Het huis ___ gebouwd."',correct:'wordt'},
+                {type:'mc',text:'Wat is het IPP-effect?',options:['Deelwoord → infinitief na modaal','Infinitief → deelwoord','Stam verdubbelen','Passief gebruiken'],correct:'Deelwoord → infinitief na modaal'},
+                {type:'fill',text:'"Ik wacht op de trein." → "Ik wacht ___"',correct:'erop'}
+            ],
+            B2:[
+                {type:'fill',text:'Hen of hun: "Ik geef ___ het boek aan mijn vrienden."',correct:'hun'},
+                {type:'fill',text:'Als ik meer tijd had, ___ ik meer lezen.',correct:'zou'},
+                {type:'mc',text:'Welk voorvoegsel maakt een werkwoord onscheidbaar?',options:['op-','uit-','ver-','aan-'],correct:'ver-'},
+                {type:'fill',text:'Plusquamperfectum: "Hij ___ al vertrokken, toen ik belde."',correct:'was'}
+            ]
+        }
+    },
+    french:{
+        code:'fr', dir:'ltr', nativeName:'Français', theme:'#0055A4',
+        ui:{
+            grammarTitle:'Grammaire', practiceTitle:'Entraînement', testTitle:'Évaluations',
+            nextBtn:'Suivant →', submitBtn:'📊 Voir les résultats',
+            tabGrammar:'Grammaire', tabPractice:'Entraînement', tabTests:'Évaluations',
+            swipeHint:'glisser', testPlaceholder:'Écrivez...',
+            levelPrompt:'Choisissez un niveau', noExercises:"Pas d'exercices", ok:'OK',
+            correct:'✓ Correct !', wrong:'✗ Faux ! Bonne réponse : ',
+            completed:'🏆 Niveau terminé !',
+            congrats:(c,t,p)=>`🎉 Félicitations ! ${c}/${t} (${p}%)`,
+            keepPracticing:(c,t,p)=>`📚 Score: ${c}/${t} (${p}%). Continuez !`,
+            progress:(c,t)=>`Question ${c} sur ${t}`,
+            searchPlaceholder:'Rechercher (ex: passé composé ou A2)'
+        },
+        grammarTopics:[
+            {num:'01',color:'gc-blue',title:'Le présent de l\'indicatif 🕐',explanation:'Le présent s\'utilise pour des actions actuelles, habituelles ou des vérités générales. Les verbes en <strong>-er</strong> sont réguliers (parler), les verbes en <strong>-ir</strong> et <strong>-re</strong> ont leurs propres terminaisons.',examples:[{nl:'Je parle / tu parles / il parle',ku:'من قسە دەکەم'},{nl:'Nous parlons / vous parlez / ils parlent',ku:'ئێمە قسە دەکەین'},{nl:'Verbe irrégulier: être (suis/es/est/sommes/êtes/sont)',ku:'بوون: سuis/es/est...'}],words:['parler','finir','être','avoir','aller'],keywords:['présent','indicatif','conjugaison']},
+            {num:'02',color:'gc-green',title:'Le passé composé 📜',explanation:'Pour les actions terminées. Formule: <strong>avoir/être + participe passé</strong>. Avec être: verbes de mouvement (aller, venir, partir…) et verbes pronominaux.',examples:[{nl:'J\'ai mangé. (avoir + mangé)',ku:'خواردمی.'},{nl:'Je suis allé(e). (être + allé)',ku:'رۆیشتم.'},{nl:'Elle s\'est levée. (pronominal)',ku:'خۆی بەرز کردەوە.'}],words:['j\'ai parlé','je suis allé','il a fini','nous avons vu'],keywords:['passé composé','avoir','être','participe passé']},
+            {num:'03',color:'gc-orange',title:'L\'imparfait 🕰️',explanation:'Pour les actions habituelles dans le passé, descriptions, et actions en cours interrompues. Formule: radical "nous" du présent + terminaisons en <strong>-ais, -ais, -ait, -ions, -iez, -aient</strong>.',examples:[{nl:'Quand j\'étais petit, je jouais souvent.',ku:'کاتێک منداڵ بووم، زۆر یاری دەکردم.'},{nl:'Il faisait beau quand je suis sorti.',ku:'کاتێک دەرچووم، هەوا باش بوو.'}],words:['je jouais','il était','nous faisions','ils venaient'],keywords:['imparfait','passé','habitude','description']},
+            {num:'04',color:'gc-purple',title:'Les articles (définis/indéfinis/partitifs) 📝',explanation:'<strong>Définis</strong>: le, la, l\', les. <strong>Indéfinis</strong>: un, une, des. <strong>Partitifs</strong>: du, de la, de l\' (pour des quantités non dénombrables).',examples:[{nl:'Le livre / La femme / L\'enfant / Les hommes',ku:'کتێبەکە / ژنەکە'},{nl:'Un livre / Une femme / Des enfants',ku:'کتێبێک / ژنێک'},{nl:'Je bois du café. / Je mange de la salade.',ku:'قاوەم دەخوات. / سالاتام دەخوات.'}],words:['le','la','les','un','une','des','du','de la'],keywords:['article','défini','indéfini','partitif','du','de la']},
+            {num:'05',color:'gc-teal',title:'La négation 🚫',explanation:'La négation simple: <strong>ne ... pas</strong>. Autres: ne ... jamais (never), ne ... plus (no more), ne ... rien (nothing), ne ... personne (nobody). En parlé, "ne" est souvent omis.',examples:[{nl:'Je ne parle pas français.',ku:'من فرانسوی قسەم ناکات.'},{nl:'Il ne mange jamais de viande.',ku:'ئەو هەرگیز گۆشت نادات.'},{nl:'Je ne vois personne.',ku:'هیچ کەسێک نابینم.'}],words:['ne...pas','ne...jamais','ne...plus','ne...rien','ne...personne'],keywords:['négation','ne pas','ne jamais','ne plus','ne rien']},
+            {num:'06',color:'gc-red',title:'Les pronoms personnels 🙋',explanation:'Les pronoms sujets: je, tu, il/elle, nous, vous, ils/elles. Les pronoms objets directs (COD): me, te, le/la, nous, vous, les. Objets indirects (COI): me, te, lui, nous, vous, leur.',examples:[{nl:'Je le vois. (COD)',ku:'دەیبینم.'},{nl:'Je lui parle. (COI)',ku:'پێیدەقسەکەم.'},{nl:'Je me lève. (pronominal)',ku:'خۆم بەرز دەکەمەوە.'}],words:['je','tu','il','nous','vous','le','la','lui','leur'],keywords:['pronom','sujet','objet','COD','COI','pronominal']}
+        ],
+        exercises:{A1:[],A2:[],B1:[],B2:[]},
+        tests:{A1:[],A2:[],B1:[],B2:[]}
+    },
+    english:{
+        code:'en', dir:'ltr', nativeName:'English', theme:'#CC0000',
+        ui:{
+            grammarTitle:'Grammar', practiceTitle:'Practice', testTitle:'Tests',
+            nextBtn:'Next →', submitBtn:'📊 Show results',
+            tabGrammar:'Grammar', tabPractice:'Practice', tabTests:'Tests',
+            swipeHint:'swipe', testPlaceholder:'Type your answer...',
+            levelPrompt:'Select a level to begin',
+            noExercises:'No exercises yet', ok:'OK',
+            correct:'✓ Correct!', wrong:'✗ Wrong! Correct answer: ',
+            completed:'🏆 Level completed!',
+            congrats:(c,t,p)=>`🎉 Congratulations! ${c}/${t} (${p}%)`,
+            keepPracticing:(c,t,p)=>`📚 Score: ${c}/${t} (${p}%). Keep going!`,
+            progress:(c,t)=>`Question ${c} of ${t}`,
+            searchPlaceholder:'Search grammar, exercises... (e.g., Present Perfect or A2)'
+        },
+        grammarTopics:[
+            {num:'01',color:'gc-blue',title:'Simple Present 🕐',explanation:'Used for habits, facts, and routines. Third person singular adds <strong>-s</strong>. Questions and negatives use <strong>do/does</strong>.',examples:[{nl:'I work / He works (third person -s)',ku:'کار دەکەم / کار دەکات'},{nl:'Do you work? / Does she work?',ku:'کار دەکەیت؟ / کار دەکات؟'},{nl:'I don\'t work / She doesn\'t work.',ku:'کار ناکەم / کار ناکات.'}],words:['work','works','do','does','don\'t','doesn\'t'],keywords:['simple present','habits','facts','-s']},
+            {num:'02',color:'gc-green',title:'Present Perfect 📜',explanation:'Connects past to present. Formula: <strong>have/has + past participle</strong>. Use for experiences (ever/never), recent actions, or continuing situations.',examples:[{nl:'I have seen that film. (experience)',ku:'ئەو فیلمەم بینیوە.'},{nl:'She has just arrived. (recent action)',ku:'ئەوزانگاتی گەیشتووە.'},{nl:'We have lived here for 5 years. (continuing)',ku:'٥ ساڵه لێرەین.'}],words:['have seen','has gone','have been','have just','already','yet'],keywords:['present perfect','have','has','participle','ever','never','already','yet']},
+            {num:'03',color:'gc-orange',title:'Modal Verbs 🛠️',explanation:'Modals express ability, possibility, obligation, or permission. They are followed by the base infinitive (no "to" except for "ought to" and "have to").',examples:[{nl:'I can swim. (ability)',ku:'دەتوانم مەلە بکەم.'},{nl:'You must stop. (obligation)',ku:'دەبێت بوەستیت.'},{nl:'She might come. (possibility)',ku:'بەلکو بێت.'}],words:['can','could','must','should','might','may','will','would'],keywords:['modal','can','must','should','might','may','will','would']},
+            {num:'04',color:'gc-purple',title:'Articles (a/an/the) 📝',explanation:'<strong>A/An</strong>: indefinite (first mention, one of many). <strong>The</strong>: definite (specific, known to both). Zero article: general statements with plural/uncountable nouns.',examples:[{nl:'I saw a dog. (first mention)',ku:'سەگێکم بیni.'},{nl:'The dog was friendly. (known)',ku:'سەگەکە ئارامبوو.'},{nl:'Dogs are loyal. (general, no article)',ku:'سەگەکان دڵسۆزن. (کلیلی نییە)'}],words:['a','an','the'],keywords:['article','a','an','the','definite','indefinite']},
+            {num:'05',color:'gc-teal',title:'Conditionals 🤔',explanation:'Four main types: <strong>Zero</strong> (facts), <strong>First</strong> (real future), <strong>Second</strong> (hypothetical present), <strong>Third</strong> (impossible past).',examples:[{nl:'Zero: If you heat water, it boils.',ku:'ئەگەر ئاو گەرم بکەیت، دەکوڵێت.'},{nl:'First: If I study, I will pass.',ku:'ئەگەر بخوێنمەوە، دەبەینم.'},{nl:'Second: If I had money, I would travel.',ku:'ئەگەر پارەم ههبووایە، گەشت دەکردم.'},{nl:'Third: If I had studied, I would have passed.',ku:'ئەگەر خوێندبووایە، بەینیمایە.'}],words:['if','unless','would','could','might','had'],keywords:['conditional','if','zero','first','second','third','would']}
+        ],
+        exercises:{A1:[],A2:[],B1:[],B2:[]},
+        tests:{A1:[],A2:[],B1:[],B2:[]}
+    }
+};
+
+// ── حاڵەت ──
+let currentLang='dutch', currentPracticeLevel='A1', currentTestLevel='A1';
+let practiceQuestions=[], practiceIndex=0, practiceAnswered=false;
+let currentTestQuestions=[], userTestAnswers=[];
+let currentTab='grammar';
+
+// DOM
+const flagScreen=document.getElementById('flagScreen');
+const mainApp=document.getElementById('mainApp');
+const grammarContainer=document.getElementById('grammarCardsContainer');
+const practiceLevelDiv=document.getElementById('practiceLevelContainer');
+const testLevelDiv=document.getElementById('testLevelContainer');
+const practiceQuestionText=document.getElementById('practiceQuestionText');
+const practiceOptionsDiv=document.getElementById('practiceOptions');
+const nextPracticeBtn=document.getElementById('nextPracticeBtn');
+const practiceFeedback=document.getElementById('practiceFeedback');
+const testQuestionsArea=document.getElementById('testQuestionsArea');
+const submitTestBtn=document.getElementById('submitTestBtn');
+const testResultArea=document.getElementById('testResultArea');
+const tabBtns=document.querySelectorAll('.tab-btn');
+const practiceProgressFill=document.getElementById('practiceProgressFill');
+const practiceProgressText=document.getElementById('practiceProgressText');
+const searchInput=document.getElementById('searchInput');
+const searchClearBtn=document.getElementById('searchClearBtn');
+const searchResultsPanel=document.getElementById('searchResultsPanel');
+
+// ── یارمەتیدەرەکان ──
+function speakWord(word,lang){
+    if(!window.speechSynthesis)return;
+    const u=new SpeechSynthesisUtterance(word);
+    u.lang={dutch:'nl-NL',french:'fr-FR',english:'en-US'}[lang]||'en-US';
+    speechSynthesis.cancel();speechSynthesis.speak(u);
+}
+function showPopup(word){
+    const old=document.querySelector('.dict-popup');if(old)old.remove();
+    const p=document.createElement('div');p.className='dict-popup';
+    p.innerHTML=`<i class="fas fa-volume-up" style="cursor:pointer;"></i> <strong>${word}</strong>`;
+    document.body.appendChild(p);
+    p.querySelector('i').addEventListener('click',e=>{e.stopPropagation();speakWord(word,currentLang);});
+    setTimeout(()=>p.remove(),2500);
+}
+function applyTheme(lang){
+    const c=LANG_DATA[lang].theme;
+    let s=document.getElementById('dyn-theme');
+    if(!s){s=document.createElement('style');s.id='dyn-theme';document.head.appendChild(s);}
+    s.textContent=`:root{--accent:${c};--accent-soft:${c}15;}`;
+    document.documentElement.lang=LANG_DATA[lang].code;
+    document.documentElement.dir=LANG_DATA[lang].dir;
+}
+function updateUITitles(lang){
+    const ui=LANG_DATA[lang].ui;
+    document.getElementById('tabGrammarText').innerText=ui.tabGrammar;
+    document.getElementById('tabPracticeText').innerText=ui.tabPractice;
+    document.getElementById('tabTestsText').innerText=ui.tabTests;
+    nextPracticeBtn.innerText=ui.nextBtn;
+    submitTestBtn.innerText=ui.submitBtn;
+    searchInput.placeholder=ui.searchPlaceholder||'Search...';
+}
+
+// ── ڕێزمان ──
+function renderGrammar(){
+    const topics=LANG_DATA[currentLang].grammarTopics;
+    grammarContainer.innerHTML=topics.map(t=>`
+        <div class="grammar-card ${t.color}" data-gidx="${t.num}">
+            <div class="grammar-card-num"><span style="font-size:1rem;">${t.num}</span> · ${LANG_DATA[currentLang].nativeName}</div>
+            <h3>${t.title}</h3>
+            <p>${t.explanation}</p>
+            ${t.examples?`<div class="examples-block">
+                <div class="ex-label">Voorbeelden / نموونەکان</div>
+                ${t.examples.map(e=>`<div class="ex-line">${e.nl} <em>— ${e.ku}</em></div>`).join('')}
+            </div>`:''}
+            <div class="example-words">${(t.words||[]).map(w=>`<span class="dict-word" data-word="${w}"><i class="fas fa-volume-up"></i> ${w}</span>`).join('')}</div>
+        </div>`).join('');
+    document.querySelectorAll('.dict-word').forEach(el=>el.addEventListener('click',e=>{
+        e.stopPropagation();showPopup(el.dataset.word);speakWord(el.dataset.word,currentLang);
+    }));
+}
+
+// ── ئاست ──
+function buildLevelButtons(container,levels,current,onSelect){
+    container.innerHTML=levels.map(l=>`<button class="level-btn ${current===l?'active-level':''}" data-level="${l}">${l}</button>`).join('');
+    container.querySelectorAll('.level-btn').forEach(b=>b.addEventListener('click',()=>onSelect(b.dataset.level)));
+}
+
+// ── ڕاهێنان ──
+function loadPractice(){
+    const ex=LANG_DATA[currentLang].exercises[currentPracticeLevel]||[];
+    practiceQuestions=ex.length?ex:[{question:LANG_DATA[currentLang].ui.noExercises,options:[LANG_DATA[currentLang].ui.ok],correct:LANG_DATA[currentLang].ui.ok}];
+    practiceIndex=0;practiceAnswered=false;renderPracticeQ();
+}
+function renderPracticeQ(){
+    const ui=LANG_DATA[currentLang].ui;
+    const q=practiceQuestions[practiceIndex];
+    practiceQuestionText.innerText=q.question;
+    practiceOptionsDiv.innerHTML=q.options.map(o=>`<button class="quiz-option" data-opt="${o}">${o}</button>`).join('');
+    practiceAnswered=false;nextPracticeBtn.style.display='none';practiceFeedback.innerHTML='';
+    updateProgress();
+    document.querySelectorAll('.quiz-option').forEach(opt=>opt.addEventListener('click',function(){
+        if(practiceAnswered)return;
+        const isOk=this.dataset.opt===q.correct;
+        this.classList.add(isOk?'correct-feedback':'wrong-feedback');
+        if(!isOk)document.querySelectorAll('.quiz-option').forEach(el=>{if(el.dataset.opt===q.correct)el.classList.add('correct-feedback');});
+        practiceFeedback.innerHTML=`<div class="feedback-msg ${isOk?'feedback-correct':'feedback-wrong'}">${isOk?ui.correct:ui.wrong+q.correct}</div>`;
+        practiceAnswered=true;nextPracticeBtn.style.display='inline-flex';updateProgress();
+    }));
+}
+function updateProgress(){
+    const answered=practiceIndex+(practiceAnswered?1:0);
+    const pct=practiceQuestions.length?Math.round(answered/practiceQuestions.length*100):0;
+    practiceProgressFill.style.width=pct+'%';
+    practiceProgressText.innerText=LANG_DATA[currentLang].ui.progress(answered,practiceQuestions.length);
+}
+function nextPractice(){
+    if(practiceIndex+1<practiceQuestions.length){practiceIndex++;renderPracticeQ();}
+    else{practiceFeedback.innerHTML=`<div class="feedback-msg feedback-correct">${LANG_DATA[currentLang].ui.completed}</div>`;nextPracticeBtn.style.display='none';}
+}
+
+// ── تاقیکردنەوە ──
+function loadTests(level){
+    currentTestQuestions=LANG_DATA[currentLang].tests[level]||[];
+    userTestAnswers=Array(currentTestQuestions.length).fill('');
+    renderTests();
+}
+function renderTests(){
+    const ui=LANG_DATA[currentLang].ui;
+    if(!currentTestQuestions.length){testQuestionsArea.innerHTML=`<p style="color:var(--text2);padding:1rem;">${ui.levelPrompt}</p>`;return;}
+    testQuestionsArea.innerHTML=currentTestQuestions.map((q,i)=>`
+        <div class="test-question-item"><strong>${i+1}. ${q.text}</strong>
+        ${q.type==='mc'?`<div class="test-mc-options">${q.options.map(o=>`<button class="test-mc-option" data-qi="${i}" data-opt="${o}">${o}</button>`).join('')}</div>`
+        :`<input class="test-input" data-qidx="${i}" placeholder="${ui.testPlaceholder}">`}
+        </div>`).join('');
+    document.querySelectorAll('.test-input').forEach(inp=>inp.addEventListener('input',e=>userTestAnswers[+inp.dataset.qidx]=e.target.value.trim()));
+    document.querySelectorAll('.test-mc-option').forEach(btn=>btn.addEventListener('click',function(){
+        const qi=+this.dataset.qi;
+        document.querySelectorAll(`.test-mc-option[data-qi="${qi}"]`).forEach(b=>b.classList.remove('selected'));
+        this.classList.add('selected');userTestAnswers[qi]=this.dataset.opt;
+    }));
+}
+function evaluateTest(){
+    const ui=LANG_DATA[currentLang].ui;
+    if(!currentTestQuestions.length){testResultArea.innerHTML=`<p>${ui.levelPrompt}</p>`;return;}
+    let correct=0;
+    currentTestQuestions.forEach((q,i)=>{
+        const ans=(userTestAnswers[i]||'').trim().toLowerCase();
+        if(ans===q.correct.toLowerCase())correct++;
+    });
+    const pct=Math.round(correct/currentTestQuestions.length*100);
+    testResultArea.innerHTML=`<div class="test-result-box">
+        <div class="score-num">${pct}%</div>
+        <div>${pct>=70?ui.congrats(correct,currentTestQuestions.length,pct):ui.keepPracticing(correct,currentTestQuestions.length,pct)}</div>
+        <div class="progress-bar-bg" style="margin-top:1rem;"><div class="progress-fill" style="width:${pct}%;"></div></div>
+    </div>`;
+    testResultArea.scrollIntoView({behavior:'smooth'});
+}
+
+// ── گەڕان ──
+function buildSearchIndex(){
+    const idx=[];const lang=currentLang;const data=LANG_DATA[lang];const ui=data.ui;
+    data.grammarTopics.forEach((t,i)=>{
+        const st=(t.title+' '+(t.keywords||[]).join(' ')+' '+t.explanation+' '+(t.words||[]).join(' ')).toLowerCase();
+        idx.push({type:'grammar',title:t.title,sub:ui.grammarTitle,index:i,searchText:st,icon:'book-open'});
+    });
+    ['A1','A2','B1','B2'].forEach(level=>{
+        (data.exercises[level]||[]).forEach((ex,i)=>{
+            idx.push({type:'exercise',level,title:ex.question,sub:`${ui.practiceTitle} ${level}`,index:i,searchText:(ex.question+' '+ex.options.join(' ')+' '+level).toLowerCase(),icon:'puzzle-piece'});
+        });
+        (data.tests[level]||[]).forEach((t,i)=>{
+            idx.push({type:'test',level,title:t.text,sub:`${ui.testTitle} ${level}`,index:i,searchText:(t.text+' '+(t.options||[]).join(' ')+' '+level).toLowerCase(),icon:'clipboard-list'});
+        });
+    });
+    return idx;
+}
+function performSearch(query){
+    const panel=searchResultsPanel;
+    if(!query.trim()){panel.style.display='none';return;}
+    const lq=query.trim().toLowerCase();
+    let idx=buildSearchIndex();
+    const lvlMatch=lq.match(/^(a1|a2|b1|b2)$/i);
+    if(lvlMatch){
+        const tl=lvlMatch[0].toUpperCase();
+        idx=idx.filter(r=>(r.type==='exercise'||r.type==='test')&&r.level===tl);
+    } else {
+        idx=idx.filter(r=>r.searchText.includes(lq));
+    }
+    if(!idx.length){
+        panel.innerHTML=`<div style="padding:1.5rem;text-align:center;color:var(--text2);">⛔ هیچ ئەنجامێک نەدۆزرایەوە</div>`;
+        panel.style.display='block';return;
+    }
+    const grouped={grammar:[],exercise:[],test:[]};
+    idx.forEach(r=>grouped[r.type].push(r));
+    const catNames={grammar:'ڕێزمان',exercise:'ڕاهێنان',test:'تاقیکردنەوە'};
+    let html='';
+    for(const cat in grouped){
+        if(!grouped[cat].length)continue;
+        html+=`<div class="search-result-category"><i class="fas fa-${cat==='grammar'?'book-open':cat==='exercise'?'puzzle-piece':'clipboard-list'}"></i> ${catNames[cat]}</div>`;
+        grouped[cat].slice(0,6).forEach(item=>{
+            const ht=item.title.replace(new RegExp(lq,'gi'),m=>`<span class="highlight">${m}</span>`);
+            html+=`<div class="search-result-item" data-type="${item.type}" data-level="${item.level||''}" data-index="${item.index}">
+                <div class="search-result-icon"><i class="fas fa-${item.icon}"></i></div>
+                <div class="search-result-content"><div class="search-result-title">${ht}</div><div class="search-result-sub">${item.sub}</div></div>
+            </div>`;
+        });
+    }
+    panel.innerHTML=html;panel.style.display='block';
+    panel.querySelectorAll('.search-result-item').forEach(el=>el.addEventListener('click',()=>{
+        const type=el.dataset.type,level=el.dataset.level,idx=+el.dataset.index;
+        panel.style.display='none';searchInput.value='';searchClearBtn.style.display='none';
+        if(type==='grammar'){
+            switchTab('grammar');
+            const cards=document.querySelectorAll('.grammar-card');
+            cards.forEach(c=>c.classList.remove('highlight-card'));
+            if(cards[idx]){cards[idx].classList.add('highlight-card');cards[idx].scrollIntoView({behavior:'smooth',block:'center'});}
+        } else if(type==='exercise'){
+            switchTab('practice');
+            if(currentPracticeLevel!==level){currentPracticeLevel=level;buildLevelButtons(practiceLevelDiv,['A1','A2','B1','B2'],currentPracticeLevel,lvl=>{currentPracticeLevel=lvl;buildLevelButtons(practiceLevelDiv,['A1','A2','B1','B2'],currentPracticeLevel,arguments.callee);loadPractice();});loadPractice();}
+            setTimeout(()=>{
+                const exs=LANG_DATA[currentLang].exercises[currentPracticeLevel]||[];
+                if(exs[idx]){practiceIndex=idx;renderPracticeQ();practiceQuestionText.classList.add('highlight-question');practiceQuestionText.scrollIntoView({behavior:'smooth'});setTimeout(()=>practiceQuestionText.classList.remove('highlight-question'),2000);}
+            },100);
+        } else {
+            switchTab('tests');
+            if(currentTestLevel!==level){currentTestLevel=level;buildLevelButtons(testLevelDiv,['A1','A2','B1','B2'],currentTestLevel,lvl=>{currentTestLevel=lvl;buildLevelButtons(testLevelDiv,['A1','A2','B1','B2'],currentTestLevel,arguments.callee);loadTests(lvl);});loadTests(level);}
+            setTimeout(()=>{
+                const tis=document.querySelectorAll('.test-question-item');
+                if(tis[idx]){tis[idx].classList.add('highlight-question');tis[idx].scrollIntoView({behavior:'smooth'});setTimeout(()=>tis[idx].classList.remove('highlight-question'),2000);}
+            },100);
+        }
+    }));
+}
+searchInput.addEventListener('input',e=>{performSearch(e.target.value);searchClearBtn.style.display=e.target.value?'block':'none';});
+searchClearBtn.addEventListener('click',()=>{searchInput.value='';searchResultsPanel.style.display='none';searchClearBtn.style.display='none';searchInput.focus();});
+document.addEventListener('click',e=>{if(!searchInput.contains(e.target)&&!searchResultsPanel.contains(e.target))searchResultsPanel.style.display='none';});
+
+// ── تاب گۆڕین ──
+function switchTab(tabId){
+    currentTab=tabId;
+    ['grammar','practice','tests'].forEach(t=>document.getElementById(t+'Section').classList.toggle('active-section',t===tabId));
+    tabBtns.forEach(b=>b.classList.toggle('active',b.dataset.tab===tabId));
+    localStorage.setItem('activeTab',tabId);
+}
+
+// ── گۆڕینی زمان ──
+function switchLanguage(langCode,showFx=true){
+    if(!LANG_DATA[langCode])return;
+    currentLang=langCode;
+    localStorage.setItem('preferredLanguage',langCode);
+    applyTheme(langCode);updateUITitles(langCode);
+    renderGrammar();
+    buildLevelButtons(practiceLevelDiv,['A1','A2','B1','B2'],currentPracticeLevel,lvl=>{currentPracticeLevel=lvl;buildLevelButtons(practiceLevelDiv,['A1','A2','B1','B2'],currentPracticeLevel,arguments.callee);loadPractice();});
+    buildLevelButtons(testLevelDiv,['A1','A2','B1','B2'],currentTestLevel,lvl=>{currentTestLevel=lvl;buildLevelButtons(testLevelDiv,['A1','A2','B1','B2'],currentTestLevel,arguments.callee);loadTests(lvl);});
+    loadPractice();
+    testResultArea.innerHTML='';currentTestQuestions=[];
+    testQuestionsArea.innerHTML=`<p style="color:var(--text2);padding:1rem;">${LANG_DATA[langCode].ui.levelPrompt}</p>`;
+    if(showFx){flagScreen.style.opacity='0';setTimeout(()=>{flagScreen.style.display='none';mainApp.style.display='flex';},300);}
+}
+
+// ── دۆخی تاریک ──
+function initTheme(){
+    const saved=localStorage.getItem('theme');const icon=document.querySelector('#darkModeToggle i');
+    if(saved==='dark'){document.body.classList.add('dark');icon.className='fas fa-sun';}
+}
+function toggleTheme(){
+    document.body.classList.toggle('dark');const d=document.body.classList.contains('dark');
+    document.querySelector('#darkModeToggle i').className=d?'fas fa-sun':'fas fa-moon';
+    localStorage.setItem('theme',d?'dark':'light');
+}
+
+// ── دەستپێکردن ──
+function init(){
+    initTheme();
+    document.getElementById('darkModeToggle').addEventListener('click',toggleTheme);
+    document.getElementById('resetLanguageBtn').addEventListener('click',()=>{
+        localStorage.removeItem('preferredLanguage');
+        flagScreen.style.display='flex';flagScreen.style.opacity='1';mainApp.style.display='none';
+    });
+    document.querySelectorAll('.flag-card').forEach(c=>c.addEventListener('click',()=>switchLanguage(c.dataset.lang,true)));
+    tabBtns.forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+    nextPracticeBtn.addEventListener('click',nextPractice);
+    submitTestBtn.addEventListener('click',evaluateTest);
+
+    const savedLang=localStorage.getItem('preferredLanguage');
+    const savedTab=localStorage.getItem('activeTab')||'grammar';
+    if(savedLang&&LANG_DATA[savedLang]){
+        flagScreen.style.display='none';mainApp.style.display='flex';
+        switchLanguage(savedLang,false);
+        setTimeout(()=>switchTab(savedTab),50);
+    } else {
+        flagScreen.style.display='flex';mainApp.style.display='none';
+    }
+    searchClearBtn.style.display='none';
+}
+init();
+// ── 🤖 کۆدی یارمەتیدەری هۆشە دەستکرد ──
+const AI_API_URL = "https://linguaai-proxy.roj-tahsin.workers.dev"; // ← لینکی وۆرکەرەکەت
+
+function addAIMessage(role, text) {
+    const chat = document.getElementById('aiChatMessages');
+    const msg = document.createElement('div');
+    msg.style.cssText = `margin:0.5rem 0;padding:0.8rem 1rem;border-radius:12px;background:${role==='user'?'var(--accent-soft)':'var(--bg)'};border:1px solid var(--border);`;
+    msg.innerHTML = `<strong style="color:${role==='user'?'var(--accent)':'var(--text2)'}">${role==='user'?'تۆ':'🤖'}:</strong><br>${text.replace(/\n/g,'<br>')}`;
+    chat.appendChild(msg);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+async function sendToAI(prompt) {
+    addAIMessage('user', prompt);
+    const input = document.getElementById('aiChatInput');
+    const sendBtn = document.getElementById('aiChatSend');
+    
+    input.disabled = true; sendBtn.disabled = true;
+    addAIMessage('ai', '⏳ چاوەڕوان بە...');
+    
+    try {
+        const res = await fetch(AI_API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: "claude-3-5-sonnet-20241022", // ← ناوی دروستی مۆدێل
+                max_tokens: 500,
+                messages: [
+                    { role: "system", content: `تۆ یارمەتیدەرێکی فێربوونی زمانیت. وەڵامەکان بە ${currentLang === 'dutch' ? 'هۆڵەندی و کوردی' : currentLang === 'french' ? 'فەڕەنسی و کوردی' : 'ئینگلیزی و کوردی'} بدەرەوە. کورت و سوودبەخش.` },
+                    { role: "user", content: prompt }
+                ]
+            })
+        });
+        
+        const data = await res.json();
+        // لابردنی نامەی "چاوەڕوان بە"
+        const loadingMsg = document.getElementById('aiChatMessages').lastElementChild;
+        if (loadingMsg.innerText.includes('⏳')) loadingMsg.remove();
+        
+        if (data.error) {
+            addAIMessage('ai', `❌ هەڵە: ${data.error.message || 'هەڵەیەکی نەزانراو'}`);
+        } else {
+            const answer = data.content?.[0]?.text || 'وەڵامێک نەدۆزرایەوە';
+            addAIMessage('ai', answer);
+        }
+    } catch (err) {
+        const loadingMsg = document.getElementById('aiChatMessages').lastElementChild;
+        if (loadingMsg.innerText.includes('⏳')) loadingMsg.remove();
+        addAIMessage('ai', `❌ هەڵەی پەیوەندی: ${err.message}`);
+    } finally {
+        input.disabled = false; sendBtn.disabled = false;
+        input.value = '';
+        input.focus();
+    }
+}
+
+// Event Listeners بۆ چات
+document.addEventListener('DOMContentLoaded', () => {
+    const aiBtn = document.getElementById('aiHelperBtn');
+    const modal = document.getElementById('aiChatModal');
+    const closeBtn = document.getElementById('closeAiChat');
+    const sendBtn = document.getElementById('aiChatSend');
+    const input = document.getElementById('aiChatInput');
+    
+    if (aiBtn) {
+        aiBtn.onclick = () => { modal.style.display = 'flex'; input.focus(); };
+        closeBtn.onclick = () => modal.style.display = 'none';
+        sendBtn.onclick = () => { if (input.value.trim()) sendToAI(input.value.trim()); };
+        input.onkeydown = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (input.value.trim()) sendToAI(input.value.trim()); } };
+        
+        // داخستنی چات کاتێک کلیک لە دەرەوە دەکرێت
+        document.onclick = (e) => { if (modal.style.display === 'flex' && !modal.contains(e.target) && !aiBtn.contains(e.target)) modal.style.display = 'none'; };
+    }
+});
+})();
+</script>
+</body>
+</html>
