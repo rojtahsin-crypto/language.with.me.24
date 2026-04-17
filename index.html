@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -10,140 +9,133 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
 :root{
-–bg:#faf8f3; –bg2:#f2ede0; –bg3:#ebe4d1;
-–text:#1c1a16; –text2:#5a5040; –text3:#9a8e78;
-–border:#dfd7c2; –shadow:rgba(28,26,22,.07); –shadow-lg:rgba(28,26,22,.14);
-–r:16px; –rs:10px; –t:.28s cubic-bezier(.4,0,.2,1);
-–accent:#059669; –acbg:#ecfdf5; –acbo:#a7f3d0;
-–nl:#e8590c; –nlbg:#fff3ed; –nlbo:#fcd0b5;
-–fr:#4f46e5; –frbg:#eef2ff; –frbo:#c7d2fe;
-–en:#059669; –enbg:#ecfdf5; –enbo:#a7f3d0;
+  --bg:#faf8f3; --bg2:#f2ede0; --bg3:#ebe4d1;
+  --text:#1c1a16; --text2:#5a5040; --text3:#9a8e78;
+  --border:#dfd7c2; --shadow:rgba(28,26,22,.07); --shadow-lg:rgba(28,26,22,.14);
+  --r:16px; --rs:10px; --t:.28s cubic-bezier(.4,0,.2,1);
+  --accent:#059669; --acbg:#ecfdf5; --acbo:#a7f3d0;
+  --nl:#e8590c; --nlbg:#fff3ed; --nlbo:#fcd0b5;
+  --fr:#4f46e5; --frbg:#eef2ff; --frbo:#c7d2fe;
+  --en:#059669; --enbg:#ecfdf5; --enbo:#a7f3d0;
 }
 [data-theme=dark]{
-–bg:#131109; –bg2:#1c1912; –bg3:#24201a;
-–text:#f0ead8; –text2:#b8a88a; –text3:#6a5f45;
-–border:#2e2820; –shadow:rgba(0,0,0,.35); –shadow-lg:rgba(0,0,0,.55);
-–acbg:#1a2e1e; –acbo:#15803d;
-–nlbg:#2d1410; –nlbo:#c2410c;
-–frbg:#1e1b3c; –frbo:#4338ca;
-–enbg:#1a2e1e; –enbo:#15803d;
+  --bg:#131109; --bg2:#1c1912; --bg3:#24201a;
+  --text:#f0ead8; --text2:#b8a88a; --text3:#6a5f45;
+  --border:#2e2820; --shadow:rgba(0,0,0,.35); --shadow-lg:rgba(0,0,0,.55);
 }
 
-body{font-family:‘Nunito’,sans-serif;background:var(–bg);color:var(–text);line-height:1.65;transition:background var(–t),color var(–t);min-height:100vh}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;transition:background var(--t),color var(--t);min-height:100vh}
 
 /* === LANGUAGE SELECT === */
 #langSelect{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden}
-#langSelect::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse at 25% 30%,rgba(232,89,12,.07) 0%,transparent 50%),radial-gradient(ellipse at 75% 70%,rgba(79,70,229,.07) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(5,150,105,.05) 0%,transparent 55%);pointer-events:none}
-[data-theme=dark] #langSelect::before{background:radial-gradient(ellipse at 25% 30%,rgba(232,89,12,.12) 0%,transparent 50%),radial-gradient(ellipse at 75% 70%,rgba(79,70,229,.12) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(5,150,105,.08) 0%,transparent 55%)}
+#langSelect::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 30%,rgba(232,89,12,.07) 0%,transparent 50%),radial-gradient(ellipse at 75% 70%,rgba(79,70,229,.07) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(5,150,105,.05) 0%,transparent 55%);pointer-events:none}
 .ls-hero{text-align:center;margin-bottom:3rem;animation:fadeUp .6s ease both}
-.ls-hero h1{font-family:‘Libre Baskerville’,serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;letter-spacing:-.025em;line-height:1.1}
-.ls-hero h1 em{font-style:normal;color:var(–accent)}
-.ls-hero p{color:var(–text2);font-size:1.05rem;margin-top:.5rem;font-weight:500}
+.ls-hero h1{font-family:'Libre Baskerville',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;letter-spacing:-.025em;line-height:1.1}
+.ls-hero h1 em{font-style:normal;color:var(--accent)}
+.ls-hero p{color:var(--text2);font-size:1.05rem;margin-top:.5rem;font-weight:500}
 .ls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem;max-width:860px;width:100%}
-.lc{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:2.5rem 2rem;text-align:center;cursor:pointer;transition:all var(–t);position:relative;overflow:hidden;animation:fadeUp .6s ease both}
+.lc{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:2.5rem 2rem;text-align:center;cursor:pointer;transition:all var(--t);position:relative;overflow:hidden;animation:fadeUp .6s ease both}
 .lc:nth-child(1){animation-delay:.12s}.lc:nth-child(2){animation-delay:.22s}.lc:nth-child(3){animation-delay:.32s}
-.lc::after{content:’’;position:absolute;bottom:0;left:0;right:0;height:3px;transform:scaleX(0);transition:transform var(–t);transform-origin:left}
-.lc.nl::after{background:var(–nl)}.lc.fr::after{background:var(–fr)}.lc.en::after{background:var(–en)}
-.lc:hover{transform:translateY(-7px);box-shadow:0 20px 44px var(–shadow-lg)}
+.lc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transform:scaleX(0);transition:transform var(--t);transform-origin:left}
+.lc.nl::after{background:var(--nl)}.lc.fr::after{background:var(--fr)}.lc.en::after{background:var(--en)}
+.lc:hover{transform:translateY(-7px);box-shadow:0 20px 44px var(--shadow-lg)}
 .lc:hover::after{transform:scaleX(1)}
-.lc.nl:hover{border-color:var(–nl)}.lc.fr:hover{border-color:var(–fr)}.lc.en:hover{border-color:var(–en)}
+.lc.nl:hover{border-color:var(--nl)}.lc.fr:hover{border-color:var(--fr)}.lc.en:hover{border-color:var(--en)}
 .lc-flag{font-size:3.8rem;display:block;margin-bottom:1rem;animation:float 4s ease-in-out infinite}
 .lc:nth-child(2) .lc-flag{animation-delay:1.4s}.lc:nth-child(3) .lc-flag{animation-delay:2.8s}
-.lc-name{font-family:‘Libre Baskerville’,serif;font-size:1.9rem;font-weight:700;margin-bottom:.25rem}
-.lc-sub{color:var(–text3);font-size:.9rem;font-weight:500;letter-spacing:.02em}
+.lc-name{font-family:'Libre Baskerville',serif;font-size:1.9rem;font-weight:700;margin-bottom:.25rem}
+.lc-sub{color:var(--text3);font-size:.9rem;font-weight:500;letter-spacing:.02em}
 
 /* === APP SHELL === */
 #app{display:none}
-.app-header{background:var(–bg);border-bottom:1.5px solid var(–border);position:sticky;top:0;z-index:100;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.app-header{background:var(--bg);border-bottom:1.5px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .hdr{max-width:1320px;margin:0 auto;padding:.85rem 1.75rem;display:flex;align-items:center;gap:1rem}
-.logo{font-family:‘Libre Baskerville’,serif;font-size:1.45rem;font-weight:700;flex:1;cursor:pointer;display:flex;align-items:center;gap:.35rem;color:var(–text);text-decoration:none}
-.logo-dot{width:7px;height:7px;border-radius:50%;background:var(–accent);flex-shrink:0}
+.logo{font-family:'Libre Baskerville',serif;font-size:1.45rem;font-weight:700;flex:1;cursor:pointer;display:flex;align-items:center;gap:.35rem;color:var(--text);text-decoration:none}
+.logo-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
 .hdr-acts{display:flex;gap:.45rem}
-.btico{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–rs);padding:.5rem .85rem;cursor:pointer;transition:all var(–t);font-size:.88rem;font-family:‘Nunito’,sans-serif;font-weight:700;color:var(–text);display:flex;align-items:center;gap:.3rem}
-.btico:hover{background:var(–bg3);border-color:var(–text3)}
-.nav-bar{background:var(–bg);border-bottom:1.5px solid var(–border)}
+.btico{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--rs);padding:.5rem .85rem;cursor:pointer;transition:all var(--t);font-size:.88rem;font-family:'Nunito',sans-serif;font-weight:700;color:var(--text);display:flex;align-items:center;gap:.3rem}
+.btico:hover{background:var(--bg3);border-color:var(--text3)}
+.nav-bar{background:var(--bg);border-bottom:1.5px solid var(--border)}
 .nav-inner{max-width:1320px;margin:0 auto;padding:0 1.75rem;display:flex}
-.ntab{padding:.8rem 1.4rem;background:none;border:none;border-bottom:2.5px solid transparent;color:var(–text3);font-size:.93rem;font-weight:700;cursor:pointer;transition:all var(–t);font-family:‘Nunito’,sans-serif;letter-spacing:.01em;white-space:nowrap}
-.ntab:hover{color:var(–text)}
-.ntab.active{color:var(–text);border-bottom-color:var(–accent)}
+.ntab{padding:.8rem 1.4rem;background:none;border:none;border-bottom:2.5px solid transparent;color:var(--text3);font-size:.93rem;font-weight:700;cursor:pointer;transition:all var(--t);font-family:'Nunito',sans-serif;letter-spacing:.01em;white-space:nowrap}
+.ntab:hover{color:var(--text)}
+.ntab.active{color:var(--text);border-bottom-color:var(--accent)}
 
 /* === MAIN CONTENT === */
 .cwrap{max-width:1320px;margin:0 auto;padding:1.75rem}
 .sh{margin-bottom:1.25rem;position:relative}
-.si{width:100%;padding:.85rem 2.8rem .85rem 1.1rem;font-size:.97rem;border:1.5px solid var(–border);border-radius:var(–rs);background:var(–bg2);color:var(–text);font-family:‘Nunito’,sans-serif;transition:all var(–t)}
-.si::placeholder{color:var(–text3)}
-.si:focus{outline:none;border-color:var(–accent);box-shadow:0 0 0 3px var(–acbg);background:var(–bg)}
-.si-ico{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(–text3);pointer-events:none}
+.si{width:100%;padding:.85rem 2.8rem .85rem 1.1rem;font-size:.97rem;border:1.5px solid var(--border);border-radius:var(--rs);background:var(--bg2);color:var(--text);font-family:'Nunito',sans-serif;transition:all var(--t)}
+.si::placeholder{color:var(--text3)}
+.si:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--acbg);background:var(--bg)}
+.si-ico{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none}
 
 /* === TOPIC GRID === */
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.9rem}
-.tc{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:1.4rem;cursor:pointer;transition:all var(–t);position:relative;animation:fadeIn .4s ease both}
-.tc:hover{transform:translateY(-3px);box-shadow:0 8px 22px var(–shadow);border-color:var(–acbo);background:var(–acbg)}
-.tc-num{display:inline-flex;align-items:center;justify-content:center;width:1.9rem;height:1.9rem;background:var(–acbg);color:var(–accent);border-radius:7px;font-size:.72rem;font-weight:900;margin-bottom:.7rem;border:1px solid var(–acbo)}
-.tc-title{font-family:‘Libre Baskerville’,serif;font-size:1rem;font-weight:700;margin-bottom:.3rem;line-height:1.3}
-.tc-desc{color:var(–text2);font-size:.82rem;line-height:1.5}
+.tc{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:1.4rem;cursor:pointer;transition:all var(--t);position:relative;animation:fadeIn .4s ease both}
+.tc:hover{transform:translateY(-3px);box-shadow:0 8px 22px var(--shadow);border-color:var(--acbo);background:var(--acbg)}
+.tc-num{display:inline-flex;align-items:center;justify-content:center;width:1.9rem;height:1.9rem;background:var(--acbg);color:var(--accent);border-radius:7px;font-size:.72rem;font-weight:900;margin-bottom:.7rem;border:1px solid var(--acbo)}
+.tc-title{font-family:'Libre Baskerville',serif;font-size:1rem;font-weight:700;margin-bottom:.3rem;line-height:1.3}
+.tc-desc{color:var(--text2);font-size:.82rem;line-height:1.5}
 
 /* === TOPIC DETAIL === */
-.back-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–rs);padding:.5rem .95rem;cursor:pointer;transition:all var(–t);font-weight:700;color:var(–text);font-family:‘Nunito’,sans-serif;font-size:.88rem;margin-bottom:1.25rem}
-.back-btn:hover{transform:translateX(-3px);border-color:var(–text3)}
-.det-hdr{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:1.8rem 2.2rem;margin-bottom:1.25rem}
-.det-hdr h1{font-family:‘Libre Baskerville’,serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:.4rem}
-.det-hdr p{color:var(–text2);margin-bottom:1.25rem;font-size:.95rem}
+.back-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--rs);padding:.5rem .95rem;cursor:pointer;transition:all var(--t);font-weight:700;color:var(--text);font-family:'Nunito',sans-serif;font-size:.88rem;margin-bottom:1.25rem}
+.back-btn:hover{transform:translateX(-3px);border-color:var(--text3)}
+.det-hdr{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:1.8rem 2.2rem;margin-bottom:1.25rem}
+.det-hdr h1{font-family:'Libre Baskerville',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:.4rem}
+.det-hdr p{color:var(--text2);margin-bottom:1.25rem;font-size:.95rem}
 .tact{display:flex;gap:.6rem;flex-wrap:wrap}
-.btn{padding:.65rem 1.35rem;border-radius:var(–rs);font-family:‘Nunito’,sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all var(–t);border:1.5px solid transparent;letter-spacing:.01em}
-.btn-p{background:var(–accent);color:#fff;border-color:var(–accent)}.btn-p:hover{opacity:.88;transform:translateY(-1px)}
-.btn-s{background:var(–bg);color:var(–text);border-color:var(–border)}.btn-s:hover{background:var(–bg3);border-color:var(–text3)}
-.btn-o{background:var(–bg2);color:var(–text);border-color:var(–border)}.btn-o:hover{background:var(–bg3)}
+.btn{padding:.65rem 1.35rem;border-radius:var(--rs);font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all var(--t);border:1.5px solid transparent;letter-spacing:.01em}
+.btn-p{background:var(--accent);color:#fff;border-color:var(--accent)}.btn-p:hover{opacity:.88;transform:translateY(-1px)}
+.btn-s{background:var(--bg);color:var(--text);border-color:var(--border)}.btn-s:hover{background:var(--bg3);border-color:var(--text3)}
+.btn-o{background:var(--bg2);color:var(--text);border-color:var(--border)}.btn-o:hover{background:var(--bg3)}
 
 /* === CONTENT BOX === */
-.cbox{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:2rem 2.4rem;line-height:1.85;animation:fadeIn .4s ease both}
-.cbox h2{font-family:‘Libre Baskerville’,serif;font-size:1.3rem;margin-bottom:.9rem;color:var(–text)}
-.cbox p{margin-bottom:.9rem;color:var(–text)}
+.cbox{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:2rem 2.4rem;line-height:1.85;animation:fadeIn .4s ease both}
+.cbox h2{font-family:'Libre Baskerville',serif;font-size:1.3rem;margin-bottom:.9rem;color:var(--text)}
+.cbox p{margin-bottom:.9rem;color:var(--text)}
 .cbox ul,.cbox ol{margin:.4rem 0 1rem 1.1rem}
-.cbox li{margin-bottom:.35rem;color:var(–text)}
+.cbox li{margin-bottom:.35rem;color:var(--text)}
 .cbox strong{font-weight:800}
-.cbox em{color:var(–accent);font-style:italic}
-.example-box{background:var(–bg3);border-left:3px solid var(–accent);padding:.9rem 1.1rem;border-radius:0 var(–rs) var(–rs) 0;margin:.9rem 0}
-.example-box .original{display:block;font-family:‘Libre Baskerville’,serif;font-style:italic;color:var(–text);margin-bottom:.18rem;font-size:1rem}
-.example-box .translation{display:block;color:var(–text3);font-size:.86rem}
+.cbox em{color:var(--accent);font-style:italic}
+.example-box{background:var(--bg3);border-left:3px solid var(--accent);padding:.9rem 1.1rem;border-radius:0 var(--rs) var(--rs) 0;margin:.9rem 0}
+.example-box .original{display:block;font-family:'Libre Baskerville',serif;font-style:italic;color:var(--text);margin-bottom:.18rem;font-size:1rem}
+.example-box .translation{display:block;color:var(--text3);font-size:.86rem}
 
 /* === LOADING === */
-.ldwrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 2rem;gap:.9rem;color:var(–text3);font-weight:600;font-size:.92rem}
-.spin{width:38px;height:38px;border:3px solid var(–border);border-top-color:var(–accent);border-radius:50%;animation:spin 1s linear infinite}
+.ldwrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 2rem;gap:.9rem;color:var(--text3);font-weight:600;font-size:.92rem}
+.spin{width:38px;height:38px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
 
 /* === QUIZ === */
 .qhdr{margin-bottom:1.2rem}
-.pbar-wrap{background:var(–bg3);border-radius:100px;height:5px;margin-bottom:.45rem;overflow:hidden}
-.pbar-fill{height:100%;background:var(–accent);border-radius:100px;transition:width .5s ease}
-.qmeta{display:flex;justify-content:space-between;color:var(–text3);font-size:.82rem;font-weight:700}
-.qcard{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:1.8rem 2.2rem;margin-bottom:1rem;animation:fadeIn .3s ease both}
-.qtext{font-size:1.08rem;font-weight:700;margin-bottom:1.4rem;line-height:1.5;color:var(–text)}
+.pbar-wrap{background:var(--bg3);border-radius:100px;height:5px;margin-bottom:.45rem;overflow:hidden}
+.pbar-fill{height:100%;background:var(--accent);border-radius:100px;transition:width .5s ease}
+.qmeta{display:flex;justify-content:space-between;color:var(--text3);font-size:.82rem;font-weight:700}
+.qcard{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:1.8rem 2.2rem;margin-bottom:1rem;animation:fadeIn .3s ease both}
+.qtext{font-size:1.08rem;font-weight:700;margin-bottom:1.4rem;line-height:1.5;color:var(--text)}
 .opts{display:flex;flex-direction:column;gap:.6rem}
-.obtn{padding:.9rem 1.1rem;border:1.5px solid var(–border);border-radius:var(–rs);background:var(–bg);color:var(–text);text-align:left;cursor:pointer;transition:all var(–t);font-size:.93rem;font-family:‘Nunito’,sans-serif;font-weight:600;display:flex;align-items:center;gap:.7rem;line-height:1.4}
-.obtn:hover:not(:disabled){border-color:var(–accent);background:var(–acbg);transform:translateX(4px)}
+.obtn{padding:.9rem 1.1rem;border:1.5px solid var(--border);border-radius:var(--rs);background:var(--bg);color:var(--text);text-align:left;cursor:pointer;transition:all var(--t);font-size:.93rem;font-family:'Nunito',sans-serif;font-weight:600;display:flex;align-items:center;gap:.7rem;line-height:1.4}
+.obtn:hover:not(:disabled){border-color:var(--accent);background:var(--acbg);transform:translateX(4px)}
 .obtn:disabled{cursor:default}
-.oltr{width:1.5rem;height:1.5rem;border-radius:6px;background:var(–bg2);border:1.5px solid var(–border);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:900;flex-shrink:0;transition:all var(–t)}
+.oltr{width:1.5rem;height:1.5rem;border-radius:6px;background:var(--bg2);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:900;flex-shrink:0;transition:all var(--t)}
 .obtn.correct{background:#ecfdf5;border-color:#059669;color:#065f46}
-[data-theme=dark] .obtn.correct{background:#1a2e1e;border-color:#15803d;color:#86efac}
 .obtn.correct .oltr{background:#059669;border-color:#059669;color:#fff}
 .obtn.incorrect{background:#fef2f2;border-color:#ef4444;color:#991b1b}
-[data-theme=dark] .obtn.incorrect{background:#2d1410;border-color:#dc2626;color:#fca5a5}
 .obtn.incorrect .oltr{background:#ef4444;border-color:#ef4444;color:#fff}
-.obtn.sel-test{background:var(–acbg);border-color:var(–accent)}
-.obtn.sel-test .oltr{background:var(–accent);border-color:var(–accent);color:#fff}
-.expbox{background:var(–acbg);border:1.5px solid var(–acbo);border-radius:var(–rs);padding:.85rem 1.1rem;margin-top:.9rem;font-size:.88rem;color:var(–text);animation:fadeIn .3s ease both;font-weight:600;line-height:1.55}
+.obtn.sel-test{background:var(--acbg);border-color:var(--accent)}
+.obtn.sel-test .oltr{background:var(--accent);border-color:var(--accent);color:#fff}
+.expbox{background:var(--acbg);border:1.5px solid var(--acbo);border-radius:var(--rs);padding:.85rem 1.1rem;margin-top:.9rem;font-size:.88rem;color:var(--text);animation:fadeIn .3s ease both;font-weight:600;line-height:1.55}
 .qnav{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;gap:.6rem}
 
 /* === RESULTS === */
-.res-card{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:2.5rem;text-align:center;animation:fadeIn .5s ease both}
-.res-score{font-family:‘Libre Baskerville’,serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:700;color:var(–accent);line-height:1;margin:.75rem 0}
-.res-lbl{color:var(–text3);font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.res-msg{font-size:1.15rem;font-weight:800;margin-bottom:1.5rem;color:var(–text)}
+.res-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:2.5rem;text-align:center;animation:fadeIn .5s ease both}
+.res-score{font-family:'Libre Baskerville',serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:700;color:var(--accent);line-height:1;margin:.75rem 0}
+.res-lbl{color:var(--text3);font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.res-msg{font-size:1.15rem;font-weight:800;margin-bottom:1.5rem;color:var(--text)}
 .res-acts{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.75rem}
-.rev-item{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–rs);padding:.85rem 1.1rem;margin-bottom:.6rem;border-left-width:3px;font-size:.88rem}
+.rev-item{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--rs);padding:.85rem 1.1rem;margin-bottom:.6rem;border-left-width:3px;font-size:.88rem}
 .rev-q{font-weight:700;margin-bottom:.35rem}
 .rev-a{font-weight:800;margin-bottom:.25rem}
-.rev-e{color:var(–text3);font-size:.82rem}
+.rev-e{color:var(--text3);font-size:.82rem}
 
 /* === ANIMATIONS === */
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
@@ -153,24 +145,22 @@ body{font-family:‘Nunito’,sans-serif;background:var(–bg);color:var(–text
 
 /* === RESPONSIVE === */
 @media(max-width:768px){
-.cwrap{padding:1rem}
-.hdr{padding:.7rem 1rem}
-.nav-inner{padding:0 1rem;overflow-x:auto;scrollbar-width:none}
-.nav-inner::-webkit-scrollbar{display:none}
-.ntab{padding:.7rem 1rem;font-size:.85rem}
-.det-hdr{padding:1.4rem 1.5rem}
-.cbox,.qcard{padding:1.4rem 1.5rem}
-.tgrid{grid-template-columns:1fr}
-.ls-grid{max-width:320px}
-.res-card{padding:1.75rem 1.5rem}
+  .cwrap{padding:1rem}
+  .hdr{padding:.7rem 1rem}
+  .nav-inner{padding:0 1rem;overflow-x:auto;scrollbar-width:none}
+  .nav-inner::-webkit-scrollbar{display:none}
+  .ntab{padding:.7rem 1rem;font-size:.85rem}
+  .det-hdr{padding:1.4rem 1.5rem}
+  .cbox,.qcard{padding:1.4rem 1.5rem}
+  .tgrid{grid-template-columns:1fr}
+  .ls-grid{max-width:320px}
+  .res-card{padding:1.75rem 1.5rem}
 }
 </style>
-
 </head>
 <body>
 
 <!-- LANGUAGE SELECTION -->
-
 <div id="langSelect">
   <div class="ls-hero">
     <h1>Lingua<em>AI</em></h1>
@@ -196,7 +186,6 @@ body{font-family:‘Nunito’,sans-serif;background:var(–bg);color:var(–text
 </div>
 
 <!-- MAIN APP -->
-
 <div id="app">
   <header class="app-header">
     <div class="hdr">
@@ -236,49 +225,41 @@ body{font-family:‘Nunito’,sans-serif;background:var(–bg);color:var(–text
       <div class="tgrid" id="grammarGrid"></div>
     </div>
 
-```
-<!-- Practice section -->
-<div id="sec-practice" style="display:none">
-  <div class="tgrid" id="practiceGrid"></div>
-</div>
+    <!-- Practice section -->
+    <div id="sec-practice" style="display:none">
+      <div class="tgrid" id="practiceGrid"></div>
+    </div>
 
-<!-- Test section -->
-<div id="sec-test" style="display:none">
-  <div class="tgrid" id="testGrid"></div>
-</div>
+    <!-- Test section -->
+    <div id="sec-test" style="display:none">
+      <div class="tgrid" id="testGrid"></div>
+    </div>
 
-<!-- Detail/quiz section (shared) -->
-<div id="sec-detail" style="display:none">
-  <button class="back-btn" onclick="backFromDetail()">
-    ← <span id="backLbl">Back</span>
-  </button>
-  <div id="detailContent"></div>
-</div>
-```
-
+    <!-- Detail/quiz section (shared) -->
+    <div id="sec-detail" style="display:none">
+      <button class="back-btn" onclick="backFromDetail()">
+        ← <span id="backLbl">Back</span>
+      </button>
+      <div id="detailContent"></div>
+    </div>
   </div>
 </div>
 
 <script>
 // =============================================
-// STATE MANAGEMENT
+// CONFIGURATION & STATE
 // =============================================
-const STATE = {
-  lang: 'en',
-  tab: 'grammar',
-  dark: false,
-  topicId: null,
-  mode: 'grammar',
-  qi: 0,
-  questions: [],
-  answers: [],
-  cache: {}
-};
-
+let lang = 'en';
+let tab = 'grammar';
+let dark = false;
+let topicId = null;
+let mode = 'grammar'; // grammar | practice | test
+const cache = {};
+let Qs = [], qi = 0, ans = [];
 const LTRS = ['A','B','C','D'];
 
 // =============================================
-// TOPICS DATA (40 per language)
+// TOPICS DATA
 // =============================================
 const TOPICS = {
   nl:[
@@ -410,7 +391,7 @@ const TOPICS = {
 };
 
 // =============================================
-// LABELS (UI TEXT)
+// UI LABELS
 // =============================================
 const LABELS = {
   nl:{
@@ -449,40 +430,10 @@ const LABELS = {
 };
 
 // =============================================
-// PERSISTENCE (LocalStorage)
-// =============================================
-function saveState() {
-  try {
-    localStorage.setItem('linguaState', JSON.stringify({
-      lang: STATE.lang,
-      dark: STATE.dark
-    }));
-  } catch(e) { console.error('Save failed', e); }
-}
-
-function loadState() {
-  try {
-    const saved = localStorage.getItem('linguaState');
-    if (saved) {
-      const data = JSON.parse(saved);
-      if (data.lang) STATE.lang = data.lang;
-      if (data.dark !== undefined) {
-        STATE.dark = data.dark;
-        document.body.setAttribute('data-theme', STATE.dark ? 'dark' : '');
-        const ti = document.getElementById('themeIco');
-        if (ti) ti.textContent = STATE.dark ? '☀️' : '🌙';
-      }
-    }
-  } catch(e) { console.error('Load failed', e); }
-}
-
-// =============================================
-// LANGUAGE & THEME
+// LANGUAGE & THEME SETUP
 // =============================================
 function selectLang(l) {
-  STATE.lang = l;
-  saveState();
-  
+  lang = l;
   const flags={nl:'🇳🇱',fr:'🇫🇷',en:'🇬🇧'};
   const cols={
     nl:{a:'--nl',ab:'--nlbg',abo:'--nlbo'},
@@ -494,18 +445,15 @@ function selectLang(l) {
   r.style.setProperty('--accent', s.getPropertyValue(cols[l].a).trim());
   r.style.setProperty('--acbg',   s.getPropertyValue(cols[l].ab).trim());
   r.style.setProperty('--acbo',   s.getPropertyValue(cols[l].abo).trim());
-  
   document.getElementById('langFlag').textContent = flags[l];
   const lb = LABELS[l];
   document.getElementById('lbl-grammar').textContent = lb.grammar;
   document.getElementById('lbl-practice').textContent = lb.practice;
   document.getElementById('lbl-test').textContent = lb.test;
   document.getElementById('searchInp').placeholder = lb.ph;
-  
   document.getElementById('langSelect').style.display = 'none';
   document.getElementById('app').style.display = 'block';
-  STATE.tab = 'grammar';
-  showTab('grammar');
+  tab = 'grammar'; showTab('grammar');
 }
 
 function showLangSelect() {
@@ -514,40 +462,38 @@ function showLangSelect() {
 }
 
 function toggleTheme() {
-  STATE.dark = !STATE.dark;
-  saveState();
-  document.body.setAttribute('data-theme', STATE.dark ? 'dark' : '');
-  document.getElementById('themeIco').textContent = STATE.dark ? '☀️' : '🌙';
+  dark = !dark;
+  document.body.setAttribute('data-theme', dark ? 'dark' : '');
+  document.getElementById('themeIco').textContent = dark ? '☀️' : '🌙';
+  localStorage.setItem('ltheme', dark ? 'dark' : '');
 }
 
 // =============================================
 // TAB NAVIGATION
 // =============================================
-function switchTab(t) {
-  STATE.tab = t;
-  showTab(t);
-}
+function switchTab(t) { tab = t; showTab(t); }
 
 function showTab(t) {
   ['grammar','practice','test'].forEach(x => {
-    const sec = document.getElementById('sec-'+x);
-    if(sec) sec.style.display = x===t ? '' : 'none';
-    const btn = document.getElementById('tab-'+x);
-    if(btn) btn.classList.toggle('active', x===t);
+    const s = document.getElementById('sec-'+x);
+    if(s) s.style.display = x===t ? '' : 'none';
+    const b = document.getElementById('tab-'+x);
+    if(b) b.classList.toggle('active', x===t);
   });
   document.getElementById('sec-detail').style.display = 'none';
-  if(t==='grammar')  renderGrid('grammarGrid',  'topicClickGrammar');
-  if(t==='practice') renderGrid('practiceGrid', 'topicClickPractice');
-  if(t==='test')     renderGrid('testGrid',     'topicClickTest');
+  if(t==='grammar')  renderGrid('grammarGrid',  topicClickGrammar);
+  if(t==='practice') renderGrid('practiceGrid', topicClickPractice);
+  if(t==='test')     renderGrid('testGrid',      topicClickTest);
 }
 
 // =============================================
-// RENDER TOPIC GRIDS
+// RENDER GRIDS
 // =============================================
-function renderGrid(gridId, fnName) {
-  const el = document.getElementById(gridId);
+function renderGrid(gid, fn) {
+  const el = document.getElementById(gid);
   if(!el) return;
-  el.innerHTML = TOPICS[STATE.lang].map((tp,i) => `
+  const fnName = fn.name;
+  el.innerHTML = TOPICS[lang].map((tp,i) => `
     <div class="tc" onclick="${fnName}(${tp.id})" style="animation-delay:${i*0.025}s">
       <div class="tc-num">${tp.id}</div>
       <div class="tc-title">${tp.t}</div>
@@ -564,40 +510,30 @@ function filterTopics() {
 }
 
 // =============================================
-// DETAIL VIEW
+// SHOW DETAIL SECTION
 // =============================================
 function showDetail() {
   document.getElementById('sec-grammar').style.display = 'none';
   document.getElementById('sec-practice').style.display = 'none';
   document.getElementById('sec-test').style.display = 'none';
   document.getElementById('sec-detail').style.display = '';
-  document.getElementById('backLbl').textContent = LABELS[STATE.lang].back;
+  document.getElementById('backLbl').textContent = LABELS[lang].back;
 }
 
 function backFromDetail() {
   document.getElementById('sec-detail').style.display = 'none';
-  document.getElementById('sec-'+STATE.mode).style.display = '';
-  const tabBtn = document.getElementById('tab-'+STATE.mode);
-  if(tabBtn) tabBtn.classList.add('active');
+  document.getElementById('sec-'+mode).style.display = '';
+  document.getElementById('tab-'+mode).classList.add('active');
 }
 
 // =============================================
-// TOPIC CLICK HANDLERS (exposed globally)
+// TOPIC CLICK HANDLERS (global, used in innerHTML)
 // =============================================
-function topicClickGrammar(id) {
-  STATE.mode='grammar';
-  openGrammar(id);
-}
-function topicClickPractice(id) {
-  STATE.mode='practice';
-  openPractice(id);
-}
-function topicClickTest(id) {
-  STATE.mode='test';
-  openTest(id);
-}
+function topicClickGrammar(id) { mode='grammar'; openGrammar(id); }
+function topicClickPractice(id){ mode='practice'; openPractice(id); }
+function topicClickTest(id)    { mode='test';     openTest(id); }
 
-// Make functions globally accessible for onclick
+// Also expose for buttons inside detail view
 window.topicClickGrammar = topicClickGrammar;
 window.topicClickPractice = topicClickPractice;
 window.topicClickTest = topicClickTest;
@@ -606,9 +542,9 @@ window.topicClickTest = topicClickTest;
 // GRAMMAR EXPLANATION
 // =============================================
 async function openGrammar(id) {
-  STATE.topicId = id;
-  const tp = TOPICS[STATE.lang].find(t=>t.id===id);
-  const lb = LABELS[STATE.lang];
+  topicId = id;
+  const tp = TOPICS[lang].find(t=>t.id===id);
+  const lb = LABELS[lang];
   showDetail();
   document.getElementById('detailContent').innerHTML = `
     <div class="det-hdr">
@@ -623,53 +559,414 @@ async function openGrammar(id) {
       <div class="ldwrap"><div class="spin"></div><span>${lb.loading}</span></div>
     </div>
   `;
-  
   try {
-    const html = await fetchGrammarContent(STATE.lang, id, tp.t);
+    const html = await fetchGrammar(lang, id, tp.t);
     document.getElementById('gramBox').innerHTML = html;
   } catch(e) {
-    console.error('Grammar load error:', e);
-    document.getElementById('gramBox').innerHTML = `
-      <p style="color:var(--text2)">⚠️ Could not load content. Please check your connection and try again.</p>
-    `;
+    document.getElementById('gramBox').innerHTML = `<p style="color:var(--text2)">⚠️ Could not load content. Check your connection and try again.</p>`;
   }
 }
 
-async function fetchGrammarContent(lang, id, title) {
-  const cacheKey = `gram_${lang}_${id}`;
-  if (STATE.cache[cacheKey]) return STATE.cache[cacheKey];
-  
-  const langMap = {nl:'Dutch',fr:'French',en:'British English'};
-  const instructions = {
-    nl:'Schrijf alle uitleg in het Nederlands.',
-    fr:'Écris toute l\'explication en français.',
-    en:'Write all explanations in English.'
-  };
-  
-  const prompt = `You are an expert ${langMap[lang]} grammar teacher. ${instructions[lang]}
+async function fetchGrammar(l, id, title) {
+  return `
+  <style>
+    .modern-grammar {
+      /* ڕەنگە بنەڕەتییەکان (Light Mode) */
+      --bg-main: #ffffff;
+      --text-main: #334155;
+      --heading-color: #0f172a;
+      --border-color: #e2e8f0;
+      --card-bg: #f8fafc;
+      --item-bg: #ffffff;
+      --theme-color: #3b82f6;
+      --de-bg: #dbeafe; --de-text: #1d4ed8;
+      --het-bg: #fce7f3; --het-text: #be185d;
+      --een-bg: #f3f4f6; --een-text: #475569;
+      --warn-bg: #fffbeb; --warn-border: #f59e0b;
+      --table-header: #f1f5f9;
+      --table-border: #cbd5e1;
 
-Create a comprehensive, beautifully formatted HTML explanation of: "${title}"
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 24px;
+      background: var(--bg-main);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
 
-Requirements:
-- Use modern, clean HTML with inline CSS
-- Include clear examples with translations
-- Use tables, cards, or structured layouts
-- Make it visually appealing with proper spacing
-- Include practical exercises or tips
-- Return ONLY the HTML content (no backticks, no markdown)`;
+    /* ڕەنگەکان بۆ Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      .modern-grammar {
+        --bg-main: #0f172a;
+        --text-main: #cbd5e1;
+        --heading-color: #f8fafc;
+        --border-color: #334155;
+        --card-bg: #1e293b;
+        --item-bg: #0f172a;
+        --theme-color: #60a5fa;
+        --de-bg: #1e3a8a; --de-text: #bfdbfe;
+        --het-bg: #831843; --het-text: #fbcfe8;
+        --een-bg: #334155; --een-text: #e2e8f0;
+        --warn-bg: #422006; --warn-border: #d97706;
+        --table-header: #1e293b;
+        --table-border: #475569;
+      }
+    }
 
-  const html = await callAPI(prompt);
-  STATE.cache[cacheKey] = html;
-  return html;
+    .modern-grammar h2, .modern-grammar h3, .modern-grammar h4 {
+      color: var(--heading-color);
+    }
+    .modern-grammar h2 {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 12px;
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+    .modern-grammar h3 {
+      color: var(--theme-color);
+      margin-top: 36px;
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 8px;
+    }
+    .modern-grammar h4 {
+      margin-top: 24px;
+      font-size: 1.15rem;
+    }
+    .modern-grammar p { margin-bottom: 16px; }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9em;
+    }
+    .badge-de { background: var(--de-bg); color: var(--de-text); }
+    .badge-het { background: var(--het-bg); color: var(--het-text); }
+    .badge-een { background: var(--een-bg); color: var(--een-text); }
+    
+    .rule-card {
+      background: var(--card-bg);
+      border-left: 4px solid var(--theme-color);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 0 12px 12px 0;
+    }
+    .rule-title {
+      font-weight: bold;
+      color: var(--heading-color);
+      font-size: 1.2em;
+      margin-bottom: 12px;
+      display: block;
+    }
+    
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .grid-item {
+      background: var(--item-bg);
+      padding: 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+    }
+    .grid-item h5 {
+      margin: 0 0 8px 0;
+      color: var(--heading-color);
+      font-size: 1.05em;
+    }
+
+    .styled-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: var(--item-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--table-border);
+    }
+    .styled-table th, .styled-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--table-border);
+    }
+    .styled-table th {
+      background-color: var(--table-header);
+      color: var(--heading-color);
+      font-weight: bold;
+    }
+    .styled-table tr:last-child td { border-bottom: none; }
+
+    .warning-card {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+    }
+
+    .summary-card {
+      background: var(--theme-color);
+      color: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 40px;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+    .summary-card h3 {
+      color: #ffffff;
+      border: none;
+      margin-top: 0;
+    }
+    .summary-card ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+    .summary-card li { margin-bottom: 10px; }
+  </style>
+
+  <div class="modern-grammar">
+    <h2>Deel 1: DE of HET? (Het grote probleem)</h2>
+    <p>Hier is de basisregel:</p>
+    <ul>
+      <li><span class="badge badge-de">DE-woorden</span> zijn mannelijk of vrouwelijk (ongeveer 75% van de woorden).</li>
+      <li><span class="badge badge-het">HET-woorden</span> zijn onzijdig (ongeveer 25% van de woorden).</li>
+    </ul>
+    <p>Het is grotendeels <em>uit je hoofd leren</em>, maar er zijn een paar gouden regels die je helpen.</p>
+
+    <div class="rule-card">
+      <span class="rule-title">Altijd DE (Super handig!)</span>
+      <p>Je kunt er zeker van zijn dat het <span class="badge badge-de">DE</span> is in deze gevallen:</p>
+      
+      <div class="grid-container">
+        <div class="grid-item">
+          <h5>Meervoud</h5>
+          <p style="font-size:0.9em; margin-bottom:4px;">Alles in het meervoud krijgt DE.</p>
+          Het boek ➔ <strong>De boeken</strong><br>
+          Het kind ➔ <strong>De kinderen</strong><br>
+          De tafel ➔ <strong>De tafels</strong>
+        </div>
+        <div class="grid-item">
+          <h5>Beroepen en personen</h5>
+          <strong>De</strong> bakker, <strong>de</strong> dokter, <strong>de</strong> leraar, <strong>de</strong> student, <strong>de</strong> koning, <strong>de</strong> moeder.
+        </div>
+        <div class="grid-item">
+          <h5>Fruit, groente, planten, bomen</h5>
+          <strong>De</strong> appel, <strong>de</strong> banaan, <strong>de</strong> wortel, <strong>de</strong> sla, <strong>de</strong> roos, <strong>de</strong> eik.
+        </div>
+        <div class="grid-item">
+          <h5>Getallen en letters</h5>
+          <strong>De</strong> vijf, <strong>de</strong> honderd, <strong>de</strong> A, <strong>de</strong> B.
+        </div>
+      </div>
+      
+      <h4 style="margin-top:16px;">De meeste woorden die eindigen op:</h4>
+      <ul style="column-count: 2; column-gap: 20px;">
+        <li><strong>-heid:</strong> De waarheid</li>
+        <li><strong>-nis:</strong> De kennis</li>
+        <li><strong>-ing:</strong> De woning</li>
+        <li><strong>-ie:</strong> De politie</li>
+        <li><strong>-iek:</strong> De fabriek</li>
+        <li><strong>-teit:</strong> De universiteit</li>
+        <li><strong>-tie:</strong> De natie</li>
+        <li><strong>-schap:</strong> De wetenschap</li>
+      </ul>
+    </div>
+
+    <div class="rule-card" style="border-left-color: var(--het-text);">
+      <span class="rule-title" style="color: var(--het-text);">Altijd HET (Ook super handig!)</span>
+      <p>Je kunt er zeker van zijn dat het <span class="badge badge-het">HET</span> is in deze gevallen:</p>
+      
+      <div class="grid-container">
+        <div class="grid-item">
+          <h5>Verkleinwoorden</h5>
+          <p style="font-size:0.9em; margin-bottom:4px;">Eindigen op -je, -tje, -pje, -kje, -etje.</p>
+          De tafel ➔ <strong>Het tafeltje</strong><br>
+          De man ➔ <strong>Het mannetje</strong><br>
+          De bloem ➔ <strong>Het bloemetje</strong>
+        </div>
+        <div class="grid-item">
+          <h5>Talen en Landen</h5>
+          <strong>Het</strong> Nederlands, <strong>het</strong> Engels.<br>
+          <strong>Het</strong> mooie Frankrijk.<br>
+          <small><em>(Zonder adjectief = geen lidwoord: Ik woon in Nederland)</em></small>
+        </div>
+        <div class="grid-item">
+          <h5>Stoffelijke namen / Materialen</h5>
+          <strong>Het</strong> hout, <strong>het</strong> water, <strong>het</strong> goud, <strong>het</strong> zand, <strong>het</strong> glas.
+        </div>
+        <div class="grid-item">
+          <h5>Twee lettergrepen met Ge-, Be-, Ver-, Ont-</h5>
+          <strong>Het</strong> geluk, <strong>het</strong> bestuur, <strong>het</strong> verdriet, <strong>het</strong> ontbijt.
+        </div>
+        <div class="grid-item">
+          <h5>Windrichtingen</h5>
+          <strong>Het</strong> noorden, <strong>het</strong> zuiden.
+        </div>
+        <div class="grid-item">
+          <h5>Meeste sporten en spellen</h5>
+          <strong>Het</strong> voetbal, <strong>het</strong> schaken.
+        </div>
+      </div>
+    </div>
+
+    <h3>Deel 2: EEN (Onbepaald Lidwoord)</h3>
+    <p>Dit is makkelijk! <span class="badge badge-een">Een</span> betekent hetzelfde als 'a' of 'an' in het Engels. Je gebruikt <strong>een</strong> als het <em>niet specifiek</em> is of <em>nieuw</em> in het gesprek.</p>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Situatie</th>
+          <th>Met DE/HET (Bepaald)</th>
+          <th>Met EEN (Onbepaald)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nieuwe introductie</strong></td>
+          <td>Ken jij <strong>het</strong> adres?<br><small>(Je weet welk adres)</small></td>
+          <td>Ik zoek <strong>een</strong> adres.<br><small>(Zomaar een adres)</small></td>
+        </tr>
+        <tr>
+          <td><strong>DE-woord</strong></td>
+          <td>Waar is <strong>de</strong> kat?<br><small>(Onze kat)</small></td>
+          <td>Er zit <strong>een</strong> kat in de tuin.<br><small>(Een vreemde kat)</small></td>
+        </tr>
+        <tr>
+          <td><strong>HET-woord</strong></td>
+          <td>Mag ik <strong>het</strong> boek terug?<br><small>(Mijn boek)</small></td>
+          <td>Ik wil <strong>een</strong> boek kopen.<br><small>(Nog niet gekozen)</small></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warning-card">
+      <span style="font-weight: bold; font-size: 1.1em; display:block; margin-bottom:8px;">⚠️ Let op de uitspraak:</span>
+      <ul>
+        <li><strong>Een</strong> klinkt meestal als een zachte 'un' (klinkt als de stomme 'e' in de).</li>
+        <li>Het cijfer 1 schrijf je met streepjes om het verschil te maken: <em>Ik heb <strong>één</strong> broer</em> vs <em>Ik heb <strong>een</strong> broer</em>.</li>
+      </ul>
+    </div>
+
+    <h3>Deel 3: Heel veel voorbeelden per thema</h3>
+    <div class="grid-container">
+      <div class="grid-item">
+        <h5>🏠 In en om het huis</h5>
+        <p><strong>De:</strong> kamer, keuken, deur, vloer, muur, stoel, tafel, bank.<br>
+        <strong>Het:</strong> raam, bed, kussen, dak, toilet, fornuis, zout.</p>
+        <em style="font-size:0.9em; opacity: 0.8;">Ik zit op <strong>de</strong> bank en kijk naar <strong>het</strong> raam. Er vliegt <strong>een</strong> vogel voorbij.</em>
+      </div>
+      
+      <div class="grid-item">
+        <h5>☕ Eten en Drinken</h5>
+        <p><strong>De:</strong> kaas, melk, wijn, koffie, thee, soep, pizza.<br>
+        <strong>Het:</strong> bier, brood, vlees, fruit, ei, gebak, water.</p>
+        <em style="font-size:0.9em; opacity: 0.8;">Ik eet <strong>een</strong> boterham met <strong>de</strong> kaas en drink <strong>een</strong> glas <strong>het</strong> water.</em>
+      </div>
+
+      <div class="grid-item">
+        <h5>👕 Kleding</h5>
+        <p><strong>De:</strong> jas, broek, trui, sok, schoen, hoed.<br>
+        <strong>Het:</strong> shirt, hemd, vest, pak.</p>
+        <em style="font-size:0.9em; opacity: 0.8;">Hij draagt <strong>een</strong> oude broek en <strong>een</strong> nieuw shirt.</em>
+      </div>
+
+      <div class="grid-item">
+        <h5>🖐️ Lichaam</h5>
+        <p><strong>De:</strong> arm, buik, nek, rug, vinger, knie, teen.<br>
+        <strong>Het:</strong> hoofd, oog, oor, been, hart, haar, gezicht.</p>
+        <em style="font-size:0.9em; opacity: 0.8;">Ik heb pijn in mijn arm. <strong>Het</strong> been is gebroken.</em>
+      </div>
+
+      <div class="grid-item">
+        <h5>🚗 Vervoer</h5>
+        <p><strong>De:</strong> auto, fiets, trein, bus, tram, metro.<br>
+        <strong>Het:</strong> vliegtuig, schip.</p>
+        <em style="font-size:0.9em; opacity: 0.8;"><strong>De</strong> auto staat voor <strong>de</strong> deur. <strong>Het</strong> vliegtuig landt.</em>
+      </div>
+
+      <div class="grid-item">
+        <h5>🌲 Natuur</h5>
+        <p><strong>De:</strong> zon, maan, ster, lucht, regen, boom, bloem.<br>
+        <strong>Het:</strong> weer, bos, strand, gras, blad.</p>
+        <em style="font-size:0.9em; opacity: 0.8;"><strong>De</strong> zon schijnt in <strong>het</strong> bos. Ik zie <strong>een</strong> eekhoorn.</em>
+      </div>
+    </div>
+
+    <h3>Deel 4: Combinatie met Bijvoeglijke Naamwoorden</h3>
+    <p>Hier verandert de uitgang van het woord. Let op <strong>EEN + HET-woord</strong>!</p>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Combinatie</th>
+          <th>Regel</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>De</strong> + Adjectief</td>
+          <td>Altijd + E</td>
+          <td>De mooi<strong>e</strong> auto</td>
+        </tr>
+        <tr>
+          <td><strong>Het</strong> + Adjectief</td>
+          <td>Altijd + E</td>
+          <td>Het mooi<strong>e</strong> huis</td>
+        </tr>
+        <tr>
+          <td><strong>Een</strong> + <strong>DE</strong>-woord</td>
+          <td>Altijd + E</td>
+          <td>Een mooi<strong>e</strong> auto</td>
+        </tr>
+        <tr>
+          <td><strong>Een</strong> + <strong style="color:var(--het-text)">HET</strong>-woord</td>
+          <td><strong style="color:var(--warn-border)">GEEN E !</strong></td>
+          <td>Een mooi<strong>_</strong> huis</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Voorbeelden van die uitzondering zonder -E:</strong></p>
+    <ul>
+      <li>Het grote paard ➔ Een <strong>groot</strong> paard.</li>
+      <li>Het leuke feest ➔ Een <strong>leuk</strong> feest.</li>
+      <li>Het kleine kind ➔ Een <strong>klein</strong> kind.</li>
+      <li>Het interessante boek ➔ Een <strong>interessant</strong> boek.</li>
+    </ul>
+
+    <div class="summary-card">
+      <h3>📌 Samenvatting voor op de koelkast</h3>
+      <ul>
+        <li>Alles klein = HET <small>(het huisje)</small></li>
+        <li>Alles meervoud = DE <small>(de huizen)</small></li>
+        <li>Een + Het-woord + Adjectief = Geen E! <small>(een mooi_ huis)</small></li>
+      </ul>
+    </div>
+
+  </div>
+  `;
 }
-
 // =============================================
-// PRACTICE MODE
+// PRACTICE MODE (5 questions, immediate feedback)
 // =============================================
 async function openPractice(id) {
-  STATE.topicId = id;
-  const tp = TOPICS[STATE.lang].find(t=>t.id===id);
-  const lb = LABELS[STATE.lang];
+  topicId = id;
+  const tp = TOPICS[lang].find(t=>t.id===id);
+  const lb = LABELS[lang];
   showDetail();
   document.getElementById('detailContent').innerHTML = `
     <div class="det-hdr">
@@ -680,35 +977,29 @@ async function openPractice(id) {
       <div class="ldwrap"><div class="spin"></div><span>${lb.loading}</span></div>
     </div>
   `;
-  
   try {
-    STATE.questions = await fetchQuestions(STATE.lang, id, tp.t, 5, 'practice');
-    STATE.qi = 0;
-    STATE.answers = [];
-    renderPracticeQuestion();
+    Qs = await fetchQuestions(lang, id, tp.t, 5, 'practice');
+    qi = 0; ans = [];
+    renderPracticeQ();
   } catch(e) {
-    console.error('Practice load error:', e);
-    document.getElementById('pquiz').innerHTML = `
-      <p style="color:var(--text2)">⚠️ Could not load questions. Please try again.</p>
-    `;
+    document.getElementById('pquiz').innerHTML = `<p style="color:var(--text2)">⚠️ Could not load questions. Please try again.</p>`;
   }
 }
 
-function renderPracticeQuestion() {
-  const lb = LABELS[STATE.lang];
-  const q = STATE.questions[STATE.qi];
-  const pct = Math.round(STATE.qi / STATE.questions.length * 100);
-  
+function renderPracticeQ() {
+  const lb = LABELS[lang];
+  const q = Qs[qi];
+  const pct = Math.round(qi / Qs.length * 100);
   document.getElementById('pquiz').innerHTML = `
     <div class="qhdr">
       <div class="pbar-wrap"><div class="pbar-fill" style="width:${pct}%"></div></div>
-      <div class="qmeta"><span>${lb.q} ${STATE.qi+1} ${lb.of} ${STATE.questions.length}</span><span>${pct}%</span></div>
+      <div class="qmeta"><span>${lb.q} ${qi+1} ${lb.of} ${Qs.length}</span><span>${pct}%</span></div>
     </div>
     <div class="qcard">
       <div class="qtext">${q.question}</div>
       <div class="opts" id="opts">
         ${q.options.map((o,i)=>`
-          <button class="obtn" id="ob${i}" onclick="selectPracticeAnswer(${i})">
+          <button class="obtn" id="ob${i}" onclick="pickPractice(${i})">
             <span class="oltr">${LTRS[i]}</span>${o}
           </button>
         `).join('')}
@@ -717,46 +1008,38 @@ function renderPracticeQuestion() {
     </div>
     <div class="qnav">
       <div></div>
-      <button class="btn btn-p" id="nxtbtn" style="display:none" onclick="nextPracticeQuestion()">
-        ${STATE.qi < STATE.questions.length-1 ? lb.next : '✓ '+lb.backTop}
+      <button class="btn btn-p" id="nxtbtn" style="display:none" onclick="nextPractice()">
+        ${qi < Qs.length-1 ? lb.next : '✓ '+lb.backTop}
       </button>
     </div>
   `;
 }
 
-function selectPracticeAnswer(sel) {
-  const lb = LABELS[STATE.lang];
-  const q = STATE.questions[STATE.qi];
-  
-  document.querySelectorAll('.obtn').forEach((btn,i) => {
-    btn.disabled = true;
-    if(i === q.correct) btn.classList.add('correct');
-    else if(i === sel && sel !== q.correct) btn.classList.add('incorrect');
+function pickPractice(sel) {
+  const lb = LABELS[lang];
+  const q = Qs[qi];
+  document.querySelectorAll('.obtn').forEach((b,i) => {
+    b.disabled = true;
+    if(i === q.correct) b.classList.add('correct');
+    else if(i === sel && sel !== q.correct) b.classList.add('incorrect');
   });
-  
-  document.getElementById('expbl').innerHTML = `
-    <div class="expbox"><strong>${lb.expl}</strong> ${q.explanation}</div>
-  `;
+  document.getElementById('expbl').innerHTML = `<div class="expbox"><strong>${lb.expl}</strong> ${q.explanation}</div>`;
   document.getElementById('nxtbtn').style.display = 'inline-flex';
-  STATE.answers[STATE.qi] = sel;
+  ans[qi] = sel;
 }
 
-function nextPracticeQuestion() {
-  if(STATE.qi < STATE.questions.length - 1) {
-    STATE.qi++;
-    renderPracticeQuestion();
-  } else {
-    backFromDetail();
-  }
+function nextPractice() {
+  if(qi < Qs.length-1){ qi++; renderPracticeQ(); }
+  else { backFromDetail(); }
 }
 
 // =============================================
-// TEST MODE
+// TEST MODE (10 questions, submit at end)
 // =============================================
 async function openTest(id) {
-  STATE.topicId = id;
-  const tp = TOPICS[STATE.lang].find(t=>t.id===id);
-  const lb = LABELS[STATE.lang];
+  topicId = id;
+  const tp = TOPICS[lang].find(t=>t.id===id);
+  const lb = LABELS[lang];
   showDetail();
   document.getElementById('detailContent').innerHTML = `
     <div class="det-hdr">
@@ -767,68 +1050,59 @@ async function openTest(id) {
       <div class="ldwrap"><div class="spin"></div><span>${lb.loading}</span></div>
     </div>
   `;
-  
   try {
-    STATE.questions = await fetchQuestions(STATE.lang, id, tp.t, 10, 'test');
-    STATE.qi = 0;
-    STATE.answers = new Array(10).fill(null);
-    renderTestQuestion(0);
+    Qs = await fetchQuestions(lang, id, tp.t, 10, 'test');
+    qi = 0; ans = new Array(10).fill(null);
+    renderTestQ(0);
   } catch(e) {
-    console.error('Test load error:', e);
-    document.getElementById('tquiz').innerHTML = `
-      <p style="color:var(--text2)">⚠️ Could not load questions. Please try again.</p>
-    `;
+    document.getElementById('tquiz').innerHTML = `<p style="color:var(--text2)">⚠️ Could not load questions. Please try again.</p>`;
   }
 }
 
-function renderTestQuestion(idx) {
-  const lb = LABELS[STATE.lang];
-  const q = STATE.questions[idx];
-  const pct = Math.round(idx / STATE.questions.length * 100);
-  const isLast = idx === STATE.questions.length - 1;
-  const selected = STATE.answers[idx];
-  
+function renderTestQ(idx) {
+  const lb = LABELS[lang];
+  const q = Qs[idx];
+  const pct = Math.round(idx / Qs.length * 100);
+  const isLast = idx === Qs.length - 1;
+  const selAns = ans[idx];
   document.getElementById('tquiz').innerHTML = `
     <div class="qhdr">
       <div class="pbar-wrap"><div class="pbar-fill" style="width:${pct}%"></div></div>
-      <div class="qmeta"><span>${lb.q} ${idx+1} ${lb.of} ${STATE.questions.length}</span><span>${pct}%</span></div>
+      <div class="qmeta"><span>${lb.q} ${idx+1} ${lb.of} ${Qs.length}</span><span>${pct}%</span></div>
     </div>
     <div class="qcard">
       <div class="qtext">${q.question}</div>
       <div class="opts">
         ${q.options.map((o,i)=>`
-          <button class="obtn ${selected===i?'sel-test':''}" onclick="selectTestAnswer(${idx},${i})">
+          <button class="obtn ${selAns===i?'sel-test':''}" onclick="pickTest(${idx},${i})">
             <span class="oltr">${LTRS[i]}</span>${o}
           </button>
         `).join('')}
       </div>
     </div>
     <div class="qnav">
-      ${idx>0 ? `<button class="btn btn-o" onclick="renderTestQuestion(${idx-1})">← </button>` : '<div></div>'}
+      ${idx>0 ? `<button class="btn btn-o" onclick="renderTestQ(${idx-1})">← </button>` : '<div></div>'}
       ${!isLast
-        ? `<button class="btn btn-p" onclick="renderTestQuestion(${idx+1})">${lb.next}</button>`
+        ? `<button class="btn btn-p" onclick="renderTestQ(${idx+1})">${lb.next}</button>`
         : `<button class="btn btn-p" onclick="submitTest()">${lb.submit}</button>`
       }
     </div>
   `;
 }
 
-function selectTestAnswer(idx, opt) {
-  STATE.answers[idx] = opt;
-  renderTestQuestion(idx);
+function pickTest(qi_, opt) {
+  ans[qi_] = opt;
+  renderTestQ(qi_);
 }
 
 function submitTest() {
-  const lb = LABELS[STATE.lang];
+  const lb = LABELS[lang];
   let correct = 0;
-  STATE.questions.forEach((q,i) => {
-    if(STATE.answers[i] === q.correct) correct++;
-  });
-  
-  const total = STATE.questions.length;
+  Qs.forEach((q,i) => { if(ans[i]===q.correct) correct++; });
+  const total = Qs.length;
   const pct = Math.round(correct/total*100);
-  const msg = pct===100 ? lb.perfect : pct>=70 ? lb.great : pct>=40 ? lb.ok : lb.keep;
-  
+  const msg = pct===100?lb.perfect:pct>=70?lb.great:pct>=40?lb.ok:lb.keep;
+  const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
   document.getElementById('tquiz').innerHTML = `
     <div class="res-card">
       <div class="res-lbl">${lb.results}</div>
@@ -841,23 +1115,23 @@ function submitTest() {
         <div style="text-align:center;margin-top:.4rem;color:var(--text3);font-weight:700;font-size:.9rem">${pct}%</div>
       </div>
       <div class="res-acts">
-        <button class="btn btn-p" onclick="openTest(${STATE.topicId})">${lb.tryAgain}</button>
+        <button class="btn btn-p" onclick="openTest(${topicId})">${lb.tryAgain}</button>
         <button class="btn btn-s" onclick="backFromDetail()">${lb.backTop}</button>
       </div>
     </div>
     <div style="margin-top:1.5rem">
-      <h3 style="font-family:'Libre Baskerville',serif;margin-bottom:1rem;font-size:1.05rem;color:var(--text2)">Review</h3>
-      ${STATE.questions.map((q,i)=>{
-        const isCorrect = STATE.answers[i]===q.correct;
-        return `<div class="rev-item" style="border-left-color:${isCorrect?'var(--en)':'#ef4444'}">
+      <h3 style="font-family:'Libre Baskerville',serif;margin-bottom:1rem;font-size:1.05rem;color:var(--text2)">${lb.score} — ${lb.q}s</h3>
+      ${Qs.map((q,i)=>{
+        const ok = ans[i]===q.correct;
+        return `<div class="rev-item" style="border-left-color:${ok?'var(--en)':'#ef4444'}">
           <div class="rev-q">${i+1}. ${q.question}</div>
-          <div class="rev-a" style="color:${isCorrect?'var(--en)':'#ef4444'}">${isCorrect?'✓':'✗'} ${LTRS[q.correct]}. ${q.options[q.correct]}</div>
+          <div class="rev-a" style="color:${ok?'var(--en)':'#ef4444'}">${ok?'✓':'✗'} ${LTRS[q.correct]}. ${q.options[q.correct]}</div>
           <div class="rev-e">${q.explanation}</div>
         </div>`;
       }).join('')}
     </div>
   `;
-  
+  // Animate progress bar
   setTimeout(() => {
     const pb = document.getElementById('resPbar');
     if(pb) pb.style.width = pct+'%';
@@ -873,77 +1147,51 @@ async function callAPI(prompt) {
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify({
       model:"claude-sonnet-4-20250514",
-      max_tokens:4000,
+      max_tokens:1000,
       messages:[{role:"user",content:prompt}]
     })
   });
-  
-  if (!res.ok) {
-    throw new Error(`API error: ${res.status}`);
-  }
-  
   const data = await res.json();
-  if(!data.content?.[0]?.text) {
-    throw new Error("No response from API");
-  }
-  
+  if(!data.content?.[0]?.text) throw new Error("No response");
   return data.content[0].text;
 }
 
-async function fetchQuestions(lang, id, title, count, qtype) {
-  const cacheKey = `q_${qtype}_${lang}_${id}`;
-  if(STATE.cache[cacheKey]) return STATE.cache[cacheKey];
-  
-  const langMap = {nl:'Dutch',fr:'French',en:'British English'};
-  const instructions = {
-    nl:'Schrijf alle vragen en antwoorden in het Nederlands.',
-    fr:'Écris toutes les questions et réponses en français.',
-    en:'Write all questions and answers in English.'
-  };
-  
-  const prompt = `You are an expert ${langMap[lang]} grammar teacher. ${instructions[lang]}
-
-Generate exactly ${count} multiple choice questions testing: "${title}"
-
+async function fetchQuestions(l, id, title, count, qtype) {
+  const k = `q_${qtype}_${l}_${id}`;
+  if(cache[k]) return cache[k];
+  const langFull = {nl:'Dutch',fr:'French',en:'British English'}[l];
+  const instr = {
+    nl:`Schrijf alle vragen en antwoorden in het Nederlands.`,
+    fr:`Écris toutes les questions et réponses en français.`,
+    en:`Write all questions and answers in English.`
+  }[l];
+  const prompt = `You are an expert ${langFull} grammar teacher. ${instr}
+Generate exactly ${count} multiple choice questions testing the grammar topic: "${title}"
 Each question must have exactly 4 options. Only one is correct. Include a brief 1-sentence explanation.
-
 Return ONLY valid JSON, no markdown, no backticks, no preamble:
 {"questions":[{"question":"...","options":["A text","B text","C text","D text"],"correct":0,"explanation":"..."}]}
-
-The "correct" value is the 0-based index of the correct option (0, 1, 2, or 3).`;
-
+The "correct" value is the 0-based index of the correct option.`;
   const raw = await callAPI(prompt);
-  let clean = raw.trim()
-    .replace(/^```json\s*/,'')
-    .replace(/^```\s*/,'')
-    .replace(/\s*```$/,'');
-  
+  let clean = raw.trim().replace(/^```json\s*/,'').replace(/^```\s*/,'').replace(/\s*```$/,'');
   const start = clean.indexOf('{');
   if(start > 0) clean = clean.slice(start);
-  
   const data = JSON.parse(clean);
-  STATE.cache[cacheKey] = data.questions;
+  cache[k] = data.questions;
   return data.questions;
 }
 
 // =============================================
-// INITIALIZATION
+// INIT
 // =============================================
-(function init() {
-  loadState();
-  
-  // Auto-select language if already chosen
-  if (STATE.lang && STATE.lang !== 'en') {
-    // Small delay to ensure DOM is ready
-    setTimeout(() => {
-      const langBtn = document.querySelector(`.lc.${STATE.lang}`);
-      if (langBtn) {
-        selectLang(STATE.lang);
-      }
-    }, 50);
+(function init(){
+  const saved = localStorage.getItem('ltheme');
+  if(saved === 'dark'){
+    dark = true;
+    document.body.setAttribute('data-theme','dark');
+    const ti = document.getElementById('themeIco');
+    if(ti) ti.textContent = '☀️';
   }
 })();
 </script>
-
 </body>
 </html>
