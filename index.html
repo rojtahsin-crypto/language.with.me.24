@@ -610,7 +610,296 @@ const TOPICS = {
     </div>
   `
 },
-    {id:2,t:"Bezittelijke voornaamwoorden",d:"Mijn, jouw, zijn, haar, ons, jullie, hun"},
+{
+  id: 2,
+  t: "Bezittelijke voornaamwoorden",
+  d: "Mijn, jouw, zijn, haar, ons, jullie, hun",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      /* === DARK MODE EXPLICIT CONTRAST === */
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.ons { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.onze { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-grid-2 { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 18px 0; }
+      @media(min-width: 680px) { .gw-grid-2 { grid-template-columns: 1fr 1fr; } }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+
+      .gw-outro {
+        margin-top: 24px; padding-top: 18px; border-top: 1px dashed var(--gw-border);
+        font-style: italic; color: var(--gw-text2); font-size: 0.98em;
+      }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🔑 Bezittelijke voornaamwoorden</h1>
+        <p>Van wie is het? Mijn fiets. Jouw probleem. Onze chaos.</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Goed, je hebt de lidwoorden overleefd. Nu duiken we in de <strong>BEZITTELIJKE VOORNAAMWOORDEN</strong> (<em>possessive pronouns</em>). Dit is het moment waarop we gaan aangeven van wie iets is.</p>
+        <p>Dit onderdeel is een verademing vergeleken met <em>de/het</em>. Er is <strong>veel minder willekeur</strong>. Er is maar <strong>één grote valkuil</strong> en die heet <span class="gw-badge ons">ONS</span> vs <span class="gw-badge onze">ONZE</span>. Maar we gaan <em>alles</em> behandelen.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 DEEL 1: HET BASISOVERZICHT</h2>
+        <p><em>Stampen dit!</em></p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Persoon</th><th>Bezittelijk vnw.</th><th>Voorbeeld</th><th>Let op!</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Ik</strong></td><td><strong>Mijn</strong> (of <em>m'n</em>)</td><td><em>Mijn</em> boek, <em>mijn</em> auto</td><td>Spreektaal: <em>Me</em> fiets (fout, maar vaak gehoord)</td></tr>
+              <tr><td><strong>Jij / Je</strong></td><td><strong>Jouw</strong> (of <em>je</em>)</td><td><em>Jouw</em> idee, <em>je</em> tas</td><td><em>Jou</em> is zonder -w (Jou zie ik). <em>Jouw</em> is bezit.</td></tr>
+              <tr><td><strong>U</strong></td><td><strong>Uw</strong></td><td><em>Uw</em> bestelling, <em>Uw</em> huis</td><td>Altijd met -w.</td></tr>
+              <tr><td><strong>Hij</strong></td><td><strong>Zijn</strong> (of <em>z'n</em>)</td><td><em>Zijn</em> hond, <em>z'n</em> kamer</td><td>—</td></tr>
+              <tr><td><strong>Zij (enkelv.)</strong></td><td><strong>Haar</strong> (of <em>d'r</em>)</td><td><em>Haar</em> sleutels, <em>d'r</em> moeder</td><td>—</td></tr>
+              <tr><td><strong>Het</strong></td><td><strong>Zijn</strong></td><td>De hond eet <em>zijn</em> voer.</td><td>Voor onzijdige woorden (<em>het</em> boek → <em>zijn</em> kaft)</td></tr>
+              <tr><td><strong>Wij / We</strong></td><td><strong>Ons / Onze</strong></td><td><em>Onze</em> hond, <em>Ons</em> kind</td><td>⚠️ <strong>DE GROTE STRUIKELBLOK.</strong> Zie DEEL 2.</td></tr>
+              <tr><td><strong>Jullie</strong></td><td><strong>Jullie</strong></td><td><em>Jullie</em> feestje</td><td><strong>Blijft altijd hetzelfde.</strong> Geen -e erachter!</td></tr>
+              <tr><td><strong>Zij (meerv.)</strong></td><td><strong>Hun</strong></td><td><em>Hun</em> vakantie</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚡ DEEL 2: DE GROTE VALKUIL: ONS vs. ONZE</h2>
+        <p>Dit is het enige moment waarop je echt moet nadenken over <strong>DE</strong> en <strong>HET</strong> bij bezittelijke voornaamwoorden. De regel is simpel, maar je moet het <em>zien</em>.</p>
+        <ul>
+          <li><span class="gw-badge onze">ONZE</span> gebruik je bij <strong>DE-woorden</strong> en <strong>MEERVOUD</strong>.</li>
+          <li><span class="gw-badge ons">ONS</span> gebruik je bij <strong>HET-woorden</strong> (enkelvoud).</li>
+        </ul>
+
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Soort Zelfstandig Naamwoord</th><th>Lidwoord</th><th>Bezittelijk</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>DE-woord</strong></td><td>De tafel</td><td><span class="gw-badge onze">Onze</span></td><td>Dit is <strong>onze</strong> tafel.</td></tr>
+              <tr><td><strong>HET-woord</strong></td><td>Het huis</td><td><span class="gw-badge ons">Ons</span></td><td>Dit is <strong>ons</strong> huis.</td></tr>
+              <tr><td><strong>Meervoud</strong></td><td>De boeken</td><td><span class="gw-badge onze">Onze</span></td><td>Dat zijn <strong>onze</strong> boeken.</td></tr>
+              <tr><td><strong>Verkleinwoord (HET)</strong></td><td>Het kindje</td><td><span class="gw-badge ons">Ons</span></td><td>Slaapt <strong>ons</strong> kindje al?</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--warn">
+          <div class="gw-card-title">🚫 Pas op voor deze klassieke fout:</div>
+          <ul>
+            <li>❌ FOUT: <em>Ons tafel</em>. (Klinkt als een boer uit een sketch).</li>
+            <li>✅ GOED: <strong>Onze tafel</strong>.</li>
+            <li>❌ FOUT: <em>Onze huis</em>.</li>
+            <li>✅ GOED: <strong>Ons huis</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>✏️ DEEL 3: DE BIJVOEGLIJKE NAAMWOORDEN-REGEL</h2>
+        <p>In het vorige hoofdstuk (Lidwoorden) was er paniek over <em>een mooi boek</em> (zonder -e) en <em>het mooie boek</em> (met -e). <strong>Bij bezittelijke voornaamwoorden gooi je die stress overboord.</strong></p>
+        
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">✅ De Gouden Regel:</div>
+          <p style="margin:0; color: var(--gw-text);">Staat er een bezittelijk voornaamwoord voor het zelfstandig naamwoord, dan krijgt het bijvoeglijk naamwoord <strong>ALTIJD een -E</strong>.<br>Het maakt niet uit of het een <em>de-woord</em> of <em>het-woord</em> is. Het maakt niet uit of het <em>mijn</em> of <em>ons</em> is. <strong>Altijd +E.</strong></p>
+        </div>
+
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Lidwoord situatie</th><th>Regel</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Een</strong> (Onbepaald)</td><td><strong>Geen -e</strong> bij HET-woorden</td><td>Een mooi<strong>_</strong> huis.</td></tr>
+              <tr><td><strong>Mijn / Jouw / Ons</strong> (Bezittelijk)</td><td><strong>Altijd +e</strong></td><td>Mijn mooi<strong>e</strong> huis.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Kijk naar het verschil:</h4>
+        <ol>
+          <li><strong>Een</strong> groot<strong>_</strong> paard. (HET-woord, na <em>een</em> geen -e)</li>
+          <li><strong>Mijn</strong> groot<strong>e</strong> paard. (HET-woord, na <em>mijn</em> WEL -e)</li>
+          <li><strong>Ons</strong> klein<strong>e</strong> feestje. (WEL -e)</li>
+        </ol>
+
+        <div class="gw-card gw-card--tip">
+          <div class="gw-card-title">⚠️ Enige uitzondering: Materiaalaanduidingen</div>
+          <p style="margin:0; color: var(--gw-text);">Soms als het bijvoeglijk naamwoord het materiaal aangeeft (en eindigt op -en), blijft het zoals het is:<br>
+          • Mijn <strong>houten</strong> tafel. (Niet: houtene tafel)<br>
+          • Onze <strong>gouden</strong> ring.</p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🗣️ DEEL 4: ZELFSTANDIG GEBRUIK</h2>
+        <p>Soms noem je het voorwerp niet, omdat je het net al genoemd hebt. Dan plak je er <strong>-E</strong> achter (bij de-woorden en meervoud) of <strong>niets</strong> (bij het-woorden). Let op de speciale vormen <em>mijne, jouwe</em>, etc. die je vooral hoort als je het nadrukkelijk zegt.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Persoon</th><th>Zelfstandig (Met nadruk)</th><th>Zonder nadruk</th><th>Voorbeeld zin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Ik</strong></td><td><strong>De mijne</strong></td><td>(die) van mij</td><td>Jouw auto is vies, <strong>de mijne</strong> is schoon.</td></tr>
+              <tr><td><strong>Jij</strong></td><td><strong>De jouwe</strong></td><td>(die) van jou</td><td>Is deze pen <strong>de jouwe</strong>?</td></tr>
+              <tr><td><strong>U</strong></td><td><strong>De uwe</strong></td><td>(die) van u</td><td>Met vriendelijke groet, <strong>de uwe</strong>.</td></tr>
+              <tr><td><strong>Hij</strong></td><td><strong>De zijne</strong></td><td>(die) van hem</td><td>Mijn fiets is kapot, ik leen <strong>de zijne</strong>.</td></tr>
+              <tr><td><strong>Wij</strong></td><td><strong>De onze</strong></td><td>(die) van ons</td><td>Hun tuin is klein, <strong>de onze</strong> is groot.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--check">
+          <div class="gw-card-title">🔍 Let op bij HET-woorden:</div>
+          <p style="margin:0; color: var(--gw-text);">Als het om een <em>het-woord</em> gaat, gebruik je <strong>HET</strong>:<br>
+          • Is dat jouw paard? Ja, het is <strong>het mijne</strong>.<br>
+          • Is dat jouw huis? Ja, het is <strong>het onze</strong>. (Niet: de onze).</p>
+        </div>
+
+        <h4>JULLIE & HUN (Zelfstandig)</h4>
+        <p>Deze blijven makkelijk. Je gebruikt gewoon <strong>van</strong>.</p>
+        <ul>
+          <li>Is dat die van <strong>jullie</strong>?</li>
+          <li>Is dat die van <strong>hun</strong>?</li>
+        </ul>
+        <p><em>Je kunt ook zeggen <em>de hunne</em> maar dat klinkt heel erg ouderwets en schrijftalig.</em></p>
+      </div>
+
+      <div class="gw-section">
+        <h2>🗣️ DEEL 5: DE SPREEKTAAL</h2>
+        <p>In de les leer je <em>mijn, jouw, zijn, haar</em>. Op straat hoor je dit:</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Officieel</th><th>Straattaal / Snel</th><th>Opmerking</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Mijn</strong></td><td><strong>M'n</strong> of <strong>Me</strong></td><td><em>Me moeder</em>. Officieel FOUT, maar iedereen zegt het.</td></tr>
+              <tr><td><strong>Jouw</strong></td><td><strong>Je</strong></td><td><em>Is dit je fiets?</em> (Perfect correct Nederlands)</td></tr>
+              <tr><td><strong>Zijn</strong></td><td><strong>Z'n</strong></td><td><em>Dat is z'n tas.</em></td></tr>
+              <tr><td><strong>Haar</strong></td><td><strong>D'r</strong></td><td><em>Dat is d'r zus.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>✅ DEEL 6: DE CHECKLIST VOOR DE TOETS / HET LEVEN</h2>
+        <p>Gebruik dit stappenplan als je een zin schrijft.</p>
+        <ol>
+          <li><strong>Kies het juiste woord:</strong> Ik → <strong>Mijn</strong>. Jij → <strong>Jouw</strong>. Wij → <strong>Ons/Onze</strong>.</li>
+          <li><strong>Is het WIJ?</strong> → Check of het zelfstandig naamwoord <strong>HET</strong> of <strong>DE</strong> is.<br><em>Het</em> boek → <strong>Ons</strong> boek. | <em>De</em> auto → <strong>Onze</strong> auto.</li>
+          <li><strong>Komt er een bijvoeglijk naamwoord?</strong> → <strong>Plak er een -E aan vast</strong>.<br>Ons <em>mooi<strong>e</strong></em> boek. (Let op: wel een E, ook al is het <em>ons</em>).</li>
+          <li><strong>Staat het zelfstandig naamwoord er niet?</strong> → Gebruik <strong>De mijne / Het mijne</strong>.</li>
+        </ol>
+
+        <h4>💬 VOORBEELDZINNEN (Alles door elkaar)</h4>
+        <div class="gw-example"><span class="orig">📌 <strong>Mijn</strong> ou<strong>e</strong> fiets staat naast <strong>jouw</strong> nieuw<strong>e</strong> auto.</span></div>
+        <div class="gw-example"><span class="orig">📌 <strong>Onze</strong> gezellig<strong>e</strong> woonkamer is groter dan <strong>jullie</strong> rommelig<strong>e</strong> zolder.</span></div>
+        <div class="gw-example"><span class="orig">📌 Ik heb <strong>mijn</strong> sleutels verloren, mag ik <strong>de jouwe</strong> lenen?</span></div>
+        <div class="gw-example"><span class="orig">📌 <strong>Haar</strong> klein<strong>e</strong> zusje speelt met <strong>ons</strong> oud<strong>e</strong> speelgoed.</span></div>
+        <div class="gw-example"><span class="orig">📌 <strong>Uw</strong> bestell<strong>ing</strong> is onderweg. (Hier geen bijv. nw. extra)</span></div>
+        <div class="gw-example"><span class="orig">📌 Dat is <strong>hun</strong> probleem, niet <strong>het onze</strong>.</span></div>
+
+        <p class="gw-outro">Is er een specifieke combinatie waar je nog over twijfelt? (Zoals <em>ons meisje</em> vs <em>onze meid</em>?)</p>
+      </div>
+    </div>
+  `
+},
     {id:3,t:"Tegenwoordige tijd",d:"Regelmatige en onregelmatige werkwoorden"},
     {id:4,t:"Verleden tijd (zwak & sterk)",d:"Onvoltooid verleden en 't kofschip-regel"},
     {id:5,t:"Voltooide tijden",d:"Voltooid tegenwoordige en verleden tijd"},
