@@ -1,943 +1,949 @@
 <!DOCTYPE html>
-<html lang="nl">
+
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lang.Master</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LinguaAI — Grammar Mastery</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --bg:#f5f3ef;--surface:#fff;--surface2:#faf9f7;--border:#e8e4de;
-  --text:#1c1917;--text2:#78716c;--accent:#d97706;--accent-dark:#b45309;
-  --accent-soft:#fef3c7;--green:#16a34a;--red:#dc2626;--blue:#2563eb;
-  --purple:#7c3aed;--teal:#0d9488;--pink:#db2777;
-  --sh:0 4px 16px rgba(0,0,0,0.08);--r:16px;--r-sm:10px;
-  --font:'Plus Jakarta Sans',sans-serif;--mono:'Fira Code',monospace;
-}
-body.dark{
-  --bg:#0c0a08;--surface:#1a1614;--surface2:#221e1a;--border:#2e2a26;
-  --text:#f5f0e8;--text2:#9c9087;--accent:#f59e0b;--accent-dark:#d97706;
-  --accent-soft:#1c1500;--sh:0 4px 16px rgba(0,0,0,0.35);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
-/* LANG SCREEN */
-#langScreen{
-  position:fixed;inset:0;z-index:9999;
-  background:linear-gradient(160deg,#0f0a00,#1c0d00 40%,#0a1200);
-  display:flex;align-items:center;justify-content:center;transition:opacity .5s;
+:root{
+–bg:#faf8f3; –bg2:#f2ede0; –bg3:#ebe4d1;
+–text:#1c1a16; –text2:#5a5040; –text3:#9a8e78;
+–border:#dfd7c2; –shadow:rgba(28,26,22,.07); –shadow-lg:rgba(28,26,22,.14);
+–r:16px; –rs:10px; –t:.28s cubic-bezier(.4,0,.2,1);
+–accent:#059669; –acbg:#ecfdf5; –acbo:#a7f3d0;
+–nl:#e8590c; –nlbg:#fff3ed; –nlbo:#fcd0b5;
+–fr:#4f46e5; –frbg:#eef2ff; –frbo:#c7d2fe;
+–en:#059669; –enbg:#ecfdf5; –enbo:#a7f3d0;
 }
-#langScreen.gone{opacity:0;pointer-events:none;}
-.li{text-align:center;animation:su .7s cubic-bezier(.22,1,.36,1);}
-@keyframes su{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
-.brand{font-size:clamp(2.5rem,6vw,4rem);font-weight:800;color:#fff;letter-spacing:-2px;margin-bottom:.4rem;}
-.brand span{color:#f59e0b;}
-.bsub{color:#78716c;font-size:1rem;margin-bottom:3.5rem;}
-.lcards{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;}
-.lcard{
-  background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);
-  border-radius:20px;padding:2rem 2.5rem;cursor:pointer;color:#f5f0e8;
-  text-align:center;transition:all .25s;min-width:160px;
+[data-theme=dark]{
+–bg:#131109; –bg2:#1c1912; –bg3:#24201a;
+–text:#f0ead8; –text2:#b8a88a; –text3:#6a5f45;
+–border:#2e2820; –shadow:rgba(0,0,0,.35); –shadow-lg:rgba(0,0,0,.55);
+–acbg:#1a2e1e; –acbo:#15803d;
+–nlbg:#2d1410; –nlbo:#c2410c;
+–frbg:#1e1b3c; –frbo:#4338ca;
+–enbg:#1a2e1e; –enbo:#15803d;
 }
-.lcard:hover{background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.5);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.4);}
-.lcard img{width:72px;border-radius:10px;display:block;margin:0 auto 1rem;}
-.lcard .ln{font-size:1.05rem;font-weight:700;}
 
-/* APP */
-#app{display:none;min-height:100vh;flex-direction:column;}
-#app.on{display:flex;}
+body{font-family:‘Nunito’,sans-serif;background:var(–bg);color:var(–text);line-height:1.65;transition:background var(–t),color var(–t);min-height:100vh}
 
-/* HEADER */
-.hdr{
-  background:var(--surface);border-bottom:1px solid var(--border);
-  padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;
-  gap:1rem;flex-wrap:wrap;position:sticky;top:0;z-index:200;
-  box-shadow:0 1px 3px rgba(0,0,0,.08);
-}
-.logo{font-size:1.35rem;font-weight:800;letter-spacing:-1px;color:var(--text);}
-.logo span{color:var(--accent);}
-.tnav{display:flex;gap:.25rem;background:var(--bg);border:1px solid var(--border);border-radius:50px;padding:.35rem;}
-.tb{
-  background:transparent;border:none;cursor:pointer;padding:.5rem 1.3rem;
-  border-radius:40px;font-family:var(--font);font-size:.88rem;font-weight:600;
-  color:var(--text2);display:flex;align-items:center;gap:6px;transition:all .2s;white-space:nowrap;
-}
-.tb.on{background:var(--surface);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.08);}
-.tb i{font-size:.9rem;}
-.hbtns{display:flex;gap:.4rem;}
-.hbtn{
-  width:40px;height:40px;border-radius:50%;border:1px solid var(--border);
-  background:var(--bg);cursor:pointer;font-size:1rem;color:var(--text2);
-  display:flex;align-items:center;justify-content:center;transition:all .2s;
-}
-.hbtn:hover{color:var(--accent);border-color:var(--accent);}
+/* === LANGUAGE SELECT === */
+#langSelect{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden}
+#langSelect::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse at 25% 30%,rgba(232,89,12,.07) 0%,transparent 50%),radial-gradient(ellipse at 75% 70%,rgba(79,70,229,.07) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(5,150,105,.05) 0%,transparent 55%);pointer-events:none}
+[data-theme=dark] #langSelect::before{background:radial-gradient(ellipse at 25% 30%,rgba(232,89,12,.12) 0%,transparent 50%),radial-gradient(ellipse at 75% 70%,rgba(79,70,229,.12) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(5,150,105,.08) 0%,transparent 55%)}
+.ls-hero{text-align:center;margin-bottom:3rem;animation:fadeUp .6s ease both}
+.ls-hero h1{font-family:‘Libre Baskerville’,serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;letter-spacing:-.025em;line-height:1.1}
+.ls-hero h1 em{font-style:normal;color:var(–accent)}
+.ls-hero p{color:var(–text2);font-size:1.05rem;margin-top:.5rem;font-weight:500}
+.ls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem;max-width:860px;width:100%}
+.lc{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:2.5rem 2rem;text-align:center;cursor:pointer;transition:all var(–t);position:relative;overflow:hidden;animation:fadeUp .6s ease both}
+.lc:nth-child(1){animation-delay:.12s}.lc:nth-child(2){animation-delay:.22s}.lc:nth-child(3){animation-delay:.32s}
+.lc::after{content:’’;position:absolute;bottom:0;left:0;right:0;height:3px;transform:scaleX(0);transition:transform var(–t);transform-origin:left}
+.lc.nl::after{background:var(–nl)}.lc.fr::after{background:var(–fr)}.lc.en::after{background:var(–en)}
+.lc:hover{transform:translateY(-7px);box-shadow:0 20px 44px var(–shadow-lg)}
+.lc:hover::after{transform:scaleX(1)}
+.lc.nl:hover{border-color:var(–nl)}.lc.fr:hover{border-color:var(–fr)}.lc.en:hover{border-color:var(–en)}
+.lc-flag{font-size:3.8rem;display:block;margin-bottom:1rem;animation:float 4s ease-in-out infinite}
+.lc:nth-child(2) .lc-flag{animation-delay:1.4s}.lc:nth-child(3) .lc-flag{animation-delay:2.8s}
+.lc-name{font-family:‘Libre Baskerville’,serif;font-size:1.9rem;font-weight:700;margin-bottom:.25rem}
+.lc-sub{color:var(–text3);font-size:.9rem;font-weight:500;letter-spacing:.02em}
 
-/* SEARCH */
-.sbar{background:var(--surface);border-bottom:1px solid var(--border);padding:.85rem 2rem;}
-.sw{
-  max-width:680px;margin:0 auto;position:relative;
-  background:var(--bg);border:1.5px solid var(--border);
-  border-radius:50px;display:flex;align-items:center;padding:0 .5rem 0 1.2rem;
-  transition:border-color .2s,box-shadow .2s;
-}
-.sw:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(217,119,6,.12);}
-.sw > i{color:var(--text2);font-size:.95rem;flex-shrink:0;}
-#si{flex:1;border:none;background:transparent;outline:none;padding:.75rem .8rem;font-family:var(--font);font-size:.9rem;color:var(--text);}
-#si::placeholder{color:var(--text2);}
-#sc{background:none;border:none;color:var(--text2);cursor:pointer;padding:.4rem .6rem;font-size:.95rem;border-radius:50%;display:none;}
-#sc:hover{color:var(--red);}
-#sr{
-  position:absolute;top:calc(100% + 8px);left:0;right:0;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r);box-shadow:var(--sh);z-index:500;
-  display:none;max-height:380px;overflow-y:auto;
-}
-.srlbl{padding:.4rem 1rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text2);}
-.sri{
-  display:flex;align-items:center;gap:10px;padding:.75rem 1rem;
-  cursor:pointer;border-bottom:1px solid var(--border);transition:background .1s;
-}
-.sri:last-child{border-bottom:none;}
-.sri:hover{background:var(--bg);}
-.sric{width:30px;height:30px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;}
-.srt{font-size:.88rem;font-weight:600;margin-bottom:1px;}
-.srs{font-size:.75rem;color:var(--text2);}
-mark{background:#fde68a;padding:0 2px;border-radius:3px;}
-body.dark mark{background:#78350f;color:#fde68a;}
+/* === APP SHELL === */
+#app{display:none}
+.app-header{background:var(–bg);border-bottom:1.5px solid var(–border);position:sticky;top:0;z-index:100;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.hdr{max-width:1320px;margin:0 auto;padding:.85rem 1.75rem;display:flex;align-items:center;gap:1rem}
+.logo{font-family:‘Libre Baskerville’,serif;font-size:1.45rem;font-weight:700;flex:1;cursor:pointer;display:flex;align-items:center;gap:.35rem;color:var(–text);text-decoration:none}
+.logo-dot{width:7px;height:7px;border-radius:50%;background:var(–accent);flex-shrink:0}
+.hdr-acts{display:flex;gap:.45rem}
+.btico{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–rs);padding:.5rem .85rem;cursor:pointer;transition:all var(–t);font-size:.88rem;font-family:‘Nunito’,sans-serif;font-weight:700;color:var(–text);display:flex;align-items:center;gap:.3rem}
+.btico:hover{background:var(–bg3);border-color:var(–text3)}
+.nav-bar{background:var(–bg);border-bottom:1.5px solid var(–border)}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 1.75rem;display:flex}
+.ntab{padding:.8rem 1.4rem;background:none;border:none;border-bottom:2.5px solid transparent;color:var(–text3);font-size:.93rem;font-weight:700;cursor:pointer;transition:all var(–t);font-family:‘Nunito’,sans-serif;letter-spacing:.01em;white-space:nowrap}
+.ntab:hover{color:var(–text)}
+.ntab.active{color:var(–text);border-bottom-color:var(–accent)}
 
-/* MAIN */
-.main{flex:1;padding:1.8rem 2rem;max-width:1080px;margin:0 auto;width:100%;}
-.sec{display:none;animation:fi .2s;}
-.sec.on{display:block;}
-@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* === MAIN CONTENT === */
+.cwrap{max-width:1320px;margin:0 auto;padding:1.75rem}
+.sh{margin-bottom:1.25rem;position:relative}
+.si{width:100%;padding:.85rem 2.8rem .85rem 1.1rem;font-size:.97rem;border:1.5px solid var(–border);border-radius:var(–rs);background:var(–bg2);color:var(–text);font-family:‘Nunito’,sans-serif;transition:all var(–t)}
+.si::placeholder{color:var(–text3)}
+.si:focus{outline:none;border-color:var(–accent);box-shadow:0 0 0 3px var(–acbg);background:var(–bg)}
+.si-ico{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(–text3);pointer-events:none}
 
-/* GRAMMAR */
-.gl{display:flex;flex-direction:column;gap:.9rem;}
-.gc{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r);padding:1.3rem 1.5rem;
-  position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s;
-}
-.gc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:var(--r) 0 0 var(--r);}
-.gc.hl{box-shadow:0 0 0 3px var(--accent);transform:scale(1.003);}
-.gctop{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.6rem;gap:1rem;}
-.gcnum{font-family:var(--mono);font-size:.68rem;color:var(--text2);font-weight:500;}
-.gc h3{font-size:1rem;font-weight:700;line-height:1.4;flex:1;}
-.exb{
-  background:var(--bg);border:1px solid var(--border);width:28px;height:28px;
-  border-radius:50%;cursor:pointer;color:var(--text2);font-size:.8rem;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;
-}
-.exb:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent);}
-.gbody{display:none;margin-top:.8rem;}
-.gbody.op{display:block;animation:fi .2s;}
-.gexp{font-size:.87rem;color:var(--text2);line-height:1.75;margin-bottom:.9rem;}
-.gexp strong{color:var(--text);font-weight:600;}
-.gexb{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:.9rem 1rem;margin-bottom:.8rem;}
-.gexl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-bottom:.5rem;}
-.gexr{padding:.35rem 0;border-bottom:1px dashed var(--border);font-size:.84rem;color:var(--text);}
-.gexr:last-child{border-bottom:none;}
-.gwrds{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem;}
-.wt{
-  background:var(--accent-soft);color:var(--accent-dark);border:1px solid rgba(217,119,6,.2);
-  border-radius:2rem;padding:.28rem .75rem;font-size:.8rem;font-weight:600;cursor:pointer;
-  display:inline-flex;align-items:center;gap:4px;transition:all .15s;
-}
-.wt:hover{background:var(--accent);color:white;}
-.wt i{font-size:.7rem;}
-.gc-blue::before{background:var(--blue);}
-.gc-green::before{background:var(--green);}
-.gc-orange::before{background:#ea580c;}
-.gc-purple::before{background:var(--purple);}
-.gc-red::before{background:var(--red);}
-.gc-teal::before{background:var(--teal);}
-.gc-pink::before{background:var(--pink);}
-.gc-yellow::before{background:#ca8a04;}
+/* === TOPIC GRID === */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.9rem}
+.tc{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:1.4rem;cursor:pointer;transition:all var(–t);position:relative;animation:fadeIn .4s ease both}
+.tc:hover{transform:translateY(-3px);box-shadow:0 8px 22px var(–shadow);border-color:var(–acbo);background:var(–acbg)}
+.tc-num{display:inline-flex;align-items:center;justify-content:center;width:1.9rem;height:1.9rem;background:var(–acbg);color:var(–accent);border-radius:7px;font-size:.72rem;font-weight:900;margin-bottom:.7rem;border:1px solid var(–acbo)}
+.tc-title{font-family:‘Libre Baskerville’,serif;font-size:1rem;font-weight:700;margin-bottom:.3rem;line-height:1.3}
+.tc-desc{color:var(–text2);font-size:.82rem;line-height:1.5}
 
-/* PRACTICE */
-.lvlrow{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
-.lbtn{
-  background:var(--bg);border:1.5px solid var(--border);padding:.5rem 1.4rem;
-  border-radius:50px;font-family:var(--font);font-weight:700;font-size:.88rem;
-  cursor:pointer;color:var(--text2);transition:all .2s;
-}
-.lbtn.on{background:var(--accent);border-color:var(--accent);color:white;}
-.qbox{
-  background:var(--surface);border:1px solid var(--border);
-  border-left:5px solid var(--accent);border-radius:var(--r);
-  padding:1.4rem 1.6rem;font-size:1.05rem;font-weight:600;margin-bottom:1.2rem;
-}
-.opts{display:flex;flex-direction:column;gap:.6rem;}
-.obtn{
-  background:var(--bg);border:1.5px solid var(--border);padding:.8rem 1.4rem;
-  border-radius:50px;text-align:left;font-family:var(--font);font-size:.9rem;
-  font-weight:500;color:var(--text);cursor:pointer;transition:all .15s;
-}
-.obtn:hover:not(.ok):not(.bad){border-color:var(--accent);background:var(--accent-soft);}
-.obtn.ok{background:#dcfce7;border-color:var(--green);color:#14532d;}
-.obtn.bad{background:#fee2e2;border-color:var(--red);color:#7f1d1d;}
-body.dark .obtn.ok{background:#052e16;color:#86efac;}
-body.dark .obtn.bad{background:#450a0a;color:#fca5a5;}
-.fbmsg{margin-top:.9rem;padding:.75rem 1.2rem;border-radius:var(--r-sm);font-weight:600;font-size:.88rem;}
-.fbok{background:#dcfce7;color:#14532d;border:1px solid var(--green);}
-.fbbad{background:#fee2e2;color:#7f1d1d;border:1px solid var(--red);}
-body.dark .fbok{background:#052e16;color:#86efac;border-color:var(--green);}
-body.dark .fbbad{background:#450a0a;color:#fca5a5;border-color:var(--red);}
-.nxtbtn{
-  background:var(--accent);color:white;border:none;padding:.8rem 2rem;
-  border-radius:50px;font-family:var(--font);font-weight:700;font-size:.92rem;
-  cursor:pointer;margin-top:1.2rem;transition:opacity .15s;display:inline-flex;align-items:center;gap:6px;
-}
-.nxtbtn:hover{opacity:.88;}
-.prwrap{margin-top:1.6rem;}
-.prbg{background:var(--border);border-radius:10px;height:7px;overflow:hidden;}
-.prfill{background:var(--green);height:100%;width:0%;border-radius:10px;transition:width .4s;}
-.prlbl{font-family:var(--mono);font-size:.75rem;color:var(--text2);margin-top:.4rem;text-align:right;}
+/* === TOPIC DETAIL === */
+.back-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–rs);padding:.5rem .95rem;cursor:pointer;transition:all var(–t);font-weight:700;color:var(–text);font-family:‘Nunito’,sans-serif;font-size:.88rem;margin-bottom:1.25rem}
+.back-btn:hover{transform:translateX(-3px);border-color:var(–text3)}
+.det-hdr{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:1.8rem 2.2rem;margin-bottom:1.25rem}
+.det-hdr h1{font-family:‘Libre Baskerville’,serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:.4rem}
+.det-hdr p{color:var(–text2);margin-bottom:1.25rem;font-size:.95rem}
+.tact{display:flex;gap:.6rem;flex-wrap:wrap}
+.btn{padding:.65rem 1.35rem;border-radius:var(–rs);font-family:‘Nunito’,sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all var(–t);border:1.5px solid transparent;letter-spacing:.01em}
+.btn-p{background:var(–accent);color:#fff;border-color:var(–accent)}.btn-p:hover{opacity:.88;transform:translateY(-1px)}
+.btn-s{background:var(–bg);color:var(–text);border-color:var(–border)}.btn-s:hover{background:var(–bg3);border-color:var(–text3)}
+.btn-o{background:var(–bg2);color:var(–text);border-color:var(–border)}.btn-o:hover{background:var(–bg3)}
 
-/* TESTS */
-.titem{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem 1.4rem;margin-bottom:.9rem;}
-.tq{font-size:.92rem;font-weight:600;margin-bottom:.8rem;}
-.tmc{display:flex;flex-wrap:wrap;gap:.5rem;}
-.tmcbtn{
-  padding:.4rem 1rem;border:1.5px solid var(--border);border-radius:50px;
-  font-family:var(--font);font-size:.84rem;font-weight:500;cursor:pointer;
-  color:var(--text);background:var(--bg);transition:all .15s;
-}
-.tmcbtn.sel{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);}
-.tfill{
-  width:100%;padding:.7rem 1.1rem;border:1.5px solid var(--border);border-radius:50px;
-  background:var(--bg);font-family:var(--font);font-size:.88rem;color:var(--text);
-  outline:none;transition:border-color .2s;
-}
-.tfill:focus{border-color:var(--accent);}
-.subbtn{
-  background:var(--accent);color:white;border:none;padding:.85rem 2.2rem;
-  border-radius:50px;font-family:var(--font);font-weight:700;font-size:.92rem;
-  cursor:pointer;margin-top:1.5rem;transition:opacity .15s;
-}
-.subbtn:hover{opacity:.88;}
-.rbox{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:2rem;margin-top:1.5rem;text-align:center;}
-.rpct{font-size:3.5rem;font-weight:800;color:var(--accent);line-height:1;margin-bottom:.5rem;}
-.rmsg{font-size:1rem;color:var(--text2);}
+/* === CONTENT BOX === */
+.cbox{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:2rem 2.4rem;line-height:1.85;animation:fadeIn .4s ease both}
+.cbox h2{font-family:‘Libre Baskerville’,serif;font-size:1.3rem;margin-bottom:.9rem;color:var(–text)}
+.cbox p{margin-bottom:.9rem;color:var(–text)}
+.cbox ul,.cbox ol{margin:.4rem 0 1rem 1.1rem}
+.cbox li{margin-bottom:.35rem;color:var(–text)}
+.cbox strong{font-weight:800}
+.cbox em{color:var(–accent);font-style:italic}
+.example-box{background:var(–bg3);border-left:3px solid var(–accent);padding:.9rem 1.1rem;border-radius:0 var(–rs) var(–rs) 0;margin:.9rem 0}
+.example-box .original{display:block;font-family:‘Libre Baskerville’,serif;font-style:italic;color:var(–text);margin-bottom:.18rem;font-size:1rem}
+.example-box .translation{display:block;color:var(–text3);font-size:.86rem}
 
-/* POPUP */
-.pop{
-  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
-  background:var(--text);color:var(--bg);padding:11px 22px;border-radius:50px;
-  font-weight:600;font-size:.88rem;box-shadow:var(--sh);z-index:9998;
-  animation:pu .2s ease;display:flex;align-items:center;gap:9px;
-}
-@keyframes pu{from{opacity:0;transform:translateX(-50%) translateY(14px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-.pop button{background:none;border:none;color:inherit;cursor:pointer;font-size:1.1rem;opacity:.7;}
+/* === LOADING === */
+.ldwrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 2rem;gap:.9rem;color:var(–text3);font-weight:600;font-size:.92rem}
+.spin{width:38px;height:38px;border:3px solid var(–border);border-top-color:var(–accent);border-radius:50%;animation:spin 1s linear infinite}
 
-footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.78rem;border-top:1px solid var(--border);}
+/* === QUIZ === */
+.qhdr{margin-bottom:1.2rem}
+.pbar-wrap{background:var(–bg3);border-radius:100px;height:5px;margin-bottom:.45rem;overflow:hidden}
+.pbar-fill{height:100%;background:var(–accent);border-radius:100px;transition:width .5s ease}
+.qmeta{display:flex;justify-content:space-between;color:var(–text3);font-size:.82rem;font-weight:700}
+.qcard{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:1.8rem 2.2rem;margin-bottom:1rem;animation:fadeIn .3s ease both}
+.qtext{font-size:1.08rem;font-weight:700;margin-bottom:1.4rem;line-height:1.5;color:var(–text)}
+.opts{display:flex;flex-direction:column;gap:.6rem}
+.obtn{padding:.9rem 1.1rem;border:1.5px solid var(–border);border-radius:var(–rs);background:var(–bg);color:var(–text);text-align:left;cursor:pointer;transition:all var(–t);font-size:.93rem;font-family:‘Nunito’,sans-serif;font-weight:600;display:flex;align-items:center;gap:.7rem;line-height:1.4}
+.obtn:hover:not(:disabled){border-color:var(–accent);background:var(–acbg);transform:translateX(4px)}
+.obtn:disabled{cursor:default}
+.oltr{width:1.5rem;height:1.5rem;border-radius:6px;background:var(–bg2);border:1.5px solid var(–border);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:900;flex-shrink:0;transition:all var(–t)}
+.obtn.correct{background:#ecfdf5;border-color:#059669;color:#065f46}
+[data-theme=dark] .obtn.correct{background:#1a2e1e;border-color:#15803d;color:#86efac}
+.obtn.correct .oltr{background:#059669;border-color:#059669;color:#fff}
+.obtn.incorrect{background:#fef2f2;border-color:#ef4444;color:#991b1b}
+[data-theme=dark] .obtn.incorrect{background:#2d1410;border-color:#dc2626;color:#fca5a5}
+.obtn.incorrect .oltr{background:#ef4444;border-color:#ef4444;color:#fff}
+.obtn.sel-test{background:var(–acbg);border-color:var(–accent)}
+.obtn.sel-test .oltr{background:var(–accent);border-color:var(–accent);color:#fff}
+.expbox{background:var(–acbg);border:1.5px solid var(–acbo);border-radius:var(–rs);padding:.85rem 1.1rem;margin-top:.9rem;font-size:.88rem;color:var(–text);animation:fadeIn .3s ease both;font-weight:600;line-height:1.55}
+.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;gap:.6rem}
 
-@media(max-width:640px){
-  .hdr{padding:.75rem 1rem;}
-  .main{padding:1.2rem 1rem;}
-  .sbar{padding:.75rem 1rem;}
-  .tb span{display:none;}
-  .logo{font-size:1.15rem;}
+/* === RESULTS === */
+.res-card{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–r);padding:2.5rem;text-align:center;animation:fadeIn .5s ease both}
+.res-score{font-family:‘Libre Baskerville’,serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:700;color:var(–accent);line-height:1;margin:.75rem 0}
+.res-lbl{color:var(–text3);font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.res-msg{font-size:1.15rem;font-weight:800;margin-bottom:1.5rem;color:var(–text)}
+.res-acts{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.75rem}
+.rev-item{background:var(–bg2);border:1.5px solid var(–border);border-radius:var(–rs);padding:.85rem 1.1rem;margin-bottom:.6rem;border-left-width:3px;font-size:.88rem}
+.rev-q{font-weight:700;margin-bottom:.35rem}
+.rev-a{font-weight:800;margin-bottom:.25rem}
+.rev-e{color:var(–text3);font-size:.82rem}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+.cwrap{padding:1rem}
+.hdr{padding:.7rem 1rem}
+.nav-inner{padding:0 1rem;overflow-x:auto;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.ntab{padding:.7rem 1rem;font-size:.85rem}
+.det-hdr{padding:1.4rem 1.5rem}
+.cbox,.qcard{padding:1.4rem 1.5rem}
+.tgrid{grid-template-columns:1fr}
+.ls-grid{max-width:320px}
+.res-card{padding:1.75rem 1.5rem}
 }
 </style>
+
 </head>
 <body>
 
-<div id="langScreen">
-  <div class="li">
-    <div class="brand">Lang<span>.</span>Master</div>
-    <div class="bsub">The smartest way to learn a language</div>
-    <div class="lcards">
-      <div class="lcard" id="lc-dutch">
-        <img src="https://flagcdn.com/w160/nl.png" alt="NL">
-        <div class="ln">🇳🇱 Nederlands</div>
-      </div>
-      <div class="lcard" id="lc-french">
-        <img src="https://flagcdn.com/w160/fr.png" alt="FR">
-        <div class="ln">🇫🇷 Français</div>
-      </div>
-      <div class="lcard" id="lc-english">
-        <img src="https://flagcdn.com/w160/gb.png" alt="EN">
-        <div class="ln">🇬🇧 English</div>
-      </div>
+<!-- LANGUAGE SELECTION -->
+
+<div id="langSelect">
+  <div class="ls-hero">
+    <h1>Lingua<em>AI</em></h1>
+    <p>Grammar Mastery — AI-Powered Learning</p>
+  </div>
+  <div class="ls-grid">
+    <div class="lc nl" onclick="selectLang('nl')">
+      <span class="lc-flag">🇳🇱</span>
+      <div class="lc-name">Nederlands</div>
+      <div class="lc-sub">Dutch Language</div>
+    </div>
+    <div class="lc fr" onclick="selectLang('fr')">
+      <span class="lc-flag">🇫🇷</span>
+      <div class="lc-name">Français</div>
+      <div class="lc-sub">French Language</div>
+    </div>
+    <div class="lc en" onclick="selectLang('en')">
+      <span class="lc-flag">🇬🇧</span>
+      <div class="lc-name">English</div>
+      <div class="lc-sub">British English</div>
     </div>
   </div>
 </div>
 
+<!-- MAIN APP -->
+
 <div id="app">
-  <header class="hdr">
-    <div class="logo">Lang<span>.</span>Master</div>
-    <nav class="tnav">
-      <button class="tb on" data-tab="grammar"><i class="fas fa-book-open"></i><span id="l-g">Grammar</span></button>
-      <button class="tb" data-tab="practice"><i class="fas fa-pen"></i><span id="l-p">Practice</span></button>
-      <button class="tb" data-tab="tests"><i class="fas fa-clipboard-check"></i><span id="l-t">Tests</span></button>
-    </nav>
-    <div class="hbtns">
-      <button class="hbtn" id="btnLang"><i class="fas fa-globe"></i></button>
-      <button class="hbtn" id="btnDark"><i class="fas fa-moon"></i></button>
+  <header class="app-header">
+    <div class="hdr">
+      <div class="logo" onclick="showLangSelect()">
+        LinguaAI<span class="logo-dot"></span>
+      </div>
+      <div class="hdr-acts">
+        <button class="btico" id="langBtn" onclick="showLangSelect()">
+          <span id="langFlag">🇬🇧</span>
+        </button>
+        <button class="btico" onclick="toggleTheme()">
+          <span id="themeIco">🌙</span>
+        </button>
+      </div>
     </div>
   </header>
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <button class="ntab active" id="tab-grammar" onclick="switchTab('grammar')">
+        <span id="lbl-grammar">Grammar</span>
+      </button>
+      <button class="ntab" id="tab-practice" onclick="switchTab('practice')">
+        <span id="lbl-practice">Practice</span>
+      </button>
+      <button class="ntab" id="tab-test" onclick="switchTab('test')">
+        <span id="lbl-test">Test</span>
+      </button>
+    </div>
+  </nav>
+  <div class="cwrap">
+    <!-- Grammar section -->
+    <div id="sec-grammar">
+      <div class="sh">
+        <input type="text" class="si" id="searchInp" placeholder="Search grammar topics..." oninput="filterTopics()"/>
+        <span class="si-ico">🔍</span>
+      </div>
+      <div class="tgrid" id="grammarGrid"></div>
+    </div>
 
-  <div class="sbar">
-    <div class="sw">
-      <i class="fas fa-search"></i>
-      <input id="si" type="text" placeholder="Search grammar, exercises..." autocomplete="off">
-      <button id="sc"><i class="fas fa-times"></i></button>
-      <div id="sr"></div>
-    </div>
-  </div>
+```
+<!-- Practice section -->
+<div id="sec-practice" style="display:none">
+  <div class="tgrid" id="practiceGrid"></div>
+</div>
 
-  <div class="main">
-    <div id="s-grammar" class="sec on"><div id="gl" class="gl"></div></div>
-    <div id="s-practice" class="sec">
-      <div id="pl" class="lvlrow"></div>
-      <div id="pq" class="qbox"></div>
-      <div id="po" class="opts"></div>
-      <div id="pf"></div>
-      <button id="pn" class="nxtbtn" style="display:none">Next <i class="fas fa-arrow-right"></i></button>
-      <div class="prwrap"><div class="prbg"><div id="prf" class="prfill"></div></div><div id="prl" class="prlbl"></div></div>
-    </div>
-    <div id="s-tests" class="sec">
-      <div id="tl" class="lvlrow"></div>
-      <div id="tb2"></div>
-      <button id="ts" class="subbtn">Show Results 📊</button>
-      <div id="tr"></div>
-    </div>
+<!-- Test section -->
+<div id="sec-test" style="display:none">
+  <div class="tgrid" id="testGrid"></div>
+</div>
+
+<!-- Detail/quiz section (shared) -->
+<div id="sec-detail" style="display:none">
+  <button class="back-btn" onclick="backFromDetail()">
+    ← <span id="backLbl">Back</span>
+  </button>
+  <div id="detailContent"></div>
+</div>
+```
+
   </div>
-  <footer>✨ Lang.Master · Learn with me · Roj Tahsin ✨</footer>
 </div>
 
 <script>
-// ── DATA ──────────────────────────────────────
-const DG=[
-{
-  n: '01',
-  c: 'gc-blue',
-  t: 'Het Nederlandse alfabet en uitspraak 🔤',
-  e: 'Het Nederlands telt <strong>26 letters</strong>. Uniek zijn de <strong>harde G</strong> (schrapend, achter in de keel), de <strong>IJ/EI</strong> (als in "blijft"), <strong>UI</strong> (lastige tweeklank), <strong>OE</strong> (als "oo" in boot) en <strong>EU</strong> (als Franse "eu"). Let op: <strong>CH</strong> klinkt precies als G.',
-  x: [
-    { n: '"G" — harde, schrapende g, achter in de keel: "gracht", "goed"' },
-    { n: '"IJ" — klinkt als "ij" in "blijft", ook geschreven als EI (zelfde klank)' },
-    { n: '"OE" — klinkt als de "oo" in het Engelse "boot" of "food"' },
-    { n: '"UI" — lastig: begin met "u" en glijd naar "i", zoals in "huis", "tuin"' },
-    { n: '"EU" — als de Franse "eu" in "deux" of "feu": "neus", "leuk"' },
-    { n: '"CH" — identiek aan de harde G: "lacht", "licht", "school"' },
-    { n: '"SCH" — combinatie van S + CH (dus s‑chra­pend): "school", "schip"' }
-  ],
-  w: [
-    'goedemorgen',
-    'huis',
-    'boek',
-    'neus',
-    'ijs',
-    'school',
-    'gracht',
-    'schip',
-    'euvel'
-  ],
-  k: [
-    'alfabet',
-    'uitspraak',
-    'klinker',
-    'medeklinker',
-    'tweeklank',
-    'ij',
-    'ei',
-    'eu',
-    'oe',
-    'ui',
-    'ch',
-    'g'
-  ]
-},
-{n:'02',c:'gc-green',t:'Lidwoorden en zelfstandige naamwoorden 📝',
-  e:'Er zijn drie lidwoorden: <strong>de</strong> (mannelijk/vrouwelijk, ~75% van woorden), <strong>het</strong> (onzijdig), en <strong>een</strong> (onbepaald, altijd hetzelfde). Tip: verkleinwoorden zijn <em>altijd</em> het-woorden.',
-  x:[{n:'De man / de vrouw / de tafel (de-woord)'},{n:'Het kind / het boek / het huis (het-woord)'},{n:'Een man / een boek (onbepaald lidwoord, geen verschil)'},{n:'Het huisje — elk verkleinwoord is altijd een het-woord!'},{n:'Woorden op -ing, -heid, -tie zijn altijd de-woorden'}],
-  w:['de man','het kind','het boek','een auto','de vrouw'],k:['lidwoord','de','het','een','naamwoord','genus']},
- {n:'03',c:'gc-orange',t:'Meervoud van zelfstandige naamwoorden 👨‍👩‍👧‍👦',
-  e:'Twee hoofdregels: <strong>-en</strong> (meest voorkomend) en <strong>-s</strong>. Let op spellingveranderingen! Kleine groep krijgt <strong>-eren</strong>.',
-  x:[{n:'boek → boeken | man → mannen (verdubbel medeklinker!)'},{n:'maan → manen (haal dubbele klinker weg)'},{n:'brief → brieven | huis → huizen (f→v, s→z)'},{n:"tafel → tafels | café → café's (-s na stomme e/klinker)"},{n:'kind → kinderen | ei → eieren | blad → bladeren (-eren, uitzondering!)'}],
-  w:['mannen','boeken','kinderen',"cafés",'huizen','brieven'],k:['meervoud','plural','-en','-s','-eren','spelling']},
- {n:'04',c:'gc-purple',t:'Verkleinwoorden (Diminutieven) 🐣',
-  e:'Elk zelfstandig naamwoord kan worden verkleind. Het verkleinwoord is <strong>altijd een het-woord</strong>. De uitgang is een variant van <strong>-je</strong>.',
-  x:[{n:'huis → huisje | boek → boekje (-je na de meeste medeklinkers)'},{n:'bloem → bloempje (-pje na korte klinker + m)'},{n:'ring → ringetje (-etje na ng, l, n, r na korte klinker)'},{n:'boom → boompje | been → beentje (-tje na lange klinker)'},{n:'koning → koninkje (-kje na woorden op -ing)'}],
-  w:['huisje','bloempje','ringetje','boompje','koninkje','boekje'],k:['verkleinwoord','diminutief','-je','-tje','-pje','-etje','-kje']},
- {n:'05',c:'gc-teal',t:'Bijvoeglijke naamwoorden – verbuiging en trappen 🎨',
-  e:'Standaard: voeg <strong>-e</strong> toe. Uitzondering: het-woord + <strong>een</strong> (of geen lidwoord) = géén -e. Trappen: stellend → <strong>-er</strong> → <strong>-st</strong>.',
-  x:[{n:'De grote man / Een grote man (de-woord: altijd -e)'},{n:'Het grote huis (het-woord + het: -e)'},{n:'Een groot huis (het-woord + een: géén -e!)'},{n:'mooi → mooier → mooist'},{n:'Onregelmatig: goed → beter → best | veel → meer → meest'}],
-  w:['grote','mooi','mooier','mooist','beter','best','meer'],k:['bijvoeglijk','verbuiging','vergelijking','-er','-st','comparatief','superlatief']},
- {n:'06',c:'gc-red',t:'Persoonlijke voornaamwoorden 🙋',
-  e:'Het Nederlands heeft <strong>beklemtoonde</strong> (sterke) en <strong>onbeklemtoonde</strong> (zwakke) vormen.',
-  x:[{n:'"Jij moet dat doen!" (beklemtoond) vs "Heb je honger?" (zwak)'},{n:'Onderwerp: ik / jij/je / hij / zij/ze / het / wij/we / jullie / zij/ze'},{n:'Object: mij/me / jou/je / hem / haar / het / ons / jullie / hen/hun/ze'},{n:'"Ik zie hen." (LV) vs "Ik geef hun het boek." (MV)'},{n:'"Ons huis" (het-woord) vs "Onze auto" (de-woord)'}],
-  w:['ik','jij','hij','zij','wij','jullie','hen','hun','ons','onze'],k:['voornaamwoord','pronomen','ik','jij','hij','zij','wij','jullie','hen','hun','ons']},
- {n:'07',c:'gc-pink',t:'Aanwijzende, vragende en betrekkelijke vnw. 👆',
-  e:'<strong>Aanwijzend</strong>: deze/dit (dichtbij) vs die/dat (ver weg). <strong>Vragend</strong>: wie, wat, welk(e). <strong>Betrekkelijk</strong>: die (de-woord/persoon), dat (het-woord).',
-  x:[{n:'Deze man / dit huis (dichtbij)'},{n:'Die vrouw / dat kind (ver weg)'},{n:'"Welk boek lees je?" (het-woord) / "Welke film?" (de-woord)'},{n:'"De man die daar loopt, is aardig."'},{n:'"Het boek dat ik lees, is spannend."'}],
-  w:['deze','dit','die','dat','wie','wat','welke','welk'],k:['aanwijzend','vragend','betrekkelijk','deze','dit','die','dat','welk','wie','wat']},
- {n:'08',c:'gc-yellow',t:'Onbepaalde voornaamwoorden ❓',
-  e:'Onbepaalde voornaamwoorden zijn vaag en niet specifiek.',
-  x:[{n:'"Er klopt iemand op de deur."'},{n:'"Ik heb niets te doen."'},{n:'"Ieder kind kreeg een cadeau."'},{n:'"Elke dag sta ik vroeg op."'},{n:'"Men zegt dat het gaat regenen."'}],
-  w:['iemand','niemand','iets','niets','alles','iedereen','elk','sommige','men'],k:['onbepaald','iemand','niemand','iets','niets','alles','elk','sommige']},
- {n:'09',c:'gc-blue',t:'Wederkerende en wederkerige werkwoorden 🤝',
-  e:'<strong>Wederkerend (reflexief)</strong>: onderwerp doet iets met zichzelf. <strong>Wederkerig</strong>: twee personen doen iets met elkaar.',
-  x:[{n:'"Ik was me." / "Jij vergist je." / "Hij scheert zich."'},{n:'"Wij haasten ons."'},{n:'"Wij zien elkaar elke dag." (wederkerig)'},{n:'"Zij helpen elkaar met huiswerk."'},{n:'Wederkerend: me/je/zich/ons | Wederkerig: altijd "elkaar"'}],
-  w:['me','je','zich','ons','elkaar'],k:['wederkerend','reflexief','wederkerig','reciproque','zich','elkaar']},
- {n:'10',c:'gc-green',t:'Tegenwoordige tijd (OTT) ⏳',
-  e:'Stam = hele werkwoord min <strong>-en</strong>. Stam + <strong>t</strong> voor jij/u/hij/zij/het. <strong>Inversie:</strong> als "je" achter de persoonsvorm staat, valt de -t weg!',
-  x:[{n:'werken → stam: werk | Ik werk / jij werkt / hij werkt / wij werken'},{n:'Inversie: "Morgen werk jij?" (geen -t na inversie!)'},{n:'zijn: ik ben / jij bent / hij is / wij zijn'},{n:'hebben: ik heb / jij hebt / hij heeft / wij hebben'},{n:'kunnen: ik kan / willen: ik wil / mogen: ik mag'}],
-  w:['werk','werkt','werken','ben','hebt','heeft','kan','wil','mag'],k:['tegenwoordige tijd','OTT','presens','stam','inversie','zijn','hebben','t-regel']},
- {n:'11',c:'gc-orange',t:'Verleden tijd (OVT) 📜',
-  e:'<strong>Zwakke werkwoorden</strong>: gebruik \'t kofschip (T,K,F,S,C,H,P). Eindigt stam op zo\'n letter? → <strong>-te(n)</strong>. Anders? → <strong>-de(n)</strong>. <strong>Sterke werkwoorden</strong>: klankverandering (leer uit je hoofd!).',
-  x:[{n:'werken → werk + T (kofschip) → werkte, werkten'},{n:'spelen → speel + L (niet in kofschip) → speelde, speelden'},{n:'lopen (sterk) → ik liep | zingen → ik zong | gaan → ik ging'},{n:'doen → ik deed | kopen → ik kocht'},{n:"'t kofschip = Tante Kees Fietst Snel Correct Het Punt"}],
-  w:['werkte','speelde','liep','ging','zong','deed','kocht'],k:['verleden tijd','OVT','kofschip','zwak','sterk','preteritum','-te','-de']},
- {n:'12',c:'gc-purple',t:'Voltooide tijd (VTT) ✅',
-  e:'Formule: <strong>hebben</strong> of <strong>zijn</strong> + voltooid deelwoord. Deelwoord: <strong>ge-</strong> + stam + <strong>-t</strong> (zwak) of <strong>-en</strong> (sterk). <strong>Zijn</strong> bij verandering van locatie of toestand.',
-  x:[{n:'werken → ge+werk+t = gewerkt | "Ik heb gewerkt."'},{n:'lopen → ge+lop+en = gelopen | "Hij heeft gelopen."'},{n:'"Hij is naar huis gegaan." (locatieverandering → zijn!)'},{n:'"De prijs is gestegen." (toestandsverandering → zijn!)'},{n:'"Ik heb geslapen." / "Zij heeft gekookt." (hebben)'}],
-  w:['gewerkt','gelopen','gegaan','geslapen','gekookt','gestegen'],k:['voltooide tijd','VTT','perfectum','hebben','zijn','deelwoord','ge-']},
- {n:'13',c:'gc-teal',t:'Plusquamperfectum (VVT) 🔙',
-  e:'Iets gebeurde <strong>vóór</strong> een ander moment in het verleden. Formule: <strong>had(den)</strong> of <strong>was/waren</strong> + voltooid deelwoord.',
-  x:[{n:'"Ik had al gegeten, voordat jij thuiskwam."'},{n:'"Zij was net vertrokken, toen de telefoon ging."'},{n:'Formule: had/hadden + deelwoord OF was/waren + deelwoord'},{n:'"Toen ik aankwam, had hij al betaald."'},{n:'Zelfde hebben/zijn-regel als bij de voltooide tijd!'}],
-  w:['had gewerkt','was gegaan','hadden gegeten','waren vertrokken'],k:['plusquamperfectum','VVT','had','was','waren','voortijd']},
- {n:'14',c:'gc-red',t:'Toekomende tijd (OTTT) 🔮',
-  e:'Drie manieren: <strong>zullen + infinitief</strong> (formeel/belofte), <strong>gaan + infinitief</strong> (informeel/plan), of <strong>OTT + tijdsbepaling</strong> (spreektaal).',
-  x:[{n:'"Ik zal je morgen bellen." (belofte)'},{n:'"Het zal morgen wel regenen." (voorspelling)'},{n:'"Zullen we naar de film gaan?" (voorstel)'},{n:'"Ik ga vanavond koken." (plan, informeel)'},{n:'"Morgen vertrek ik naar Parijs." (OTT + tijdsbepaling)'}],
-  w:['zal bellen','ga koken','zullen gaan','vertrek morgen'],k:['toekomst','OTTT','futurum','zullen','gaan']},
- {n:'15',c:'gc-pink',t:'Conditionele en Irrealis 🤔',
-  e:'Gebruik <strong>zou(den) + infinitief</strong>. Conditioneel: voorwaarde is mogelijk. Irrealis: hypothetisch, tegen de feiten in.',
-  x:[{n:'"Zou je het raam willen sluiten?" (beleefd verzoek)'},{n:'"Als ik tijd heb, zou ik je kunnen helpen."'},{n:'"Als ik rijk was, zou ik een vliegtuig kopen." (irrealis)'},{n:'"Als jij eerder was gekomen, had je de taart geproefd."'},{n:'"Zou jij dat doen als jij mij was?"'}],
-  w:['zou kopen','zouden gaan','had geproefd','was gekomen'],k:['conditioneel','irrealis','zou','zouden','voorwaardelijk','hypothetisch']},
- {n:'16',c:'gc-yellow',t:'Lijdende vorm (Passief) 🎭',
-  e:'Focus op de handeling, niet op de dader. <strong>Worden</strong> + deelwoord: lopend proces. <strong>Zijn</strong> + deelwoord: resultaat/toestand.',
-  x:[{n:'"Het huis wordt gebouwd." (worden = proces, nog bezig)'},{n:'"Het huis is gebouwd." (zijn = resultaat!)'},{n:'"De brief wordt door de postbode bezorgd."'},{n:'"Er wordt gefloten." (passief zonder dader)'},{n:'"Het huis werd gebouwd." (verleden passief)'}],
-  w:['wordt gebouwd','is gemaakt','werd geschreven','door'],k:['passief','lijdend','worden','zijn','passivum','door']},
- {n:'17',c:'gc-blue',t:'Scheidbare en onscheidbare werkwoorden 🔀',
-  e:'<strong>Scheidbaar</strong>: in de hoofdzin splitsen! <strong>Onscheidbaar</strong>: be-, ver-, ont-, ge-, her-, er- → nooit splitsen, géén extra ge- in deelwoord.',
-  x:[{n:'"Ik bel mijn moeder op." (scheidbaar: op naar het einde)'},{n:'"...dat ik mijn moeder opbel." (bijzin: niet splitsen!)'},{n:'"Ik vergeet jou op te bellen." (om te: niet splitsen!)'},{n:'"Ik vertaal de tekst." → deelwoord: vertaald (géén ge-!)'},{n:'"Ik begrijp het." (onscheidbaar, nooit splitsen)'}],
-  w:['opbellen','uitgaan','meenemen','begrijpen','vertalen','herhalen'],k:['scheidbaar','onscheidbaar','voorvoegsel','be-','ver-','ont-','splitsen']},
- {n:'18',c:'gc-green',t:'Modale werkwoorden 🛠️',
-  e:'Modale werkwoorden "kleuren" het hoofdwerkwoord. Ze staan bijna altijd met een <strong>infinitief aan het einde</strong> van de zin.',
-  x:[{n:'"Ik kan zwemmen." (kunnen = mogelijkheid)'},{n:'"Je mag hier niet roken." (mogen = toestemming/verbod)'},{n:'"Ik moet naar de dokter." (moeten = verplichting)'},{n:'"Zij wil een ijsje." (willen = wens)'},{n:'"Je hoeft niet te komen." (hoeven = geen noodzaak!)'}],
-  w:['kunnen','mogen','moeten','willen','zullen','hoeven'],k:['modaal','kunnen','mogen','moeten','willen','zullen','hoeven']},
- {n:'19',c:'gc-orange',t:'Vervangende infinitief (IPP-effect) 🔄',
-  e:'Als een modaal werkwoord in de <strong>voltooide tijd</strong> staat, wordt het voltooid deelwoord vervangen door de <strong>infinitief</strong>.',
-  x:[{n:'FOUT: "Ik heb het gewild doen."'},{n:'CORRECT: "Ik heb het willen doen."'},{n:'"Hij heeft moeten werken." (niet: gemoeten)'},{n:'"Zij is blijven staan." (niet: gebleven staan)'},{n:'"Ik heb hem zien lopen." (zien = ook IPP)'}],
-  w:['willen doen','moeten werken','blijven staan','zien lopen'],k:['IPP','vervangende infinitief','modaal','infinitief','blijven','laten']},
- {n:'20',c:'gc-purple',t:'Continuïteitsvormen (Duratief) 🚶',
-  e:'Om aan te geven dat iets <em>nu gaande is</em>. Twee methoden: <strong>zijn + aan het + infinitief</strong> (neutraal) of <strong>positiewerkwoord + te + infinitief</strong> (levendiger + houding).',
-  x:[{n:'"Ik ben aan het lezen." (neutraal)'},{n:'"Hij is aan het koken."'},{n:'"Hij zit te lezen." (zitten + lezen)'},{n:'"Zij staat te wachten."'},{n:'"Ik loop te denken."'}],
-  w:['ben aan het','zit te lezen','staat te wachten','loopt te denken'],k:['duratief','continuiteit','aan het','zitten te','staan te','lopen te']},
- {n:'21',c:'gc-teal',t:'Gebiedende wijs (Imperatief) 🗣️',
-  e:'<strong>Enkelvoud/informeel</strong>: gebruik de stam. <strong>Beleefd (u-vorm)</strong>: stam + t. <strong>Wij-aansporing</strong>: Laten we + infinitief.',
-  x:[{n:'"Loop!" / "Eet je bord leeg!" (stam, informeel)'},{n:'"Loopt u maar door." (stam+t, beleefd)'},{n:'"Laten we gaan!" (wij-aansporing)'},{n:'Stam = infinitief min -en: werken → werk → "Werk harder!"'},{n:'"Doe dat niet!" / "Ga zitten!" / "Wacht even!"'}],
-  w:['loop!','eet!','schrijf!','loopt u','laten we gaan'],k:['imperatief','gebiedende','bevel','verzoek','laten we']},
- {n:'22',c:'gc-red',t:'Ontkenningen 🚫',
-  e:'<strong>Geen</strong>: ontkent onbepaald zelfstandig naamwoord. <strong>Niet</strong>: ontkent al het andere. Niet staat vóór de eindgroep.',
-  x:[{n:'"Ik heb een auto." → "Ik heb geen auto."'},{n:'"Ik slaap niet." (niet = werkwoord)'},{n:'"Het is niet mooi." (niet = bijvoeglijk naamwoord)'},{n:'"Ik heb hem gisteren niet gezien." (niet vóór eindgroep)'},{n:'"Dat is niet de waarheid." (niet = bepaald lidwoord)'}],
-  w:['niet','geen','nooit','nimmer','nergens'],k:['ontkenning','negatie','niet','geen','nooit','nergens']},
- {n:'23',c:'gc-pink',t:'Woordvolgorde 📏',
-  e:'De beruchte <strong>tangconstructie</strong>. Hoofdzin: O-PV-Rest. <strong>Inversie</strong>: PV op plek 2 als de zin niet met het onderwerp begint. <strong>Bijzin</strong>: alle werkwoorden naar het einde!',
-  x:[{n:'"Ik koop een boek." (O-PV-Rest)'},{n:'"Morgen koop ik een boek." (inversie!)'},{n:'"...dat ik een boek koop." (bijzin: PV naar het einde!)'},{n:'"Hij zegt dat hij morgen naar school zal gaan."'},{n:'"In Amsterdam woon ik." (plaatsbepaling voorop)'}],
-  w:['dat','omdat','hoewel','terwijl','toen'],k:['woordvolgorde','inversie','tangconstructie','bijzin','hoofdzin','PV']},
- {n:'24',c:'gc-yellow',t:'Voegwoorden 🔗',
-  e:'<strong>Nevenschikkend (MEOWD)</strong>: Maar, En, Of, Want, Dus → geen effect op volgorde. <strong>Onderschikkend</strong>: sturen werkwoorden naar het einde.',
-  x:[{n:'"Ik wil koffie, maar hij drinkt thee." (MEOWD)'},{n:'"Ik blijf thuis omdat ik ziek ben." (onderschikkend)'},{n:'MEOWD = Maar / En / Of / Want / Dus'},{n:'Onderschikkend: omdat, dat, als, toen, hoewel, terwijl'},{n:'"Hoewel ik moe ben, werk ik door."'}],
-  w:['maar','en','of','want','dus','omdat','dat','als','hoewel','terwijl'],k:['voegwoord','conjunctie','nevenschikkend','onderschikkend','MEOWD','omdat','dat','als']},
- {n:'25',c:'gc-blue',t:'Bijzinnen 🧩',
-  e:'Bijzinnen kunnen allerlei functies hebben. In élke bijzin gaan <strong>alle werkwoorden</strong> naar het einde.',
-  x:[{n:'Tijd: "Toen ik klein was, speelde ik buiten."'},{n:'Reden: "Ik blijf thuis omdat het regent."'},{n:'Doel: "Ik studeer zodat ik kan slagen."'},{n:'Voorwaarde: "Als jij gaat, ga ik ook."'},{n:'Toegeving: "Hoewel ik moe ben, werk ik door."'}],
-  w:['omdat','dat','als','toen','hoewel','terwijl','zodat','voordat','indien'],k:['bijzin','tijdsbijzin','reden','doel','voorwaarde','toegeving']},
- {n:'26',c:'gc-green',t:'De constructie "om te" + infinitief 🎯',
-  e:'"Om te" + infinitief geeft een <strong>doel</strong> aan: het antwoord op "waarom?".',
-  x:[{n:'"Ik ga naar de winkel om brood te kopen."'},{n:'"Hij oefent elke dag om beter te worden."'},{n:'"Het is te koud om te zwemmen."'},{n:'"Ik heb geen tijd om te studeren."'},{n:'"Ze spaart geld om een reis te maken."'}],
-  w:['om te kopen','om te gaan','om te leren','om te worden'],k:['om te','infinitief','doel','waarom']},
- {n:'27',c:'gc-orange',t:'Andere infinitiefconstructies 🛠️',
-  e:'Na bepaalde voorzetsels en vaste uitdrukkingen volgt <strong>te + infinitief</strong>.',
-  x:[{n:'"Hij vertrok zonder iets te zeggen."'},{n:'"Werk in plaats van te klagen."'},{n:'"Was je handen alvorens te eten."'},{n:'"Door veel te oefenen, word je beter."'},{n:'"Na lang te hebben gewacht, gaf hij het op."'}],
-  w:['zonder te','in plaats van te','alvorens te','door te'],k:['infinitief','zonder te','in plaats van','alvorens','door te']},
- {n:'28',c:'gc-purple',t:'Te + infinitief na bijv. naamwoorden en znw. 📌',
-  e:'Na bijvoeglijk naamwoord + zijn: te + infinitief. Na zelfstandig naamwoord: vaak "om te" + infinitief.',
-  x:[{n:'"Het is moeilijk te begrijpen."'},{n:'"De tekst is leuk om te lezen."'},{n:'"Ik heb zin om een ijsje te eten."'},{n:'"Het is tijd om te gaan."'},{n:'"De kans om te winnen is klein."'}],
-  w:['te begrijpen','om te lezen','om te eten','om te gaan'],k:['te infinitief','na bijvoeglijk','na zelfstandig','om te']},
- {n:'29',c:'gc-teal',t:'Het woord "er" 🌟',
-  e:'"Er" heeft <strong>5 functies</strong>: 1) locatief, 2) presentatief, 3) kwantitatief, 4) deel van pronominaal bijwoord, 5) passief zonder dader.',
-  x:[{n:'Locatief: "Ik woon er." (= in Amsterdam)'},{n:'Presentatief: "Er loopt een man op straat."'},{n:'Kwantitatief: "Hoeveel appels? Ik heb er drie."'},{n:'Pronominaal: "Ik wacht erop." (= op de bus)'},{n:'Passief: "Er wordt gefloten."'}],
-  w:['er is','er loopt','er zijn','er drie','erop','erin','ermee'],k:['er','locatief','presentatief','kwantitatief','passief','pronominaal']},
- {n:'30',c:'gc-red',t:'Pronominale bijwoorden ↔️',
-  e:'Je zegt niet "op het" maar <strong>er/hier/daar + voorzetsel</strong>. Bij vragen: <strong>waar + voorzetsel</strong>.',
-  x:[{n:'"Ik wacht erop." (er+op = op de bus)'},{n:'"Ik schrijf hiermee." (hier+mee = met dit)'},{n:'"Ik ben daarvoor te oud." (daar+voor = voor dat)'},{n:'"Waarop wacht je?" (vragend)'},{n:'"De doos waarin het zat." (betrekkelijk)'}],
-  w:['erop','erin','ermee','hierop','daarvoor','waarop','waarin'],k:['pronominaal bijwoord','erop','erin','ermee','hiermee','daarvoor','waarop']},
- {n:'31',c:'gc-pink',t:'Bijwoorden 🎭',
-  e:'Bijwoorden geven extra informatie. Onderverdeeld in: <strong>tijd, plaats, wijze, graad</strong> en <strong>modaliteit</strong>.',
-  x:[{n:'Tijd: nu, straks, gisteren, morgen, altijd, nooit, soms, vaak'},{n:'Plaats: hier, daar, overal, nergens, ergens'},{n:'Wijze: graag, snel, langzaam, hardop, zo, dus'},{n:'Graad: heel, erg, nogal, vrij, tamelijk, behoorlijk, zeer'},{n:'Modaliteit: misschien, waarschijnlijk, zeker, helaas'}],
-  w:['nu','gisteren','hier','heel','misschien','nooit','overal','graag'],k:['bijwoord','adverbium','tijd','plaats','wijze','graad','modaliteit']},
- {n:'32',c:'gc-yellow',t:'Trappen van vergelijking van bijwoorden 📊',
-  e:'Dezelfde regels als bijvoeglijke naamwoorden: <strong>-er</strong> en <strong>-st</strong>. Let op onregelmatige vormen!',
-  x:[{n:'"Hij loopt snel." / "Zij loopt sneller." / "Ik loop het snelst."'},{n:'Onregelmatig: graag → liever → het liefst'},{n:'Onregelmatig: goed → beter → het best'},{n:'"Ik ga liever naar de film dan naar de opera."'},{n:'"Zij werkt het hardst van iedereen."'}],
-  w:['sneller','snelst','harder','het hardst','liever','liefst'],k:['bijwoord','vergelijking','comparatief','superlatief','-er','-st','graag','liever']},
- {n:'33',c:'gc-blue',t:'Voorzetsels 📍',
-  e:'Voorzetsels staan vast in veel uitdrukkingen. Leer de <strong>vaste combinaties</strong> uit je hoofd!',
-  x:[{n:'"Ik hou van jou." (houden van)'},{n:'"Ik wacht op de trein." (wachten op)'},{n:'"Ik denk aan jou." (denken aan)'},{n:'"Ik luister naar muziek." (luisteren naar)'},{n:'"Ik twijfel aan zijn verhaal." (twijfelen aan)'}],
-  w:['van','op','aan','naar','voor','over','bij','met','in','uit'],k:['voorzetsel','prepositie','houden van','wachten op','denken aan','luisteren naar']},
- {n:'34',c:'gc-green',t:'Telwoorden 🔢',
-  e:'<strong>Hoofdtelwoorden</strong>: een, twee, drie… Let op: 21 = eenentwintig (omgekeerd aan Engels!). <strong>Rangtelwoorden</strong>: eerste, tweede, derde. <strong>Breuken</strong>: een half, een kwart.',
-  x:[{n:'1–10: een, twee, drie, vier, vijf, zes, zeven, acht, negen, tien'},{n:'11–12: elf, twaalf | 20: twintig | 80: tachtig'},{n:'21 = één-en-twintig (NIET: twintig-een!) ← omgekeerd!'},{n:'Rangtelwoorden: 1e eerste / 2e tweede / 3e derde / 8e achtste'},{n:'1/2 = een half / de helft | 1/4 = een kwart | 3/4 = drie kwart'}],
-  w:['één','tien','twintig','honderd','eerste','tweede','derde','een half'],k:['telwoord','getal','hoofdtelwoord','rangtelwoord','breuk','eerste','kwart','half']},
- {n:'35',c:'gc-orange',t:'Datum en tijd 📅',
-  e:'Het Nederlands gebruikt <strong>over</strong> (na het uur/half) en <strong>voor</strong> (voor het uur/half). Let op: "half vier" = 15:30, niet 16:30!',
-  x:[{n:'15:00 = drie uur | 15:05 = vijf over drie'},{n:'15:15 = kwart over drie | 15:45 = kwart voor vier'},{n:'15:30 = half vier (= op weg naar vier, dus NIET 4:30!)'},{n:'15:20 = tien over half vier | 15:25 = vijf voor half vier'},{n:'Datum: "Op veertien april" / "Op 14 april"'}],
-  w:['uur','kwart over','kwart voor','half','over','voor'],k:['tijd','klok','datum','kwart over','kwart voor','half']},
- {n:'36',c:'gc-purple',t:'Zinsontleding (Redekundig) 🧐',
-  e:'Het benoemen van de <strong>functie</strong> van elke woordgroep in de zin.',
-  x:[{n:'"De bakker heeft vandaag een taart gebakken."'},{n:'De bakker = Onderwerp (O)'},{n:'heeft gebakken = Gezegde (G)'},{n:'een taart = Lijdend Voorwerp (LV)'},{n:'vandaag = Bijwoordelijke Bepaling (BWB)'}],
-  w:['onderwerp','gezegde','lijdend voorwerp','meewerkend voorwerp','bijwoordelijke bepaling'],k:['zinsontleding','redekundig','onderwerp','gezegde','LV','MV','BWB']},
- {n:'37',c:'gc-teal',t:'Redekundig ontleden – alle zinsdelen 🧩',
-  e:'Aanvullende zinsdelen: <strong>Bijvoeglijke Bepaling</strong> (bij een zelfstandig naamwoord) en <strong>Bijstelling</strong> (verklaring tussen komma\'s).',
-  x:[{n:'"De grote bakker bakt een lekkere taart."'},{n:'"grote" = Bijvoeglijke Bepaling bij "bakker"'},{n:'"lekkere" = Bijvoeglijke Bepaling bij "taart"'},{n:'"Jan, mijn buurman, is jarig." ← "mijn buurman" = Bijstelling'},{n:'Bijstelling staat altijd tussen komma\'s!'}],
-  w:['bijvoeglijke bepaling','bijstelling','zinsdeel'],k:['bijvoeglijke bepaling','bijstelling','zinsdeel','redekundig']},
- {n:'38',c:'gc-red',t:'Taalkundig ontleden – woordsoorten 🏷️',
-  e:'Het benoemen van elk los woord. Er zijn <strong>10 woordsoorten</strong>.',
-  x:[{n:'"Hé! De grote man koopt twee boeken."'},{n:'Hé! = tussenwerpsel (tw) | de = lidwoord (lw)'},{n:'grote = bijvoeglijk naamwoord (bnw) | man = znw'},{n:'koopt = werkwoord (ww) | twee = telwoord (telw)'},{n:'ook: vz (voorzetsel), bw (bijwoord), vw (voegwoord), vnw (voornaamwoord)'}],
-  w:['lidwoord','znw','bnw','werkwoord','vnw','telwoord','vz','bw','vw','tw'],k:['taalkundig','woordsoort','lidwoord','werkwoord','voornaamwoord','bijwoord','tussenwerpsel']},
- {n:'39',c:'gc-pink',t:'Interpunctie ✍️',
-  e:'De Nederlandse interpunctie heeft strikte regels. De komma (,) wordt anders gebruikt dan in het Engels.',
-  x:[{n:'"Ik koop brood, melk, kaas en eieren." (opsomming)'},{n:'"Ik kom niet, omdat ik ziek ben." (voor onderschikkend voegwoord)'},{n:'GEEN komma voor "en" of "of" bij korte zinnen!'},{n:'"Hij zei: \'Ik ga naar huis.\'" (aanhalingstekens)'},{n:'Puntkomma (;): verbindt samenhangende zinnen zonder voegwoord'}],
-  w:['komma','punt','puntkomma','aanhalingstekens','dubbele punt'],k:['interpunctie','komma','punt','puntkomma','aanhalingstekens','leesteken']},
- {n:'40',c:'gc-yellow',t:'Veelgemaakte fouten en valkuilen ⚠️',
-  e:'De zeven meest voorkomende fouten voor leerders van het Nederlands.',
-  x:[{n:'❌ "Hun hebben dat gedaan." ✅ "Zij hebben dat gedaan." (hun is NOOIT onderwerp!)'},{n:'❌ "groter als" ✅ "groter dan" (vergrotende trap = dan!)'},{n:'❌ "gevertaald" ✅ "vertaald" (onscheidbaar: géén ge-!)'},{n:'❌ "ik heb het gewild doen" ✅ "ik heb het willen doen" (IPP!)'},{n:'❌ "half vier" = 4:30 ✅ "half vier" = 3:30!'}],
-  w:['hun','hen','als','dan','niet','geen','ge-'],k:['fouten','valkuilen','hen','hun','als','dan','kofschip','ge-','IPP']}
-];
-
-const FG=[
- {n:'01',c:'gc-blue',t:'Le présent de l\'indicatif 🕐',
-  e:'Le présent exprime des actions actuelles, habituelles ou des vérités générales. Les verbes en <strong>-er</strong> sont réguliers.',
-  x:[{n:'parler: je parle / tu parles / il parle / nous parlons'},{n:'finir: je finis / tu finis / il finit / nous finissons'},{n:'être: suis / es / est / sommes / êtes / sont'},{n:'avoir: ai / as / a / avons / avez / ont'},{n:'aller: vais / vas / va / allons / allez / vont'}],
-  w:['parler','finir','être','avoir','aller','faire'],k:['présent','indicatif','conjugaison','-er','-ir','-re']},
- {n:'02',c:'gc-green',t:'Le passé composé 📜',
-  e:'Pour les actions terminées. Formule: <strong>avoir/être + participe passé</strong>. Avec être: verbes de mouvement et pronominaux.',
-  x:[{n:"J'ai mangé. / Tu as parlé. / Nous avons fini. (avoir)"},{n:'Je suis allé(e). / Elle est venue. (être)'},{n:"Elle s'est levée. (verbe pronominal)"},{n:'Participe passé: -er → -é | -ir → -i | -re → -u'},{n:'Irrég: avoir→eu | être→été | faire→fait | prendre→pris'}],
-  w:["j'ai parlé","je suis allé",'elle est venue','il a fini'],k:['passé composé','avoir','être','participe passé']},
- {n:'03',c:'gc-orange',t:"L'imparfait 🕰️",
-  e:'Pour les actions habituelles dans le passé et descriptions. Radical du présent "nous" + <strong>-ais, -ais, -ait, -ions, -iez, -aient</strong>.',
-  x:[{n:"Quand j'étais petit, je jouais souvent dehors."},{n:'Il faisait beau quand je suis sorti.'},{n:'Nous mangions → mang- + terminaisons'},{n:'Seule exception: être → j\'étais, tu étais...'},{n:'Imparfait vs passé composé: état vs action précise'}],
-  w:['je jouais','il était','nous faisions','vous parliez'],k:["imparfait","passé","habitude","description"]},
- {n:'04',c:'gc-purple',t:'Les articles 📝',
-  e:'<strong>Définis</strong>: le, la, l\', les. <strong>Indéfinis</strong>: un, une, des. <strong>Partitifs</strong>: du, de la, de l\'. Après négation: de/d\'.',
-  x:[{n:'Le livre / La femme / L\'enfant / Les hommes'},{n:'Un livre / Une femme / Des enfants'},{n:'Je bois du café. / Je mange de la salade.'},{n:'Je ne bois pas de café. (après négation → de!)'},{n:'de + le = du | de + les = des | à + le = au'}],
-  w:['le','la','les','un','une','des','du','de la'],k:['article','défini','indéfini','partitif','du','de la']},
- {n:'05',c:'gc-teal',t:'La négation 🚫',
-  e:'Négation simple: <strong>ne ... pas</strong>. Les deux parties encadrent le verbe.',
-  x:[{n:'Je ne parle pas français.'},{n:"Il n'a pas mangé. (avec auxiliaire)"},{n:'ne...jamais (never) | ne...plus (no more)'},{n:'ne...rien (nothing) | ne...personne (nobody)'},{n:'Parlé: "Je sais pas." (ne omis, très courant!)'}],
-  w:['ne...pas','ne...jamais','ne...plus','ne...rien','ne...personne'],k:['négation','ne pas','ne jamais','ne plus']},
- {n:'06',c:'gc-red',t:'Les pronoms personnels 🙋',
-  e:'Pronoms sujets + objets directs (COD) + objets indirects (COI).',
-  x:[{n:'Sujets: je, tu, il/elle/on, nous, vous, ils/elles'},{n:'COD: me, te, le/la, nous, vous, les → "Je le vois."'},{n:'COI: me, te, lui, nous, vous, leur → "Je lui parle."'},{n:'Réfléchis: me, te, se, nous, vous, se'},{n:'Ordre: sujet + (ne) + COI + COD + verbe + (pas)'}],
-  w:['je','tu','il','nous','vous','le','la','lui','leur','se'],k:['pronom','sujet','objet','COD','COI','pronominal']}
-];
-
-const EG=[
- {n:'01',c:'gc-blue',t:'Simple Present 🕐',
-  e:'Used for habits, facts, general truths, and schedules. <strong>Third person singular</strong> adds -s/-es. Questions and negatives use <strong>do/does</strong>.',
-  x:[{n:'I work / you work / he works / we work / they work'},{n:'Do you work? / Does she work? / They don\'t work.'},{n:'I always eat breakfast. (habit)'},{n:'Water boils at 100°C. (fact)'},{n:'The train leaves at 8 AM. (schedule)'}],
-  w:['work','works','do','does',"don't","doesn't"],k:['simple present','habits','facts','-s','do','does']},
- {n:'02',c:'gc-green',t:'Present Perfect 📜',
-  e:'Connects past to present. Formula: <strong>have/has + past participle</strong>. Used for: experiences, recent actions, continuing situations.',
-  x:[{n:'I have seen that film. / She has never been to Paris.'},{n:'He has just arrived. / I\'ve already eaten.'},{n:'We have lived here for 5 years. / since 2019.'},{n:'Have you finished yet? / I haven\'t done it yet.'},{n:'vs Simple Past: "I saw it yesterday." (specific time = simple past!)'}],
-  w:['have seen','has gone','have been','just','already','yet','ever','never'],k:['present perfect','have','has','participle','ever','never','already','yet']},
- {n:'03',c:'gc-orange',t:'Modal Verbs 🛠️',
-  e:'Modals express ability, possibility, obligation, or permission. Followed by the <strong>base infinitive</strong>.',
-  x:[{n:'can/could (ability): "I can swim."'},{n:'must (strong obligation): "You must wear a seatbelt."'},{n:'should (advice): "You should see a doctor."'},{n:'may/might (possibility): "It may rain."'},{n:'would (conditional): "I would go if I could."'}],
-  w:['can','could','must','should','might','may','will','would'],k:['modal','can','must','should','might','may','will','would']},
- {n:'04',c:'gc-purple',t:'Articles (a / an / the) 📝',
-  e:'<strong>A/An</strong>: indefinite (first mention). <strong>The</strong>: definite (specific, known). <strong>Zero article</strong>: general statements.',
-  x:[{n:'I saw a dog. → The dog was friendly.'},{n:'an apple / an hour (vowel sound!)'},{n:'Dogs are loyal. / I love music. (zero article)'},{n:'the moon / the sun (unique things)'},{n:'go to school / go to work (no article in general use)'}],
-  w:['a','an','the'],k:['article','a','an','the','definite','indefinite']},
- {n:'05',c:'gc-teal',t:'Conditionals 🤔',
-  e:'Four main types for different levels of reality.',
-  x:[{n:'Zero: "If you heat water, it boils." (facts)'},{n:'First: "If I study, I will pass." (real future)'},{n:'Second: "If I had money, I would travel." (hypothetical)'},{n:'Third: "If I had studied, I would have passed." (impossible past)'},{n:'Mixed: "If I had studied (3rd), I would be a doctor now (2nd)."'}],
-  w:['if','unless','would','could','might','had','were'],k:['conditional','if','zero','first','second','third','would']}
-];
-
-const CFG = {
- dutch:{code:'nl',name:'Nederlands',flag:'nl',theme:'#d97706',
-   lbl:{g:'Grammatica',p:'Oefenen',t:'Toetsen',next:'Volgende →',sub:'Toon resultaat 📊',
-        lvl:'Selecteer een niveau',noex:'Nog geen oefeningen',ok:'OK',
-        cor:'✓ Correct!',wrg:'✗ Fout! Juist antwoord: ',done:'🏆 Niveau voltooid!',
-        search:'Zoek in grammatica, oefeningen...',
-        congrats:(c,t,p)=>`🎉 Gefeliciteerd! ${c}/${t} (${p}%)`,
-        keep:(c,t,p)=>`📚 Score: ${c}/${t} (${p}%). Blijf oefenen!`,
-        qof:(c,t)=>`Vraag ${c} van ${t}`},
-   gram:DG,
-   ex:{
-     A1:[{q:"Hoe zeg je 'good morning'?",o:['Goedenacht','Goedemiddag','Goedemorgen','Dag'],a:'Goedemorgen'},
-         {q:"Welk lidwoord hoort bij 'boek'?",o:['de','het','een'],a:'het'},
-         {q:"Meervoud van 'man'?",o:['mans','mannen','manen','man'],a:'mannen'},
-         {q:"Ik ___ naar school.",o:['ga','gaan','gaat','ging'],a:'ga'},
-         {q:"'Wij ___' (zijn)?",o:['ben','bent','is','zijn'],a:'zijn'},
-         {q:"Meervoud van 'kind'?",o:['kinds','kinder','kinderen','kindes'],a:'kinderen'}],
-     A2:[{q:"Ik ___ gisteren naar school gegaan.",o:['ben','heb','was','had'],a:'ben'},
-         {q:"'t Kofschip: werken → verleden tijd?",o:['werkde','werkte','gewerkt','werkten'],a:'werkte'},
-         {q:"'Een groot___ huis' — welke uitgang?",o:['groot','grote','groote','groter'],a:'groot'},
-         {q:"'Ik bel mijn moeder ___' (opbellen)",o:['op','aan','in','uit'],a:'op'},
-         {q:"Meervoud van 'café'?",o:["cafés","cafes","café's","caféen"],a:"café's"},
-         {q:"Verleden tijd van 'spelen'?",o:['speeltte','gespeld','speelde','gespeeld'],a:'speelde'}],
-     B1:[{q:"Als ik rijk was, ___ ik een groot huis.",o:['koop','kocht','zou kopen','kopen'],a:'zou kopen'},
-         {q:"IPP: 'Ik heb het ___ doen.'",o:['gewild','gewolld','willen','wil'],a:'willen'},
-         {q:"Welk is een onscheidbaar werkwoord?",o:['opbellen','meenemen','begrijpen','uitgaan'],a:'begrijpen'},
-         {q:"'Ik wacht op de bus.' → pronominaal bijwoord?",o:['erop','eraan','erin','ervoor'],a:'erop'},
-         {q:"Passief: 'Het huis ___ (nu bezig)?",o:['is gebouwd','wordt gebouwd','was gebouwd','werd gebouwd'],a:'wordt gebouwd'}],
-     B2:[{q:"'Er wordt gefloten.' Passief ___",o:['met dader','zonder dader','met agens','actief'],a:'zonder dader'},
-         {q:"Hen vs. Hun: 'Ik geef ___ het boek.'",o:['hen','hun','ze','zij'],a:'hun'},
-         {q:"Plusquamperfectum formule?",o:['heb/ben + deelwoord','had/was + deelwoord','werd + deelwoord','zou + infinitief'],a:'had/was + deelwoord'},
-         {q:"'Hoewel ik moe ben, werk ik.' Soort bijzin?",o:['tijdsbijzin','toegevingsbijzin','reden','doelbijzin'],a:'toegevingsbijzin'},
-         {q:"'Als ik rijker ___, zou ik meer reizen.'",o:['ben','was','bent','is'],a:'was'}]
-   },
-   ts:{
-     A1:[{tp:'mc',q:'Welk woord is een lidwoord?',o:['groot','de','snel','nooit'],a:'de'},
-         {tp:'fi',q:'Vul in: Hij ___ (zijn) mijn vriend.',a:'is'},
-         {tp:'fi',q:'Meervoud van "kind"?',a:'kinderen'},
-         {tp:'mc',q:'Welk lidwoord bij "huis"?',o:['de','het','een'],a:'het'},
-         {tp:'fi',q:'"Wij ___ (zijn)"',a:'zijn'}],
-     A2:[{tp:'fi',q:'Vul in: Hij ___ (werken) op kantoor.',a:'werkt'},
-         {tp:'fi',q:'Verleden tijd van "spelen"?',a:'speelde'},
-         {tp:'fi',q:'Voltooid deelwoord van "kopen"?',a:'gekocht'},
-         {tp:'mc',q:'"Een groot___ huis" — welke uitgang?',o:['groote','grote','groot','groter'],a:'groot'},
-         {tp:'fi',q:'Meervoud van "café"?',a:"café's"}],
-     B1:[{tp:'fi',q:'Zij ___ een nieuwe auto gekocht.',a:'heeft'},
-         {tp:'fi',q:'"Ze bouwen het huis." → passief: "Het huis ___ gebouwd."',a:'wordt'},
-         {tp:'fi',q:'"Ik wacht op de trein." → "Ik wacht ___"',a:'erop'},
-         {tp:'mc',q:'IPP: "Ik heb dat ___ doen."',o:['gewild','gewolld','willen','wil'],a:'willen'},
-         {tp:'fi',q:'Verleden tijd sterk: "Hij ___ naar huis." (gaan)',a:'ging'}],
-     B2:[{tp:'fi',q:'Hen of hun: "Ik geef ___ het boek."',a:'hun'},
-         {tp:'fi',q:'"Als ik meer tijd had, ___ ik meer lezen."',a:'zou'},
-         {tp:'fi',q:'Plusquamperfectum: "Hij ___ al vertrokken, toen ik belde."',a:'was'},
-         {tp:'mc',q:'Welk voorvoegsel maakt werkwoord onscheidbaar?',o:['op-','uit-','ver-','aan-'],a:'ver-'},
-         {tp:'fi',q:'"Ik schrijf met deze pen." → pronominaal bijwoord?',a:'hiermee'}]
-   }
- },
- french:{code:'fr',name:'Français',flag:'fr',theme:'#0055A4',
-   lbl:{g:'Grammaire',p:'Entraînement',t:'Évaluations',next:'Suivant →',sub:'Voir les résultats 📊',
-        lvl:'Choisissez un niveau',noex:"Pas d'exercices",ok:'OK',
-        cor:'✓ Correct !',wrg:'✗ Faux ! Réponse: ',done:'🏆 Niveau terminé !',
-        search:'Rechercher (ex: passé composé)',
-        congrats:(c,t,p)=>`🎉 Félicitations ! ${c}/${t} (${p}%)`,
-        keep:(c,t,p)=>`📚 Score: ${c}/${t} (${p}%)`,
-        qof:(c,t)=>`Question ${c} sur ${t}`},
-   gram:FG,
-   ex:{A1:[{q:"'Good morning' en français?",o:['Bonsoir','Bonjour','Bonne nuit','Salut'],a:'Bonjour'},
-           {q:"'Je ___ (être) étudiant.'",o:['es','suis','est','sommes'],a:'suis'},
-           {q:"Article pour 'livre' (masc.)?",o:['la','le','les','un'],a:'le'},
-           {q:"'Nous ___' (être)?",o:['sont','êtes','sommes','est'],a:'sommes'}],
-       A2:[{q:"Passé composé de 'aller': 'Je ___ à Paris.'",o:['ai allé','suis allé','avais allé','allais'],a:'suis allé'},
-           {q:"Négatif: 'Je ___ parle ___ français.'",o:['ne...pas','pas...ne','ne...plus','non...pas'],a:'ne...pas'},
-           {q:"Partitif: 'Je bois ___ café.'",o:['le','un','du','de'],a:'du'}],
-       B1:[{q:"'Il ___ mangé.' (passé composé)",o:['est','a','avait','était'],a:'a'},
-           {q:"'Elle ___ partie.' (passé composé)",o:['a','est','avait','était'],a:'est'}],
-       B2:[]},
-   ts:{A1:[{tp:'mc',q:"'Good morning' en français?",o:['Bonsoir','Bonjour','Bonne nuit'],a:'Bonjour'},
-           {tp:'fi',q:"'Je ___ (être) français.'",a:'suis'}],
-       A2:[{tp:'fi',q:"Passé composé 'manger': 'J\' ___ mangé.'",a:'ai'}],
-       B1:[{tp:'fi',q:"'Elle ___ arrivée.' (passé composé)",a:'est'}],
-       B2:[]}
- },
- english:{code:'en',name:'English',flag:'gb',theme:'#CC0000',
-   lbl:{g:'Grammar',p:'Practice',t:'Tests',next:'Next →',sub:'Show results 📊',
-        lvl:'Select a level',noex:'No exercises yet',ok:'OK',
-        cor:'✓ Correct!',wrg:'✗ Wrong! Answer: ',done:'🏆 Level completed!',
-        search:'Search grammar, exercises...',
-        congrats:(c,t,p)=>`🎉 Congratulations! ${c}/${t} (${p}%)`,
-        keep:(c,t,p)=>`📚 Score: ${c}/${t} (${p}%). Keep going!`,
-        qof:(c,t)=>`Question ${c} of ${t}`},
-   gram:EG,
-   ex:{A1:[{q:"Simple present: 'She ___ (work) every day.'",o:['work','works','worked','working'],a:'works'},
-           {q:"Negative: 'I ___ like coffee.'",o:['not',"don't","doesn't","won't"],a:"don't"},
-           {q:"Question: '___ you speak English?'",o:['Are','Do','Does','Did'],a:'Do'}],
-       A2:[{q:"Present perfect: 'I ___ seen that film.'",o:['have','has','had','did'],a:'have'},
-           {q:"'She ___ (have) already eaten.'",o:['have','has','had','is'],a:'has'},
-           {q:"Modal — ability: 'I ___ swim.'",o:['must','should','can','will'],a:'can'}],
-       B1:[{q:"Second conditional: 'If I ___ rich, I would travel.'",o:['am','was/were','will be','would be'],a:'was/were'},
-           {q:"Third conditional: 'If she had studied, she ___ passed.'",o:['would','will','would have','had'],a:'would have'}],
-       B2:[]},
-   ts:{A1:[{tp:'mc',q:"Article: '___ apple a day.'",o:['A','An','The'],a:'An'},
-           {tp:'fi',q:"Simple present: 'She ___ (work) every day.'",a:'works'}],
-       A2:[{tp:'fi',q:"Present perfect: 'I ___ never been to Paris.'",a:'have'},
-           {tp:'mc',q:"Modal for advice?",o:['can','must','should','will'],a:'should'}],
-       B1:[{tp:'fi',q:"'If I had money, I ___ travel.' (conditional)",a:'would'}],
-       B2:[]}
- }
+// =============================================
+// STATE MANAGEMENT
+// =============================================
+const STATE = {
+  lang: 'en',
+  tab: 'grammar',
+  dark: false,
+  topicId: null,
+  mode: 'grammar',
+  qi: 0,
+  questions: [],
+  answers: [],
+  cache: {}
 };
 
-// ── STATE ─────────────────────────────────────
-let lang='dutch', tab='grammar', pLv='A1', tLv='A1';
-let pQs=[], pIdx=0, pAns=false;
-let tQs=[], tAns=[];
+const LTRS = ['A','B','C','D'];
 
-// ── UTILS ─────────────────────────────────────
-const $=id=>document.getElementById(id);
-const L=()=>CFG[lang];
+// =============================================
+// TOPICS DATA (40 per language)
+// =============================================
+const TOPICS = {
+  nl:[
+    {id:1,t:"De lidwoorden (de/het/een)",d:"Leer wanneer je 'de' of 'het' moet gebruiken"},
+    {id:2,t:"Bezittelijke voornaamwoorden",d:"Mijn, jouw, zijn, haar, ons, jullie, hun"},
+    {id:3,t:"Tegenwoordige tijd",d:"Regelmatige en onregelmatige werkwoorden"},
+    {id:4,t:"Verleden tijd (zwak & sterk)",d:"Onvoltooid verleden en 't kofschip-regel"},
+    {id:5,t:"Voltooide tijden",d:"Voltooid tegenwoordige en verleden tijd"},
+    {id:6,t:"Toekomende tijd",d:"Zullen en gaan voor toekomstige gebeurtenissen"},
+    {id:7,t:"Modale werkwoorden",d:"Kunnen, moeten, mogen, willen, zullen, hoeven"},
+    {id:8,t:"Scheidbare werkwoorden",d:"Werkwoorden die splitsen in zinsdelen"},
+    {id:9,t:"Wederkerende werkwoorden",d:"Zich wassen, zich vergissen, zich herinneren"},
+    {id:10,t:"Meervoud van zelfstandige naamwoorden",d:"Regels: -en, -s, -eren en onregelmatigen"},
+    {id:11,t:"Verkleinwoorden (diminutieven)",d:"-je, -tje, -etje, -pje, -kje toevoegen"},
+    {id:12,t:"Bijvoeglijke naamwoorden – verbuiging",d:"Met of zonder -e: regels en uitzonderingen"},
+    {id:13,t:"Vergelijkingen",d:"Vergrotende en overtreffende trap"},
+    {id:14,t:"Voorzetsels",d:"In, op, aan, bij, naar, van en vaste combinaties"},
+    {id:15,t:"Vragende voornaamwoorden",d:"Wie, wat, welk, waar, wanneer, waarom, hoe"},
+    {id:16,t:"Aanwijzende voornaamwoorden",d:"Deze, die, dit, dat"},
+    {id:17,t:"Onbepaalde voornaamwoorden",d:"Iemand, niemand, iets, niets, alle, elk"},
+    {id:18,t:"Ontkenningen",d:"Niet en geen – keuze en plaatsing"},
+    {id:19,t:"Zinsvolgorde in hoofdzinnen",d:"Inversie en de V2-regel"},
+    {id:20,t:"Zinsvolgorde in bijzinnen",d:"Werkwoord naar het einde"},
+    {id:21,t:"Voegwoorden – nevenschikkend",d:"En, maar, of, want, dus"},
+    {id:22,t:"Voegwoorden – onderschikkend",d:"Omdat, dat, als, hoewel, terwijl"},
+    {id:23,t:"Betrekkelijke bijzinnen",d:"Die en dat als betrekkelijke voornaamwoorden"},
+    {id:24,t:"Passieve zinnen",d:"Worden en zijn in de lijdende vorm"},
+    {id:25,t:"Conditionele zinnen",d:"Als-zinnen en de irrealis met zou"},
+    {id:26,t:"Indirecte rede",d:"Rapporteren wat anderen zeggen"},
+    {id:27,t:"Infinitief met 'te' en 'om te'",d:"Wanneer te en om te voor de infinitief komen"},
+    {id:28,t:"Continuïteitsvormen",d:"Aan het, zitten te, staan te, lopen te"},
+    {id:29,t:"Vervangende infinitief",d:"Modale perfectum zonder ge-"},
+    {id:30,t:"Het woord 'er'",d:"Alle zeven functies van 'er' uitgelegd"},
+    {id:31,t:"Pronominale bijwoorden",d:"Ervan, hierop, daarvoor, waarmee"},
+    {id:32,t:"Bijwoorden",d:"Tijd, plaats, frequentie, wijze, graad"},
+    {id:33,t:"Gebiedende wijs (imperatief)",d:"Bevelen, verzoeken en voorstellen"},
+    {id:34,t:"Telwoorden",d:"Hoofdtelwoorden, rangtelwoorden en breuken"},
+    {id:35,t:"Datum en tijd",d:"Klokkijken, dagen, maanden en jaren"},
+    {id:36,t:"Participia",d:"Tegenwoordig en verleden deelwoord"},
+    {id:37,t:"Spellingregels",d:"Klinkerlengte, verdubbeling, f/v, s/z"},
+    {id:38,t:"Wederkerige voornaamwoorden",d:"Elkaar, elkander"},
+    {id:39,t:"Formeel vs informeel",d:"U vs jij/je – gebruik en context"},
+    {id:40,t:"Idiomatische uitdrukkingen",d:"Nederlandse spreekwoorden en zegswijzen"}
+  ],
+  fr:[
+    {id:1,t:"Les articles (définis, indéfinis, partitifs)",d:"Le, la, les, un, une, des, du, de la"},
+    {id:2,t:"Le genre et le nombre des noms",d:"Masculin/féminin, singulier/pluriel, règles et exceptions"},
+    {id:3,t:"Les adjectifs qualificatifs",d:"Accord, place et degrés de comparaison"},
+    {id:4,t:"Les pronoms personnels",d:"Sujets, COD, COI, toniques, ordre et place"},
+    {id:5,t:"Les pronoms possessifs",d:"Mon, ton, son, notre, votre, leur et formes renforcées"},
+    {id:6,t:"Les pronoms démonstratifs",d:"Ce, cet, cette, ces, celui, celle, ceux"},
+    {id:7,t:"Les pronoms relatifs",d:"Qui, que, dont, où, lequel et composés"},
+    {id:8,t:"Les pronoms indéfinis",d:"Quelqu'un, personne, quelque chose, rien, chacun"},
+    {id:9,t:"Le présent de l'indicatif",d:"Verbes réguliers (-er, -ir, -re) et irréguliers fréquents"},
+    {id:10,t:"Le passé composé",d:"Formation avec avoir et être, accord du participe"},
+    {id:11,t:"L'imparfait",d:"Formation et emplois : description, habitude, action de fond"},
+    {id:12,t:"Le passé simple",d:"Formation et usage dans la langue écrite et littéraire"},
+    {id:13,t:"Le plus-que-parfait",d:"Antériorité dans le passé"},
+    {id:14,t:"Le futur simple",d:"Radicaux réguliers et irréguliers"},
+    {id:15,t:"Le conditionnel présent et passé",d:"Politesse, hypothèse, information non confirmée"},
+    {id:16,t:"Le subjonctif présent et passé",d:"Emplois : obligation, sentiment, doute, conjonctions"},
+    {id:17,t:"L'impératif",d:"Ordres, conseils et propositions"},
+    {id:18,t:"Les verbes pronominaux",d:"Réfléchis, réciproques, essentiellement pronominaux"},
+    {id:19,t:"La voix passive",d:"Formation, emploi et alternatives"},
+    {id:20,t:"Le discours indirect",d:"Concordance des temps et transformation des indicateurs"},
+    {id:21,t:"La phrase conditionnelle (si)",d:"Règle d'or : potentiel, irréel présent et passé"},
+    {id:22,t:"Les verbes modaux",d:"Pouvoir, devoir, vouloir, savoir – nuances et conjugaison"},
+    {id:23,t:"La négation",d:"Ne…pas, plus, jamais, rien, personne, que, ni…ni"},
+    {id:24,t:"L'interrogation",d:"Intonation, est-ce que, inversion – registres"},
+    {id:25,t:"Les prépositions",d:"À, de, dans, en, par, pour, sur, chez et leurs emplois"},
+    {id:26,t:"Les conjonctions",d:"Coordination et subordination"},
+    {id:27,t:"Les adverbes",d:"Formation en -ment, place, degrés"},
+    {id:28,t:"Les pronoms y et en",d:"Emploi, place et combinaisons"},
+    {id:29,t:"L'accord du participe passé",d:"Avec avoir, être et verbes pronominaux"},
+    {id:30,t:"Les temps du futur",d:"Futur simple, futur antérieur, futur proche"},
+    {id:31,t:"Le gérondif et le participe présent",d:"En + participe présent vs adjectif verbal"},
+    {id:32,t:"Les déterminants (tout, même, demi, nu)",d:"Accords complexes et règles particulières"},
+    {id:33,t:"Les prépositions et noms géographiques",d:"À, en, au, aux, de, du, des selon le pays/région"},
+    {id:34,t:"C'est vs il est",d:"Structures de présentation et d'identification"},
+    {id:35,t:"Les nombres et la date",d:"Cardinaux, ordinaux, date, heure, accord de vingt/cent"},
+    {id:36,t:"Infinitif et gérondif après prépositions",d:"Sans, avant de, après, pour, en + infinitif/gérondif"},
+    {id:37,t:"Les phrases relatives complexes",d:"Dont, lequel, auquel, duquel en contexte"},
+    {id:38,t:"L'inversion (style soutenu)",d:"Inversion dans les questions et propositions incises"},
+    {id:39,t:"Registres : tu vs vous",d:"Formel vs informel, usages sociaux"},
+    {id:40,t:"Les expressions idiomatiques",d:"Gallicismes courants et expressions figées"}
+  ],
+  en:[
+    {id:1,t:"Articles (a / an / the)",d:"Definite, indefinite, zero article – rules and exceptions"},
+    {id:2,t:"Nouns – Countable & Uncountable",d:"Quantifiers, irregular plurals, collective nouns (UK)"},
+    {id:3,t:"Pronouns – Personal & Reflexive",d:"Subject, object, possessive, reflexive forms"},
+    {id:4,t:"Present Simple & Continuous",d:"Stative verbs, habits, routines, ongoing actions"},
+    {id:5,t:"Past Simple & Continuous",d:"Regular/irregular past forms, interrupted actions"},
+    {id:6,t:"Present Perfect (UK focus)",d:"Just, already, yet, ever, never, since, for"},
+    {id:7,t:"Present Perfect Continuous",d:"Duration, recent activity, visible results"},
+    {id:8,t:"Past Perfect & Past Perfect Continuous",d:"Sequencing past events, reported speech"},
+    {id:9,t:"Future Expressions",d:"Will, going to, present continuous, shall (British)"},
+    {id:10,t:"Modal Verbs",d:"Can, could, may, might, must, should, would, ought to"},
+    {id:11,t:"Passive Voice",d:"All tenses, get-passive, impersonal passive"},
+    {id:12,t:"Reported Speech",d:"Backshifting, time/place changes, questions"},
+    {id:13,t:"Conditional Sentences",d:"Zero, first, second, third, mixed + inverted conditionals"},
+    {id:14,t:"The Subjunctive (British)",d:"Formulaic, mandative, were in hypotheticals"},
+    {id:15,t:"Relative Clauses",d:"Defining vs non-defining, who/which/that/whose/where"},
+    {id:16,t:"Noun Clauses & Indirect Questions",d:"That-clauses, wh-clauses, if/whether"},
+    {id:17,t:"Adverbial Clauses",d:"Time, reason, result, condition, concession, manner"},
+    {id:18,t:"Infinitives & Gerunds",d:"Verb patterns, meaning changes, bare infinitive"},
+    {id:19,t:"Adjectives",d:"Royal order, attributive vs predicative, gradable/non-gradable"},
+    {id:20,t:"Comparatives & Superlatives",d:"Rules, irregular forms, elder/eldest, further/farther"},
+    {id:21,t:"Adverbs",d:"Types, formation, placement, flat adverbs, -ly vs base"},
+    {id:22,t:"Prepositions",d:"At/on/in for time and place, British collocations"},
+    {id:23,t:"Conjunctions",d:"FANBOYS, subordinators, correlative pairs"},
+    {id:24,t:"Determiners & Quantifiers",d:"Some/any, much/many, few/little, order of determiners"},
+    {id:25,t:"Negation",d:"Not, no, never, nobody, double negatives, elliptical negation"},
+    {id:26,t:"Questions & Inversion",d:"Question tags (British), indirect questions, inversion"},
+    {id:27,t:"Phrasal Verbs",d:"Separable, inseparable, three-word phrasal verbs"},
+    {id:28,t:"Collocations & Fixed Expressions",d:"Make/do, strong/powerful, British idioms"},
+    {id:29,t:"Word Order & Emphasis",d:"Cleft sentences, fronting, inversion for emphasis"},
+    {id:30,t:"Ellipsis & Substitution",d:"Omitting words, so/not substitutes, do so"},
+    {id:31,t:"Noun Phrases",d:"Pre- and post-modification, participial phrases"},
+    {id:32,t:"Verb Valency",d:"Transitive, intransitive, ditransitive, linking verbs"},
+    {id:33,t:"Aspect: Simple vs Continuous vs Perfect",d:"Choosing the right aspect to express meaning"},
+    {id:34,t:"Spelling Rules (British)",d:"-our/-ise/-re/-ll, doubling, ie/ei, British vs American"},
+    {id:35,t:"Punctuation (British style)",d:"Apostrophes, commas, single/double quotes, colons"},
+    {id:36,t:"Formal vs Informal Register",d:"Whom, preposition stranding, contractions, vocabulary"},
+    {id:37,t:"Singular 'They' & Gender-Neutral Language",d:"Modern British usage and agreement"},
+    {id:38,t:"Wishes, Regrets & Hypotheticals",d:"Wish, if only, would rather, it's time, had better"},
+    {id:39,t:"Compound & Complex Sentences",d:"Coordination, subordination, punctuation rules"},
+    {id:40,t:"Common Errors in British English",d:"Fewer/less, bring/take, lie/lay, who/whom, its/it's"}
+  ]
+};
 
-function speak(w){
-  if(!window.speechSynthesis)return;
-  const u=new SpeechSynthesisUtterance(w);
-  u.lang={dutch:'nl-NL',french:'fr-FR',english:'en-US'}[lang]||'en-US';
-  speechSynthesis.cancel();speechSynthesis.speak(u);
-}
-function showPop(w){
-  document.querySelectorAll('.pop').forEach(p=>p.remove());
-  const p=document.createElement('div');p.className='pop';
-  p.innerHTML=`<button onclick="speak('${w.replace(/'/g,"\\'")}')" ><i class="fas fa-volume-up"></i></button> <strong>${w}</strong>`;
-  document.body.appendChild(p);
-  setTimeout(()=>p.remove(),2500);
-}
-function setCSS(){
-  const c=L().theme;
-  let s=$('dcs');
-  if(!s){s=document.createElement('style');s.id='dcs';document.head.appendChild(s);}
-  s.textContent=`:root{--accent:${c};--accent-dark:${c};--accent-soft:${c}18;}`;
-}
-function setLabels(){
-  const lb=L().lbl;
-  $('l-g').textContent=lb.g;$('l-p').textContent=lb.p;$('l-t').textContent=lb.t;
-  $('pn').innerHTML=lb.next;$('ts').textContent=lb.sub;
-  $('si').placeholder=lb.search;
-}
-
-// ── TABS ──────────────────────────────────────
-function goTab(t){
-  tab=t;
-  document.querySelectorAll('.tb').forEach(b=>b.classList.toggle('on',b.dataset.tab===t));
-  document.querySelectorAll('.sec').forEach(s=>s.classList.toggle('on',s.id==='s-'+t));
-  localStorage.setItem('lmt',t);
-}
-
-// ── GRAMMAR ───────────────────────────────────
-function renderG(){
-  const list=$('gl');list.innerHTML='';
-  L().gram.forEach((g,i)=>{
-    const d=document.createElement('div');
-    d.className=`gc ${g.c}`;d.dataset.idx=i;
-    d.innerHTML=`
-      <div class="gctop">
-        <div><div class="gcnum">${g.n} · ${L().name}</div><h3>${g.t}</h3></div>
-        <button class="exb" data-i="${i}"><i class="fas fa-chevron-down"></i></button>
-      </div>
-      <div class="gbody" id="gb${i}">
-        <div class="gexp">${g.e}</div>
-        ${g.x&&g.x.length?`<div class="gexb"><div class="gexl">Examples</div>${g.x.map(ex=>`<div class="gexr">${ex.n}</div>`).join('')}</div>`:''}
-        <div class="gwrds">${(g.w||[]).map(w=>`<span class="wt" data-w="${w}"><i class="fas fa-volume-up"></i>${w}</span>`).join('')}</div>
-      </div>`;
-    list.appendChild(d);
-  });
-  list.querySelectorAll('.exb').forEach(btn=>btn.addEventListener('click',e=>{
-    e.stopPropagation();
-    const body=$('gb'+btn.dataset.i);
-    const ic=btn.querySelector('i');
-    const op=body.classList.toggle('op');
-    ic.className=op?'fas fa-chevron-up':'fas fa-chevron-down';
-  }));
-  list.querySelectorAll('.wt').forEach(tag=>tag.addEventListener('click',e=>{
-    e.stopPropagation();showPop(tag.dataset.w);speak(tag.dataset.w);
-  }));
-}
-
-// ── LEVEL BUTTONS ─────────────────────────────
-function lvlBtns(cid,lvs,cur,cb){
-  const c=$(cid);c.innerHTML='';
-  lvs.forEach(l=>{
-    const b=document.createElement('button');b.className='lbtn'+(l===cur?' on':'');b.textContent=l;
-    b.addEventListener('click',()=>cb(l));c.appendChild(b);
-  });
-}
-
-// ── PRACTICE ──────────────────────────────────
-function loadP(){
-  const ex=L().ex[pLv]||[];
-  pQs=ex.length?ex:[{q:L().lbl.noex,o:[L().lbl.ok],a:L().lbl.ok}];
-  pIdx=0;pAns=false;renderP();
-}
-function renderP(){
-  const lb=L().lbl,q=pQs[pIdx];
-  $('pq').textContent=q.q;
-  $('po').innerHTML=q.o.map(o=>`<button class="obtn" data-o="${o}">${o}</button>`).join('');
-  $('pf').innerHTML='';$('pn').style.display='none';pAns=false;updProg();
-  $('po').querySelectorAll('.obtn').forEach(btn=>btn.addEventListener('click',function(){
-    if(pAns)return;pAns=true;
-    const ok=this.dataset.o===q.a;
-    this.classList.add(ok?'ok':'bad');
-    if(!ok)$('po').querySelectorAll('.obtn').forEach(b=>{if(b.dataset.o===q.a)b.classList.add('ok');});
-    $('pf').innerHTML=`<div class="fbmsg ${ok?'fbok':'fbbad'}">${ok?lb.cor:lb.wrg+q.a}</div>`;
-    $('pn').style.display='inline-flex';updProg();
-  }));
-}
-function updProg(){
-  const a=pIdx+(pAns?1:0),pct=pQs.length?Math.round(a/pQs.length*100):0;
-  $('prf').style.width=pct+'%';$('prl').textContent=L().lbl.qof(a,pQs.length);
-}
-function nextP(){
-  if(pIdx+1<pQs.length){pIdx++;pAns=false;renderP();}
-  else{$('pf').innerHTML=`<div class="fbmsg fbok">${L().lbl.done}</div>`;$('pn').style.display='none';}
-}
-
-// ── TESTS ─────────────────────────────────────
-function loadT(lv){
-  tLv=lv;tQs=L().ts[lv]||[];tAns=Array(tQs.length).fill('');renderT();
-}
-function renderT(){
-  const lb=L().lbl;
-  if(!tQs.length){$('tb2').innerHTML=`<p style="color:var(--text2);padding:1rem 0">${lb.lvl}</p>`;return;}
-  $('tb2').innerHTML=tQs.map((q,i)=>`
-    <div class="titem">
-      <div class="tq">${i+1}. ${q.q}</div>
-      ${q.tp==='mc'?`<div class="tmc">${q.o.map(o=>`<button class="tmcbtn" data-qi="${i}" data-o="${o}">${o}</button>`).join('')}</div>`
-      :`<input class="tfill" data-qi="${i}" placeholder="Write your answer..." autocomplete="off">`}
-    </div>`).join('');
-  $('tb2').querySelectorAll('.tmcbtn').forEach(btn=>btn.addEventListener('click',function(){
-    const qi=+this.dataset.qi;
-    $('tb2').querySelectorAll(`.tmcbtn[data-qi="${qi}"]`).forEach(b=>b.classList.remove('sel'));
-    this.classList.add('sel');tAns[qi]=this.dataset.o;
-  }));
-  $('tb2').querySelectorAll('.tfill').forEach(inp=>inp.addEventListener('input',function(){tAns[+this.dataset.qi]=this.value.trim();}));
-  $('tr').innerHTML='';
-}
-function submitT(){
-  const lb=L().lbl;if(!tQs.length)return;
-  let ok=0;
-  tQs.forEach((q,i)=>{if((tAns[i]||'').trim().toLowerCase()===q.a.toLowerCase())ok++;});
-  const pct=Math.round(ok/tQs.length*100);
-  $('tr').innerHTML=`<div class="rbox"><div class="rpct">${pct}%</div><div class="rmsg">${pct>=70?lb.congrats(ok,tQs.length,pct):lb.keep(ok,tQs.length,pct)}</div><div class="prbg" style="margin-top:1rem"><div class="prfill" style="width:${pct}%"></div></div></div>`;
-  $('tr').scrollIntoView({behavior:'smooth'});
-}
-
-// ── SEARCH ────────────────────────────────────
-function buildIdx(){
-  const idx=[],lb=L().lbl;
-  L().gram.forEach((g,i)=>{
-    idx.push({tp:'g',ttl:g.t,sub:lb.g,i,txt:(g.t+' '+(g.k||[]).join(' ')+' '+g.e+' '+(g.w||[]).join(' ')).toLowerCase(),ic:'book-open'});
-  });
-  ['A1','A2','B1','B2'].forEach(lv=>{
-    (L().ex[lv]||[]).forEach((e,i)=>idx.push({tp:'e',lv,ttl:e.q,sub:`${lb.p} ${lv}`,i,txt:(e.q+' '+e.o.join(' ')+' '+lv).toLowerCase(),ic:'pen'}));
-    (L().ts[lv]||[]).forEach((t,i)=>idx.push({tp:'t',lv,ttl:t.q,sub:`${lb.t} ${lv}`,i,txt:(t.q+' '+(t.o||[]).join(' ')+' '+lv).toLowerCase(),ic:'clipboard-check'}));
-  });
-  return idx;
-}
-function doSearch(q){
-  const panel=$('sr');
-  if(!q.trim()){panel.style.display='none';return;}
-  const lq=q.toLowerCase().trim();
-  let idx=buildIdx();
-  const lvm=lq.match(/^(a1|a2|b1|b2)$/i);
-  idx=lvm?idx.filter(r=>(r.tp==='e'||r.tp==='t')&&r.lv===lvm[0].toUpperCase()):idx.filter(r=>r.txt.includes(lq));
-  if(!idx.length){panel.innerHTML=`<div style="padding:1.2rem;text-align:center;color:var(--text2);font-size:.88rem">No results found</div>`;panel.style.display='block';return;}
-  const grp={g:[],e:[],t:[]};idx.forEach(r=>grp[r.tp].push(r));
-  const names={g:L().lbl.g,e:L().lbl.p,t:L().lbl.t};
-  const ics={g:'book-open',e:'pen',t:'clipboard-check'};
-  let html='';
-  for(const tp in grp){
-    if(!grp[tp].length)continue;
-    html+=`<div class="srlbl"><i class="fas fa-${ics[tp]}"></i> ${names[tp]}</div>`;
-    grp[tp].slice(0,5).forEach(item=>{
-      const esc=lq.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-      const hl=item.ttl.replace(new RegExp(esc,'gi'),m=>`<mark>${m}</mark>`);
-      html+=`<div class="sri" data-tp="${item.tp}" data-lv="${item.lv||''}" data-i="${item.i}">
-        <div class="sric"><i class="fas fa-${ics[item.tp]}"></i></div>
-        <div><div class="srt">${hl}</div><div class="srs">${item.sub}</div></div>
-      </div>`;
-    });
+// =============================================
+// LABELS (UI TEXT)
+// =============================================
+const LABELS = {
+  nl:{
+    grammar:"Grammatica", practice:"Oefening", test:"Toets",
+    ph:"Zoek grammatica onderwerpen...",
+    back:"Terug", study:"Bestudeer", startP:"Oefening starten", startT:"Toets starten",
+    loading:"Bezig met laden...",
+    q:"Vraag", of:"van",
+    next:"Volgende →", submit:"Indienen ✓",
+    results:"Resultaten",tryAgain:"Opnieuw proberen",backTop:"Terug naar onderwerpen",
+    perfect:"Uitstekend! 🎉", great:"Goed gedaan! 👍", ok:"Niet slecht 📚", keep:"Blijf oefenen! 💪",
+    score:"Jouw score", expl:"Uitleg:"
+  },
+  fr:{
+    grammar:"Grammaire", practice:"Pratique", test:"Test",
+    ph:"Rechercher des sujets...",
+    back:"Retour", study:"Étudier", startP:"Commencer la pratique", startT:"Commencer le test",
+    loading:"Chargement...",
+    q:"Question", of:"sur",
+    next:"Suivante →", submit:"Soumettre ✓",
+    results:"Résultats",tryAgain:"Réessayer",backTop:"Retour aux sujets",
+    perfect:"Excellent ! 🎉", great:"Bien joué ! 👍", ok:"Pas mal 📚", keep:"Continuez à pratiquer ! 💪",
+    score:"Votre score", expl:"Explication :"
+  },
+  en:{
+    grammar:"Grammar", practice:"Practice", test:"Test",
+    ph:"Search grammar topics...",
+    back:"Back", study:"Study", startP:"Start Practice", startT:"Start Test",
+    loading:"Loading...",
+    q:"Question", of:"of",
+    next:"Next →", submit:"Submit ✓",
+    results:"Results",tryAgain:"Try Again",backTop:"Back to Topics",
+    perfect:"Perfect! 🎉", great:"Great job! 👍", ok:"Not bad 📚", keep:"Keep practising! 💪",
+    score:"Your score", expl:"Explanation:"
   }
-  panel.innerHTML=html;panel.style.display='block';
-  panel.querySelectorAll('.sri').forEach(el=>el.addEventListener('click',()=>{
-    const tp=el.dataset.tp,lv=el.dataset.lv,i=+el.dataset.i;
-    panel.style.display='none';$('si').value='';$('sc').style.display='none';
-    if(tp==='g'){
-      goTab('grammar');
-      setTimeout(()=>{
-        const cards=document.querySelectorAll('.gc');
-        cards.forEach(c=>c.classList.remove('hl'));
-        if(cards[i]){
-          cards[i].classList.add('hl');
-          cards[i].scrollIntoView({behavior:'smooth',block:'center'});
-          const body=cards[i].querySelector('.gbody');
-          const btn=cards[i].querySelector('.exb i');
-          if(body&&!body.classList.contains('op')){body.classList.add('op');if(btn)btn.className='fas fa-chevron-up';}
-          setTimeout(()=>cards[i].classList.remove('hl'),2500);
-        }
-      },50);
-    }else if(tp==='e'){
-      goTab('practice');pLv=lv;
-      lvlBtns('pl',['A1','A2','B1','B2'],pLv,l=>{pLv=l;lvlBtns('pl',['A1','A2','B1','B2'],pLv,arguments.callee);loadP();});
-      loadP();
-      setTimeout(()=>{pIdx=i;renderP();$('pq').scrollIntoView({behavior:'smooth'});},100);
-    }else{
-      goTab('tests');
-      lvlBtns('tl',['A1','A2','B1','B2'],lv,l=>{lvlBtns('tl',['A1','A2','B1','B2'],l,arguments.callee);loadT(l);});
-      loadT(lv);
+};
+
+// =============================================
+// PERSISTENCE (LocalStorage)
+// =============================================
+function saveState() {
+  try {
+    localStorage.setItem('linguaState', JSON.stringify({
+      lang: STATE.lang,
+      dark: STATE.dark
+    }));
+  } catch(e) { console.error('Save failed', e); }
+}
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('linguaState');
+    if (saved) {
+      const data = JSON.parse(saved);
+      if (data.lang) STATE.lang = data.lang;
+      if (data.dark !== undefined) {
+        STATE.dark = data.dark;
+        document.body.setAttribute('data-theme', STATE.dark ? 'dark' : '');
+        const ti = document.getElementById('themeIco');
+        if (ti) ti.textContent = STATE.dark ? '☀️' : '🌙';
+      }
     }
-  }));
+  } catch(e) { console.error('Load failed', e); }
 }
 
-// ── LANGUAGE SWITCH ───────────────────────────
-function switchLang(nl,anim=true){
-  lang=nl;localStorage.setItem('lml',nl);
-  setCSS();setLabels();renderG();
-  lvlBtns('pl',['A1','A2','B1','B2'],pLv,l=>{pLv=l;lvlBtns('pl',['A1','A2','B1','B2'],pLv,()=>{});loadP();});
-  lvlBtns('tl',['A1','A2','B1','B2'],tLv,l=>{lvlBtns('tl',['A1','A2','B1','B2'],l,()=>{});loadT(l);});
-  loadP();loadT(tLv);$('tr').innerHTML='';
-  if(anim){
-    const ls=$('langScreen');ls.classList.add('gone');
-    setTimeout(()=>{ls.style.display='none';$('app').classList.add('on');},500);
-  }
-}
-
-// ── DARK MODE ─────────────────────────────────
-function initDark(){if(localStorage.getItem('lmd')==='1'){document.body.classList.add('dark');$('btnDark').querySelector('i').className='fas fa-sun';}}
-function togDark(){const on=document.body.classList.toggle('dark');$('btnDark').querySelector('i').className=on?'fas fa-sun':'fas fa-moon';localStorage.setItem('lmd',on?'1':'0');}
-
-// ── INIT ──────────────────────────────────────
-function init(){
-  initDark();
-
-  // Language cards — direct onclick assignment for reliability
-  ['dutch','french','english'].forEach(l=>{
-    const el=$('lc-'+l);
-    if(el){el.onclick=()=>switchLang(l,true);}
-  });
-
-  // Tabs
-  document.querySelectorAll('.tb').forEach(b=>b.addEventListener('click',()=>goTab(b.dataset.tab)));
-
-  // Header buttons
-  $('btnLang').onclick=()=>{
-    localStorage.removeItem('lml');
-    const ls=$('langScreen');ls.style.display='flex';ls.style.opacity='1';ls.classList.remove('gone');
-    $('app').classList.remove('on');
+// =============================================
+// LANGUAGE & THEME
+// =============================================
+function selectLang(l) {
+  STATE.lang = l;
+  saveState();
+  
+  const flags={nl:'🇳🇱',fr:'🇫🇷',en:'🇬🇧'};
+  const cols={
+    nl:{a:'--nl',ab:'--nlbg',abo:'--nlbo'},
+    fr:{a:'--fr',ab:'--frbg',abo:'--frbo'},
+    en:{a:'--en',ab:'--enbg',abo:'--enbo'}
   };
-  $('btnDark').onclick=togDark;
+  const r = document.documentElement;
+  const s = getComputedStyle(r);
+  r.style.setProperty('--accent', s.getPropertyValue(cols[l].a).trim());
+  r.style.setProperty('--acbg',   s.getPropertyValue(cols[l].ab).trim());
+  r.style.setProperty('--acbo',   s.getPropertyValue(cols[l].abo).trim());
+  
+  document.getElementById('langFlag').textContent = flags[l];
+  const lb = LABELS[l];
+  document.getElementById('lbl-grammar').textContent = lb.grammar;
+  document.getElementById('lbl-practice').textContent = lb.practice;
+  document.getElementById('lbl-test').textContent = lb.test;
+  document.getElementById('searchInp').placeholder = lb.ph;
+  
+  document.getElementById('langSelect').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  STATE.tab = 'grammar';
+  showTab('grammar');
+}
 
-  // Practice
-  $('pn').onclick=nextP;
+function showLangSelect() {
+  document.getElementById('langSelect').style.display = '';
+  document.getElementById('app').style.display = 'none';
+}
 
-  // Tests
-  $('ts').onclick=submitT;
+function toggleTheme() {
+  STATE.dark = !STATE.dark;
+  saveState();
+  document.body.setAttribute('data-theme', STATE.dark ? 'dark' : '');
+  document.getElementById('themeIco').textContent = STATE.dark ? '☀️' : '🌙';
+}
 
-  // Search
-  $('si').addEventListener('input',e=>{doSearch(e.target.value);$('sc').style.display=e.target.value?'block':'none';});
-  $('sc').onclick=()=>{$('si').value='';$('sr').style.display='none';$('sc').style.display='none';$('si').focus();};
-  document.addEventListener('click',e=>{if(!$('si').contains(e.target)&&!$('sr').contains(e.target))$('sr').style.display='none';});
+// =============================================
+// TAB NAVIGATION
+// =============================================
+function switchTab(t) {
+  STATE.tab = t;
+  showTab(t);
+}
 
-  // Restore
-  const sl=localStorage.getItem('lml'),st=localStorage.getItem('lmt')||'grammar';
-  if(sl&&CFG[sl]){
-    $('langScreen').style.display='none';$('app').classList.add('on');
-    switchLang(sl,false);goTab(st);
-  }else{
-    $('langScreen').style.display='flex';$('app').style.display='none';
+function showTab(t) {
+  ['grammar','practice','test'].forEach(x => {
+    const sec = document.getElementById('sec-'+x);
+    if(sec) sec.style.display = x===t ? '' : 'none';
+    const btn = document.getElementById('tab-'+x);
+    if(btn) btn.classList.toggle('active', x===t);
+  });
+  document.getElementById('sec-detail').style.display = 'none';
+  if(t==='grammar')  renderGrid('grammarGrid',  'topicClickGrammar');
+  if(t==='practice') renderGrid('practiceGrid', 'topicClickPractice');
+  if(t==='test')     renderGrid('testGrid',     'topicClickTest');
+}
+
+// =============================================
+// RENDER TOPIC GRIDS
+// =============================================
+function renderGrid(gridId, fnName) {
+  const el = document.getElementById(gridId);
+  if(!el) return;
+  el.innerHTML = TOPICS[STATE.lang].map((tp,i) => `
+    <div class="tc" onclick="${fnName}(${tp.id})" style="animation-delay:${i*0.025}s">
+      <div class="tc-num">${tp.id}</div>
+      <div class="tc-title">${tp.t}</div>
+      <div class="tc-desc">${tp.d}</div>
+    </div>
+  `).join('');
+}
+
+function filterTopics() {
+  const q = document.getElementById('searchInp').value.toLowerCase();
+  document.querySelectorAll('#grammarGrid .tc').forEach(c => {
+    c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+// =============================================
+// DETAIL VIEW
+// =============================================
+function showDetail() {
+  document.getElementById('sec-grammar').style.display = 'none';
+  document.getElementById('sec-practice').style.display = 'none';
+  document.getElementById('sec-test').style.display = 'none';
+  document.getElementById('sec-detail').style.display = '';
+  document.getElementById('backLbl').textContent = LABELS[STATE.lang].back;
+}
+
+function backFromDetail() {
+  document.getElementById('sec-detail').style.display = 'none';
+  document.getElementById('sec-'+STATE.mode).style.display = '';
+  const tabBtn = document.getElementById('tab-'+STATE.mode);
+  if(tabBtn) tabBtn.classList.add('active');
+}
+
+// =============================================
+// TOPIC CLICK HANDLERS (exposed globally)
+// =============================================
+function topicClickGrammar(id) {
+  STATE.mode='grammar';
+  openGrammar(id);
+}
+function topicClickPractice(id) {
+  STATE.mode='practice';
+  openPractice(id);
+}
+function topicClickTest(id) {
+  STATE.mode='test';
+  openTest(id);
+}
+
+// Make functions globally accessible for onclick
+window.topicClickGrammar = topicClickGrammar;
+window.topicClickPractice = topicClickPractice;
+window.topicClickTest = topicClickTest;
+
+// =============================================
+// GRAMMAR EXPLANATION
+// =============================================
+async function openGrammar(id) {
+  STATE.topicId = id;
+  const tp = TOPICS[STATE.lang].find(t=>t.id===id);
+  const lb = LABELS[STATE.lang];
+  showDetail();
+  document.getElementById('detailContent').innerHTML = `
+    <div class="det-hdr">
+      <h1>${tp.t}</h1>
+      <p>${tp.d}</p>
+      <div class="tact">
+        <button class="btn btn-s" onclick="topicClickPractice(${id})">${lb.startP}</button>
+        <button class="btn btn-s" onclick="topicClickTest(${id})">${lb.startT}</button>
+      </div>
+    </div>
+    <div class="cbox" id="gramBox">
+      <div class="ldwrap"><div class="spin"></div><span>${lb.loading}</span></div>
+    </div>
+  `;
+  
+  try {
+    const html = await fetchGrammarContent(STATE.lang, id, tp.t);
+    document.getElementById('gramBox').innerHTML = html;
+  } catch(e) {
+    console.error('Grammar load error:', e);
+    document.getElementById('gramBox').innerHTML = `
+      <p style="color:var(--text2)">⚠️ Could not load content. Please check your connection and try again.</p>
+    `;
   }
 }
 
-document.addEventListener('DOMContentLoaded',init);
+async function fetchGrammarContent(lang, id, title) {
+  const cacheKey = `gram_${lang}_${id}`;
+  if (STATE.cache[cacheKey]) return STATE.cache[cacheKey];
+  
+  const langMap = {nl:'Dutch',fr:'French',en:'British English'};
+  const instructions = {
+    nl:'Schrijf alle uitleg in het Nederlands.',
+    fr:'Écris toute l\'explication en français.',
+    en:'Write all explanations in English.'
+  };
+  
+  const prompt = `You are an expert ${langMap[lang]} grammar teacher. ${instructions[lang]}
+
+Create a comprehensive, beautifully formatted HTML explanation of: "${title}"
+
+Requirements:
+- Use modern, clean HTML with inline CSS
+- Include clear examples with translations
+- Use tables, cards, or structured layouts
+- Make it visually appealing with proper spacing
+- Include practical exercises or tips
+- Return ONLY the HTML content (no backticks, no markdown)`;
+
+  const html = await callAPI(prompt);
+  STATE.cache[cacheKey] = html;
+  return html;
+}
+
+// =============================================
+// PRACTICE MODE
+// =============================================
+async function openPractice(id) {
+  STATE.topicId = id;
+  const tp = TOPICS[STATE.lang].find(t=>t.id===id);
+  const lb = LABELS[STATE.lang];
+  showDetail();
+  document.getElementById('detailContent').innerHTML = `
+    <div class="det-hdr">
+      <h1>${tp.t}</h1>
+      <p>${lb.practice} — 5 ${lb.q}s</p>
+    </div>
+    <div id="pquiz">
+      <div class="ldwrap"><div class="spin"></div><span>${lb.loading}</span></div>
+    </div>
+  `;
+  
+  try {
+    STATE.questions = await fetchQuestions(STATE.lang, id, tp.t, 5, 'practice');
+    STATE.qi = 0;
+    STATE.answers = [];
+    renderPracticeQuestion();
+  } catch(e) {
+    console.error('Practice load error:', e);
+    document.getElementById('pquiz').innerHTML = `
+      <p style="color:var(--text2)">⚠️ Could not load questions. Please try again.</p>
+    `;
+  }
+}
+
+function renderPracticeQuestion() {
+  const lb = LABELS[STATE.lang];
+  const q = STATE.questions[STATE.qi];
+  const pct = Math.round(STATE.qi / STATE.questions.length * 100);
+  
+  document.getElementById('pquiz').innerHTML = `
+    <div class="qhdr">
+      <div class="pbar-wrap"><div class="pbar-fill" style="width:${pct}%"></div></div>
+      <div class="qmeta"><span>${lb.q} ${STATE.qi+1} ${lb.of} ${STATE.questions.length}</span><span>${pct}%</span></div>
+    </div>
+    <div class="qcard">
+      <div class="qtext">${q.question}</div>
+      <div class="opts" id="opts">
+        ${q.options.map((o,i)=>`
+          <button class="obtn" id="ob${i}" onclick="selectPracticeAnswer(${i})">
+            <span class="oltr">${LTRS[i]}</span>${o}
+          </button>
+        `).join('')}
+      </div>
+      <div id="expbl"></div>
+    </div>
+    <div class="qnav">
+      <div></div>
+      <button class="btn btn-p" id="nxtbtn" style="display:none" onclick="nextPracticeQuestion()">
+        ${STATE.qi < STATE.questions.length-1 ? lb.next : '✓ '+lb.backTop}
+      </button>
+    </div>
+  `;
+}
+
+function selectPracticeAnswer(sel) {
+  const lb = LABELS[STATE.lang];
+  const q = STATE.questions[STATE.qi];
+  
+  document.querySelectorAll('.obtn').forEach((btn,i) => {
+    btn.disabled = true;
+    if(i === q.correct) btn.classList.add('correct');
+    else if(i === sel && sel !== q.correct) btn.classList.add('incorrect');
+  });
+  
+  document.getElementById('expbl').innerHTML = `
+    <div class="expbox"><strong>${lb.expl}</strong> ${q.explanation}</div>
+  `;
+  document.getElementById('nxtbtn').style.display = 'inline-flex';
+  STATE.answers[STATE.qi] = sel;
+}
+
+function nextPracticeQuestion() {
+  if(STATE.qi < STATE.questions.length - 1) {
+    STATE.qi++;
+    renderPracticeQuestion();
+  } else {
+    backFromDetail();
+  }
+}
+
+// =============================================
+// TEST MODE
+// =============================================
+async function openTest(id) {
+  STATE.topicId = id;
+  const tp = TOPICS[STATE.lang].find(t=>t.id===id);
+  const lb = LABELS[STATE.lang];
+  showDetail();
+  document.getElementById('detailContent').innerHTML = `
+    <div class="det-hdr">
+      <h1>${tp.t}</h1>
+      <p>${lb.test} — 10 ${lb.q}s</p>
+    </div>
+    <div id="tquiz">
+      <div class="ldwrap"><div class="spin"></div><span>${lb.loading}</span></div>
+    </div>
+  `;
+  
+  try {
+    STATE.questions = await fetchQuestions(STATE.lang, id, tp.t, 10, 'test');
+    STATE.qi = 0;
+    STATE.answers = new Array(10).fill(null);
+    renderTestQuestion(0);
+  } catch(e) {
+    console.error('Test load error:', e);
+    document.getElementById('tquiz').innerHTML = `
+      <p style="color:var(--text2)">⚠️ Could not load questions. Please try again.</p>
+    `;
+  }
+}
+
+function renderTestQuestion(idx) {
+  const lb = LABELS[STATE.lang];
+  const q = STATE.questions[idx];
+  const pct = Math.round(idx / STATE.questions.length * 100);
+  const isLast = idx === STATE.questions.length - 1;
+  const selected = STATE.answers[idx];
+  
+  document.getElementById('tquiz').innerHTML = `
+    <div class="qhdr">
+      <div class="pbar-wrap"><div class="pbar-fill" style="width:${pct}%"></div></div>
+      <div class="qmeta"><span>${lb.q} ${idx+1} ${lb.of} ${STATE.questions.length}</span><span>${pct}%</span></div>
+    </div>
+    <div class="qcard">
+      <div class="qtext">${q.question}</div>
+      <div class="opts">
+        ${q.options.map((o,i)=>`
+          <button class="obtn ${selected===i?'sel-test':''}" onclick="selectTestAnswer(${idx},${i})">
+            <span class="oltr">${LTRS[i]}</span>${o}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+    <div class="qnav">
+      ${idx>0 ? `<button class="btn btn-o" onclick="renderTestQuestion(${idx-1})">← </button>` : '<div></div>'}
+      ${!isLast
+        ? `<button class="btn btn-p" onclick="renderTestQuestion(${idx+1})">${lb.next}</button>`
+        : `<button class="btn btn-p" onclick="submitTest()">${lb.submit}</button>`
+      }
+    </div>
+  `;
+}
+
+function selectTestAnswer(idx, opt) {
+  STATE.answers[idx] = opt;
+  renderTestQuestion(idx);
+}
+
+function submitTest() {
+  const lb = LABELS[STATE.lang];
+  let correct = 0;
+  STATE.questions.forEach((q,i) => {
+    if(STATE.answers[i] === q.correct) correct++;
+  });
+  
+  const total = STATE.questions.length;
+  const pct = Math.round(correct/total*100);
+  const msg = pct===100 ? lb.perfect : pct>=70 ? lb.great : pct>=40 ? lb.ok : lb.keep;
+  
+  document.getElementById('tquiz').innerHTML = `
+    <div class="res-card">
+      <div class="res-lbl">${lb.results}</div>
+      <div class="res-score">${correct}/${total}</div>
+      <div class="res-msg">${msg}</div>
+      <div style="margin-bottom:1.5rem">
+        <div class="pbar-wrap" style="height:9px">
+          <div class="pbar-fill" id="resPbar" style="width:0%"></div>
+        </div>
+        <div style="text-align:center;margin-top:.4rem;color:var(--text3);font-weight:700;font-size:.9rem">${pct}%</div>
+      </div>
+      <div class="res-acts">
+        <button class="btn btn-p" onclick="openTest(${STATE.topicId})">${lb.tryAgain}</button>
+        <button class="btn btn-s" onclick="backFromDetail()">${lb.backTop}</button>
+      </div>
+    </div>
+    <div style="margin-top:1.5rem">
+      <h3 style="font-family:'Libre Baskerville',serif;margin-bottom:1rem;font-size:1.05rem;color:var(--text2)">Review</h3>
+      ${STATE.questions.map((q,i)=>{
+        const isCorrect = STATE.answers[i]===q.correct;
+        return `<div class="rev-item" style="border-left-color:${isCorrect?'var(--en)':'#ef4444'}">
+          <div class="rev-q">${i+1}. ${q.question}</div>
+          <div class="rev-a" style="color:${isCorrect?'var(--en)':'#ef4444'}">${isCorrect?'✓':'✗'} ${LTRS[q.correct]}. ${q.options[q.correct]}</div>
+          <div class="rev-e">${q.explanation}</div>
+        </div>`;
+      }).join('')}
+    </div>
+  `;
+  
+  setTimeout(() => {
+    const pb = document.getElementById('resPbar');
+    if(pb) pb.style.width = pct+'%';
+  }, 100);
+}
+
+// =============================================
+// API CALLS
+// =============================================
+async function callAPI(prompt) {
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({
+      model:"claude-sonnet-4-20250514",
+      max_tokens:4000,
+      messages:[{role:"user",content:prompt}]
+    })
+  });
+  
+  if (!res.ok) {
+    throw new Error(`API error: ${res.status}`);
+  }
+  
+  const data = await res.json();
+  if(!data.content?.[0]?.text) {
+    throw new Error("No response from API");
+  }
+  
+  return data.content[0].text;
+}
+
+async function fetchQuestions(lang, id, title, count, qtype) {
+  const cacheKey = `q_${qtype}_${lang}_${id}`;
+  if(STATE.cache[cacheKey]) return STATE.cache[cacheKey];
+  
+  const langMap = {nl:'Dutch',fr:'French',en:'British English'};
+  const instructions = {
+    nl:'Schrijf alle vragen en antwoorden in het Nederlands.',
+    fr:'Écris toutes les questions et réponses en français.',
+    en:'Write all questions and answers in English.'
+  };
+  
+  const prompt = `You are an expert ${langMap[lang]} grammar teacher. ${instructions[lang]}
+
+Generate exactly ${count} multiple choice questions testing: "${title}"
+
+Each question must have exactly 4 options. Only one is correct. Include a brief 1-sentence explanation.
+
+Return ONLY valid JSON, no markdown, no backticks, no preamble:
+{"questions":[{"question":"...","options":["A text","B text","C text","D text"],"correct":0,"explanation":"..."}]}
+
+The "correct" value is the 0-based index of the correct option (0, 1, 2, or 3).`;
+
+  const raw = await callAPI(prompt);
+  let clean = raw.trim()
+    .replace(/^```json\s*/,'')
+    .replace(/^```\s*/,'')
+    .replace(/\s*```$/,'');
+  
+  const start = clean.indexOf('{');
+  if(start > 0) clean = clean.slice(start);
+  
+  const data = JSON.parse(clean);
+  STATE.cache[cacheKey] = data.questions;
+  return data.questions;
+}
+
+// =============================================
+// INITIALIZATION
+// =============================================
+(function init() {
+  loadState();
+  
+  // Auto-select language if already chosen
+  if (STATE.lang && STATE.lang !== 'en') {
+    // Small delay to ensure DOM is ready
+    setTimeout(() => {
+      const langBtn = document.querySelector(`.lc.${STATE.lang}`);
+      if (langBtn) {
+        selectLang(STATE.lang);
+      }
+    }, 50);
+  }
+})();
 </script>
+
 </body>
 </html>
