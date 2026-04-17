@@ -269,211 +269,430 @@ const TOPICS = {
   d: "Leer wanneer je 'de' of 'het' moet gebruiken",
   content: `
     <style>
-      .grammar-wrap {
+      /* === GRAMMAR WRAPPER - THEME AWARE === */
+      .gw-wrap {
         --gw-bg: var(--bg);
+        --gw-bg2: var(--bg2);
+        --gw-bg3: var(--bg3);
         --gw-text: var(--text);
         --gw-text2: var(--text2);
+        --gw-text3: var(--text3);
         --gw-border: var(--border);
-        --gw-card: var(--bg2);
         --gw-accent: var(--accent);
         --gw-accent-bg: var(--acbg);
+        --gw-accent-bo: var(--acbo);
         --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
         --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
-        --gw-warn: #f59e0b; --gw-warn-bg: #fffbeb;
+        --gw-warn: #f59e0b; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        
         font-family: 'Nunito', sans-serif;
         color: var(--gw-text);
-        line-height: 1.75;
-        max-width: 900px;
+        line-height: 1.7;
+        max-width: 920px;
         margin: 0 auto;
-        padding: 8px;
+        padding: 4px;
       }
-      .grammar-wrap * { box-sizing: border-box; }
       
+      /* Dark mode fallback for embedded content */
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #422006;
+        --gw-warn-text: #fcd34d;
+      }
+      
+      .gw-wrap * { box-sizing: border-box; }
+      
+      /* === HERO SECTION === */
       .gw-hero {
-        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-card) 100%);
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
         border: 1.5px solid var(--gw-border);
-        border-radius: 16px;
-        padding: 24px;
-        margin-bottom: 24px;
+        border-radius: 20px;
+        padding: 28px 24px;
+        margin-bottom: 20px;
         text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .gw-hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.08;
+        border-radius: 50%;
+        pointer-events: none;
       }
       .gw-hero h1 {
         font-family: 'Libre Baskerville', serif;
-        font-size: 1.9rem;
-        margin: 0 0 8px 0;
+        font-size: 1.95rem;
+        margin: 0 0 10px 0;
         color: var(--gw-text);
+        font-weight: 700;
+        position: relative;
       }
-      .gw-hero p { color: var(--gw-text2); margin: 0; font-size: 1.05rem; }
+      .gw-hero p {
+        color: var(--gw-text2);
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 500;
+        position: relative;
+      }
       
+      /* === SECTIONS === */
       .gw-section {
-        background: var(--gw-card);
+        background: var(--gw-bg2);
         border: 1.5px solid var(--gw-border);
-        border-radius: 16px;
-        padding: 20px;
+        border-radius: 18px;
+        padding: 22px 24px;
         margin-bottom: 16px;
+        transition: all 0.25s ease;
+      }
+      .gw-section:hover {
+        border-color: var(--gw-accent-bo);
+        box-shadow: 0 4px 20px var(--shadow);
       }
       .gw-section h2 {
         font-family: 'Libre Baskerville', serif;
-        font-size: 1.4rem;
-        margin: 0 0 16px 0;
-        padding-bottom: 12px;
+        font-size: 1.45rem;
+        margin: 0 0 18px 0;
+        padding-bottom: 14px;
         border-bottom: 2px solid var(--gw-border);
         color: var(--gw-text);
+        font-weight: 700;
       }
       .gw-section h3 {
         color: var(--gw-accent);
-        font-size: 1.15rem;
-        margin: 20px 0 12px 0;
+        font-size: 1.2rem;
+        margin: 24px 0 14px 0;
         font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
       .gw-section h4 {
-        margin: 16px 0 10px 0;
+        margin: 18px 0 10px 0;
         font-weight: 700;
         color: var(--gw-text);
+        font-size: 1.05rem;
       }
-      .gw-section p { margin: 0 0 12px 0; color: var(--gw-text); }
-      .gw-section ul, .gw-section ol { margin: 8px 0 16px 24px; padding: 0; }
-      .gw-section li { margin-bottom: 6px; color: var(--gw-text); }
+      .gw-section p {
+        margin: 0 0 14px 0;
+        color: var(--gw-text);
+      }
+      .gw-section ul, .gw-section ol {
+        margin: 10px 0 18px 26px;
+        padding: 0;
+      }
+      .gw-section li {
+        margin-bottom: 7px;
+        color: var(--gw-text);
+        line-height: 1.6;
+      }
+      .gw-section strong {
+        font-weight: 800;
+        color: var(--gw-text);
+      }
+      .gw-section em {
+        color: var(--gw-accent);
+        font-style: italic;
+      }
       
+      /* === BADGES === */
       .gw-badge {
         display: inline-flex;
         align-items: center;
-        padding: 4px 12px;
-        border-radius: 20px;
+        padding: 5px 14px;
+        border-radius: 24px;
         font-weight: 700;
-        font-size: 0.85em;
-        margin: 3px 2px;
+        font-size: 0.83em;
+        margin: 4px 3px;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
       }
-      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border: 1px solid var(--gw-nl-bo); }
-      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border: 1px solid var(--gw-fr-bo); }
-      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border: 1px solid var(--acbo); }
+      .gw-badge.de {
+        background: var(--gw-nl-bg);
+        color: var(--gw-nl);
+        border-color: var(--gw-nl-bo);
+      }
+      .gw-badge.het {
+        background: var(--gw-fr-bg);
+        color: var(--gw-fr);
+        border-color: var(--gw-fr-bo);
+      }
+      .gw-badge.een {
+        background: var(--gw-accent-bg);
+        color: var(--gw-accent);
+        border-color: var(--gw-accent-bo);
+      }
+      .gw-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px var(--shadow);
+      }
       
+      /* === RULE CARDS === */
       .gw-rule-card {
         background: var(--gw-accent-bg);
         border-left: 4px solid var(--gw-accent);
-        padding: 16px;
-        border-radius: 0 12px 12px 0;
-        margin: 16px 0;
+        padding: 18px 20px;
+        border-radius: 0 14px 14px 0;
+        margin: 18px 0;
+        border: 1px solid var(--gw-accent-bo);
       }
       .gw-rule-card.het {
         background: var(--gw-fr-bg);
         border-left-color: var(--gw-fr);
+        border-color: var(--gw-fr-bo);
       }
       .gw-rule-title {
         font-weight: 800;
         color: var(--gw-text);
-        font-size: 1.05em;
-        margin-bottom: 8px;
+        font-size: 1.08em;
+        margin-bottom: 10px;
         display: block;
       }
+      .gw-rule-card ul {
+        margin: 8px 0 0 20px !important;
+      }
+      .gw-rule-card li {
+        margin-bottom: 4px !important;
+      }
       
+      /* === GRID LAYOUT === */
       .gw-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 12px;
-        margin-top: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+        gap: 14px;
+        margin-top: 14px;
       }
       .gw-grid-item {
         background: var(--gw-bg);
-        padding: 14px;
-        border: 1px solid var(--gw-border);
-        border-radius: 12px;
+        padding: 16px 18px;
+        border: 1.5px solid var(--gw-border);
+        border-radius: 14px;
+        transition: all 0.25s ease;
+      }
+      .gw-grid-item:hover {
+        border-color: var(--gw-accent-bo);
+        background: var(--gw-accent-bg);
+        transform: translateY(-3px);
       }
       .gw-grid-item h5 {
-        margin: 0 0 8px 0;
+        margin: 0 0 10px 0;
         color: var(--gw-text);
-        font-size: 0.95em;
+        font-size: 0.98em;
         font-weight: 700;
       }
-      .gw-grid-item p, .gw-grid-item em {
-        font-size: 0.9em;
+      .gw-grid-item p,
+      .gw-grid-item em {
+        font-size: 0.92em;
         color: var(--gw-text2);
         margin: 0;
-        line-height: 1.5;
+        line-height: 1.55;
       }
-      .gw-grid-item em { display: block; margin-top: 6px; font-style: italic; }
+      .gw-grid-item em {
+        display: block;
+        margin-top: 8px;
+        font-style: italic;
+        color: var(--gw-text3);
+      }
       
+      /* === TABLES === */
       .gw-table-wrap {
         overflow-x: auto;
-        margin: 16px 0;
-        border-radius: 12px;
-        border: 1px solid var(--gw-border);
+        margin: 18px 0;
+        border-radius: 14px;
+        border: 1.5px solid var(--gw-border);
+        -webkit-overflow-scrolling: touch;
+      }
+      .gw-table-wrap::-webkit-scrollbar {
+        height: 6px;
+      }
+      .gw-table-wrap::-webkit-scrollbar-thumb {
+        background: var(--gw-border);
+        border-radius: 3px;
       }
       .gw-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.92em;
+        font-size: 0.93em;
         background: var(--gw-bg);
+        min-width: 450px;
       }
-      .gw-table th, .gw-table td {
-        padding: 12px 14px;
+      .gw-table th,
+      .gw-table td {
+        padding: 13px 16px;
         text-align: left;
         border-bottom: 1px solid var(--gw-border);
       }
       .gw-table th {
-        background: var(--gw-card);
+        background: var(--gw-bg3);
         font-weight: 800;
         color: var(--gw-text);
         position: sticky;
         top: 0;
+        z-index: 1;
       }
-      .gw-table tr:last-child td { border-bottom: none; }
-      .gw-table strong { color: var(--gw-accent); }
-      
-      .gw-warning {
-        background: var(--gw-warn-bg);
-        border: 1px solid var(--gw-warn);
-        border-radius: 12px;
-        padding: 14px;
-        margin: 16px 0;
-        font-size: 0.95em;
+      .gw-table tr:last-child td {
+        border-bottom: none;
       }
-      .gw-warning strong { color: var(--gw-warn); display: block; margin-bottom: 6px; }
-      
-      .gw-example {
-        background: var(--bg3);
-        border-left: 3px solid var(--gw-accent);
-        padding: 12px 14px;
-        border-radius: 0 8px 8px 0;
-        margin: 12px 0;
-        font-family: 'Libre Baskerville', serif;
-        font-style: italic;
+      .gw-table tr:hover {
+        background: var(--gw-bg3);
       }
-      .gw-example .orig { display: block; color: var(--text); font-weight: 600; margin-bottom: 4px; }
-      .gw-example .trans { display: block; color: var(--text3); font-size: 0.9em; font-style: normal; }
-      
-      .gw-summary {
-        background: var(--gw-accent);
-        color: #fff;
-        border-radius: 16px;
-        padding: 20px;
-        text-align: center;
-        margin-top: 24px;
+      .gw-table strong {
+        color: var(--gw-accent);
       }
-      .gw-summary h3 { color: #fff; margin: 0 0 12px 0; font-family: 'Libre Baskerville', serif; }
-      .gw-summary ul { list-style: none; padding: 0; margin: 0; }
-      .gw-summary li { margin: 8px 0; font-weight: 600; }
       
+      /* === TWO COLUMNS === */
       .gw-cols-2 {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 14px;
       }
-      @media(min-width: 700px) {
-        .gw-cols-2 { grid-template-columns: 1fr 1fr; }
+      @media(min-width: 680px) {
+        .gw-cols-2 {
+          grid-template-columns: 1fr 1fr;
+        }
       }
       
-      .gw-inline-code {
-        background: var(--bg3);
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-family: monospace;
+      /* === WARNINGS === */
+      .gw-warning {
+        background: var(--gw-warn-bg);
+        border: 1.5px solid var(--gw-warn);
+        border-radius: 14px;
+        padding: 16px 18px;
+        margin: 18px 0;
+        font-size: 0.96em;
+      }
+      .gw-warning strong {
+        color: var(--gw-warn-text);
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.05em;
+      }
+      .gw-warning ul {
+        margin: 10px 0 0 22px !important;
+      }
+      
+      /* === EXAMPLES === */
+      .gw-example {
+        background: var(--gw-bg3);
+        border-left: 4px solid var(--gw-accent);
+        padding: 14px 18px;
+        border-radius: 0 10px 10px 0;
+        margin: 14px 0;
+        font-family: 'Libre Baskerville', serif;
+      }
+      .gw-example .orig {
+        display: block;
+        color: var(--gw-text);
         font-weight: 600;
+        margin-bottom: 5px;
+        font-size: 1.03em;
+      }
+      .gw-example .trans {
+        display: block;
+        color: var(--gw-text3);
+        font-size: 0.92em;
+        font-style: normal;
+        font-family: 'Nunito', sans-serif;
+      }
+      
+      /* === SUMMARY CARD === */
+      .gw-summary {
+        background: linear-gradient(135deg, var(--gw-accent) 0%, var(--gw-accent) 100%);
+        color: #fff;
+        border-radius: 18px;
+        padding: 22px 24px;
+        text-align: center;
+        margin-top: 26px;
+        position: relative;
+        overflow: hidden;
+      }
+      .gw-summary::before {
+        content: '';
+        position: absolute;
+        top: -30%;
+        left: -30%;
+        width: 160px;
+        height: 160px;
+        background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .gw-summary h3 {
+        color: #fff;
+        margin: 0 0 14px 0;
+        font-family: 'Libre Baskerville', serif;
+        font-size: 1.3rem;
+        position: relative;
+      }
+      .gw-summary ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        position: relative;
+      }
+      .gw-summary li {
+        margin: 9px 0;
+        font-weight: 600;
+        font-size: 0.98em;
+        position: relative;
+        padding-left: 22px;
+      }
+      .gw-summary li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #fff;
+        font-weight: 800;
+      }
+      .gw-summary p {
+        margin-top: 18px;
+        font-size: 0.95em;
+        opacity: 0.95;
+        position: relative;
+      }
+      
+      /* === INLINE CODE === */
+      .gw-code {
+        background: var(--gw-bg3);
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-family: monospace;
+        font-weight: 700;
         color: var(--gw-accent);
+        font-size: 0.95em;
+      }
+      
+      /* === ANIMATIONS === */
+      @keyframes gw-fadeIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .gw-section {
+        animation: gw-fadeIn 0.4s ease both;
+      }
+      .gw-section:nth-child(2) { animation-delay: 0.1s; }
+      .gw-section:nth-child(3) { animation-delay: 0.2s; }
+      .gw-section:nth-child(4) { animation-delay: 0.3s; }
+      .gw-summary { animation-delay: 0.4s; }
+      
+      /* === RESPONSIVE === */
+      @media(max-width: 600px) {
+        .gw-hero { padding: 22px 18px; }
+        .gw-hero h1 { font-size: 1.65rem; }
+        .gw-section { padding: 18px 20px; }
+        .gw-section h2 { font-size: 1.3rem; }
+        .gw-grid { grid-template-columns: 1fr; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
       }
     </style>
     
-    <div class="grammar-wrap">
+    <div class="gw-wrap">
       <!-- HERO -->
       <div class="gw-hero">
         <h1>📘 De / Het / Een</h1>
@@ -494,7 +713,7 @@ const TOPICS = {
       <!-- DEEL 1 -->
       <div class="gw-section">
         <h2>🔹 DEEL 1: DE & HET — De Moeder Aller Regels</h2>
-        <p>De vraag <span class="gw-inline-code">Is het <em>de</em> of <em>het</em>?</span> is de meest gestelde vraag in de Nederlandse taal. Er is <strong>geen pure logica</strong> in de betekenis — het is grotendeels geheugenwerk. Maar er zijn wel <strong>vuistregels</strong> en <strong>reddingsboeien</strong> die je in 80% van de gevallen redden.</p>
+        <p>De vraag <span class="gw-code">Is het <em>de</em> of <em>het</em>?</span> is de meest gestelde vraag in de Nederlandse taal. Er is <strong>geen pure logica</strong> in de betekenis — het is grotendeels geheugenwerk. Maar er zijn wel <strong>vuistregels</strong> en <strong>reddingsboeien</strong> die je in 80% van de gevallen redden.</p>
         
         <h3>🟢 1.1 DE-woorden (±75% van de woorden)</h3>
         <p>Je gebruikt <span class="gw-badge de">DE</span> in de volgende gevallen. <em>Leer deze lijst uit je hoofd!</em></p>
@@ -504,24 +723,24 @@ const TOPICS = {
             <h5>👥 Personen</h5>
             <p>Altijd <strong>DE</strong>.</p>
             <em>De man, de vrouw, de bakker, de koning, de dokter</em>
-            <p style="margin-top:6px;font-size:0.85em;color:var(--gw-text3)">⚠️ Uitz.: <em>Het meisje</em> (verkleinwoord), <em>Het kind</em></p>
+            <p style="margin-top:8px;font-size:0.85em;color:var(--gw-text3)">⚠️ Uitz.: <em>Het meisje</em> (verkleinwoord), <em>Het kind</em></p>
           </div>
           <div class="gw-grid-item">
             <h5>📦 Meervoud</h5>
             <p><strong>ALTIJD DE</strong> — Gouden regel!</p>
             <em>Het boek → De boeken<br>Het huis → De huizen</em>
-            <p style="margin-top:6px;font-size:0.85em">Twijfel je? Maak meervoud!</p>
+            <p style="margin-top:8px;font-size:0.85em">💡 Twijfel je? Maak meervoud!</p>
           </div>
           <div class="gw-grid-item">
             <h5>🍎 Fruit & Planten</h5>
             <p>Meestal <strong>DE</strong>.</p>
             <em>De appel, de banaan, de bloemkool, de roos, de eik</em>
-            <p style="margin-top:6px;font-size:0.85em;color:var(--gw-text3)">Uitz.: <em>Het fruit, het gras, het graan</em></p>
+            <p style="margin-top:8px;font-size:0.85em;color:var(--gw-text3)">Uitz.: <em>Het fruit, het gras, het graan</em></p>
           </div>
           <div class="gw-grid-item">
             <h5>🔤 Achtervoegsels</h5>
             <p>Woorden op:</p>
-            <em>-heid, -nis, -ing, -ie, -tie<br>-teit, -iek, -tuur, -schap</em>
+            <em style="font-size:0.85em">-heid, -nis, -ing, -ie, -tie<br>-teit, -iek, -tuur, -schap, -de, -te</em>
           </div>
         </div>
         
@@ -543,7 +762,7 @@ const TOPICS = {
             <h5>🔸 Verkleinwoorden</h5>
             <p><strong>ALTIJD HET</strong> — Allerheiligste regel!</p>
             <em>De tafel → Het tafeltje<br>De man → Het mannetje</em>
-            <p style="margin-top:6px;font-size:0.85em">Twijfel? Maak het klein! 🎁</p>
+            <p style="margin-top:8px;font-size:0.85em">💡 Twijfel? Maak het klein! 🎁</p>
           </div>
           <div class="gw-grid-item">
             <h5>💧 Materialen & Talen</h5>
@@ -553,12 +772,12 @@ const TOPICS = {
             <h5>🌀 Voorvoegsels</h5>
             <p>2-lettergrepig met:</p>
             <em>be-, ge-, ver-, ont-</em>
-            <p style="margin-top:6px"><em>Het begin, het gebouw, het verhaal</em></p>
+            <p style="margin-top:8px"><em>Het begin, het gebouw, het verhaal</em></p>
           </div>
           <div class="gw-grid-item">
             <h5>🔤 Achtervoegsels</h5>
             <em>-isme, -ment, -sel, -um</em>
-            <p style="margin-top:6px"><em>Het kapitalisme, het moment, het museum</em></p>
+            <p style="margin-top:8px"><em>Het kapitalisme, het moment, het museum</em></p>
           </div>
         </div>
         
@@ -578,16 +797,15 @@ const TOPICS = {
               <li><strong>Het</strong> kind</li>
               <li><strong>Het</strong> paard</li>
               <li><strong>Het</strong> hoofd / oog / oor</li>
-              <li><strong>Het</strong> ei / einde</li>
+              <li><strong>Het</strong> ei / einde / been / lichaam</li>
             </ul>
           </div>
           <div>
             <h4 style="color:var(--gw-nl)">🟢 DE (ondanks logica)</h4>
             <ul>
-              <li><strong>De</strong> soep / tijd / hoop</li>
-              <li><strong>De</strong> dood / straat / hoek</li>
-              <li><strong>De</strong> wolk / fles / radio</li>
-              <li><strong>De</strong> televisie</li>
+              <li><strong>De</strong> soep / tijd / hoop / dood</li>
+              <li><strong>De</strong> straat / hoek / wolk / fles</li>
+              <li><strong>De</strong> radio / televisie</li>
             </ul>
           </div>
         </div>
@@ -605,6 +823,8 @@ const TOPICS = {
               <tr><td><strong>Punt</strong></td><td>Scherpe kant ✏️</td><td>Onderwerp 💬</td></tr>
               <tr><td><strong>Stof</strong></td><td>Textiel 👕</td><td>Vuil/deeltjes 🌫️</td></tr>
               <tr><td><strong>Idee</strong></td><td>Filosofisch beginsel 🧠</td><td>Ingeving/plan 💡</td></tr>
+              <tr><td><strong>Blik</strong></td><td>Hoe je kijkt 👁️</td><td>Metalen doosje 🥫</td></tr>
+              <tr><td><strong>Doel</strong></td><td>Sport/schietschijf ⚽</td><td>Streven/bedoeling 🎯</td></tr>
             </tbody>
           </table>
         </div>
@@ -627,14 +847,14 @@ const TOPICS = {
         
         <h4>🗣️ Uitspraak & Nadruk</h4>
         <ul>
-          <li><strong>Onbepaald lidwoord</strong>: zeg <span class="gw-inline-code">'n</span> (klinkt als Engelse <em>a</em>) → <em>Ik heb 'n boek gelezen.</em></li>
-          <li><strong>Cijfer 1</strong>: zeg <span class="gw-inline-code">één</span> (klinkt als <em>ain</em>) → <em>Ik heb er één gelezen, niet twee.</em></li>
+          <li><strong>Onbepaald lidwoord</strong>: zeg <span class="gw-code">'n</span> (klinkt als Engelse <em>a</em>) → <em>Ik heb 'n boek gelezen.</em></li>
+          <li><strong>Cijfer 1</strong>: zeg <span class="gw-code">één</span> (klinkt als <em>ain</em>) → <em>Ik heb er één gelezen, niet twee.</em></li>
         </ul>
         
         <div class="gw-warning">
           <strong>🚫 Negatie: Nooit "niet een"!</strong>
-          <p style="margin:8px 0 0 0">Gebruik altijd <strong>GEEN</strong>:</p>
-          <ul style="margin:8px 0 0 0;padding-left:20px">
+          <p style="margin:10px 0 0 0">Gebruik altijd <strong>GEEN</strong>:</p>
+          <ul style="margin:10px 0 0 0;padding-left:20px">
             <li>Ik heb <em>een</em> auto. → Ik heb <strong>geen</strong> auto. ❌~~niet een~~</li>
             <li>Is dat <em>een</em> hond? → Nee, dat is <strong>geen</strong> hond.</li>
           </ul>
@@ -686,7 +906,7 @@ const TOPICS = {
         
         <div class="gw-warning">
           <strong>🎯 Let op het cruciale verschil:</strong>
-          <ul style="margin:8px 0 0 0;padding-left:20px">
+          <ul style="margin:10px 0 0 0;padding-left:20px">
             <li><strong>Het</strong> mooi<strong>e</strong> boek. ← Bepaald → +E</li>
             <li><strong>Een</strong> mooi boek. ← Onbepaald + HET-woord → géén E</li>
           </ul>
@@ -704,7 +924,7 @@ const TOPICS = {
           <li>✏️ Bijv. Nw. + DE/HET → Altijd <strong>+E</strong></li>
           <li>✏️ Bijv. Nw. + EEN + HET-woord → <strong>GEEN -E</strong> ⚠️</li>
         </ul>
-        <p style="margin-top:16px;font-size:0.95em;opacity:0.9">💡 Tip: Twijfel je? Maak het meervoud of verkleinwoord — dan weet je het zeker!</p>
+        <p>💡 Tip: Twijfel je? Maak het meervoud of verkleinwoord — dan weet je het zeker!</p>
       </div>
     </div>
   `
