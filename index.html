@@ -3143,8 +3143,949 @@ const TOPICS = {
     </div>
   `
 },
-    {id:9,t:"Wederkerende werkwoorden",d:"Zich wassen, zich vergissen, zich herinneren"},
-    {id:10,t:"Meervoud van zelfstandige naamwoorden",d:"Regels: -en, -s, -eren en onregelmatigen"},
+{
+  id: 9,
+  t: "Wederkerende werkwoorden",
+  d: "Zich wassen, zich vergissen, zich haasten",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      /* === EXAMPLE TYPE BADGES === */
+      .gw-ex-type {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 3px 10px; border-radius: 12px; font-size: 0.82em;
+        font-weight: 600; margin-bottom: 8px;
+      }
+      .gw-ex-type.red { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+      .gw-ex-type.orange { background: rgba(249, 115, 22, 0.15); color: #f97316; border: 1px solid rgba(249,115,22,0.3); }
+      .gw-ex-type.green { background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid rgba(34,197,94,0.3); }
+      [data-theme="dark"] .gw-ex-type.red { background: rgba(239,68,68,0.25); }
+      [data-theme="dark"] .gw-ex-type.orange { background: rgba(249,115,22,0.25); }
+      [data-theme="dark"] .gw-ex-type.green { background: rgba(34,197,94,0.25); }
+
+      .gw-verb-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+      }
+      .gw-verb-title {
+        font-weight: 800; font-size: 1.15rem; color: var(--gw-text);
+        margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+      }
+      .gw-verb-ex {
+        margin-bottom: 10px; padding-left: 12px; border-left: 2px solid var(--gw-border);
+      }
+      .gw-verb-ex:last-child { margin-bottom: 0; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+        .gw-verb-title { font-size: 1.05rem; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🪞 Wederkerende Werkwoorden</h1>
+        <p>Zich wassen, zich vergissen, zich haasten — De actie kaatst terug op jezelf</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Heel graag! Na de scheidbare werkwoorden is dit het perfecte moment om de <strong>wederkerende werkwoorden</strong> tot in de finesses te doorgronden. Deze werkwoorden hebben een speciaal spiegeltje nodig: het <strong>wederkerend voornaamwoord</strong> (<em>me, je, zich, ons</em>).</p>
+        <p>Ze vertellen je dat de actie <strong>terugkaatst op de spreker zelf</strong>. Deze gids is een volledig, foutloos en rijk geïllustreerd overzicht, boordevol prachtige voorbeelden.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>🪞 Deel 1: Wat is een Wederkerend Werkwoord?</h2>
+        <p>Een wederkerend werkwoord heeft altijd een <strong>wederkerend voornaamwoord</strong> bij zich. Dit voornaamwoord verwijst naar hetzelfde als het onderwerp.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Normaal Werkwoord</th><th>Wederkerend Werkwoord</th><th>Het Verschil</th></tr></thead>
+            <tbody>
+              <tr><td>Ik <strong>was</strong> de auto. <em>(Object = auto)</em></td><td>Ik <strong>was me</strong>. <em>(Object = mezelf)</em></td><td>Actie op ander vs. actie op jezelf</td></tr>
+              <tr><td>Hij <strong>scheert</strong> zijn vader.</td><td>Hij <strong>scheert zich</strong>.</td><td>—</td></tr>
+              <tr><td>Wij <strong>vergissen</strong> nooit iemand.</td><td>Wij <strong>vergissen ons</strong>.</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">💡 <strong>Herkenning:</strong> Je herkent ze in het woordenboek aan het woordje <strong>'zich'</strong> ervoor: <em>zich wassen, zich vergissen, zich haasten</em>.</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>👥 Deel 2: De Wederkerende Voornaamwoorden (Het Spiegeltje)</h2>
+        <p>Deze kleine woordjes moet je kennen. Ze veranderen per persoon.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Persoon</th><th>Onderwerp</th><th>Wederkerend Vnw.</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1e enk.</strong></td><td><strong>Ik</strong></td><td><strong>me</strong></td><td>Ik vergis <strong>me</strong>.</td></tr>
+              <tr><td><strong>2e enk. (informeel)</strong></td><td><strong>Jij / Je</strong></td><td><strong>je</strong></td><td>Jij vergist <strong>je</strong>.</td></tr>
+              <tr><td><strong>2e enk. (formeel)</strong></td><td><strong>U</strong></td><td><strong>zich</strong></td><td>U vergist <strong>zich</strong>.</td></tr>
+              <tr><td><strong>3e enk.</strong></td><td><strong>Hij / Zij / Het</strong></td><td><strong>zich</strong></td><td>Hij vergist <strong>zich</strong>.</td></tr>
+              <tr><td><strong>1e mv.</strong></td><td><strong>Wij / We</strong></td><td><strong>ons</strong></td><td>Wij vergissen <strong>ons</strong>.</td></tr>
+              <tr><td><strong>2e mv.</strong></td><td><strong>Jullie</strong></td><td><strong>je</strong></td><td>Jullie vergissen <strong>je</strong>.</td></tr>
+              <tr><td><strong>3e mv.</strong></td><td><strong>Zij / Ze</strong></td><td><strong>zich</strong></td><td>Zij vergissen <strong>zich</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--tip" style="margin-top:16px;">
+          <div class="gw-card-title">✨ Let op:</div>
+          <p style="margin:0; color:var(--gw-text)"><strong>'Zich'</strong> is de ster van de show. Het wordt gebruikt voor <strong>hij, zij, het, u</strong> en <strong>zij (meervoud)</strong>.</p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Deel 3: De Twee Smaakmakers: Verplicht vs. Optioneel</h2>
+        <p>Niet alle wederkerende werkwoorden zijn gelijk. Er zijn twee belangrijke categorieën.</p>
+        
+        <h3>1️⃣ Verplicht Wederkerend (Het voornaamwoord MOET erbij)</h3>
+        <p>Zonder het voornaamwoord bestaat het werkwoord niet, of het betekent iets heel anders. Je kunt deze niet "uitkleden".</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Werkwoord</th><th>Goed ✅</th><th>Fout ❌ (of andere betekenis)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>zich vergissen</strong></td><td>Ik <strong>vergis me</strong>.</td><td><em>Ik vergis.</em> (Bestaat niet)</td></tr>
+              <tr><td><strong>zich schamen</strong></td><td>Zij <strong>schaamt zich</strong>.</td><td><em>Zij schaamt.</em> (Onvolledig)</td></tr>
+              <tr><td><strong>zich gedragen</strong></td><td><strong>Gedraag je!</strong></td><td><em>Gedraag!</em> (Kan niet)</td></tr>
+              <tr><td><strong>zich haasten</strong></td><td>Wij <strong>haasten ons</strong>.</td><td><em>Wij haasten.</em> (Je haast altijd iemand/iets anders)</td></tr>
+              <tr><td><strong>zich bevinden</strong></td><td>Het huis <strong>bevindt zich</strong> in het bos.</td><td><em>Het huis bevindt.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">2️⃣ Optioneel / Toevallig Wederkerend</h3>
+        <p>Dit zijn gewone werkwoorden die je wederkerend kunt <strong>maken</strong> door het voornaamwoord toe te voegen. De actie verandert van een <em>ander</em> naar <em>jezelf</em>.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Werkwoord</th><th>Niet-Wederkerend (Actie op ANDER)</th><th>Wederkerend (Actie op JEZELF)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>wassen</strong></td><td><em>Ik <strong>was</strong> de auto.</em></td><td><em>Ik <strong>was me</strong>.</em></td></tr>
+              <tr><td><strong>scheren</strong></td><td><em>De kapper <strong>scheert</strong> de klant.</em></td><td><em>De klant <strong>scheert zich</strong>.</em></td></tr>
+              <tr><td><strong>aankleden</strong></td><td><em>De moeder <strong>kleedt</strong> het kind <strong>aan</strong>.</em></td><td><em>Het kind <strong>kleedt zich aan</strong>.</em></td></tr>
+              <tr><td><strong>bewegen</strong></td><td><em>De wind <strong>beweegt</strong> de bladeren.</em></td><td><em>De danser <strong>beweegt zich</strong> gracieus.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📖 Deel 4: De Plaats in de Zin</h2>
+        <p>Dit is een belangrijke kwestie van woordvolgorde. In de hoofdzin staat het wederkerend voornaamwoord <strong>direct na de persoonsvorm</strong> (het eerste werkwoord).</p>
+        
+        <div class="gw-example">
+          <span class="orig">📌 Ik <strong>vergis me</strong> nooit.</span>
+          <span class="orig" style="margin-top:4px;">📌 Hij <strong>schaamt zich</strong> diep.</span>
+          <span class="orig" style="margin-top:4px;">📌 Jullie <strong>haasten je</strong> naar de trein.</span>
+        </div>
+
+        <h4 style="margin-top:20px;">🔄 Wat gebeurt er bij een Hulpwerkwoord (Modaal werkwoord)?</h4>
+        <p>Dan staat het hulpwerkwoord op de tweede plek, het wederkerend voornaamwoord <strong>direct daarna</strong>, en het hele werkwoord aan het einde.</p>
+        <div class="gw-example">
+          <span class="orig">📌 Ik <strong>wil me</strong> even <strong>wassen</strong>.</span>
+          <span class="orig" style="margin-top:4px;">📌 Zij <strong>moet zich</strong> niet zo <strong>schamen</strong>.</span>
+          <span class="orig" style="margin-top:4px;">📌 <strong>Kun</strong> jij <strong>je</strong> een beetje <strong>haasten</strong>?</span>
+        </div>
+
+        <h4 style="margin-top:20px;">❓ Inversie (Vraagzin):</h4>
+        <div class="gw-example">
+          <span class="orig">📌 <strong>Vergis</strong> jij <strong>je</strong> nooit?</span>
+          <span class="orig" style="margin-top:4px;">📌 <strong>Schaamt</strong> hij <strong>zich</strong>?</span>
+          <span class="orig" style="margin-top:4px;">📌 <strong>Haasten</strong> jullie <strong>je</strong>?</span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔄 Deel 5: Wederkerende Werkwoorden in de Voltooide Tijd</h2>
+        <p>In de voltooide tijd (met <em>hebben</em> of <em>zijn</em>) blijft het wederkerend voornaamwoord vóór het voltooid deelwoord staan. <strong>Alle wederkerende werkwoorden gebruiken het hulpwerkwoord 'HEBBEN'</strong> (zelfs <em>zich wassen</em>).</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Tegenwoordige Tijd</th><th>Voltooide Tijd</th></tr></thead>
+            <tbody>
+              <tr><td>Ik <strong>was me</strong>.</td><td>Ik <strong>heb me gewassen</strong>.</td></tr>
+              <tr><td>Jij <strong>vergist je</strong>.</td><td>Jij <strong>hebt je vergist</strong>.</td></tr>
+              <tr><td>Hij <strong>schaamt zich</strong>.</td><td>Hij <strong>heeft zich geschaamd</strong>.</td></tr>
+              <tr><td>Wij <strong>haasten ons</strong>.</td><td>Wij <strong>hebben ons gehaast</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note" style="margin-top:16px;">📍 <strong>Let op de Woordvolgorde in de Bijzin:</strong><br><em>"Ik voel me schoon, omdat <strong>ik me gewassen heb</strong>."</em><br><em>"Het is fijn dat <strong>jij je niet geschaamd hebt</strong>."</em></div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⏳ Deel 6: Wederkerend + Zitten/Liggen/Lopen/Staan</h2>
+        <p>Je kunt wederkerende werkwoorden combineren met de duratieve constructies (<em>zitten te, liggen te, lopen te, staan te</em>). Het wederkerend voornaamwoord staat dan tussen het hulpwerkwoord en <em>'te'</em>.</p>
+        
+        <div class="gw-example">
+          <span class="orig">📌 Ik <strong>zit me</strong> te <strong>vervelen</strong>.</span>
+          <span class="orig" style="margin-top:4px;">📌 Hij <strong>ligt zich</strong> te <strong>scheren</strong> in bad. <small>(Oké, dat is vreemd, maar grammaticaal correct)</small></span>
+          <span class="orig" style="margin-top:4px;">📌 Zij <strong>staat zich</strong> voor de spiegel <strong>aan te kleden</strong>.</span>
+          <span class="orig" style="margin-top:4px;">📌 Loop niet zo <strong>te haasten</strong>! <small>(Hier kan het wederkerend vnw. soms wegvallen bij irritatie).</small></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🌸 Deel 7: De Ultieme Voorbeelden-Galerij</h2>
+        
+        <h3>🔒 Verplicht Wederkerende Werkwoorden</h3>
+        
+        <div class="gw-verb-card">
+          <div class="gw-verb-title">zich vergissen</div>
+          <div class="gw-verb-ex"><div class="gw-ex-type red">🔴</div><em>"Ik <strong>vergis me</strong> zelden, maar nu zat ik er helemaal naast."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type orange">🟠</div><em>"Je <strong>moet je</strong> niet <strong>vergissen</strong> in zijn vriendelijkheid."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type green">🟢</div><em>"Hij <strong>heeft zich</strong> lelijk <strong>vergist</strong> in de lengte van de reis."</em></div>
+        </div>
+
+        <div class="gw-verb-card">
+          <div class="gw-verb-title">zich schamen</div>
+          <div class="gw-verb-ex"><div class="gw-ex-type red">🔴</div><em>"Zij <strong>schaamt zich</strong> diep voor haar fout."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type orange">🟠</div><em>"Je <strong>hoeft je</strong> nergens voor <strong>te schamen</strong>!"</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type green">🟢</div><em>"Achteraf <strong>hebben</strong> we <strong>ons</strong> wel een beetje <strong>geschaamd</strong>."</em></div>
+        </div>
+
+        <div class="gw-verb-card">
+          <div class="gw-verb-title">zich haasten</div>
+          <div class="gw-verb-ex"><div class="gw-ex-type red">🔴</div><em>"<strong>Haast je</strong> niet, we hebben nog tijd zat."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type orange">🟠</div><em>"Zij <strong>moest zich</strong> vreselijk <strong>haasten</strong> om de trein te halen."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type green">🟢</div><em>"Hoewel hij <strong>zich gehaast had</strong>, kwam hij toch te laat."</em></div>
+        </div>
+
+        <div class="gw-verb-card">
+          <div class="gw-verb-title">zich gedragen</div>
+          <div class="gw-verb-ex"><div class="gw-ex-type red">🔴</div><em>"<strong>Gedraag je</strong> een beetje als we bij oma op bezoek zijn!"</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type orange">🟠</div><em>"<strong>Kun</strong> jij <strong>je</strong> niet normaal <strong>gedragen</strong>?"</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type green">🟢</div><em>"De kinderen <strong>hebben zich</strong> voorbeeldig <strong>gedragen</strong>."</em></div>
+        </div>
+
+        <div class="gw-verb-card">
+          <div class="gw-verb-title">zich bevinden</div>
+          <div class="gw-verb-ex"><div class="gw-ex-type red">🔴</div><em>"Het hotel <strong>bevindt zich</strong> in het centrum van de stad."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type orange">🟠</div><em>"Waar <strong>zou</strong> de schat <strong>zich bevinden</strong>?"</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type green">🟢</div><em>"Het schilderij <strong>heeft zich</strong> altijd in de familie <strong>bevonden</strong>."</em></div>
+        </div>
+
+        <div class="gw-verb-card">
+          <div class="gw-verb-title">zich melden</div>
+          <div class="gw-verb-ex"><div class="gw-ex-type red">🔴</div><em>"<strong>Meld</strong> u <strong>zich</strong> eerst even bij de balie."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type orange">🟠</div><em>"Je <strong>moet je</strong> voor 09:00 uur <strong>melden</strong> bij de poort."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type green">🟢</div><em>"Niemand <strong>had zich</strong> nog <strong>gemeld</strong> als vrijwilliger."</em></div>
+        </div>
+
+        <div class="gw-verb-card">
+          <div class="gw-verb-title">zich voelen</div>
+          <div class="gw-verb-ex"><div class="gw-ex-type red">🔴</div><em>"Ik <strong>voel me</strong> niet zo lekker vandaag."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type orange">🟠</div><em>"<strong>Kun</strong> jij <strong>je</strong> voorstellen hoe hij <strong>zich</strong> moet <strong>voelen</strong>?"</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type green">🟢</div><em>"Zij <strong>heeft zich</strong> nog nooit zo gelukkig <strong>gevoeld</strong>."</em></div>
+        </div>
+
+        <div class="gw-verb-card">
+          <div class="gw-verb-title">zich afvragen</div>
+          <div class="gw-verb-ex"><div class="gw-ex-type red">🔴</div><em>"Ik <strong>vraag me af</strong> of dat wel verstandig is."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type orange">🟠</div><em>"Hij <strong>zou zich</strong> weleens kunnen <strong>afvragen</strong> waarom."</em></div>
+          <div class="gw-verb-ex"><div class="gw-ex-type green">🟢</div><em>"Ik <strong>heb me</strong> altijd <strong>afgevraagd</strong> hoe dat werkt."</em></div>
+        </div>
+
+        <h3 style="margin-top:24px;">🔓 Optioneel Wederkerende Werkwoorden</h3>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Werkwoord</th><th>Niet-Wederkerend</th><th>Wederkerend (Actie op Zichzelf)</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>wassen</strong></td>
+                <td><em>"Zij <strong>wast</strong> de ramen elke week."</em></td>
+                <td><em>"Zij <strong>wast zich</strong> elke ochtend met koud water."<br>"<strong>Was je</strong> even <strong>je</strong> handen voor het eten."</em></td>
+              </tr>
+              <tr>
+                <td><strong>scheren</strong></td>
+                <td><em>"De schapen worden in de lente <strong>geschoren</strong>."</em></td>
+                <td><em>"Mijn opa <strong>scheert zich</strong> nog altijd met een kwast en mes."<br>"<strong>Scheer je</strong> niet <strong>je</strong> als je nog puistjes hebt?"</em></td>
+              </tr>
+              <tr>
+                <td><strong>aankleden</strong></td>
+                <td><em>"De verpleegster <strong>kleedt</strong> de patiënt <strong>aan</strong>."</em></td>
+                <td><em>"<strong>Kleed je</strong> warm <strong>aan</strong>, het vriest buiten!"<br>"Zij <strong>heeft zich</strong> prachtig <strong>aangekleed</strong> voor het gala."</em></td>
+              </tr>
+              <tr>
+                <td><strong>bewegen</strong></td>
+                <td><em>"Probeer de zware steen niet te <strong>bewegen</strong>."</em></td>
+                <td><em>"De acteurs <strong>bewegen zich</strong> geruisloos over het toneel."<br>"<strong>Beweeg je</strong> eens wat meer in plaats van de hele dag te zitten!"</em></td>
+              </tr>
+              <tr>
+                <td><strong>verbazen</strong></td>
+                <td><em>"De goochelaar <strong>verbaasde</strong> het publiek."</em></td>
+                <td><em>"Ik <strong>verbaas me</strong> over zijn geduld."<br>"Zij <strong>heeft zich</strong> erover <strong>verbaasd</strong> dat hij kwam opdagen."</em></td>
+              </tr>
+              <tr>
+                <td><strong>ergeren</strong></td>
+                <td><em>"Het geluid van de boren <strong>ergert</strong> de buren."</em></td>
+                <td><em>"Ik <strong>ergerde me</strong> groen en geel aan zijn gedrag."<br>"<strong>Erger je</strong> niet aan kleine dingen."</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🚀 Deel 8: Gevorderd – Wederkerend of Passief?</h2>
+        <p>Sommige zinnen met <em>zich</em> lijken op een passieve constructie, maar zijn dat niet. Dit heet de <strong>passieve wederkerende constructie</strong> of 'middelconstructie'. Het wordt gebruikt voor algemene waarheden of eigenschappen.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Constructie</th><th>Voorbeeldzin</th><th>Betekenis</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Zich laten + Infinitief</strong></td><td><em>"Die deur <strong>laat zich</strong> moeilijk <strong>openen</strong>."</em></td><td>De deur kan moeilijk geopend worden.</td></tr>
+              <tr><td><strong>Zich + Werkwoord</strong></td><td><em>"Dit boek <strong>leest zich</strong> als een trein."</em></td><td>Het is makkelijk om dit boek te lezen.</td></tr>
+              <tr><td><strong>Zich + Werkwoord</strong></td><td><em>"Deze stof <strong>wast zich</strong> gemakkelijk."</em></td><td>Het is makkelijk om deze stof te wassen.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note">✨ Dit is een prachtig staaltje Nederlands waarmee je als een echte kenner overkomt.</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Deel 9: Veelgemaakte Fouten en de Correcties</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Fout ❌</th><th>Correctie ✅</th><th>Waarom?</th></tr></thead>
+            <tbody>
+              <tr><td><em>Ik <strong>me</strong> vergis.</em></td><td>Ik <strong>vergis me</strong>.</td><td>Het werkwoord staat op 2, het vnw. op 3.</td></tr>
+              <tr><td><em>Hij heeft <strong>zich gewassen</strong>.</em></td><td>Hij <strong>heeft zich gewassen</strong>.</td><td>Het hulpwerkwoord is <strong>hebben</strong>, niet <em>zijn</em>.</td></tr>
+              <tr><td><em>Wij <strong>ons</strong> haasten.</em></td><td>Wij <strong>haasten ons</strong>.</td><td>Zelfde volgordefout.</td></tr>
+              <tr><td><em>Jij <strong>zich</strong> vergist.</em></td><td>Jij <strong>vergist je</strong>.</td><td><em>Zich</em> is alleen voor 3e persoon en u.</td></tr>
+              <tr><td><em>Ik heb <strong>me</strong> vergis<strong>t</strong>.</em></td><td>Ik heb <strong>me</strong> vergis<strong>t</strong>.</td><td><em>Vergissen</em> is sterk: vergissen - vergiste - vergist. (De 't' is goed hier).</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note" style="margin-top:16px;">⚠️ <strong>Let op de vervoeging van <em>vergissen</em>:</strong> Het is een <strong>sterk werkwoord</strong>. Het voltooid deelwoord eindigt op een 't' (<em>vergist</em>), maar de verleden tijd is <em>vergiste</em>. Dat maakt het verraderlijk.</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💡 Deel 10: Pro-Tips & Ezelsbruggetjes</h2>
+        <ol>
+          <li><strong>De Spiegel-Truc:</strong> Als je het in het Engels kunt vertalen met <em>"-self"</em> (myself, yourself, himself), dan is het in het Nederlands vaak wederkerend.<br><em>"I wash <strong>myself</strong>." = "Ik was <strong>me</strong>."</em></li>
+          <li><strong>'Zich' is de VIP:</strong> Onthoud dat <strong>'zich'</strong> exclusief is voor <strong>hij, zij, het, u</strong> en <strong>zij (mv)</strong>. Het is de meest voorkomende vorm in het woordenboek.</li>
+          <li><strong>Perfectum altijd met HEBBEN:</strong><br><em>"Ik <strong>ben</strong> naar huis gegaan."</em> (Normaal met <em>zijn</em>)<br><em>"Ik <strong>heb me</strong> naar huis <strong>gehaast</strong>."</em> (Wederkerend? <strong>Altijd HEBBEN</strong>).</li>
+          <li><strong>Oefen met de Dagelijkse Routine:</strong> Je ochtendritueel is perfect om wederkerende werkwoorden te oefenen:<br><em>Ik <strong>word wakker</strong>. → Ik <strong>rek me uit</strong>. → Ik <strong>sta op</strong>. → Ik <strong>was me</strong>. → Ik <strong>kleed me aan</strong>. → Ik <strong>haast me</strong> naar mijn werk. → Ik <strong>vergis me</strong> in de tijd.</em></li>
+        </ol>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Snelle Samenvatting</h3>
+        <ul>
+          <li><strong>Wederkerend voornaamwoord:</strong> me, je, zich, ons (verwijst naar onderwerp)</li>
+          <li><strong>Verplicht:</strong> zich vergissen, zich schamen, zich haasten (zonder vnw. bestaat het niet)</li>
+          <li><strong>Optioneel:</strong> wassen, scheren, aankleden (actie op jezelf in plaats van ander)</li>
+          <li><strong>Woordvolgorde:</strong> Persoonsvorm → wederkerend vnw. → rest</li>
+          <li><strong>Voltooide tijd:</strong> Altijd met <strong>hebben</strong> + wederkerend vnw. + voltooid deelwoord</li>
+          <li><strong>Passieve constructie:</strong> "Dit boek leest zich als een trein" = makkelijk te lezen</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Hopelijk voel je je nu helemaal thuis in de wereld van de wederkerende werkwoorden. Als je een lijst wilt met de 100 meest gebruikte, of een quiz om je kennis te testen, laat het me weten. Dan <strong>verheug ik me</strong> erop om je verder te helpen! 🚀</p>
+      </div>
+    </div>
+  `
+},
+{
+  id: 10,
+  t: "Meervoud van zelfstandige naamwoorden",
+  d: "-en, -s, klankveranderingen en uitzonderingen",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      .gw-plural-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+      }
+      .gw-plural-title {
+        font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+        margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+      }
+      .gw-plural-ex {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+      }
+      .gw-plural-ex:last-child { border-bottom: none; }
+      .gw-plural-sg { font-weight: 600; color: var(--gw-text); }
+      .gw-plural-pl { color: var(--gw-accent); font-weight: 600; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+        .gw-plural-title { font-size: 1.05rem; }
+        .gw-plural-ex { flex-direction: column; align-items: flex-start; gap: 4px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🧩 Meervoud van Zelfstandige Naamwoorden</h1>
+        <p>-en, -s, klankveranderingen en uitzonderingen — Compleet overzicht</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Het meervoud van zelfstandige naamwoorden is een essentieel onderdeel van de Nederlandse grammatica. Waar het Duits vaak vijf of zes verschillende uitgangen heeft, is het Nederlands relatief eenvoudig: de hoofdregels zijn <strong>-en</strong> en <strong>-s</strong>. Maar achter die eenvoud schuilt een wereld aan spellingregels, klankveranderingen en uitzonderingen die het onderwerp rijk en uitdagend maken.</p>
+        <p>Deze gids is een compleet, foutloos en prachtig geïllustreerd naslagwerk met heel véél voorbeelden.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧩 Deel 1: De Twee Hoofdwegen (-en of -s)</h2>
+        <p>De meeste Nederlandse zelfstandige naamwoorden kiezen één van twee paden in het meervoud.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Uitgang</th><th>Percentage</th><th>Voorbeeld Enkelvoud</th><th>Voorbeeld Meervoud</th></tr></thead>
+            <tbody>
+              <tr><td><strong>-en</strong></td><td>~75%</td><td>de <em>fiets</em></td><td>de fiets<strong>en</strong></td></tr>
+              <tr><td><strong>-s</strong></td><td>~20%</td><td>de <em>tafel</em></td><td>de tafel<strong>s</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note">💡 De overige 5% zijn bijzondere gevallen (klinkerveranderingen, -eren, en leenwoorden).</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📚 Deel 2: De -EN-Regel (De Grootste Groep)</h2>
+        <p>De standaard is simpel: plak <strong>-en</strong> achter het woord. Maar let op! De Nederlandse spellingregels veranderen vaak de schrijfwijze van de stam om de <strong>klank</strong> te bewaren.</p>
+        
+        <h3>✅ Regel 1: De Standaard</h3>
+        <div class="gw-plural-card">
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de kat</span><span class="gw-plural-pl">→ de katten</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de vrouw</span><span class="gw-plural-pl">→ de vrouwen</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de stoel</span><span class="gw-plural-pl">→ de stoelen</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het been</span><span class="gw-plural-pl">→ de benen</span></div>
+        </div>
+
+        <h3>✅ Regel 2: Behoud de Lange Klinker (Verdubbeling)</h3>
+        <p>Als een woord in het enkelvoud een <strong>lange klinker</strong> heeft (aa, ee, oo, uu) in een <strong>gesloten lettergreep</strong> (eindigend op een medeklinker), dan moet je een klinker <strong>weghalen</strong> in het meervoud om de klank lang te houden.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Enkelvoud</th><th>Fout (zou kort zijn)</th><th>Goed (Lang)</th></tr></thead>
+            <tbody>
+              <tr><td>de <strong>baan</strong></td><td>~~baannen~~</td><td>de <strong>banen</strong></td></tr>
+              <tr><td>de <strong>steen</strong></td><td>~~steennen~~</td><td>de <strong>stenen</strong></td></tr>
+              <tr><td>de <strong>boom</strong></td><td>~~boommen~~</td><td>de <strong>bomen</strong></td></tr>
+              <tr><td>de <strong>muur</strong></td><td>~~muurren~~</td><td>de <strong>muren</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ Het schaap graast in de wei → De <strong>schapen</strong> grazen in de wei.</span>
+          <span class="orig" style="margin-top:4px;">✨ Ik hoor een <strong>toon</strong> → Ik hoor zuivere <strong>tonen</strong>.</span>
+          <span class="orig" style="margin-top:4px;">✨ De <strong>peer</strong> is rijp → De <strong>peren</strong> zijn rijp.</span>
+          <span class="orig" style="margin-top:4px;">✨ De <strong>boot</strong> vaart uit → De <strong>boten</strong> varen uit.</span>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ Regel 3: Behoud de Korte Klinker (Verdubbeling Medeklinker)</h3>
+        <p>Als een woord in het enkelvoud een <strong>korte klinker</strong> heeft (a, e, i, o, u) gevolgd door één medeklinker, dan moet je die medeklinker <strong>verdubbelen</strong> in het meervoud om de klank kort te houden.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Enkelvoud</th><th>Fout (zou lang worden)</th><th>Goed (Kort)</th></tr></thead>
+            <tbody>
+              <tr><td>de <strong>kat</strong></td><td>~~katen~~</td><td>de <strong>katten</strong></td></tr>
+              <tr><td>de <strong>pet</strong></td><td>~~peten~~</td><td>de <strong>petten</strong></td></tr>
+              <tr><td>de <strong>pit</strong></td><td>~~piten~~</td><td>de <strong>pitten</strong></td></tr>
+              <tr><td>de <strong>pot</strong></td><td>~~poten~~</td><td>de <strong>potten</strong></td></tr>
+              <tr><td>de <strong>put</strong></td><td>~~puten~~</td><td>de <strong>putten</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ Ik eet een <strong>kip</strong> → Wij eten twee <strong>kippen</strong>.</span>
+          <span class="orig" style="margin-top:4px;">✨ Hij gooit de <strong>bal</strong> → Zij gooien de <strong>ballen</strong>.</span>
+          <span class="orig" style="margin-top:4px;">✨ Een <strong>klas</strong> vol kinderen → Drie <strong>klassen</strong> vol kinderen.</span>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ Regel 4: De Klankwisseling 'F' → 'V' en 'S' → 'Z'</h3>
+        <p>Aan het eind van een woord klinkt een 'v' vaak als een 'f' en een 'z' als een 's'. In het meervoud, waar de klank weer gevolgd wordt door een klinker, komt de oorspronkelijke <strong>zachte medeklinker</strong> terug.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Enkelvoud (Hard)</th><th>Meervoud (Zacht)</th></tr></thead>
+            <tbody>
+              <tr><td>de <strong>brief</strong> (f-klank)</td><td>de <strong>brieven</strong> (v-klank)</td></tr>
+              <tr><td>de <strong>neef</strong></td><td>de <strong>neven</strong></td></tr>
+              <tr><td>het <strong>huis</strong> (s-klank)</td><td>de <strong>huizen</strong> (z-klank)</td></tr>
+              <tr><td>de <strong>roos</strong></td><td>de <strong>rozen</strong></td></tr>
+              <tr><td>de <strong>prijs</strong></td><td>de <strong>prijzen</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ Een lange <strong>brief</strong> schrijven → Oude <strong>brieven</strong> bewaren.</span>
+          <span class="orig" style="margin-top:4px;">✨ Het <strong>glas</strong> is leeg → De <strong>glazen</strong> zijn vol.</span>
+          <span class="orig" style="margin-top:4px;">✨ De <strong>dief</strong> stal mijn fiets → De <strong>dieven</strong> zijn gepakt.</span>
+        </div>
+
+        <div class="gw-card gw-card--warn" style="margin-top:16px;">
+          <div class="gw-card-title">⚠️ Belangrijke Uitzonderingen:</div>
+          <p style="margin:0; color:var(--gw-text)">Sommige woorden doen dit <strong>niet</strong>. Die moet je uit je hoofd leren:<br>
+          • de <em>fotograaf</em> → de <strong>fotografen</strong> (NIET fotograven)<br>
+          • de <em>paragraaf</em> → de <strong>paragrafen</strong><br>
+          • de <em>kaas</em> → de <strong>kazen</strong> (WEL met z)<br>
+          • de <em>vrees</em> → de <strong>vrez~~e~~n</strong> (De 'z' komt terug, maar let op de 's' aan het eind)</p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🌟 Deel 3: De -S-Regel (De Op Een Na Grootste)</h2>
+        <p>De uitgang <strong>-s</strong> wordt gebruikt in specifieke situaties. Leer deze situaties herkennen, dan maak je bijna nooit een fout.</p>
+        
+        <h3>📍 Situatie 1: Woorden op onbeklemtoonde -e, -el, -em, -en, -er, -erd, -aard</h3>
+        <p>Deze lange, zachte uitgangen krijgen bijna altijd een <strong>-s</strong>.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Uitgang</th><th>Enkelvoud</th><th>Meervoud</th></tr></thead>
+            <tbody>
+              <tr><td><strong>-e</strong></td><td>de <em>dame</em></td><td>de <strong>dames</strong></td></tr>
+              <tr><td></td><td>de <em>tante</em></td><td>de <strong>tantes</strong></td></tr>
+              <tr><td><strong>-el</strong></td><td>de <em>tafel</em></td><td>de <strong>tafels</strong></td></tr>
+              <tr><td></td><td>de <em>lepel</em></td><td>de <strong>lepels</strong></td></tr>
+              <tr><td><strong>-em</strong></td><td>de <em>bodem</em></td><td>de <strong>bodems</strong></td></tr>
+              <tr><td></td><td>de <em>bezem</em></td><td>de <strong>bezems</strong></td></tr>
+              <tr><td><strong>-en</strong></td><td>de <em>keuken</em></td><td>de <strong>keukens</strong></td></tr>
+              <tr><td></td><td>de <em>jongen</em></td><td>de <strong>jongens</strong></td></tr>
+              <tr><td><strong>-er</strong></td><td>de <em>vader</em></td><td>de <strong>vaders</strong></td></tr>
+              <tr><td></td><td>de <em>bakker</em></td><td>de <strong>bakkers</strong></td></tr>
+              <tr><td><strong>-erd</strong></td><td>de <em>viezerd</em></td><td>de <strong>viezerds</strong></td></tr>
+              <tr><td><strong>-aard</strong></td><td>de <em>luiaard</em></td><td>de <strong>luiaards</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ Mijn <strong>tante</strong> komt op bezoek → Beide <strong>tantes</strong> zijn er.</span>
+          <span class="orig" style="margin-top:4px;">✨ Een houten <strong>lepel</strong> → Alle <strong>lepels</strong> in de la.</span>
+          <span class="orig" style="margin-top:4px;">✨ De <strong>bodem</strong> van de zee → De <strong>bodems</strong> van de schepen.</span>
+          <span class="orig" style="margin-top:4px;">✨ De <strong>jongen</strong> speelt buiten → De <strong>jongens</strong> voetballen.</span>
+        </div>
+
+        <h3 style="margin-top:24px;">📍 Situatie 2: Verkleinwoorden (Altijd -s!)</h3>
+        <p>Verkleinwoorden eindigen op <em>-je, -tje, -pje, -etje</em>. Het meervoud is <strong>altijd -s</strong>.</p>
+        
+        <div class="gw-plural-card">
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het huisje</span><span class="gw-plural-pl">→ de huisjes</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het biertje</span><span class="gw-plural-pl">→ de biertjes</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het autootje</span><span class="gw-plural-pl">→ de autootjes</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het bloemetje</span><span class="gw-plural-pl">→ de bloemetjes</span></div>
+        </div>
+
+        <h3 style="margin-top:24px;">📍 Situatie 3: Leenwoorden (Vooral uit het Engels en Frans)</h3>
+        <p>De meeste moderne leenwoorden volgen de Engelse/Franse logica met een <strong>-s</strong>.</p>
+        
+        <div class="gw-plural-card">
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de film</span><span class="gw-plural-pl">→ de films</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de computer</span><span class="gw-plural-pl">→ de computers</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het restaurant</span><span class="gw-plural-pl">→ de restaurants</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de paraplu</span><span class="gw-plural-pl">→ de paraplu's</span> <small style="color:var(--gw-text3)">(Let op de apostrof!)</small></div>
+        </div>
+
+        <h3 style="margin-top:24px;">📍 Situatie 4: Woorden eindigend op een KLINKER (A, I, O, U, Y)</h3>
+        <p>Hier is een <strong>apostrof ('s)</strong> verplicht om de uitspraak te redden. Zonder apostrof zou de klinker "raar" worden uitgesproken.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Enkelvoud</th><th>Fout (Zonder Apostrof)</th><th>Goed (Met 's)</th></tr></thead>
+            <tbody>
+              <tr><td>de <strong>oma</strong></td><td>~~omas~~ <small>(klinkt als o-mass)</small></td><td>de <strong>oma's</strong></td></tr>
+              <tr><td>de <strong>taxi</strong></td><td>~~taxis~~ <small>(klinkt als tak-sis)</small></td><td>de <strong>taxi's</strong></td></tr>
+              <tr><td>de <strong>piano</strong></td><td>~~pianos~~ <small>(vreemd)</small></td><td>de <strong>piano's</strong></td></tr>
+              <tr><td>het <strong>menu</strong></td><td>~~menus~~ <small>(vreemd)</small></td><td>de <strong>menu's</strong></td></tr>
+              <tr><td>de <strong>baby</strong></td><td>~~babys~~ <small>(vreemd)</small></td><td>de <strong>baby's</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ Mijn lieve <strong>oma</strong> → Twee trotse <strong>oma's</strong> op de tribune.</span>
+          <span class="orig" style="margin-top:4px;">✨ Een snelle <strong>taxi</strong> → Alle <strong>taxi's</strong> waren bezet.</span>
+          <span class="orig" style="margin-top:4px;">✨ Een <strong>baby</strong> huilt → Drie <strong>baby's</strong> slapen.</span>
+        </div>
+
+        <div class="gw-note" style="margin-top:16px;">⚠️ <strong>Uitzondering op de Apostrof:</strong><br>Woorden die eindigen op een <strong>-e</strong> of een <strong>stomme -e</strong> krijgen géén apostrof:<br>• de <em>etage</em> → de <strong>etages</strong> (niet: etage's)<br>• het <em>seconde</em> → de <strong>secondes</strong><br>• de <em>groeve</em> → de <strong>groeves</strong><br><br>Ook de <strong>-ee</strong> krijgt een <strong>'s</strong> (de <em>zee</em> → de <strong>zeeën</strong>, maar ook <em>foto's</em>), maar de <strong>-é</strong> (met accent) krijgt alleen -s: de <em>café</em> → de <strong>cafés</strong>.</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Deel 4: De Bijzondere Meervouden</h2>
+        <p>Net als sterke werkwoorden zijn er ook "sterke" zelfstandige naamwoorden die van klank veranderen. Deze moet je simpelweg kennen.</p>
+        
+        <h3>🔀 Type 1: Korte klinker wordt Lange klinker</h3>
+        <div class="gw-plural-card">
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het bad</span><span class="gw-plural-pl">→ de baden</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het gebed</span><span class="gw-plural-pl">→ de gebeden</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het vat</span><span class="gw-plural-pl">→ de vaten</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de weg</span><span class="gw-plural-pl">→ de wegen</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de dag</span><span class="gw-plural-pl">→ de dagen</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het dak</span><span class="gw-plural-pl">→ de daken</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het gat</span><span class="gw-plural-pl">→ de gaten</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het schip</span><span class="gw-plural-pl">→ de schepen</span></div>
+        </div>
+
+        <h3 style="margin-top:24px;">🔀 Type 2: Klinkerverandering (Umlaut / Klankverschuiving)</h3>
+        <div class="gw-plural-card">
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de stad</span><span class="gw-plural-pl">→ de steden</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het lid</span><span class="gw-plural-pl">→ de leden</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het schip</span><span class="gw-plural-pl">→ de schepen</span></div>
+        </div>
+
+        <h3 style="margin-top:24px;">🔀 Type 3: De -EREN Groep (De "Kinderen"-Regel)</h3>
+        <p>Een handjevol onzijdige woorden (het-woorden) krijgt <strong>-eren</strong>. Deze groep is klein maar komt vaak voor.</p>
+        
+        <div class="gw-plural-card">
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het kind</span><span class="gw-plural-pl">→ de kinderen</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het ei</span><span class="gw-plural-pl">→ de eieren</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het rund</span><span class="gw-plural-pl">→ de runderen</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het kalf</span><span class="gw-plural-pl">→ de kalveren</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het lam</span><span class="gw-plural-pl">→ de lammeren</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het goed (kleding)</span><span class="gw-plural-pl">→ de goederen</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het lied</span><span class="gw-plural-pl">→ de liederen</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het volk</span><span class="gw-plural-pl">→ de volkeren</span></div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🏛️ Deel 5: Leenwoorden uit het Latijn en Grieks</h2>
+        <p>Veel woorden uit de wetenschap, politiek of muziek behouden hun oorspronkelijke Latijnse of Griekse meervoudsvorm. Soms bestaan beide vormen naast elkaar (één formeel, één informeel).</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Latijns Enkelvoud</th><th>Latijns Meervoud</th><th>Vernederlandst Meervoud</th></tr></thead>
+            <tbody>
+              <tr><td>de <em>museum</em></td><td>de <strong>musea</strong></td><td>de <strong>museums</strong></td></tr>
+              <tr><td>de <em>catalogus</em></td><td>de <strong>catalogi</strong></td><td>de <strong>catalogussen</strong></td></tr>
+              <tr><td>de <em>historicus</em></td><td>de <strong>historici</strong></td><td>—</td></tr>
+              <tr><td>de <em>medicus</em></td><td>de <strong>medici</strong></td><td>—</td></tr>
+              <tr><td>de <em>politicus</em></td><td>de <strong>politici</strong></td><td>—</td></tr>
+              <tr><td>het <em>centrum</em></td><td>de <strong>centra</strong></td><td>—</td></tr>
+              <tr><td>de <em>datum</em></td><td>de <strong>data</strong></td><td>de <strong>datums</strong></td></tr>
+              <tr><td>de <em>crisis</em></td><td>de <strong>crises</strong> / <strong>crisissen</strong></td><td>—</td></tr>
+              <tr><td>het <em>niveau</em></td><td>—</td><td>de <strong>niveaus</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ Ik bezoek graag een <strong>museum</strong> → In Amsterdam zijn veel <strong>musea</strong>.</span>
+          <span class="orig" style="margin-top:4px;">✨ Een <strong>catalogus</strong> van boeken → De bibliotheek heeft oude <strong>catalogi</strong>.</span>
+          <span class="orig" style="margin-top:4px;">✨ De <strong>datum</strong> van vandaag → Alle <strong>data</strong> zijn genoteerd.</span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧩 Deel 6: Woorden die Alleen Meervoud of Alleen Enkelvoud Kennen</h2>
+        
+        <h3>🔹 Alleen Meervoud (Pluralia Tantum)</h3>
+        <p>Deze woorden bestaan niet in het enkelvoud (of betekenen dan iets heel anders).</p>
+        <div class="gw-plural-card">
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de hersenen</span><span class="gw-plural-pl">(niet: het hersen)</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de mazelen</span><span class="gw-plural-pl">—</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de financiën</span><span class="gw-plural-pl">—</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de kosten</span><span class="gw-plural-pl">—</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de notulen</span><span class="gw-plural-pl">—</span></div>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 Alleen Enkelvoud (Singularia Tantum)</h3>
+        <p>Deze stoffen of abstracte begrippen hebben geen meervoud.</p>
+        <div class="gw-plural-card">
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het zand</span><span class="gw-plural-pl">(je zegt niet "de zanden" tenzij je soorten zand bedoelt)</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">het water</span><span class="gw-plural-pl">—</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de melk</span><span class="gw-plural-pl">—</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de liefde</span><span class="gw-plural-pl">—</span></div>
+          <div class="gw-plural-ex"><span class="gw-plural-sg">de honger</span><span class="gw-plural-pl">—</span></div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔄 Deel 7: Samenstellingen en Het Laatste Woord Bepaalt</h2>
+        <p>Net als bij de lidwoorden (de/het), bepaalt het <strong>laatste deel</strong> van een samengesteld woord het meervoud.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Samenstelling</th><th>Delen</th><th>Meervoud</th><th>Regel</th></tr></thead>
+            <tbody>
+              <tr><td>de <strong>stad</strong></td><td>—</td><td>de <strong>steden</strong></td><td>Onregelmatig</td></tr>
+              <tr><td>de <em>hoofd</em><strong>stad</strong></td><td>hoofd + stad</td><td>de <em>hoofd</em><strong>steden</strong></td><td>Volgt het laatste deel.</td></tr>
+              <tr><td>de <strong>tafel</strong></td><td>—</td><td>de <strong>tafels</strong></td><td>Regelmatig -s</td></tr>
+              <tr><td>de <em>eet</em><strong>tafel</strong></td><td>eet + tafel</td><td>de <em>eet</em><strong>tafels</strong></td><td>Volgt het laatste deel.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Deel 8: Veelgemaakte Fouten en Twijfelgevallen</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Fout ❌</th><th>Correctie ✅</th><th>Waarom?</th></tr></thead>
+            <tbody>
+              <tr><td><em>de portemonnee's</em></td><td>de <strong>portemonnees</strong></td><td>Eindigt op stomme -e, dus geen apostrof.</td></tr>
+              <tr><td><em>de ideeën</em> (van idee)</td><td>de <strong>ideeën</strong></td><td>Idee eindigt op -ee, dus -ën.</td></tr>
+              <tr><td><em>de café's</em></td><td>de <strong>cafés</strong></td><td>Accent op de é, dus gewoon -s.</td></tr>
+              <tr><td><em>de fotos</em></td><td>de <strong>foto's</strong></td><td>Eindigt op een klinker (O), dus apostrof.</td></tr>
+              <tr><td><em>de appels</em></td><td>de <strong>appels</strong> / <strong>appelen</strong></td><td>Beide zijn correct, maar 'appels' is gebruikelijker.</td></tr>
+              <tr><td><em>de parasols</em></td><td>de <strong>parasols</strong></td><td>Eindigt op medeklinker -l, dus gewoon -s.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:20px;">🤔 Twijfelgeval: -en of -s?</h3>
+        <p>Sommige woorden kunnen <strong>allebei</strong>.</p>
+        <ul>
+          <li>de <em>appel</em> → de <strong>appels</strong> / de <strong>appelen</strong></li>
+          <li>de <em>aardappel</em> → de <strong>aardappels</strong> / de <strong>aardappelen</strong></li>
+          <li>de <em>winkel</em> → de <strong>winkels</strong> / de <strong>winkelen</strong> (zelden gebruikt)</li>
+        </ul>
+      </div>
+
+      <div class="gw-section">
+        <h2>💡 Deel 9: Ezelsbruggetjes en Pro-Tips</h2>
+        <ol>
+          <li><strong>De Klinkerbotsing (Apostrof):</strong><br>Zie je <strong>A, I, O, U, Y</strong> aan het eind van een woord? Zet een <strong>'s</strong>.<br><em>Oma's, taxi's, foto's, baby's.</em><br><em>Maar pas op: -e, -ee en -é doen niet mee (cafés, etages, zeeën).</em></li>
+          <li><strong>De -S-woorden Herkennen:</strong><br>Als het woord eindigt op <strong>-e, -el, -en, -er, -je</strong>, kun je 95% zeker zijn dat het meervoud een <strong>-s</strong> is.<br><em>Dames, tafels, jongens, vaders, huisjes.</em></li>
+          <li><strong>De Korte Klank Redden (Verdubbeling):</strong><br>Hoor je een korte klank? Schrijf dan <strong>dubbele medeklinker</strong>.<br><em>kat → katten, bom → bommen, put → putten.</em></li>
+          <li><strong>De Lange Klank Redden (Weglating):</strong><br>Hoor je een lange klank? Haal een klinker <strong>weg</strong>.<br><em>baan → banen, boom → bomen, muur → muren.</em></li>
+          <li><strong>De 'F' en 'S' Fluisteraar:</strong><br>Verleng het woord in je hoofd: <em>brief</em> → <em>brieven</em> (je zegt de V!). Schrijf dan ook een V.<br><em>Huis</em> → <em>huizen</em> (je zegt de Z!). Schrijf dan ook een Z.</li>
+        </ol>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Samenvattend Schema</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table" style="color:#fff;">
+            <thead><tr><th>Soort Woord</th><th>Regel</th><th>Enkelvoud</th><th>Meervoud</th></tr></thead>
+            <tbody style="color:var(--gw-text);">
+              <tr><td>Standaard</td><td>+en</td><td><em>fiets</em></td><td><em>fietsen</em></td></tr>
+              <tr><td>Lange klinker</td><td>-1 klinker</td><td><em>boot</em></td><td><em>boten</em></td></tr>
+              <tr><td>Korte klinker</td><td>+1 medeklinker</td><td><em>man</em></td><td><em>mannen</em></td></tr>
+              <tr><td>F/V of S/Z</td><td>Zachte klank terug</td><td><em>huis</em></td><td><em>huizen</em></td></tr>
+              <tr><td>Onbeklemtoond (-e, -el, -er)</td><td>+s</td><td><em>tafel</em></td><td><em>tafels</em></td></tr>
+              <tr><td>Verkleinwoord</td><td>+s</td><td><em>kopje</em></td><td><em>kopjes</em></td></tr>
+              <tr><td>Klinker aan eind</td><td>+'s</td><td><em>piano</em></td><td><em>piano's</em></td></tr>
+              <tr><td>Latijnse woorden</td><td>Latijnse regel</td><td><em>museum</em></td><td><em>musea</em></td></tr>
+              <tr><td>Onregelmatig</td><td>Leren</td><td><em>stad</em></td><td><em>steden</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:18px; opacity:0.95;">Hopelijk is deze gids precies wat je zocht. Als je een lijst met de meest voorkomende onregelmatige meervouden wilt, of als je een specifiek woord wilt checken, geef het gerust aan! 🚀</p>
+      </div>
+    </div>
+  `
+},
     {id:11,t:"Verkleinwoorden (diminutieven)",d:"-je, -tje, -etje, -pje, -kje toevoegen"},
     {id:12,t:"Bijvoeglijke naamwoorden – verbuiging",d:"Met of zonder -e: regels en uitzonderingen"},
     {id:13,t:"Vergelijkingen",d:"Vergrotende en overtreffende trap"},
