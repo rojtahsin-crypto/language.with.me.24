@@ -1717,7 +1717,418 @@ const TOPICS = {
     </div>
   `
 },
-    {id:5,t:"Voltooide tijden",d:"Voltooid tegenwoordige en verleden tijd"},
+{
+  id: 5,
+  t: "Voltooide tijden",
+  d: "Voltooid tegenwoordige en verleden tijd",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>✅ Voltooide Tijden (Perfectum)</h1>
+        <p>Het domein van *hebben* en *zijn* — Alles is klaar, afgerond, gebeurd</p>
+      </div>
+
+      <div class="gw-section">
+        <p>We gaan het laatste bastion van de Nederlandse werkwoordstijden bestormen: <strong>DE VOLTOOIDE TIJDEN</strong>. Dit is het domein van <em>hebben</em> en <em>zijn</em>. Het is de tijd die je gebruikt als iets <strong>klaar</strong> is, <strong>afgerond</strong>, <strong>gebeurd</strong>.</p>
+        <p>Je hebt de Tegenwoordige Tijd (<em>ik werk</em>) en de Verleden Tijd (<em>ik werkte</em>) overleefd. Nu komt het <em>voltooide</em> aspect. <em>"Ik <strong>heb</strong> gewerkt." "Ik <strong>ben</strong> gevallen."</em></p>
+        <p>Dit wordt weer <strong>ALLES</strong>. De regels, de pro-regels, de valkuilen, het <em>Kofschip</em> dat weer terugkomt, de keuzestress tussen <em>hebben</em> en <em>zijn</em>, en de zinsbouw die alles op zijn kop zet.</p>
+        <p>We behandelen:</p>
+        <ol>
+          <li>De Basisformules (VTT, VVT, VTTk)</li>
+          <li>De Vorming van het Voltooid Deelwoord (De <em>Ge-</em>-Machine)</li>
+          <li>De Keuze: <strong>HEBBEN</strong> of <strong>ZIJN</strong>? (De grootste nachtmerrie)</li>
+          <li>De Plek in de Zin (Het werkwoord vlucht naar het einde)</li>
+          <li>Scheidbare Werkwoorden & Wederkerende Werkwoorden in de Voltooide Tijd</li>
+          <li>De Dubbele Voltooide Tijd (Voor de echte pro's)</li>
+        </ol>
+      </div>
+
+      <div class="gw-section">
+        <h2>📐 DEEL 1: DE BASISFORMULES (DE DRIE VOLTOOIDE TIJDEN)</h2>
+        <p>Er zijn er drie, maar in de praktijk gebruik je er vooral twee. De derde is een zeldzame, deftige vogel.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Tijd</th><th>Formule</th><th>Gebruik</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1. VTT</strong></td><td><strong>HEBBEN/ZIJN (T.T.) + VOLTOOID DEELWOORD</strong></td><td>Iets is nu klaar, of heeft effect op nu.</td><td>Ik <strong>heb</strong> gegeten. Hij <strong>is</strong> gevallen.</td></tr>
+              <tr><td><strong>2. VVT</strong></td><td><strong>HADDEN/WAREN (V.T.) + VOLTOOID DEELWOORD</strong></td><td>Iets was klaar vóór een ander moment in het verleden.</td><td>Ik <strong>had</strong> gegeten voordat hij kwam. Hij <strong>was</strong> al gevallen.</td></tr>
+              <tr><td><strong>3. VTTk</strong></td><td><strong>ZULLEN (T.T.) + HEBBEN/ZIJN + DEELWOORD</strong></td><td>Iets zal klaar zijn in de toekomst.</td><td>Ik <strong>zal hebben</strong> gegeten voor jouw komst.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">✨ Belangrijkste Vuistregel voor Nu:</div>
+          <ul style="margin-top:10px;">
+            <li><strong>VTT (Heb gedaan):</strong> Gebruik je 80% van de tijd als je over het verleden praat in gesprekken. <em>"Wat <strong>heb</strong> jij gisteren <strong>gedaan</strong>?"</em></li>
+            <li><strong>OVT (Deed):</strong> Gebruik je voor beschrijvingen en gewoontes. <em>"Het <strong>regende</strong> en ik <strong>had</strong> geen paraplu."</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚙️ DEEL 2: DE VORMING VAN HET VOLTOOID DEELWOORD</h2>
+        <p>Het voltooid deelwoord is het tweede stukje van de puzzel. Hoe maak je dat ding?</p>
+        
+        <h3>2.1 De Zwakke Werkwoorden (Regelmatig)</h3>
+        <p>Hier komt <span class="gw-code">'T KOFSCHIP</span> weer om de hoek kijken! Dezelfde regel als de Verleden Tijd, maar nu met <strong>GE-</strong> ervoor en <strong>-D</strong> of <strong>-T</strong> erachter.</p>
+        <div class="gw-card gw-card--check">
+          <div class="gw-card-title">📋 Stappenplan:</div>
+          <ol style="margin:10px 0 0 22px;">
+            <li><strong>GE-</strong> ervoor plakken.</li>
+            <li><strong>STAM</strong> bepalen (hele werkwoord min -EN).</li>
+            <li>Laatste letter van de stam in <strong>'T EX-FOKSCHAAP</strong>? → <strong>-T</strong>. Anders <strong>-D</strong>.</li>
+          </ol>
+        </div>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Heel Werkwoord</th><th>Stam</th><th>In 't Kofschip?</th><th>Voltooid Deelwoord</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Werken</strong></td><td>Werk</td><td>Ja (K)</td><td>Ge<strong>werk</strong> + <strong>t</strong> = <strong>Gewerkt</strong></td></tr>
+              <tr><td><strong>Spelen</strong></td><td>Speel</td><td>Nee (L)</td><td>Ge<strong>speel</strong> + <strong>d</strong> = <strong>Gespeeld</strong></td></tr>
+              <tr><td><strong>Leven</strong></td><td>Leef</td><td>Ja (F)</td><td>Ge<strong>leef</strong> + <strong>t</strong> = <strong>Geleefd</strong></td></tr>
+              <tr><td><strong>Praten</strong></td><td>Praat</td><td>Ja (T)</td><td>Ge<strong>praat</strong> + <strong>t</strong> = <strong>Gepraat</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2.2 De Sterke Werkwoorden (Onregelmatig)</h3>
+        <p>Deze jongens veranderen van klinker en eindigen meestal op <strong>-EN</strong>. Je moet ze <strong>uit je hoofd leren</strong>.</p>
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card">
+            <ul style="margin:0;"><li><strong>Lopen</strong> → Ge<strong>lopen</strong></li><li><strong>Zingen</strong> → Ge<strong>zongen</strong></li><li><strong>Eten</strong> → Ge<strong>geten</strong></li><li><strong>Doen</strong> → Ge<strong>daan</strong></li><li><strong>Hebben</strong> → Ge<strong>had</strong></li></ul>
+          </div>
+          <div class="gw-card">
+            <ul style="margin:0;"><li><strong>Blijven</strong> → Ge<strong>bleven</strong></li><li><strong>Kijken</strong> → Ge<strong>keken</strong></li><li><strong>Drinken</strong> → Ge<strong>dronken</strong></li><li><strong>Zijn</strong> → Ge<strong>weest</strong></li><li><strong>Worden</strong> → Ge<strong>worden</strong> / <strong>Geworden</strong></li></ul>
+          </div>
+        </div>
+
+        <h3>2.3 Wanneer Krijg je GEEN GE- ? (De Prefix-Regel)</h3>
+        <div class="gw-card gw-card--warn">
+          <div class="gw-card-title">🚫 PRO-REGEL:</div>
+          <p style="margin:0; color:var(--gw-text)">Als het werkwoord begint met een van deze <strong>onbeklemtoonde voorvoegsels</strong>, <strong>VERVALT DE GE-</strong>:<br><strong>BE-, GE-, HER-, ER-, ONT-, VER-</strong></p>
+        </div>
+        <ul>
+          <li><em>betalen</em> → <strong>betaald</strong></li>
+          <li><em>gebeuren</em> → <strong>gebeurd</strong></li>
+          <li><em>herkennen</em> → <strong>herkend</strong></li>
+          <li><em>ontdekken</em> → <strong>ontdekt</strong></li>
+          <li><em>vertellen</em> → <strong>verteld</strong></li>
+        </ul>
+        <div class="gw-note">⚠️ <strong>Uitzondering:</strong> Als de klemtoon <strong>WEL</strong> op het voorvoegsel ligt, komt er <strong>WEL GE-</strong> bij. <em>Voorkómen</em> → <strong>voorkómen</strong>. <em>Vóórkomen</em> → <strong>vóórgekomen</strong>.</div>
+
+        <h3>2.4 De Spelling (D, T, of DT?)</h3>
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">✅ Gouden Regel:</div>
+          <p style="margin:0; color:var(--gw-text)">Het voltooid deelwoord van zwakke werkwoorden eindigt <strong>NOOIT op -DT</strong>.<br>❌ Fout: <em>gebeurd<strong>t</strong>, verhuisd<strong>t</strong></em><br>✅ Goed: <strong>gebeurd, verhuisd</strong></p>
+        </div>
+        <p><em>Check? Maak het langer (verlengproef). <strong>Gebeure</strong> → hoor je een D? Ja, dus <strong>gebeurd</strong>.</em></p>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚖️ DEEL 3: DE KEUZE TUSSEN HEBBEN EN ZIJN</h2>
+        <p>Dit is het onderdeel waar anderstaligen (en sommige Nederlanders) spontaan grijze haren van krijgen.</p>
+        
+        <h3>3.1 ZIJN gebruik je bij:</h3>
+        <ol>
+          <li><strong>Een duidelijke verandering van TOESTAND of LOCATIE.</strong> (Van A naar B)<br><em>Ik <strong>ben</strong> naar Amsterdam <strong>gefietst</strong>. De melk <strong>is</strong> zuur <strong>geworden</strong>.</em></li>
+          <li><strong>Vaste werkwoorden (ALTID ZIJN):</strong> <em>zijn, worden, gebeuren, komen, blijven, beginnen, stoppen (ophouden), slagen, vergeten.</em></li>
+          <li><strong>Koppelwerkwoorden:</strong> <em>zijn, worden, blijven, lijken, schijnen, heten, dunken, voorkomen.</em></li>
+        </ol>
+
+        <h3>3.2 HEBBEN gebruik je bij:</h3>
+        <ol>
+          <li><strong>De meeste andere werkwoorden.</strong> <em>Ik <strong>heb</strong> een boek <strong>gelezen</strong>.</em></li>
+          <li><strong>Wederkerende werkwoorden.</strong> <em>Ik <strong>heb</strong> me <strong>vergist</strong>.</em></li>
+          <li><strong>Modale werkwoorden.</strong> <em>Ik <strong>heb</strong> het <strong>gekund</strong>.</em></li>
+        </ol>
+
+        <h3>3.3 De Gemene Tussenweg: Werkwoorden die BEIDE kunnen</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Situatie</th><th>Hulpwerkwoord</th><th>Voorbeeld</th><th>Uitleg</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Nadruk op BESTEMMING / RICHTING</strong> (Waarheen?)</td><td><span class="gw-badge het">ZIJN</span></td><td>Ik <strong>ben</strong> naar de supermarkt <strong>gefietst</strong>.</td><td>Je eindigt op een andere plek.</td></tr>
+              <tr><td><strong>Nadruk op de ACTIE / ACTIVITEIT</strong> (Wat deed je?)</td><td><span class="gw-badge de">HEBBEN</span></td><td>Ik <strong>heb</strong> de hele middag <strong>gefietst</strong>.</td><td>Het gaat om het bewegen zelf, niet de aankomst.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note">🔹 <em>Wandelen:</em> Ik <strong>ben</strong> naar huis <strong>gewandeld</strong>. (Bestemming) vs. Ik <strong>heb</strong> in het bos <strong>gewandeld</strong>. (Activiteit)</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📍 DEEL 4: DE PLEK IN DE ZIN</h2>
+        <p>In de <strong>hoofdzin</strong> staat het <strong>hulpwerkwoord</strong> (hebben/zijn) op <strong>PLEK 2</strong>, maar het <strong>voltooid deelwoord</strong> sprint naar <strong>HET EINDE</strong>.</p>
+        <div class="gw-example">
+          <span class="orig">📌 Ik <strong>heb</strong> gisteren een hele leuke film over pinguïns <strong>gekeken</strong>.</span>
+        </div>
+        <p><strong>Let op bij Bijzinnen:</strong> In een bijzin (met <em>omdat, dat, die</em>) vluchten <strong>BEIDE</strong> werkwoorden naar het einde. Het hulpwerkwoord staat meestal <strong>vóór</strong> het voltooid deelwoord.</p>
+        <div class="gw-example">
+          <span class="orig">📌 ...omdat ik gisteren een leuke film <strong>heb gekeken</strong>.</span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧩 DEEL 5: SCHEIDBARE & WEDERKERENDE WERKWOORDEN</h2>
+        <h3>5.1 Scheidbare Werkwoorden</h3>
+        <p>Hier komt de <strong>-GE-</strong> <strong>TUSSEN</strong> het voorvoegsel en de stam!</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Heel Werkwoord</th><th>Voltooid Deelwoord</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Aankomen</strong></td><td>Aan<strong>ge</strong>komen</td><td>De trein is eindelijk <strong>aangekomen</strong>.</td></tr>
+              <tr><td><strong>Opbellen</strong></td><td>Op<strong>ge</strong>beld</td><td>Ik heb mijn moeder <strong>opgebeld</strong>.</td></tr>
+              <tr><td><strong>Uitstappen</strong></td><td>Uit<strong>ge</strong>stapt</td><td>Wij zijn bij het station <strong>uitgestapt</strong>.</td></tr>
+              <tr><td><strong>Meenemen</strong></td><td>Mee<strong>ge</strong>nomen</td><td>Heb jij de paraplu <strong>meegenomen</strong>?</td></tr>
+              <tr><td><strong>Schoonmaken</strong></td><td>Schoon<strong>ge</strong>maakt</td><td>Ik heb de keuken <strong>schoongemaakt</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5.2 Wederkerende Werkwoorden</h3>
+        <p>Deze hebben <strong>HEBBEN</strong>. Het wederkerend voornaamwoord (<em>me, je, zich</em>) plaatst zich <strong>direct na het hulpwerkwoord</strong>.</p>
+        <div class="gw-example">
+          <span class="orig">📌 Ik <strong>heb me</strong> lelijk <strong>vergist</strong>.</span>
+          <span class="orig" style="margin-top:4px;">📌 <strong>Heb</strong> jij <strong>je</strong> wel eens <strong>verslapen</strong>?</span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🚀 DEEL 6: DE DUBBELE VOLTOOIDE TIJD (VOOR PRO'S)</h2>
+        <p>Soms hoor je zinnen als: <em>"Ik <strong>had</strong> dat eigenlijk anders <strong>willen doen</strong>."</em></p>
+        <p>Hier staat een <strong>MODAAL WERKWOORD</strong> in de voltooide tijd. In plaats van het voltooid deelwoord (<em>gewild, gemoeten, gekund</em>) gebruik je het <strong>HELE WERKWOORD</strong> als er nog een ander werkwoord in de zin staat.</p>
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">✨ De Regel:</div>
+          <p style="margin:0; color:var(--gw-text);"><strong>HEBBEN/ZIJN + HELE WERKWOORD (Modaal) + HELE WERKWOORD (Actie)</strong></p>
+        </div>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Wat je zou denken (Fout)</th><th>Wat je moet zeggen (Goed)</th><th>Waarom?</th></tr></thead>
+            <tbody>
+              <tr><td>Ik heb dat niet <strong>gewild</strong>.</td><td>Ik heb dat niet <strong>willen</strong> doen.</td><td>Omdat <em>doen</em> erachter staat.</td></tr>
+              <tr><td>Ik heb het niet <strong>gekund</strong>.</td><td>Ik heb het niet <strong>kunnen</strong> maken.</td><td>Omdat <em>maken</em> erachter staat.</td></tr>
+              <tr><td>Jij hebt dat niet <strong>gehoeven</strong>.</td><td>Jij had dat niet <strong>hoeven</strong> zeggen.</td><td>—</td></tr>
+              <tr><td>Ik ben daar <strong>geweest</strong> staan.</td><td>Ik <strong>heb</strong> daar <strong>staan</strong> kijken.</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📚 DEEL 7: DE MOEDER ALLER VOORBEELDLIJSTEN</h2>
+        
+        <h3>7.1 Voltooid Tegenwoordige Tijd (VTT)</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Actie</th><th>Voltooide Zin</th></tr></thead>
+            <tbody>
+              <tr><td>Ik eet een appel.</td><td>Ik <strong>heb</strong> een appel <strong>gegeten</strong>.</td></tr>
+              <tr><td>Hij valt van de trap.</td><td>Hij <strong>is</strong> van de trap <strong>gevallen</strong>.</td></tr>
+              <tr><td>Wij kijken een film.</td><td>Wij <strong>hebben</strong> een film <strong>gekeken</strong>.</td></tr>
+              <tr><td>Het regent hard.</td><td>Het <strong>heeft</strong> hard <strong>geregend</strong>.</td></tr>
+              <tr><td>Ik sta om 7 uur op.</td><td>Ik <strong>ben</strong> om 7 uur <strong>opgestaan</strong>.</td></tr>
+              <tr><td>Zij vergeet haar sleutels.</td><td>Zij <strong>is</strong> haar sleutels <strong>vergeten</strong>.</td></tr>
+              <tr><td>Jij antwoordt niet.</td><td>Jij <strong>hebt</strong> niet <strong>geantwoord</strong>.</td></tr>
+              <tr><td>De winkel sluit om 6 uur.</td><td>De winkel <strong>is</strong> om 6 uur <strong>gesloten</strong>.</td></tr>
+              <tr><td>Ik word wakker.</td><td>Ik <strong>ben</strong> wakker <strong>geworden</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>7.2 Voltooid Verleden Tijd (VVT)</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Situatie</th><th>Voltooide Zin (VVT)</th></tr></thead>
+            <tbody>
+              <tr><td>Eerst at ik, toen kwam hij.</td><td>Ik <strong>had</strong> al <strong>gegeten</strong> toen hij <strong>kwam</strong>.</td></tr>
+              <tr><td>De trein was al weg toen ik aankwam.</td><td>De trein <strong>was</strong> al <strong>vertrokken</strong> toen ik <strong>aankwam</strong>.</td></tr>
+              <tr><td>Ik had geen geld meer.</td><td>Ik <strong>had</strong> mijn portemonnee <strong>vergeten</strong>.</td></tr>
+              <tr><td>Het feest was al begonnen.</td><td>Het feest <strong>was</strong> al <strong>begonnen</strong> voor ik er was.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>7.3 De Keuze: Hebben of Zijn</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Werkwoord</th><th>Met HEBBEN</th><th>Met ZIJN</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Lopen</strong></td><td>Ik <strong>heb</strong> hard <strong>gelopen</strong>. (Training)</td><td>Ik <strong>ben</strong> naar huis <strong>gelopen</strong>. (Bestemming)</td></tr>
+              <tr><td><strong>Fietsen</strong></td><td>Ik <strong>heb</strong> de hele dag <strong>gefietst</strong>.</td><td>Ik <strong>ben</strong> naar het werk <strong>gefietst</strong>.</td></tr>
+              <tr><td><strong>Rijden</strong></td><td>Ik <strong>heb</strong> in haar auto <strong>gereden</strong>.</td><td>Ik <strong>ben</strong> naar België <strong>gereden</strong>.</td></tr>
+              <tr><td><strong>Stoppen</strong></td><td>Ik <strong>heb</strong> de machine <strong>gestopt</strong>. (Iets doen stoppen)</td><td>De trein <strong>is</strong> <strong>gestopt</strong>. (Tot stilstand komen)</td></tr>
+              <tr><td><strong>Vergeten</strong></td><td>Ik <strong>heb</strong> mijn sleutels <strong>vergeten</strong>.</td><td>Ik <strong>ben</strong> de afspraak <strong>vergeten</strong>.</td></tr>
+              <tr><td><strong>Beginnen</strong></td><td>— (Bijna nooit)</td><td>De les <strong>is</strong> <strong>begonnen</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>7.4 Scheidbare WW in de Voltooide Tijd</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Heel Werkwoord</th><th>Voltooid Deelwoord</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Aankomen</strong></td><td>Aangekomen</td><td>De pizza is eindelijk <strong>aangekomen</strong>!</td></tr>
+              <tr><td><strong>Opruimen</strong></td><td>Opgeruimd</td><td>Heb jij je kamer al <strong>opgeruimd</strong>?</td></tr>
+              <tr><td><strong>Inschrijven</strong></td><td>Ingeschreven</td><td>Ik heb me <strong>ingeschreven</strong> voor de cursus.</td></tr>
+              <tr><td><strong>Uitzetten</strong></td><td>Uitgezet</td><td>Heb je de televisie <strong>uitgezet</strong>?</td></tr>
+              <tr><td><strong>Meebrengen</strong></td><td>Meegebracht</td><td>Wat heb je voor mij <strong>meegebracht</strong>?</td></tr>
+              <tr><td><strong>Terugbellen</strong></td><td>Teruggebeld</td><td>Hij heeft me nog niet <strong>teruggebeld</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>7.5 De Dubbele Voltooide Tijd (Pro-Level)</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Wat je denkt</th><th>Wat je zegt</th></tr></thead>
+            <tbody>
+              <tr><td>Ik heb het niet <strong>gewild</strong> doen.</td><td>Ik heb het niet <strong>willen</strong> doen.</td></tr>
+              <tr><td>Jij had moeten <strong>gekomen</strong>.</td><td>Jij had <strong>moeten</strong> komen.</td></tr>
+              <tr><td>Ik heb hem <strong>zien</strong> lopen. (Goed!)</td><td>Ik heb hem <strong>zien</strong> lopen.</td></tr>
+              <tr><td>Zij is <strong>komen</strong> aanwaaien. (Goed!)</td><td>Zij is <strong>komen</strong> aanwaaien.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>7.6 De Alles-Door-Elkaar-Test</h3>
+        <ol>
+          <li>Ik <strong>ben</strong> gisteren naar de tandarts <strong>geweest</strong> en hij <strong>heeft</strong> een gaatje <strong>gevonden</strong>.</li>
+          <li><strong>Heb</strong> jij ooit in het buitenland <strong>gewoond</strong>? Nee, maar ik <strong>ben</strong> er vaak op vakantie <strong>geweest</strong>.</li>
+          <li>Hij <strong>had</strong> al drie keer <strong>geprobeerd</strong> te bellen voordat ik eindelijk <strong>opnam</strong>.</li>
+          <li>De postbode <strong>heeft</strong> het pakketje bij de buren <strong>afgeleverd</strong> omdat ik niet thuis <strong>was</strong>.</li>
+          <li>We <strong>zijn</strong> helemaal naar Maastricht <strong>gefietst</strong>! Het <strong>heeft</strong> ons zes uur <strong>gekost</strong>.</li>
+          <li>Ik <strong>heb</strong> me vreselijk <strong>geërgerd</strong> aan die lawaaiige buren, maar nu <strong>zijn</strong> ze <strong>verhuisd</strong>.</li>
+          <li><strong>Had</strong> je dat niet even <strong>kunnen</strong> <strong>zeggen</strong>? Dan <strong>had</strong> ik me niet <strong>vergist</strong>.</li>
+          <li>Ze <strong>is</strong> in slaap <strong>gevallen</strong> terwijl ze een boek <strong>las</strong> dat ze al honderd keer <strong>had</strong> <strong>gelezen</strong>.</li>
+          <li>Wat <strong>is</strong> er met jou <strong>gebeurd</strong>? Je <strong>ziet</strong> eruit alsof je een marathon <strong>hebt</strong> <strong>gelopen</strong>!</li>
+          <li>Ik <strong>heb</strong> het altijd al <strong>willen</strong> <strong>leren</strong>, maar ik <strong>ben</strong> er nooit aan toe <strong>gekomen</strong>.</li>
+        </ol>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 OVERLEVINGSSCHEMA VOOR DE VOLTOOIDE TIJD</h3>
+        <table style="width:100%; color:#fff; margin-top:10px; font-size:0.95em; text-align:left;">
+          <tr><td style="padding:6px 0;"><strong>1</strong></td><td style="padding:6px 0;"><strong>Kies de tijd:</strong> Nu klaar? (VTT). Toen al klaar? (VVT).</td></tr>
+          <tr><td style="padding:6px 0;"><strong>2</strong></td><td style="padding:6px 0;"><strong>Maak het Deelwoord:</strong> Zwak? (ge+stam+d/t). Sterk? (ge+klinker+en).</td></tr>
+          <tr><td style="padding:6px 0;"><strong>3</strong></td><td style="padding:6px 0;"><strong>Check GE-:</strong> Begint met be-, ver-, ont-? Dan geen GE-!</td></tr>
+          <tr><td style="padding:6px 0;"><strong>4</strong></td><td style="padding:6px 0;"><strong>HEBBEN of ZIJN?</strong> Verandering van plek/toestand? Ja → ZIJN.</td></tr>
+          <tr><td style="padding:6px 0;"><strong>5</strong></td><td style="padding:6px 0;"><strong>Plek:</strong> Hulpwerkwoord op Plek 2. Deelwoord naar <strong>ACHTEREN</strong>.</td></tr>
+        </table>
+        <p style="margin-top:20px; opacity:0.95;">Je wilde <strong>ALLES</strong>. Dit is het complete handboek voor de voltooide tijden. Als je dit beheerst, ben je officieel een Gevorderde Nederlandse Werkwoordspecialist. Het enige dat je nu nog rest is oefenen, lezen, en luisteren tot het in je systeem zit. Succes! 💪</p>
+      </div>
+    </div>
+  `
+},
     {id:6,t:"Toekomende tijd",d:"Zullen en gaan voor toekomstige gebeurtenissen"},
     {id:7,t:"Modale werkwoorden",d:"Kunnen, moeten, mogen, willen, zullen, hoeven"},
     {id:8,t:"Scheidbare werkwoorden",d:"Werkwoorden die splitsen in zinsdelen"},
