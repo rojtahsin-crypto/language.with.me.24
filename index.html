@@ -264,7 +264,128 @@ const LTRS = ['A','B','C','D'];
 const TOPICS = {
   nl:[
     {id:1,t:"De lidwoorden (de/het/een)",d:"Leer wanneer je 'de' of 'het' moet gebruiken"},
-    {id:2,t:"Bezittelijke voornaamwoorden",d:"Mijn, jouw, zijn, haar, ons, jullie, hun"},
+  {
+  id: 2,
+  t: "Bezittelijke voornaamwoorden",
+  d: "Mijn, jouw, zijn, haar, ons, jullie, hun",
+  content: `
+    <div class="modern-grammar">
+      <h2>Bezittelijke voornaamwoorden — جێناوی خاوەندارێتی</h2>
+      <p>جێناوی خاوەندارێتی لە زمانی هۆڵەندیدا بۆ دەربڕینی خاوەندارێتی یان پەیوەندی بەکاردێت. ئەم جێناوانە لەگەڵ ناوێکدا دێن و پێویستە لە ڕووی ژمارە و جۆری ناوەکەوە ڕێکبکەون. لە خوارەوە هەموو شێوەکان بە وردی ڕوون دەکرێنەوە.</p>
+
+      <h3>📋 خشتەی گشتی جێناوی خاوەندارێتی</h3>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>کەسی ناوی</th>
+            <th>جێناوی کەسی (Subject)</th>
+            <th>جێناوی خاوەندارێتی (هۆڵەندی)</th>
+            <th>واتا (کوردی)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>۱ـی تاک</td><td>ik</td><td><strong>mijn</strong></td><td>من</td></tr>
+          <tr><td>۲ـی تاک (نافەرمی)</td><td>jij / je</td><td><strong>jouw / je</strong></td><td>تۆ</td></tr>
+          <tr><td>۲ـی تاک (فەرمی)</td><td>u</td><td><strong>uw</strong></td><td>تۆ (ڕێزدار)</td></tr>
+          <tr><td>۳ـی تاک (نێر)</td><td>hij</td><td><strong>zijn</strong></td><td>ئەو (نێر)</td></tr>
+          <tr><td>۳ـی تاک (مێ)</td><td>zij / ze</td><td><strong>haar</strong></td><td>ئەو (مێ)</td></tr>
+          <tr><td>۳ـی تاک (بێلایەن)</td><td>het</td><td><strong>zijn</strong></td><td>ئەو (بێلایەن)</td></tr>
+          <tr><td>۱ـی کۆ</td><td>wij / we</td><td><strong>ons / onze</strong></td><td>ئێمە</td></tr>
+          <tr><td>۲ـی کۆ</td><td>jullie</td><td><strong>jullie / je</strong></td><td>ئێوە</td></tr>
+          <tr><td>۳ـی کۆ</td><td>zij / ze</td><td><strong>hun</strong></td><td>ئەوان</td></tr>
+        </tbody>
+      </table>
+
+      <div class="rule-card">
+        <span class="rule-title">🔊 شێوە بێبەرامبەرەکان: 'je'</span>
+        <p>لە هۆڵەندیدا، زۆر جار لەبری <strong>jouw</strong> یان <strong>jullie</strong> دەتوانیت شێوەی بێبەرامبەر <strong>'je'</strong> بەکاربهێنیت (هەروەک لەبری 'jij' یش 'je' بەکاردێت). ئەمە تەنها لە کاتی نافەرمیدا ڕوو دەدات.</p>
+        <ul>
+          <li>Is dit <strong>jouw</strong> boek? → Is dit <strong>je</strong> boek? (ئەمە کتێبی تۆیە؟)</li>
+          <li><strong>Jullie</strong> huis is mooi. → <strong>Je</strong> huis is mooi. (ماڵی ئێوە جوانە.)</li>
+        </ul>
+        <p><strong>سەرنج:</strong> 'je' هەرگیز جێگای 'uw' (شێوەی فەرمی) ناگرێتەوە.</p>
+      </div>
+
+      <h3>⚡ ڕێزمان: 'ons' یان 'onze'؟</h3>
+      <p>گەورەترین سەرلێشێوی بۆ فێرخوازان ئەم دوو شێوەیەی جێناوی "ئێمە"یە. هەڵبژاردنی 'ons' یان 'onze' بەندە بە جۆری ناوەکەی دوای خۆی.</p>
+      <div class="grid-container">
+        <div class="grid-item">
+          <h5>✅ Onze</h5>
+          <p>بەکاردێت لەگەڵ ناوەکانی <span class="badge badge-de">DE</span> (هەم نێر و مێ).</p>
+          <ul>
+            <li><strong>Onze</strong> vader (باوکمان) — de vader</li>
+            <li><strong>Onze</strong> moeder (دایکمان) — de moeder</li>
+            <li><strong>Onze</strong> vrienden (هاوڕێکانمان) — de vriend (pirjimar)</li>
+          </ul>
+        </div>
+        <div class="grid-item">
+          <h5>✅ Ons</h5>
+          <p>بەکاردێت لەگەڵ ناوەکانی <span class="badge badge-het">HET</span> (بێلایەن).</p>
+          <ul>
+            <li><strong>Ons</strong> huis (ماڵمان) — het huis</li>
+            <li><strong>Ons</strong> kind (منداڵمان) — het kind</li>
+            <li><strong>Ons</strong> boek (کتێبمان) — het boek</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🧩 نموونەی بەکارهێنان لە ڕستەدا</h3>
+      <div class="example-box">
+        <span class="original">📌 Ik zoek <strong>mijn</strong> sleutels.</span>
+        <span class="translation">من بەدوای کلیلەکانمدا دەگەڕێم.</span>
+      </div>
+      <div class="example-box">
+        <span class="original">📌 Is <strong>jouw</strong> auto rood? (of: Is <strong>je</strong> auto rood?)</span>
+        <span class="translation">ئایا ئۆتۆمبێلەکەی تۆ سوورە؟</span>
+      </div>
+      <div class="example-box">
+        <span class="original">📌 Hij leest <strong>zijn</strong> krant.</span>
+        <span class="translation">ئەو ڕۆژنامەکەی خۆی دەخوێنێتەوە.</span>
+      </div>
+      <div class="example-box">
+        <span class="original">📌 Zij vergeet <strong>haar</strong> tas vaak.</span>
+        <span class="translation">ئەو زۆر جار جانتاکەی خۆی لەبیر دەکات.</span>
+      </div>
+      <div class="example-box">
+        <span class="original">📌 Het kind eet <strong>zijn</strong> boterham. <span style="opacity:0.7;">(het kind = بێلایەن)</span></span>
+        <span class="translation">منداڵەکە ساندویچەکەی خۆی دەخوات.</span>
+      </div>
+      <div class="example-box">
+        <span class="original">📌 Meneer, is dit <strong>uw</strong> koffie?</span>
+        <span class="translation">بەڕێز، ئایا ئەمە قاوەکەی تۆیە؟ (فەرمی)</span>
+      </div>
+      <div class="example-box">
+        <span class="original">📌 Wij houden van <strong>onze</strong> stad. (de stad) <br>Wij zijn trots op <strong>ons</strong> dorp. (het dorp)</span>
+        <span class="translation">ئێمە حەزمان بە شارەکەمانە. / ئێمە شانازی بە گوندەکەمانەوە دەکەین.</span>
+      </div>
+      <div class="example-box">
+        <span class="original">📌 <strong>Jullie</strong> leraar is streng.</span>
+        <span class="translation">مامۆستاکەتان توندە.</span>
+      </div>
+      <div class="example-box">
+        <span class="original">📌 Dat is <strong>hun</strong> probleem.</span>
+        <span class="translation">ئەوە کێشەی ئەوانە.</span>
+      </div>
+
+      <div class="warning-card">
+        <span style="font-weight: bold; font-size: 1.1em;">🚫 خاڵی گرنگ: 'hun' وەک جێناوی بابەتی</span>
+        <p>هەرگیز <strong>hun</strong> وەک جێناوی بابەت (Subject) بەکارمەهێنە. هۆڵەندییەکان دەڵێن <strong>"Zij hebben"</strong> (ئەوان هەیەتیان)، نەک <del>"Hun hebben"</del>. وشەی 'hun' تەنها وەک خاوەندار (یان بەرکارێکی ناڕاستەوخۆ) بەکاردێت.</p>
+        <p>نموونە: <strong>Hun</strong> auto is duur. (ئۆتۆمبێلەکەیان گرانە.) ← دروستە<br>
+        <del>Hun</del> gaan naar huis. ← هەڵەیە. دەبێت بڵێیت: <strong>Zij</strong> gaan naar huis.</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>📌 کورتەیەک بۆ بیرهاتنەوە</h3>
+        <ul>
+          <li>ئێمە = <strong>ons</strong> (het-woord) / <strong>onze</strong> (de-woord)</li>
+          <li>نافەرمی = <strong>je</strong> (لەبری jouw / jullie)</li>
+          <li>باوکی من = <strong>mijn</strong> vader | کتێبەکەی ئەو (نێر) = <strong>zijn</strong> boek</li>
+          <li>هەرگیز مەڵێ "Hun hebben" ← بڵێ "Zij hebben".</li>
+        </ul>
+      </div>
+    </div>
+  `
+},
     {id:3,t:"Tegenwoordige tijd",d:"Regelmatige en onregelmatige werkwoorden"},
     {id:4,t:"Verleden tijd (zwak & sterk)",d:"Onvoltooid verleden en 't kofschip-regel"},
     {id:5,t:"Voltooide tijden",d:"Voltooid tegenwoordige en verleden tijd"},
