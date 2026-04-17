@@ -456,15 +456,14 @@
             <button class="tab-btn" data-tab="practice"><i class="fas fa-puzzle-piece"></i><span id="tabPracticeText">ڕاهێنان</span></button>
             <button class="tab-btn" data-tab="tests"><i class="fas fa-clipboard-list"></i><span id="tabTestsText">تاقیکردنەوە</span></button>
         </nav>
-<!-- ✅ زیاد بکە لە ناو header-actions -->
-<div class="header-actions">
-    <button class="icon-btn" id="resetLanguageBtn" title="زمان بگۆڕە"><i class="fas fa-globe"></i></button>
-    <button class="icon-btn" id="darkModeToggle" title="دۆخی تاریک"><i class="fas fa-moon"></i></button>
-    <!-- 👇 ئەمە زیاد بکە -->
-    <button class="icon-btn" id="aiHelperBtn" title="یارمەتی هۆشە دەستکرد" style="background:var(--accent);color:white;border:none;">
-        <i class="fas fa-robot"></i>
-    </button>
-</div>    </header>
+        <div class="header-actions">
+            <button class="icon-btn" id="resetLanguageBtn" title="زمان بگۆڕە"><i class="fas fa-globe"></i></button>
+            <button class="icon-btn" id="darkModeToggle" title="دۆخی تاریک"><i class="fas fa-moon"></i></button>
+            <button class="icon-btn" id="aiHelperBtn" title="یارمەتی هۆشە دەستکرد" style="background:var(--accent);color:white;border:none;">
+                <i class="fas fa-robot"></i>
+            </button>
+        </div>
+    </header>
 
     <div class="search-bar">
         <div class="search-wrapper">
@@ -476,14 +475,12 @@
     </div>
 
     <div class="app-body">
-        <!-- ڕێزمان -->
         <div id="grammarSection" class="section-card active-section">
             <div class="grammar-scroll">
                 <div id="grammarCardsContainer" class="grammar-grid"></div>
             </div>
         </div>
 
-        <!-- ڕاهێنان -->
         <div id="practiceSection" class="section-card">
             <div class="level-strip" id="practiceLevelContainer"></div>
             <div id="practiceQuizArea">
@@ -498,7 +495,6 @@
             </div>
         </div>
 
-        <!-- تاقیکردنەوە -->
         <div id="testsSection" class="section-card">
             <div class="level-strip" id="testLevelContainer"></div>
             <div id="testQuestionsArea"></div>
@@ -506,11 +502,10 @@
             <div id="testResultArea"></div>
         </div>
     </div>
-<!-- ١. چات مۆدال بگوازەرەوە بۆ پێش </body> -->
-<footer>✨ Language Master | Learn with me | Roj Tahsin ✨</footer>
-</div>  <!-- ← داخستنی main-app -->
+    <footer>✨ Language Master | Learn with me | Roj Tahsin ✨</footer>
+</div>
 
-<!-- 👇 چات مۆدال لێرە دابنێ (دەرەوەی main-app) -->
+<!-- چات مۆدال -->
 <div id="aiChatModal" style="display:none;position:fixed;bottom:20px;right:20px;width:350px;max-height:500px;background:var(--surface2);border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 40px var(--shadow);z-index:2000;flex-direction:column;overflow:hidden;">
     <div style="padding:1rem;background:var(--accent);color:white;display:flex;justify-content:space-between;align-items:center;">
         <strong>🤖 یارمەتیدەری زمان</strong>
@@ -527,7 +522,6 @@
 (function(){
 "use strict";
 
-// ── داتای ڕێزمانی نیدەرلاندی (٤٠ باب) ──
 const DUTCH_GRAMMAR = [
   { num:'01', color:'gc-blue', title:'Het Nederlandse alfabet en uitspraak 🔤', explanation:'Het Nederlandse alfabet telt <strong>26 letters</strong>, identiek aan het Engelse alfabet. De uitspraak van sommige letters is uniek voor het Nederlands.', examples:[{nl:'G = harde g (schrapend geluid achter in de keel)',ku:'G = دەنگی توند (لە داوی گوورگدا)'},{nl:'IJ/EI klinkt als "ij" in "blijft"',ku:'IJ/EI = وەک ay بە دەنگی نیدەرلاندی'},{nl:'OE klinkt als "oo" in "boot"',ku:'OE = وەک oo'},{nl:'UI: moeilijk! Probeer "ui" in "huis"',ku:'UI = ئەگین لەگەڵ دەنگی بنیادی'}], words:['goedemorgen','ijs','huis','boek','neus'], keywords:['alfabet','uitspraak','klinkers','medeklinkers','ij','eu','oe','ui'] },
   { num:'02', color:'gc-green', title:'Lidwoorden en zelfstandige naamwoorden 📝', explanation:'Het Nederlands heeft <strong>drie lidwoorden</strong>: <strong>de</strong> (mannelijk/vrouwelijk), <strong>het</strong> (onzijdig), en <strong>een</strong> (onbepaald). Circa 75% van de woorden is een de-woord.', examples:[{nl:'De man leest een boek.',ku:'پیاوەکە کتێبێک دەخوێنێتەوە.'},{nl:'Het kind speelt buiten.',ku:'منداڵەکە لە دەرەوە یاری دەکات.'},{nl:'Een kat zit op de stoel.',ku:'کتتركێک لەسەر كورسیەکە دانیشتووە.'}], words:['de man','de vrouw','het kind','het boek','een auto'], keywords:['lidwoord','de','het','een','naamwoord','genus'] },
@@ -700,13 +694,11 @@ const LANG_DATA = {
     }
 };
 
-// ── حاڵەت ──
 let currentLang='dutch', currentPracticeLevel='A1', currentTestLevel='A1';
 let practiceQuestions=[], practiceIndex=0, practiceAnswered=false;
 let currentTestQuestions=[], userTestAnswers=[];
 let currentTab='grammar';
 
-// DOM
 const flagScreen=document.getElementById('flagScreen');
 const mainApp=document.getElementById('mainApp');
 const grammarContainer=document.getElementById('grammarCardsContainer');
@@ -726,7 +718,6 @@ const searchInput=document.getElementById('searchInput');
 const searchClearBtn=document.getElementById('searchClearBtn');
 const searchResultsPanel=document.getElementById('searchResultsPanel');
 
-// ── یارمەتیدەرەکان ──
 function speakWord(word,lang){
     if(!window.speechSynthesis)return;
     const u=new SpeechSynthesisUtterance(word);
@@ -759,7 +750,6 @@ function updateUITitles(lang){
     searchInput.placeholder=ui.searchPlaceholder||'Search...';
 }
 
-// ── ڕێزمان ──
 function renderGrammar(){
     const topics=LANG_DATA[currentLang].grammarTopics;
     grammarContainer.innerHTML=topics.map(t=>`
@@ -778,13 +768,11 @@ function renderGrammar(){
     }));
 }
 
-// ── ئاست ──
 function buildLevelButtons(container,levels,current,onSelect){
     container.innerHTML=levels.map(l=>`<button class="level-btn ${current===l?'active-level':''}" data-level="${l}">${l}</button>`).join('');
     container.querySelectorAll('.level-btn').forEach(b=>b.addEventListener('click',()=>onSelect(b.dataset.level)));
 }
 
-// ── ڕاهێنان ──
 function loadPractice(){
     const ex=LANG_DATA[currentLang].exercises[currentPracticeLevel]||[];
     practiceQuestions=ex.length?ex:[{question:LANG_DATA[currentLang].ui.noExercises,options:[LANG_DATA[currentLang].ui.ok],correct:LANG_DATA[currentLang].ui.ok}];
@@ -817,7 +805,6 @@ function nextPractice(){
     else{practiceFeedback.innerHTML=`<div class="feedback-msg feedback-correct">${LANG_DATA[currentLang].ui.completed}</div>`;nextPracticeBtn.style.display='none';}
 }
 
-// ── تاقیکردنەوە ──
 function loadTests(level){
     currentTestQuestions=LANG_DATA[currentLang].tests[level]||[];
     userTestAnswers=Array(currentTestQuestions.length).fill('');
@@ -855,7 +842,6 @@ function evaluateTest(){
     testResultArea.scrollIntoView({behavior:'smooth'});
 }
 
-// ── گەڕان ──
 function buildSearchIndex(){
     const idx=[];const lang=currentLang;const data=LANG_DATA[lang];const ui=data.ui;
     data.grammarTopics.forEach((t,i)=>{
@@ -933,7 +919,6 @@ searchInput.addEventListener('input',e=>{performSearch(e.target.value);searchCle
 searchClearBtn.addEventListener('click',()=>{searchInput.value='';searchResultsPanel.style.display='none';searchClearBtn.style.display='none';searchInput.focus();});
 document.addEventListener('click',e=>{if(!searchInput.contains(e.target)&&!searchResultsPanel.contains(e.target))searchResultsPanel.style.display='none';});
 
-// ── تاب گۆڕین ──
 function switchTab(tabId){
     currentTab=tabId;
     ['grammar','practice','tests'].forEach(t=>document.getElementById(t+'Section').classList.toggle('active-section',t===tabId));
@@ -941,7 +926,6 @@ function switchTab(tabId){
     localStorage.setItem('activeTab',tabId);
 }
 
-// ── گۆڕینی زمان ──
 function switchLanguage(langCode,showFx=true){
     if(!LANG_DATA[langCode])return;
     currentLang=langCode;
@@ -956,7 +940,6 @@ function switchLanguage(langCode,showFx=true){
     if(showFx){flagScreen.style.opacity='0';setTimeout(()=>{flagScreen.style.display='none';mainApp.style.display='flex';},300);}
 }
 
-// ── دۆخی تاریک ──
 function initTheme(){
     const saved=localStorage.getItem('theme');const icon=document.querySelector('#darkModeToggle i');
     if(saved==='dark'){document.body.classList.add('dark');icon.className='fas fa-sun';}
@@ -967,7 +950,6 @@ function toggleTheme(){
     localStorage.setItem('theme',d?'dark':'light');
 }
 
-// ── دەستپێکردن ──
 function init(){
     initTheme();
     document.getElementById('darkModeToggle').addEventListener('click',toggleTheme);
@@ -990,10 +972,22 @@ function init(){
         flagScreen.style.display='flex';mainApp.style.display='none';
     }
     searchClearBtn.style.display='none';
+
+    // Fallback event delegation for language selection (ensures click always works)
+    const flagScreenEl = document.getElementById('flagScreen');
+    if (flagScreenEl) {
+        flagScreenEl.addEventListener('click', function(e) {
+            const card = e.target.closest('.flag-card');
+            if (card && card.dataset.lang) {
+                e.preventDefault();
+                switchLanguage(card.dataset.lang, true);
+            }
+        });
+    }
 }
 init();
-// ── 🤖 کۆدی یارمەتیدەری هۆشە دەستکرد ──
-const AI_API_URL = "https://linguaai-proxy.roj-tahsin.workers.dev"; // ← لینکی وۆرکەرەکەت
+
+const AI_API_URL = "https://linguaai-proxy.roj-tahsin.workers.dev";
 
 function addAIMessage(role, text) {
     const chat = document.getElementById('aiChatMessages');
@@ -1017,7 +1011,7 @@ async function sendToAI(prompt) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: "claude-3-5-sonnet-20241022", // ← ناوی دروستی مۆدێل
+                model: "claude-3-5-sonnet-20241022",
                 max_tokens: 500,
                 messages: [
                     { role: "system", content: `تۆ یارمەتیدەرێکی فێربوونی زمانیت. وەڵامەکان بە ${currentLang === 'dutch' ? 'هۆڵەندی و کوردی' : currentLang === 'french' ? 'فەڕەنسی و کوردی' : 'ئینگلیزی و کوردی'} بدەرەوە. کورت و سوودبەخش.` },
@@ -1027,7 +1021,6 @@ async function sendToAI(prompt) {
         });
         
         const data = await res.json();
-        // لابردنی نامەی "چاوەڕوان بە"
         const loadingMsg = document.getElementById('aiChatMessages').lastElementChild;
         if (loadingMsg.innerText.includes('⏳')) loadingMsg.remove();
         
@@ -1048,7 +1041,6 @@ async function sendToAI(prompt) {
     }
 }
 
-// Event Listeners بۆ چات
 document.addEventListener('DOMContentLoaded', () => {
     const aiBtn = document.getElementById('aiHelperBtn');
     const modal = document.getElementById('aiChatModal');
@@ -1061,8 +1053,6 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.onclick = () => modal.style.display = 'none';
         sendBtn.onclick = () => { if (input.value.trim()) sendToAI(input.value.trim()); };
         input.onkeydown = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (input.value.trim()) sendToAI(input.value.trim()); } };
-        
-        // داخستنی چات کاتێک کلیک لە دەرەوە دەکرێت
         document.onclick = (e) => { if (modal.style.display === 'flex' && !modal.contains(e.target) && !aiBtn.contains(e.target)) modal.style.display = 'none'; };
     }
 });
