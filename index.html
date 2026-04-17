@@ -264,191 +264,20 @@ const LTRS = ['A','B','C','D'];
 const TOPICS = {
   nl:[
     {id:1,t:"De lidwoorden (de/het/een)",d:"Leer wanneer je 'de' of 'het' moet gebruiken"},
-   {
-  id: 2,
-  t: "Bezittelijke voornaamwoorden",
-  d: "Mijn, jouw, zijn, haar, ons, jullie, hun",
+    {id:2,t:"Bezittelijke voornaamwoorden",d:"Mijn, jouw, zijn, haar, ons, jullie, hun"},
+{
+  id: 3,
+  t: "Tegenwoordige tijd",
+  d: "Regelmatige en onregelmatige werkwoorden",
   content: `
     <div class="modern-grammar">
-      <h2>Bezittelijke voornaamwoorden</h2>
-      <p>Goed, je hebt de lidwoorden overleefd. Nu duiken we in de <strong>BEZITTELIJKE VOORNAAMWOORDEN</strong> (<em>possessive pronouns</em>). Dit is het moment waarop we gaan aangeven van wie iets is. "Mijn fiets." "Jouw probleem." "Onze chaos."</p>
-      <p>Dit onderdeel is een verademing vergeleken met <em>de/het</em>. Er is <strong>veel minder willekeur</strong>. Er is maar <strong>één grote valkuil</strong> en die heet <strong>ONS vs. ONZE</strong>. Maar we gaan <em>alles</em> behandelen.</p>
-      <p>Hier is het Grote Bezittelijk Voornaamwoorden Overzicht der Hebzucht.</p>
-
-      <h3>📋 DEEL 1: HET BASISOVERZICHT (STAMPEN DIT)</h3>
-      <table class="styled-table">
-        <thead>
-          <tr><th>Persoon</th><th>Bezittelijk vnw.</th><th>Voorbeeld</th><th>Let op!</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Ik</strong></td><td><strong>Mijn</strong> (of <em>m'n</em>)</td><td><em>Mijn</em> boek, <em>mijn</em> auto</td><td>Spreektaal: <em>Me</em> fiets (fout, maar vaak gehoord)</td></tr>
-          <tr><td><strong>Jij / Je</strong></td><td><strong>Jouw</strong> (of <em>je</em>)</td><td><em>Jouw</em> idee, <em>je</em> tas</td><td><em>Jou</em> is zonder -w (Jou zie ik). <em>Jouw</em> is bezit.</td></tr>
-          <tr><td><strong>U</strong></td><td><strong>Uw</strong></td><td><em>Uw</em> bestelling, <em>Uw</em> huis</td><td>Altijd met -w.</td></tr>
-          <tr><td><strong>Hij</strong></td><td><strong>Zijn</strong> (of <em>z'n</em>)</td><td><em>Zijn</em> hond, <em>z'n</em> kamer</td><td></td></tr>
-          <tr><td><strong>Zij (enkelv.)</strong></td><td><strong>Haar</strong> (of <em>d'r</em>)</td><td><em>Haar</em> sleutels, <em>d'r</em> moeder</td><td></td></tr>
-          <tr><td><strong>Het</strong></td><td><strong>Zijn</strong></td><td>De hond eet <em>zijn</em> voer.</td><td>Voor onzijdige woorden (<em>het</em> boek → <em>zijn</em> kaft)</td></tr>
-          <tr><td><strong>Wij / We</strong></td><td><strong>Ons / Onze</strong></td><td><em>Onze</em> hond, <em>Ons</em> kind</td><td><strong>DE GROTE STRUIKELBLOK.</strong> Zie DEEL 2.</td></tr>
-          <tr><td><strong>Jullie</strong></td><td><strong>Jullie</strong></td><td><em>Jullie</em> feestje</td><td><strong>Blijft altijd hetzelfde.</strong> Geen -e erachter!</td></tr>
-          <tr><td><strong>Zij (meerv.)</strong></td><td><strong>Hun</strong></td><td><em>Hun</em> vakantie</td><td></td></tr>
-        </tbody>
-      </table>
-
-      <h3>⚡ DEEL 2: DE GROTE VALKUIL: ONS vs. ONZE</h3>
-      <p>Dit is het enige moment waarop je echt moet nadenken over <strong>DE</strong> en <strong>HET</strong> bij bezittelijke voornaamwoorden.</p>
-      <p>De regel is simpel, maar je moet het <em>zien</em>.</p>
-      <ul>
-        <li><strong>ONZE</strong> gebruik je bij <strong>DE-woorden</strong> en <strong>MEERVOUD</strong>.</li>
-        <li><strong>ONS</strong> gebruik je bij <strong>HET-woorden</strong> (enkelvoud).</li>
-      </ul>
-
-      <h4>Het Schema:</h4>
-      <table class="styled-table">
-        <thead>
-          <tr><th>Soort Zelfstandig Naamwoord</th><th>Lidwoord</th><th>Bezittelijk</th><th>Voorbeeld</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>DE-woord</strong></td><td>De tafel</td><td><strong>Onze</strong></td><td>Dit is <strong>onze</strong> tafel.</td></tr>
-          <tr><td><strong>HET-woord</strong></td><td>Het huis</td><td><strong>Ons</strong></td><td>Dit is <strong>ons</strong> huis.</td></tr>
-          <tr><td><strong>Meervoud</strong></td><td>De boeken</td><td><strong>Onze</strong></td><td>Dat zijn <strong>onze</strong> boeken.</td></tr>
-          <tr><td><strong>Verkleinwoord (HET)</strong></td><td>Het kindje</td><td><strong>Ons</strong></td><td>Slaapt <strong>ons</strong> kindje al?</td></tr>
-        </tbody>
-      </table>
-
-      <div class="warning-card">
-        <span style="font-weight: bold; font-size: 1.1em;">🚫 Pas op voor deze klassieke fout:</span>
-        <ul style="margin-top: 10px;">
-          <li>FOUT: <em>Ons tafel</em>. (Klinkt als een boer uit een sketch).</li>
-          <li>GOED: <em>Onze tafel</em>.</li>
-          <li>FOUT: <em>Onze huis</em>.</li>
-          <li>GOED: <em>Ons huis</em>.</li>
-        </ul>
-      </div>
-
-      <h3>📝 DEEL 3: DE BIJVOEGLIJKE NAAMWOORDEN-REGEL (Wederom een verademing)</h3>
-      <p>In het vorige hoofdstuk (Lidwoorden) was er paniek over <em>een mooi boek</em> (zonder -e) en <em>het mooie boek</em> (met -e). <strong>Bij bezittelijke voornaamwoorden gooi je die stress overboord.</strong></p>
-
-      <div class="rule-card">
-        <span class="rule-title">✅ De Regel:</span>
-        <p>Staat er een bezittelijk voornaamwoord voor het zelfstandig naamwoord, dan krijgt het bijvoeglijk naamwoord <strong>ALTIJD een -E</strong>.</p>
-        <p>Het maakt niet uit of het een <em>de-woord</em> of <em>het-woord</em> is. Het maakt niet uit of het <em>mijn</em> of <em>ons</em> is. <strong>Altijd +E</strong>.</p>
-      </div>
-
-      <table class="styled-table">
-        <thead><tr><th>Lidwoord situatie</th><th>Regel</th><th>Voorbeeld</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Een</strong> (Onbepaald)</td><td><strong>Geen -e</strong> bij HET-woorden</td><td>Een mooi_ huis.</td></tr>
-          <tr><td><strong>Mijn / Jouw / Ons</strong> (Bezittelijk)</td><td><strong>Altijd +e</strong></td><td>Mijn mooi<strong>e</strong> huis.</td></tr>
-        </tbody>
-      </table>
-
-      <h4>Kijk naar het verschil:</h4>
-      <ol>
-        <li><strong>Een</strong> groot_ paard. (HET-woord, na <em>een</em> geen -e)</li>
-        <li><strong>Mijn</strong> grot<strong>e</strong> paard. (HET-woord, na <em>mijn</em> WEL -e)</li>
-        <li><strong>Ons</strong> klein<strong>e</strong> feestje. (WEL -e)</li>
-      </ol>
-
-      <div class="rule-card">
-        <span class="rule-title">🔔 Enige uitzondering: Materiaalaanduidingen</span>
-        <p>Soms als het bijvoeglijk naamwoord het materiaal aangeeft (en eindigt op -en), blijft het zoals het is.</p>
-        <ul>
-          <li>Mijn <strong>houten</strong> tafel. (Niet: houtene tafel).</li>
-          <li>Onze <strong>gouden</strong> ring.</li>
-        </ul>
-      </div>
-
-      <h3>🗣️ DEEL 4: ZELFSTANDIG GEBRUIK (Als het woord er niet achter staat)</h3>
-      <p>Soms noem je het voorwerp niet, omdat je het net al genoemd hebt. Dan plak je er <strong>-E</strong> achter (bij de-woorden en meervoud) of <strong>niets</strong> (bij het-woorden). Let op de speciale vormen <em>mijne</em>, <em>jouwe</em>, etc. die je vooral hoort als je het nadrukkelijk zegt.</p>
-
-      <table class="styled-table">
-        <thead><tr><th>Persoon</th><th>Zelfstandig (Met nadruk)</th><th>Zonder nadruk</th><th>Voorbeeld zin</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Ik</strong></td><td><strong>De mijne</strong></td><td>(die) van mij</td><td>Jouw auto is vies, <strong>de mijne</strong> is schoon.</td></tr>
-          <tr><td><strong>Jij</strong></td><td><strong>De jouwe</strong></td><td>(die) van jou</td><td>Is deze pen <strong>de jouwe</strong>?</td></tr>
-          <tr><td><strong>U</strong></td><td><strong>De uwe</strong></td><td>(die) van u</td><td>Met vriendelijke groet, <strong>de uwe</strong>.</td></tr>
-          <tr><td><strong>Hij</strong></td><td><strong>De zijne</strong></td><td>(die) van hem</td><td>Mijn fiets is kapot, ik leen <strong>de zijne</strong>.</td></tr>
-          <tr><td><strong>Wij</strong></td><td><strong>De onze</strong></td><td>(die) van ons</td><td>Hun tuin is klein, <strong>de onze</strong> is groot.</td></tr>
-        </tbody>
-      </table>
-
-      <h4>Let op bij HET-woorden:</h4>
-      <p>Als het om een <em>het-woord</em> gaat, gebruik je <strong>HET</strong>.</p>
-      <ul>
-        <li>Is dat jouw paard? Ja, het is <strong>het mijne</strong>.</li>
-        <li>Is dat jouw huis? Ja, het is <strong>het onze</strong>. (Niet: de onze).</li>
-      </ul>
-
-      <h4>JULLIE & HUN (Zelfstandig)</h4>
-      <p>Deze blijven makkelijk. Je gebruikt gewoon <strong>van</strong>.</p>
-      <ul>
-        <li>Is dat die van <strong>jullie</strong>?</li>
-        <li>Is dat die van <strong>hun</strong>?</li>
-      </ul>
-      <p>Je kunt ook zeggen <em>de hunne</em> maar dat klinkt heel erg ouderwets en schrijftalig.</p>
-
-      <h3>💬 DEEL 5: DE SPREEKTAAL - WAT JE OP STRAAT HOORT</h3>
-      <p>In de les leer je <em>mijn</em>, <em>jouw</em>, <em>zijn</em>, <em>haar</em>. Op straat hoor je dit:</p>
-
-      <table class="styled-table">
-        <thead><tr><th>Officieel</th><th>Straattaal / Snel</th><th>Opmerking</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Mijn</strong></td><td><strong>M'n</strong> of <strong>Me</strong></td><td><em>Me moeder</em>. Officieel FOUT, maar iedereen zegt het.</td></tr>
-          <tr><td><strong>Jouw</strong></td><td><strong>Je</strong></td><td><em>Is dit je fiets?</em> (Perfect correct Nederlands)</td></tr>
-          <tr><td><strong>Zijn</strong></td><td><strong>Z'n</strong></td><td><em>Dat is z'n tas.</em></td></tr>
-          <tr><td><strong>Haar</strong></td><td><strong>D'r</strong></td><td><em>Dat is d'r zus.</em></td></tr>
-        </tbody>
-      </table>
-
-      <h3>✅ DEEL 6: DE CHECKLIST VOOR DE TOETS/ HET LEVEN</h3>
-      <p>Gebruik dit stappenplan als je een zin schrijft.</p>
-      <ol>
-        <li><strong>Kies het juiste woord:</strong> Ik → <strong>Mijn</strong>. Jij → <strong>Jouw</strong>. Wij → <strong>Ons/Onze</strong>.</li>
-        <li><strong>Is het WIJ?</strong> → Check of het zelfstandig naamwoord <strong>HET</strong> of <strong>DE</strong> is.
-          <ul>
-            <li><em>Het</em> boek → <strong>Ons</strong> boek.</li>
-            <li><em>De</em> auto → <strong>Onze</strong> auto.</li>
-          </ul>
-        </li>
-        <li><strong>Komt er een bijvoeglijk naamwoord?</strong> → <strong>Plak er een -E aan vast</strong>.
-          <ul><li>Ons <em>mooie</em> boek. (Let op: wel een E, ook al is het <em>ons</em>).</li></ul>
-        </li>
-        <li><strong>Staat het zelfstandig naamwoord er niet?</strong> → Gebruik <strong>De mijne / Het mijne</strong>.</li>
-      </ol>
-
-      <h3>📚 VOORBEELDZINNEN (Alles door elkaar)</h3>
-      <div class="example-box">
-        <span class="original">📌 <strong>Mijn</strong> ou<strong>e</strong> fiets staat naast <strong>jouw</strong> nieuw<strong>e</strong> auto.</span>
-      </div>
-      <div class="example-box">
-        <span class="original">📌 <strong>Onze</strong> gezellig<strong>e</strong> woonkamer is groter dan <strong>jullie</strong> rommelig<strong>e</strong> zolder.</span>
-      </div>
-      <div class="example-box">
-        <span class="original">📌 Ik heb <strong>mijn</strong> sleutels verloren, mag ik <strong>de jouwe</strong> lenen?</span>
-      </div>
-      <div class="example-box">
-        <span class="original">📌 <strong>Haar</strong> klein<strong>e</strong> zusje speelt met <strong>ons</strong> oud<strong>e</strong> speelgoed.</span>
-      </div>
-      <div class="example-box">
-        <span class="original">📌 <strong>Uw</strong> bestell<strong>ing</strong> is onderweg.</span>
-      </div>
-      <div class="example-box">
-        <span class="original">📌 Dat is <strong>hun</strong> probleem, niet <strong>het onze</strong>.</span>
-      </div>
-
-      <div class="summary-card">
-        <h3>📌 KORTE SAMENVATTING</h3>
-        <ul>
-          <li><strong>ONS</strong> = het-woord enkelvoud (ons huis, ons kind)</li>
-          <li><strong>ONZE</strong> = de-woorden en meervoud (onze auto, onze boeken)</li>
-          <li>Na bezittelijk vnw. krijgt bijv. nw. <strong>ALTIJD -E</strong> (mijn mooie huis)</li>
-          <li>Zelfstandig gebruik: <strong>de mijne / het mijne</strong></li>
-          <li>Spreektaal: <strong>m'n, je, z'n, d'r</strong></li>
-        </ul>
-      </div>
+      <h2>Tegenwoordige Tijd</h2>
+      <p>لێرە ڕاڤەی تەواوی ڕێزمانی دەنووسیت...</p>
+      <h3>📘 Regelmatige Werkwoorden</h3>
+      <table class="styled-table">...</table>
     </div>
   `
 },
-    {id:3,t:"Tegenwoordige tijd",d:"Regelmatige en onregelmatige werkwoorden"},
     {id:4,t:"Verleden tijd (zwak & sterk)",d:"Onvoltooid verleden en 't kofschip-regel"},
     {id:5,t:"Voltooide tijden",d:"Voltooid tegenwoordige en verleden tijd"},
     {id:6,t:"Toekomende tijd",d:"Zullen en gaan voor toekomstige gebeurtenissen"},
