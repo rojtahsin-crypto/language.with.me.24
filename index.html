@@ -269,18 +269,12 @@ const TOPICS = {
   d: "Leer wanneer je 'de' of 'het' moet gebruiken",
   content: `
     <style>
-      /* === GRAMMAR WRAPPER - THEME AWARE === */
+      /* === GRAMMAR WRAPPER === */
       .gw-wrap {
-        --gw-bg: var(--bg);
-        --gw-bg2: var(--bg2);
-        --gw-bg3: var(--bg3);
-        --gw-text: var(--text);
-        --gw-text2: var(--text2);
-        --gw-text3: var(--text3);
-        --gw-border: var(--border);
-        --gw-accent: var(--accent);
-        --gw-accent-bg: var(--acbg);
-        --gw-accent-bo: var(--acbo);
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent);
+        --gw-accent-bg: var(--acbg); --gw-accent-bo: var(--acbo);
         --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
         --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
         --gw-warn: #f59e0b; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
@@ -292,16 +286,9 @@ const TOPICS = {
         margin: 0 auto;
         padding: 4px;
       }
-      
-      /* Dark mode fallback for embedded content */
-      [data-theme="dark"] .gw-wrap {
-        --gw-warn-bg: #422006;
-        --gw-warn-text: #fcd34d;
-      }
-      
       .gw-wrap * { box-sizing: border-box; }
       
-      /* === HERO SECTION === */
+      /* === HERO === */
       .gw-hero {
         background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
         border: 1.5px solid var(--gw-border);
@@ -311,35 +298,19 @@ const TOPICS = {
         text-align: center;
         position: relative;
         overflow: hidden;
-        transition: all 0.3s ease;
       }
       .gw-hero::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -50%;
-        width: 200px;
-        height: 200px;
+        content: ''; position: absolute; top: -50%; right: -50%;
+        width: 200px; height: 200px;
         background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
-        opacity: 0.08;
-        border-radius: 50%;
-        pointer-events: none;
+        opacity: 0.08; border-radius: 50%; pointer-events: none;
       }
       .gw-hero h1 {
         font-family: 'Libre Baskerville', serif;
-        font-size: 1.95rem;
-        margin: 0 0 10px 0;
-        color: var(--gw-text);
-        font-weight: 700;
+        font-size: 1.95rem; margin: 0 0 10px 0; color: var(--gw-text); font-weight: 700;
         position: relative;
       }
-      .gw-hero p {
-        color: var(--gw-text2);
-        margin: 0;
-        font-size: 1.05rem;
-        font-weight: 500;
-        position: relative;
-      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-size: 1.05rem; font-weight: 500; position: relative; }
       
       /* === SECTIONS === */
       .gw-section {
@@ -350,337 +321,114 @@ const TOPICS = {
         margin-bottom: 16px;
         transition: all 0.25s ease;
       }
-      .gw-section:hover {
-        border-color: var(--gw-accent-bo);
-        box-shadow: 0 4px 20px var(--shadow);
-      }
+      .gw-section:hover { border-color: var(--gw-accent-bo); box-shadow: 0 4px 20px var(--shadow); }
       .gw-section h2 {
-        font-family: 'Libre Baskerville', serif;
-        font-size: 1.45rem;
-        margin: 0 0 18px 0;
-        padding-bottom: 14px;
-        border-bottom: 2px solid var(--gw-border);
-        color: var(--gw-text);
-        font-weight: 700;
+        font-family: 'Libre Baskerville', serif; font-size: 1.45rem;
+        margin: 0 0 18px 0; padding-bottom: 14px;
+        border-bottom: 2px solid var(--gw-border); color: var(--gw-text); font-weight: 700;
       }
       .gw-section h3 {
-        color: var(--gw-accent);
-        font-size: 1.2rem;
-        margin: 24px 0 14px 0;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+        color: var(--gw-accent); font-size: 1.2rem; margin: 24px 0 14px 0;
+        font-weight: 700; display: flex; align-items: center; gap: 8px;
       }
-      .gw-section h4 {
-        margin: 18px 0 10px 0;
-        font-weight: 700;
-        color: var(--gw-text);
-        font-size: 1.05rem;
-      }
-      .gw-section p {
-        margin: 0 0 14px 0;
-        color: var(--gw-text);
-      }
-      .gw-section ul, .gw-section ol {
-        margin: 10px 0 18px 26px;
-        padding: 0;
-      }
-      .gw-section li {
-        margin-bottom: 7px;
-        color: var(--gw-text);
-        line-height: 1.6;
-      }
-      .gw-section strong {
-        font-weight: 800;
-        color: var(--gw-text);
-      }
-      .gw-section em {
-        color: var(--gw-accent);
-        font-style: italic;
-      }
+      .gw-section h4 { margin: 18px 0 10px 0; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px 0; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 26px; padding: 0; }
+      .gw-section li { margin-bottom: 7px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
       
       /* === BADGES === */
       .gw-badge {
-        display: inline-flex;
-        align-items: center;
-        padding: 5px 14px;
-        border-radius: 24px;
-        font-weight: 700;
-        font-size: 0.83em;
-        margin: 4px 3px;
-        transition: all 0.2s ease;
-        border: 1px solid transparent;
+        display: inline-flex; align-items: center;
+        padding: 5px 14px; border-radius: 24px;
+        font-weight: 700; font-size: 0.83em; margin: 4px 3px;
+        transition: all 0.2s ease; border: 1px solid transparent;
       }
-      .gw-badge.de {
-        background: var(--gw-nl-bg);
-        color: var(--gw-nl);
-        border-color: var(--gw-nl-bo);
-      }
-      .gw-badge.het {
-        background: var(--gw-fr-bg);
-        color: var(--gw-fr);
-        border-color: var(--gw-fr-bo);
-      }
-      .gw-badge.een {
-        background: var(--gw-accent-bg);
-        color: var(--gw-accent);
-        border-color: var(--gw-accent-bo);
-      }
-      .gw-badge:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px var(--shadow);
-      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
       
       /* === RULE CARDS === */
       .gw-rule-card {
-        background: var(--gw-accent-bg);
-        border-left: 4px solid var(--gw-accent);
-        padding: 18px 20px;
-        border-radius: 0 14px 14px 0;
-        margin: 18px 0;
-        border: 1px solid var(--gw-accent-bo);
+        background: var(--gw-accent-bg); border-left: 4px solid var(--gw-accent);
+        padding: 18px 20px; border-radius: 0 14px 14px 0; margin: 18px 0; border: 1px solid var(--gw-accent-bo);
       }
-      .gw-rule-card.het {
-        background: var(--gw-fr-bg);
-        border-left-color: var(--gw-fr);
-        border-color: var(--gw-fr-bo);
-      }
-      .gw-rule-title {
-        font-weight: 800;
-        color: var(--gw-text);
-        font-size: 1.08em;
-        margin-bottom: 10px;
-        display: block;
-      }
-      .gw-rule-card ul {
-        margin: 8px 0 0 20px !important;
-      }
-      .gw-rule-card li {
-        margin-bottom: 4px !important;
-      }
+      .gw-rule-card.het { background: var(--gw-fr-bg); border-left-color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-rule-title { font-weight: 800; color: var(--gw-text); font-size: 1.08em; margin-bottom: 10px; display: block; }
+      .gw-rule-card ul { margin: 8px 0 0 20px !important; }
       
-      /* === GRID LAYOUT === */
-      .gw-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
-        gap: 14px;
-        margin-top: 14px;
-      }
+      /* === GRID === */
+      .gw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 14px; margin-top: 14px; }
       .gw-grid-item {
-        background: var(--gw-bg);
-        padding: 16px 18px;
-        border: 1.5px solid var(--gw-border);
-        border-radius: 14px;
-        transition: all 0.25s ease;
+        background: var(--gw-bg); padding: 16px 18px;
+        border: 1.5px solid var(--gw-border); border-radius: 14px; transition: all 0.25s ease;
       }
-      .gw-grid-item:hover {
-        border-color: var(--gw-accent-bo);
-        background: var(--gw-accent-bg);
-        transform: translateY(-3px);
-      }
-      .gw-grid-item h5 {
-        margin: 0 0 10px 0;
-        color: var(--gw-text);
-        font-size: 0.98em;
-        font-weight: 700;
-      }
-      .gw-grid-item p,
-      .gw-grid-item em {
-        font-size: 0.92em;
-        color: var(--gw-text2);
-        margin: 0;
-        line-height: 1.55;
-      }
-      .gw-grid-item em {
-        display: block;
-        margin-top: 8px;
-        font-style: italic;
-        color: var(--gw-text3);
-      }
+      .gw-grid-item:hover { border-color: var(--gw-accent-bo); background: var(--gw-accent-bg); transform: translateY(-3px); }
+      .gw-grid-item h5 { margin: 0 0 10px 0; color: var(--gw-text); font-size: 0.98em; font-weight: 700; }
+      .gw-grid-item p, .gw-grid-item em { font-size: 0.92em; color: var(--gw-text2); margin: 0; line-height: 1.55; }
+      .gw-grid-item em { display: block; margin-top: 8px; font-style: italic; color: var(--gw-text3); }
       
       /* === TABLES === */
-      .gw-table-wrap {
-        overflow-x: auto;
-        margin: 18px 0;
-        border-radius: 14px;
-        border: 1.5px solid var(--gw-border);
-        -webkit-overflow-scrolling: touch;
-      }
-      .gw-table-wrap::-webkit-scrollbar {
-        height: 6px;
-      }
-      .gw-table-wrap::-webkit-scrollbar-thumb {
-        background: var(--gw-border);
-        border-radius: 3px;
-      }
-      .gw-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.93em;
-        background: var(--gw-bg);
-        min-width: 450px;
-      }
-      .gw-table th,
-      .gw-table td {
-        padding: 13px 16px;
-        text-align: left;
-        border-bottom: 1px solid var(--gw-border);
-      }
-      .gw-table th {
-        background: var(--gw-bg3);
-        font-weight: 800;
-        color: var(--gw-text);
-        position: sticky;
-        top: 0;
-        z-index: 1;
-      }
-      .gw-table tr:last-child td {
-        border-bottom: none;
-      }
-      .gw-table tr:hover {
-        background: var(--gw-bg3);
-      }
-      .gw-table strong {
-        color: var(--gw-accent);
-      }
+      .gw-table-wrap { overflow-x: auto; margin: 18px 0; border-radius: 14px; border: 1.5px solid var(--gw-border); -webkit-overflow-scrolling: touch; }
+      .gw-table-wrap::-webkit-scrollbar { height: 6px; }
+      .gw-table-wrap::-webkit-scrollbar-thumb { background: var(--gw-border); border-radius: 3px; }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.93em; background: var(--gw-bg); min-width: 450px; }
+      .gw-table th, .gw-table td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; z-index: 1; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-bg3); }
+      .gw-table strong { color: var(--gw-accent); }
       
-      /* === TWO COLUMNS === */
-      .gw-cols-2 {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-      @media(min-width: 680px) {
-        .gw-cols-2 {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
+      /* === LAYOUT & UTILS === */
+      .gw-cols-2 { display: grid; grid-template-columns: 1fr; gap: 14px; }
+      @media(min-width: 680px) { .gw-cols-2 { grid-template-columns: 1fr 1fr; } }
       
-      /* === WARNINGS === */
       .gw-warning {
-        background: var(--gw-warn-bg);
-        border: 1.5px solid var(--gw-warn);
-        border-radius: 14px;
-        padding: 16px 18px;
-        margin: 18px 0;
-        font-size: 0.96em;
+        background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn);
+        border-radius: 14px; padding: 16px 18px; margin: 18px 0; font-size: 0.96em;
       }
-      .gw-warning strong {
-        color: var(--gw-warn-text);
-        display: block;
-        margin-bottom: 8px;
-        font-size: 1.05em;
-      }
-      .gw-warning ul {
-        margin: 10px 0 0 22px !important;
-      }
+      .gw-warning strong { color: var(--gw-warn-text); display: block; margin-bottom: 8px; font-size: 1.05em; }
+      .gw-warning ul { margin: 10px 0 0 22px !important; }
       
-      /* === EXAMPLES === */
       .gw-example {
-        background: var(--gw-bg3);
-        border-left: 4px solid var(--gw-accent);
-        padding: 14px 18px;
-        border-radius: 0 10px 10px 0;
-        margin: 14px 0;
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 14px 0;
         font-family: 'Libre Baskerville', serif;
       }
-      .gw-example .orig {
-        display: block;
-        color: var(--gw-text);
-        font-weight: 600;
-        margin-bottom: 5px;
-        font-size: 1.03em;
-      }
-      .gw-example .trans {
-        display: block;
-        color: var(--gw-text3);
-        font-size: 0.92em;
-        font-style: normal;
-        font-family: 'Nunito', sans-serif;
-      }
+      .gw-example .orig { display: block; color: var(--gw-text); font-weight: 600; margin-bottom: 5px; font-size: 1.03em; }
+      .gw-example .trans { display: block; color: var(--gw-text3); font-size: 0.92em; font-style: normal; font-family: 'Nunito', sans-serif; }
       
-      /* === SUMMARY CARD === */
       .gw-summary {
         background: linear-gradient(135deg, var(--gw-accent) 0%, var(--gw-accent) 100%);
-        color: #fff;
-        border-radius: 18px;
-        padding: 22px 24px;
-        text-align: center;
-        margin-top: 26px;
-        position: relative;
-        overflow: hidden;
+        color: #fff; border-radius: 18px; padding: 22px 24px; text-align: center;
+        margin-top: 26px; position: relative; overflow: hidden;
       }
       .gw-summary::before {
-        content: '';
-        position: absolute;
-        top: -30%;
-        left: -30%;
-        width: 160px;
-        height: 160px;
+        content: ''; position: absolute; top: -30%; left: -30%;
+        width: 160px; height: 160px;
         background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
+        border-radius: 50%; pointer-events: none;
       }
-      .gw-summary h3 {
-        color: #fff;
-        margin: 0 0 14px 0;
-        font-family: 'Libre Baskerville', serif;
-        font-size: 1.3rem;
-        position: relative;
-      }
-      .gw-summary ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        position: relative;
-      }
-      .gw-summary li {
-        margin: 9px 0;
-        font-weight: 600;
-        font-size: 0.98em;
-        position: relative;
-        padding-left: 22px;
-      }
-      .gw-summary li::before {
-        content: '✓';
-        position: absolute;
-        left: 0;
-        color: #fff;
-        font-weight: 800;
-      }
-      .gw-summary p {
-        margin-top: 18px;
-        font-size: 0.95em;
-        opacity: 0.95;
-        position: relative;
-      }
+      .gw-summary h3 { color: #fff; margin: 0 0 14px 0; font-family: 'Libre Baskerville', serif; font-size: 1.3rem; position: relative; }
+      .gw-summary ul { list-style: none; padding: 0; margin: 0; position: relative; }
+      .gw-summary li { margin: 9px 0; font-weight: 600; font-size: 0.98em; position: relative; padding-left: 22px; }
+      .gw-summary li::before { content: '✓'; position: absolute; left: 0; color: #fff; font-weight: 800; }
+      .gw-summary p { margin-top: 18px; font-size: 0.95em; opacity: 0.95; position: relative; }
       
-      /* === INLINE CODE === */
       .gw-code {
-        background: var(--gw-bg3);
-        padding: 3px 8px;
-        border-radius: 6px;
-        font-family: monospace;
-        font-weight: 700;
-        color: var(--gw-accent);
-        font-size: 0.95em;
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
       }
       
-      /* === ANIMATIONS === */
-      @keyframes gw-fadeIn {
-        from { opacity: 0; transform: translateY(12px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .gw-section {
-        animation: gw-fadeIn 0.4s ease both;
-      }
+      @keyframes gw-fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+      .gw-section { animation: gw-fadeIn 0.4s ease both; }
       .gw-section:nth-child(2) { animation-delay: 0.1s; }
       .gw-section:nth-child(3) { animation-delay: 0.2s; }
       .gw-section:nth-child(4) { animation-delay: 0.3s; }
       .gw-summary { animation-delay: 0.4s; }
       
-      /* === RESPONSIVE === */
       @media(max-width: 600px) {
         .gw-hero { padding: 22px 18px; }
         .gw-hero h1 { font-size: 1.65rem; }
@@ -690,16 +438,35 @@ const TOPICS = {
         .gw-table { font-size: 0.88em; }
         .gw-table th, .gw-table td { padding: 10px 12px; }
       }
+
+      /* ========================================= */
+      /* === DARK MODE OPTIMIZATIONS (FIX) === */
+      /* ========================================= */
+      [data-theme="dark"] .gw-wrap {
+        /* Badges: شەفەف + ڕەنگی ڕووناکتر بۆ خوێندنەوە */
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        
+        /* Warnings & Hover */
+        --gw-warn-bg: #422006; --gw-warn-text: #fde68a; --gw-warn: #d97706;
+        --gw-hover-tint: rgba(255,255,255,0.04);
+        --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      [data-theme="dark"] .gw-grid-item:hover { background: var(--gw-hover-tint); }
+      [data-theme="dark"] .gw-table tr:hover { background: var(--gw-table-hover); }
+      [data-theme="dark"] .gw-example { background: var(--gw-hover-tint); }
+      [data-theme="dark"] .gw-rule-card { background: var(--gw-accent-bg); }
+      [data-theme="dark"] .gw-rule-card.het { background: var(--gw-fr-bg); }
+      [data-theme="dark"] .gw-hero::before, [data-theme="dark"] .gw-summary::before { opacity: 0.04; }
     </style>
     
     <div class="gw-wrap">
-      <!-- HERO -->
       <div class="gw-hero">
         <h1>📘 De / Het / Een</h1>
         <p>De moeder aller regels — Alles wat je moet weten</p>
       </div>
       
-      <!-- INTRO -->
       <div class="gw-section">
         <p>Goed, adem diep in. We gaan het hebben over <strong>DE LIDWOORDEN</strong>. Je hebt gevraagd om <em>alles</em>, en dat is precies wat je krijgt. Dit wordt het <strong>Grote Nederlandse Lidwoordenboek der Wanhoop en Hoop</strong>. 🎯</p>
         <p>We splitsen het op in drie delen:</p>
@@ -710,20 +477,18 @@ const TOPICS = {
         </ol>
       </div>
       
-      <!-- DEEL 1 -->
       <div class="gw-section">
         <h2>🔹 DEEL 1: DE & HET — De Moeder Aller Regels</h2>
         <p>De vraag <span class="gw-code">Is het <em>de</em> of <em>het</em>?</span> is de meest gestelde vraag in de Nederlandse taal. Er is <strong>geen pure logica</strong> in de betekenis — het is grotendeels geheugenwerk. Maar er zijn wel <strong>vuistregels</strong> en <strong>reddingsboeien</strong> die je in 80% van de gevallen redden.</p>
         
         <h3>🟢 1.1 DE-woorden (±75% van de woorden)</h3>
         <p>Je gebruikt <span class="gw-badge de">DE</span> in de volgende gevallen. <em>Leer deze lijst uit je hoofd!</em></p>
-        
         <div class="gw-grid">
           <div class="gw-grid-item">
             <h5>👥 Personen</h5>
             <p>Altijd <strong>DE</strong>.</p>
             <em>De man, de vrouw, de bakker, de koning, de dokter</em>
-            <p style="margin-top:8px;font-size:0.85em;color:var(--gw-text3)">⚠️ Uitz.: <em>Het meisje</em> (verkleinwoord), <em>Het kind</em></p>
+            <p style="margin-top:8px;font-size:0.85em;color:var(--gw-text3)">⚠️ Uitz.: <em>Het meisje</em>, <em>Het kind</em></p>
           </div>
           <div class="gw-grid-item">
             <h5>📦 Meervoud</h5>
@@ -734,16 +499,15 @@ const TOPICS = {
           <div class="gw-grid-item">
             <h5>🍎 Fruit & Planten</h5>
             <p>Meestal <strong>DE</strong>.</p>
-            <em>De appel, de banaan, de bloemkool, de roos, de eik</em>
-            <p style="margin-top:8px;font-size:0.85em;color:var(--gw-text3)">Uitz.: <em>Het fruit, het gras, het graan</em></p>
+            <em>De appel, de banaan, de bloemkool, de roos</em>
+            <p style="margin-top:8px;font-size:0.85em;color:var(--gw-text3)">Uitz.: <em>Het fruit, het gras</em></p>
           </div>
           <div class="gw-grid-item">
             <h5>🔤 Achtervoegsels</h5>
             <p>Woorden op:</p>
-            <em style="font-size:0.85em">-heid, -nis, -ing, -ie, -tie<br>-teit, -iek, -tuur, -schap, -de, -te</em>
+            <em style="font-size:0.85em">-heid, -nis, -ing, -ie, -tie<br>-teit, -iek, -tuur, -schap</em>
           </div>
         </div>
-        
         <div class="gw-rule-card">
           <span class="gw-rule-title">📋 Snelle checklist voor DE:</span>
           <ul style="margin:0;padding-left:20px">
@@ -756,7 +520,6 @@ const TOPICS = {
         
         <h3>🔵 1.2 HET-woorden (±25% van de woorden)</h3>
         <p>Je gebruikt <span class="gw-badge het">HET</span> in deze gevallen:</p>
-        
         <div class="gw-grid">
           <div class="gw-grid-item">
             <h5>🔸 Verkleinwoorden</h5>
@@ -780,7 +543,6 @@ const TOPICS = {
             <p style="margin-top:8px"><em>Het kapitalisme, het moment, het museum</em></p>
           </div>
         </div>
-        
         <div class="gw-rule-card het">
           <span class="gw-rule-title">✨ Pro-tip voor HET:</span>
           <p style="margin:0">Zie je <strong>-je</strong> aan het einde? Dan is het <em>altijd</em> <strong>HET</strong>. Zie je <strong>ge-/be-/ver-</strong> aan het begin? Grote kans op <strong>HET</strong>.</p>
@@ -788,34 +550,21 @@ const TOPICS = {
         
         <h3>⚠️ 1.3 De Beroemde Valkuilen</h3>
         <p>De taal haat je hier een beetje. Deze moet je <strong>stampen</strong>:</p>
-        
         <div class="gw-cols-2">
           <div>
             <h4 style="color:var(--gw-fr)">🔵 HET (ondanks logica)</h4>
-            <ul>
-              <li><strong>Het</strong> meisje</li>
-              <li><strong>Het</strong> kind</li>
-              <li><strong>Het</strong> paard</li>
-              <li><strong>Het</strong> hoofd / oog / oor</li>
-              <li><strong>Het</strong> ei / einde / been / lichaam</li>
-            </ul>
+            <ul><li><strong>Het</strong> meisje / kind / paard</li><li><strong>Het</strong> hoofd / oog / oor</li><li><strong>Het</strong> ei / einde / been / lichaam</li></ul>
           </div>
           <div>
             <h4 style="color:var(--gw-nl)">🟢 DE (ondanks logica)</h4>
-            <ul>
-              <li><strong>De</strong> soep / tijd / hoop / dood</li>
-              <li><strong>De</strong> straat / hoek / wolk / fles</li>
-              <li><strong>De</strong> radio / televisie</li>
-            </ul>
+            <ul><li><strong>De</strong> soep / tijd / hoop / dood</li><li><strong>De</strong> straat / hoek / wolk / fles</li><li><strong>De</strong> radio / televisie</li></ul>
           </div>
         </div>
         
         <h3>🎭 1.4 Super-gemene truc: DE vs. HET met andere betekenis</h3>
         <div class="gw-table-wrap">
           <table class="gw-table">
-            <thead>
-              <tr><th>Woord</th><th>DE betekent...</th><th>HET betekent...</th></tr>
-            </thead>
+            <thead><tr><th>Woord</th><th>DE betekent...</th><th>HET betekent...</th></tr></thead>
             <tbody>
               <tr><td><strong>Bal</strong></td><td>Rond speelding 🏐</td><td>Dansfeest 💃</td></tr>
               <tr><td><strong>Bos</strong></td><td>Bloemen bij elkaar 💐</td><td>Met bomen 🌲</td></tr>
@@ -823,87 +572,60 @@ const TOPICS = {
               <tr><td><strong>Punt</strong></td><td>Scherpe kant ✏️</td><td>Onderwerp 💬</td></tr>
               <tr><td><strong>Stof</strong></td><td>Textiel 👕</td><td>Vuil/deeltjes 🌫️</td></tr>
               <tr><td><strong>Idee</strong></td><td>Filosofisch beginsel 🧠</td><td>Ingeving/plan 💡</td></tr>
-              <tr><td><strong>Blik</strong></td><td>Hoe je kijkt 👁️</td><td>Metalen doosje 🥫</td></tr>
-              <tr><td><strong>Doel</strong></td><td>Sport/schietschijf ⚽</td><td>Streven/bedoeling 🎯</td></tr>
             </tbody>
           </table>
         </div>
       </div>
       
-      <!-- DEEL 2 -->
       <div class="gw-section">
         <h2>🟡 DEEL 2: EEN — De Lieveling</h2>
         <p>Gelukkig! Hier is <strong>nul stress</strong>. 😌</p>
-        
         <div class="gw-rule-card">
           <span class="gw-rule-title">✨ De enige regel:</span>
-          <p style="margin:0"><span class="gw-badge een">EEN</span> is voor <strong>alle</strong> zelfstandige naamwoorden in het enkelvoud hetzelfde. Het maakt niet uit of het een <em>de</em>-woord of <em>het</em>-woord is.</p>
+          <p style="margin:0"><span class="gw-badge een">EEN</span> is voor <strong>alle</strong> zelfstandige naamwoorden in het enkelvoud hetzelfde.</p>
         </div>
-        
         <div class="gw-example">
           <span class="orig">✅ Een man • Een boek • Een idee • Een tafel</span>
           <span class="trans">Allemaal correct — geen gedoe!</span>
         </div>
-        
         <h4>🗣️ Uitspraak & Nadruk</h4>
         <ul>
           <li><strong>Onbepaald lidwoord</strong>: zeg <span class="gw-code">'n</span> (klinkt als Engelse <em>a</em>) → <em>Ik heb 'n boek gelezen.</em></li>
           <li><strong>Cijfer 1</strong>: zeg <span class="gw-code">één</span> (klinkt als <em>ain</em>) → <em>Ik heb er één gelezen, niet twee.</em></li>
         </ul>
-        
         <div class="gw-warning">
           <strong>🚫 Negatie: Nooit "niet een"!</strong>
           <p style="margin:10px 0 0 0">Gebruik altijd <strong>GEEN</strong>:</p>
           <ul style="margin:10px 0 0 0;padding-left:20px">
-            <li>Ik heb <em>een</em> auto. → Ik heb <strong>geen</strong> auto. ❌~~niet een~~</li>
+            <li>Ik heb <em>een</em> auto. → Ik heb <strong>geen</strong> auto.</li>
             <li>Is dat <em>een</em> hond? → Nee, dat is <strong>geen</strong> hond.</li>
           </ul>
         </div>
       </div>
       
-      <!-- DEEL 3 -->
       <div class="gw-section">
         <h2>⚡ DEEL 3: De Gevolgen — Waarom dit belangrijk is</h2>
-        <p>Als je <em>De</em> of <em>Het</em> kiest, verandert <strong>de rest van de zin mee</strong>! Dit is de bijvoeglijke naamwoorden-apocalyps. 🌪️</p>
-        
+        <p>Als je <em>De</em> of <em>Het</em> kiest, verandert <strong>de rest van de zin mee</strong>! 🌪️</p>
         <h3>📏 Regel A: EEN + Bijvoeglijk Naamwoord</h3>
         <div class="gw-table-wrap">
           <table class="gw-table">
-            <thead>
-              <tr><th>Lidwoord</th><th>Woord</th><th>Bijv. Nw.</th><th>Correct</th><th>Uitleg</th></tr>
-            </thead>
+            <thead><tr><th>Lidwoord</th><th>Woord</th><th>Bijv. Nw.</th><th>Correct</th><th>Uitleg</th></tr></thead>
             <tbody>
-              <tr>
-                <td><span class="gw-badge een">EEN</span></td>
-                <td><span class="gw-badge de">DE</span> stoel</td>
-                <td>mooi</td>
-                <td><strong>Een mooie stoel</strong></td>
-                <td>De-woord? Altijd +E ✅</td>
-              </tr>
-              <tr>
-                <td><span class="gw-badge een">EEN</span></td>
-                <td><span class="gw-badge het">HET</span> boek</td>
-                <td>mooi</td>
-                <td><strong>Een mooi boek</strong></td>
-                <td>Het-woord? <strong>GEEN +E</strong> ⚠️</td>
-              </tr>
+              <tr><td><span class="gw-badge een">EEN</span></td><td><span class="gw-badge de">DE</span> stoel</td><td>mooi</td><td><strong>Een mooie stoel</strong></td><td>De-woord? Altijd +E ✅</td></tr>
+              <tr><td><span class="gw-badge een">EEN</span></td><td><span class="gw-badge het">HET</span> boek</td><td>mooi</td><td><strong>Een mooi boek</strong></td><td>Het-woord? <strong>GEEN +E</strong> ⚠️</td></tr>
             </tbody>
           </table>
         </div>
-        
         <div class="gw-example">
           <span class="orig">📌 Een leuk kind • Een groot paard • Een wit laken • Een interessant idee</span>
           <span class="trans">Allemaal HET-woorden → geen -e achter het bijvoeglijk naamwoord!</span>
         </div>
-        
         <h3>📏 Regel B: DE / HET + Bijvoeglijk Naamwoord</h3>
         <p><strong>Altijd -E</strong>. Geen uitzonderingen. Punt.</p>
-        
         <div class="gw-example">
           <span class="orig">📌 De oude man • Het oude huis • De mooie tafel • Het mooie boek</span>
           <span class="trans">Bepaald lidwoord? Altijd +e achter het bijvoeglijk naamwoord.</span>
         </div>
-        
         <div class="gw-warning">
           <strong>🎯 Let op het cruciale verschil:</strong>
           <ul style="margin:10px 0 0 0;padding-left:20px">
@@ -913,7 +635,6 @@ const TOPICS = {
         </div>
       </div>
       
-      <!-- SAMENVATTING -->
       <div class="gw-summary">
         <h3>🧭 Overlevingsschema</h3>
         <ul>
