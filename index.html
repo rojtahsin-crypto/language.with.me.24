@@ -313,11 +313,47 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.78rem;bord
 <script>
 // ── DATA ──────────────────────────────────────
 const DG=[
- {n:'01',c:'gc-blue',t:'Het Nederlandse alfabet en uitspraak 🔤',
-  e:'Het Nederlandse alfabet telt <strong>26 letters</strong>. Sommige klanken zijn uniek: de harde <strong>G</strong> (schrapend geluid), <strong>IJ/EI</strong>, <strong>UI</strong>, <strong>OE</strong> (als "oo"), <strong>EU</strong> (als Frans "eu").',
-  x:[{n:'"G" = harde g, schrapend geluid achter in de keel'},{n:'"IJ" klinkt als "ij" in "blijft" — ook geschreven als EI'},{n:'"OE" klinkt als de "oo" in het Engelse "boot"'},{n:'"UI" is moeilijk — probeer "ui" in het woord "huis"'},{n:'"CH" klinkt hetzelfde als de harde G: "lacht", "licht"'}],
-  w:['goedemorgen','huis','boek','neus','ijs','school'],k:['alfabet','uitspraak','klinker','medeklinker','ij','eu','oe','ui','ch']},
- {n:'02',c:'gc-green',t:'Lidwoorden en zelfstandige naamwoorden 📝',
+{
+  n: '01',
+  c: 'gc-blue',
+  t: 'Het Nederlandse alfabet en uitspraak 🔤',
+  e: 'Het Nederlands telt <strong>26 letters</strong>. Uniek zijn de <strong>harde G</strong> (schrapend, achter in de keel), de <strong>IJ/EI</strong> (als in "blijft"), <strong>UI</strong> (lastige tweeklank), <strong>OE</strong> (als "oo" in boot) en <strong>EU</strong> (als Franse "eu"). Let op: <strong>CH</strong> klinkt precies als G.',
+  x: [
+    { n: '"G" — harde, schrapende g, achter in de keel: "gracht", "goed"' },
+    { n: '"IJ" — klinkt als "ij" in "blijft", ook geschreven als EI (zelfde klank)' },
+    { n: '"OE" — klinkt als de "oo" in het Engelse "boot" of "food"' },
+    { n: '"UI" — lastig: begin met "u" en glijd naar "i", zoals in "huis", "tuin"' },
+    { n: '"EU" — als de Franse "eu" in "deux" of "feu": "neus", "leuk"' },
+    { n: '"CH" — identiek aan de harde G: "lacht", "licht", "school"' },
+    { n: '"SCH" — combinatie van S + CH (dus s‑chra­pend): "school", "schip"' }
+  ],
+  w: [
+    'goedemorgen',
+    'huis',
+    'boek',
+    'neus',
+    'ijs',
+    'school',
+    'gracht',
+    'schip',
+    'euvel'
+  ],
+  k: [
+    'alfabet',
+    'uitspraak',
+    'klinker',
+    'medeklinker',
+    'tweeklank',
+    'ij',
+    'ei',
+    'eu',
+    'oe',
+    'ui',
+    'ch',
+    'g'
+  ]
+},
+{n:'02',c:'gc-green',t:'Lidwoorden en zelfstandige naamwoorden 📝',
   e:'Er zijn drie lidwoorden: <strong>de</strong> (mannelijk/vrouwelijk, ~75% van woorden), <strong>het</strong> (onzijdig), en <strong>een</strong> (onbepaald, altijd hetzelfde). Tip: verkleinwoorden zijn <em>altijd</em> het-woorden.',
   x:[{n:'De man / de vrouw / de tafel (de-woord)'},{n:'Het kind / het boek / het huis (het-woord)'},{n:'Een man / een boek (onbepaald lidwoord, geen verschil)'},{n:'Het huisje — elk verkleinwoord is altijd een het-woord!'},{n:'Woorden op -ing, -heid, -tie zijn altijd de-woorden'}],
   w:['de man','het kind','het boek','een auto','de vrouw'],k:['lidwoord','de','het','een','naamwoord','genus']},
