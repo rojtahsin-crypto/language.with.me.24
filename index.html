@@ -263,7 +263,452 @@ const LTRS = ['A','B','C','D'];
 // =============================================
 const TOPICS = {
   nl:[
-    {id:1,t:"De lidwoorden (de/het/een)",d:"Leer wanneer je 'de' of 'het' moet gebruiken"},
+{
+  id: 1,
+  t: "De lidwoorden (de/het/een)",
+  d: "Leer wanneer je 'de' of 'het' moet gebruiken",
+  content: `
+    <style>
+      .grammar-wrap {
+        --gw-bg: var(--bg);
+        --gw-text: var(--text);
+        --gw-text2: var(--text2);
+        --gw-border: var(--border);
+        --gw-card: var(--bg2);
+        --gw-accent: var(--accent);
+        --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #f59e0b; --gw-warn-bg: #fffbeb;
+        font-family: 'Nunito', sans-serif;
+        color: var(--gw-text);
+        line-height: 1.75;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 8px;
+      }
+      .grammar-wrap * { box-sizing: border-box; }
+      
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-card) 100%);
+        border: 1.5px solid var(--gw-border);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif;
+        font-size: 1.9rem;
+        margin: 0 0 8px 0;
+        color: var(--gw-text);
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-size: 1.05rem; }
+      
+      .gw-section {
+        background: var(--gw-card);
+        border: 1.5px solid var(--gw-border);
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 16px;
+      }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif;
+        font-size: 1.4rem;
+        margin: 0 0 16px 0;
+        padding-bottom: 12px;
+        border-bottom: 2px solid var(--gw-border);
+        color: var(--gw-text);
+      }
+      .gw-section h3 {
+        color: var(--gw-accent);
+        font-size: 1.15rem;
+        margin: 20px 0 12px 0;
+        font-weight: 700;
+      }
+      .gw-section h4 {
+        margin: 16px 0 10px 0;
+        font-weight: 700;
+        color: var(--gw-text);
+      }
+      .gw-section p { margin: 0 0 12px 0; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 8px 0 16px 24px; padding: 0; }
+      .gw-section li { margin-bottom: 6px; color: var(--gw-text); }
+      
+      .gw-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 0.85em;
+        margin: 3px 2px;
+      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border: 1px solid var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border: 1px solid var(--gw-fr-bo); }
+      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border: 1px solid var(--acbo); }
+      
+      .gw-rule-card {
+        background: var(--gw-accent-bg);
+        border-left: 4px solid var(--gw-accent);
+        padding: 16px;
+        border-radius: 0 12px 12px 0;
+        margin: 16px 0;
+      }
+      .gw-rule-card.het {
+        background: var(--gw-fr-bg);
+        border-left-color: var(--gw-fr);
+      }
+      .gw-rule-title {
+        font-weight: 800;
+        color: var(--gw-text);
+        font-size: 1.05em;
+        margin-bottom: 8px;
+        display: block;
+      }
+      
+      .gw-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .gw-grid-item {
+        background: var(--gw-bg);
+        padding: 14px;
+        border: 1px solid var(--gw-border);
+        border-radius: 12px;
+      }
+      .gw-grid-item h5 {
+        margin: 0 0 8px 0;
+        color: var(--gw-text);
+        font-size: 0.95em;
+        font-weight: 700;
+      }
+      .gw-grid-item p, .gw-grid-item em {
+        font-size: 0.9em;
+        color: var(--gw-text2);
+        margin: 0;
+        line-height: 1.5;
+      }
+      .gw-grid-item em { display: block; margin-top: 6px; font-style: italic; }
+      
+      .gw-table-wrap {
+        overflow-x: auto;
+        margin: 16px 0;
+        border-radius: 12px;
+        border: 1px solid var(--gw-border);
+      }
+      .gw-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92em;
+        background: var(--gw-bg);
+      }
+      .gw-table th, .gw-table td {
+        padding: 12px 14px;
+        text-align: left;
+        border-bottom: 1px solid var(--gw-border);
+      }
+      .gw-table th {
+        background: var(--gw-card);
+        font-weight: 800;
+        color: var(--gw-text);
+        position: sticky;
+        top: 0;
+      }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table strong { color: var(--gw-accent); }
+      
+      .gw-warning {
+        background: var(--gw-warn-bg);
+        border: 1px solid var(--gw-warn);
+        border-radius: 12px;
+        padding: 14px;
+        margin: 16px 0;
+        font-size: 0.95em;
+      }
+      .gw-warning strong { color: var(--gw-warn); display: block; margin-bottom: 6px; }
+      
+      .gw-example {
+        background: var(--bg3);
+        border-left: 3px solid var(--gw-accent);
+        padding: 12px 14px;
+        border-radius: 0 8px 8px 0;
+        margin: 12px 0;
+        font-family: 'Libre Baskerville', serif;
+        font-style: italic;
+      }
+      .gw-example .orig { display: block; color: var(--text); font-weight: 600; margin-bottom: 4px; }
+      .gw-example .trans { display: block; color: var(--text3); font-size: 0.9em; font-style: normal; }
+      
+      .gw-summary {
+        background: var(--gw-accent);
+        color: #fff;
+        border-radius: 16px;
+        padding: 20px;
+        text-align: center;
+        margin-top: 24px;
+      }
+      .gw-summary h3 { color: #fff; margin: 0 0 12px 0; font-family: 'Libre Baskerville', serif; }
+      .gw-summary ul { list-style: none; padding: 0; margin: 0; }
+      .gw-summary li { margin: 8px 0; font-weight: 600; }
+      
+      .gw-cols-2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      @media(min-width: 700px) {
+        .gw-cols-2 { grid-template-columns: 1fr 1fr; }
+      }
+      
+      .gw-inline-code {
+        background: var(--bg3);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-weight: 600;
+        color: var(--gw-accent);
+      }
+    </style>
+    
+    <div class="grammar-wrap">
+      <!-- HERO -->
+      <div class="gw-hero">
+        <h1>📘 De / Het / Een</h1>
+        <p>De moeder aller regels — Alles wat je moet weten</p>
+      </div>
+      
+      <!-- INTRO -->
+      <div class="gw-section">
+        <p>Goed, adem diep in. We gaan het hebben over <strong>DE LIDWOORDEN</strong>. Je hebt gevraagd om <em>alles</em>, en dat is precies wat je krijgt. Dit wordt het <strong>Grote Nederlandse Lidwoordenboek der Wanhoop en Hoop</strong>. 🎯</p>
+        <p>We splitsen het op in drie delen:</p>
+        <ol>
+          <li><strong>DE & HET</strong> — Bepaalde Lidwoorden (De grote boosdoeners)</li>
+          <li><strong>EEN</strong> — Onbepaald Lidwoord (De reddende engel)</li>
+          <li><strong>De Gevolgen</strong> — Hoe het de rest van de zin beïnvloedt</li>
+        </ol>
+      </div>
+      
+      <!-- DEEL 1 -->
+      <div class="gw-section">
+        <h2>🔹 DEEL 1: DE & HET — De Moeder Aller Regels</h2>
+        <p>De vraag <span class="gw-inline-code">Is het <em>de</em> of <em>het</em>?</span> is de meest gestelde vraag in de Nederlandse taal. Er is <strong>geen pure logica</strong> in de betekenis — het is grotendeels geheugenwerk. Maar er zijn wel <strong>vuistregels</strong> en <strong>reddingsboeien</strong> die je in 80% van de gevallen redden.</p>
+        
+        <h3>🟢 1.1 DE-woorden (±75% van de woorden)</h3>
+        <p>Je gebruikt <span class="gw-badge de">DE</span> in de volgende gevallen. <em>Leer deze lijst uit je hoofd!</em></p>
+        
+        <div class="gw-grid">
+          <div class="gw-grid-item">
+            <h5>👥 Personen</h5>
+            <p>Altijd <strong>DE</strong>.</p>
+            <em>De man, de vrouw, de bakker, de koning, de dokter</em>
+            <p style="margin-top:6px;font-size:0.85em;color:var(--gw-text3)">⚠️ Uitz.: <em>Het meisje</em> (verkleinwoord), <em>Het kind</em></p>
+          </div>
+          <div class="gw-grid-item">
+            <h5>📦 Meervoud</h5>
+            <p><strong>ALTIJD DE</strong> — Gouden regel!</p>
+            <em>Het boek → De boeken<br>Het huis → De huizen</em>
+            <p style="margin-top:6px;font-size:0.85em">Twijfel je? Maak meervoud!</p>
+          </div>
+          <div class="gw-grid-item">
+            <h5>🍎 Fruit & Planten</h5>
+            <p>Meestal <strong>DE</strong>.</p>
+            <em>De appel, de banaan, de bloemkool, de roos, de eik</em>
+            <p style="margin-top:6px;font-size:0.85em;color:var(--gw-text3)">Uitz.: <em>Het fruit, het gras, het graan</em></p>
+          </div>
+          <div class="gw-grid-item">
+            <h5>🔤 Achtervoegsels</h5>
+            <p>Woorden op:</p>
+            <em>-heid, -nis, -ing, -ie, -tie<br>-teit, -iek, -tuur, -schap</em>
+          </div>
+        </div>
+        
+        <div class="gw-rule-card">
+          <span class="gw-rule-title">📋 Snelle checklist voor DE:</span>
+          <ul style="margin:0;padding-left:20px">
+            <li>Persoon? → <strong>DE</strong> ✅</li>
+            <li>Meervoud? → <strong>DE</strong> ✅</li>
+            <li>Eindigt op -heid/-ing/-teit? → <strong>DE</strong> ✅</li>
+            <li>Fruit/boom/bloem? → Waarschijnlijk <strong>DE</strong> ✅</li>
+          </ul>
+        </div>
+        
+        <h3>🔵 1.2 HET-woorden (±25% van de woorden)</h3>
+        <p>Je gebruikt <span class="gw-badge het">HET</span> in deze gevallen:</p>
+        
+        <div class="gw-grid">
+          <div class="gw-grid-item">
+            <h5>🔸 Verkleinwoorden</h5>
+            <p><strong>ALTIJD HET</strong> — Allerheiligste regel!</p>
+            <em>De tafel → Het tafeltje<br>De man → Het mannetje</em>
+            <p style="margin-top:6px;font-size:0.85em">Twijfel? Maak het klein! 🎁</p>
+          </div>
+          <div class="gw-grid-item">
+            <h5>💧 Materialen & Talen</h5>
+            <em>Het hout, het water, het goud<br>Het Nederlands, het Engels</em>
+          </div>
+          <div class="gw-grid-item">
+            <h5>🌀 Voorvoegsels</h5>
+            <p>2-lettergrepig met:</p>
+            <em>be-, ge-, ver-, ont-</em>
+            <p style="margin-top:6px"><em>Het begin, het gebouw, het verhaal</em></p>
+          </div>
+          <div class="gw-grid-item">
+            <h5>🔤 Achtervoegsels</h5>
+            <em>-isme, -ment, -sel, -um</em>
+            <p style="margin-top:6px"><em>Het kapitalisme, het moment, het museum</em></p>
+          </div>
+        </div>
+        
+        <div class="gw-rule-card het">
+          <span class="gw-rule-title">✨ Pro-tip voor HET:</span>
+          <p style="margin:0">Zie je <strong>-je</strong> aan het einde? Dan is het <em>altijd</em> <strong>HET</strong>. Zie je <strong>ge-/be-/ver-</strong> aan het begin? Grote kans op <strong>HET</strong>.</p>
+        </div>
+        
+        <h3>⚠️ 1.3 De Beroemde Valkuilen</h3>
+        <p>De taal haat je hier een beetje. Deze moet je <strong>stampen</strong>:</p>
+        
+        <div class="gw-cols-2">
+          <div>
+            <h4 style="color:var(--gw-fr)">🔵 HET (ondanks logica)</h4>
+            <ul>
+              <li><strong>Het</strong> meisje</li>
+              <li><strong>Het</strong> kind</li>
+              <li><strong>Het</strong> paard</li>
+              <li><strong>Het</strong> hoofd / oog / oor</li>
+              <li><strong>Het</strong> ei / einde</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color:var(--gw-nl)">🟢 DE (ondanks logica)</h4>
+            <ul>
+              <li><strong>De</strong> soep / tijd / hoop</li>
+              <li><strong>De</strong> dood / straat / hoek</li>
+              <li><strong>De</strong> wolk / fles / radio</li>
+              <li><strong>De</strong> televisie</li>
+            </ul>
+          </div>
+        </div>
+        
+        <h3>🎭 1.4 Super-gemene truc: DE vs. HET met andere betekenis</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead>
+              <tr><th>Woord</th><th>DE betekent...</th><th>HET betekent...</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Bal</strong></td><td>Rond speelding 🏐</td><td>Dansfeest 💃</td></tr>
+              <tr><td><strong>Bos</strong></td><td>Bloemen bij elkaar 💐</td><td>Met bomen 🌲</td></tr>
+              <tr><td><strong>Pad</strong></td><td>Amfibie 🐸</td><td>Weggetje 🚶</td></tr>
+              <tr><td><strong>Punt</strong></td><td>Scherpe kant ✏️</td><td>Onderwerp 💬</td></tr>
+              <tr><td><strong>Stof</strong></td><td>Textiel 👕</td><td>Vuil/deeltjes 🌫️</td></tr>
+              <tr><td><strong>Idee</strong></td><td>Filosofisch beginsel 🧠</td><td>Ingeving/plan 💡</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- DEEL 2 -->
+      <div class="gw-section">
+        <h2>🟡 DEEL 2: EEN — De Lieveling</h2>
+        <p>Gelukkig! Hier is <strong>nul stress</strong>. 😌</p>
+        
+        <div class="gw-rule-card">
+          <span class="gw-rule-title">✨ De enige regel:</span>
+          <p style="margin:0"><span class="gw-badge een">EEN</span> is voor <strong>alle</strong> zelfstandige naamwoorden in het enkelvoud hetzelfde. Het maakt niet uit of het een <em>de</em>-woord of <em>het</em>-woord is.</p>
+        </div>
+        
+        <div class="gw-example">
+          <span class="orig">✅ Een man • Een boek • Een idee • Een tafel</span>
+          <span class="trans">Allemaal correct — geen gedoe!</span>
+        </div>
+        
+        <h4>🗣️ Uitspraak & Nadruk</h4>
+        <ul>
+          <li><strong>Onbepaald lidwoord</strong>: zeg <span class="gw-inline-code">'n</span> (klinkt als Engelse <em>a</em>) → <em>Ik heb 'n boek gelezen.</em></li>
+          <li><strong>Cijfer 1</strong>: zeg <span class="gw-inline-code">één</span> (klinkt als <em>ain</em>) → <em>Ik heb er één gelezen, niet twee.</em></li>
+        </ul>
+        
+        <div class="gw-warning">
+          <strong>🚫 Negatie: Nooit "niet een"!</strong>
+          <p style="margin:8px 0 0 0">Gebruik altijd <strong>GEEN</strong>:</p>
+          <ul style="margin:8px 0 0 0;padding-left:20px">
+            <li>Ik heb <em>een</em> auto. → Ik heb <strong>geen</strong> auto. ❌~~niet een~~</li>
+            <li>Is dat <em>een</em> hond? → Nee, dat is <strong>geen</strong> hond.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- DEEL 3 -->
+      <div class="gw-section">
+        <h2>⚡ DEEL 3: De Gevolgen — Waarom dit belangrijk is</h2>
+        <p>Als je <em>De</em> of <em>Het</em> kiest, verandert <strong>de rest van de zin mee</strong>! Dit is de bijvoeglijke naamwoorden-apocalyps. 🌪️</p>
+        
+        <h3>📏 Regel A: EEN + Bijvoeglijk Naamwoord</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead>
+              <tr><th>Lidwoord</th><th>Woord</th><th>Bijv. Nw.</th><th>Correct</th><th>Uitleg</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="gw-badge een">EEN</span></td>
+                <td><span class="gw-badge de">DE</span> stoel</td>
+                <td>mooi</td>
+                <td><strong>Een mooie stoel</strong></td>
+                <td>De-woord? Altijd +E ✅</td>
+              </tr>
+              <tr>
+                <td><span class="gw-badge een">EEN</span></td>
+                <td><span class="gw-badge het">HET</span> boek</td>
+                <td>mooi</td>
+                <td><strong>Een mooi boek</strong></td>
+                <td>Het-woord? <strong>GEEN +E</strong> ⚠️</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="gw-example">
+          <span class="orig">📌 Een leuk kind • Een groot paard • Een wit laken • Een interessant idee</span>
+          <span class="trans">Allemaal HET-woorden → geen -e achter het bijvoeglijk naamwoord!</span>
+        </div>
+        
+        <h3>📏 Regel B: DE / HET + Bijvoeglijk Naamwoord</h3>
+        <p><strong>Altijd -E</strong>. Geen uitzonderingen. Punt.</p>
+        
+        <div class="gw-example">
+          <span class="orig">📌 De oude man • Het oude huis • De mooie tafel • Het mooie boek</span>
+          <span class="trans">Bepaald lidwoord? Altijd +e achter het bijvoeglijk naamwoord.</span>
+        </div>
+        
+        <div class="gw-warning">
+          <strong>🎯 Let op het cruciale verschil:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px">
+            <li><strong>Het</strong> mooi<strong>e</strong> boek. ← Bepaald → +E</li>
+            <li><strong>Een</strong> mooi boek. ← Onbepaald + HET-woord → géén E</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- SAMENVATTING -->
+      <div class="gw-summary">
+        <h3>🧭 Overlevingsschema</h3>
+        <ul>
+          <li>📦 Meervoud → Altijd <strong>DE</strong></li>
+          <li>🔸 Verkleinwoord (-je) → Altijd <strong>HET</strong></li>
+          <li>👥 Persoon → Meestal <strong>DE</strong></li>
+          <li>💧 Materiaal / Taal → Meestal <strong>HET</strong></li>
+          <li>✏️ Bijv. Nw. + DE/HET → Altijd <strong>+E</strong></li>
+          <li>✏️ Bijv. Nw. + EEN + HET-woord → <strong>GEEN -E</strong> ⚠️</li>
+        </ul>
+        <p style="margin-top:16px;font-size:0.95em;opacity:0.9">💡 Tip: Twijfel je? Maak het meervoud of verkleinwoord — dan weet je het zeker!</p>
+      </div>
+    </div>
+  `
+},
     {id:2,t:"Bezittelijke voornaamwoorden",d:"Mijn, jouw, zijn, haar, ons, jullie, hun"},
     {id:3,t:"Tegenwoordige tijd",d:"Regelmatige en onregelmatige werkwoorden"},
     {id:4,t:"Verleden tijd (zwak & sterk)",d:"Onvoltooid verleden en 't kofschip-regel"},
