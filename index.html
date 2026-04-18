@@ -11343,8 +11343,859 @@ const TOPICS = {
     </div>
   `
 },
-    {id:27,t:"Infinitief met 'te' en 'om te'",d:"Wanneer te en om te voor de infinitief komen"},
-    {id:28,t:"Continuïteitsvormen",d:"Aan het, zitten te, staan te, lopen te"},
+{
+  id: 27,
+  t: "Infinitief met 'te' en 'om te'",
+  d: "Wanneer te, geen te, om te, duratieve constructies, bijzondere vormen",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      .gw-te-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+      }
+      .gw-te-title {
+        font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+        margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+      }
+      .gw-te-ex {
+        padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+      }
+      .gw-te-ex:last-child { border-bottom: none; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+        .gw-te-title { font-size: 1.05rem; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🧩 Infinitief met 'Te' en 'Om Te'</h1>
+        <p>Doelen, verplichtingen, duratieve constructies en bijzondere vormen</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Met groot genoegen duiken we in de wondere wereld van de <strong>infinitief met 'te'</strong> en de constructie <strong>'om te'</strong>. Dit zijn de bouwstenen waarmee we doelen aangeven, verplichtingen uitdrukken, en beknopte bijzinnen smeden. Het is een terrein waar subtiele regels bepalen of je <em>zit te lezen</em> of <em>zit lezen</em>, en waar <em>te veel</em> of <em>te weinig</em> het verschil maakt tussen een foutloze zin en een kromme formulering.</p>
+        <p>Deze gids is jouw complete, foutloze en prachtig geïllustreerde naslagwerk over de infinitief met <em>te</em> en <em>om te</em>. We behandelen alle regels, uitzonderingen, de vele werkwoorden die <em>te</em> vereisen of juist weigeren, de complexe woordvolgorde, de bijzondere constructies zoals <em>zijn te</em> en <em>hebben te</em>, en natuurlijk een <strong>overvloed aan schitterende voorbeelden</strong>.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧩 Deel 1: Kale Infinitief vs. Infinitief met 'Te'</h2>
+        <p>In het Nederlands staat een infinitief (het hele werkwoord) soms alleen en soms met het partikel <strong>'te'</strong>. Het gebruik van <em>te</em> hangt af van het <strong>hoofdwerkwoord</strong> of de <strong>constructie</strong> in de zin.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Situatie</th><th>Gebruik</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Modale werkwoorden</strong></td><td><strong>Geen 'te'</strong></td><td><em>"Ik <strong>wil slapen</strong>."<br>"Hij <strong>kan zwemmen</strong>."</em></td></tr>
+              <tr><td><strong>Hulpwerkwoorden</strong> <small>(gaan, komen, blijven, laten, doen)</small></td><td><strong>Geen 'te'</strong></td><td><em>"Ik <strong>ga slapen</strong>."<br>"Zij <strong>bleef staan</strong>."</em></td></tr>
+              <tr><td><strong>Perceptiewerkwoorden</strong> <small>(zien, horen, voelen)</small></td><td><strong>Geen 'te'</strong></td><td><em>"Ik <strong>zie hem lopen</strong>."<br>"Zij <strong>hoort de vogels fluiten</strong>."</em></td></tr>
+              <tr><td><strong>De meeste andere werkwoorden</strong></td><td><strong>Wel 'te'</strong></td><td><em>"Ik <strong>hoop te winnen</strong>."<br>"Hij <strong>probeert te slapen</strong>."</em></td></tr>
+              <tr><td><strong>Na bepaalde voorzetsels</strong></td><td><strong>Wel 'te'</strong></td><td><em>"<strong>Zonder te kijken</strong> liep hij door."</em></td></tr>
+              <tr><td><strong>In de 'om ... te'-constructie</strong></td><td><strong>Wel 'te'</strong></td><td><em>"Ik ga naar de winkel <strong>om brood te kopen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>Zonder 'te': "Zij <strong>ziet</strong> de zon <strong>opkomen</strong>."</em> (Perceptie)</span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Met 'te': "Zij <strong>hoopt</strong> de zon <strong>te zien opkomen</strong>."</em> (Wens, ander werkwoord)</span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📖 Deel 2: De Basisregels – Wanneer Gebruik Je 'Te' + Infinitief?</h2>
+        <p>De verplichting om <em>te</em> te gebruiken ontstaat in de volgende situaties:</p>
+        
+        <h3>✅ 2.1 Na Bepaalde Werkwoorden (De 'Te'-Werkwoorden Lijst)</h3>
+        <p>Een groot aantal werkwoorden vereist <em>te</em> vóór de volgende infinitief. Het gaat vaak om werkwoorden die een <strong>houding, wens, poging, belofte, bevel, of begin/einde</strong> uitdrukken.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Categorie</th><th>Werkwoorden (met <em>te</em>)</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Wensen / Hopen</strong></td><td><em>hopen, wensen, verlangen, begeren</em></td><td><em>"Ik <strong>hoop</strong> snel <strong>te herstellen</strong>."<br>"Zij <strong>wenste</strong> niet <strong>te antwoorden</strong>."</em></td></tr>
+              <tr><td><strong>Proberen / Streven</strong></td><td><em>proberen, trachten, pogen, streven</em></td><td><em>"Hij <strong>probeert</strong> de deadline <strong>te halen</strong>."<br>"Wij <strong>streven ernaar</strong> het beste <strong>te bereiken</strong>."</em></td></tr>
+              <tr><td><strong>Beloven / Dreigen</strong></td><td><em>beloven, dreigen, zweren, weigeren</em></td><td><em>"Zij <strong>beloofde</strong> op tijd <strong>te komen</strong>."<br>"De lucht <strong>dreigde</strong> donker <strong>te worden</strong>."</em></td></tr>
+              <tr><td><strong>Beginnen / Ophouden</strong></td><td><em>beginnen, starten, ophouden, stoppen, doorgaan</em></td><td><em>"Het <strong>begint te regenen</strong>."<br>"<strong>Hou</strong> op <strong>met zeuren</strong>!"<br>"Zij <strong>ging</strong> door <strong>met werken</strong>."</em></td></tr>
+              <tr><td><strong>Bevelen / Verbieden</strong></td><td><em>bevelen, gebieden, verbieden, toestaan</em></td><td><em>"De generaal <strong>beval</strong> aan <strong>te vallen</strong>."<br>"De dokter <strong>verbood</strong> hem <strong>te roken</strong>."</em></td></tr>
+              <tr><td><strong>Denken / Weten</strong></td><td><em>denken, menen, geloven, weten, begrijpen</em></td><td><em>"Ik <strong>meen</strong> hem <strong>te kennen</strong>."<br>"Zij <strong>wist</strong> zich geen raad <strong>te verschaffen</strong>."</em></td></tr>
+              <tr><td><strong>Vragen / Verzoeken</strong></td><td><em>vragen, verzoeken, smeken</em></td><td><em>"Ik <strong>verzoek</strong> u stil <strong>te zijn</strong>."<br>"Hij <strong>smeekte</strong> haar <strong>te blijven</strong>."</em></td></tr>
+              <tr><td><strong>Veroordelen tot</strong></td><td><em>veroordelen tot, dwingen tot, verplichten tot</em></td><td><em>"De rechter <strong>veroordeelde</strong> hem tot levenslang <strong>te zitten</strong>."<br>"Zij <strong>dwong</strong> mij <strong>te luisteren</strong>."</em></td></tr>
+              <tr><td><strong>Schijnen / Blijken</strong></td><td><em>schijnen, blijken, lijken, heten</em></td><td><em>"Het <strong>schijnt</strong> mooi weer <strong>te worden</strong>."<br>"Zij <strong>bleek</strong> de dader <strong>te zijn</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 2.2 Na Duratieve Werkwoorden: Zitten, Liggen, Lopen, Staan, Hangen + Te</h3>
+        <p>Deze werkwoorden van positie worden gecombineerd met <em>te</em> + infinitief om een <strong>voortdurende handeling</strong> (duratieve actie) uit te drukken. Dit is een zeer typische Nederlandse constructie.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Werkwoord</th><th>Betekenis</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>zitten te</strong></td><td>Zittend een actie uitvoeren.</td><td><em>"Hij <strong>zit</strong> de krant <strong>te lezen</strong>."<br>"Wij <strong>zaten</strong> gezellig <strong>te kletsen</strong>."</em></td></tr>
+              <tr><td><strong>liggen te</strong></td><td>Liggend een actie uitvoeren.</td><td><em>"Zij <strong>ligt</strong> in de zon <strong>te bakken</strong>."<br>"De baby <strong>lag</strong> vredig <strong>te slapen</strong>."</em></td></tr>
+              <tr><td><strong>lopen te</strong></td><td>Lopend een actie uitvoeren, of irritatie.</td><td><em>"Hij <strong>liep</strong> hardop <strong>te zingen</strong>."<br>"<strong>Loop</strong> niet zo <strong>te zeuren</strong>!"</em></td></tr>
+              <tr><td><strong>staan te</strong></td><td>Staand een actie uitvoeren.</td><td><em>"Er <strong>staat</strong> een man op de bus <strong>te wachten</strong>."<br>"Wij <strong>stonden</strong> uren <strong>te koukleumen</strong>."</em></td></tr>
+              <tr><td><strong>hangen te</strong></td><td>Hangend een actie uitvoeren (informeel).</td><td><em>"De tiener <strong>hing</strong> verveeld op de bank <strong>te gamen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 2.3 Na Voorzetsels: Door, Na, Alvorens, In Plaats Van, Zonder + Te</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Voorzetsel</th><th>Betekenis</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>door te</strong></td><td>Middel, manier.</td><td><em>"<strong>Door hard te werken</strong>, bereik je veel."<br>"Hij ontsnapte <strong>door over de muur te klimmen</strong>."</em></td></tr>
+              <tr><td><strong>na te</strong></td><td>Nadat (beknopte bijzin).</td><td><em>"<strong>Na het journaal te hebben gezien</strong>, ging hij slapen."<br>"<strong>Na lang nadenken</strong>, besloot ik het <strong>te doen</strong>."</em></td></tr>
+              <tr><td><strong>alvorens te</strong></td><td>Voordat (formeel).</td><td><em>"<strong>Alvorens te vertrekken</strong>, controleer de deuren."<br>"Lees de instructies <strong>alvorens het apparaat te gebruiken</strong>."</em></td></tr>
+              <tr><td><strong>in plaats van te</strong></td><td>Vervanging.</td><td><em>"<strong>In plaats van te klagen</strong>, kun je beter helpen."<br>"Hij ging gamen <strong>in plaats van te studeren</strong>."</em></td></tr>
+              <tr><td><strong>zonder te</strong></td><td>Afwezigheid van de actie.</td><td><em>"Hij vertrok <strong>zonder gedag te zeggen</strong>."<br>"<strong>Zonder te kijken</strong>, stak hij de straat over."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 2.4 Na Bepaalde Bijvoeglijke Naamwoorden</h3>
+        <p>Veel bijvoeglijke naamwoorden in combinatie met <em>het is</em> of <em>ik vind het</em> worden gevolgd door <em>om te</em> of <em>te</em>.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Constructie</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Het is + BN + (om) te</strong></td><td><em>"Het is <strong>leuk</strong> je <strong>te zien</strong>."<br>"Het is <strong>moeilijk</strong> om het <strong>uit te leggen</strong>."<br>"Het is <strong>belangrijk om te onthouden</strong> dat..."</em></td></tr>
+              <tr><td><strong>Ik vind het + BN + (om) te</strong></td><td><em>"Ik vind het <strong>fijn</strong> om je <strong>te helpen</strong>."<br>"Zij vond het <strong>eng</strong> om alleen <strong>te zijn</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎯 Deel 3: De 'Om ... Te'-Constructie – Doel, Gevolg en Meer</h2>
+        <p>De constructie <strong>om ... te + infinitief</strong> is een van de meest gebruikte structuren in het Nederlands. Ze drukt meestal een <strong>doel</strong> uit, maar ook een <strong>gevolg</strong> of <strong>beperking</strong>.</p>
+        
+        <h3>✅ 3.1 'Om ... Te' als Doel (Finale Constructie)</h3>
+        <p>Dit is de meest voorkomende functie. Het vervangt een lange bijzin met <em>opdat</em>.</p>
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">📐 Voorwaarde:</div>
+          <p style="margin:0; color:var(--gw-text)">Het <strong>onderwerp</strong> van de <em>om ... te</em>-zin moet <strong>hetzelfde</strong> zijn als dat van de hoofdzin (of het moet een algemeen 'men' zijn).</p>
+        </div>
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Ik ben hier <strong>om</strong> je <strong>te helpen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Zij ging naar de bibliotheek <strong>om</strong> boeken <strong>te lenen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"We moeten opschieten <strong>om</strong> de trein <strong>te halen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Hij zette de wekker <strong>om</strong> niet <strong>te verslapen</strong>."</em></span>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 3.2 'Te ... Om Te' – Gevolg van een Overmaat</h3>
+        <p>Wanneer iets <em>te</em> (excessief) is om een bepaald gevolg te hebben, gebruik je <strong>te + BN/woord + om te</strong>.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Structuur</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Te + BN + om te</strong></td><td><em>"Hij is <strong>te jong om</strong> auto <strong>te rijden</strong>."<br>"De koffer is <strong>te zwaar om te tillen</strong>."<br>"Het water is <strong>te koud om in te zwemmen</strong>."</em></td></tr>
+              <tr><td><strong>Te + veel/weinig + om te</strong></td><td><em>"Er is <strong>te weinig tijd om</strong> alles <strong>te doen</strong>."<br>"Ik heb <strong>te veel gegeten om</strong> nog <strong>te kunnen sporten</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 3.3 'Genoeg ... Om Te' – Voldoende voor een Gevolg</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Structuur</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Genoeg + BN + om te</strong></td><td><em>"Hij is <strong>oud genoeg om</strong> zelf <strong>te beslissen</strong>."<br>"Het is <strong>warm genoeg om</strong> buiten <strong>te zitten</strong>."</em></td></tr>
+              <tr><td><strong>Genoeg + ZN + om te</strong></td><td><em>"We hebben <strong>genoeg geld om</strong> een auto <strong>te kopen</strong>."<br>"Er is <strong>genoeg brood om</strong> de week door <strong>te komen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 3.4 'Om Te' Zonder Voorafgaande Bepaling</h3>
+        <div class="gw-example">
+          <span class="orig">✨ <em>"<strong>Om</strong> de deur <strong>te openen</strong>, druk op de knop."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Om</strong> gezond <strong>te blijven</strong>, moet je voldoende bewegen."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Om</strong> het zeker <strong>te weten</strong>, belde ik hem nog even."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🏗️ Deel 4: Bijzondere Constructies met 'Te' + Infinitief</h2>
+        
+        <h3>🔹 4.1 'Zijn + Te + Infinitief' – Passieve Mogelijkheid of Noodzaak</h3>
+        <p>Deze constructie drukt uit dat iets <strong>gedaan kan worden</strong> (mogelijkheid) of <strong>gedaan moet worden</strong> (noodzaak). Het is een passieve vorm zonder <em>worden</em>.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Betekenis</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Mogelijkheid (Kan)</strong></td><td><em>"De weg <strong>is te overzien</strong>."<br>"De tekst <strong>is niet te lezen</strong>."<br>"De oplossing <strong>is te vinden</strong> op de website."</em></td></tr>
+              <tr><td><strong>Noodzaak (Moet)</strong></td><td><em>"Er <strong>is</strong> nog veel <strong>te doen</strong>."<br>"De rekening <strong>valt</strong> nog <strong>te betalen</strong>."<br>"Het <strong>staat</strong> nog <strong>te bezien</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 4.2 'Hebben + Te + Infinitief' – Verplichting of Voorhanden Hebben</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Betekenis</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Verplichting (Moeten)</strong></td><td><em>"Je <strong>hebt</strong> je aan de regels <strong>te houden</strong>."<br>"Zij <strong>had</strong> niets <strong>in te brengen</strong>."<br>"Daar <strong>heb</strong> ik niets mee <strong>te maken</strong>."</em></td></tr>
+              <tr><td><strong>Beschikbaarheid</strong></td><td><em>"Ik <strong>heb</strong> nog veel <strong>te doen</strong>."<br>"Wij <strong>hebben</strong> niets meer <strong>te verliezen</strong>."<br>"Wat <strong>heb</strong> je daartegen <strong>in te brengen</strong>?"</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 4.3 'Weten Te' – Slagen In, Ertoe In Staat Zijn</h3>
+        <p><strong>Weten te</strong> + infinitief betekent <em>erin slagen om</em> of <em>de vaardigheid hebben om</em>. Het verschilt van <em>kunnen</em> doordat het een zekere <strong>handigheid</strong> of <strong>succesvolle afloop</strong> impliceert.</p>
+        <div class="gw-example">
+          <span class="orig">✨ <em>"Ondanks de drukte <strong>wist</strong> zij de trein <strong>te halen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Hij <strong>wist</strong> ons <strong>te overtuigen</strong> met zijn verhaal."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧩 Deel 5: De Plaats van 'Te' in de Werkwoordelijke Eindgroep</h2>
+        <p>De positie van <em>te</em> binnen een cluster van werkwoorden aan het einde van de zin (het rechterveld) is aan strikte regels gebonden.</p>
+        
+        <h3>✅ 5.1 'Te' Vóór de Infinitief</h3>
+        <p>In de meeste gevallen staat <em>te</em> <strong>direct vóór</strong> de infinitief waar het bij hoort.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Voorbeeldzin</th><th>Plaats van 'Te'</th></tr></thead>
+            <tbody>
+              <tr><td><em>"Ik hoop <strong>te winnen</strong>."</em></td><td><em>te</em> vóór <em>winnen</em></td></tr>
+              <tr><td><em>"Hij zit <strong>te lezen</strong>."</em></td><td><em>te</em> vóór <em>lezen</em></td></tr>
+              <tr><td><em>"Zij probeert <strong>te slapen</strong>."</em></td><td><em>te</em> vóór <em>slapen</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 5.2 'Te' bij Scheidbare Werkwoorden</h3>
+        <p>Bij een <strong>scheidbaar werkwoord</strong> schuift <em>te</em> <strong>tussen</strong> het scheidbare voorvoegsel en de stam. Het werkwoord blijft één geheel.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Scheidbaar Werkwoord</th><th>Met 'Te'</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>opbellen</strong></td><td><strong>op te bellen</strong></td><td><em>"Ik beloof je morgen <strong>op te bellen</strong>."</em></td></tr>
+              <tr><td><strong>aankomen</strong></td><td><strong>aan te komen</strong></td><td><em>"De trein lijkt <strong>aan te komen</strong>."</em></td></tr>
+              <tr><td><strong>meenemen</strong></td><td><strong>mee te nemen</strong></td><td><em>"Vergeet niet je paspoort <strong>mee te nemen</strong>."</em></td></tr>
+              <tr><td><strong>uitnodigen</strong></td><td><strong>uit te nodigen</strong></td><td><em>"Het is leuk om vrienden <strong>uit te nodigen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 5.3 'Te' bij Meer Werkwoorden (Stapeling)</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Structuur</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Te + Infinitief</strong></td><td><em>"Ik hoop <strong>te kunnen komen</strong>."</em></td></tr>
+              <tr><td><strong>Te + Infinitief + Infinitief</strong></td><td><em>"Hij beweert haar <strong>te hebben gezien</strong>."</em></td></tr>
+              <tr><td><strong>Scheidbaar + Te + Cluster</strong></td><td><em>"Ik beloof het <strong>op te zullen ruimen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note" style="margin-top:12px;">📍 <strong>Let op:</strong> In de combinatie met <em>hebben</em> of <em>zijn</em> als hulpwerkwoord van de voltooide tijd, staat <em>te</em> vóór het voltooid deelwoord, of vóór de infinitief in het geval van de IPP-regel (<em>hij heeft zitten te lezen</em>).</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Deel 6: Veelgemaakte Fouten en Hun Correcties</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Fout ❌</th><th>Correctie ✅</th><th>Waarom?</th></tr></thead>
+            <tbody>
+              <tr><td><em>Ik hoop winnen.</em></td><td><em>Ik hoop <strong>te winnen</strong>.</em></td><td><em>Hopen</em> is een 'te'-werkwoord.</td></tr>
+              <tr><td><em>Zij zit lezen.</em></td><td><em>Zij zit <strong>te lezen</strong>.</em></td><td>Duratieve constructie vereist <em>te</em>.</td></tr>
+              <tr><td><em>Door hard werken bereik je veel.</em></td><td><em>Door hard <strong>te werken</strong>...</em></td><td>Na voorzetsel (<em>door</em>) volgt <em>te</em> + infinitief.</td></tr>
+              <tr><td><em>Ik ga om brood kopen.</em></td><td><em>Ik ga <strong>om</strong> brood <strong>te kopen</strong>.</em></td><td><em>Om ... te</em> is een vaste combinatie.</td></tr>
+              <tr><td><em>Het is te zwaar om tillen.</em></td><td><em>Het is te zwaar <strong>om te tillen</strong>.</em></td><td>Na <em>om</em> volgt <em>te</em>.</td></tr>
+              <tr><td><em>Ik ben hier voor te helpen.</em></td><td><em>Ik ben hier <strong>om te helpen</strong>.</em></td><td>Doel is <em>om te</em>, niet <em>voor te</em>.</td></tr>
+              <tr><td><em>Hij beloofde opbellen.</em></td><td><em>Hij beloofde <strong>op te bellen</strong>.</em></td><td><em>Te</em> schuift tussen scheidbaar voorvoegsel en stam.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💡 Deel 7: Pro-Tips & Ezelsbruggetjes</h2>
+        <ol>
+          <li><strong>De 'Te'-Test met Modale Werkwoorden:</strong><br>Twijfel je of een werkwoord <em>te</em> nodig heeft? Vervang het door een modaal werkwoord (<em>kunnen, willen</em>). Als dat kan <strong>zonder</strong> <em>te</em>, dan hoort het <strong>zonder</strong> <em>te</em>.<br><em>"Ik <strong>kan</strong> slapen." (Geen <em>te</em>) → "Ik <strong>probeer</strong> te slapen." (Wel <em>te</em>)</em></li>
+          <li><strong>Duratieve Werkwoorden Altijd met 'Te':</strong><br>Onthoud het rijtje <strong>ZILLS</strong> (Zitten, Liggen, Lopen, Staan, Hangen). Allemaal <strong>+ te</strong>.<br><em>"Ik <strong>zit te</strong> denken, ik <strong>lig te</strong> slapen, ik <strong>loop te</strong> dromen, ik <strong>sta te</strong> wachten."</em></li>
+          <li><strong>Doel = 'Om Te':</strong><br>Waarom doe je iets? Antwoord begint met <strong>om te</strong>.<br><em>"Waarom ga je naar de winkel? <strong>Om</strong> brood <strong>te kopen</strong>."</em></li>
+          <li><strong>Scheidbare Werkwoorden: 'Te' in het Midden:</strong><br>Zie je een voorvoegsel (<em>op, aan, mee, uit</em>)? Zet <strong>te</strong> ertussen. Het woord blijft één geheel.<br><em>opbellen → op <strong>te</strong> bellen | aankomen → aan <strong>te</strong> komen</em></li>
+          <li><strong>'Te' voor de Hele Werkwoordsbende:</strong><br>Als er meerdere werkwoorden zijn, zet je <em>te</em> vóór de hele groep.<br><em>"Ik hoop <strong>te kunnen komen</strong>."</em></li>
+          <li><strong>'Zijn Te' = Passief (Kan/Moet):</strong><br>Zie je <em>zijn + te + infinitief</em>? Dan is het een passieve betekenis.<br><em>"De tekst is <strong>te lezen</strong>." = De tekst kan gelezen worden.</em></li>
+        </ol>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 Deel 8: Overzichtsschema's</h2>
+        
+        <h3>🔹 Schema 1: Wanneer 'Te' en Wanneer Niet?</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Situatie</th><th>'Te' Nodig?</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Modale werkwoorden</strong> <small>(kunnen, moeten, mogen, willen, zullen)</small></td><td>❌ Nee</td><td><em>"Ik <strong>wil slapen</strong>."</em></td></tr>
+              <tr><td><strong>Hulpwerkwoorden</strong> <small>(gaan, komen, blijven, laten)</small></td><td>❌ Nee</td><td><em>"Ik <strong>ga slapen</strong>."</em></td></tr>
+              <tr><td><strong>Perceptiewerkwoorden</strong> <small>(zien, horen, voelen)</small></td><td>❌ Nee</td><td><em>"Ik <strong>zie hem lopen</strong>."</em></td></tr>
+              <tr><td><strong>De meeste andere werkwoorden</strong> <small>(hopen, proberen, beloven)</small></td><td>✅ Ja</td><td><em>"Ik <strong>hoop te slapen</strong>."</em></td></tr>
+              <tr><td><strong>Duratieve werkwoorden</strong> <small>(zitten, liggen, lopen, staan)</small></td><td>✅ Ja</td><td><em>"Ik <strong>zit te lezen</strong>."</em></td></tr>
+              <tr><td><strong>Na voorzetsels</strong> <small>(door, na, zonder, alvorens)</small></td><td>✅ Ja</td><td><em>"<strong>Zonder te kijken</strong>."</em></td></tr>
+              <tr><td><strong>'Om ... te'-constructie</strong></td><td>✅ Ja</td><td><em>"<strong>Om brood te kopen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 Schema 2: 'Om Te' in Verschillende Functies</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Functie</th><th>Structuur</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Doel</strong></td><td><em>om ... te</em></td><td><em>"Ik ga <strong>om</strong> brood <strong>te kopen</strong>."</em></td></tr>
+              <tr><td><strong>Gevolg (Te veel)</strong></td><td><em>te ... om te</em></td><td><em>"Het is <strong>te</strong> koud <strong>om te</strong> zwemmen."</em></td></tr>
+              <tr><td><strong>Gevolg (Genoeg)</strong></td><td><em>genoeg ... om te</em></td><td><em>"Hij is <strong>genoeg</strong> oud <strong>om te</strong> stemmen."</em></td></tr>
+              <tr><td><strong>Instructie</strong></td><td><em>Om ... te</em> (vooraan)</td><td><em>"<strong>Om</strong> de deur <strong>te openen</strong>, draai de sleutel om."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📝 Deel 9: Oefeningen (Vul de Juiste Vorm In)</h2>
+        <p><strong>Opdracht:</strong> Vul de juiste vorm van de infinitief in (met of zonder <em>te</em>).</p>
+        
+        <div class="gw-te-card">
+          <div class="gw-te-ex"><strong>1.</strong> <em>"Ik hoop snel ____ (beter worden)."</em><br><em>Antwoord: <strong>te</strong> beter <strong>worden</strong></em></div>
+          <div class="gw-te-ex"><strong>2.</strong> <em>"Zij zit de hele dag ____ (dromen)."</em><br><em>Antwoord: <strong>te</strong> dromen</em></div>
+          <div class="gw-te-ex"><strong>3.</strong> <em>"Hij gaat ____ (slapen)."</em><br><em>Antwoord: slapen (zonder <em>te</em>)</em></div>
+          <div class="gw-te-ex"><strong>4.</strong> <em>"Wij hebben geen tijd ____ (verliezen)."</em><br><em>Antwoord: <strong>te</strong> verliezen</em></div>
+          <div class="gw-te-ex"><strong>5.</strong> <em>"Door hard ____ (werken) bereik je veel."</em><br><em>Antwoord: <strong>te</strong> werken</em></div>
+          <div class="gw-te-ex"><strong>6.</strong> <em>"De oplossing is gemakkelijk ____ (vinden)."</em><br><em>Antwoord: <strong>te</strong> vinden</em></div>
+          <div class="gw-te-ex"><strong>7.</strong> <em>"Ik beloof je morgen ____ (opbellen)."</em><br><em>Antwoord: <strong>op te bellen</strong></em></div>
+          <div class="gw-te-ex"><strong>8.</strong> <em>"Het is te mooi ____ (zijn) waar."</em><br><em>Antwoord: <strong>om te</strong> zijn</em></div>
+          <div class="gw-te-ex"><strong>9.</strong> <em>"Hij wist het publiek ____ (overtuigen)."</em><br><em>Antwoord: <strong>te</strong> overtuigen</em></div>
+          <div class="gw-te-ex"><strong>10.</strong> <em>"Zij liet de hond ____ (uitlaten)."</em><br><em>Antwoord: uitlaten (zonder <em>te</em>, want <em>laten</em> is een speciaal hulpwerkwoord)</em></div>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Snelle Samenvatting</h3>
+        <ul>
+          <li><strong>Geen te:</strong> Na modale werkwoorden (<em>willen, kunnen</em>), hulpwerkwoorden (<em>gaan, blijven, laten</em>), perceptiewerkwoorden (<em>zien, horen</em>)</li>
+          <li><strong>Wel te:</strong> Na de meeste andere werkwoorden (<em>hopen, proberen, beloven</em>), voorzetsels, en duratieve constructies (<em>zitten te...</em>)</li>
+          <li><strong>Om ... te:</strong> Drukkt een <strong>doel</strong> uit. Onderwerp moet hetzelfde zijn als hoofdzin.</li>
+          <li><strong>Te ... om te / Genoeg ... om te:</strong> Drukken een <strong>gevolg</strong> uit van een overmaat of voldoende mate.</li>
+          <li><strong>Zijn te:</strong> Passieve mogelijkheid of noodzaak (<em>De tekst is te lezen</em> = kan gelezen worden)</li>
+          <li><strong>Scheidbaar:</strong> <em>Te</em> gaat tussen voorvoegsel en stam (<em>op te bellen</em>)</li>
+          <li><strong>Stapeling:</strong> <em>Te</em> staat vóór de hele werkwoordscluster aan het eind</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Hopelijk biedt deze gids een helder en volledig overzicht van de infinitief met <em>te</em> en <em>om te</em>. Als je een specifiek werkwoord of constructie verder wilt uitdiepen, of als je meer wilt oefenen, laat het me dan gerust weten. Ik <strong>hoop</strong> je hiermee <strong>te hebben geholpen</strong>! 🚀</p>
+      </div>
+    </div>
+  `
+},
+{
+  id: 28,
+  t: "Continuïteitsvormen",
+  d: "Aan het, ZILLSH, bezig zijn — progressieve constructies",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      .gw-cont-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+      }
+      .gw-cont-title {
+        font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+        margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+      }
+      .gw-cont-ex {
+        padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+      }
+      .gw-cont-ex:last-child { border-bottom: none; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+        .gw-cont-title { font-size: 1.05rem; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🎬 Continuïteitsvormen</h1>
+        <p>Aan het, ZILLSH, bezig zijn — progressieve constructies</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Met groot genoegen duiken we in de wondere wereld van de <strong>continuïteitsvormen</strong> (ook wel <em>duratieve vormen</em> of <em>progressieve constructies</em> genoemd). Waar het Engels een aparte werkwoordsvorm heeft (<em>I am walking</em>), gebruikt het Nederlands een palet aan kleurrijke constructies om aan te geven dat een handeling <strong>aan de gang is</strong>, <strong>voortduurt</strong>, of <strong>bezig is</strong>. Deze vormen zijn onmisbaar voor levendig en natuurlijk taalgebruik.</p>
+        <p>Deze gids is jouw complete, foutloze en prachtig geïllustreerde naslagwerk over alle Nederlandse continuïteitsvormen. We behandelen de constructies met <strong>aan het</strong>, de duratieve werkwoorden <strong>zitten, liggen, lopen, staan, hangen</strong> met <em>te</em>, de combinaties met <strong>bezig zijn</strong>, <strong>doorgaan</strong> en <strong>blijven</strong>, en natuurlijk een <strong>overvloed aan schitterende voorbeelden</strong>.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎬 Deel 1: Wat Zijn Continuïteitsvormen?</h2>
+        <p>Een continuïteitsvorm (of duratieve constructie) geeft aan dat een handeling <strong>op een bepaald moment aan de gang is</strong>, <strong>voortduurt</strong>, of <strong>nog niet is afgerond</strong>. Het Nederlands kent <strong>geen aparte werkwoordstijd</strong> hiervoor, zoals de Engelse <em>present continuous</em>. In plaats daarvan gebruiken we vaste combinaties van hulpwerkwoorden, voorzetsels en het woordje <strong>te</strong>.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Engels (Continuous)</th><th>Nederlands (Continuïteit)</th><th>Gewoon Nederlands (Niet-markeerd)</th></tr></thead>
+            <tbody>
+              <tr><td><em>I am reading a book.</em></td><td><em>Ik <strong>ben een boek aan het lezen</strong>.</em></td><td><em>Ik <strong>lees</strong> een boek.</em></td></tr>
+              <tr><td><em>She was sleeping.</em></td><td><em>Zij <strong>lag te slapen</strong>.</em></td><td><em>Zij <strong>sliep</strong>.</em></td></tr>
+              <tr><td><em>He is busy working.</em></td><td><em>Hij <strong>is bezig met werken</strong>.</em></td><td><em>Hij <strong>werkt</strong>.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--tip" style="margin-top:16px;">
+          <div class="gw-card-title">📍 Wanneer gebruik je een continuïteitsvorm?</div>
+          <ul style="margin:10px 0 0 20px;">
+            <li>Om te benadrukken dat iets <strong>NU</strong> gebeurt. <em>"Ik kan nu niet komen, want ik <strong>ben aan het koken</strong>."</em></li>
+            <li>Om een <strong>langdurige handeling</strong> te schetsen die onderbroken wordt. <em>"Ik <strong>zat te lezen</strong> toen de telefoon ging."</em></li>
+            <li>Om <strong>irritatie</strong> of <strong>verveeldheid</strong> uit te drukken. <em>"Hij <strong>loopt</strong> de hele dag <strong>te klagen</strong>."</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧱 Deel 2: De 'Aan Het' + Infinitief-Constructie</h2>
+        <p>Dit is de meest neutrale en universele manier om een voortdurende handeling uit te drukken.</p>
+        
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">📐 Formule: Zijn + aan het + infinitief</div>
+          <p style="margin:0; color:var(--gw-text)">Het werkwoord <strong>zijn</strong> fungeert als hulpwerkwoord en wordt vervoegd naar tijd en persoon. Het voorzetsel <strong>aan</strong> en het lidwoord <strong>het</strong> zijn onveranderlijk. De <strong>infinitief</strong> staat aan het einde van de zin.</p>
+        </div>
+
+        <div class="gw-table-wrap" style="margin-top:16px;">
+          <table class="gw-table">
+            <thead><tr><th>Tijd</th><th>Constructie</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Tegenwoordig</strong></td><td><em>is / zijn</em> + aan het + infinitief</td><td><em>"Ik <strong>ben</strong> de afwas <strong>aan het doen</strong>."<br>"Zij <strong>is</strong> een taart <strong>aan het bakken</strong>."</em></td></tr>
+              <tr><td><strong>Verleden</strong></td><td><em>was / waren</em> + aan het + infinitief</td><td><em>"Hij <strong>was</strong> net zijn haar <strong>aan het wassen</strong> toen de bel ging."<br>"Wij <strong>waren aan het wandelen</strong> in het bos."</em></td></tr>
+              <tr><td><strong>Voltooid</strong></td><td><em>is / zijn</em> + aan het + infinitief + <strong>geweest</strong></td><td><em>"Ik <strong>ben</strong> de hele middag <strong>aan het opruimen geweest</strong>."<br>"Zij <strong>zijn</strong> urenlang <strong>aan het vergaderen geweest</strong>."</em></td></tr>
+              <tr><td><strong>Met Modaal</strong></td><td>Modaal ww + aan het + infinitief + <strong>zijn</strong></td><td><em>"Je <strong>moet</strong> niet de hele dag <strong>aan het gamen zijn</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Waar is Jan?" "Die <strong>is</strong> boven <strong>aan het gamen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Ik kon niet opendoen, want ik <strong>was</strong> net <strong>aan het douchen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"We <strong>zijn</strong> de hele ochtend <strong>aan het tuinieren geweest</strong>."</em></span>
+        </div>
+
+        <div class="gw-note" style="margin-top:12px;">📍 <strong>Combinatie met Scheidbare Werkwoorden:</strong> Het scheidbare werkwoord blijft <strong>ongesplitst</strong> en staat als infinitief aan het einde.<br><em>"Ik <strong>ben</strong> de vaatwasser <strong>aan het inruimen</strong>."<br>"Zij <strong>is</strong> de kinderen <strong>aan het voorlezen</strong>."</em></div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🪑 Deel 3: Duratieve Werkwoorden – Zitten, Liggen, Lopen, Staan, Hangen + Te</h2>
+        <p>Deze constructie is typisch Nederlands en voegt een extra dimensie toe: de <strong>lichaamshouding</strong> of <strong>positie</strong> tijdens de handeling.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Werkwoord</th><th>Houding</th><th>Betekenis / Nuance</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>zitten te</strong></td><td>Zittend</td><td>De handeling vindt zittend plaats, of de spreker wil benadrukken dat het lang duurt.</td><td><em>"Hij <strong>zat</strong> de hele avond <strong>te gamen</strong>."<br>"Ik <strong>zit</strong> even rustig een kopje koffie <strong>te drinken</strong>."</em></td></tr>
+              <tr><td><strong>liggen te</strong></td><td>Liggend</td><td>De handeling vindt liggend plaats, vaak in ontspannen toestand.</td><td><em>"Zij <strong>ligt</strong> in de zon <strong>te bakken</strong>."<br>"De baby <strong>lag</strong> vredig <strong>te slapen</strong>."</em></td></tr>
+              <tr><td><strong>lopen te</strong></td><td>Lopend</td><td>De handeling vindt lopend plaats. Heel vaak gebruikt om <strong>irritatie</strong> of <strong>doelloosheid</strong> uit te drukken.</td><td><em>"Hij <strong>liep</strong> hardop <strong>te zingen</strong> op straat."<br>"<strong>Loop</strong> niet zo <strong>te zeuren</strong>!"<br>"Wat <strong>loop</strong> je nou <strong>te doen</strong>?"</em></td></tr>
+              <tr><td><strong>staan te</strong></td><td>Staand</td><td>De handeling vindt staand plaats, vaak wachtend of in een informele setting.</td><td><em>"Er <strong>staat</strong> een man op de bus <strong>te wachten</strong>."<br>"Wij <strong>stonden</strong> uren in de rij <strong>te koukleumen</strong>."</em></td></tr>
+              <tr><td><strong>hangen te</strong></td><td>Hangend</td><td>De handeling vindt hangend plaats; informeel, vaak voor tieners of lusteloosheid.</td><td><em>"De puber <strong>hing</strong> de hele dag op de bank <strong>te gamen</strong>."<br>"Zij <strong>hangt</strong> uit het raam <strong>te roepen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>Neutraal: "Ik <strong>ben aan het lezen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Specifiek: "Ik <strong>zit te lezen</strong>." <small>(Je weet dat ik op een stoel zit)</small></em></span>
+        </div>
+        <div class="gw-example">
+          <span class="orig">✨ <em>Irritatie: "Hij <strong>loopt</strong> de hele dag <strong>te klagen</strong> over het weer."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Verwondering: "Wat <strong>sta</strong> jij daar nou <strong>te doen</strong>?"</em></span>
+        </div>
+
+        <div class="gw-card gw-card--warn" style="margin-top:16px;">
+          <div class="gw-card-title">⚠️ Let op de IPP-Regel bij Voltooide Tijd:</div>
+          <p style="margin:0; color:var(--gw-text)">In de voltooide tijd (<em>hebben</em> + voltooid deelwoord) verandert het voltooid deelwoord van het duratieve werkwoord in een <strong>infinitief</strong>.<br>❌ <em>"Ik <strong>heb</strong> de hele dag <strong>gezeten te lezen</strong>."</em><br>✅ <em>"Ik <strong>heb</strong> de hele dag <strong>zitten lezen</strong>."</em> <small>(Of <em>zitten te lezen</em>; beide zijn correct)</small><br>✅ <em>"Zij <strong>heeft</strong> uren <strong>staan wachten</strong>."<br>✅ "Wij <strong>hebben</strong> lekker <strong>liggen luieren</strong>."</em></p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧑‍💻 Deel 4: 'Bezig Zijn Te' of 'Bezig Zijn Met'</h2>
+        <p>Deze constructie benadrukt dat iemand <strong>druk doende is</strong> met een specifieke taak. Het is formeler dan <em>aan het</em> en impliceert vaak een <strong>gestructureerde activiteit</strong>.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Constructie</th><th>Structuur</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Bezig zijn te</strong></td><td><em>zijn + bezig + te + infinitief</em></td><td><em>"De politie <strong>is bezig</strong> de zaak <strong>te onderzoeken</strong>."<br>"Ik <strong>ben bezig</strong> het formulier <strong>in te vullen</strong>."</em></td></tr>
+              <tr><td><strong>Bezig zijn met</strong></td><td><em>zijn + bezig + met + zelfstandig naamwoord</em></td><td><em>"Zij <strong>is bezig met</strong> haar huiswerk."<br>"De schilder <strong>is bezig met</strong> de laatste details."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Stoor me niet, ik <strong>ben bezig</strong> een belangrijke mail <strong>te schrijven</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"De aannemer <strong>is bezig met</strong> de renovatie van het pand."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔁 Deel 5: Andere Uitdrukkingen van Voortduring</h2>
+        <p>Naast de hoofdconstructies zijn er werkwoorden die inherent een voortdurende actie uitdrukken.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Werkwoord</th><th>Betekenis</th><th>Prachtige Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>doorgaan met</strong></td><td>Continueren met een handeling.</td><td><em>"Ondanks de regen <strong>gingen</strong> we <strong>door met wandelen</strong>."<br>"<strong>Ga</strong> alsjeblieft <strong>door met</strong> je verhaal."</em></td></tr>
+              <tr><td><strong>blijven + infinitief</strong></td><td>De actie niet stoppen (zonder <em>te</em>).</td><td><em>"<strong>Blijf</strong> vooral <strong>zitten</strong>."<br>"Ik <strong>blijf</strong> het proberen."<br>"Zij <strong>bleef</strong> maar <strong>praten</strong>."</em></td></tr>
+              <tr><td><strong>voortduren</strong></td><td>(Formeel) Aanhoudend zijn.</td><td><em>"De regen <strong>duurde</strong> de hele dag <strong>voort</strong>."</em></td></tr>
+              <tr><td><strong>aanhouden</strong></td><td>Niet stoppen.</td><td><em>"De file <strong>hield</strong> tot in de avond <strong>aan</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"<strong>Blijf</strong> rustig <strong>ademhalen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Hij <strong>bleef</strong> volhouden dat hij onschuldig was."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Laten we <strong>doorgaan met</strong> waar we gebleven waren."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧩 Deel 6: Combinatie met Scheidbare Werkwoorden</h2>
+        <p>Zoals eerder genoemd, blijft het scheidbare werkwoord <strong>ongesplitst</strong> en staat het als één geheel in de werkwoordscluster. Bij <em>zitten te</em>, <em>staan te</em>, etc. schuift het <strong>te</strong> tussen het voorvoegsel en de stam.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Scheidbaar Werkwoord</th><th>In Continuïteitsvorm</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>opruimen</strong></td><td><em>aan het opruimen</em> / <em>zitten op te ruimen</em></td><td><em>"Ik <strong>ben</strong> mijn kamer <strong>aan het opruimen</strong>."<br>"Zij <strong>zat</strong> de zolder <strong>op te ruimen</strong>."</em></td></tr>
+              <tr><td><strong>meenemen</strong></td><td><em>aan het meenemen</em> / <em>staan mee te nemen</em></td><td><em>"Hij <strong>is</strong> de spullen <strong>aan het meenemen</strong>."<br>"Wat <strong>sta</strong> je daar <strong>mee te nemen</strong>?"</em></td></tr>
+              <tr><td><strong>uitnodigen</strong></td><td><em>bezig uit te nodigen</em></td><td><em>"Wij <strong>zijn bezig</strong> alle vrienden <strong>uit te nodigen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📏 Deel 7: Woordvolgorde in Bijzinnen</h2>
+        <p>In een bijzin (met <em>dat, omdat, als, die, etc.</em>) verhuist de persoonsvorm van de continuïteitsconstructie naar het <strong>einde van de bijzin</strong>, samen met de rest van de werkwoorden.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Hoofdzin</th><th>Bijzin</th></tr></thead>
+            <tbody>
+              <tr><td><em>"Ik <strong>ben aan het koken</strong>."</em></td><td><em>"...dat ik <strong>aan het koken ben</strong>."</em></td></tr>
+              <tr><td><em>"Hij <strong>zat te lezen</strong>."</em></td><td><em>"...omdat hij <strong>zat te lezen</strong>."</em></td></tr>
+              <tr><td><em>"Zij <strong>is bezig met</strong> de afwas."</em></td><td><em>"...terwijl zij <strong>bezig is met</strong> de afwas."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Ik kan niet komen, <strong>omdat</strong> ik <strong>aan het werk ben</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Het boek <strong>dat</strong> hij <strong>zat te lezen</strong>, was spannend."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Ze zei <strong>dat</strong> ze <strong>bezig was</strong> haar kamer <strong>op te ruimen</strong>."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Deel 8: Veelgemaakte Fouten en Hun Correcties</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Fout ❌</th><th>Correctie ✅</th><th>Waarom?</th></tr></thead>
+            <tbody>
+              <tr><td><em>Ik ben aan het werken aan mijn scriptie.</em> <small>(Dubbel <em>aan</em>)</small></td><td><em>Ik <strong>ben aan het werk</strong> aan mijn scriptie.</em> OF <em>Ik <strong>werk</strong> aan mijn scriptie.</em></td><td>Vermijd de herhaling van <em>aan</em>; gebruik liever het zelfstandig naamwoord <em>werk</em>.</td></tr>
+              <tr><td><em>Hij is aan het opruimen.</em> <small>(Scheidbaar ww gesplitst)</small></td><td><em>Hij is <strong>aan het opruimen</strong>.</em></td><td>Scheidbare werkwoorden blijven ongesplitst in deze constructie.</td></tr>
+              <tr><td><em>Ik heb gezeten te lezen.</em></td><td><em>Ik <strong>heb zitten lezen</strong>.</em></td><td>IPP-regel: <em>gezeten</em> wordt <em>zitten</em>.</td></tr>
+              <tr><td><em>Zij zit te opruimen.</em></td><td><em>Zij zit <strong>op te ruimen</strong>.</em></td><td><em>Te</em> schuift tussen voorvoegsel en stam.</td></tr>
+              <tr><td><em>Ik ben bezig te de afwas.</em></td><td><em>Ik ben bezig <strong>met</strong> de afwas.</em></td><td>Na <em>bezig</em> met een ZN gebruik je <em>met</em>, niet <em>te</em>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💡 Deel 9: Pro-Tips & Ezelsbruggetjes</h2>
+        <ol>
+          <li><strong>De 'Aan Het'-Vuistregel:</strong> Gebruik <strong>aan het</strong> voor de meest neutrale, universele progressieve betekenis. Het past bij elk werkwoord en elke situatie.<br><em>"Ik <strong>ben aan het eten</strong>." (Altijd goed)</em></li>
+          <li><strong>De ZILLSH-Regel voor Houding:</strong> <strong>Z</strong>itten, <strong>L</strong>iggen, <strong>L</strong>open, <strong>S</strong>taan, <strong>H</strong>angen. Als je de houding kent of wilt benadrukken, gebruik dan deze werkwoorden + <strong>te</strong>.<br><em>"Ik <strong>zit te lezen</strong>." (Niet: <em>Ik sta te lezen</em> als je zit)</em></li>
+          <li><strong>'Lopen Te' = Vaak Negatief:</strong> Als iemand <em>loopt te</em> + werkwoord, is het vaak een ergernis of doelloze bezigheid.<br><em>"<strong>Loop</strong> niet zo <strong>te zeuren</strong>."<br>"Wat <strong>loop</strong> je nou <strong>te treuzelen</strong>?"</em></li>
+          <li><strong>'Bezig Zijn' = Formeel of Taakgericht:</strong> Gebruik <em>bezig zijn</em> als je wilt benadrukken dat je geconcentreerd met een klus bezig bent, of in formele context.<br><em>"De monteur <strong>is bezig</strong> de auto <strong>te repareren</strong>."</em></li>
+          <li><strong>IPP-Regel Onthouden met 'Hele Werkwoord':</strong> In de voltooide tijd (<em>heb/had</em>) gebruik je het <strong>hele werkwoord</strong> (infinitief) van <em>zitten, liggen, lopen, staan, hangen</em>.<br><em>"Ik <strong>heb</strong> de hele dag <strong>zitten</strong> werken." (Niet: <em>gezeten</em>)</em></li>
+          <li><strong>Vermijd Dubbele 'Aan':</strong> <em>Aan het</em> gevolgd door een werkwoord dat ook met <em>aan</em> begint, klinkt lelijk.<br>❌ <em>"Ik ben aan het aankomen."</em> → ✅ <em>"Ik kom aan."</em> OF <em>"Ik ben onderweg."</em></li>
+        </ol>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 Deel 10: Overzichtsschema's</h2>
+        
+        <h3>🔹 Schema 1: De Drie Hoofdconstructies</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Constructie</th><th>Structuur</th><th>Nuance</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Aan het</strong></td><td><em>zijn + aan het + infinitief</em></td><td>Universeel, neutraal.</td><td><em>"Ik <strong>ben aan het lezen</strong>."</em></td></tr>
+              <tr><td><strong>Zitten/Liggen/Lopen/Staan/Hangen te</strong></td><td><em>Duratief ww + te + infinitief</em></td><td>Specifieke houding, of irritatie.</td><td><em>"Ik <strong>zit te lezen</strong>."<br>"Hij <strong>loopt te klagen</strong>."</em></td></tr>
+              <tr><td><strong>Bezig zijn</strong></td><td><em>zijn + bezig + te/met</em></td><td>Formeel, taakgericht.</td><td><em>"Ik <strong>ben bezig te schilderen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 Schema 2: Omzettingstabel voor Voltooide Tijd (IPP)</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Tegenwoordige Tijd</th><th>Voltooide Tijd (Correct)</th><th>Fout (Zonder IPP)</th></tr></thead>
+            <tbody>
+              <tr><td><em>Ik zit te lezen.</em></td><td><em>Ik <strong>heb zitten lezen</strong>.</em></td><td>❌ <em>Ik heb gezeten te lezen.</em></td></tr>
+              <tr><td><em>Hij staat te wachten.</em></td><td><em>Hij <strong>heeft staan wachten</strong>.</em></td><td>❌ <em>Hij heeft gestaan te wachten.</em></td></tr>
+              <tr><td><em>Zij ligt te slapen.</em></td><td><em>Zij <strong>heeft liggen slapen</strong>.</em></td><td>❌ <em>Zij heeft gelegen te slapen.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📝 Deel 11: Oefeningen (Kies de Juiste Vorm)</h2>
+        <p><strong>Opdracht:</strong> Vul de juiste continuïteitsvorm in. Kies tussen <em>aan het</em>, <em>zitten te</em>, <em>staan te</em>, <em>bezig te</em>, etc.</p>
+        
+        <div class="gw-cont-card">
+          <div class="gw-cont-ex"><strong>1.</strong> <em>"Stoor me niet, ik _____ (werken) aan een belangrijk project."</em><br><em>Antwoord: <strong>ben aan het werken</strong> of <strong>ben bezig met werken</strong></em></div>
+          <div class="gw-cont-ex"><strong>2.</strong> <em>"Hij _____ (lezen) in zijn favoriete stoel toen de bel ging."</em><br><em>Antwoord: <strong>zat te lezen</strong></em></div>
+          <div class="gw-cont-ex"><strong>3.</strong> <em>"Wat _____ jij daar nou _____ (doen) in de hoek?"</em><br><em>Antwoord: <strong>sta ... te doen</strong></em></div>
+          <div class="gw-cont-ex"><strong>4.</strong> <em>"We _____ de hele middag _____ (tuinieren)."</em><br><em>Antwoord: <strong>zijn ... aan het tuinieren geweest</strong></em></div>
+          <div class="gw-cont-ex"><strong>5.</strong> <em>"De kinderen _____ (spelen) in de zandbak."</em><br><em>Antwoord: <strong>zijn aan het spelen</strong> of <strong>zitten te spelen</strong></em></div>
+          <div class="gw-cont-ex"><strong>6.</strong> <em>"_____ (blijven) rustig zitten, alstublieft."</em><br><em>Antwoord: <strong>Blijf</strong> (gewoon <em>blijven</em> + infinitief zonder <em>te</em>)</em></div>
+          <div class="gw-cont-ex"><strong>7.</strong> <em>"Ik _____ (proberen) de hele dag al contact te krijgen."</em><br><em>Antwoord: <strong>ben aan het proberen</strong></em></div>
+          <div class="gw-cont-ex"><strong>8.</strong> <em>"Zij _____ de hele ochtend _____ (opruimen)."</em><br><em>Antwoord: <strong>is ... aan het opruimen geweest</strong></em></div>
+          <div class="gw-cont-ex"><strong>9.</strong> <em>"Wat _____ hij toch _____ (zeuren) over het weer!"</em><br><em>Antwoord: <strong>loopt ... te zeuren</strong></em></div>
+          <div class="gw-cont-ex"><strong>10.</strong> <em>"Ik kan niet naar de telefoon, want ik _____ net _____ (douchen)."</em><br><em>Antwoord: <strong>ben ... aan het douchen</strong></em></div>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Snelle Samenvatting</h3>
+        <ul>
+          <li><strong>Aan het:</strong> Universeel, neutraal (<em>Ik ben aan het lezen</em>)</li>
+          <li><strong>ZILLSH + te:</strong> Benadrukt houding of irritatie (<em>Ik zit te lezen, Hij loopt te zeuren</em>)</li>
+          <li><strong>Bezig zijn:</strong> Formeel, taakgericht (<em>Ik ben bezig met werken</em>)</li>
+          <li><strong>IPP-regel:</strong> In voltooide tijd → <em>heb zitten lezen</em> (NIET <em>gezeten</em>)</li>
+          <li><strong>Scheidbaar:</strong> Blijft ongesplitst; <em>te</em> tussen voorvoegsel en stam (<em>op te ruimen</em>)</li>
+          <li><strong>Bijzin:</strong> Persoonsvorm naar het einde (<em>...omdat ik aan het lezen ben</em>)</li>
+          <li><strong>Blijven/Doorgaan:</strong> Voortzetting zonder <em>te</em> (<em>Blijf zitten</em>)</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Hopelijk biedt deze gids een helder en volledig overzicht van de Nederlandse continuïteitsvormen. Als je een specifieke constructie verder wilt uitdiepen, of als je meer wilt oefenen met de combinatie van <em>zitten te</em> en <em>aan het</em>, laat het me dan gerust weten. Ik <strong>ben altijd bezig</strong> mijn kennis <strong>te delen</strong> en <strong>sta</strong> graag voor je <strong>klaar</strong>! 🚀</p>
+      </div>
+    </div>
+  `
+},
     {id:29,t:"Vervangende infinitief",d:"Modale perfectum zonder ge-"},
     {id:30,t:"Het woord 'er'",d:"Alle zeven functies van 'er' uitgelegd"},
     {id:31,t:"Pronominale bijwoorden",d:"Ervan, hierop, daarvoor, waarmee"},
