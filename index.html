@@ -7104,9 +7104,1369 @@ const TOPICS = {
     </div>
   `
 },
-    {id:18,t:"Ontkenningen",d:"Niet en geen – keuze en plaatsing"},
-    {id:19,t:"Zinsvolgorde in hoofdzinnen",d:"Inversie en de V2-regel"},
-    {id:20,t:"Zinsvolgorde in bijzinnen",d:"Werkwoord naar het einde"},
+{
+  id: 18,
+  t: "Ontkenningen",
+  d: "Niet vs. geen, nooit, niemand, niets — compleet overzicht",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      .gw-neg-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+      }
+      .gw-neg-title {
+        font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+        margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+      }
+      .gw-neg-ex {
+        padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+      }
+      .gw-neg-ex:last-child { border-bottom: none; }
+
+      .gw-decision-tree {
+        background: var(--gw-bg3); border-radius: 16px; padding: 20px;
+        border-left: 4px solid var(--gw-accent); margin: 16px 0;
+      }
+      .gw-decision-step {
+        margin-bottom: 12px; padding-left: 16px;
+        border-left: 2px solid var(--gw-border);
+      }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+        .gw-neg-title { font-size: 1.05rem; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🌑 Ontkenningen</h1>
+        <p>Niet vs. geen, nooit, niemand, niets — compleet overzicht</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Je hebt gelijk! Het onderwerp verdient een <strong>nog completere, diepere duik</strong>. Hier is een <strong>uitgebreide, foutloze en schitterend gedetailleerde</strong> gids over de Nederlandse ontkenning. We voegen extra regels toe, uitzonderingen, stijlfiguren en nóg meer voorbeelden. Zie dit als het ultieme handboek.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>📜 Deel 1: De Kern – 'Niet' vs. 'Geen' (De Beslissingsboom)</h2>
+        <p>De allerbelangrijkste regel, die elke fout kan voorkomen, is deze beslisboom:</p>
+        
+        <div class="gw-decision-tree">
+          <div class="gw-decision-step">
+            <strong>Stap 1:</strong> Kijk naar het zelfstandig naamwoord (ZN) dat je wilt ontkennen.
+          </div>
+          <div class="gw-decision-step">
+            • Heeft het ZN het lidwoord <strong>'een'</strong>? → Vervang 'een' door <strong>'geen'</strong>.<br>
+            • Heeft het ZN <strong>géén lidwoord</strong>? (Meervoud, stofnaam, abstract begrip) → Gebruik <strong>'geen'</strong>.<br>
+            • Heeft het ZN <strong>'de' of 'het'</strong>? → Gebruik <strong>'niet'</strong>.<br>
+            • Heeft het ZN een <strong>bezittelijk voornaamwoord</strong> (mijn, jouw, zijn)? → Gebruik <strong>'niet'</strong>.<br>
+            • Heeft het ZN een <strong>aanwijzend voornaamwoord</strong> (deze, die, dit, dat)? → Gebruik <strong>'niet'</strong>.
+          </div>
+          <div class="gw-decision-step">
+            <strong>Stap 2:</strong> Als je geen zelfstandig naamwoord ontkent, maar een werkwoord, bijwoord, bijvoeglijk naamwoord of hele zin: → Gebruik <strong>altijd 'niet'</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>❌ Deel 2: 'Geen' – De Ontkenning van Onbepaaldheid</h2>
+        <p><strong>'Geen'</strong> is de samentrekking van <em>'niet een'</em>. Het wordt alleen gebruikt voor <strong>onbepaalde zelfstandige naamwoorden</strong>.</p>
+        
+        <h3>✅ Regel 1: Vervanging van 'een'</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Bevestigend</th><th>Ontkennend</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><em>een man</em></td><td><em>geen man</em></td><td><em>"Er staat <strong>geen</strong> man voor de deur, maar een vrouw."</em></td></tr>
+              <tr><td><em>een idee</em></td><td><em>geen idee</em></td><td><em>"Ik heb <strong>geen</strong> idee wat je bedoelt."</em></td></tr>
+              <tr><td><em>een cent</em></td><td><em>geen cent</em></td><td><em>"Het kost <strong>geen</strong> cent, het is gratis."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ Regel 2: Meervoud zonder lidwoord</h3>
+        <p>Bij meervouden waar in de bevestigende zin géén lidwoord staat, gebruik je <strong>geen</strong>.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Bevestigend</th><th>Ontkennend</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><em>Ik heb vrienden.</em></td><td><em>Ik heb <strong>geen</strong> vrienden.</em></td><td><em>"In deze stad heb ik nog <strong>geen</strong> vrienden gemaakt."</em></td></tr>
+              <tr><td><em>Er liggen boeken.</em></td><td><em>Er liggen <strong>geen</strong> boeken.</em></td><td><em>"Op dat bureau liggen <strong>geen</strong> boeken, alleen papieren."</em></td></tr>
+              <tr><td><em>Zij verkoopt bloemen.</em></td><td><em>Zij verkoopt <strong>geen</strong> bloemen.</em></td><td><em>"Helaas verkoopt deze winkel <strong>geen</strong> bloemen."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ Regel 3: Ontelbare stoffen en abstracta</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Bevestigend</th><th>Ontkennend</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><em>Ik drink melk.</em></td><td><em>Ik drink <strong>geen</strong> melk.</em></td><td><em>"Ik drink <strong>geen</strong> melk, ik ben lactose-intolerant."</em></td></tr>
+              <tr><td><em>We hebben geduld.</em></td><td><em>We hebben <strong>geen</strong> geduld.</em></td><td><em>"Voor die onzin heb ik <strong>geen</strong> geduld meer."</em></td></tr>
+              <tr><td><em>Er zit suiker in.</em></td><td><em>Er zit <strong>geen</strong> suiker in.</em></td><td><em>"Gelukkig zit er <strong>geen</strong> suiker in deze thee."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"<strong>Geen</strong> hond die naar hem omkeek."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Het maakte <strong>geen</strong> enkel verschil."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Zij heeft <strong>geen</strong> benul van tijd."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Geen</strong> sprake van!"</em> <small>(Absoluut niet!)</small></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Geen</strong> vuiltje aan de lucht."</em> <small>(Alles is in orde)</small></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📍 Deel 3: 'Niet' – De Positie in de Zin</h2>
+        <p>De plaats van <strong>'niet'</strong> hangt af van <strong>wat</strong> je ontkent en de structuur van de zin.</p>
+        
+        <h3>🔹 A. 'Niet' in de Hoofdzin (Mededelend)</h3>
+        <p><strong>Algemene Regel:</strong> <em>Niet</em> wil zo ver mogelijk naar achteren, maar het moet vóór het element staan dat het ontkent als dat element specifiek is.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Je ontkent...</th><th>Positie van 'Niet'</th><th>Voorbeeldzinnen</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Het hele werkwoord / de hele actie</strong></td><td>Helemaal achteraan</td><td><em>"Ik kom <strong>niet</strong>."<br>"Hij belt <strong>niet</strong>."<br>"Wij hebben hem <strong>niet</strong> gezien."</em></td></tr>
+              <tr><td><strong>Een specifiek ZN met 'de' of 'het'</strong></td><td>Vóór het lidwoord</td><td><em>"Ik bedoel <strong>niet de</strong> directeur, maar zijn assistent."<br>"Hij las <strong>niet het</strong> boek, maar de samenvatting."</em></td></tr>
+              <tr><td><strong>Een bezittelijk voornaamwoord</strong></td><td>Vóór het bezittelijk vnw.</td><td><em>"Dat is <strong>niet mijn</strong> tas."<br>"Zij is <strong>niet zijn</strong> type."</em></td></tr>
+              <tr><td><strong>Een aanwijzend voornaamwoord</strong></td><td>Vóór het aanwijzend vnw.</td><td><em>"Ik wil <strong>niet deze</strong> stoel, maar die daar."<br>"Hij zei <strong>niet dat</strong>, hij zei iets anders."</em></td></tr>
+              <tr><td><strong>Een bijvoeglijk naamwoord</strong></td><td>Vóór het bijvoeglijk naamwoord</td><td><em>"De soep is <strong>niet lekker</strong>."<br>"Het was <strong>niet warm</strong> genoeg."</em></td></tr>
+              <tr><td><strong>Een bijwoord of bepaling</strong></td><td>Vóór het bijwoord / de bepaling</td><td><em>"Hij loopt <strong>niet snel</strong>."<br>"Ik woon <strong>niet in</strong> de stad."<br>"Het feest is <strong>niet op</strong> zondag."</em></td></tr>
+              <tr><td><strong>Een telwoord of hoeveelheid</strong></td><td>Vóór het telwoord</td><td><em>"Ik heb <strong>niet drie</strong>, maar vier broers."<br>"Er waren <strong>niet veel</strong> mensen."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--tip" style="margin-top:16px;">
+          <div class="gw-card-title">🔄 De Wedloop naar het Einde (Werkwoordscluster):</div>
+          <p style="margin:0; color:var(--gw-text)">In een zin met een hulpwerkwoord en een infinitief of voltooid deelwoord, staat <em>niet</em> meestal vóór die werkwoorden aan het einde.<br><em>"Ik <strong>heb</strong> hem <strong>niet</strong> kunnen <strong>bereiken</strong>."<br>"Zij <strong>zou</strong> dat <strong>niet</strong> mogen <strong>doen</strong>."<br>"We <strong>zijn</strong> <strong>niet</strong> gaan <strong>zwemmen</strong>."</em></p>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 B. 'Niet' in de Vraagzin (Inversie)</h3>
+        <p>In vraagzinnen blijft <em>niet</em> op dezelfde plek staan als in de mededelende zin, relatief gezien.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Mededelende Zin</th><th>Vraagzin</th></tr></thead>
+            <tbody>
+              <tr><td><em>"Jij komt <strong>niet</strong>."</em></td><td><em>"<strong>Kom</strong> jij <strong>niet</strong>?"</em></td></tr>
+              <tr><td><em>"Hij heeft <strong>niet</strong> gebeld."</em></td><td><em>"<strong>Heeft</strong> hij <strong>niet</strong> gebeld?"</em></td></tr>
+              <tr><td><em>"Zij woont <strong>niet</strong> in Amsterdam."</em></td><td><em>"<strong>Woont</strong> zij <strong>niet</strong> in Amsterdam?"</em></td></tr>
+              <tr><td><em>"Je houdt <strong>niet</strong> van vis."</em></td><td><em>"<strong>Houd</strong> je <strong>niet</strong> van vis?"</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 C. 'Niet' in de Bijzin</h3>
+        <p>In een bijzin (met <em>dat, omdat, als, terwijl, hoewel, die, wat</em>) staan <strong>alle werkwoorden aan het einde</strong>. <em>Niet</em> staat <strong>vóór</strong> die werkwoorden.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Hoofdzin</th><th>Bijzin</th></tr></thead>
+            <tbody>
+              <tr><td><em>"Hij zegt ..."</em></td><td><em>"...dat hij <strong>niet komt</strong>."</em></td></tr>
+              <tr><td><em>"Ik blijf thuis ..."</em></td><td><em>"...omdat ik <strong>niet wil gaan</strong>."</em></td></tr>
+              <tr><td><em>"Het boek ..."</em></td><td><em>"...dat ik <strong>niet heb gelezen</strong>."</em></td></tr>
+              <tr><td><em>"De man ..."</em></td><td><em>"...die ik <strong>niet ken</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Ze vertelde dat ze <strong>niet</strong> kon slapen."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Ik snap niet waarom je <strong>niet</strong> gewoon de waarheid zegt."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Hoewel het <strong>niet</strong> regende, nam hij een paraplu mee."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Dit is de film die ik <strong>niet</strong> wilde missen."</em></span>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 D. 'Niet' voor een Infinitief met 'Te'</h3>
+        <p>Bij constructies met <em>om... te + infinitief</em> staat <em>niet</em> meestal vóór <em>te</em>.</p>
+        <div class="gw-example">
+          <span class="orig">📌 <em>"Hij besloot <strong>niet te</strong> gaan."</em></span>
+          <span class="orig" style="margin-top:4px;">📌 <em>"Zij beloofde <strong>niet te</strong> laat <strong>te</strong> komen."</em></span>
+          <span class="orig" style="margin-top:4px;">📌 <em>"Het is beter <strong>niet te</strong> veel <strong>te</strong> vragen."</em></span>
+          <span class="orig" style="margin-top:4px;">📌 <em>"Ik raad je aan <strong>niet te</strong> lang <strong>te</strong> wachten."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🌌 Deel 4: Het Hele Armaan – Andere Ontkenningswoorden</h2>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Woord</th><th>Betekenis</th><th>Tegenpool</th><th>Uitgebreide Voorbeelden</th></tr></thead>
+            <tbody>
+              <tr><td><strong>nooit</strong></td><td>Op geen enkel tijdstip</td><td><em>altijd</em></td><td><em>"Ik heb <strong>nooit</strong> een rijbewijs gehad."<br>"<strong>Nooit</strong> meer doe ik dat!"<br>"<strong>Nooit</strong> van mijn leven heb ik zoiets gehoord."</em></td></tr>
+              <tr><td><strong>niemand</strong></td><td>Geen enkel persoon</td><td><em>iedereen</em></td><td><em>"<strong>Niemand</strong> had de moed om te protesteren."<br>"Ik heb <strong>niemand</strong> kwaad gedaan."<br>"<strong>Niemand</strong> minder dan de koningin was aanwezig."</em></td></tr>
+              <tr><td><strong>niets</strong></td><td>Geen enkele zaak</td><td><em>alles</em></td><td><em>"<strong>Niets</strong> is wat het lijkt."<br>"Ik voel <strong>niets</strong> voor dat plan."<br>"Dat is <strong>niets</strong> voor jou."</em></td></tr>
+              <tr><td><strong>nergens</strong></td><td>Op geen enkele plaats</td><td><em>overal</em></td><td><em>"Ik kan mijn sleutels <strong>nergens</strong> vinden."<br>"<strong>Nergens</strong> ter wereld voel ik me zo veilig."<br>"<strong>Nergens</strong> op slaat dat!"</em></td></tr>
+              <tr><td><strong>noch</strong></td><td>En ook niet</td><td><em>en</em></td><td><em>"Hij heeft <strong>noch</strong> de tijd <strong>noch</strong> het geld."<br>"Ik ken <strong>noch</strong> zijn naam <strong>noch</strong> zijn adres."<br>"Dat is <strong>noch</strong> vlees <strong>noch</strong> vis."</em></td></tr>
+              <tr><td><strong>zonder</strong></td><td>In afwezigheid van</td><td><em>met</em></td><td><em>"Koffie <strong>zonder</strong> suiker, alstublieft."<br>"<strong>Zonder</strong> jouw hulp was het niet gelukt."<br>"Hij vertrok <strong>zonder</strong> iets te zeggen."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Ik heb <strong>nooit</strong> <strong>niemand</strong> verteld over mijn geheim."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Nergens</strong> kon ik <strong>iets</strong> vinden."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Hij heeft <strong>nooit</strong> <strong>ergens</strong> last van."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Deel 5: Ontkenning met 'Er' – De Onzichtbare Regisseur</h2>
+        <p>Het woordje <strong>'er'</strong> is verplicht als er een <strong>onbepaald onderwerp</strong> is in combinatie met een ontkenning.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Zonder 'er' (Bepaald Onderwerp)</th><th>Met 'er' (Onbepaald Onderwerp Ontkend)</th></tr></thead>
+            <tbody>
+              <tr><td><em>"De man staat <strong>niet</strong> buiten."</em></td><td><em>"<strong>Er</strong> staat <strong>geen</strong> man buiten."<br>(of: "<strong>Er</strong> staat <strong>niemand</strong> buiten.")</em></td></tr>
+              <tr><td><em>"Het boek ligt <strong>niet</strong> op tafel."</em></td><td><em>"<strong>Er</strong> ligt <strong>geen</strong> boek op tafel."</em></td></tr>
+              <tr><td><em>"De fout is <strong>niet</strong> gemaakt."</em></td><td><em>"<strong>Er</strong> is <strong>geen</strong> fout gemaakt."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔄 Passieve Zinnen met 'Er':</h3>
+        <div class="gw-example">
+          <span class="orig">📌 <em>"<strong>Er</strong> wordt hier <strong>niet</strong> gerookt."</em></span>
+          <span class="orig" style="margin-top:4px;">📌 <em>"<strong>Er</strong> is <strong>niet</strong> naar hem geluisterd."</em></span>
+          <span class="orig" style="margin-top:4px;">📌 <em>"<strong>Er</strong> wordt <strong>geen</strong> alcohol geschonken."</em></span>
+        </div>
+
+        <h3 style="margin-top:24px;">🔢 Hoeveelheden met 'Er':</h3>
+        <div class="gw-example">
+          <span class="orig">📌 <em>"<strong>Er</strong> waren <strong>niet veel</strong> mensen."</em></span>
+          <span class="orig" style="margin-top:4px;">📌 <em>"<strong>Er</strong> is <strong>niets</strong> te doen."</em></span>
+          <span class="orig" style="margin-top:4px;">📌 <em>"<strong>Er</strong> was <strong>geen</strong> vuiltje aan de lucht."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🪞 Deel 6: Dubbele Ontkenning – Dialect vs. Stijlfiguur (Litotes)</h2>
+        
+        <h3>❌ A. Dubbele Ontkenning in Dialect (FOUT in Standaardtaal)</h3>
+        <p>In de standaard schrijftaal heffen twee ontkenningen elkaar op tot een bevestiging, net als in de wiskunde (<em>min × min = plus</em>). In dialecten wordt het juist gebruikt als <strong>versterking</strong>.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Dialect / Spreektaal (NIET SCHRIJVEN)</th><th>Standaardnederlands (CORRECT)</th></tr></thead>
+            <tbody>
+              <tr><td><em>❌ "Ik heb <strong>niet geen</strong> zin."</em></td><td><em>✅ "Ik heb <strong>geen</strong> zin."</em></td></tr>
+              <tr><td><em>❌ "Daar weet ik <strong>niets niet</strong> van."</em></td><td><em>✅ "Daar weet ik <strong>niets</strong> van."</em></td></tr>
+              <tr><td><em>❌ "Dat heb ik <strong>nooit niet</strong> gedaan."</em></td><td><em>✅ "Dat heb ik <strong>nooit</strong> gedaan."</em></td></tr>
+              <tr><td><em>❌ "Ik kan <strong>niet zonder</strong> jou <strong>niet</strong>."</em></td><td><em>✅ "Ik kan <strong>niet zonder</strong> jou."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ B. Litotes – De Elegante Dubbele Ontkenning (WEL Correct)</h3>
+        <p>Een <strong>litotes</strong> is een stijlfiguur waarbij je het tegenovergestelde ontkent om een <strong>verzacht positief</strong> effect te bereiken. Dit is <strong>wel</strong> correct Nederlands.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Litotes</th><th>Werkelijke Betekenis</th></tr></thead>
+            <tbody>
+              <tr><td><em>"Dat is <strong>niet onaardig</strong>."</em></td><td>Dat is best wel aardig.</td></tr>
+              <tr><td><em>"Hij is <strong>niet onknap</strong>."</em></td><td>Hij is best knap.</td></tr>
+              <tr><td><em>"<strong>Niet onwaarschijnlijk</strong>."</em></td><td>Waarschijnlijk.</td></tr>
+              <tr><td><em>"Dat is <strong>niet slecht</strong> gedaan."</em></td><td>Dat is goed gedaan.</td></tr>
+              <tr><td><em>"Ik ben er <strong>niet gerust op</strong>."</em></td><td>Ik maak me zorgen.</td></tr>
+              <tr><td><em>"<strong>Niet zonder risico</strong>."</em></td><td>Riskant.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>❓ Deel 7: Ontkenning in Vragen en Imperatieven</h2>
+        
+        <h3>🔹 A. Vraagzinnen die een Bevestigend Antwoord Verwachten</h3>
+        <p>Als je een vraag stelt met een ontkenning erin, verwacht je meestal een bevestigend antwoord ("Ja, dat is zo").</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Vraag met Ontkenning</th><th>Verwacht Antwoord</th></tr></thead>
+            <tbody>
+              <tr><td><em>"<strong>Kom</strong> je <strong>niet</strong>?"</em></td><td><em>"Jawel, ik kom!"</em></td></tr>
+              <tr><td><em>"<strong>Is</strong> dat <strong>niet</strong> prachtig?"</em></td><td><em>"Jawel, schitterend!"</em></td></tr>
+              <tr><td><em>"<strong>Heb</strong> je <strong>geen</strong> honger?"</em></td><td><em>"Jawel, enorme honger."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--warn" style="margin-top:16px;">
+          <div class="gw-card-title">⚠️ Let op 'Jawel' als antwoord:</div>
+          <p style="margin:0; color:var(--gw-text)">Als de vraag ontkennend is en jij wilt <strong>positief</strong> antwoorden, gebruik je <strong>'jawel'</strong> in plaats van 'ja'.<br><em>Vraag: "Heb je geen zin?"<br>Antwoord: "<strong>Jawel</strong>, ik heb wel zin."</em> (Niet: "Ja, ik heb geen zin.")</p>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 B. Imperatief (Gebiedende Wijs) met Ontkenning</h3>
+        <p>Je gebruikt <strong>'niet'</strong> of <strong>'geen'</strong> vóór het werkwoord (of na het onderwerp als dat erbij staat).</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Bevestigend</th><th>Ontkennend</th></tr></thead>
+            <tbody>
+              <tr><td><em>"<strong>Doe</strong> de deur dicht!"</em></td><td><em>"<strong>Doe</strong> de deur <strong>niet</strong> dicht!"</em></td></tr>
+              <tr><td><em>"<strong>Zeg</strong> iets!"</em></td><td><em>"<strong>Zeg</strong> <strong>niets</strong>!"</em></td></tr>
+              <tr><td><em>"<strong>Maak</strong> een grapje!"</em></td><td><em>"<strong>Maak</strong> <strong>geen</strong> grapje!"</em></td></tr>
+              <tr><td><em>"<strong>Wees</strong> bang!"</em></td><td><em>"<strong>Wees</strong> <strong>niet</strong> bang!"</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📜 Deel 8: Vaste Uitdrukkingen en Spreekwoorden</h2>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Uitdrukking</th><th>Betekenis</th></tr></thead>
+            <tbody>
+              <tr><td><em>"<strong>Geen</strong> speld tussen te krijgen."</em></td><td>Er valt niets op aan te merken.</td></tr>
+              <tr><td><em>"<strong>Niet</strong> voor de poes zijn."</em></td><td>Niet te onderschatten zijn.</td></tr>
+              <tr><td><em>"<strong>Geen</strong> pap meer kunnen zeggen."</em></td><td>Doodop zijn.</td></tr>
+              <tr><td><em>"<strong>Niet</strong> op je achterhoofd gevallen zijn."</em></td><td>Slim zijn.</td></tr>
+              <tr><td><em>"<strong>Geen</strong> hoge pet op hebben van."</em></td><td>Geen goed vertrouwen hebben in.</td></tr>
+              <tr><td><em>"<strong>Niet</strong> over één nacht ijs gaan."</em></td><td>Voorzichtig zijn.</td></tr>
+              <tr><td><em>"<strong>Geen</strong> been om op te staan."</em></td><td>Geen enkel bewijs of argument.</td></tr>
+              <tr><td><em>"<strong>Niet</strong> in de kouwe kleren gaan zitten."</em></td><td>Diepe indruk maken / zwaar vallen.</td></tr>
+              <tr><td><em>"<strong>Geen</strong> knip voor de neus waard zijn."</em></td><td>Waardeloos zijn.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Deel 9: Valkuilen en Veelgemaakte Fouten</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Fout ❌</th><th>Correctie ✅</th><th>Waarom?</th></tr></thead>
+            <tbody>
+              <tr><td><em>Ik heb niet een hond.</em></td><td>Ik heb <strong>geen</strong> hond.</td><td>'Een' + ZN → 'geen'</td></tr>
+              <tr><td><em>Ik heb geen de sleutel.</em></td><td>Ik heb <strong>de sleutel niet</strong>.</td><td>Bepaald lidwoord → 'niet'</td></tr>
+              <tr><td><em>Dat is geen mijn auto.</em></td><td>Dat is <strong>mijn auto niet</strong>.</td><td>Bezittelijk vnw. → 'niet'</td></tr>
+              <tr><td><em>Hij is niet snel niet.</em></td><td>Hij is <strong>niet snel</strong>.</td><td>Geen dubbele ontkenning</td></tr>
+              <tr><td><em>Zij heeft niet genoeg geld niet.</em></td><td>Zij heeft <strong>niet genoeg</strong> geld.</td><td>Idem</td></tr>
+              <tr><td><em>Er is niet brood.</em></td><td>Er is <strong>geen</strong> brood.</td><td>Stofnaam zonder lidwoord → 'geen'</td></tr>
+              <tr><td><em>Ik heb nooit geen problemen.</em></td><td>Ik heb <strong>nooit</strong> problemen.</td><td>'Nooit' is al ontkennend genoeg</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💡 Deel 10: Pro-Tips & Oefenschema's</h2>
+        
+        <h3>✨ Pro-Tips (Samenvatting in Ezelsbruggetjes)</h3>
+        <ol>
+          <li><strong>De 'Een'-Wisser:</strong> Zie je <strong>'een'</strong>? Maak er <strong>'geen'</strong> van.</li>
+          <li><strong>De 'De/Het'-Alarm:</strong> Zie je <strong>'de'</strong> of <strong>'het'</strong>? Zet <strong>'niet'</strong> ergens in de zin (meestal achteraan).</li>
+          <li><strong>Meervoud zonder Lidwoord:</strong> Direct <strong>'geen'</strong> ervoor zetten. <em>(Ik zie vogels</em> → <em>Ik zie <strong>geen</strong> vogels)</em>.</li>
+          <li><strong>Plaats van 'Niet':</strong> Het wil naar het <strong>einde</strong> van de zin, maar duikt <strong>vóór</strong> het element dat het ontkent (als dat specifiek is) of vóór de <strong>werkwoorden</strong> aan het slot.</li>
+          <li><strong>Jawel!</strong> Antwoord op een ontkennende vraag met 'Jawel' als je het wél bedoelt. <em>("Heb je geen zin?" "<strong>Jawel</strong>, ik heb zin.")</em></li>
+        </ol>
+
+        <h3 style="margin-top:24px;">📝 Oefenschema: Zet de volgende zinnen in de ontkenning</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Bevestigend</th><th>Jouw Antwoord</th></tr></thead>
+            <tbody>
+              <tr><td>1. Ik heb een fiets.</td><td><em>Ik heb <strong>geen</strong> fiets.</em></td></tr>
+              <tr><td>2. Ik zie de fiets.</td><td><em>Ik zie <strong>de</strong> fiets <strong>niet</strong>.</em></td></tr>
+              <tr><td>3. Zij drinkt koffie.</td><td><em>Zij drinkt <strong>geen</strong> koffie.</em></td></tr>
+              <tr><td>4. Wij gaan naar het feest.</td><td><em>Wij gaan <strong>niet naar</strong> het feest.</em></td></tr>
+              <tr><td>5. Hij is aardig.</td><td><em>Hij is <strong>niet</strong> aardig.</em></td></tr>
+              <tr><td>6. Er staat iemand voor de deur.</td><td><em>Er staat <strong>niemand</strong> voor de deur.</em></td></tr>
+              <tr><td>7. Ik heb ooit gerookt.</td><td><em>Ik heb <strong>nooit</strong> gerookt.</em></td></tr>
+              <tr><td>8. Doe de deur open!</td><td><em>Doe de deur <strong>niet</strong> open!</em></td></tr>
+              <tr><td>9. Dat is mijn boek.</td><td><em>Dat is <strong>mijn</strong> boek <strong>niet</strong>.</em></td></tr>
+              <tr><td>10. Er zijn veel mensen.</td><td><em>Er zijn <strong>niet veel</strong> mensen.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Snelle Samenvatting</h3>
+        <ul>
+          <li><strong>Geen:</strong> Vervangt <em>een</em> | Meervoud zonder lidwoord | Stofnamen zonder lidwoord</li>
+          <li><strong>Niet:</strong> Voor <em>de/het</em> | Bezittelijk vnw. | Werkwoorden | Bijvoeglijke naamwoorden</li>
+          <li><strong>Positie van 'niet':</strong> Naar het einde, maar vóór het element dat ontkend wordt</li>
+          <li><strong>Andere ontkenners:</strong> <em>nooit, niemand, niets, nergens, noch, zonder</em></li>
+          <li><strong>Er + ontkenning:</strong> Verplicht bij onbepaald onderwerp → <em>Er is geen...</em></li>
+          <li><strong>Dubbele ontkenning:</strong> Fout in standaardtaal, maar <em>litotes</em> is stijlfiguur</li>
+          <li><strong>Jawel:</strong> Positief antwoord op ontkennende vraag</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Hopelijk is deze ultieme gids precies wat je zocht. Als je hierna <strong>oefeningen met feedback</strong> wilt, of als je een <strong>specifiek onderdeel</strong> nog verder uitgediept wilt zien (bijv. alleen 'er' in ontkenningen, of alleen de positie van 'niet' in lange zinnen), dan maak ik dat met alle plezier voor je. <strong>Niet</strong> twijfelen, gewoon vragen! 🚀</p>
+      </div>
+    </div>
+  `
+},
+{
+  id: 19,
+  t: "Zinsvolgorde in hoofdzinnen",
+  d: "Inversie en de V2-regel — compleet overzicht",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🏛️ Zinsvolgorde in Hoofdzinnen</h1>
+        <p>Inversie en de V2-regel — de dans van het onderwerp en de persoonsvorm</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Met groot genoegen duiken we in een van de meest fundamentele en tegelijkertijd meest elegante onderdelen van de Nederlandse grammatica: de <strong>zinsvolgorde in hoofdzinnen</strong>. Dit is het terrein van de beroemde <strong>V2-regel</strong> (werkwoord op de tweede plaats), de dans van het onderwerp en de persoonsvorm, en de kunst van het plaatsen van alle andere zinsdelen op de juiste plek.</p>
+        <p>Deze gids is jouw complete, foutloze en prachtig geïllustreerde naslagwerk. We behandelen alles van de basisstructuur tot de fijnste nuances van inversie, de positie van <em>niet</em> en <em>er</em>, en de volgorde van werkwoordsclusters aan het einde. Uiteraard met een <strong>overvloed aan schitterende voorbeelden</strong>.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>🏛️ Deel 1: De Gouden Regel van de Nederlandse Hoofdzin – V2</h2>
+        <p>De absolute basisregel voor elke mededelende hoofdzin (en ja/nee-vraagzin) in het Nederlands is de <strong>V2-regel</strong>: het <strong>vervoegde werkwoord</strong> (de persoonsvorm) staat altijd op de <strong>tweede positie</strong> in de zin.</p>
+        
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">📐 Wat is de "eerste positie"?</div>
+          <p style="margin:0; color:var(--gw-text)">De eerste positie wordt ingenomen door <strong>één zinsdeel</strong>. Dat kan het onderwerp zijn, maar ook een tijd- of plaatsbepaling, een lijdend voorwerp, of zelfs een hele bijzin.</p>
+        </div>
+
+        <div class="gw-table-wrap" style="margin-top:16px;">
+          <table class="gw-table">
+            <thead><tr><th>Eerste Positie (1)</th><th>Tweede Positie = Persoonsvorm (2)</th><th>Rest van de Zin (3, 4, 5...)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Ik</strong></td><td><strong>ga</strong></td><td>morgen naar de bioscoop.</td></tr>
+              <tr><td><strong>Morgen</strong></td><td><strong>ga</strong></td><td>ik naar de bioscoop.</td></tr>
+              <tr><td><strong>Naar de bioscoop</strong></td><td><strong>ga</strong></td><td>ik morgen.</td></tr>
+              <tr><td><strong>Omdat ik jarig ben,</strong></td><td><strong>trakteer</strong></td><td>ik vandaag op taart.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--warn" style="margin-top:16px;">
+          <div class="gw-card-title">⚠️ Cruciaal:</div>
+          <p style="margin:0; color:var(--gw-text)">Het onderwerp (<em>ik</em>) staat <strong>direct naast</strong> de persoonsvorm (<em>ga</em>). Als het onderwerp niet op de eerste plek staat, komt het direct op de derde plek. Dit heet <strong>inversie</strong> (omkering van onderwerp en persoonsvorm).</p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧱 Deel 2: De Basisstructuur – Onderwerp, Persoonsvorm, Rest</h2>
+        <p>In de meest neutrale hoofdzin begint de zin met het <strong>onderwerp</strong>, gevolgd door de <strong>persoonsvorm</strong>. De rest van de informatie volgt daarna.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Structuur</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Onderwerp – PV – (Rest)</strong></td><td><em>"<strong>De kat</strong> (O) <strong>zit</strong> (PV) op de mat."</em></td></tr>
+              <tr><td></td><td><em>"<strong>Wij</strong> (O) <strong>hebben</strong> (PV) gisteren een nieuwe auto <strong>gekocht</strong>."</em></td></tr>
+              <tr><td></td><td><em>"<strong>Het regent</strong> (O+PV) pijpenstelen."</em> <small>(Hier vallen O en PV samen in 'het regent')</small></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"<strong>De zon schijnt</strong> fel aan de hemel."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Mijn zusje leest</strong> elke avond een verhaaltje voor het slapengaan."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>De leraar legde</strong> het moeilijke onderwerp geduldig uit."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Ik wil</strong> volgend jaar graag een wereldreis <strong>maken</strong>."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔄 Deel 3: Inversie – Wanneer het Onderwerp de Persoonsvorm Volgt</h2>
+        <p>Zodra de eerste positie wordt ingenomen door een <strong>ander zinsdeel dan het onderwerp</strong>, vindt <strong>inversie</strong> plaats. Het onderwerp schuift dan een plekje op en komt <strong>direct na de persoonsvorm</strong>.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Eerste Positie (Niet-Onderwerp)</th><th>PV (2e plek)</th><th>Onderwerp (3e plek)</th><th>Rest</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Morgen</strong></td><td><strong>ga</strong></td><td><strong>ik</strong></td><td>naar Amsterdam.</td></tr>
+              <tr><td><strong>In de zomer</strong></td><td><strong>zwemmen</strong></td><td><strong>wij</strong></td><td>elke dag in het meer.</td></tr>
+              <tr><td><strong>Die film</strong></td><td><strong>heb</strong></td><td><strong>ik</strong></td><td>nog nooit gezien.</td></tr>
+              <tr><td><strong>Vanwege de storm</strong></td><td><strong>bleven</strong></td><td><strong>de scholen</strong></td><td>gesloten.</td></tr>
+              <tr><td><strong>Gelukkig</strong></td><td><strong>was</strong></td><td><strong>het</strong></td><td>op tijd droog.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔍 Inversie in Vraagzinnen (Ja/Nee-vragen):</h3>
+        <p>In een ja/nee-vraag is de eerste positie leeg. De persoonsvorm komt dan op de eerste plek, gevolgd door het onderwerp.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>(Leeg)</th><th>PV (1e plek)</th><th>Onderwerp (2e plek)</th><th>Rest</th></tr></thead>
+            <tbody>
+              <tr><td>-</td><td><strong>Ga</strong></td><td><strong>jij</strong></td><td>morgen mee?</td></tr>
+              <tr><td>-</td><td><strong>Heeft</strong></td><td><strong>hij</strong></td><td>de trein gehaald?</td></tr>
+              <tr><td>-</td><td><strong>Zal</strong></td><td><strong>het</strong></td><td>morgen regenen?</td></tr>
+              <tr><td>-</td><td><strong>Werkt</strong></td><td><strong>deze printer</strong></td><td>nog?</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"<strong>Vandaag begint</strong> de lente."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Op de hoek van de straat staat</strong> een prachtig oud huis."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Nooit heb</strong> ik zoiets vreemds meegemaakt!"</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Na het eten gaan</strong> we een stukje wandelen."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Kom jij</strong> ook naar het feest?"</em></span>
+        </div>
+
+        <div class="gw-note" style="margin-top:12px;">💡 <strong>Let op de eenheid van het eerste zinsdeel:</strong><br>Het eerste zinsdeel mag uit meerdere woorden bestaan, zolang het maar één grammaticale eenheid is.<br><em>"<strong>De oude man met de lange baard</strong> zat op het bankje."</em> (Alles vóór 'zat' is het onderwerp, één zinsdeel).</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📦 Deel 4: De Volgorde van Andere Zinsdelen (De Rest)</h2>
+        <p>Na de persoonsvorm (en eventueel het onderwerp bij inversie) komt de <strong>rest</strong> van de zin. Hier gelden geen absolute regels, maar wel sterke <strong>voorkeursvolgordes</strong> en logica.</p>
+        
+        <h3>✅ A. Algemene Voorkeursvolgorde voor Bepalingen</h3>
+        <p>De meest neutrale volgorde voor bepalingen van tijd, manier en plaats is:</p>
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">📐 Tijd – Manier – Plaats</div>
+          <p style="margin:0; color:var(--gw-text)"><em>"Ik ga <strong>morgen</strong> (Tijd) <strong>op de fiets</strong> (Manier) <strong>naar Amsterdam</strong> (Plaats)."</em><br>Deze volgorde is niet verplicht, maar klinkt het meest natuurlijk. Afwijkingen zijn mogelijk om <strong>nadruk</strong> te leggen.</p>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ B. Lijdend Voorwerp (LV) en Meewerkend Voorwerp (MV)</h3>
+        <p><strong>Met Zelfstandig Naamwoord:</strong> De neutrale volgorde is: <strong>MV vóór LV</strong> (zonder voorzetsel) of <strong>LV vóór MV</strong> (met <em>aan</em>).</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Structuur</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>MV (zonder 'aan') – LV</strong></td><td><em>"Ik <strong>geef</strong> <strong>mijn moeder</strong> (MV) <strong>een cadeau</strong> (LV)."</em></td></tr>
+              <tr><td><strong>LV – MV (met 'aan')</strong></td><td><em>"Ik <strong>geef</strong> <strong>een cadeau</strong> (LV) <strong>aan mijn moeder</strong> (MV)."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="margin-top:12px;"><strong>Met Persoonlijk Voornaamwoord:</strong> Als het MV een <strong>persoonlijk voornaamwoord</strong> is (<em>me, je, hem, haar, ons, jullie, ze</em>), staat het <strong>altijd vóór het LV</strong>.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Structuur</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>MV (pronomen) – LV</strong></td><td><em>"Ik <strong>geef</strong> <strong>haar</strong> <strong>het boek</strong>."<br>"Hij <strong>heeft</strong> <strong>me</strong> <strong>een verhaal</strong> verteld."</em></td></tr>
+              <tr><td><strong>LV (pronomen) – MV (pronomen)</strong></td><td><em>"Ik <strong>geef</strong> <strong>het</strong> (LV) <strong>haar</strong> (MV)." <small>(Let op: <em>het</em> vóór <em>haar</em> als beide voornaamwoorden zijn)</small></em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"<strong>De postbode bezorgde de buren het verkeerde pakketje</strong>."</em> <small>(MV 'de buren' vóór LV 'het verkeerde pakketje')</small></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Zij stuurde haar vriendin een lange brief</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Ik heb het hem gisteren nog gevraagd</strong>."</em> <small>(LV 'het' vóór MV 'hem')</small></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Kun je me de boter even aangeven?</strong>"</em> <small>(MV 'me' vóór LV 'de boter')</small></span>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ C. Bijwoordelijke Bepalingen en 'Er'</h3>
+        <p><strong>'Er'</strong> als onbepaald onderwerp of plaatsbepaling staat <strong>direct na de persoonsvorm</strong> (of na het onderwerp bij inversie).</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Zin</th><th>Positie van 'Er'</th></tr></thead>
+            <tbody>
+              <tr><td><em>"<strong>Er</strong> staat iemand voor de deur."</em></td><td>Direct na PV (<em>staat</em>).</td></tr>
+              <tr><td><em>"Vandaag <strong>staat er</strong> iemand voor de deur."</em></td><td>Na PV (<em>staat</em>) en vóór het onbepaald onderwerp (<em>iemand</em>).</td></tr>
+              <tr><td><em>"Ik heb <strong>er</strong> geen zin in."</em></td><td>Na het onderwerp en PV, voor de rest.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"<strong>Er</strong> wordt hier niet gerookt."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Er</strong> is iets vreemds aan de hand."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Gisteren <strong>heeft er</strong> een ernstig ongeluk plaatsgevonden."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Ik heb <strong>er</strong> lang over nagedacht."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎯 Deel 5: De Positie van 'Niet' in de Hoofdzin</h2>
+        <p>De regel is simpel: <em>niet</em> wil zo ver mogelijk naar achteren, maar het moet <strong>vóór</strong> het element staan dat het ontkent als dat element specifiek is.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Je ontkent...</th><th>Positie van 'Niet'</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>De hele actie</strong></td><td>Helemaal achteraan</td><td><em>"Ik kom <strong>niet</strong>."</em></td></tr>
+              <tr><td><strong>Een specifiek ZN met 'de/het'</strong></td><td>Vóór het ZN</td><td><em>"Ik bedoel <strong>niet de</strong> directeur."</em></td></tr>
+              <tr><td><strong>Een bijvoeglijk naamwoord</strong></td><td>Vóór het BN</td><td><em>"De soep is <strong>niet lekker</strong>."</em></td></tr>
+              <tr><td><strong>Een voorzetselbepaling</strong></td><td>Vóór het voorzetsel</td><td><em>"Ik woon <strong>niet in</strong> Amsterdam."</em></td></tr>
+              <tr><td><strong>Een werkwoordscluster</strong></td><td>Vóór de werkwoorden</td><td><em>"Ik <strong>heb</strong> hem <strong>niet</strong> kunnen <strong>zien</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔚 Deel 6: De Plaats van Werkwoorden aan het Einde (Het Rechterveld)</h2>
+        <p>Een van de meest kenmerkende eigenschappen van het Nederlands is dat <strong>niet-vervoegde werkwoorden</strong> (infinitieven, voltooide deelwoorden, scheidbare voorvoegsels) naar het <strong>einde</strong> van de hoofdzin worden verbannen. Dit creëert de beroemde <strong>tangconstructie</strong> (Satzklammer).</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Vooraan</th><th>Middenstuk</th><th>Achteraan (Werkwoorden)</th></tr></thead>
+            <tbody>
+              <tr><td><em>Ik <strong>heb</strong> ...</em></td><td>... mijn zusje gisteren een boek ...</td><td>... <strong>gegeven</strong>.</td></tr>
+              <tr><td><em>Hij <strong>wil</strong> ...</em></td><td>... volgend jaar een wereldreis ...</td><td>... <strong>maken</strong>.</td></tr>
+              <tr><td><em>Zij <strong>belde</strong> ...</em></td><td>... haar moeder gisteren ...</td><td>... <strong>op</strong>. <small>(Scheidbaar voorvoegsel)</small></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔍 Volgorde van Meerdere Werkwoorden aan het Einde:</h3>
+        <p>Wanneer er twee of meer werkwoorden aan het einde staan, is de standaardvolgorde (de <strong>groene volgorde</strong>):</p>
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">📐 Hulpwerkwoord van tijd – Koppelwerkwoord / Modaal werkwoord – Hoofdwerkwoord</div>
+          <p style="margin:0; color:var(--gw-text)"><em>"Ik <strong>heb</strong> hem <strong>zien</strong> <strong>lopen</strong>." | <em>"Hij <strong>had</strong> het <strong>willen</strong> <strong>doen</strong>." | <em>"Zij <strong>zou</strong> het <strong>hebben</strong> <strong>kunnen</strong> <strong>zien</strong>."</em></p>
+        </div>
+
+        <div class="gw-note" style="margin-top:16px;">⚠️ <strong>Gevorderd: De 'Rode' Volgorde</strong><br>In sommige regio's (vooral het noordoosten) of in zeer formele schrijftaal komt de <strong>rode volgorde</strong> voor, waarbij het hoofdwerkwoord vóór de hulpwerkwoorden staat: <em>"Ik heb hem <strong>lopen zien</strong>."</em> In de standaardtaal is de groene volgorde (<em>zien lopen</em>) altijd correct en het veiligst om te gebruiken.</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📜 Deel 7: Zinnen met een Scheidbaar Werkwoord</h2>
+        <p>Bij een scheidbaar werkwoord in de hoofdzin staat het <strong>voorvoegsel</strong> helemaal aan het einde van de zin (in het rechterveld).</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Heel Werkwoord</th><th>Hoofdzin (Tegenwoordig)</th><th>Hoofdzin (Voltooid)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>opbellen</strong></td><td><em>"Ik <strong>bel</strong> mijn moeder <strong>op</strong>."</em></td><td><em>"Ik <strong>heb</strong> mijn moeder <strong>opgebeld</strong>."</em></td></tr>
+              <tr><td><strong>aankomen</strong></td><td><em>"De trein <strong>komt</strong> om 3 uur <strong>aan</strong>."</em></td><td><em>"De trein <strong>is</strong> om 3 uur <strong>aangekomen</strong>."</em></td></tr>
+              <tr><td><strong>uitnodigen</strong></td><td><em>"Hij <strong>nodigt</strong> mij <strong>uit</strong>."</em></td><td><em>"Hij <strong>heeft</strong> mij <strong>uitgenodigd</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"<strong>Bel</strong> jij je moeder morgen <strong>op</strong>?"</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Komt</strong> de trein op tijd <strong>aan</strong>?"</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Deel 8: Veelgemaakte Fouten en Hun Correcties</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Fout ❌</th><th>Correctie ✅</th><th>Waarom?</th></tr></thead>
+            <tbody>
+              <tr><td><em>Ik morgen ga naar school.</em></td><td><strong>Morgen ga</strong> ik naar school. (of: Ik <strong>ga</strong> morgen naar school)</td><td>PV moet op de 2e plek.</td></tr>
+              <tr><td><em>Gisteren ik heb hem gezien.</em></td><td>Gisteren <strong>heb ik</strong> hem gezien.</td><td>Inversie: na tijdsbepaling volgt PV dan O.</td></tr>
+              <tr><td><em>Waarom jij bent te laat?</em></td><td>Waarom <strong>ben jij</strong> te laat?</td><td>Inversie in vraagzinnen.</td></tr>
+              <tr><td><em>Ik heb hem gegeven het boek.</em></td><td>Ik <strong>heb</strong> hem <strong>het boek gegeven</strong>.</td><td>LV en MV vóór de werkwoorden aan het eind, tenzij er een reden is voor nadruk.</td></tr>
+              <tr><td><em>Ik heb niet hem gezien.</em></td><td>Ik <strong>heb</strong> hem <strong>niet gezien</strong>.</td><td>'Niet' vóór de werkwoorden aan het eind.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💡 Deel 9: Pro-Tips & Ezelsbruggetjes</h2>
+        <ol>
+          <li><strong>De V2-Check:</strong> Tel de zinsdelen. Het <strong>tweede zinsdeel</strong> is <strong>altijd</strong> de persoonsvorm. Altijd. Geen uitzondering in de hoofdzin.</li>
+          <li><strong>Inversie-Alarm:</strong> Staat de zin niet met het onderwerp? <strong>Alarm!</strong> Het onderwerp moet direct achter de persoonsvorm. <em>"Morgen ga <strong>ik</strong>..."</em></li>
+          <li><strong>De Tangconstructie Onthouden:</strong> Zie de persoonsvorm en de werkwoorden aan het eind als de twee helften van een tang die de rest van de zin omklemmen. Alles wat niet vervoegd is, gaat naar de punt van de tang.</li>
+          <li><strong>'Niet' wil naar Achteren:</strong> Maar duikt vóór specifieke dingen (de/het-woorden, voorzetsels) of vóór de werkwoorden aan het eind.</li>
+          <li><strong>Oefen met het Verplaatsen van het Eerste Zinsdeel:</strong> Neem een simpele zin: <em>"Ik ga morgen naar de film."</em> Verplaats nu het eerste zinsdeel en corrigeer de rest:<br><em>• "Morgen <strong>ga ik</strong> naar de film."</em><br><em>• "Naar de film <strong>ga ik</strong> morgen."</em><br><em>• "Gelukkig <strong>ga ik</strong> morgen naar de film."</em></li>
+        </ol>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 Deel 10: Overzichtsschema (Het Ultieme Spiekbriefje)</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Positie 1</th><th>Positie 2 = PV</th><th>Positie 3</th><th>Middenstuk</th><th>Einde (Rechterveld)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Onderwerp</strong></td><td><strong>werk</strong></td><td>-</td><td>de hele dag</td><td>-</td></tr>
+              <tr><td><strong>Ik</strong></td><td><strong>heb</strong></td><td>-</td><td>mijn sleutels</td><td><strong>verloren</strong>.</td></tr>
+              <tr><td><strong>Morgen</strong></td><td><strong>ga</strong></td><td><strong>ik</strong></td><td>met de trein naar Utrecht</td><td><strong>reizen</strong>.</td></tr>
+              <tr><td><strong>De oude man</strong></td><td><strong>zat</strong></td><td>-</td><td>rustig op het bankje</td><td><strong>te lezen</strong>.</td></tr>
+              <tr><td><strong>Waarom</strong></td><td><strong>heb</strong></td><td><strong>je</strong></td><td>me dat niet eerder</td><td><strong>verteld</strong>?</td></tr>
+              <tr><td><strong>Op tafel</strong></td><td><strong>liggen</strong></td><td><strong>er</strong></td><td>drie rode appels</td><td><strong>te glimmen</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Snelle Samenvatting</h3>
+        <ul>
+          <li><strong>V2-regel:</strong> Persoonsvorm staat altijd op plek 2 in de hoofdzin</li>
+          <li><strong>Inversie:</strong> Als plek 1 géén onderwerp is → onderwerp direct naar plek 3</li>
+          <li><strong>Voorkeur volgorde:</strong> Tijd → Manier → Plaats</li>
+          <li><strong>LV/MV:</strong> MV vóór LV (tenzij beide voornaamwoorden zijn → LV vóór MV)</li>
+          <li><strong>'Er':</strong> Staat direct na de PV of na het onderwerp bij inversie</li>
+          <li><strong>'Niet':</strong> Zo ver mogelijk naar achteren, maar vóór het element dat ontkend wordt</li>
+          <li><strong>Werkwoorden aan het eind:</strong> Hulpww → Modaal → Hoofdww (groene volgorde)</li>
+          <li><strong>Scheidbaar:</strong> Voorvoegsel gaat helemaal naar het einde van de zin</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Hopelijk biedt deze gids een helder en volledig overzicht van de zinsvolgorde in Nederlandse hoofdzinnen. Als je een specifiek type zin wilt oefenen, of als je de overgang naar bijzinnen wilt verkennen, dan maak ik daar graag een even uitgebreide gids voor. Laat het me weten, dan <strong>duiken we erin</strong>! 🚀</p>
+      </div>
+    </div>
+  `
+},
+{
+  id: 20,
+  t: "Zinsvolgorde in bijzinnen",
+  d: "Werkwoord naar het einde, voegwoorden, om...te",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.de { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.het { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.een { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🧩 Zinsvolgorde in Bijzinnen</h1>
+        <p>Werkwoord naar het einde, voegwoorden, om...te — het SOV-domein</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Met groot genoegen duiken we in de wereld van de <strong>zinsvolgorde in bijzinnen</strong>. Waar de hoofdzin strak geregeerd wordt door de V2-regel (persoonsvorm op de tweede plaats), opent de bijzin een heel nieuw domein van regels. Het is het domein van het <strong>SOV-principe</strong> (Subject-Object-Verb), van werkwoorden die naar het einde kruipen, en van voegwoorden die de poort openen naar een andere woordvolgorde.</p>
+        <p>Deze gids is jouw complete, foutloze en prachtig geïllustreerde naslagwerk over bijzinnen. We behandelen alles van de basisstructuur tot de fijnste nuances van de werkwoordsvolgorde, de positie van <em>niet</em> en de beruchte 'rode' en 'groene' volgordes. Uiteraard met een <strong>overvloed aan schitterende voorbeelden</strong>.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧩 Deel 1: Wat is een Bijzin? Het Verschil met de Hoofdzin</h2>
+        <p>Een <strong>hoofdzin</strong> kan op zichzelf staan als een complete mededeling of vraag. Een <strong>bijzin</strong> is afhankelijk; hij kan niet zonder een hoofdzin (of een andere hoofdzin) bestaan. De bijzin wordt bijna altijd ingeleid door een <strong>voegwoord</strong> (of betrekkelijk voornaamwoord).</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Kenmerk</th><th>Hoofdzin</th><th>Bijzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Zelfstandigheid</strong></td><td>Kan alleen staan.</td><td>Kan niet alleen staan (is afhankelijk).</td></tr>
+              <tr><td><strong>Inleidend woord</strong></td><td>Geen (of vraagwoord aan begin).</td><td>Voegwoord (dat, omdat, als, etc.) of betr. vnw. (die, dat).</td></tr>
+              <tr><td><strong>Plaats Persoonsvorm</strong></td><td><strong>Tweede positie</strong> (V2).</td><td><strong>Aan het einde</strong>, samen met andere werkwoorden.</td></tr>
+              <tr><td><strong>Volgorde Onderwerp-PV</strong></td><td>PV direct na eerste zinsdeel.</td><td>PV staat achter in de werkwoordscluster.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">📌 <em>Hoofdzin: "Ik <strong>ga</strong> morgen naar Amsterdam."</em> (PV op plek 2)</span>
+          <span class="orig" style="margin-top:4px;">📌 <em>Bijzin: "...omdat ik morgen naar Amsterdam <strong>ga</strong>."</em> (PV aan het eind)</span>
+        </div>
+        <div class="gw-example">
+          <span class="orig">📌 <em>Hoofdzin: "Hij <strong>heeft</strong> het boek <strong>gelezen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">📌 <em>Bijzin: "...dat hij het boek <strong>heeft gelezen</strong>."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📜 Deel 2: De Basisregel van de Bijzin – Werkwoorden naar het Einde</h2>
+        <p>De absolute kernregel voor <strong>alle</strong> Nederlandse bijzinnen luidt:</p>
+        
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">✨ De Kernregel:</div>
+          <p style="margin:0; color:var(--gw-text)">In de bijzin staan <strong>álle werkwoorden</strong> (inclusief de persoonsvorm) <strong>aan het einde van de zin</strong>. Dit creëert een <strong>SOV-structuur</strong>: Onderwerp – (Lijdend Voorwerp) – (Andere Bepalingen) – <strong>Werkwoorden</strong>.</p>
+        </div>
+
+        <div class="gw-table-wrap" style="margin-top:16px;">
+          <table class="gw-table">
+            <thead><tr><th>Structuur Bijzin</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Voegwoord + Onderwerp + Rest + WERKWOORDEN</strong></td><td><em>"...dat <strong>ik</strong> morgen naar Amsterdam <strong>ga</strong>."</em></td></tr>
+              <tr><td></td><td><em>"...omdat <strong>hij</strong> het boek <strong>heeft gelezen</strong>."</em></td></tr>
+              <tr><td></td><td><em>"...als <strong>jij</strong> me zou kunnen <strong>helpen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Ik denk <strong>dat hij morgen komt</strong>."</em> (Niet: <em>...dat hij komt morgen</em>)</span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Zij vertelde <strong>dat ze een nieuwe baan heeft gevonden</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"We blijven thuis <strong>omdat het hard regent</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Het boek <strong>dat ik gisteren heb gekocht</strong>, is spannend."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Ik weet niet <strong>of hij het antwoord weet</strong>."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🗂️ Deel 3: Soorten Bijzinnen en Hun Inleidende Woorden</h2>
+        <p>Bijzinnen worden ingeleid door een <strong>voegwoord</strong> (onderschikkend) of een <strong>betrekkelijk voornaamwoord</strong>. De woordvolgorde blijft hetzelfde, maar het type voegwoord bepaalt de functie van de bijzin.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Type Bijzin</th><th>Inleidend Woord</th><th>Functie</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Dat-zin</strong></td><td><strong>dat</strong></td><td>Geeft een feit of mededeling weer.</td><td><em>"Ik weet <strong>dat</strong> hij gelijk heeft."</em></td></tr>
+              <tr><td><strong>Vraagwoordzin</strong></td><td><strong>of / wie / wat / waar / wanneer / hoe</strong></td><td>Geeft een indirecte vraag weer.</td><td><em>"Ik vraag me af <strong>of</strong> hij komt."<br>"Weet jij <strong>wie</strong> dat gedaan heeft?"</em></td></tr>
+              <tr><td><strong>Redengevend</strong></td><td><strong>omdat / aangezien / doordat</strong></td><td>Geeft een reden of oorzaak aan.</td><td><em>"Ik blijf thuis <strong>omdat</strong> ik ziek ben."</em></td></tr>
+              <tr><td><strong>Voorwaardelijk</strong></td><td><strong>als / wanneer / indien</strong></td><td>Geeft een voorwaarde aan.</td><td><em>"<strong>Als</strong> het regent, ga ik niet."</em></td></tr>
+              <tr><td><strong>Tijd</strong></td><td><strong>toen / terwijl / voordat / nadat / zodra / totdat</strong></td><td>Geeft een tijdstip of tijdsduur aan.</td><td><em>"<strong>Toen</strong> de bel ging, stond ik op."<br>"<strong>Terwijl</strong> hij sliep, belde zij."</em></td></tr>
+              <tr><td><strong>Doel</strong></td><td><strong>om ... te + infinitief / opdat</strong></td><td>Geeft een doel aan.</td><td><em>"Ik spaar geld <strong>om</strong> een auto <strong>te</strong> kunnen <strong>kopen</strong>."<br>"Hij zweeg <strong>opdat</strong> niemand hem zou horen."</em></td></tr>
+              <tr><td><strong>Toegevend</strong></td><td><strong>hoewel / al / ofschoon</strong></td><td>Geeft een tegenstelling toe.</td><td><em>"<strong>Hoewel</strong> hij moe was, ging hij toch sporten."</em></td></tr>
+              <tr><td><strong>Betrekkelijk</strong></td><td><strong>die / dat / wie / wat / waar + voorzetsel</strong></td><td>Verwijst naar een eerder genoemd woord.</td><td><em>"De man <strong>die</strong> daar loopt, is mijn oom."<br>"Het boek <strong>dat</strong> ik lees, is saai."</em></td></tr>
+              <tr><td><strong>Vergelijking</strong></td><td><strong>alsof / als / dan</strong></td><td>Maakt een vergelijking.</td><td><em>"Hij doet <strong>alsof</strong> hij alles weet."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Ik hoop <strong>dat</strong> het morgen mooi weer <strong>wordt</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Weet jij <strong>of</strong> de supermarkt nog open <strong>is</strong>?"</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Omdat</strong> de trein vertraging <strong>had</strong>, kwam ik te laat."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Als</strong> je je best <strong>doet</strong>, <strong>zul</strong> je slagen."</em> <small>(Let op: eerst de bijzin, dan de hoofdzin met inversie!)</small></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Toen</strong> de zon onder<strong>ging</strong>, werd het koud."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Ik luister muziek <strong>terwijl</strong> ik <strong>werk</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"De fiets <strong>die</strong> ik gisteren <strong>heb gekocht</strong>, is al kapot."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔚 Deel 4: De Plaats van de Werkwoorden in de Bijzin (De Clustervolgorde)</h2>
+        <p>Wanneer er <strong>meerdere werkwoorden</strong> aan het einde van de bijzin staan, is de volgorde van die werkwoorden een bekend struikelblok. Er zijn twee hoofdpatronen: de <strong>groene</strong> en de <strong>rode</strong> volgorde.</p>
+        
+        <h3>✅ A. De Groene Volgorde (Standaardnederlands)</h3>
+        <p>In de <strong>groene volgorde</strong> staat het <strong>hulpwerkwoord van tijd</strong> (hebben, zijn, worden) of het <strong>modale hulpwerkwoord</strong> (kunnen, moeten, willen, etc.) <strong>vóór</strong> het hoofdwerkwoord.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Aantal WW</th><th>Groene Volgorde</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>2</strong></td><td><strong>heeft</strong> + <strong>gezien</strong></td><td><em>"...dat hij mij <strong>heeft gezien</strong>."</em></td></tr>
+              <tr><td><strong>2</strong></td><td><strong>wil</strong> + <strong>komen</strong></td><td><em>"...dat hij <strong>wil komen</strong>."</em></td></tr>
+              <tr><td><strong>3</strong></td><td><strong>had</strong> + <strong>willen</strong> + <strong>doen</strong></td><td><em>"...dat hij het <strong>had willen doen</strong>."</em></td></tr>
+              <tr><td><strong>4</strong></td><td><strong>zou</strong> + <strong>hebben</strong> + <strong>kunnen</strong> + <strong>zien</strong></td><td><em>"...dat hij het <strong>zou hebben kunnen zien</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note">💡 Dit is de <strong>veilige, altijd correcte</strong> volgorde in de Nederlandse standaardtaal. Gebruik deze volgorde en je zit nooit fout.</div>
+
+        <h3 style="margin-top:24px;">🔴 B. De Rode Volgorde (Regionaal / Formeel)</h3>
+        <p>In de <strong>rode volgorde</strong> staat het <strong>hoofdwerkwoord vóór</strong> de hulpwerkwoorden. Dit patroon komt vooral voor in het noordoosten van Nederland, in Vlaanderen, en in zeer formele of archaïsche schrijftaal.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Aantal WW</th><th>Rode Volgorde</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>2</strong></td><td><strong>gezien</strong> + <strong>heeft</strong></td><td><em>"...dat hij mij <strong>gezien heeft</strong>."</em></td></tr>
+              <tr><td><strong>3</strong></td><td><strong>doen</strong> + <strong>had willen</strong></td><td><em>"...dat hij het <strong>doen had willen</strong>."</em></td></tr>
+              <tr><td><strong>4</strong></td><td><strong>zien</strong> + <strong>zou hebben kunnen</strong></td><td><em>"...dat hij het <strong>zien zou hebben kunnen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-card gw-card--tip" style="margin-top:16px;">
+          <div class="gw-card-title">💡 Advies:</div>
+          <p style="margin:0; color:var(--gw-text)">Leer de <strong>groene volgorde</strong> als standaard. Wees je bewust van de rode volgorde omdat je hem kunt tegenkomen in boeken of formele toespraken.</p>
+        </div>
+
+        <h3 style="margin-top:24px;">🔀 C. Scheidbare Werkwoorden in de Bijzin</h3>
+        <p>In de bijzin <strong>plakt</strong> het scheidbare werkwoord weer aan elkaar en staat het als één geheel in de werkwoordscluster aan het einde.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Hoofdzin (Gesplitst)</th><th>Bijzin (Ongesplitst)</th></tr></thead>
+            <tbody>
+              <tr><td><em>"Ik <strong>bel</strong> mijn moeder <strong>op</strong>."</em></td><td><em>"...dat ik mijn moeder <strong>opbel</strong>."</em></td></tr>
+              <tr><td><em>"De trein <strong>komt</strong> om 3 uur <strong>aan</strong>."</em></td><td><em>"...dat de trein om 3 uur <strong>aankomt</strong>."</em></td></tr>
+              <tr><td><em>"Hij <strong>geeft</strong> het boek <strong>terug</strong>."</em></td><td><em>"...dat hij het boek <strong>teruggeeft</strong>."</em></td></tr>
+              <tr><td><em>"Ik <strong>heb</strong> mijn moeder <strong>opgebeld</strong>."</em></td><td><em>"...dat ik mijn moeder <strong>heb opgebeld</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎯 Deel 5: De Positie van 'Niet' en Andere Bijwoorden in de Bijzin</h2>
+        <p>In de bijzin staat <strong>'niet'</strong> (en de meeste andere bijwoorden) <strong>vóór</strong> de werkwoorden aan het einde, en meestal ook <strong>vóór</strong> andere bepalingen zoals een plaats- of tijdsbepaling, tenzij het een specifiek zinsdeel ontkent.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Situatie</th><th>Positie 'Niet' in Bijzin</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Algemene ontkenning</strong></td><td>Vóór de werkwoorden</td><td><em>"...dat ik <strong>niet</strong> kom."<br>"...omdat hij <strong>niet</strong> heeft gebeld."</em></td></tr>
+              <tr><td><strong>Ontkenning van specifiek ZN</strong></td><td>Vóór dat ZN</td><td><em>"...dat ik <strong>niet de</strong> directeur bedoel, maar de assistent."</em></td></tr>
+              <tr><td><strong>Ontkenning van een bepaling</strong></td><td>Vóór die bepaling</td><td><em>"...dat hij <strong>niet in</strong> Amsterdam woont."<br>"...dat we <strong>niet op</strong> maandag kunnen."</em></td></tr>
+              <tr><td><strong>In combinatie met 'meer'</strong></td><td><em>niet meer</em> vóór de werkwoorden</td><td><em>"...dat ik het <strong>niet meer</strong> weet."<br>"...omdat zij <strong>niet meer</strong> wilde wachten."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Ik begrijp <strong>dat</strong> je het er <strong>niet mee eens bent</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Zij zei <strong>dat</strong> ze <strong>niet</strong> naar het feest <strong>gaat</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Het is jammer <strong>dat</strong> hij <strong>niet</strong> heeft kunnen <strong>komen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Ik vraag me af <strong>waarom</strong> je het <strong>niet</strong> gewoon <strong>vraagt</strong>."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧩 Deel 6: Bijzinnen met 'Om ... Te + Infinitief' (Doelconstructie)</h2>
+        <p>Dit is een speciaal soort verkorte bijzin. De structuur is: <strong>om + (rest van de zin) + te + infinitief</strong>.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Volledige Bijzin (met 'opdat' of 'zodat')</th><th>Verkorte Bijzin met 'om ... te'</th></tr></thead>
+            <tbody>
+              <tr><td><em>"Ik spaar geld <strong>opdat</strong> ik een auto <strong>kan kopen</strong>."</em></td><td><em>"Ik spaar geld <strong>om</strong> een auto <strong>te kunnen kopen</strong>."</em></td></tr>
+              <tr><td><em>"Hij bleef thuis <strong>zodat</strong> hij voor zijn moeder <strong>kon zorgen</strong>."</em></td><td><em>"Hij bleef thuis <strong>om</strong> voor zijn moeder <strong>te zorgen</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--rule" style="margin-top:16px;">
+          <div class="gw-card-title">📐 Regels voor 'Om ... te':</div>
+          <ol style="margin:10px 0 0 20px;">
+            <li>Het onderwerp van de <em>om ... te</em>-zin is <strong>hetzelfde</strong> als dat van de hoofdzin (of het is een algemeen 'men').</li>
+            <li>'Te' staat direct vóór de infinitief. Als er meerdere werkwoorden zijn, staat 'te' vóór het hele werkwoordscluster.</li>
+            <li>'Niet' staat tussen <em>om</em> en <em>te</em>: <em>om niet te ...</em></li>
+          </ol>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Ik ben hier <strong>om</strong> je <strong>te helpen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Hij las het boek <strong>om</strong> zijn kennis <strong>te vergroten</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Zij droeg een zonnebril <strong>om niet herkend te worden</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"We moeten opschieten <strong>om</strong> de trein <strong>te halen</strong>."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔄 Deel 7: De Bijzin als Eerste Zinsdeel van de Hoofdzin (Inversie!)</h2>
+        <p>Wanneer een bijzin <strong>vóór</strong> de hoofdzin staat, fungeert de hele bijzin als het <strong>eerste zinsdeel</strong> van de samengestelde zin. De hoofdzin begint dan met de <strong>persoonsvorm</strong>, gevolgd door het onderwerp (inversie).</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Structuur</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>[Bijzin] , PV + Onderwerp + Rest</strong></td><td><em>"<strong>Omdat het regent</strong>, <strong>blijf ik</strong> thuis."</em></td></tr>
+              <tr><td></td><td><em>"<strong>Als je honger hebt</strong>, <strong>kun je</strong> een boterham <strong>pakken</strong>."</em></td></tr>
+              <tr><td></td><td><em>"<strong>Toen de wekker ging</strong>, <strong>sprong hij</strong> uit bed."</em></td></tr>
+              <tr><td></td><td><em>"<strong>Wat hij ook zegt</strong>, <strong>geloof ik</strong> hem niet."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"<strong>Hoewel hij rijk is</strong>, <strong>leeft hij</strong> heel sober."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Als ik jou was</strong>, <strong>zou ik</strong> het niet <strong>doen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Dat hij de waarheid spreekt</strong>, <strong>betwijfel ik</strong> ten zeerste."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Wie het weet</strong>, <strong>mag</strong> het <strong>zeggen</strong>."</em></span>
+        </div>
+
+        <div class="gw-note" style="margin-top:12px;">📍 <strong>Let op:</strong> Na de bijzin staat een <strong>komma</strong> voordat de hoofdzin begint.</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🏗️ Deel 8: Bijzinnen Binnen Bijzinnen (Ingebedde Bijzinnen)</h2>
+        <p>Het Nederlands staat toe om bijzinnen in elkaar te schuiven. De regels voor de werkwoordsvolgorde blijven dan gelden op elk niveau.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Niveau</th><th>Voorbeeldzin</th><th>Analyse</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1</strong></td><td><em>"Ik denk <strong>dat hij liegt</strong>."</em></td><td>Eenvoudige dat-zin.</td></tr>
+              <tr><td><strong>2</strong></td><td><em>"Ik denk <strong>dat hij weet dat ik lieg</strong>."</em></td><td>Bijzin in een bijzin.</td></tr>
+              <tr><td><strong>3</strong></td><td><em>"Ik denk <strong>dat hij weet dat ik weet dat hij liegt</strong>."</em></td><td>Nog een laag dieper.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Ik vind het jammer <strong>dat</strong> hij <strong>heeft</strong> gezegd <strong>dat</strong> hij niet <strong>kon komen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Zij vertelde <strong>dat</strong> ze <strong>dacht</strong> <strong>dat</strong> hij het <strong>had willen doen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Het is ironisch <strong>dat</strong> hij beweert <strong>dat</strong> hij niet <strong>kan liegen</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Ik vermoed <strong>dat</strong> zij niet <strong>weet</strong> <strong>dat</strong> wij <strong>weten</strong> <strong>dat</strong> zij <strong>heeft gelogen</strong>."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Deel 9: Veelgemaakte Fouten en Hun Correcties</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Fout ❌</th><th>Correctie ✅</th><th>Waarom?</th></tr></thead>
+            <tbody>
+              <tr><td><em>...dat hij komt morgen.</em></td><td>...dat hij morgen <strong>komt</strong>.</td><td>PV moet aan het einde van de bijzin.</td></tr>
+              <tr><td><em>...omdat ik heb hem gezien.</em></td><td>...omdat ik hem <strong>heb gezien</strong>.</td><td>LV vóór de werkwoorden; PV aan het eind.</td></tr>
+              <tr><td><em>...dat hij heeft mij niet gebeld.</em></td><td>...dat hij mij <strong>niet heeft gebeld</strong>.</td><td>'Niet' vóór de werkwoorden.</td></tr>
+              <tr><td><em>...dat ik wil hem graag ontmoeten.</em></td><td>...dat ik hem graag <strong>wil ontmoeten</strong>.</td><td>LV vóór de werkwoorden.</td></tr>
+              <tr><td><em>...dat hij opbelde mij.</em></td><td>...dat hij mij <strong>opbelde</strong>.</td><td>Scheidbaar ww aan elkaar aan het eind.</td></tr>
+              <tr><td><em>Als ik jou was, ik zou het doen.</em></td><td>Als ik jou was, <strong>zou ik</strong> het doen.</td><td>Inversie in de hoofdzin na een voorwaardelijke bijzin.</td></tr>
+              <tr><td><em>Ik denk dat hij niet.</em></td><td>Ik denk <strong>dat</strong> hij <strong>niet komt</strong>. (of een ander werkwoord)</td><td>Een bijzin moet een persoonsvorm bevatten.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💡 Deel 10: Pro-Tips & Ezelsbruggetjes</h2>
+        <ol>
+          <li><strong>De 'Dat'-Test:</strong> Twijfel je of je een hoofdzin of bijzin moet gebruiken? Zet <em>"Ik denk dat..."</em> voor de zin. Verandert de woordvolgorde? Dan is het een bijzin. <br><em>"Hij gaat morgen." → "Ik denk dat hij morgen <strong>gaat</strong>."</em></li>
+          <li><strong>De Werkwoords-Magneet:</strong> In de bijzin worden alle werkwoorden naar het einde <strong>getrokken</strong> als door een magneet. Alles wat niet op de tweede plek hoeft te staan, eindigt achteraan.</li>
+          <li><strong>Groen is Altijd Goed:</strong> Bij twijfel over de volgorde van de werkwoorden aan het eind: gebruik de <strong>groene volgorde</strong> (hulpwerkwoord vóór hoofdwerkwoord). <em>"...dat hij het <strong>heeft gedaan</strong>."</em></li>
+          <li><strong>Inversie-Alarm na Bijzin:</strong> Staat de bijzin vooraan? Zet dan <strong>meteen een komma</strong> en begin de hoofdzin met de <strong>persoonsvorm</strong>. <em>"Omdat het regent <strong>,</strong> blijf ik thuis."</em></li>
+          <li><strong>'Te' is de Verkorter:</strong> Als het onderwerp hetzelfde blijft en je een doel wilt uitdrukken, gebruik dan <strong>om ... te + infinitief</strong>. Dat scheelt een hele bijzin.</li>
+          <li><strong>Oefen met het Aanvullen van Zinnen:</strong><br><em>"Ik weet niet of..." | "Hij zegt dat..." | "Wij blijven thuis omdat..."</em></li>
+        </ol>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 Deel 11: Overzichtsschema's</h2>
+        
+        <h3>🔹 Schema 1: Hoofdzin vs. Bijzin (Directe Vergelijking)</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Zin</th><th>Hoofdzin (Mededelend)</th><th>Hoofdzin (Vraag)</th><th>Bijzin</th></tr></thead>
+            <tbody>
+              <tr><td><em>"Ik ga morgen naar school."</em></td><td><em>"Ik <strong>ga</strong> morgen naar school."</em></td><td><em>"<strong>Ga</strong> jij morgen naar school?"</em></td><td><em>"...dat ik morgen naar school <strong>ga</strong>."</em></td></tr>
+              <tr><td><em>"Hij heeft het boek gelezen."</em></td><td><em>"Hij <strong>heeft</strong> het boek <strong>gelezen</strong>."</em></td><td><em>"<strong>Heeft</strong> hij het boek <strong>gelezen</strong>?"</em></td><td><em>"...dat hij het boek <strong>heeft gelezen</strong>."</em></td></tr>
+              <tr><td><em>"Zij belde mij gisteren op."</em></td><td><em>"Zij <strong>belde</strong> mij gisteren <strong>op</strong>."</em></td><td><em>"<strong>Belde</strong> zij mij gisteren <strong>op</strong>?"</em></td><td><em>"...dat zij mij gisteren <strong>opbelde</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 Schema 2: Plaats van Zinsdelen in de Bijzin</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Positie</th><th>Zinsdeel</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1</strong></td><td><strong>Voegwoord</strong></td><td><em>dat, omdat, als, die</em></td></tr>
+              <tr><td><strong>2</strong></td><td><strong>Onderwerp</strong></td><td><em>ik, jij, de man</em></td></tr>
+              <tr><td><strong>3</strong></td><td><strong>Lijdend Voorwerp</strong> (indien geen nadruk)</td><td><em>het boek, hem</em></td></tr>
+              <tr><td><strong>4</strong></td><td><strong>Meewerkend Voorwerp</strong></td><td><em>mijn moeder, haar</em></td></tr>
+              <tr><td><strong>5</strong></td><td><strong>Bepalingen</strong> (Tijd, Manier, Plaats)</td><td><em>morgen, snel, in Amsterdam</em></td></tr>
+              <tr><td><strong>6</strong></td><td><strong>'Niet' / Bijwoorden</strong></td><td><em>niet, meer, graag</em></td></tr>
+              <tr><td><strong>7</strong></td><td><strong>Werkwoordscluster</strong> (PV + Infinitieven/Deelwoorden)</td><td><em>heeft gelezen, zou hebben kunnen zien</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Ik vind het jammer <strong>dat</strong> (1) <strong>jij</strong> (2) <strong>mijn cadeau</strong> (3) <strong>aan je zusje</strong> (4) <strong>gisteren</strong> (5) <strong>niet</strong> (6) <strong>hebt willen geven</strong> (7)."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Snelle Samenvatting</h3>
+        <ul>
+          <li><strong>Basisregel:</strong> Alle werkwoorden (incl. PV) gaan naar het <strong>einde</strong> van de bijzin</li>
+          <li><strong>SOV-structuur:</strong> Voegwoord → Onderwerp → Rest → Werkwoorden</li>
+          <li><strong>Werkwoordcluster:</strong> Groene volgorde (hulpww vóór hoofdww) is standaard</li>
+          <li><strong>'Niet':</strong> Staat vóór de werkwoorden aan het einde</li>
+          <li><strong>Om...te:</strong> Verkorte doelbijzin (zelfde onderwerp als hoofdzin)</li>
+          <li><strong>Inversie:</strong> Bijzin vooraan → komma → PV + onderwerp in hoofdzin</li>
+          <li><strong>Scheidbaar:</strong> Plakt weer aan elkaar in de bijzin (bijv. <em>...dat hij opbelt</em>)</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Hopelijk biedt deze gids een helder en volledig overzicht van de zinsvolgorde in Nederlandse bijzinnen. Als je een specifiek type bijzin verder wilt uitdiepen, of als je wilt oefenen met het bouwen van complexe samengestelde zinnen, laat het me dan gerust weten. Dan duiken we er samen <strong>in</strong>, <strong>omdat</strong> het Nederlands een prachtige taal is <strong>die</strong> je steeds beter <strong>zult beheersen</strong>! 🚀</p>
+      </div>
+    </div>
+  `
+},
     {id:21,t:"Voegwoorden – nevenschikkend",d:"En, maar, of, want, dus"},
     {id:22,t:"Voegwoorden – onderschikkend",d:"Omdat, dat, als, hoewel, terwijl"},
     {id:23,t:"Betrekkelijke bijzinnen",d:"Die en dat als betrekkelijke voornaamwoorden"},
