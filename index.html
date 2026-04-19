@@ -15915,10 +15915,1144 @@ const TOPICS = {
     </div>
   `
 },
-    {id:37,t:"Spellingregels",d:"Klinkerlengte, verdubbeling, f/v, s/z"},
-    {id:38,t:"Wederkerige voornaamwoorden",d:"Elkaar, elkander"},
-    {id:39,t:"Formeel vs informeel",d:"U vs jij/je – gebruik en context"},
-    {id:40,t:"Idiomatische uitdrukkingen",d:"Nederlandse spreekwoorden en zegswijzen"}
+{
+  id: 38,
+  t: "Wederkerige voornaamwoorden",
+  d: "Elkaar, mekaar, elkander — wederzijdse acties en relaties",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      .gw-rec-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+      }
+      .gw-rec-title {
+        font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+        margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+      }
+      .gw-rec-ex {
+        padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+      }
+      .gw-rec-ex:last-child { border-bottom: none; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+        .gw-rec-title { font-size: 1.05rem; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🔄 Wederkerige Voornaamwoorden</h1>
+        <p>Elkaar, mekaar, elkander — wederzijdse acties en relaties</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Met groot genoegen duiken we in de wereld van de <strong>wederkerige voornaamwoorden</strong> (reciproque pronomina). Dit zijn de kleine woordjes die uitdrukken dat twee of meer personen of zaken <strong>elkaars handeling ondergaan</strong>—een wederzijdse actie dus. Ze zijn onmisbaar om relaties, interacties en onderlinge verhoudingen te beschrijven.</p>
+        <p>Deze gids is jouw complete, foutloze en prachtig geïllustreerde naslagwerk over de wederkerige voornaamwoorden. We behandelen het verschil met wederkerende voornaamwoorden, de vormen (<em>elkaar, mekaar, elkander</em>), het gebruik in de zin, de combinatie met voorzetsels, de bezitsvorm <em>elkaars</em>, de vaste werkwoordcombinaties, de valkuilen, en natuurlijk een <strong>overvloed aan schitterende voorbeelden</strong>.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔄 Deel 1: Wat zijn Wederkerige Voornaamwoorden? Het Verschil met Wederkerend</h2>
+        <p>Een <strong>wederkerig voornaamwoord</strong> geeft een <strong>onderlinge, wederzijdse</strong> handeling aan tussen twee of meer personen of zaken. De actie gaat van A naar B en tegelijkertijd van B naar A.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Type Voornaamwoord</th><th>Functie</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Wederkerend</strong></td><td>De actie <strong>kaatst terug</strong> op dezelfde persoon.</td><td><em>"Zij <strong>wast zich</strong>." (Zij wast haar eigen lichaam)</em></td></tr>
+              <tr><td><strong>Wederkerig</strong></td><td>De actie is <strong>wederzijds</strong> tussen twee of meer.</td><td><em>"Zij <strong>wassen elkaar</strong>." (A wast B en B wast A)</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>Wederkerend: "De kinderen <strong>kleden zich aan</strong>." (Elk kind kleedt zichzelf aan)</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Wederkerig: "De kinderen <strong>helpen elkaar</strong> met aankleden." (Kind A helpt kind B, en kind B helpt kind A)</em></span>
+        </div>
+        <div class="gw-example">
+          <span class="orig">✨ <em>Wederkerend: "Zij <strong>slaan zich</strong> op de borst." (Ieder slaat op zijn eigen borst)</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Wederkerig: "Zij <strong>slaan elkaar</strong> op de schouders." (A slaat B en B slaat A)</em></span>
+        </div>
+
+        <div class="gw-card gw-card--rule" style="margin-top:16px;">
+          <div class="gw-card-title">✨ Het Enige Wederkerige Voornaamwoord in het Nederlands:</div>
+          <p style="margin:0; color:var(--gw-text)"><strong>elkaar</strong> (en de varianten <em>mekaar</em>, <em>elkander</em>, <em>malkander</em>)</p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📖 Deel 2: De Vormen – Elkaar, Mekaar, Elkander</h2>
+        <p>Het standaard wederkerig voornaamwoord is <strong>elkaar</strong>. Er bestaan enkele varianten die in register of regio verschillen.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Vorm</th><th>Register</th><th>Gebruik</th><th>Prachtig Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>elkaar</strong></td><td>Standaardtaal, neutraal</td><td>Altijd correct, zowel in spreek- als schrijftaal.</td><td><em>"Wij begrijpen <strong>elkaar</strong> goed."</em></td></tr>
+              <tr><td><strong>mekaar</strong></td><td>Informele spreektaal</td><td>Vooral in Nederland in informele gesprekken.</td><td><em>"We zien <strong>mekaar</strong> morgen weer."</em></td></tr>
+              <tr><td><strong>elkander</strong></td><td>Formele schrijftaal, archaïsch</td><td>Komt voor in literatuur, plechtige taal of vaste uitdrukkingen.</td><td><em>"Zij beminnen <strong>elkander</strong>."</em></td></tr>
+              <tr><td><strong>malkander</strong></td><td>Zeer formeel, archaïsch</td><td>Vrijwel uitsluitend in oude teksten of zeer formele context.</td><td><em>"Zij gaven <strong>malkander</strong> de hand."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>Standaard: "Laten we <strong>elkaar</strong> niet uit het oog verliezen."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Informeel: "We bellen <strong>mekaar</strong> morgen nog even."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Formeel/Literair: "De geliefden omhelsden <strong>elkander</strong> innig."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧩 Deel 3: Gebruik in de Zin – Plaats en Combinatie met Voorzetsels</h2>
+        <p>Het wederkerig voornaamwoord <strong>elkaar</strong> gedraagt zich in de zin als een <strong>zelfstandig voornaamwoord</strong>. Het kan fungeren als <strong>lijdend voorwerp</strong>, <strong>meewerkend voorwerp</strong>, of onderdeel zijn van een <strong>voorzetselbepaling</strong>.</p>
+        
+        <h3>✅ 3.1 Als Lijdend Voorwerp</h3>
+        <div class="gw-card">
+          <div class="gw-rec-ex"><em>"De honden <strong>likken elkaar</strong>."</em></div>
+          <div class="gw-rec-ex"><em>"Wij <strong>kennen elkaar</strong> al jaren."</em></div>
+          <div class="gw-rec-ex"><em>"De twee auto's <strong>raakten elkaar</strong> op de kruising."</em></div>
+          <div class="gw-rec-ex"><em>"Zij <strong>groeten elkaar</strong> elke ochtend."</em></div>
+          <div class="gw-rec-ex"><em>"De puzzelstukjes <strong>passen</strong> precies in <strong>elkaar</strong>."</em></div>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 3.2 Als Meewerkend Voorwerp</h3>
+        <div class="gw-card">
+          <div class="gw-rec-ex"><em>"Wij <strong>gaven elkaar</strong> een hand."</em></div>
+          <div class="gw-rec-ex"><em>"Zij <strong>stuurden elkaar</strong> een kaartje."</em></div>
+          <div class="gw-rec-ex"><em>"De buren <strong>doen elkaar</strong> een plezier."</em></div>
+          <div class="gw-rec-ex"><em>"<strong>Beloven</strong> we <strong>elkaar</strong> dat we eerlijk zullen zijn?"</em></div>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 3.3 In Combinatie met een Voorzetsel</h3>
+        <p>Wanneer <strong>elkaar</strong> na een voorzetsel staat, blijft het voorzetsel ervoor staan. Het voornaamwoord <strong>elkaar</strong> zelf is <strong>onveranderlijk</strong>.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Voorzetsel</th><th>Prachtig Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>aan</strong></td><td><em>"Zij hechten veel waarde <strong>aan elkaar</strong>."</em></td></tr>
+              <tr><td><strong>op</strong></td><td><em>"Wij kunnen altijd <strong>op elkaar</strong> rekenen."</em></td></tr>
+              <tr><td><strong>van</strong></td><td><em>"Ze houden ontzettend veel <strong>van elkaar</strong>."</em></td></tr>
+              <tr><td><strong>met</strong></td><td><em>"De kinderen spelen graag <strong>met elkaar</strong>."</em></td></tr>
+              <tr><td><strong>bij</strong></td><td><em>"De twee huisjes staan dicht <strong>bij elkaar</strong>."</em></td></tr>
+              <tr><td><strong>tegen</strong></td><td><em>"Ze streden verbeten <strong>tegen elkaar</strong>."</em></td></tr>
+              <tr><td><strong>voor</strong></td><td><em>"Ze hebben veel <strong>voor elkaar</strong> over."</em></td></tr>
+              <tr><td><strong>naar</strong></td><td><em>"De geliefden verlangden hevig <strong>naar elkaar</strong>."</em></td></tr>
+              <tr><td><strong>door</strong></td><td><em>"De touwtjes raakten <strong>door elkaar</strong> verstrikt."</em></td></tr>
+              <tr><td><strong>zonder</strong></td><td><em>"Ze kunnen niet <strong>zonder elkaar</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--rule" style="margin-top:16px;">
+          <div class="gw-card-title">✅ 3.4 Splitsing bij Voorzetsels? Nee!</div>
+          <p style="margin:0; color:var(--gw-text)">In tegenstelling tot de pronominale bijwoorden (<em>erop, ermee, waaraan</em>) wordt <strong>elkaar</strong> <strong>nooit gesplitst</strong>. Het voorzetsel en <em>elkaar</em> blijven altijd <strong>los</strong> van elkaar staan en de volgorde is <strong>voorzetsel + elkaar</strong>.<br><br>✅ <em>"Wij wachten <strong>op elkaar</strong>."</em><br>❌ <em>"Wij wachten <strong>er elkaar op</strong>."</em> (Dit is fout)<br><br>✅ <em>"Ze kijken <strong>naar elkaar</strong>."</em><br>❌ <em>"Ze kijken <strong>er elkaar naar</strong>."</em></p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔗 Deel 4: 'Elkaar' met Vaste Voorzetsels bij Werkwoorden</h2>
+        <p>Sommige werkwoorden hebben een <strong>vast voorzetsel</strong>. In combinatie met <em>elkaar</em> blijft dat voorzetsel gewoon staan.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Werkwoord + Vast Voorzetsel</th><th>Prachtig Voorbeeld met 'Elkaar'</th></tr></thead>
+            <tbody>
+              <tr><td><em>houden van</em></td><td><em>"De tortelduifjes <strong>houden van elkaar</strong>."</em></td></tr>
+              <tr><td><em>wachten op</em></td><td><em>"We <strong>wachten op elkaar</strong> bij de ingang."</em></td></tr>
+              <tr><td><em>rekenen op</em></td><td><em>"In tijden van nood <strong>rekenen we op elkaar</strong>."</em></td></tr>
+              <tr><td><em>luisteren naar</em></td><td><em>"Laten we goed <strong>naar elkaar luisteren</strong>."</em></td></tr>
+              <tr><td><em>denken aan</em></td><td><em>"Zij <strong>denken</strong> altijd <strong>aan elkaar</strong>."</em></td></tr>
+              <tr><td><em>praten over</em></td><td><em>"Ze <strong>praatten</strong> urenlang <strong>over elkaar</strong>."</em></td></tr>
+              <tr><td><em>zorgen voor</em></td><td><em>"De zussen <strong>zorgen voor elkaar</strong>."</em></td></tr>
+              <tr><td><em>twijfelen aan</em></td><td><em>"Ze <strong>twijfelden</strong> geen moment <strong>aan elkaar</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"We <strong>vertrouwen</strong> blind <strong>op elkaar</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"De twee hondjes <strong>waren</strong> dol <strong>op elkaar</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Zij <strong>ergeren</strong> zich mateloos <strong>aan elkaar</strong>."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧬 Deel 5: De Bezitsvorm – 'Elkaars'</h2>
+        <p>Wanneer we willen uitdrukken dat iets <strong>wederzijds bezit</strong> is, gebruiken we de bezitsvorm <strong>elkaars</strong>. Het geeft aan dat A iets van B heeft en B iets van A, of dat ze iets <strong>gemeenschappelijk</strong> bezitten.</p>
+        
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">📐 Formule: elkaar + s = elkaars</div>
+        </div>
+        <div class="gw-card" style="margin-top:16px;">
+          <div class="gw-rec-ex"><em>"Ze lazen <strong>elkaars</strong> boeken." (A leest B's boek, B leest A's boek)</em></div>
+          <div class="gw-rec-ex"><em>"De kleuters pakten <strong>elkaars</strong> speelgoed af."</em></div>
+          <div class="gw-rec-ex"><em>"De broers droegen <strong>elkaars</strong> kleren."</em></div>
+          <div class="gw-rec-ex"><em>"We moeten <strong>elkaars</strong> grenzen respecteren."</em></div>
+          <div class="gw-rec-ex"><em>"De landen vielen <strong>elkaars</strong> grondgebied binnen."</em></div>
+        </div>
+
+        <div class="gw-note" style="margin-top:12px;">📍 <strong>Let op het Verschil met 'Elkanders' (Formeel):</strong><br>In formele of archaïsche taal kom je ook <strong>elkanders</strong> tegen. De betekenis is identiek.<br><em>"Zij waren op de hoogte van <strong>elkanders</strong> beweegredenen."</em></div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"De twee katten likten <strong>elkaars</strong> vacht."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Zij waren jaloers op <strong>elkaars</strong> succes."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"De atleten gunden elkaar de overwinning niet en zaten in <strong>elkaars</strong> vaarwater."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"De partners tekenden <strong>elkaars</strong> contract."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Deel 6: Wederkerige Werkwoorden – 'Elkaar' als Vast Onderdeel</h2>
+        <p>Sommige werkwoorden zijn <strong>inherent wederkerig</strong>. Ze kunnen alleen maar met een meervoudig onderwerp en het voornaamwoord <strong>elkaar</strong> (of een equivalent) gebruikt worden, omdat de actie per definitie wederzijds is.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Wederkerig Werkwoord</th><th>Betekenis</th><th>Prachtig Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>elkaar ontmoeten</strong></td><td>Samenkomen, treffen.</td><td><em>"Wij <strong>ontmoetten elkaar</strong> in het park."</em></td></tr>
+              <tr><td><strong>elkaar tegenkomen</strong></td><td>Toevallig treffen.</td><td><em>"Zij <strong>kwamen elkaar</strong> tegen in de supermarkt."</em></td></tr>
+              <tr><td><strong>elkaar trouwen</strong></td><td>In het huwelijk treden.</td><td><em>"Zij <strong>trouwden elkaar</strong> in het geheim."</em></td></tr>
+              <tr><td><strong>elkaar omhelzen</strong></td><td>Omarmen.</td><td><em>"De vrienden <strong>omhelsden elkaar</strong> bij het afscheid."</em></td></tr>
+              <tr><td><strong>elkaar kussen</strong></td><td>Zoenen.</td><td><em>"Het bruidspaar <strong>kuste elkaar</strong> teder."</em></td></tr>
+              <tr><td><strong>elkaar helpen</strong></td><td>Bijstand verlenen.</td><td><em>"Goede buren <strong>helpen elkaar</strong>."</em></td></tr>
+              <tr><td><strong>elkaar bestrijden</strong></td><td>Strijden tegen.</td><td><em>"De ridders <strong>bestreden elkaar</strong> op leven en dood."</em></td></tr>
+              <tr><td><strong>elkaar afwisselen</strong></td><td>Om beurten iets doen.</td><td><em>"De presentatoren <strong>wisselden elkaar</strong> af."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"Laten we <strong>elkaar</strong> snel weer <strong>ontmoeten</strong>."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"De kemphanen <strong>bestreden elkaar</strong> verwoed."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"De musici <strong>wisselden elkaar</strong> naadloos <strong>af</strong> tijdens het concert."</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Deel 7: Veelgemaakte Fouten en Hun Correcties</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Fout ❌</th><th>Correctie ✅</th><th>Waarom?</th></tr></thead>
+            <tbody>
+              <tr><td><em>We hebben elkander gesproken.</em> <small>(Te formeel in neutrale context)</small></td><td><em>We hebben <strong>elkaar</strong> gesproken.</em></td><td><em>Elkaar</em> is de neutrale standaardvorm.</td></tr>
+              <tr><td><em>Ze gaven een hand aan elkaar.</em></td><td><em>Ze gaven <strong>elkaar</strong> een hand.</em></td><td><em>Elkaar</em> is meewerkend voorwerp; <em>aan</em> is overbodig.</td></tr>
+              <tr><td><em>Wij wachten op mekaar.</em> <small>(Schrijftaal)</small></td><td><em>Wij wachten <strong>op elkaar</strong>.</em></td><td><em>Mekaar</em> is spreektaal; in schrijftaal <em>elkaar</em>.</td></tr>
+              <tr><td><em>Ze zijn gek op elkander.</em></td><td><em>Ze zijn gek <strong>op elkaar</strong>.</em></td><td><em>Elkander</em> is archaïsch.</td></tr>
+              <tr><td><em>Ze gingen uit elkaars.</em></td><td><em>Ze gingen <strong>uit elkaar</strong>.</em></td><td><em>Uit elkaar</em> is een vaste uitdrukking, niet <em>elkaars</em>.</td></tr>
+              <tr><td><em>Ze hebben mekaar's spullen gepakt.</em></td><td><em>Ze hebben <strong>elkaars</strong> spullen gepakt.</em></td><td>Bezitsvorm is <em>elkaars</em>, niet <em>mekaar's</em>.</td></tr>
+              <tr><td><em>De twee auto's raakten elkander.</em></td><td><em>De twee auto's raakten <strong>elkaar</strong>.</em></td><td><em>Elkaar</em> is lijdend voorwerp; <em>elkander</em> is ouderwets.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💡 Deel 8: Pro-Tips & Ezelsbruggetjes</h2>
+        <ol>
+          <li><strong>'Elkaar' is Onveranderlijk:</strong><br>Of het nu onderwerp, lijdend voorwerp of na een voorzetsel is, <strong>elkaar</strong> verandert nooit van vorm.<br><em>"Ik zie <strong>elkaar</strong>."</em> (Nee, dat is fout omdat het onderwerp enkelvoud is. <em>Elkaar</em> vereist een <strong>meervoudig</strong> onderwerp!)<br><em>"Wij zien <strong>elkaar</strong>." / "Zij houden van <strong>elkaar</strong>."</em></li>
+          <li><strong>Meervoudig Onderwerp Nodig:</strong><br><strong>Elkaar</strong> kan alleen gebruikt worden als het <strong>onderwerp meervoudig</strong> is (of uit twee of meer personen/zaken bestaat). Je kunt niet zeggen: <em>"Ik ontmoet elkaar."</em> Wel: <em>"Wij ontmoeten elkaar." / "Jan en Marie ontmoeten elkaar."</em></li>
+          <li><strong>Bezit = 'Elkaars' met een S:</strong><br>Willen jullie <strong>elkaars</strong> spullen lenen? Schrijf dan een <strong>s</strong> achter <em>elkaar</strong>. Géén apostrof!<br>✅ <em>elkaars</em> | ❌ <em>elkaar's</em> (Dit is Engels: <em>each other's</em>)</li>
+          <li><strong>Nooit Splitsen met een Voorzetsel:</strong><br>Waar het Nederlands dol is op splitsen bij <em>er</em> (<em>erop → er ... op</em>), doet het dat <strong>niet</strong> bij <em>elkaar</em>. Het voorzetsel blijft altijd vóór <em>elkaar</em> staan.<br><em>"Wij denken <strong>aan elkaar</strong>." (Niet: <em>Wij denken er elkaar aan.</em>)</em></li>
+          <li><strong>'Elkaar' vs. 'Zich' Onthouden:</strong><br>• <strong>Zich</strong> = eigen lichaam/geest. <em>"Zij wast <strong>zich</strong>."</em><br>• <strong>Elkaar</strong> = wederzijds. <em>"Zij wassen <strong>elkaar</strong>."</em></li>
+          <li><strong>Vaste Uitdrukkingen met 'Elkaar':</strong><br>Leer deze combinaties, want ze zijn heel frequent:<br>• <em>uit elkaar</em> (scheiden) → <em>"De puzzel viel <strong>uit elkaar</strong>."</em><br>• <em>in elkaar</em> (passen, monteren) → <em>"Het apparaat zit goed <strong>in elkaar</strong>."</em><br>• <em>naar elkaar</em> (richting) → <em>"Ze groeiden <strong>naar elkaar</strong> toe."</em><br>• <em>bij elkaar</em> (verzameld) → <em>"We moeten geld <strong>bij elkaar</strong> sparen."</em></li>
+        </ol>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 Deel 9: Overzichtsschema's</h2>
+        
+        <h3>🔹 Schema 1: Wederkerig vs. Wederkerend</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th></th><th>Wederkerend</th><th>Wederkerig</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Voornaamwoord</strong></td><td><em>me, je, zich, ons</em></td><td><em>elkaar</em></td></tr>
+              <tr><td><strong>Betekenis</strong></td><td>Actie op de spreker zelf.</td><td>Actie wederzijds tussen twee of meer.</td></tr>
+              <tr><td><strong>Voorbeeld</strong></td><td><em>"Zij <strong>vergist zich</strong>."</em></td><td><em>"Zij <strong>ontmoeten elkaar</strong>."</em></td></tr>
+              <tr><td><strong>Onderwerp</strong></td><td>Enkelvoud of meervoud.</td><td>Altijd meervoudig (of samengesteld).</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 Schema 2: De Vormen van het Wederkerig Voornaamwoord</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Vorm</th><th>Register</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>elkaar</strong></td><td>Standaard, neutraal</td><td><em>"We helpen <strong>elkaar</strong>."</em></td></tr>
+              <tr><td><strong>mekaar</strong></td><td>Informeel, spreektaal</td><td><em>"We zien <strong>mekaar</strong> morgen."</em></td></tr>
+              <tr><td><strong>elkander</strong></td><td>Formeel, archaïsch</td><td><em>"Zij minnen <strong>elkander</strong>."</em></td></tr>
+              <tr><td><strong>malkander</strong></td><td>Zeer archaïsch</td><td><em>"Zij steunden <strong>malkander</strong>."</em></td></tr>
+              <tr><td><strong>elkaars</strong></td><td>Bezit</td><td><em>"Ze lezen <strong>elkaars</strong> boeken."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 Schema 3: Combinatie met Voorzetsels</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Voorzetsel</th><th>Combinatie</th><th>Voorbeeldzin</th></tr></thead>
+            <tbody>
+              <tr><td><em>op</em></td><td><strong>op elkaar</strong></td><td><em>"We wachten <strong>op elkaar</strong>."</em></td></tr>
+              <tr><td><em>van</em></td><td><strong>van elkaar</strong></td><td><em>"Ze houden <strong>van elkaar</strong>."</em></td></tr>
+              <tr><td><em>met</em></td><td><strong>met elkaar</strong></td><td><em>"Ze spelen <strong>met elkaar</strong>."</em></td></tr>
+              <tr><td><em>aan</em></td><td><strong>aan elkaar</strong></td><td><em>"Ze zitten vast <strong>aan elkaar</strong>."</em></td></tr>
+              <tr><td><em>in</em></td><td><strong>in elkaar</strong></td><td><em>"De dozen passen <strong>in elkaar</strong>."</em></td></tr>
+              <tr><td><em>uit</em></td><td><strong>uit elkaar</strong></td><td><em>"De groep viel <strong>uit elkaar</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📝 Deel 10: Oefeningen (Vul het Juiste Woord In)</h2>
+        <p><strong>Opdracht:</strong> Vul het juiste wederkerige of wederkerende voornaamwoord in.</p>
+        
+        <div class="gw-rec-card">
+          <div class="gw-rec-ex"><strong>1.</strong> <em>"De twee katten wassen _____ (elkaar / zich)."</em><br><em>Antwoord: <strong>elkaar</strong></em></div>
+          <div class="gw-rec-ex"><strong>2.</strong> <em>"Zij schaamt _____ (elkaar / zich) voor haar fout."</em><br><em>Antwoord: <strong>zich</strong></em></div>
+          <div class="gw-rec-ex"><strong>3.</strong> <em>"Wij hebben _____ (elkaar / ons) lang niet gezien."</em><br><em>Antwoord: <strong>elkaar</strong></em></div>
+          <div class="gw-rec-ex"><strong>4.</strong> <em>"De deelnemers stelden _____ (elkaar / zich) voor."</em><br><em>Antwoord: <strong>elkaar</strong> (A stelt B voor, en B stelt A voor)</em></div>
+          <div class="gw-rec-ex"><strong>5.</strong> <em>"De deelnemers stelden _____ (elkaar / zich) voor aan de jury." (Elk stelt zichzelf voor)</em><br><em>Antwoord: <strong>zich</strong></em></div>
+          <div class="gw-rec-ex"><strong>6.</strong> <em>"Ze zijn dol op _____ (elkaar / mekaar)."</em><br><em>Antwoord: <strong>elkaar</strong> (of <em>mekaar</em> in spreektaal)</em></div>
+          <div class="gw-rec-ex"><strong>7.</strong> <em>"De buren lenen vaak _____ (elkaars / elkaar's) gereedschap."</em><br><em>Antwoord: <strong>elkaars</strong></em></div>
+          <div class="gw-rec-ex"><strong>8.</strong> <em>"De twee rivieren stromen in _____ (elkaar / elkander) over."</em><br><em>Antwoord: <strong>elkaar</strong></em></div>
+          <div class="gw-rec-ex"><strong>9.</strong> <em>"Zij hebben _____ (elkaar / mekaar) een geheim verteld."</em><br><em>Antwoord: <strong>elkaar</strong></em></div>
+          <div class="gw-rec-ex"><strong>10.</strong> <em>"De geliefden omhelsden _____ (elkander / elkaar)."</em><br><em>Antwoord: <strong>elkaar</strong> (of <em>elkander</em> in formele context)</em></div>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Snelle Samenvatting</h3>
+        <ul>
+          <li><strong>Wederkerig:</strong> Wederzijdse actie tussen twee of meer → <em>elkaar</em></li>
+          <li><strong>Wederkerend:</strong> Actie kaatst terug op onderwerp → <em>zich</em></li>
+          <li><strong>Woordvolgorde:</strong> Voorzetsel + <em>elkaar</em> (nooit splitsen!)</li>
+          <li><strong>Bezit:</strong> <em>elkaars</strong> (zonder apostrof)</li>
+          <li><strong>Onderwerp:</strong> Moet meervoudig zijn om <em>elkaar</em> te gebruiken</li>
+          <li><strong>Varianten:</strong> <em>elkaar</em> (standaard) | <em>mekaar</em> (informeel) | <em>elkander</em> (formeel)</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Hopelijk biedt deze gids een helder en volledig overzicht van de wederkerige voornaamwoorden in het Nederlands. Of je nu <em>elkaar</em> wilt ontmoeten, <em>elkaars</em> gezelschap waardeert, of simpelweg <em>op elkaar</em> wilt wachten, met deze kennis sta je nooit alleen. Mocht je nog vragen hebben, stel ze gerust. We helpen <strong>elkaar</strong> immers verder! 🚀</p>
+      </div>
+    </div>
+  `
+},
+{
+  id: 39,
+  t: "Formeel vs informeel taalgebruik",
+  d: "U vs jij/je – register, woordkeuze en context",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      .gw-reg-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+      }
+      .gw-reg-title {
+        font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+        margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+      }
+      .gw-reg-ex {
+        padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+      }
+      .gw-reg-ex:last-child { border-bottom: none; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+        .gw-reg-title { font-size: 1.05rem; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🎭 Formeel vs Informeel</h1>
+        <p>U vs jij/je – register, woordkeuze en context</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Met groot genoegen duiken we in de fascinerende wereld van <strong>formeel en informeel taalgebruik</strong> in het Nederlands. Dit is het terrein van subtiele nuances, sociale codes en stijlkeuzes die bepalen hoe je overkomt op je gesprekspartner. Het juiste register kiezen—of het nu gaat om een sollicitatiebrief, een praatje met de buurvrouw, een appje naar een vriend of een toespraak voor een groot publiek—is essentieel voor effectieve en gepaste communicatie.</p>
+        <p>Deze gids is jouw complete, foutloze en prachtig geïllustreerde naslagwerk over de verschillen tussen formeel en informeel Nederlands. We behandelen de aanspreekvormen (<em>u</em> versus <em>jij</em>), beleefdheidsconstructies, woordkeuze en uitdrukkingen, grammaticale verschillen (zoals <em>dan ik</em> versus <em>dan mij</em>, <em>zij hebben</em> versus <em>hun hebben</em>), de kenmerken van spreektaal en schrijftaal, en de kunst van het schakelen tussen registers. Uiteraard alles met een <strong>overvloed aan schitterende voorbeelden</strong>.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Deel 1: Het Belang van Register – Waarom Formeel of Informeel?</h2>
+        <p>In elke taal, maar zeker in het Nederlands, is het vermogen om te schakelen tussen formele en informele stijl een teken van taalbeheersing. De keuze voor een bepaald register hangt af van:</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Factor</th><th>Vraag die je jezelf stelt</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Relatie tot de gesprekspartner</strong></td><td>Is het een vriend, een onbekende, een meerdere?</td><td>Vriend: <em>"Hé, hoe ist?"</em> / Baas: <em>"Goedemorgen, hoe maakt u het?"</em></td></tr>
+              <tr><td><strong>Situatie / Context</strong></td><td>Is het een feestje, een begrafenis, een rechtszaal?</td><td>Feestje: <em>"Lekker wijf!"</em> (informeel, joviaal) / Rechtbank: <em>"Edelachtbare, mijn cliënt..."</em> (zeer formeel)</td></tr>
+              <tr><td><strong>Medium</strong></td><td>Schrijf je een appje, een e-mail, een officiële brief?</td><td>Appje: <em>"Ben er over 5 min"</em> / Brief: <em>"Hierbij deel ik u mede dat..."</em></td></tr>
+              <tr><td><strong>Doel</strong></td><td>Wil je overtuigen, informeren, een band smeden?</td><td>Informeren (neutraal): <em>"De trein vertrekt om 10:00."</em> / Band smeden (informeel): <em>"Joh, we gaan zo de trein pakken."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note" style="margin-top:12px;">📍 Het Nederlands kent een <strong>glijdende schaal</strong> van uiterst formeel tot zeer informeel. We kunnen grofweg drie hoofdniveaus onderscheiden:<br>• <strong>Formeel:</strong> <em>U</em>, volledige zinnen, passiefconstructies, plechtige woordkeus, <em>dan ik</em>, geen dialect.<br>• <strong>Neutraal / Standaard:</strong> <em>Je/jij</em>, beleefd maar niet stijf, correcte grammatica.<br>• <strong>Informeel:</strong> <em>Je/jij</em>, spreektaal, verkortingen (<em>'t</em>, <em>'m</em>), dialect, <em>hun hebben</em>, <em>groter als mij</em>.</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>👤 Deel 2: Aanspreekvormen – 'U' versus 'Jij' (en 'Je')</h2>
+        <p>Het meest zichtbare verschil tussen formeel en informeel is de keuze voor de aanspreekvorm.</p>
+        <h3>✅ 2.1 'U' – De Formele Vorm</h3>
+        <p><strong>'U'</strong> wordt gebruikt om <strong>beleefdheid, respect, afstand of formaliteit</strong> uit te drukken. Het wordt gebruikt tegen ouderen, onbekenden, mensen met een hogere positie, en in officiële correspondentie.</p>
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">📐 Grammatica van 'U':</div>
+          <ul style="margin:10px 0 0 20px;">
+            <li><strong>Persoonlijk voornaamwoord:</strong> <em>u</em> (onderwerp), <em>u</em> (lijdend voorwerp), <em>uw</em> (bezittelijk).</li>
+            <li><strong>Werkwoordsvervoeging:</strong> Gelijk aan de hij/zij-vorm (<em>stam + t</em>), of de u-vorm van de verleden tijd (<em>u liep, u had, u kon</em>).</li>
+            <li><strong>Wederkerend voornaamwoord:</strong> <em>zich</em> of <em>u</em>. <em>"U vergist u/zich."</em></li>
+          </ul>
+        </div>
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"<strong>Hebt u</strong> nog vragen?"</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Uw</strong> bestelling wordt morgen bezorgd."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Neemt u</strong> mij niet kwalijk, mag ik even passeren?"</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Ik dank <strong>u</strong> hartelijk voor <strong>uw</strong> medewerking."</em></span>
+        </div>
+
+        <h3 style="margin-top:24px;">✅ 2.2 'Jij' en 'Je' – De Informele Vormen</h3>
+        <p><strong>'Jij'</strong> (beklemtoond) en <strong>'Je'</strong> (onbeklemtoond) worden gebruikt tegen vrienden, familie, kennissen, kinderen en collega's met een informele band.</p>
+        <div class="gw-card gw-card--tip">
+          <div class="gw-card-title">📐 Grammatica van 'Jij/Je':</div>
+          <ul style="margin:10px 0 0 20px;">
+            <li><strong>Persoonlijk voornaamwoord:</strong> <em>jij</em> (beklemtoond), <em>je</em> (onbeklemtoond), <em>jouw/je</em> (bezittelijk), <em>jou/je</em> (lijdend).</li>
+            <li><strong>Inversie met <em>je</em>:</strong> <em>Loop je?</em></li>
+            <li><strong>Wederkerend:</strong> <em>je</em>. <em>"Jij vergist je."</em></li>
+          </ul>
+        </div>
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>"<strong>Heb jij</strong> dat gezien?"</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Loop je</strong> even mee?"</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"Ik geef <strong>jou</strong> het boek."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>"<strong>Jouw</strong> idee was briljant!"</em></span>
+        </div>
+        <div class="gw-note" style="margin-top:12px;">📍 <strong>De Overgang van 'U' naar 'Jij':</strong> In Nederland is het gebruikelijk om na een eerste kennismaking vrij snel over te stappen op <em>jij</em> en <em>je</em>. Het aanbieden gebeurt vaak met: <em>"Zullen we 'je' zeggen?"</em> of <em>"Zeg maar 'jij', hoor."</em></div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📝 Deel 3: Woordkeuze en Uitdrukkingen – Van Plechtig tot Plat</h2>
+        <p>De woordenschat is een rijke bron van registerverschillen. Formele taal gebruikt vaak omslachtigere, Latijnse of ambtelijke termen, terwijl informele taal korter, directer en kleurrijker is.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Situatie</th><th>Formeel / Plechtig</th><th>Neutraal</th><th>Informeel / Spreektaal</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Begroeting</strong></td><td><em>"Goedendag."</em></td><td><em>"Hallo."</em></td><td><em>"Hoi / Hé."</em></td></tr>
+              <tr><td><strong>Afscheid</strong></td><td><em>"Ik wens u nog een aangename dag."</em></td><td><em>"Tot ziens."</em></td><td><em>"Doei! / Later!"</em></td></tr>
+              <tr><td><strong>Bedanken</strong></td><td><em>"Ik ben u zeer erkentelijk."</em></td><td><em>"Dank u wel."</em></td><td><em>"Thanks! / Merci!"</em></td></tr>
+              <tr><td><strong>Verontschuldigen</strong></td><td><em>"Neemt u mij niet kwalijk."</em></td><td><em>"Sorry."</em></td><td><em>"Sorie. / Foutje."</em></td></tr>
+              <tr><td><strong>Verzoeken</strong></td><td><em>"Ik zou u willen verzoeken om..."</em></td><td><em>"Kunt u mij misschien...?"</em></td><td><em>"Kun je me effe...?"</em></td></tr>
+              <tr><td><strong>Spreken</strong></td><td><em>"Het woord voeren."</em></td><td><em>"Zeggen / Praten."</em></td><td><em>"Lullen / Kletsen."</em></td></tr>
+              <tr><td><strong>Heel / Erg</strong></td><td><em>"Buitengewoon."</em></td><td><em>"Heel / Erg."</em></td><td><em>"Kei / Mega / Vet."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>Formeel: "Ik verzoek u vriendelijk doch dringend de bijdrage tijdig te voldoen."</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Neutraal: "Kunt u de rekening voor de 15e betalen?"</em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Informeel: "Hé, kun jij die poen effe overmaken voor vrijdag?"</em></span>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🧩 Deel 4: Grammaticale Verschillen – Wat Mag Wel en Niet?</h2>
+        <h3>✅ 4.1 'Dan ik' versus 'Dan mij' / 'Als mij'</h3>
+        <p>In formele en neutrale schrijftaal is de regel: <strong>Dan + onderwerpsvorm</strong> na een vergrotende trap. <strong>Als + onderwerpsvorm</strong> na een stellende trap (<em>even ... als</em>).</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Formeel / Correct Schrijftaal</th><th>Informeel / Spreektaal</th></tr></thead>
+            <tbody>
+              <tr><td><em>"Zij is groter <strong>dan ik</strong>."</em></td><td><em>"Zij is groter <strong>dan mij</strong>."</em> (Zeer gebruikelijk)</td></tr>
+              <tr><td><em>"Hij is even oud <strong>als zij</strong>."</em></td><td><em>"Hij is even oud <strong>als haar</strong>."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note" style="margin-top:12px;">📍 <strong>Advies:</strong> Gebruik in formele teksten en examens <strong>dan ik / als zij</strong>. In informele gesprekken is <em>dan mij</em> volkomen natuurlijk.</div>
+
+        <h3 style="margin-top:24px;">✅ 4.2 'Hun' als Onderwerp</h3>
+        <p>Het bezittelijk of meewerkend voornaamwoord <em>hun</em> gebruiken als <strong>onderwerp</strong> is een beruchte spreektaalvorm die in de schrijftaal als een ernstige fout wordt beschouwd.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Formeel / Correct</th><th>Informeel / Fout in Schrijftaal</th></tr></thead>
+            <tbody>
+              <tr><td><em>"<strong>Zij hebben</strong> gelijk."</em></td><td><em>"<strong>Hun hebben</strong> gelijk."</em></td></tr>
+              <tr><td><em>"<strong>Zij gaan</strong> morgen op vakantie."</em></td><td><em>"<strong>Hun gaan</strong> morgen op vakantie."</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-card gw-card--warn" style="margin-top:12px;">
+          <div class="gw-card-title">⚠️ Regel:</div>
+          <p style="margin:0; color:var(--gw-text)"><em>Hun</em> is <strong>nooit</strong> onderwerp. Het is bezittelijk (<em>hun boek</em>) of meewerkend voorwerp (<em>Ik geef <strong>hun</strong> het boek</em>).</p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📬 Deel 5: Aanspreekvormen in Brieven en E-mails</h2>
+        <p>De aanhef en afsluiting van een brief of e-mail zijn sterke indicatoren van het register.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Situatie</th><th>Aanhef</th><th>Afsluiting</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Zeer formeel</strong> (onbekende, instantie)</td><td><em>Geachte heer/mevrouw,</em></td><td><em>Hoogachtend,</em></td></tr>
+              <tr><td><strong>Formeel</strong> (bekende naam, zakelijk)</td><td><em>Geachte heer Jansen,</em></td><td><em>Met vriendelijke groet,</em></td></tr>
+              <tr><td><strong>Neutraal</strong> (collega, bekende relatie)</td><td><em>Beste meneer Jansen,</em></td><td><em>Met vriendelijke groet, / Hartelijke groet,</em></td></tr>
+              <tr><td><strong>Informeel</strong> (vriend, bekende collega)</td><td><em>Beste Peter, / Hoi Marieke,</em></td><td><em>Groetjes, / Hartelijks,</em></td></tr>
+              <tr><td><strong>Zeer informeel</strong> (goede vriend)</td><td><em>Hé Peter, / Lieve Marieke,</em></td><td><em>Liefs, / Doei! / X</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note" style="margin-top:12px;">📍 <strong>Let op:</strong> In Vlaanderen is <em>Geachte</em> de standaard, zelfs in minder formele contexten. In Nederland is <em>Beste</em> in veel zakelijke mails al heel gebruikelijk.</div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Deel 6: Veelgemaakte Fouten bij Registerkeuze</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Fout</th><th>Waarom het Opvalt</th><th>Correctie / Advies</th></tr></thead>
+            <tbody>
+              <tr><td><em>"Hun hebben het gedaan."</em> in een presentatie.</td><td>Wordt als onverzorgd en foutief gezien.</td><td>Gebruik altijd <strong>"Zij hebben..."</strong> in formele en neutrale context.</td></tr>
+              <tr><td><em>"Groter als mij"</em> in een examen Nederlands.</td><td>Grammaticaal incorrect volgens de norm.</td><td>Schrijf <strong>"Groter dan ik."</strong></td></tr>
+              <tr><td><em>"U"</em> en <em>"jij"</em> door elkaar in één gesprek.</td><td>Komt slordig en inconsistent over.</td><td>Kies één aanspreekvorm en blijf daarbij, tenzij je bewust overstapt.</td></tr>
+              <tr><td><em>"Geachte mevrouw Jansen, met vriendelijke groet, Peter"</em></td><td><em>Hoogachtend</em> hoort bij <em>Geachte</em>.</td><td>Combineer <em>Geachte</em> met <em>Hoogachtend</em>, of <em>Beste</em> met <em>Met vriendelijke groet</em>.</td></tr>
+              <tr><td>Te informeel taalgebruik in een klachtbrief.</td><td>Ondermijnt de ernst van je klacht.</td><td>Blijf beleefd, zakelijk en gebruik correcte grammatica, ook al ben je boos.</td></tr>
+              <tr><td>Te formeel taalgebruik in een appje.</td><td>Komt stijf en afstandelijk over.</td><td><em>"Ik zou u willen verzoeken mij terug te bellen."</em> → <em>"Bel je me even?"</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💡 Deel 7: Pro-Tips & Ezelsbruggetjes</h2>
+        <ol>
+          <li><strong>De 'U'-Test:</strong><br>Twijfel je tussen formeel en informeel? Stel jezelf de vraag: <em>"Zou ik deze persoon met 'u' aanspreken?"</em> Zo ja, kies dan voor een formeler register.</li>
+          <li><strong>Schrijf Zoals Je Zou Spreken (Tegen de Juiste Persoon):</strong><br>Een goede neutrale e-mail leest alsof je een beleefd gesprek voert met de ontvanger.</li>
+          <li><strong>Lees Je Tekst Hardop:</strong><br>Hoor je zinnen die onnatuurlijk stijf of juist veel te plat klinken? Pas ze aan. Je oor is een goede raadgever.</li>
+          <li><strong>'Dan Ik' vs. 'Dan Mij' Onthouden:</strong><br>Vul de zin in gedachten aan: <em>"Zij is groter dan ik <strong>ben</strong>."</em> Dat helpt je de onderwerpsvorm (<em>ik</em>) te kiezen.</li>
+          <li><strong>Vermijd 'Hun' als Onderwerp Altijd:</strong><br>Dit is een absolute regel, ongeacht het register (behalve als je dialect bewust als stijlmiddel inzet). <strong>Hun = nooit onderwerp.</strong></li>
+          <li><strong>Wees Consequent in Brieven:</strong><br><strong>Geachte</strong> → <strong>Hoogachtend</strong>. <strong>Beste</strong> → <strong>Met vriendelijke groet</strong>. <strong>Hoi</strong> → <strong>Groetjes</strong>.</li>
+        </ol>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 Deel 8: Overzichtsschema Formeel vs. Informeel</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Aspect</th><th>Formeel</th><th>Neutraal</th><th>Informeel</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Aanspreekvorm</strong></td><td><em>U</em></td><td><em>Je / Jij</em></td><td><em>Je / Jij</em></td></tr>
+              <tr><td><strong>Grammatica</strong></td><td><em>dan ik, als zij, zij hebben</em></td><td><em>dan ik, zij hebben</em></td><td><em>dan mij, als haar, hun hebben</em></td></tr>
+              <tr><td><strong>Woordkeuze</strong></td><td><em>buitengewoon, verzoeken</em></td><td><em>heel, vragen</em></td><td><em>kei, effe</em></td></tr>
+              <tr><td><strong>Zinsbouw</strong></td><td>Complex, passief</td><td>Helder, actief</td><td>Kort, direct</td></tr>
+              <tr><td><strong>Voorbeeld begroeting</strong></td><td><em>Goedendag</em></td><td><em>Hallo</em></td><td><em>Hoi / Hé</em></td></tr>
+              <tr><td><strong>Voorbeeld afscheid</strong></td><td><em>Ik wens u een prettige dag</em></td><td><em>Tot ziens</em></td><td><em>Doei! / Later!</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📝 Deel 9: Oefeningen (Kies het Juiste Register)</h2>
+        <p><strong>Opdracht:</strong> Herschrijf de volgende zinnen in een formeler of informeler register, zoals aangegeven.</p>
+        <div class="gw-reg-card">
+          <div class="gw-reg-ex"><strong>1.</strong> <em>"Hé gast, kun je me effe helpen?"</em> (Maak formeel)<br><em>Antwoord: "Kunt u mij misschien even helpen, alstublieft?"</em></div>
+          <div class="gw-reg-ex"><strong>2.</strong> <em>"Ik zou u willen verzoeken om het formulier ingevuld te retourneren."</em> (Maak neutraal/informeel)<br><em>Antwoord: "Zou je het formulier willen invullen en terugsturen?"</em></div>
+          <div class="gw-reg-ex"><strong>3.</strong> <em>"Hun hebben gisteren de hele avond lopen zuipen."</em> (Maak correct en neutraal)<br><em>Antwoord: "Zij hebben gisteren de hele avond gedronken."</em></div>
+          <div class="gw-reg-ex"><strong>4.</strong> <em>"Zij is groter als mij."</em> (Maak formeel)<br><em>Antwoord: "Zij is groter dan ik."</em></div>
+          <div class="gw-reg-ex"><strong>5.</strong> <em>"Geachte mevrouw Jansen, bedankt voor je mailtje."</em> (Maak consequent formeel)<br><em>Antwoord: "Geachte mevrouw Jansen, dank u wel voor uw e-mail."</em></div>
+          <div class="gw-reg-ex"><strong>6.</strong> <em>"Hierbij deel ik u mede dat uw aanvraag helaas niet in behandeling kan worden genomen."</em> (Maak neutraal en duidelijker)<br><em>Antwoord: "Helaas kunnen we uw aanvraag niet verwerken."</em></div>
+          <div class="gw-reg-ex"><strong>7.</strong> <em>"We zien mekaar morgen!"</em> (Maak neutraal schriftelijk)<br><em>Antwoord: "We zien elkaar morgen."</em></div>
+          <div class="gw-reg-ex"><strong>8.</strong> <em>"De man waar ik mee sprak, was heel aardig."</em> (Maak formeel schriftelijk)<br><em>Antwoord: "De man met wie ik sprak, was heel aardig."</em></div>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Snelle Samenvatting</h3>
+        <ul>
+          <li><strong>Aanspreekvorm:</strong> <em>U</em> = formeel | <em>Jij/Je</em> = informeel/neutraal</li>
+          <li><strong>Grammatica:</strong> <em>dan ik</em> (formeel) vs <em>dan mij</em> (informeel) | <em>zij hebben</em> (correct) vs <em>hun hebben</em> (fout)</li>
+          <li><strong>Woordkeuze:</strong> Pas je register aan aan de context (sollicitatiebrief vs appje)</li>
+          <li><strong>Zinsbouw:</strong> Formeel = complex/passief | Informeel = kort/actief</li>
+          <li><strong>Consistentie:</strong> Blijf bij één register tenzij je bewust overschakelt</li>
+          <li><strong>Brieven:</strong> <em>Geachte → Hoogachtend</em> | <em>Beste → Met vriendelijke groet</em></li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Hopelijk biedt deze gids een helder en volledig overzicht van de verschillen tussen formeel en informeel taalgebruik in het Nederlands. Of u nu een sollicitatiebrief schrijft, een presentatie geeft, of gewoon gezellig met vrienden kletst, met deze kennis weet u precies welke toon u moet aanslaan. Mocht u nog vragen hebben, aarzel dan niet om ze te stellen. Ik help u <strong>graag</strong> en <strong>uitgebreid</strong> verder! (Of, informeler: <em>"Hé, als je nog wat wil weten, vraag maar raak! Ik help je graag."</em>) 🚀</p>
+      </div>
+    </div>
+  `
+},
+{
+  id: 40,
+  t: "Idiomatische uitdrukkingen",
+  d: "Nederlandse spreekwoorden en zegswijzen — wijsheid in beeldspraak",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+
+      .gw-idiom-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+      }
+      .gw-idiom-title {
+        font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+        margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+      }
+      .gw-idiom-ex {
+        padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+      }
+      .gw-idiom-ex:last-child { border-bottom: none; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+        .gw-idiom-title { font-size: 1.05rem; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🗣️ Idiomatische Uitdrukkingen</h1>
+        <p>Nederlandse spreekwoorden en zegswijzen — wijsheid in beeldspraak</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Met groot genoemen duiken we in de rijke wereld van de <strong>Nederlandse idiomatische uitdrukkingen</strong>. Dit zijn vaste woordcombinaties waarvan de betekenis niet letterlijk uit de afzonderlijke woorden is af te leiden. Ze vormen het hart van de Nederlandse cultuur: humoristisch, beeldend en vol levenswijsheid.</p>
+        <p>Deze gids is jouw complete, foutloze en prachtig geïllustreerde naslagwerk over Nederlandse spreekwoorden en uitdrukkingen. We behandelen het verschil tussen spreekwoorden en gezegden, de herkomst van populaire uitdrukkingen, thematische categorieën (werk, geld, relaties, weer), het correcte gebruik in de zin, veelgemaakte fouten, en natuurlijk een <strong>overvloed aan schitterende voorbeelden</strong> met uitleg.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>🗣️ Deel 1: Wat zijn Idiomatische Uitdrukkingen? Het Verschil</h2>
+        <p>Niet elke vaste combinatie is hetzelfde. We onderscheiden drie soorten:</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Type</th><th>Definitie</th><th>Voorbeeld</th><th>Betekenis</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Spreekwoord</strong></td><td>Een complete zin met een algemene levensles of waarheid.</td><td><em>"Wie A zegt, moet ook B zeggen."</em></td><td>Als je ergens aan begint, maak het dan ook af.</td></tr>
+              <tr><td><strong>Gezegde / Uitdrukking</strong></td><td>Een vaste woordcombinatie die figuurlijk wordt gebruikt.</td><td><em>"Iets uit de doeken doen."</em></td><td>Iets uitleggen of onthullen.</td></tr>
+              <tr><td><strong>Gezegde met werkwoord</strong></td><td>Een vaste combinatie met een werkwoord dat figuurlijk is.</td><td><em>"De kat uit de boom kijken."</em></td><td>Afwachten en observeren voordat je handelt.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example" style="margin-top:16px;">
+          <span class="orig">✨ <em>Spreekwoord: "<strong>Alle beetjes helpen</strong>." <small>(Elke kleine bijdrage telt)</small></em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Gezegde: "Hij <strong>draait er omheen</strong>." <small>(Hij vermijdt de kern van de zaak)</small></em></span>
+          <span class="orig" style="margin-top:4px;">✨ <em>Gezegde met werkwoord: "Ze <strong>gooit het op een akkoordje</strong>." <small>(Ze probeert het bij te leggen)</small></em></span>
+        </div>
+
+        <div class="gw-card gw-card--rule" style="margin-top:16px;">
+          <div class="gw-card-title">✨ Belangrijk:</div>
+          <p style="margin:0; color:var(--gw-text)">Idiomatische uitdrukkingen zijn <strong>onveranderlijk</strong>. Je mag de woorden niet zomaar vervangen of de volgorde wijzigen, anders verlies je de betekenis.<br><br>✅ <em>"Hij slaat de spijker op zijn kop."</em><br>❌ <em>"Hij slaat de bout op zijn kop."</em> (Bestaat niet!)</p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📚 Deel 2: Populaire Uitdrukkingen over Werk en Inspanning</h2>
+        
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🔨 "De handen uit de mouwen steken"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Hard gaan werken, je best doen.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"We hebben nog veel te doen, dus <strong>steek de handen uit de mouwen</strong>!"</em></div>
+          <div class="gw-idiom-ex"><strong>Herkomst:</strong> Vroeger droegen mensen lange mouwen; voor zwaar werk staken ze deze op.</div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">⚡ "Er tegenaan gaan"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Met energie en vastberadenheid beginnen.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Het project is spannend, laten we <strong>ertegenaan gaan</strong>!"</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🎯 "De puntjes op de i zetten"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> De laatste details afwerken, iets perfect maken.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Het verslag is bijna klaar, ik moet alleen nog <strong>de puntjes op de i zetten</strong>."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🔄 "Het wiel opnieuw uitvinden"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Iets bedenken wat al lang bekend is; onnodig werk doen.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Laten we niet <strong>het wiel opnieuw uitvinden</strong>; er is al een goede oplossing."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">💪 "Je tanden erin zetten"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Met volle overgave aan een taak beginnen.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Dit is een uitdagend boek, maar ik ga <strong>mijn tanden erin zetten</strong>."</em></div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💰 Deel 3: Uitdrukkingen over Geld en Waarde</h2>
+        
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">💸 "Geld over de balk smijten"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Roekeloos veel geld uitgeven.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Hij koopt alleen maar dure spullen; hij <strong>smijt het geld over de balk</strong>."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🪙 "Voor een appel en een ei"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Voor een heel lage prijs.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Ik heb deze fiets <strong>voor een appel en een ei</strong> gekocht."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🏦 "Op de pof leven"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Op krediet leven, meer uitgeven dan je hebt.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Als je blijft <strong>op de pof leven</strong>, kom je in de problemen."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">💎 "Goud waard zijn"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Zeer waardevol of nuttig zijn.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Jouw advies was <strong>goud waard</strong> voor mij."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🤲 "Met open armen ontvangen"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Iemand zeer welkom heten.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Toen ik terugkwam, werd ik <strong>met open armen ontvangen</strong>."</em></div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>❤️ Deel 4: Uitdrukkingen over Relaties en Gevoelens</h2>
+        
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">💕 "Iemand op handen dragen"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Iemand zeer bewonderen of liefhebben.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Zijn collega's <strong>dragen hem op handen</strong> om zijn inzet."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">😤 "Iemand de rug toekeren"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Iemand negeren of in de steek laten.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Toen hij hulp nodig had, <strong>keerden ze hem de rug toe</strong>."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🗣️ "Iets op het hart hebben"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Iets willen vertellen wat je dwarszit.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Je ziet er bezorgd uit; heb je <strong>iets op je hart</strong>?"</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🤝 "Het bijleggen"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Ruzie bijleggen, het weer goedmaken.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Na een week praten hebben ze <strong>het eindelijk bijgelegd</strong>."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🎭 "Iemand in de maling nemen"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Iemand voor de gek houden.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Neem je me <strong>in de maling</strong>, of meen je het echt?"</em></div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🌦️ Deel 5: Uitdrukkingen over Weer en Natuur</h2>
+        
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">☀️ "Het regent pijpenstelen"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Het regent heel hard.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Blijf maar binnen, <strong>het regent pijpenstelen</strong>!"</em></div>
+          <div class="gw-idiom-ex"><strong>Herkomst:</strong> Vroeger vielen er soms metalen pijpen van daken bij storm; metafoor voor zware regen.</div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🌤️ "Een storm in een glas water"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Veel ophef om niets; een klein probleem dat groot wordt gemaakt.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Maak je niet druk, het is maar <strong>een storm in een glas water</strong>."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🌧️ "Het is niet altijd feest"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Het leven heeft ook moeilijke momenten.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Soms moet je gewoon doorzetten; <strong>het is niet altijd feest</strong>."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🌪️ "De wind uit de zeilen nemen"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Iemands enthousiasme of argumenten afzwakken.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Met een goed tegenargument nam hij <strong>de wind uit haar zeilen</strong>."</em></div>
+        </div>
+
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-title">🌈 "Na regen komt zonneschijn"</div>
+          <div class="gw-idiom-ex"><strong>Betekenis:</strong> Na moeilijke tijden komen betere tijden.</div>
+          <div class="gw-idiom-ex"><strong>Voorbeeld:</strong> <em>"Blijf hoopvol; <strong>na regen komt zonneschijn</strong>."</em></div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Deel 6: Veelgemaakte Fouten en Valkuilen</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Fout ❌</th><th>Correctie ✅</th><th>Waarom?</th></tr></thead>
+            <tbody>
+              <tr><td><em>Hij slaat de bout op zijn kop.</em></td><td><em>Hij slaat <strong>de spijker</strong> op zijn kop.</em></td><td>De vaste combinatie is <em>spijker</em>, niet <em>bout</em>.</td></tr>
+              <tr><td><em>Zij gooit het op een accoordje.</em></td><td><em>Zij gooit het op een <strong>akkoordje</strong>.</em></td><td>Spelling: <em>akkoord</em> met dubbel <em>k</em>.</td></tr>
+              <tr><td><em>Hij heeft de kat uit de boom gekeken.</em></td><td><em>Hij <strong>keek</strong> de kat uit de boom.</em></td><td>De vaste vorm is <em>de kat uit de boom kijken</em>; voltooid deelwoord is ongebruikelijk.</td></tr>
+              <tr><td><em>We smijten geld over de balie.</em></td><td><em>We smijten geld over <strong>de balk</strong>.</em></td><td>De uitdrukking is <em>over de balk</em>, niet <em>over de balie</em>.</td></tr>
+              <tr><td><em>Hij draagt haar op hand.</em></td><td><em>Hij draagt haar <strong>op handen</strong>.</em></td><td>Meervoud <em>handen</em> is verplicht in deze uitdrukking.</td></tr>
+              <tr><td><em>Ze nam hem in de mal.</em></td><td><em>Ze nam hem <strong>in de maling</strong>.</em></td><td>De vaste combinatie is <em>in de maling nemen</em>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💡 Deel 7: Pro-Tips & Ezelsbruggetjes</h2>
+        <ol>
+          <li><strong>Leer in Context:</strong><br>Uitdrukkingen onthoud je het beste in een complete zin. Schrijf ze op met een voorbeeld dat voor jou betekenisvol is.<br><em>"Ik ga <strong>mijn tanden erin zetten</strong> om deze cursus af te ronden."</em></li>
+          <li><strong>Let op de Letterlijkheid:</strong><br>Veel uitdrukkingen komen uit het dagelijks leven van vroeger. Bedenk wat de <em>beeldspraak</em> is.<br><em>"De kat uit de boom kijken"</em> → een kat klimt voorzichtig; dus: afwachten.</li>
+          <li><strong>Gebruik ze Natuurlijk:</strong><br>Dwing uitdrukkingen niet af. Gebruik ze alleen als ze echt passen bij wat je wilt zeggen.<br>✅ <em>"Laten we de puntjes op de i zetten."</em> (bij afronden)<br>❌ <em>"Ik ga de puntjes op de i zetten."</em> (bij beginnen – past niet)</li>
+          <li><strong>Regionale Varianten:</strong><br>Sommige uitdrukkingen verschillen per regio. <em>"Iets op de kop tikken"</em> (kopen) is bijvoorbeeld typisch Nederlands.</li>
+          <li><strong>Humor en Ironie:</strong><br>Veel uitdrukkingen worden ironisch gebruikt. <em>"Dat is nog eens een storm in een glas water!"</em> kan sarcastisch bedoeld zijn.</li>
+        </ol>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 Deel 8: Overzichtsschema's</h2>
+        
+        <h3>🔹 Schema 1: Thematische Categorieën</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Categorie</th><th>Voorbeeld</th><th>Betekenis</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Werk</strong></td><td><em>Handen uit de mouwen</em></td><td>Hard werken</td></tr>
+              <tr><td><strong>Geld</strong></td><td><em>Voor een appel en een ei</em></td><td>Goedkoop</td></tr>
+              <tr><td><strong>Relaties</strong></td><td><em>Iemand op handen dragen</em></td><td>Zeer waarderen</td></tr>
+              <tr><td><strong>Weer</strong></td><td><em>Regent pijpenstelen</em></td><td>Hevig regenen</td></tr>
+              <tr><td><strong>Beslissingen</strong></td><td><em>De kat uit de boom kijken</em></td><td>Afwachten</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">🔹 Schema 2: Structuur van Uitdrukkingen</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Type</th><th>Voorbeeld</th><th>Gebruik</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Werkwoord + Voorzetsel</strong></td><td><em>Ergens <strong>op</strong> wachten</em></td><td>Beschrijft een handeling</td></tr>
+              <tr><td><strong>Zelfstandig naamwoord + Werkwoord</strong></td><td><em><strong>De kogel</strong> is door de kerk</em></td><td>Beschrijft een situatie</td></tr>
+              <tr><td><strong>Vergelijking</strong></td><td><em>Zo blij als een kind</em></td><td>Benadrukt een eigenschap</td></tr>
+              <tr><td><strong>Volledige zin (Spreekwoord)</strong></td><td><em>Eendracht maakt macht</em></td><td>Geef een levensles</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📝 Deel 9: Oefeningen (Kies de Juiste Betekenis)</h2>
+        <p><strong>Opdracht:</strong> Kies de juiste betekenis van de uitdrukking.</p>
+        
+        <div class="gw-idiom-card">
+          <div class="gw-idiom-ex"><strong>1.</strong> <em>"Iets uit de doeken doen"</em><br><em>Antwoord: <strong>Iets uitleggen of onthullen</strong></em></div>
+          <div class="gw-idiom-ex"><strong>2.</strong> <em>"De kat uit de boom kijken"</em><br><em>Antwoord: <strong>Afwachten en observeren</strong></em></div>
+          <div class="gw-idiom-ex"><strong>3.</strong> <em>"Geld over de balk smijten"</em><br><em>Antwoord: <strong>Roekeloos uitgeven</strong></em></div>
+          <div class="gw-idiom-ex"><strong>4.</strong> <em>"Iemand de rug toekeren"</em><br><em>Antwoord: <strong>Iemand negeren of verlaten</strong></em></div>
+          <div class="gw-idiom-ex"><strong>5.</strong> <em>"Een storm in een glas water"</em><br><em>Antwoord: <strong>Veel ophef om niets</strong></em></div>
+          <div class="gw-idiom-ex"><strong>6.</strong> <em>"De puntjes op de i zetten"</em><br><em>Antwoord: <strong>De laatste details afwerken</strong></em></div>
+          <div class="gw-idiom-ex"><strong>7.</strong> <em>"Iets op het hart hebben"</em><br><em>Antwoord: <strong>Iets willen vertellen wat je dwarszit</strong></em></div>
+          <div class="gw-idiom-ex"><strong>8.</strong> <em>"Het bijleggen"</em><br><em>Antwoord: <strong>Ruzie oplossen</strong></em></div>
+          <div class="gw-idiom-ex"><strong>9.</strong> <em>"Na regen komt zonneschijn"</em><br><em>Antwoord: <strong>Na moeilijke tijden komen betere tijden</strong></em></div>
+          <div class="gw-idiom-ex"><strong>10.</strong> <em>"Iemand in de maling nemen"</em><br><em>Antwoord: <strong>Iemand voor de gek houden</strong></em></div>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Snelle Samenvatting</h3>
+        <ul>
+          <li><strong>Spreekwoord:</strong> Complete zin met levensles → <em>"Alle beetjes helpen"</em></li>
+          <li><strong>Gezegde:</strong> Vaste woordcombinatie → <em>"Iets uit de doeken doen"</em></li>
+          <li><strong>Onveranderlijk:</strong> Woorden en volgorde niet wijzigen</li>
+          <li><strong>Beeldspraak:</strong> Betekenis is figuurlijk, niet letterlijk</li>
+          <li><strong>Context:</strong> Leer en gebruik uitdrukkingen in complete zinnen</li>
+          <li><strong>Thema's:</strong> Werk, geld, relaties, weer, beslissingen</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Hopelijk biedt deze gids een helder en inspirerend overzicht van de Nederlandse idiomatische uitdrukkingen. Of je nu <strong>de puntjes op de i wilt zetten</strong> in je taalbeheersing, <strong>geld over de balk wilt smijten</strong> aan taalcursussen, of gewoon <strong>de kat uit de boom wilt kijken</strong> voordat je spreekt: met deze kennis sta je sterker. En onthoud: <strong>na regen komt zonneschijn</strong> — oefenen loont! 🚀</p>
+      </div>
+    </div>
+  `
+},
   ],
   fr:[
     {id:1,t:"Les articles (définis, indéfinis, partitifs)",d:"Le, la, les, un, une, des, du, de la"},
