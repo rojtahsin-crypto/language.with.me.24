@@ -261,158 +261,67 @@ const LTRS = ['A','B','C','D'];
 // =============================================
 // TOPICS DATA
 // =============================================
-const TOPICS = {
-  nl: [
-    {id: 1,  t:"De lidwoorden (de/het/een)",            d:"Leer wanneer je 'de', 'het' of 'een' moet gebruiken"},
-    {id: 2,  t:"Bezittelijke voornaamwoorden",           d:"Mijn, jouw, zijn, haar, ons, jullie, hun"},
-    {id: 3,  t:"Tegenwoordige tijd",                    d:"Regelmatige en onregelmatige werkwoorden"},
-    {id: 4,  t:"Verleden tijd – zwak en sterk",         d:"'t kofschip-regel, klankverandering sterke ww."},
-    {id: 5,  t:"Voltooide tijden",                      d:"Voltooid tegenwoordige tijd en voltooid verleden tijd"},
-    {id: 6,  t:"Toekomende tijd",                       d:"Zullen, gaan en tegenwoordige tijd voor toekomst"},
-    {id: 7,  t:"Modale werkwoorden",                    d:"Kunnen, moeten, mogen, willen, zullen, hoeven"},
-    {id: 8,  t:"Scheidbare werkwoorden",                d:"Werkwoorden die in hoofdzin splitsen"},
-    {id: 9,  t:"Wederkerende werkwoorden",              d:"Zich wassen, zich vergissen, zich herinneren"},
-    {id:10,  t:"Meervoud van zelfstandige naamwoorden", d:"Regels voor -en, -s, -eren en onregelmatige meervouden"},
-    {id:11,  t:"Tussenklank in samenstellingen",        d:"-en- (pannenkoek), -e- (koninekroon), -s- (stadsschouwburg) – de 'tussen-n' en 'tussen-s'"},
-    {id:12,  t:"Verkleinwoorden (diminutieven)",        d:"-je, -tje, -etje, -pje, -kje: keuze en spelling"},
-    {id:13,  t:"Bijvoeglijke naamwoorden – verbuiging", d:"Met of zonder -e: bepaald/onbepaald, de/het-woord"},
-    {id:14,  t:"Trappen van vergelijking",              d:"Vergrotende (-er) en overtreffende (-st) trap"},
-    {id:15,  t:"Meer/mest bij lange bijvoeglijke naamwoorden", d:"Interessant → meer interessant → meest interessant (niet *interesanter)"},
-    {id:16,  t:"Voorzetsels",                           d:"In, op, aan, bij, naar, van en vaste combinaties"},
-    {id:17,  t:"Vragende voornaamwoorden",              d:"Wie, wat, welk(e), waar, wanneer, waarom, hoe"},
-    {id:18,  t:"Aanwijzende voornaamwoorden",           d:"Deze, die, dit, dat – verschil en gebruik"},
-    {id:19,  t:"Onbepaalde voornaamwoorden",            d:"Iemand, niemand, iets, niets, alle, elk, men"},
-    {id:20,  t:"Ontkenningen",                          d:"Niet vs. geen: keuze, plaatsing en andere negaties"},
-    {id:21,  t:"Woordvolgorde in hoofdzinnen",          d:"V2-regel, inversie en de positie van zinsdelen"},
-    {id:22,  t:"Lijdend en meewerkend voorwerp",        d:"Direct en indirect object herkennen (wie/wat + werkwoord? aan/voor wie?)"},
-    {id:23,  t:"Woordvolgorde in bijzinnen",            d:"Persoonsvorm naar het einde"},
-    {id:24,  t:"Nevenschikkende voegwoorden",           d:"En, maar, of, want, dus, noch"},
-    {id:25,  t:"Onderschikkende voegwoorden",           d:"Omdat, dat, als, hoewel, terwijl, tenzij, zodra"},
-    {id:26,  t:"Betrekkelijke bijzinnen",               d:"Die, dat, wat en waar- als betrekkelijke vnw."},
-    {id:27,  t:"Passieve zinnen (lijdende vorm)",       d:"Worden en zijn + voltooid deelwoord"},
-    {id:28,  t:"Conditionele zinnen en de irrealis",    d:"Als-zinnen, zou(den) en de verleden irrealis"},
-    {id:29,  t:"Indirecte rede",                        d:"Tijdsverandering, voornaamwoorden en indicatoren"},
-    {id:30,  t:"'Om te'- en 'te'-infinitieven",         d:"Wanneer te en om te voor de infinitief staan"},
-    {id:31,  t:"Laten-constructie (causatief)",        d:"Laten + infinitief (ik laat mijn haar knippen) – iemand anders doet het"},
-    {id:32,  t:"Continuïteitsvormen",                   d:"Aan het, zitten te, staan te, lopen te, liggen te"},
-    {id:33,  t:"Vervangende infinitief",                d:"Modale perfectum zonder ge-"},
-    {id:34,  t:"Het woord 'er' (alle functies)",        d:"Plaatsaanduiding, voorlopig onderwerp, kwantitatief…"},
-    {id:35,  t:"Pronominale bijwoorden",                d:"Ervan, hierop, daarvoor, waarmee, eraan"},
-    {id:36,  t:"Bijwoorden",                            d:"Tijd, plaats, frequentie, wijze, graad en modaliteit"},
-    {id:37,  t:"Gebiedende wijs (imperatief)",          d:"Bevelen, verzoeken, beleefde vorm en laten-constructie"},
-    {id:38,  t:"Telwoorden",                            d:"Hoofdtelwoorden, rangtelwoorden, breuken en gebruik"},
-    {id:39,  t:"Datum en tijd",                         d:"Klokkijken, dagen, maanden, jaren en vaste uitdrukkingen"},
-    {id:40,  t:"Participia",                            d:"Tegenwoordig en verleden deelwoord als bijvoeglijk nw."},
-    {id:41,  t:"Spellingregels",                        d:"Klinkerlengte, verdubbeling, f/v, s/z, apostrof"},
-    {id:42,  t:"Hoofdletters",                          d:"Begin zin, namen, u, aardrijkskundige namen, feestdagen, historische gebeurtenissen"},
-    {id:43,  t:"Leestekens (komma, punt, puntkomma, dubbele punt)", d:"Komma voor 'want', 'maar', 'omdat'; aanhalingstekens; weglatingsteken"},
-    {id:44,  t:"Wederkerige voornaamwoorden",           d:"Elkaar, elkander en onderscheid met wederkerende vnw."},
-    {id:45,  t:"Formeel vs. informeel (u/jij)",         d:"Wanneer u vs. jij/je – tutoyeren en vousvoyeren"},
-    {id:46,  t:"Veelgemaakte fouten & valkuilen",       d:"Hun/hen, dan/als, liggen/leggen, die/dat, er-fouten"}
-  ],
-  fr: [
-    {id: 1,  t:"Les articles",                          d:"Définis, indéfinis, partitifs – règles et exceptions"},
-    {id: 2,  t:"Le genre et le nombre des noms",        d:"Masculin/féminin, pluriels réguliers et irréguliers"},
-    {id: 3,  t:"Les adjectifs qualificatifs",           d:"Accord, place avant/après le nom, sens différents"},
-    {id: 4,  t:"Comparatif et superlatif",              d:"Plus…que, moins…que, aussi…que ; le plus, le moins – aussi avec les adverbes"},
-    {id: 5,  t:"Accord des adjectifs de couleur",       d:"Des robes bleues mais des robes marron (invariable), des yeux bleu clair"},
-    {id: 6,  t:"Les pronoms personnels sujets",         d:"Je, tu, il/elle/on, nous, vous, ils/elles"},
-    {id: 7,  t:"Les pronoms compléments (COD/COI)",     d:"Le, la, les, lui, leur, y, en – ordre et place"},
-    {id: 8,  t:"Les pronoms possessifs",                d:"Mon/ton/son, notre/votre/leur et formes accentuées"},
-    {id: 9,  t:"Les pronoms démonstratifs",             d:"Ce/cet/cette/ces, celui/celle/ceux/celles"},
-    {id:10,  t:"Les pronoms relatifs",                  d:"Qui, que, dont, où, lequel/laquelle/lesquels"},
-    {id:11,  t:"Le présent de l'indicatif",             d:"Groupes -er/-ir/-re, verbes irréguliers fréquents"},
-    {id:12,  t:"Verbes impersonnels",                   d:"Il faut, il pleut, il neige, il s'agit de – sans sujet clair"},
-    {id:13,  t:"Le passé composé",                      d:"Auxiliaires avoir/être, accord du participe passé"},
-    {id:14,  t:"L'imparfait",                           d:"Formation et emplois : description, habitude"},
-    {id:15,  t:"Le passé simple",                       d:"Formation et usage littéraire/écrit soutenu"},
-    {id:16,  t:"Le plus-que-parfait",                   d:"Antériorité dans le passé et concordance des temps"},
-    {id:17,  t:"Le futur simple et futur antérieur",    d:"Radicaux réguliers et irréguliers"},
-    {id:18,  t:"Le conditionnel présent et passé",      d:"Politesse, hypothèse, information non confirmée"},
-    {id:19,  t:"Le subjonctif présent et passé",        d:"Emplois après volonté, sentiment, doute"},
-    {id:20,  t:"L'impératif",                           d:"Formation, ordres affirmatifs/négatifs, place des pronoms"},
-    {id:21,  t:"Les verbes pronominaux",                d:"Réfléchis, réciproques, accord du participe"},
-    {id:22,  t:"Faire + infinitif (causatif)",          d:"Je fais réparer ma voiture – quelqu'un d'autre agit"},
-    {id:23,  t:"La voix passive",                       d:"Formation avec être, complément d'agent par/de"},
-    {id:24,  t:"Le discours indirect",                  d:"Concordance des temps et changements d'indicateurs"},
-    {id:25,  t:"La phrase conditionnelle avec 'si'",    d:"Potentiel / irréel présent / irréel passé"},
-    {id:26,  t:"Les verbes modaux",                     d:"Pouvoir, devoir, vouloir, savoir – conjugaison"},
-    {id:27,  t:"La négation",                           d:"Ne…pas, plus, jamais, rien, personne, ni…ni"},
-    {id:28,  t:"Ne explétif",                           d:"Ne sans valeur négative après craindre que, éviter que, avant que"},
-    {id:29,  t:"L'interrogation",                       d:"Intonation, est-ce que, inversion – registres"},
-    {id:30,  t:"Les prépositions",                      d:"À, de, dans, en, par, pour, sur, chez"},
-    {id:31,  t:"Les conjonctions",                      d:"Coordination et subordination"},
-    {id:32,  t:"Les adverbes",                          d:"Formation en -ment, place dans la phrase, degrés"},
-    {id:33,  t:"Les pronoms y et en",                   d:"Emploi, place, combinaisons et priorités"},
-    {id:34,  t:"L'accord du participe passé",           d:"Avec avoir (COD avant), être, verbes pronominaux"},
-    {id:35,  t:"Les temps du futur",                    d:"Futur proche, futur simple, futur antérieur"},
-    {id:36,  t:"Le gérondif et participe présent",      d:"En + participe présent, adjectif verbal"},
-    {id:37,  t:"Différence gérondif / participe présent", d:"En chantant (simultanéité) vs chantant (adjectif)"},
-    {id:38,  t:"Tout, même, demi, nu, ci-joint",        d:"Accords complexes et règles particulières"},
-    {id:39,  t:"Prépositions et noms géographiques",    d:"À/en/au/aux/de/du/des selon genre et pays"},
-    {id:40,  t:"C'est vs il est",                       d:"Présentation, identification, profession"},
-    {id:41,  t:"Mise en relief (c'est … qui/que)",      d:"C'est Pierre qui parle, c'est le livre que je lis – pour souligner"},
-    {id:42,  t:"Les nombres, la date et l'heure",       d:"Cardinaux, ordinaux, accord de vingt/cent"},
-    {id:43,  t:"Infinitif après prépositions",          d:"Sans, avant de, après, pour, en train de"},
-    {id:44,  t:"Infinitif passé",                       d:"Après avoir mangé, sans être vu – antériorité"},
-    {id:45,  t:"Les phrases relatives complexes",       d:"Dont, auquel, duquel, ce qui/ce que"},
-    {id:46,  t:"L'inversion sujet-verbe",               d:"Questions formelles, inversion stylistique"},
-    {id:47,  t:"Tu vs vous – registres de langue",      d:"Tutoiement, vouvoiement, contextes sociaux"},
-    {id:48,  t:"Erreurs fréquentes et gallicismes",     d:"Pièges courants, confusions, nuances"}
-  ],
-  en: [
-    {id: 1,  t:"Articles: a / an / the / zero",         d:"Definite, indefinite, zero article – all rules"},
-    {id: 2,  t:"Nouns – Countable & Uncountable",       d:"Quantifiers, irregular plurals, collective nouns (UK)"},
-    {id: 3,  t:"Pronouns – All Types",                  d:"Personal, reflexive, relative, demonstrative, indefinite"},
-    {id: 4,  t:"Present Simple & Continuous",           d:"Stative verbs, habits, temporary situations"},
-    {id: 5,  t:"Past Simple & Continuous",              d:"Regular/irregular forms, interrupted actions"},
-    {id: 6,  t:"Used to / be used to / get used to",    d:"Used to smoke (past habit), am used to smoking (accustomed), getting used to (becoming accustomed)"},
-    {id: 7,  t:"Present Perfect (UK focus)",            d:"Just, already, yet, ever, never, since, for"},
-    {id: 8,  t:"Present Perfect Continuous",            d:"Duration, recent activity, visible results"},
-    {id: 9,  t:"Past Perfect & Past Perfect Continuous",d:"Sequencing events, reported speech"},
-    {id:10,  t:"Future Expressions",                    d:"Will, going to, present continuous, shall"},
-    {id:11,  t:"Future Perfect & Future Perfect Continuous", d:"Will have finished, will have been working – completed before a future time"},
-    {id:12,  t:"Modal Verbs",                           d:"Can/could, may/might, must, should, would, ought to"},
-    {id:13,  t:"Passive Voice",                         d:"All tenses, get-passive, impersonal passive"},
-    {id:14,  t:"Causative have/get",                    d:"Have something done, get someone to do – cause action by another"},
-    {id:15,  t:"Reported Speech",                       d:"Backshifting, time/place changes, reporting questions"},
-    {id:16,  t:"Conditional Sentences",                 d:"Zero, first, second, third, mixed + inverted"},
-    {id:17,  t:"The Subjunctive (British)",             d:"Formulaic, mandative, were in hypotheticals"},
-    {id:18,  t:"Relative Clauses",                      d:"Defining vs non-defining, who/which/that/whose"},
-    {id:19,  t:"Noun Clauses & Indirect Questions",     d:"That-clauses, wh-clauses, if/whether"},
-    {id:20,  t:"Adverbial Clauses",                     d:"Time, reason, result, purpose, condition, concession"},
-    {id:21,  t:"Infinitives & Gerunds",                 d:"Verb patterns, meaning changes, bare infinitive"},
-    {id:22,  t:"Adjectives",                            d:"Royal order, attributive/predicative, gradable"},
-    {id:23,  t:"Comparatives & Superlatives",           d:"Rules, irregular forms, elder/eldest, further/farther"},
-    {id:24,  t:"So / such … that",                      d:"So big that, such a big car that – expressing result"},
-    {id:25,  t:"Adverbs",                               d:"Types, formation, placement, flat adverbs"},
-    {id:26,  t:"Prepositions",                          d:"At/on/in for time and place, British collocations"},
-    {id:27,  t:"Conjunctions",                          d:"FANBOYS, subordinating conjunctions, correlative pairs"},
-    {id:28,  t:"Determiners & Quantifiers",             d:"Some/any, much/many, few/little, order of determiners"},
-    {id:29,  t:"Negation",                              d:"Not, no, never, nobody – placement, double negatives"},
-    {id:30,  t:"Questions & Inversion",                 d:"Question tags (British), indirect questions, inversion"},
-    {id:31,  t:"Question Tags – Special Cases",         d:"Let's go, shall we? I'm right, aren't I? Nothing happened, did it?"},
-    {id:32,  t:"Emphatic Do",                           d:"I do like it, She does work hard – emphasis in affirmative sentences"},
-    {id:33,  t:"Phrasal Verbs",                         d:"Separable, inseparable, three-word phrasal verbs"},
-    {id:34,  t:"Collocations & Fixed Expressions",      d:"Make/do, strong/powerful, common British idioms"},
-    {id:35,  t:"Word Order & Emphasis",                 d:"Cleft sentences, fronting, inversion for emphasis"},
-    {id:36,  t:"Ellipsis & Substitution",               d:"Omitting words, so/not, do so, auxiliary substitution"},
-    {id:37,  t:"Ellipsis in Comparative Clauses",       d:"He is taller than I (am), She works harder than (she did) before"},
-    {id:38,  t:"Noun Phrases & Modification",           d:"Pre- and post-modification, participial phrases"},
-    {id:39,  t:"Verb Valency & Patterns",               d:"Transitive, intransitive, ditransitive, linking"},
-    {id:40,  t:"Aspect: Simple vs Continuous vs Perfect", d:"Choosing the right aspect for precise meaning"},
-    {id:41,  t:"Spelling Rules – British English",      d:"-our/-ise/-re/-ll, doubling consonants, ie/ei"},
-    {id:42,  t:"Punctuation – British Style",           d:"Apostrophes, commas, single quotes, colons"},
-    {id:43,  t:"Formal vs Informal Register",           d:"Whom, preposition stranding, contractions"},
-    {id:44,  t:"Preposition Stranding vs Formal Placement", d:"Who did you talk to? vs To whom did you talk? – register difference"},
-    {id:45,  t:"Wishes, Regrets & Hypotheticals",       d:"Wish, if only, would rather, it's time, had better"},
-    {id:46,  t:"Compound & Complex Sentences",          d:"Coordination, subordination, punctuation rules"},
-    {id:47,  t:"Common Errors in British English",      d:"Fewer/less, bring/take, lie/lay, who/whom, its/it's"},
-    {id:48,  t:"Conditional Inversion & Advanced Syntax", d:"Had I known, were she to, should you need"},
-    {id:49,  t:"Inversion with Negative Adverbials",    d:"Never have I seen, Not only did he come – formal/rhetorical"}
-  ]
-};// =============================================
-// UI LABELS
+const STATIC_QUESTIONS = {
+  nl: {
+    1: [ // Lidwoorden
+      { question: "Wat is het juiste lidwoord voor 'boek'?", options: ["de", "het", "een", "der"], correct: 1, explanation: "'Boek' is onzijdig → 'het boek'." },
+      { question: "Welk lidwoord gebruik je bij verkleinwoorden?", options: ["de", "het", "een", "geen"], correct: 1, explanation: "Alle verkleinwoorden krijgen 'het'." },
+      { question: "Wat is het onbepaalde lidwoord?", options: ["de", "het", "een", "der"], correct: 2, explanation: "'Een' is onbepaald." }
+    ],
+    2: [ // Bezittelijke voornaamwoorden
+      { question: "Welk bezittelijk voornaamwoord hoort bij 'ik'?", options: ["mijn", "jouw", "zijn", "haar"], correct: 0, explanation: "'Ik' → 'mijn'." },
+      { question: "Wat is de juiste vorm voor 'wij' bij een de-woord (meervoud)?", options: ["ons", "onze", "jullie", "hun"], correct: 1, explanation: "'Onze' voor de-woorden en meervoud." },
+      { question: "Zelfstandige vorm van 'mijn'?", options: ["mijn", "mijne", "de mijne", "mijns"], correct: 2, explanation: "'De mijne'." }
+    ],
+    3: [ // Tegenwoordige tijd
+      { question: "Stam van 'werken'?", options: ["werk", "werke", "werken", "werkt"], correct: 0, explanation: "Hele ww -en = werk." },
+      { question: "Vervoeg 'lopen' voor 'hij':", options: ["loop", "loopt", "lopen", "gelopen"], correct: 1, explanation: "Stam + t = loopt." },
+      { question: "Inversie met 'je': 'Loop je?' of 'Loopt je?'?", options: ["Loop je", "Loopt je", "Lopen je", "Geloop je"], correct: 0, explanation: "Na inversie vervalt de -t." }
+    ],
+    4: [ // Verleden tijd
+      { question: "Verleden tijd van 'werken' (ik):", options: ["werkte", "werkt", "werkde", "werkten"], correct: 0, explanation: "Zwak, stam + te." },
+      { question: "Verleden tijd van 'lopen' (ik):", options: ["loopte", "liep", "liepte", "lopen"], correct: 1, explanation: "Sterk: lopen – liep." },
+      { question: "Reizen in verleden tijd (hij):", options: ["reiste", "reisde", "reist", "reisden"], correct: 1, explanation: "Stam eindigt op z → -de." }
+    ],
+    5: [ // Voltooide tijden
+      { question: "Voltooid deelwoord van 'werken':", options: ["gewerkt", "gewerkd", "gewerkt", "gewerkt"], correct: 0, explanation: "Zwak: gewerkt." },
+      { question: "Hulpwerkwoord bij 'lopen' in perfectum:", options: ["hebben", "zijn", "worden", "zullen"], correct: 0, explanation: "'hebben gelopen'." },
+      { question: "Voltooid deelwoord van 'komen':", options: ["gekomt", "gekomen", "gekomen", "komt"], correct: 1, explanation: "Sterk: gekomen." }
+    ],
+    6: [ // Toekomende tijd
+      { question: "Hulpwerkwoord voor een belofte:", options: ["gaan", "zullen", "worden", "hebben"], correct: 1, explanation: "'Zullen' drukt belofte uit." },
+      { question: "Morgen _____ ik naar school (gaan):", options: ["ga", "zal gaan", "gaat", "zal"], correct: 0, explanation: "Tegenwoordige tijd + tijdsbepaling is genoeg." },
+      { question: "Beleefd verzoek met toekomst:", options: ["Zou u ... willen", "Zal u ...", "Gaat u ...", "Moet u ..."], correct: 0, explanation: "'Zou u ... willen' is beleefd." }
+    ],
+    7: [ // Modale werkwoorden
+      { question: "Hij kan / hij ____?", options: ["kan", "kant", "kunt", "kon"], correct: 0, explanation: "Hij kan (geen -t)." },
+      { question: "Hoeven alleen met:", options: ["niet/geen", "wel", "een modaal", "een imperatief"], correct: 0, explanation: "'Hoeven' alleen ontkennend." },
+      { question: "Verleden tijd van 'kunnen' (ik):", options: ["kon", "kunde", "konde", "konnen"], correct: 0, explanation: "Ik kon." }
+    ],
+    8: [ // Scheidbare werkwoorden
+      { question: "Hoofdzin: Ik ____ mijn moeder ____ (opbellen):", options: ["bel / op", "opbel / ", "bel / opbellen", "op / bel"], correct: 0, explanation: "Stam vooraan, voorvoegsel achteraan." },
+      { question: "Voltooid deelwoord van 'aankomen':", options: ["aangekomen", "aangekomt", "aangekomen", "aangekomen"], correct: 0, explanation: "aan-ge-komen." },
+      { question: "Bijzin: ...dat ik (opbellen):", options: ["opbel", "bel op", "op te bellen", "opgebel"], correct: 0, explanation: "In bijzin aan elkaar: opbel." }
+    ],
+    9: [ // Wederkerende werkwoorden
+      { question: "Wederkerend vnw. voor 'hij':", options: ["me", "je", "zich", "ons"], correct: 2, explanation: "Hij wast zich." },
+      { question: "Voltooide tijd van 'zich vergissen':", options: ["heeft zich vergist", "is zich vergist", "heeft zich vergist", "zich vergist"], correct: 0, explanation: "Wederkerend krijgt 'hebben'." },
+      { question: "Ik ____ die dag nog goed (zich herinneren):", options: ["herinner me", "herinner", "herinner zich", "herinner ons"], correct: 0, explanation: "Ik herinner me." }
+    ],
+    10: [ // Meervoud
+      { question: "Meervoud van 'kat':", options: ["katten", "katen", "kats", "katten"], correct: 0, explanation: "Verdubbeling: katten." },
+      { question: "Meervoud van 'huis':", options: ["huizen", "huisen", "huiss", "huizen"], correct: 0, explanation: "S → z: huizen." },
+      { question: "Meervoud van 'kind':", options: ["kinderen", "kinds", "kinden", "kinder"], correct: 0, explanation: "Onregelmatig: kinderen." }
+    ],
+    // Voor id 11 t/m 46 geef ik een lege array (je kunt later vragen toevoegen)
+    11: [], 12: [], 13: [], 14: [], 15: [], 16: [], 17: [], 18: [], 19: [], 20: [],
+    21: [], 22: [], 23: [], 24: [], 25: [], 26: [], 27: [], 28: [], 29: [], 30: [],
+    31: [], 32: [], 33: [], 34: [], 35: [], 36: [], 37: [], 38: [], 39: [], 40: [],
+    41: [], 42: [], 43: [], 44: [], 45: [], 46: []
+  },
+  fr: {},   // Vul later met Franse vragen
+  en: {}    // Vul later met Engelse vragen
+};// UI LABELS
 // =============================================
 const LABELS = {
   nl:{
