@@ -17144,6 +17144,1413 @@ const TOPICS = {
   ]
 };
 
+const STATIC_QUESTIONS = {
+nl: {
+    1: [ // De lidwoorden (de/het/een)
+      {
+        question: "Kies het juiste lidwoord: 'Ik zie ... hond in de tuin.'",
+        options: ["de", "het", "een", " "],
+        correct: 0,
+        explanation: "'Hond' is een de-woord (mannelijk/vrouwelijk), dus gebruik 'de' als het bepaald is."
+      },
+      {
+        question: "Wat is juist? 'Dat is ... mooi huis.'",
+        options: ["de", "het", "een", " "],
+        correct: 2,
+        explanation: "Het is een onbepaald zelfstandig naamwoord; we gebruiken 'een' ongeacht het geslacht."
+      },
+      {
+        question: "Welk lidwoord hoort bij 'meisje'?",
+        options: ["de", "het", "een", " "],
+        correct: 1,
+        explanation: "Verkleinwoorden op -je zijn altijd het-woorden: 'het meisje'."
+      },
+      {
+        question: "Kies het juiste lidwoord: '... water is koud.'",
+        options: ["De", "Het", "Een", " "],
+        correct: 1,
+        explanation: "Stofnamen zoals water zijn het-woorden."
+      }
+    ],
+    2: [ // Bezittelijke voornaamwoorden
+      {
+        question: "Is dit ... boek? (jij)",
+        options: ["jouw", "jou", "jij", "je"],
+        correct: 0,
+        explanation: "Bezittelijk voornaamwoord voor 'jij' is 'jouw' (of informeel 'je')."
+      },
+      {
+        question: "Zij heeft ... fiets verkocht. (zij)",
+        options: ["zijn", "haar", "hun", "z'n"],
+        correct: 1,
+        explanation: "Voor vrouwelijk enkelvoud bezit gebruiken we 'haar'."
+      },
+      {
+        question: "Wij gaan naar ... grootouders. (wij)",
+        options: ["ons", "onze", "hun", "jullie"],
+        correct: 1,
+        explanation: "Bij de-woorden in het meervoud en enkelvoud gebruiken we 'onze', bij het-woorden 'ons'."
+      }
+    ],
+    3: [ // Tegenwoordige tijd
+      {
+        question: "Hij ... elke dag naar school. (lopen)",
+        options: ["loop", "loopt", "lopen", "loopt"],
+        correct: 1,
+        explanation: "Stam + t voor hij/zij/het: hij loopt."
+      },
+      {
+        question: "Jij ... een taart. (bakken)",
+        options: ["bakt", "bak", "bakt", "bakken"],
+        correct: 0,
+        explanation: "Bij inversie of gewone zin: jij bakt (stam+t), maar bij vraag zonder 'jij' erna: bak jij?"
+      },
+      {
+        question: "Wij ... graag naar muziek. (luisteren)",
+        options: ["luister", "luistert", "luisteren", "luisterd"],
+        correct: 2,
+        explanation: "Meervoud: hele werkwoord gebruiken."
+      }
+    ],
+    4: [ // Verleden tijd – zwak en sterk
+      {
+        question: "Gisteren ... ik een film. (kijken)",
+        options: ["keek", "kijkte", "gekeken", "kijk"],
+        correct: 0,
+        explanation: "'Kijken' is een sterk werkwoord: kijken – keek – gekeken."
+      },
+      {
+        question: "Vorig jaar ... wij naar Frankrijk. (reizen)",
+        options: ["reisden", "reisten", "reizen", "gereisd"],
+        correct: 1,
+        explanation: "Zwak werkwoord: stam eindigt op s-klank, dus -te(n)."
+      }
+    ],
+    5: [ // Voltooide tijden
+      {
+        question: "Ik heb mijn huiswerk ... (maken)",
+        options: ["gemaakt", "gemaakd", "maakte", "maken"],
+        correct: 0,
+        explanation: "Voltooid deelwoord van maken is gemaakt (zwak, 't kofschip: k zit in 't kofschip, dus -t)."
+      },
+      {
+        question: "Zij is naar huis ... (gaan)",
+        options: ["gegaan", "gaat", "ging", "gegaant"],
+        correct: 0,
+        explanation: "Sterk werkwoord: gaan – ging – gegaan."
+      }
+    ],
+    6: [ // Toekomende tijd
+      {
+        question: "Morgen ... het regenen.",
+        options: ["zal", "gaat", "wordt", "is"],
+        correct: 0,
+        explanation: "Zullen + infinitief voor formele toekomst."
+      },
+      {
+        question: "We ... vanavond een film kijken.",
+        options: ["gaan", "zullen", "zijn", "worden"],
+        correct: 0,
+        explanation: "Gaan + infinitief voor geplande acties in nabije toekomst."
+      }
+    ],
+    7: [ // Modale werkwoorden
+      {
+        question: "Je ... hier niet roken.",
+        options: ["mag", "kan", "wil", "moet"],
+        correct: 0,
+        explanation: "Mogen drukt toestemming uit: je mag niet roken."
+      },
+      {
+        question: "Hij ... goed zwemmen.",
+        options: ["mag", "moet", "kan", "wil"],
+        correct: 2,
+        explanation: "Kunnen geeft vaardigheid aan."
+      }
+    ],
+    8: [ // Scheidbare werkwoorden
+      {
+        question: "Ik ... mijn jas ... (uitdoen)",
+        options: ["doe uit", "uitdoe", "doe ... uit", "uit doe"],
+        correct: 2,
+        explanation: "In hoofdzin splitst het werkwoord: ik doe mijn jas uit."
+      },
+      {
+        question: "Hij wil de televisie ... (aanzetten)",
+        options: ["aanzetten", "zet aan", "aan zet", "zetten aan"],
+        correct: 0,
+        explanation: "Na modaal werkwoord of in bijzin blijft het scheidbare werkwoord bij elkaar."
+      }
+    ],
+    9: [ // Wederkerende werkwoorden
+      {
+        question: "Ik ... me even. (zich vergissen)",
+        options: ["vergis", "vergist", "vergissen", "vergiste"],
+        correct: 0,
+        explanation: "Wederkerend: ik vergis me."
+      },
+      {
+        question: "Zij ... zich altijd snel. (zich aankleden)",
+        options: ["kleed", "kleedt", "kleden", "kleedt aan"],
+        correct: 1,
+        explanation: "Zij kleedt zich aan."
+      }
+    ],
+    10: [ // Meervoud van zelfstandige naamwoorden
+      {
+        question: "Wat is het meervoud van 'tafel'?",
+        options: ["tafels", "tafelen", "tafel", "tafeltjes"],
+        correct: 0,
+        explanation: "De meeste woorden krijgen -en of -s. Tafel → tafels."
+      },
+      {
+        question: "Wat is het meervoud van 'kind'?",
+        options: ["kinden", "kinderen", "kinds", "kinder"],
+        correct: 1,
+        explanation: "Onregelmatig meervoud: kind – kinderen."
+      }
+    ],
+    11: [ // Verkleinwoorden (diminutieven)
+      {
+        question: "Wat is het verkleinwoord van 'boom'?",
+        options: ["boompje", "boometje", "bomeke", "boompje"],
+        correct: 0,
+        explanation: "Stam op m → pje (boompje)."
+      },
+      {
+        question: "Wat is het verkleinwoord van 'glas'?",
+        options: ["glassie", "glaasje", "glaaske", "glasje"],
+        correct: 1,
+        explanation: "Korte klinker in laatste lettergreep met enkele eindmedeklinker: klinker wordt verlengd → glaasje."
+      }
+    ],
+    12: [ // Bijvoeglijke naamwoorden – verbuiging
+      {
+        question: "Een ... boek. (mooi)",
+        options: ["mooi", "mooie", "mooien", "moois"],
+        correct: 0,
+        explanation: "Onbepaald (een) + het-woord → geen -e."
+      },
+      {
+        question: "Het ... huis. (groot)",
+        options: ["groot", "grote", "groten", "groote"],
+        correct: 1,
+        explanation: "Bepaald (het) + het-woord → wel -e."
+      }
+    ],
+    13: [ // Trappen van vergelijking
+      {
+        question: "Mijn auto is ... dan die van jou. (snel)",
+        options: ["sneller", "snelst", "meest snel", "snelder"],
+        correct: 0,
+        explanation: "Vergrotende trap: stam + -er."
+      },
+      {
+        question: "Hij is de ... leerling van de klas. (goed)",
+        options: ["beste", "best", "goedst", "meest goed"],
+        correct: 0,
+        explanation: "Overtreffende trap onregelmatig: goed – beter – best."
+      }
+    ],
+    14: [ // Voorzetsels
+      {
+        question: "Het boek ligt ... de tafel.",
+        options: ["in", "op", "onder", "naast"],
+        correct: 1,
+        explanation: "We zeggen 'op de tafel' omdat het boek er bovenop ligt."
+      },
+      {
+        question: "De kat zit ... de doos.",
+        options: ["in", "op", "onder", "tussen"],
+        correct: 0,
+        explanation: "Als de kat binnen de doos zit, gebruik je 'in'."
+      },
+      {
+        question: "De hond slaapt ... de bank.",
+        options: ["in", "op", "onder", "achter"],
+        correct: 1,
+        explanation: "Het dier ligt bovenop de bank → 'op'."
+      },
+      {
+        question: "Het schilderij hangt ... de muur.",
+        options: ["in", "op", "aan", "tegen"],
+        correct: 2,
+        explanation: "Je gebruikt 'aan de muur' voor iets dat eraan bevestigd is."
+      },
+      {
+        question: "Ik zet mijn fiets ... het hek.",
+        options: ["in", "op", "tegen", "naast"],
+        correct: 2,
+        explanation: "Je zet iets 'tegen' een verticaal oppervlak aan."
+      }
+    ],
+    15: [ // Vragende voornaamwoorden
+      {
+        question: "... is jouw favoriete kleur?",
+        options: ["Wie", "Wat", "Welke", "Waarom"],
+        correct: 1,
+        explanation: "Wat vraagt naar een zaak of eigenschap."
+      },
+      {
+        question: "... ga je op vakantie?",
+        options: ["Waar", "Wanneer", "Waarom", "Hoe"],
+        correct: 0,
+        explanation: "Waar vraagt naar een plaats."
+      }
+    ],
+    16: [ // Aanwijzende voornaamwoorden
+      {
+        question: "Kijk naar ... auto daar! (de auto)",
+        options: ["deze", "die", "dit", "dat"],
+        correct: 1,
+        explanation: "De-woorden ver weg: die."
+      },
+      {
+        question: "Ik vind ... boek hier mooi. (het boek)",
+        options: ["deze", "die", "dit", "dat"],
+        correct: 2,
+        explanation: "Het-woorden dichtbij: dit."
+      }
+    ],
+    17: [ // Onbepaalde voornaamwoorden
+      {
+        question: "Is daar ... thuis?",
+        options: ["iemand", "niemand", "iets", "niets"],
+        correct: 0,
+        explanation: "Iemand voor personen in vragen."
+      },
+      {
+        question: "Ik heb ... gegeten.",
+        options: ["iemand", "niemand", "iets", "niets"],
+        correct: 3,
+        explanation: "Negatief: niets."
+      }
+    ],
+    18: [ // Ontkenningen
+      {
+        question: "Ik heb ... zin.",
+        options: ["niet", "geen", "nooit", "geen van beide"],
+        correct: 1,
+        explanation: "Geen + zelfstandig naamwoord zonder lidwoord."
+      },
+      {
+        question: "Hij komt ... op het feest.",
+        options: ["niet", "geen", "nooit", "niemand"],
+        correct: 0,
+        explanation: "Niet ontkent een werkwoord of bijvoeglijk naamwoord."
+      }
+    ],
+    19: [ // Woordvolgorde in hoofdzinnen
+      {
+        question: "Welke zin heeft de juiste woordvolgorde?",
+        options: ["Morgen ik ga naar school.", "Ik ga morgen naar school.", "Ga ik morgen naar school.", "Naar school ik morgen ga."],
+        correct: 1,
+        explanation: "Hoofdzin: onderwerp – persoonsvorm – rest."
+      },
+      {
+        question: "Wat is de correcte inversie?",
+        options: ["Vandaag ik heb vrij.", "Vandaag heb ik vrij.", "Ik heb vandaag vrij.", "Vrij heb ik vandaag."],
+        correct: 1,
+        explanation: "Na een tijdsbepaling volgt inversie: persoonsvorm voor onderwerp."
+      }
+    ],
+    20: [ // Woordvolgorde in bijzinnen
+      {
+        question: "Ik denk dat hij morgen ...",
+        options: ["komt", "komen", "gekomen", "te komen"],
+        correct: 0,
+        explanation: "In bijzin staat persoonsvorm achteraan."
+      },
+      {
+        question: "Ze zegt dat ze het niet ...",
+        options: ["begrijpt", "begrijp", "begrijpen", "begrepen"],
+        correct: 0,
+        explanation: "Bijzin: onderwerp – rest – persoonsvorm."
+      }
+    ],
+    21: [ // Nevenschikkende voegwoorden
+      {
+        question: "Hij is moe, ... hij gaat toch door.",
+        options: ["en", "maar", "of", "want"],
+        correct: 1,
+        explanation: "Maar drukt tegenstelling uit."
+      },
+      {
+        question: "Ik blijf thuis, ... het regent.",
+        options: ["en", "maar", "of", "want"],
+        correct: 3,
+        explanation: "Want geeft reden aan."
+      }
+    ],
+    22: [ // Onderschikkende voegwoorden
+      {
+        question: "Hij komt niet ... hij ziek is.",
+        options: ["omdat", "want", "maar", "dus"],
+        correct: 0,
+        explanation: "Omdat leidt een bijzin in met werkwoord aan het eind."
+      },
+      {
+        question: "... het regent, gaan we toch wandelen.",
+        options: ["Omdat", "Hoewel", "Als", "Toen"],
+        correct: 1,
+        explanation: "Hoewel geeft concessie aan."
+      }
+    ],
+    23: [ // Betrekkelijke bijzinnen
+      {
+        question: "De man ... daar loopt, is mijn oom.",
+        options: ["die", "dat", "wat", "wie"],
+        correct: 0,
+        explanation: "Die verwijst naar de-woorden (de man)."
+      },
+      {
+        question: "Het boek ... ik lees, is spannend.",
+        options: ["die", "dat", "wat", "wie"],
+        correct: 1,
+        explanation: "Dat verwijst naar het-woorden (het boek)."
+      }
+    ],
+    24: [ // Passieve zinnen
+      {
+        question: "Het huis ... gebouwd.",
+        options: ["wordt", "is", "heeft", "zal"],
+        correct: 0,
+        explanation: "Passief tegenwoordige tijd: worden + voltooid deelwoord."
+      },
+      {
+        question: "De deur ... gesloten.",
+        options: ["wordt", "is", "heeft", "zal"],
+        correct: 1,
+        explanation: "Passief perfectum: zijn + voltooid deelwoord (toestand)."
+      }
+    ],
+    25: [ // Conditionele zinnen en de irrealis
+      {
+        question: "Als ik rijk ..., kocht ik een groot huis.",
+        options: ["ben", "was", "zou zijn", "ware"],
+        correct: 3,
+        explanation: "Irrealis van het verleden (formele stijl): ware."
+      },
+      {
+        question: "Hij ... blij als je komt.",
+        options: ["is", "was", "zou zijn", "zal zijn"],
+        correct: 3,
+        explanation: "Reële voorwaarde: zal + infinitief."
+      }
+    ],
+    26: [ // Indirecte rede
+      {
+        question: "Hij zei: 'Ik ben moe.' → Hij zei dat hij moe ...",
+        options: ["is", "was", "zou zijn", "ben"],
+        correct: 1,
+        explanation: "Tijdverschuiving: tegenwoordige tijd wordt verleden tijd."
+      },
+      {
+        question: "Zij vroeg: 'Wil je koffie?' → Zij vroeg of ik koffie ...",
+        options: ["wil", "wilde", "gewild", "zou willen"],
+        correct: 1,
+        explanation: "Wil (tegenw.) → wilde (verl.)"
+      }
+    ],
+    27: [ // 'Om te'- en 'te'-infinitieven
+      {
+        question: "Hij gaat naar de winkel ... melk te kopen.",
+        options: ["voor", "om", "aan", "op"],
+        correct: 1,
+        explanation: "Doel uitdrukken: om ... te + infinitief."
+      },
+      {
+        question: "Het is belangrijk ... luisteren.",
+        options: ["om", "te", "voor", "aan"],
+        correct: 1,
+        explanation: "Na 'het is + adjectief' komt 'te + infinitief'."
+      }
+    ],
+    28: [ // Continuïteitsvormen
+      {
+        question: "Ik ben ... huiswerk ... maken.",
+        options: ["aan het", "op het", "in het", "het"],
+        correct: 0,
+        explanation: "Continu aspect: zijn + aan het + infinitief."
+      },
+      {
+        question: "Hij zit ... boek ... lezen.",
+        options: ["een / te", "het / aan", "een / aan", "een / en"],
+        correct: 0,
+        explanation: "Positiewerkwoord + te + infinitief: hij zit een boek te lezen."
+      }
+    ],
+    29: [ // Vervangende infinitief
+      {
+        question: "Hij had het kunnen ...",
+        options: ["doen", "gedaan", "doet", "deed"],
+        correct: 0,
+        explanation: "Bij modale perfectum vervangt infinitief het voltooid deelwoord."
+      },
+      {
+        question: "Ik heb haar horen ...",
+        options: ["zingen", "gezongen", "zong", "zingt"],
+        correct: 0,
+        explanation: "Na perceptiewerkwoorden zoals horen, zien: infinitief."
+      }
+    ],
+    30: [ // Het woord 'er'
+      {
+        question: "Hoeveel appels heb je? Ik heb ... drie.",
+        options: ["er", "het", "ze", "die"],
+        correct: 0,
+        explanation: "Kwantitatief 'er': ervan."
+      },
+      {
+        question: "... staat een boom in de tuin.",
+        options: ["Er", "Het", "Dit", "Dat"],
+        correct: 0,
+        explanation: "Plaatsaanduidend of voorlopig onderwerp: Er staat een boom."
+      }
+    ],
+    31: [ // Pronominale bijwoorden
+      {
+        question: "Ik denk ...aan.",
+        options: ["er", "daar", "hier", "waar"],
+        correct: 0,
+        explanation: "Verwijst naar iets onbepaalds: eraan denken."
+      },
+      {
+        question: "... wacht je op?",
+        options: ["Er", "Waar", "Hier", "Daar"],
+        correct: 1,
+        explanation: "Vragend: waar + voorzetsel → Waarop wacht je?"
+      }
+    ],
+    32: [ // Bijwoorden
+      {
+        question: "Hij loopt ... (snel)",
+        options: ["snel", "snelle", "snels", "sneller"],
+        correct: 0,
+        explanation: "Bijwoord blijft onverbogen: hij loopt snel."
+      },
+      {
+        question: "Ik ben ... thuis. (vaak)",
+        options: ["vaak", "vake", "vaker", "vaaks"],
+        correct: 0,
+        explanation: "Bijwoorden van frequentie staan vaak na de persoonsvorm."
+      }
+    ],
+    33: [ // Gebiedende wijs
+      {
+        question: "... op!",
+        options: ["Pas", "Past", "Passen", "Paste"],
+        correct: 0,
+        explanation: "Imperatief enkelvoud: stam."
+      },
+      {
+        question: "... we naar huis gaan.",
+        options: ["Laat", "Laten", "Laat ons", "Laten we"],
+        correct: 1,
+        explanation: "Beleefde aansporing: laten we + infinitief."
+      }
+    ],
+    34: [ // Telwoorden
+      {
+        question: "Het ... huis.",
+        options: ["tweede", "twee", "tweeen", "tweeder"],
+        correct: 0,
+        explanation: "Rangtelwoord: tweede."
+      },
+      {
+        question: "Hij is ... in de rij.",
+        options: ["eerste", "een", "eerst", "eender"],
+        correct: 0,
+        explanation: "Eerste is rangtelwoord van één."
+      }
+    ],
+    35: [ // Datum en tijd
+      {
+        question: "Het is kwart ... drie.",
+        options: ["voor", "over", "na", "op"],
+        correct: 0,
+        explanation: "Kwart voor = 14:45."
+      },
+      {
+        question: "Vandaag is het 5 ... 2025.",
+        options: ["maart", "maarts", "van maart", "in maart"],
+        correct: 0,
+        explanation: "Datum: 5 maart."
+      }
+    ],
+    36: [ // Participia
+      {
+        question: "De ... man. (lachen)",
+        options: ["lachende", "gelachen", "lach", "lachend"],
+        correct: 0,
+        explanation: "Tegenwoordig deelwoord als bijvoeglijk naamwoord: lachende man."
+      },
+      {
+        question: "Het ... raam. (breken)",
+        options: ["gebroken", "brekende", "gebrek", "brekend"],
+        correct: 0,
+        explanation: "Voltooid deelwoord als bijvoeglijk naamwoord: gebroken raam."
+      }
+    ],
+    37: [ // Spellingregels
+      {
+        question: "Welke vorm is correct?",
+        options: ["hij antwoord", "hij antwoordt", "hij antwoort", "hij antwoortt"],
+        correct: 1,
+        explanation: "Stam + t: antwoordt."
+      },
+      {
+        question: "Welke spelling is juist?",
+        options: ["lange", "langen", "langs", "langde"],
+        correct: 0,
+        explanation: "Bijvoeglijk naamwoord voor de-woord: lange."
+      }
+    ],
+    38: [ // Wederkerige voornaamwoorden
+      {
+        question: "Zij houden van ...",
+        options: ["elkaar", "zich", "henzelf", "hunzelf"],
+        correct: 0,
+        explanation: "Wederkerig: elkaar."
+      },
+      {
+        question: "We kennen ... al jaren.",
+        options: ["elkaar", "ons", "zich", "hen"],
+        correct: 0,
+        explanation: "Elkaar geeft wederkerigheid aan."
+      }
+    ],
+    39: [ // Formeel vs. informeel
+      {
+        question: "Wat is de formele aanspreekvorm voor 'jij'?",
+        options: ["u", "jullie", "gij", "je"],
+        correct: 0,
+        explanation: "U is de beleefdheidsvorm."
+      },
+      {
+        question: "In welke situatie gebruik je 'jij'?",
+        options: ["Tegen vrienden", "Tegen ouderen (onbekend)", "Sollicitatiebrief", "Tegen een agent"],
+        correct: 0,
+        explanation: "Jij is informeel, voor bekenden."
+      }
+    ],
+    40: [ // Veelgemaakte fouten
+      {
+        question: "Ik geef het aan ... (hen/hun)",
+        options: ["hen", "hun", "zij", "ze"],
+        correct: 0,
+        explanation: "Na voorzetsel altijd 'hen'."
+      },
+      {
+        question: "Hij is groter ... ik. (dan/als)",
+        options: ["dan", "als", "zoals", "of"],
+        correct: 0,
+        explanation: "Na vergrotende trap gebruik je 'dan'."
+      }
+    ]
+  },
+  fr: {
+    1: [ // Les articles
+      {
+        question: "Je voudrais ... baguette, s'il vous plaît.",
+        options: ["le", "la", "une", "un"],
+        correct: 2,
+        explanation: "Baguette est féminin, article indéfini → une."
+      },
+      {
+        question: "J'aime ... chocolat.",
+        options: ["le", "la", "les", "un"],
+        correct: 0,
+        explanation: "Article défini pour une chose en général: le chocolat."
+      },
+      {
+        question: "Il boit ... eau.",
+        options: ["le", "la", "l'", "une"],
+        correct: 2,
+        explanation: "Élision devant voyelle: l'eau (féminin)."
+      }
+    ],
+    2: [ // Genre et nombre
+      {
+        question: "Quel est le pluriel de 'cheval'?",
+        options: ["chevals", "chevaux", "cheveaux", "chevales"],
+        correct: 1,
+        explanation: "Les noms en -al font -aux au pluriel (sauf exceptions)."
+      },
+      {
+        question: "Le mot 'voiture' est ...",
+        options: ["masculin", "féminin", "les deux", "neutre"],
+        correct: 1,
+        explanation: "Voiture est un nom féminin."
+      }
+    ],
+    3: [ // Adjectifs qualificatifs
+      {
+        question: "Une ... maison.",
+        options: ["beau", "belle", "bel", "beaux"],
+        correct: 1,
+        explanation: "Féminin de beau → belle."
+      },
+      {
+        question: "Un ... homme.",
+        options: ["beau", "belle", "bel", "beaux"],
+        correct: 2,
+        explanation: "Beau devient bel devant voyelle ou h muet."
+      }
+    ],
+    4: [ // Pronoms personnels sujets
+      {
+        question: "..., allons au cinéma!",
+        options: ["Je", "Tu", "Nous", "Vous"],
+        correct: 2,
+        explanation: "Nous pour inclure le locuteur et d'autres."
+      },
+      {
+        question: "... est médecin.",
+        options: ["Il", "Elle", "On", "Ils"],
+        correct: 0,
+        explanation: "Il pour masculin singulier."
+      }
+    ],
+    5: [ // Pronoms COD/COI
+      {
+        question: "Je ... vois. (la voiture)",
+        options: ["le", "la", "lui", "les"],
+        correct: 1,
+        explanation: "COD féminin singulier: la."
+      },
+      {
+        question: "Il ... parle. (à sa mère)",
+        options: ["le", "la", "lui", "leur"],
+        correct: 2,
+        explanation: "COI singulier: lui."
+      }
+    ],
+    6: [ // Pronoms possessifs
+      {
+        question: "C'est ... livre. (à moi)",
+        options: ["mon", "ma", "mes", "mien"],
+        correct: 0,
+        explanation: "Mon devant nom masculin singulier."
+      },
+      {
+        question: "Ce stylo est ... (à toi)",
+        options: ["le tien", "la tienne", "les tiens", "tien"],
+        correct: 0,
+        explanation: "Pronom possessif masculin singulier: le tien."
+      }
+    ],
+    7: [ // Pronoms démonstratifs
+      {
+        question: "... livre-ci est intéressant.",
+        options: ["Ce", "Cet", "Cette", "Ces"],
+        correct: 0,
+        explanation: "Ce pour masculin commençant par consonne."
+      },
+      {
+        question: "J'aime celui-ci et ... -là.",
+        options: ["celui", "celle", "ceux", "celles"],
+        correct: 0,
+        explanation: "Celui pour remplacer un nom masculin singulier."
+      }
+    ],
+    8: [ // Pronoms relatifs
+      {
+        question: "La fille ... je parle est gentille.",
+        options: ["qui", "que", "dont", "où"],
+        correct: 2,
+        explanation: "Dont remplace 'de qui' ou 'de quoi'."
+      },
+      {
+        question: "Le livre ... est sur la table est à moi.",
+        options: ["qui", "que", "dont", "lequel"],
+        correct: 0,
+        explanation: "Qui est sujet du verbe 'est'."
+      }
+    ],
+    9: [ // Présent de l'indicatif
+      {
+        question: "Nous ... (finir) le travail.",
+        options: ["finis", "finit", "finissons", "finissez"],
+        correct: 2,
+        explanation: "Verbe en -ir, 1re personne pluriel: -issons."
+      },
+      {
+        question: "Vous ... (aller) à Paris.",
+        options: ["allez", "vont", "vas", "allons"],
+        correct: 0,
+        explanation: "Aller irrégulier: vous allez."
+      }
+    ],
+    10: [ // Passé composé
+      {
+        question: "Elle ... (manger) une pomme.",
+        options: ["a mangé", "est mangé", "a mangée", "est mangée"],
+        correct: 0,
+        explanation: "Avoir + participe passé; pas d'accord avec COD après."
+      },
+      {
+        question: "Ils se sont ... (parler).",
+        options: ["parlé", "parlés", "parlée", "parler"],
+        correct: 1,
+        explanation: "Verbe pronominal réciproque, accord avec 'se' COD."
+      }
+    ],
+    11: [ // Imparfait
+      {
+        question: "Quand j'étais petit, je ... (jouer) au foot.",
+        options: ["jouais", "jouait", "jouaient", "jouiez"],
+        correct: 0,
+        explanation: "Imparfait: je jouais."
+      }
+    ],
+    12: [ // Passé simple
+      {
+        question: "Il ... (parler) au roi.",
+        options: ["parla", "parlait", "parle", "parlé"],
+        correct: 0,
+        explanation: "Passé simple de parler, 3e personne: parla."
+      }
+    ],
+    13: [ // Plus-que-parfait
+      {
+        question: "J'avais déjà ... (finir) quand il est arrivé.",
+        options: ["fini", "finit", "finis", "finais"],
+        correct: 0,
+        explanation: "Plus-que-parfait = imparfait auxiliaire + participe passé."
+      }
+    ],
+    14: [ // Futur
+      {
+        question: "Demain, nous ... (avoir) du soleil.",
+        options: ["aurons", "avons", "allons avoir", "aurions"],
+        correct: 0,
+        explanation: "Futur simple d'avoir: nous aurons."
+      },
+      {
+        question: "Je ... (être) là dans une heure.",
+        options: ["serai", "suis", "vais être", "serais"],
+        correct: 0,
+        explanation: "Être au futur: je serai."
+      }
+    ],
+    15: [ // Conditionnel
+      {
+        question: "Je ... (vouloir) un café, s'il vous plaît.",
+        options: ["voudrais", "veux", "voulais", "voudrai"],
+        correct: 0,
+        explanation: "Conditionnel de politesse: je voudrais."
+      },
+      {
+        question: "Si j'avais le temps, je ... (venir).",
+        options: ["viendrais", "viendrai", "venais", "viens"],
+        correct: 0,
+        explanation: "Conditionnel présent après si + imparfait."
+      }
+    ],
+    16: [ // Subjonctif
+      {
+        question: "Il faut que tu ... (être) à l'heure.",
+        options: ["sois", "es", "seras", "étais"],
+        correct: 0,
+        explanation: "Subjonctif après 'il faut que'."
+      }
+    ],
+    17: [ // Impératif
+      {
+        question: "... (parler) plus fort!",
+        options: ["Parle", "Parles", "Parlent", "Parlez"],
+        correct: 0,
+        explanation: "Impératif tu du verbe parler: Parle."
+      },
+      {
+        question: "... (se taire)-vous!",
+        options: ["Taisez", "Tais-toi", "Taisons", "Taire"],
+        correct: 0,
+        explanation: "Impératif vous du verbe pronominal: Taisez-vous."
+      }
+    ],
+    18: [ // Verbes pronominaux
+      {
+        question: "Je ... lave les mains.",
+        options: ["me", "te", "se", "nous"],
+        correct: 0,
+        explanation: "Pronom réfléchi pour 'je': me."
+      }
+    ],
+    19: [ // Voix passive
+      {
+        question: "La lettre ... par le facteur.",
+        options: ["est distribuée", "a distribué", "distribue", "distribuée"],
+        correct: 0,
+        explanation: "Passif présent: être + participe passé accordé."
+      }
+    ],
+    20: [ // Discours indirect
+      {
+        question: "Il a dit: 'Je suis fatigué.' → Il a dit qu'il ... fatigué.",
+        options: ["était", "est", "soit", "serait"],
+        correct: 0,
+        explanation: "Concordance: présent → imparfait."
+      }
+    ],
+    21: [ // Condition avec 'si'
+      {
+        question: "Si tu ... (venir), nous serions contents.",
+        options: ["venais", "viens", "viendras", "viendrais"],
+        correct: 0,
+        explanation: "Irréel du présent: si + imparfait, conditionnel présent."
+      }
+    ],
+    22: [ // Verbes modaux
+      {
+        question: "Tu ... (pouvoir) m'aider?",
+        options: ["peux", "peut", "pouvez", "peuvent"],
+        correct: 0,
+        explanation: "Pouvoir présent: je peux, tu peux."
+      }
+    ],
+    23: [ // Négation
+      {
+        question: "Je ne mange ... viande.",
+        options: ["pas de", "pas", "rien", "aucun"],
+        correct: 0,
+        explanation: "Après négation, article indéfini/partitif → de."
+      }
+    ],
+    24: [ // Interrogation
+      {
+        question: "Quelle est la forme correcte?",
+        options: ["Parles-tu français?", "Tu parles français?", "Est-ce que tu parles français?", "Toutes"],
+        correct: 3,
+        explanation: "Les trois formes sont correctes selon le registre."
+      }
+    ],
+    25: [ // Prépositions
+      {
+        question: "Je vais ... France.",
+        options: ["à", "en", "au", "aux"],
+        correct: 1,
+        explanation: "Pays féminin → en."
+      },
+      {
+        question: "Il habite ... Japon.",
+        options: ["à", "en", "au", "aux"],
+        correct: 2,
+        explanation: "Pays masculin → au."
+      }
+    ],
+    26: [ // Conjonctions
+      {
+        question: "Il est fatigué ... il a trop travaillé.",
+        options: ["car", "donc", "mais", "ou"],
+        correct: 0,
+        explanation: "Car exprime la cause."
+      }
+    ],
+    27: [ // Adverbes
+      {
+        question: "Il parle ... (lent).",
+        options: ["lentement", "lente", "lent", "lents"],
+        correct: 0,
+        explanation: "Adverbe formé avec -ment: lentement."
+      }
+    ],
+    28: [ // Pronoms y et en
+      {
+        question: "Tu vas à Paris? Oui, j'... vais.",
+        options: ["y", "en", "le", "la"],
+        correct: 0,
+        explanation: "Y remplace un lieu introduit par 'à'."
+      },
+      {
+        question: "Tu as des stylos? Oui, j'... ai trois.",
+        options: ["y", "en", "les", "des"],
+        correct: 1,
+        explanation: "En remplace 'de + nom'."
+      }
+    ],
+    29: [ // Accord du participe passé
+      {
+        question: "La pomme que j'ai ... (manger).",
+        options: ["mangé", "mangée", "mangés", "manger"],
+        correct: 1,
+        explanation: "COD placé avant (que = la pomme, fém.) → accord."
+      }
+    ],
+    30: [ // Temps du futur
+      {
+        question: "Quand tu ... (arriver), appelle-moi.",
+        options: ["arriveras", "arrives", "arriverais", "arrive"],
+        correct: 0,
+        explanation: "Futur antérieur ou simple dans une subordonnée de temps."
+      }
+    ],
+    31: [ // Gérondif
+      {
+        question: "Il lit ... (écouter) de la musique.",
+        options: ["en écoutant", "écoutant", "en écouté", "écoute"],
+        correct: 0,
+        explanation: "Gérondif: en + participe présent."
+      }
+    ],
+    32: [ // Tout, même, demi...
+      {
+        question: "Elle est ... contente.",
+        options: ["tout", "toute", "tous", "toutes"],
+        correct: 0,
+        explanation: "Tout adverbe devant adjectif féminin commençant par consonne."
+      }
+    ],
+    33: [ // Noms géographiques
+      {
+        question: "Il vient ... Canada.",
+        options: ["du", "de", "des", "de la"],
+        correct: 0,
+        explanation: "Venir de + pays masculin: du Canada."
+      }
+    ],
+    34: [ // C'est vs il est
+      {
+        question: "... médecin.",
+        options: ["C'est un", "Il est", "Elle est", "Ce sont"],
+        correct: 1,
+        explanation: "Il/elle est + profession (sans article)."
+      },
+      {
+        question: "... un médecin.",
+        options: ["C'est", "Il est", "Elle est", "Ce sont"],
+        correct: 0,
+        explanation: "C'est + déterminant + nom."
+      }
+    ],
+    35: [ // Nombres et date
+      {
+        question: "1995 se lit:",
+        options: ["mille neuf cent quatre-vingt-quinze", "dix-neuf cent quatre-vingt-quinze", "mille neuf cents quatre-vingt-quinze", "dix-neuf quatre-vingt-quinze"],
+        correct: 0,
+        explanation: "Mille + neuf cent + quatre-vingt-quinze."
+      }
+    ],
+    36: [ // Infinitif après préposition
+      {
+        question: "Sans ... (dire) un mot.",
+        options: ["dire", "dit", "disant", "dise"],
+        correct: 0,
+        explanation: "Après préposition, infinitif."
+      }
+    ],
+    37: [ // Relatives complexes
+      {
+        question: "La chose ... je pense.",
+        options: ["à laquelle", "auquel", "dont", "que"],
+        correct: 0,
+        explanation: "Penser à qqch → à laquelle."
+      }
+    ],
+    38: [ // Inversion
+      {
+        question: "À peine ...-il arrivé qu'il est reparti.",
+        options: ["est", "a", "soit", "était"],
+        correct: 0,
+        explanation: "Inversion après 'à peine'."
+      }
+    ],
+    39: [ // Tu vs vous
+      {
+        question: "Vous pouvez me tutoyer. Quelle est la situation?",
+        options: ["Formel", "Informel", "Administratif", "Lointain"],
+        correct: 1,
+        explanation: "Tutoyer = utiliser 'tu'."
+      }
+    ],
+    40: [ // Erreurs fréquentes
+      {
+        question: "Je vais ... docteur.",
+        options: ["chez le", "au", "à le", "en"],
+        correct: 0,
+        explanation: "Aller chez le docteur (personne)."
+      }
+    ]
+  },
+  en: {
+    1: [ // Articles: a/an/the/zero
+      {
+        question: "I saw ... interesting movie last night.",
+        options: ["a", "an", "the", "—"],
+        correct: 1,
+        explanation: "Use 'an' before vowel sounds."
+      },
+      {
+        question: "He is ... best player on the team.",
+        options: ["a", "an", "the", "—"],
+        correct: 2,
+        explanation: "Superlatives take 'the'."
+      },
+      {
+        question: "... life is beautiful.",
+        options: ["A", "An", "The", "—"],
+        correct: 3,
+        explanation: "Abstract nouns generally take zero article."
+      }
+    ],
+    2: [ // Nouns – Countable & Uncountable
+      {
+        question: "I need ... information.",
+        options: ["a", "an", "some", "many"],
+        correct: 2,
+        explanation: "'Information' is uncountable, use 'some'."
+      },
+      {
+        question: "How ... apples do you want?",
+        options: ["much", "many", "few", "little"],
+        correct: 1,
+        explanation: "Countable plural → many."
+      }
+    ],
+    3: [ // Pronouns – All Types
+      {
+        question: "This is ... book. (I)",
+        options: ["my", "mine", "me", "I"],
+        correct: 0,
+        explanation: "Possessive adjective before noun: my."
+      },
+      {
+        question: "The book is ... (I)",
+        options: ["my", "mine", "me", "I"],
+        correct: 1,
+        explanation: "Possessive pronoun standing alone: mine."
+      }
+    ],
+    4: [ // Present Simple & Continuous
+      {
+        question: "She usually ... to work by car.",
+        options: ["go", "goes", "is going", "going"],
+        correct: 1,
+        explanation: "Present simple for habits, 3rd person singular: -es."
+      },
+      {
+        question: "Listen! Someone ...",
+        options: ["sings", "is singing", "sing", "are singing"],
+        correct: 1,
+        explanation: "Action in progress now: present continuous."
+      }
+    ],
+    5: [ // Past Simple & Continuous
+      {
+        question: "I ... my keys yesterday.",
+        options: ["lose", "lost", "was losing", "have lost"],
+        correct: 1,
+        explanation: "Past simple for completed action at a specific time."
+      },
+      {
+        question: "While I ..., the phone rang.",
+        options: ["was sleeping", "slept", "sleep", "am sleeping"],
+        correct: 0,
+        explanation: "Past continuous for background action."
+      }
+    ],
+    6: [ // Present Perfect (UK focus)
+      {
+        question: "I ... (see) that film already.",
+        options: ["saw", "have seen", "see", "am seeing"],
+        correct: 1,
+        explanation: "Present perfect for experience with 'already'."
+      },
+      {
+        question: "She ... (live) here since 2010.",
+        options: ["lives", "lived", "has lived", "is living"],
+        correct: 2,
+        explanation: "Present perfect with 'since' for duration."
+      }
+    ],
+    7: [ // Present Perfect Continuous
+      {
+        question: "It ... (rain) all day.",
+        options: ["has rained", "rains", "is raining", "has been raining"],
+        correct: 3,
+        explanation: "Emphasis on duration of action up to now."
+      }
+    ],
+    8: [ // Past Perfect
+      {
+        question: "By the time we arrived, the train ... (leave).",
+        options: ["left", "has left", "had left", "was leaving"],
+        correct: 2,
+        explanation: "Past perfect for action before another past action."
+      }
+    ],
+    9: [ // Future Expressions
+      {
+        question: "Look at those clouds! It ... (rain).",
+        options: ["will rain", "is going to rain", "rains", "is raining"],
+        correct: 1,
+        explanation: "Prediction based on evidence: going to."
+      },
+      {
+        question: "I ... (meet) her at 5 pm tomorrow.",
+        options: ["meet", "am meeting", "will meet", "meeting"],
+        correct: 1,
+        explanation: "Present continuous for fixed arrangements."
+      }
+    ],
+    10: [ // Modal Verbs
+      {
+        question: "You ... smoke here. It's forbidden.",
+        options: ["mustn't", "don't have to", "shouldn't", "can't"],
+        correct: 0,
+        explanation: "Mustn't = prohibition."
+      },
+      {
+        question: "I ... swim when I was five.",
+        options: ["can", "could", "may", "might"],
+        correct: 1,
+        explanation: "Could for past ability."
+      }
+    ],
+    11: [ // Passive Voice
+      {
+        question: "The cake ... by my mum.",
+        options: ["made", "was made", "is made", "has made"],
+        correct: 1,
+        explanation: "Past passive: was/were + past participle."
+      }
+    ],
+    12: [ // Reported Speech
+      {
+        question: "She said: 'I am tired.' → She said she ... tired.",
+        options: ["is", "was", "has been", "had been"],
+        correct: 1,
+        explanation: "Backshift: present simple → past simple."
+      }
+    ],
+    13: [ // Conditional Sentences
+      {
+        question: "If I ... you, I would say sorry.",
+        options: ["am", "was", "were", "be"],
+        correct: 2,
+        explanation: "Second conditional, subjunctive 'were' for all persons."
+      }
+    ],
+    14: [ // Subjunctive (British)
+      {
+        question: "I suggest that he ... (be) there.",
+        options: ["is", "be", "will be", "was"],
+        correct: 1,
+        explanation: "Mandative subjunctive: base form of verb."
+      }
+    ],
+    15: [ // Relative Clauses
+      {
+        question: "The man ... lives next door is a doctor.",
+        options: ["which", "who", "whose", "whom"],
+        correct: 1,
+        explanation: "Who for people as subject."
+      }
+    ],
+    16: [ // Noun Clauses
+      {
+        question: "I don't know ... he will come.",
+        options: ["that", "if", "what", "which"],
+        correct: 1,
+        explanation: "If/whether for yes/no questions embedded."
+      }
+    ],
+    17: [ // Adverbial Clauses
+      {
+        question: "... he was tired, he continued working.",
+        options: ["Because", "Although", "If", "When"],
+        correct: 1,
+        explanation: "Although shows contrast."
+      }
+    ],
+    18: [ // Infinitives & Gerunds
+      {
+        question: "I enjoy ... (read).",
+        options: ["read", "to read", "reading", "for reading"],
+        correct: 2,
+        explanation: "Enjoy + gerund."
+      }
+    ],
+    19: [ // Adjectives
+      {
+        question: "It's a ... wooden table.",
+        options: ["beautiful old", "old beautiful", "beautifully old", "old beautifully"],
+        correct: 0,
+        explanation: "Opinion before age: beautiful old."
+      }
+    ],
+    20: [ // Comparatives & Superlatives
+      {
+        question: "She is ... than her sister.",
+        options: ["taller", "more tall", "tallest", "most tall"],
+        correct: 0,
+        explanation: "One syllable: -er."
+      }
+    ],
+    21: [ // Adverbs
+      {
+        question: "He drives ... (careful).",
+        options: ["careful", "carefully", "more careful", "carefuller"],
+        correct: 1,
+        explanation: "Adverb form: adjective + -ly."
+      }
+    ],
+    22: [ // Prepositions
+      {
+        question: "I'll see you ... Friday.",
+        options: ["at", "on", "in", "by"],
+        correct: 1,
+        explanation: "Days of the week take 'on'."
+      }
+    ],
+    23: [ // Conjunctions
+      {
+        question: "He was hungry, ... he made a sandwich.",
+        options: ["so", "because", "but", "or"],
+        correct: 0,
+        explanation: "So shows result."
+      }
+    ],
+    24: [ // Determiners & Quantifiers
+      {
+        question: "There are ... people here.",
+        options: ["a lot of", "much", "a little", "any"],
+        correct: 0,
+        explanation: "Countable plural → a lot of."
+      }
+    ],
+    25: [ // Negation
+      {
+        question: "I have ... money.",
+        options: ["no", "not", "none", "any"],
+        correct: 0,
+        explanation: "No + noun = not any."
+      }
+    ],
+    26: [ // Questions & Inversion
+      {
+        question: "You're coming, ... you?",
+        options: ["aren't", "isn't", "don't", "won't"],
+        correct: 0,
+        explanation: "Question tag: positive statement → negative tag."
+      }
+    ],
+    27: [ // Phrasal Verbs
+      {
+        question: "I need to ... my homework.",
+        options: ["hand in", "hand over", "hand out", "hand up"],
+        correct: 0,
+        explanation: "Hand in = submit."
+      }
+    ],
+    28: [ // Collocations & Fixed Expressions
+      {
+        question: "She ... a mistake.",
+        options: ["made", "did", "had", "took"],
+        correct: 0,
+        explanation: "Collocation: make a mistake."
+      }
+    ],
+    29: [ // Word Order & Emphasis
+      {
+        question: "Never ... seen such a thing.",
+        options: ["I have", "have I", "I had", "had I"],
+        correct: 1,
+        explanation: "Inversion after negative adverbial."
+      }
+    ],
+    30: [ // Ellipsis & Substitution
+      {
+        question: "I hope ... (that you can come).",
+        options: ["so", "it", "not", "that"],
+        correct: 0,
+        explanation: "Ellipsis with 'so': I hope so."
+      }
+    ],
+    31: [ // Noun Phrases & Modification
+      {
+        question: "The house ... was sold.",
+        options: ["built last year", "which built last year", "building last year", "was built last year"],
+        correct: 0,
+        explanation: "Reduced relative clause: built last year."
+      }
+    ],
+    32: [ // Verb Valency
+      {
+        question: "She gave ... a present.",
+        options: ["to me", "me", "for me", "at me"],
+        correct: 1,
+        explanation: "Ditransitive verb: give + indirect object + direct object."
+      }
+    ],
+    33: [ // Aspect
+      {
+        question: "I ... (think) about it all day.",
+        options: ["thought", "was thinking", "have thought", "think"],
+        correct: 1,
+        explanation: "Continuous aspect for ongoing activity in past."
+      }
+    ],
+    34: [ // Spelling – British English
+      {
+        question: "Which spelling is British?",
+        options: ["color", "center", "theatre", "organize"],
+        correct: 2,
+        explanation: "-re ending is British (theatre)."
+      }
+    ],
+    35: [ // Punctuation – British Style
+      {
+        question: "He said, 'I'll be late.' → quotes are:",
+        options: ["single", "double", "both", "neither"],
+        correct: 0,
+        explanation: "British English prefers single quotes for first level."
+      }
+    ],
+    36: [ // Formal vs Informal
+      {
+        question: "To ... it may concern,",
+        options: ["who", "whom", "which", "that"],
+        correct: 1,
+        explanation: "Formal letter opening: To whom it may concern."
+      }
+    ],
+    37: [ // Wishes & Regrets
+      {
+        question: "I wish I ... taller.",
+        options: ["am", "was", "were", "be"],
+        correct: 2,
+        explanation: "Wish + past subjunctive: were."
+      }
+    ],
+    38: [ // Compound & Complex Sentences
+      {
+        question: "I like coffee, ... my wife prefers tea.",
+        options: ["and", "but", "so", "or"],
+        correct: 1,
+        explanation: "But joins contrasting independent clauses."
+      }
+    ],
+    39: [ // Common Errors
+      {
+        question: "I have ... money than you.",
+        options: ["fewer", "less", "little", "least"],
+        correct: 1,
+        explanation: "Money is uncountable → less."
+      }
+    ],
+    40: [ // Advanced Syntax
+      {
+        question: "... I known, I would have helped.",
+        options: ["If", "Had", "Were", "Should"],
+        correct: 1,
+        explanation: "Inversion in third conditional: Had I known."
+      }
+    ]
+  }
+};
+
 // =============================================
 // UI LABELS
 // =============================================
@@ -17536,29 +18943,23 @@ async function callAPI(prompt) {
 }
 
 async function fetchQuestions(l, id, title, count, qtype) {
-  const k = `q_${qtype}_${l}_${id}`;
-  if(cache[k]) return cache[k];
-  const langFull = {nl:'Dutch',fr:'French',en:'British English'}[l];
-  const instr = {
-    nl:`Schrijf alle vragen en antwoorden in het Nederlands.`,
-    fr:`Écris toutes les questions et réponses en français.`,
-    en:`Write all questions and answers in English.`
-  }[l];
-  const prompt = `You are an expert ${langFull} grammar teacher. ${instr}
-Generate exactly ${count} multiple choice questions testing the grammar topic: "${title}"
-Each question must have exactly 4 options. Only one is correct. Include a brief 1-sentence explanation.
-Return ONLY valid JSON, no markdown, no backticks, no preamble:
-{"questions":[{"question":"...","options":["A text","B text","C text","D text"],"correct":0,"explanation":"..."}]}
-The "correct" value is the 0-based index of the correct option.`;
-  const raw = await callAPI(prompt);
-  let clean = raw.trim().replace(/^```json\s*/,'').replace(/^```\s*/,'').replace(/\s*```$/,'');
-  const start = clean.indexOf('{');
-  if(start > 0) clean = clean.slice(start);
-  const data = JSON.parse(clean);
-  cache[k] = data.questions;
-  return data.questions;
-}
+  const cacheKey = `q_${qtype}_${l}_${id}`;
+  if (cache[cacheKey]) return cache[cacheKey];
 
+  // بزانە ئایا پرسیاری جێگیر (Static) هەیە بۆ ئەم زمانە و ئەم بابەتە
+  const topicQuestions = STATIC_QUESTIONS?.[l]?.[id];
+
+  if (topicQuestions && topicQuestions.length > 0) {
+    // تەنها ئەو ژمارە پرسیارە بگەڕێنەوە کە داوا کراوە
+    const selected = topicQuestions.slice(0, count);
+    cache[cacheKey] = selected;
+    return selected;
+  }
+
+  // هیچ پرسیارێک نەدۆزرایەوە - ئاگادارکردنەوەیەک لە کۆنسۆڵ نیشان بدە
+  console.warn(`⚠️ Geen vragen gevonden voor ${l} - onderwerp ${id}. Voeg ze toe aan STATIC_QUESTIONS.`);
+  return [];
+}
 // =============================================
 // INIT
 // =============================================
