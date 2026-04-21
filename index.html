@@ -17145,1410 +17145,850 @@ const TOPICS = {
 };
 
 const STATIC_QUESTIONS = {
-nl: {
-    1: [ // De lidwoorden (de/het/een)
-      {
-        question: "Kies het juiste lidwoord: 'Ik zie ... hond in de tuin.'",
-        options: ["de", "het", "een", " "],
-        correct: 0,
-        explanation: "'Hond' is een de-woord (mannelijk/vrouwelijk), dus gebruik 'de' als het bepaald is."
-      },
-      {
-        question: "Wat is juist? 'Dat is ... mooi huis.'",
-        options: ["de", "het", "een", " "],
-        correct: 2,
-        explanation: "Het is een onbepaald zelfstandig naamwoord; we gebruiken 'een' ongeacht het geslacht."
-      },
-      {
-        question: "Welk lidwoord hoort bij 'meisje'?",
-        options: ["de", "het", "een", " "],
-        correct: 1,
-        explanation: "Verkleinwoorden op -je zijn altijd het-woorden: 'het meisje'."
-      },
-      {
-        question: "Kies het juiste lidwoord: '... water is koud.'",
-        options: ["De", "Het", "Een", " "],
-        correct: 1,
-        explanation: "Stofnamen zoals water zijn het-woorden."
-      }
-    ],
-    2: [ // Bezittelijke voornaamwoorden
-      {
-        question: "Is dit ... boek? (jij)",
-        options: ["jouw", "jou", "jij", "je"],
-        correct: 0,
-        explanation: "Bezittelijk voornaamwoord voor 'jij' is 'jouw' (of informeel 'je')."
-      },
-      {
-        question: "Zij heeft ... fiets verkocht. (zij)",
-        options: ["zijn", "haar", "hun", "z'n"],
-        correct: 1,
-        explanation: "Voor vrouwelijk enkelvoud bezit gebruiken we 'haar'."
-      },
-      {
-        question: "Wij gaan naar ... grootouders. (wij)",
-        options: ["ons", "onze", "hun", "jullie"],
-        correct: 1,
-        explanation: "Bij de-woorden in het meervoud en enkelvoud gebruiken we 'onze', bij het-woorden 'ons'."
-      }
-    ],
-    3: [ // Tegenwoordige tijd
-      {
-        question: "Hij ... elke dag naar school. (lopen)",
-        options: ["loop", "loopt", "lopen", "loopt"],
-        correct: 1,
-        explanation: "Stam + t voor hij/zij/het: hij loopt."
-      },
-      {
-        question: "Jij ... een taart. (bakken)",
-        options: ["bakt", "bak", "bakt", "bakken"],
-        correct: 0,
-        explanation: "Bij inversie of gewone zin: jij bakt (stam+t), maar bij vraag zonder 'jij' erna: bak jij?"
-      },
-      {
-        question: "Wij ... graag naar muziek. (luisteren)",
-        options: ["luister", "luistert", "luisteren", "luisterd"],
-        correct: 2,
-        explanation: "Meervoud: hele werkwoord gebruiken."
-      }
-    ],
-    4: [ // Verleden tijd – zwak en sterk
-      {
-        question: "Gisteren ... ik een film. (kijken)",
-        options: ["keek", "kijkte", "gekeken", "kijk"],
-        correct: 0,
-        explanation: "'Kijken' is een sterk werkwoord: kijken – keek – gekeken."
-      },
-      {
-        question: "Vorig jaar ... wij naar Frankrijk. (reizen)",
-        options: ["reisden", "reisten", "reizen", "gereisd"],
-        correct: 1,
-        explanation: "Zwak werkwoord: stam eindigt op s-klank, dus -te(n)."
-      }
-    ],
-    5: [ // Voltooide tijden
-      {
-        question: "Ik heb mijn huiswerk ... (maken)",
-        options: ["gemaakt", "gemaakd", "maakte", "maken"],
-        correct: 0,
-        explanation: "Voltooid deelwoord van maken is gemaakt (zwak, 't kofschip: k zit in 't kofschip, dus -t)."
-      },
-      {
-        question: "Zij is naar huis ... (gaan)",
-        options: ["gegaan", "gaat", "ging", "gegaant"],
-        correct: 0,
-        explanation: "Sterk werkwoord: gaan – ging – gegaan."
-      }
-    ],
-    6: [ // Toekomende tijd
-      {
-        question: "Morgen ... het regenen.",
-        options: ["zal", "gaat", "wordt", "is"],
-        correct: 0,
-        explanation: "Zullen + infinitief voor formele toekomst."
-      },
-      {
-        question: "We ... vanavond een film kijken.",
-        options: ["gaan", "zullen", "zijn", "worden"],
-        correct: 0,
-        explanation: "Gaan + infinitief voor geplande acties in nabije toekomst."
-      }
-    ],
-    7: [ // Modale werkwoorden
-      {
-        question: "Je ... hier niet roken.",
-        options: ["mag", "kan", "wil", "moet"],
-        correct: 0,
-        explanation: "Mogen drukt toestemming uit: je mag niet roken."
-      },
-      {
-        question: "Hij ... goed zwemmen.",
-        options: ["mag", "moet", "kan", "wil"],
-        correct: 2,
-        explanation: "Kunnen geeft vaardigheid aan."
-      }
-    ],
-    8: [ // Scheidbare werkwoorden
-      {
-        question: "Ik ... mijn jas ... (uitdoen)",
-        options: ["doe uit", "uitdoe", "doe ... uit", "uit doe"],
-        correct: 2,
-        explanation: "In hoofdzin splitst het werkwoord: ik doe mijn jas uit."
-      },
-      {
-        question: "Hij wil de televisie ... (aanzetten)",
-        options: ["aanzetten", "zet aan", "aan zet", "zetten aan"],
-        correct: 0,
-        explanation: "Na modaal werkwoord of in bijzin blijft het scheidbare werkwoord bij elkaar."
-      }
-    ],
-    9: [ // Wederkerende werkwoorden
-      {
-        question: "Ik ... me even. (zich vergissen)",
-        options: ["vergis", "vergist", "vergissen", "vergiste"],
-        correct: 0,
-        explanation: "Wederkerend: ik vergis me."
-      },
-      {
-        question: "Zij ... zich altijd snel. (zich aankleden)",
-        options: ["kleed", "kleedt", "kleden", "kleedt aan"],
-        correct: 1,
-        explanation: "Zij kleedt zich aan."
-      }
-    ],
-    10: [ // Meervoud van zelfstandige naamwoorden
-      {
-        question: "Wat is het meervoud van 'tafel'?",
-        options: ["tafels", "tafelen", "tafel", "tafeltjes"],
-        correct: 0,
-        explanation: "De meeste woorden krijgen -en of -s. Tafel → tafels."
-      },
-      {
-        question: "Wat is het meervoud van 'kind'?",
-        options: ["kinden", "kinderen", "kinds", "kinder"],
-        correct: 1,
-        explanation: "Onregelmatig meervoud: kind – kinderen."
-      }
-    ],
-    11: [ // Verkleinwoorden (diminutieven)
-      {
-        question: "Wat is het verkleinwoord van 'boom'?",
-        options: ["boompje", "boometje", "bomeke", "boompje"],
-        correct: 0,
-        explanation: "Stam op m → pje (boompje)."
-      },
-      {
-        question: "Wat is het verkleinwoord van 'glas'?",
-        options: ["glassie", "glaasje", "glaaske", "glasje"],
-        correct: 1,
-        explanation: "Korte klinker in laatste lettergreep met enkele eindmedeklinker: klinker wordt verlengd → glaasje."
-      }
-    ],
-    12: [ // Bijvoeglijke naamwoorden – verbuiging
-      {
-        question: "Een ... boek. (mooi)",
-        options: ["mooi", "mooie", "mooien", "moois"],
-        correct: 0,
-        explanation: "Onbepaald (een) + het-woord → geen -e."
-      },
-      {
-        question: "Het ... huis. (groot)",
-        options: ["groot", "grote", "groten", "groote"],
-        correct: 1,
-        explanation: "Bepaald (het) + het-woord → wel -e."
-      }
-    ],
-    13: [ // Trappen van vergelijking
-      {
-        question: "Mijn auto is ... dan die van jou. (snel)",
-        options: ["sneller", "snelst", "meest snel", "snelder"],
-        correct: 0,
-        explanation: "Vergrotende trap: stam + -er."
-      },
-      {
-        question: "Hij is de ... leerling van de klas. (goed)",
-        options: ["beste", "best", "goedst", "meest goed"],
-        correct: 0,
-        explanation: "Overtreffende trap onregelmatig: goed – beter – best."
-      }
-    ],
-    14: [ // Voorzetsels
-      {
-        question: "Het boek ligt ... de tafel.",
-        options: ["in", "op", "onder", "naast"],
-        correct: 1,
-        explanation: "We zeggen 'op de tafel' omdat het boek er bovenop ligt."
-      },
-      {
-        question: "De kat zit ... de doos.",
-        options: ["in", "op", "onder", "tussen"],
-        correct: 0,
-        explanation: "Als de kat binnen de doos zit, gebruik je 'in'."
-      },
-      {
-        question: "De hond slaapt ... de bank.",
-        options: ["in", "op", "onder", "achter"],
-        correct: 1,
-        explanation: "Het dier ligt bovenop de bank → 'op'."
-      },
-      {
-        question: "Het schilderij hangt ... de muur.",
-        options: ["in", "op", "aan", "tegen"],
-        correct: 2,
-        explanation: "Je gebruikt 'aan de muur' voor iets dat eraan bevestigd is."
-      },
-      {
-        question: "Ik zet mijn fiets ... het hek.",
-        options: ["in", "op", "tegen", "naast"],
-        correct: 2,
-        explanation: "Je zet iets 'tegen' een verticaal oppervlak aan."
-      }
-    ],
-    15: [ // Vragende voornaamwoorden
-      {
-        question: "... is jouw favoriete kleur?",
-        options: ["Wie", "Wat", "Welke", "Waarom"],
-        correct: 1,
-        explanation: "Wat vraagt naar een zaak of eigenschap."
-      },
-      {
-        question: "... ga je op vakantie?",
-        options: ["Waar", "Wanneer", "Waarom", "Hoe"],
-        correct: 0,
-        explanation: "Waar vraagt naar een plaats."
-      }
-    ],
-    16: [ // Aanwijzende voornaamwoorden
-      {
-        question: "Kijk naar ... auto daar! (de auto)",
-        options: ["deze", "die", "dit", "dat"],
-        correct: 1,
-        explanation: "De-woorden ver weg: die."
-      },
-      {
-        question: "Ik vind ... boek hier mooi. (het boek)",
-        options: ["deze", "die", "dit", "dat"],
-        correct: 2,
-        explanation: "Het-woorden dichtbij: dit."
-      }
-    ],
-    17: [ // Onbepaalde voornaamwoorden
-      {
-        question: "Is daar ... thuis?",
-        options: ["iemand", "niemand", "iets", "niets"],
-        correct: 0,
-        explanation: "Iemand voor personen in vragen."
-      },
-      {
-        question: "Ik heb ... gegeten.",
-        options: ["iemand", "niemand", "iets", "niets"],
-        correct: 3,
-        explanation: "Negatief: niets."
-      }
-    ],
-    18: [ // Ontkenningen
-      {
-        question: "Ik heb ... zin.",
-        options: ["niet", "geen", "nooit", "geen van beide"],
-        correct: 1,
-        explanation: "Geen + zelfstandig naamwoord zonder lidwoord."
-      },
-      {
-        question: "Hij komt ... op het feest.",
-        options: ["niet", "geen", "nooit", "niemand"],
-        correct: 0,
-        explanation: "Niet ontkent een werkwoord of bijvoeglijk naamwoord."
-      }
-    ],
-    19: [ // Woordvolgorde in hoofdzinnen
-      {
-        question: "Welke zin heeft de juiste woordvolgorde?",
-        options: ["Morgen ik ga naar school.", "Ik ga morgen naar school.", "Ga ik morgen naar school.", "Naar school ik morgen ga."],
-        correct: 1,
-        explanation: "Hoofdzin: onderwerp – persoonsvorm – rest."
-      },
-      {
-        question: "Wat is de correcte inversie?",
-        options: ["Vandaag ik heb vrij.", "Vandaag heb ik vrij.", "Ik heb vandaag vrij.", "Vrij heb ik vandaag."],
-        correct: 1,
-        explanation: "Na een tijdsbepaling volgt inversie: persoonsvorm voor onderwerp."
-      }
-    ],
-    20: [ // Woordvolgorde in bijzinnen
-      {
-        question: "Ik denk dat hij morgen ...",
-        options: ["komt", "komen", "gekomen", "te komen"],
-        correct: 0,
-        explanation: "In bijzin staat persoonsvorm achteraan."
-      },
-      {
-        question: "Ze zegt dat ze het niet ...",
-        options: ["begrijpt", "begrijp", "begrijpen", "begrepen"],
-        correct: 0,
-        explanation: "Bijzin: onderwerp – rest – persoonsvorm."
-      }
-    ],
-    21: [ // Nevenschikkende voegwoorden
-      {
-        question: "Hij is moe, ... hij gaat toch door.",
-        options: ["en", "maar", "of", "want"],
-        correct: 1,
-        explanation: "Maar drukt tegenstelling uit."
-      },
-      {
-        question: "Ik blijf thuis, ... het regent.",
-        options: ["en", "maar", "of", "want"],
-        correct: 3,
-        explanation: "Want geeft reden aan."
-      }
-    ],
-    22: [ // Onderschikkende voegwoorden
-      {
-        question: "Hij komt niet ... hij ziek is.",
-        options: ["omdat", "want", "maar", "dus"],
-        correct: 0,
-        explanation: "Omdat leidt een bijzin in met werkwoord aan het eind."
-      },
-      {
-        question: "... het regent, gaan we toch wandelen.",
-        options: ["Omdat", "Hoewel", "Als", "Toen"],
-        correct: 1,
-        explanation: "Hoewel geeft concessie aan."
-      }
-    ],
-    23: [ // Betrekkelijke bijzinnen
-      {
-        question: "De man ... daar loopt, is mijn oom.",
-        options: ["die", "dat", "wat", "wie"],
-        correct: 0,
-        explanation: "Die verwijst naar de-woorden (de man)."
-      },
-      {
-        question: "Het boek ... ik lees, is spannend.",
-        options: ["die", "dat", "wat", "wie"],
-        correct: 1,
-        explanation: "Dat verwijst naar het-woorden (het boek)."
-      }
-    ],
-    24: [ // Passieve zinnen
-      {
-        question: "Het huis ... gebouwd.",
-        options: ["wordt", "is", "heeft", "zal"],
-        correct: 0,
-        explanation: "Passief tegenwoordige tijd: worden + voltooid deelwoord."
-      },
-      {
-        question: "De deur ... gesloten.",
-        options: ["wordt", "is", "heeft", "zal"],
-        correct: 1,
-        explanation: "Passief perfectum: zijn + voltooid deelwoord (toestand)."
-      }
-    ],
-    25: [ // Conditionele zinnen en de irrealis
-      {
-        question: "Als ik rijk ..., kocht ik een groot huis.",
-        options: ["ben", "was", "zou zijn", "ware"],
-        correct: 3,
-        explanation: "Irrealis van het verleden (formele stijl): ware."
-      },
-      {
-        question: "Hij ... blij als je komt.",
-        options: ["is", "was", "zou zijn", "zal zijn"],
-        correct: 3,
-        explanation: "Reële voorwaarde: zal + infinitief."
-      }
-    ],
-    26: [ // Indirecte rede
-      {
-        question: "Hij zei: 'Ik ben moe.' → Hij zei dat hij moe ...",
-        options: ["is", "was", "zou zijn", "ben"],
-        correct: 1,
-        explanation: "Tijdverschuiving: tegenwoordige tijd wordt verleden tijd."
-      },
-      {
-        question: "Zij vroeg: 'Wil je koffie?' → Zij vroeg of ik koffie ...",
-        options: ["wil", "wilde", "gewild", "zou willen"],
-        correct: 1,
-        explanation: "Wil (tegenw.) → wilde (verl.)"
-      }
-    ],
-    27: [ // 'Om te'- en 'te'-infinitieven
-      {
-        question: "Hij gaat naar de winkel ... melk te kopen.",
-        options: ["voor", "om", "aan", "op"],
-        correct: 1,
-        explanation: "Doel uitdrukken: om ... te + infinitief."
-      },
-      {
-        question: "Het is belangrijk ... luisteren.",
-        options: ["om", "te", "voor", "aan"],
-        correct: 1,
-        explanation: "Na 'het is + adjectief' komt 'te + infinitief'."
-      }
-    ],
-    28: [ // Continuïteitsvormen
-      {
-        question: "Ik ben ... huiswerk ... maken.",
-        options: ["aan het", "op het", "in het", "het"],
-        correct: 0,
-        explanation: "Continu aspect: zijn + aan het + infinitief."
-      },
-      {
-        question: "Hij zit ... boek ... lezen.",
-        options: ["een / te", "het / aan", "een / aan", "een / en"],
-        correct: 0,
-        explanation: "Positiewerkwoord + te + infinitief: hij zit een boek te lezen."
-      }
-    ],
-    29: [ // Vervangende infinitief
-      {
-        question: "Hij had het kunnen ...",
-        options: ["doen", "gedaan", "doet", "deed"],
-        correct: 0,
-        explanation: "Bij modale perfectum vervangt infinitief het voltooid deelwoord."
-      },
-      {
-        question: "Ik heb haar horen ...",
-        options: ["zingen", "gezongen", "zong", "zingt"],
-        correct: 0,
-        explanation: "Na perceptiewerkwoorden zoals horen, zien: infinitief."
-      }
-    ],
-    30: [ // Het woord 'er'
-      {
-        question: "Hoeveel appels heb je? Ik heb ... drie.",
-        options: ["er", "het", "ze", "die"],
-        correct: 0,
-        explanation: "Kwantitatief 'er': ervan."
-      },
-      {
-        question: "... staat een boom in de tuin.",
-        options: ["Er", "Het", "Dit", "Dat"],
-        correct: 0,
-        explanation: "Plaatsaanduidend of voorlopig onderwerp: Er staat een boom."
-      }
-    ],
-    31: [ // Pronominale bijwoorden
-      {
-        question: "Ik denk ...aan.",
-        options: ["er", "daar", "hier", "waar"],
-        correct: 0,
-        explanation: "Verwijst naar iets onbepaalds: eraan denken."
-      },
-      {
-        question: "... wacht je op?",
-        options: ["Er", "Waar", "Hier", "Daar"],
-        correct: 1,
-        explanation: "Vragend: waar + voorzetsel → Waarop wacht je?"
-      }
-    ],
-    32: [ // Bijwoorden
-      {
-        question: "Hij loopt ... (snel)",
-        options: ["snel", "snelle", "snels", "sneller"],
-        correct: 0,
-        explanation: "Bijwoord blijft onverbogen: hij loopt snel."
-      },
-      {
-        question: "Ik ben ... thuis. (vaak)",
-        options: ["vaak", "vake", "vaker", "vaaks"],
-        correct: 0,
-        explanation: "Bijwoorden van frequentie staan vaak na de persoonsvorm."
-      }
-    ],
-    33: [ // Gebiedende wijs
-      {
-        question: "... op!",
-        options: ["Pas", "Past", "Passen", "Paste"],
-        correct: 0,
-        explanation: "Imperatief enkelvoud: stam."
-      },
-      {
-        question: "... we naar huis gaan.",
-        options: ["Laat", "Laten", "Laat ons", "Laten we"],
-        correct: 1,
-        explanation: "Beleefde aansporing: laten we + infinitief."
-      }
-    ],
-    34: [ // Telwoorden
-      {
-        question: "Het ... huis.",
-        options: ["tweede", "twee", "tweeen", "tweeder"],
-        correct: 0,
-        explanation: "Rangtelwoord: tweede."
-      },
-      {
-        question: "Hij is ... in de rij.",
-        options: ["eerste", "een", "eerst", "eender"],
-        correct: 0,
-        explanation: "Eerste is rangtelwoord van één."
-      }
-    ],
-    35: [ // Datum en tijd
-      {
-        question: "Het is kwart ... drie.",
-        options: ["voor", "over", "na", "op"],
-        correct: 0,
-        explanation: "Kwart voor = 14:45."
-      },
-      {
-        question: "Vandaag is het 5 ... 2025.",
-        options: ["maart", "maarts", "van maart", "in maart"],
-        correct: 0,
-        explanation: "Datum: 5 maart."
-      }
-    ],
-    36: [ // Participia
-      {
-        question: "De ... man. (lachen)",
-        options: ["lachende", "gelachen", "lach", "lachend"],
-        correct: 0,
-        explanation: "Tegenwoordig deelwoord als bijvoeglijk naamwoord: lachende man."
-      },
-      {
-        question: "Het ... raam. (breken)",
-        options: ["gebroken", "brekende", "gebrek", "brekend"],
-        correct: 0,
-        explanation: "Voltooid deelwoord als bijvoeglijk naamwoord: gebroken raam."
-      }
-    ],
-    37: [ // Spellingregels
-      {
-        question: "Welke vorm is correct?",
-        options: ["hij antwoord", "hij antwoordt", "hij antwoort", "hij antwoortt"],
-        correct: 1,
-        explanation: "Stam + t: antwoordt."
-      },
-      {
-        question: "Welke spelling is juist?",
-        options: ["lange", "langen", "langs", "langde"],
-        correct: 0,
-        explanation: "Bijvoeglijk naamwoord voor de-woord: lange."
-      }
-    ],
-    38: [ // Wederkerige voornaamwoorden
-      {
-        question: "Zij houden van ...",
-        options: ["elkaar", "zich", "henzelf", "hunzelf"],
-        correct: 0,
-        explanation: "Wederkerig: elkaar."
-      },
-      {
-        question: "We kennen ... al jaren.",
-        options: ["elkaar", "ons", "zich", "hen"],
-        correct: 0,
-        explanation: "Elkaar geeft wederkerigheid aan."
-      }
-    ],
-    39: [ // Formeel vs. informeel
-      {
-        question: "Wat is de formele aanspreekvorm voor 'jij'?",
-        options: ["u", "jullie", "gij", "je"],
-        correct: 0,
-        explanation: "U is de beleefdheidsvorm."
-      },
-      {
-        question: "In welke situatie gebruik je 'jij'?",
-        options: ["Tegen vrienden", "Tegen ouderen (onbekend)", "Sollicitatiebrief", "Tegen een agent"],
-        correct: 0,
-        explanation: "Jij is informeel, voor bekenden."
-      }
-    ],
-    40: [ // Veelgemaakte fouten
-      {
-        question: "Ik geef het aan ... (hen/hun)",
-        options: ["hen", "hun", "zij", "ze"],
-        correct: 0,
-        explanation: "Na voorzetsel altijd 'hen'."
-      },
-      {
-        question: "Hij is groter ... ik. (dan/als)",
-        options: ["dan", "als", "zoals", "of"],
-        correct: 0,
-        explanation: "Na vergrotende trap gebruik je 'dan'."
-      }
-    ]
+  nl: {
+    1: { // De lidwoorden
+      practice: [
+        { question: "Ik zie ... hond in de tuin.", options: ["de","het","een","geen"], correct: 0, explanation: "❌ Fout! Hond is een de-woord.", tip: "💡 De meeste dieren zijn 'de'." },
+        { question: "Dat is ... mooi huis.", options: ["de","het","een","geen"], correct: 2, explanation: "❌ Fout! Huis is het-woord, onbepaald = een.", tip: "💡 Een + het-woord → geen -e." },
+        { question: "Welk lidwoord bij 'meisje'?", options: ["de","het","een","geen"], correct: 1, explanation: "❌ Fout! Verkleinwoord = altijd het.", tip: "💡 -je = het." },
+        { question: "... water is koud.", options: ["De","Het","Een","Geen"], correct: 1, explanation: "❌ Fout! Stofnaam = het.", tip: "💡 Water, brood, vlees = het." },
+        { question: "Ik eet ... appel.", options: ["de","het","een","—"], correct: 2, explanation: "❌ Fout! Onbepaald eerste keer → een.", tip: "💡 Nieuw onderwerp = een." }
+      ],
+      test: [
+        { question: "... zon schijnt.", options: ["De","Het","Een","—"], correct: 0, explanation: "Uniek → de." },
+        { question: "Ik wil ... brood.", options: ["de","het","een","geen"], correct: 1, explanation: "Stofnaam → het." },
+        { question: "Hij kocht ... auto.", options: ["de","het","een","—"], correct: 2, explanation: "Onbepaald → een." },
+        { question: "... boek is leuk.", options: ["De","Het","Een","—"], correct: 1, explanation: "Het boek." },
+        { question: "... man loopt.", options: ["De","Het","Een","—"], correct: 0, explanation: "De man." },
+        { question: "Ik drink ... water.", options: ["de","het","een","—"], correct: 1, explanation: "Het water." },
+        { question: "Zij heeft ... kat.", options: ["de","het","een","geen"], correct: 2, explanation: "Een kat." },
+        { question: "... paard rent.", options: ["De","Het","Een","—"], correct: 1, explanation: "Het paard." },
+        { question: "Ik zie ... vogel.", options: ["de","het","een","geen"], correct: 2, explanation: "Een vogel." },
+        { question: "... aarde draait.", options: ["De","Het","Een","—"], correct: 0, explanation: "De aarde." }
+      ]
+    },
+    2: { // Bezittelijke voornaamwoorden
+      practice: [
+        { question: "Is dit ... boek? (jij)", options: ["jouw","jou","jij","je"], correct: 0, explanation: "❌ Fout! Bezit jij = jouw/je.", tip: "💡 Jouw = nadruk, je = standaard." },
+        { question: "Zij verkocht ... fiets.", options: ["zijn","haar","hun","z'n"], correct: 1, explanation: "❌ Fout! Vrouwelijk = haar.", tip: "💡 Haar = van haar." },
+        { question: "Wij gaan naar ... grootouders.", options: ["ons","onze","hun","jullie"], correct: 1, explanation: "❌ Fout! Meervoud/de-woord = onze.", tip: "💡 Onze bij de-woord/meervoud." },
+        { question: "Hij leest ... krant.", options: ["zijn","haar","z'n","hun"], correct: 0, explanation: "❌ Fout! Bezit hem = zijn.", tip: "💡 Zijn = van hem." },
+        { question: "Hebben jullie ... huisdieren?", options: ["jullie","hun","jullie's","jullie"], correct: 0, explanation: "❌ Fout! Jullie is onveranderlijk.", tip: "💡 Jullie blijft jullie." }
+      ],
+      test: [
+        { question: "Is dit ... jas? (u)", options: ["uw","jouw","je","u"], correct: 0, explanation: "Beleefd → uw." },
+        { question: "Kat likt ... poot.", options: ["zijn","haar","z'n","zijn"], correct: 0, explanation: "Onzijdig → zijn." },
+        { question: "Wij komen met ... auto.", options: ["ons","onze","hun","ons"], correct: 1, explanation: "De-woord → onze." },
+        { question: "Zij verkochten ... boeken.", options: ["hun","hen","hunnen","hun"], correct: 0, explanation: "Meervoud → hun." },
+        { question: "Dit is ... huis. (ik)", options: ["mijn","mij","me","mijne"], correct: 0, explanation: "Mijn huis." },
+        { question: "Neem ... tas mee! (jij)", options: ["jouw","je","jou","jij"], correct: 1, explanation: "Onbeklemtoond → je." },
+        { question: "Hij verloor ... sleutel.", options: ["zijn","haar","z'n","zijn"], correct: 0, explanation: "Zijn sleutel." },
+        { question: "Wij wachten op ... beurt.", options: ["onze","ons","onze","onze"], correct: 0, explanation: "Onze beurt." },
+        { question: "Is dit ... auto? (mevrouw)", options: ["uw","jouw","je","u"], correct: 0, explanation: "Uw auto." },
+        { question: "Zij zoeken ... sleutels.", options: ["hun","hen","hunnen","hun"], correct: 0, explanation: "Hun sleutels." }
+      ]
+    },
+    3: { // Tegenwoordige tijd
+      practice: [
+        { question: "Hij ... naar school. (lopen)", options: ["loop","loopt","lopen","loopt"], correct: 1, explanation: "❌ Fout! Hij = stam+t.", tip: "💡 Hij/zij/het = stam+t." },
+        { question: "Jij ... een taart. (bakken)", options: ["bakt","bak","bakt","bakken"], correct: 0, explanation: "❌ Fout! Jij = stam+t.", tip: "💡 Vraag: bak jij? → dan stam." },
+        { question: "Wij ... muziek. (luisteren)", options: ["luister","luistert","luisteren","luisterd"], correct: 2, explanation: "❌ Fout! Meervoud = heel werkwoord.", tip: "💡 Wij/jullie/zij = infinitief." },
+        { question: "Ik ... koffie. (drinken)", options: ["drink","drinkt","drinken","gedronken"], correct: 0, explanation: "❌ Fout! Ik = stam.", tip: "💡 Ik = altijd stam." },
+        { question: "Zij ... snel. (rennen)", options: ["ren","rent","rennen","rende"], correct: 1, explanation: "❌ Fout! Zij (enkelvoud) = stam+t.", tip: "💡 Korte klinker → medeklinker dubbel." }
+      ],
+      test: [
+        { question: "Hij ... hard. (werken)", options: ["werk","werkt","werken","werkte"], correct: 1, explanation: "Hij werkt." },
+        { question: "Jullie ... naar huis. (gaan)", options: ["ga","gaat","gaan","ging"], correct: 2, explanation: "Jullie gaan." },
+        { question: "Ik ... een brief. (schrijven)", options: ["schrijf","schrijft","schrijven","geschreven"], correct: 0, explanation: "Ik schrijf." },
+        { question: "Zij ... mooi. (zingen)", options: ["zing","zingt","zingen","zong"], correct: 1, explanation: "Zij zingt." },
+        { question: "Wij ... vaak. (fietsen)", options: ["fiets","fietst","fietsen","fietste"], correct: 2, explanation: "Wij fietsen." },
+        { question: "Jij ... de deur. (openen)", options: ["open","opent","openen","opende"], correct: 1, explanation: "Jij opent." },
+        { question: "Hij ... een boek. (lezen)", options: ["lees","leest","lezen","las"], correct: 1, explanation: "Hij leest." },
+        { question: "Ik ... nooit. (liegen)", options: ["lieg","liegt","liegen","loog"], correct: 0, explanation: "Ik lieg." },
+        { question: "Zij ... snel. (praten)", options: ["praat","praat","praten","praatte"], correct: 2, explanation: "Zij praten." },
+        { question: "Jij ... goed. (koken)", options: ["kook","kookt","koken","kookte"], correct: 1, explanation: "Jij kookt." }
+      ]
+    },
+    4: { // Verleden tijd
+      practice: [
+        { question: "Gisteren ... ik een film. (kijken)", options: ["keek","kijkte","gekeken","kijk"], correct: 0, explanation: "❌ Fout! Kijken = sterk: keek.", tip: "💡 Sterk = klinker verandert." },
+        { question: "Vorig jaar ... wij. (reizen)", options: ["reisden","reisten","reizen","gereisd"], correct: 1, explanation: "❌ Fout! Stam op s → -te(n).", tip: "💡 't kofschip: s erin = -te." },
+        { question: "Hij ... laat. (slapen)", options: ["slaap","sliep","geslapen","slapen"], correct: 1, explanation: "❌ Fout! Sterk: slapen → sliep.", tip: "💡 aa → ie." },
+        { question: "Zij ... de hele dag. (werken)", options: ["werk","werkte","gewerkt","werken"], correct: 1, explanation: "❌ Fout! Zwak: werk + te.", tip: "💡 Zwak = stam + te/de." },
+        { question: "Wij ... snel. (rennen)", options: ["ren","rende","gerend","renden"], correct: 3, explanation: "❌ Fout! Zwak meervoud: renden.", tip: "💡 Meervoud = -den/-ten + n." }
+      ],
+      test: [
+        { question: "Ik ... een lied. (zingen)", options: ["zing","zong","gezongen","zingen"], correct: 1, explanation: "Sterk: zong." },
+        { question: "Hij ... de bal. (trappen)", options: ["trap","trapte","getrapt","trappen"], correct: 1, explanation: "Zwak: trapte." },
+        { question: "Zij ... een brief. (schrijven)", options: ["schrijf","schreef","geschreven","schrijven"], correct: 1, explanation: "Sterk: schreef." },
+        { question: "Wij ... hard. (lopen)", options: ["loop","liep","gelopen","liepen"], correct: 3, explanation: "Sterk meervoud: liepen." },
+        { question: "Jij ... de deur. (sluiten)", options: ["sluit","sloot","gesloten","sloten"], correct: 1, explanation: "Sterk: sloot." },
+        { question: "Hij ... snel. (bellen)", options: ["bel","belde","gebeld","belden"], correct: 1, explanation: "Zwak: belde." },
+        { question: "Ik ... het raam. (openen)", options: ["open","opende","geopend","openden"], correct: 1, explanation: "Zwak: opende." },
+        { question: "Zij ... een taart. (bakken)", options: ["bak","bakte","gebakken","bakten"], correct: 1, explanation: "Zwak: bakte." },
+        { question: "Wij ... naar huis. (fietsen)", options: ["fiets","fietste","gefietst","fietsten"], correct: 3, explanation: "Zwak meervoud: fietsten." },
+        { question: "Hij ... een fout. (maken)", options: ["maak","maakte","gemaakt","maakten"], correct: 1, explanation: "Zwak: maakte." }
+      ]
+    },
+    5: { // Voltooide tijden
+      practice: [
+        { question: "Ik heb huiswerk ... (maken)", options: ["gemaakt","gemaakd","maakte","maken"], correct: 0, explanation: "❌ Fout! Zwak: gemaakt.", tip: "💡 Klinkt als t? Dan -t!" },
+        { question: "Zij is naar huis ... (gaan)", options: ["gegaan","gaat","ging","gegaant"], correct: 0, explanation: "❌ Fout! Sterk: gegaan.", tip: "💡 Beweging = zijn + voltooid deelwoord." },
+        { question: "Wij hebben de film ... (kijken)", options: ["gekeken","kekken","keek","kijken"], correct: 0, explanation: "❌ Fout! Sterk: gekeken.", tip: "💡 Sterk = vaak klinkerwisseling." },
+        { question: "Hij is snel ... (rennen)", options: ["gerend","rende","rende","rennen"], correct: 0, explanation: "❌ Fout! Zwak met zijn: gerend.", tip: "💡 Plaatsverandering = zijn." },
+        { question: "Ik heb een boek ... (lezen)", options: ["gelezen","las","lees","lezen"], correct: 0, explanation: "❌ Fout! Sterk: gelezen.", tip: "💡 Voltooid deelwoord sterke ww. = ge...en." }
+      ],
+      test: [
+        { question: "Zij heeft een taart ... (bakken)", options: ["gebakken","bakte","bak","bakken"], correct: 0, explanation: "Zwak: gebakken." },
+        { question: "Wij zijn naar buiten ... (gaan)", options: ["gegaan","ging","gaat","gaan"], correct: 0, explanation: "Beweging → zijn + gegaan." },
+        { question: "Hij heeft de bal ... (trappen)", options: ["getrapt","trapte","trap","trappen"], correct: 0, explanation: "Zwak: getrapt." },
+        { question: "Ik ben gisteren ... (slapen)", options: ["geslapen","sliep","slaap","slapen"], correct: 0, explanation: "Sterk: geslapen." },
+        { question: "Zij heeft een brief ... (schrijven)", options: ["geschreven","schreef","schrijf","schrijven"], correct: 0, explanation: "Sterk: geschreven." },
+        { question: "Wij hebben hard ... (werken)", options: ["gewerkt","werkte","werk","werken"], correct: 0, explanation: "Zwak: gewerkt." },
+        { question: "Hij is snel ... (fietsen)", options: ["gefietst","fietste","fiets","fietsen"], correct: 0, explanation: "Beweging + zwak: gefietst." },
+        { question: "Ik heb de deur ... (sluiten)", options: ["gesloten","sloot","sluit","sluiten"], correct: 0, explanation: "Sterk: gesloten." },
+        { question: "Zij heeft een lied ... (zingen)", options: ["gezongen","zong","zing","zingen"], correct: 0, explanation: "Sterk: gezongen." },
+        { question: "Wij hebben de auto ... (wassen)", options: ["gewassen","waste","was","wassen"], correct: 0, explanation: "Sterk: gewassen." }
+      ]
+    },
+    6: { // Toekomende tijd
+      practice: [
+        { question: "Morgen ... het regenen.", options: ["zal","gaat","wordt","is"], correct: 0, explanation: "❌ Fout! Zullen + infinitief.", tip: "💡 Zal/zullen = toekomst formeel." },
+        { question: "We ... vanavond film kijken.", options: ["gaan","zullen","zijn","worden"], correct: 0, explanation: "❌ Fout! Gaan + infinitief.", tip: "💡 Gaan = geplande actie." },
+        { question: "Ik ... morgen werken.", options: ["zal","ga","gaan","zal gaan"], correct: 0, explanation: "❌ Fout! Zal + infinitief.", tip: "💡 Zal + hele werkwoord." },
+        { question: "Zij ... later komen.", options: ["zal","zullen","gaat","gaan"], correct: 1, explanation: "❌ Fout! Zij (mv) + zullen.", tip: "💡 Zij/zullen, hij/zal." },
+        { question: "Het ... morgen zonnig zijn.", options: ["zal","wordt","gaat","is"], correct: 0, explanation: "❌ Fout! Zal + infinitief.", tip: "💡 Weer = zal." }
+      ],
+      test: [
+        { question: "Morgen ... ik studeren.", options: ["zal","ga","gaan","zal gaan"], correct: 0, explanation: "Ik zal." },
+        { question: "Wij ... straks eten.", options: ["gaan","zullen","zijn","worden"], correct: 0, explanation: "Wij gaan." },
+        { question: "Hij ... bellen.", options: ["zal","zullen","gaat","gaan"], correct: 0, explanation: "Hij zal." },
+        { question: "Zij ... komen.", options: ["zal","zullen","gaat","gaan"], correct: 1, explanation: "Zij (mv) zullen." },
+        { question: "Het ... koud worden.", options: ["zal","wordt","gaat","is"], correct: 0, explanation: "Het zal." },
+        { question: "Jullie ... winnen.", options: ["zal","zullen","gaat","gaan"], correct: 1, explanation: "Jullie zullen." },
+        { question: "Ik ... helpen.", options: ["zal","ga","gaan","zal gaan"], correct: 0, explanation: "Ik zal." },
+        { question: "We ... vertrekken.", options: ["gaan","zullen","zijn","worden"], correct: 0, explanation: "We gaan." },
+        { question: "De trein ... komen.", options: ["zal","zullen","gaat","gaan"], correct: 0, explanation: "De trein zal." },
+        { question: "Zij ... studeren.", options: ["zal","zullen","gaat","gaan"], correct: 1, explanation: "Zij (mv) zullen." }
+      ]
+    },
+    7: { // Modale werkwoorden
+      practice: [
+        { question: "Je ... hier niet roken.", options: ["mag","kan","wil","moet"], correct: 0, explanation: "❌ Fout! Mogen = toestemming.", tip: "💡 Mag niet = verbod." },
+        { question: "Hij ... goed zwemmen.", options: ["mag","moet","kan","wil"], correct: 2, explanation: "❌ Fout! Kunnen = vaardigheid.", tip: "💡 Kan = ability." },
+        { question: "Ik ... naar huis.", options: ["mag","moet","kan","wil"], correct: 1, explanation: "❌ Fout! Moeten = noodzaak.", tip: "💡 Moet = verplichting." },
+        { question: "Zij ... een ijsje.", options: ["mag","moet","kan","wil"], correct: 3, explanation: "❌ Fout! Willen = wens.", tip: "💡 Wil = desire." },
+        { question: "Wij ... helpen.", options: ["mogen","moeten","kunnen","willen"], correct: 1, explanation: "❌ Fout! Moeten = verplichting.", tip: "💡 Moeten + infinitief." }
+      ],
+      test: [
+        { question: "Je ... niet parkeren.", options: ["mag","kan","wil","moet"], correct: 0, explanation: "Mag niet = verbod." },
+        { question: "Hij ... piano spelen.", options: ["mag","moet","kan","wil"], correct: 2, explanation: "Kan = vaardigheid." },
+        { question: "Ik ... slapen.", options: ["mag","moet","kan","wil"], correct: 1, explanation: "Moet = noodzaak." },
+        { question: "Zij ... reizen.", options: ["mag","moet","kan","wil"], correct: 3, explanation: "Wil = wens." },
+        { question: "Wij ... komen.", options: ["mogen","moeten","kunnen","willen"], correct: 2, explanation: "Kunnen = mogelijkheid." },
+        { question: "Jullie ... wachten.", options: ["mogen","moeten","kunnen","willen"], correct: 1, explanation: "Moeten = verplichting." },
+        { question: "Het ... regenen.", options: ["mag","moet","kan","wil"], correct: 2, explanation: "Kan = mogelijkheid." },
+        { question: "Ik ... koffie.", options: ["mag","moet","kan","wil"], correct: 3, explanation: "Wil = wens." },
+        { question: "Zij ... niet komen.", options: ["mag","moet","kan","wil"], correct: 0, explanation: "Mag niet = geen toestemming." },
+        { question: "Hij ... werken.", options: ["mag","moet","kan","wil"], correct: 1, explanation: "Moet = verplichting." }
+      ]
+    },
+    8: { // Scheidbare werkwoorden
+      practice: [
+        { question: "Ik ... mijn jas ... (uitdoen)", options: ["doe uit","uitdoe","doe ... uit","uit doe"], correct: 2, explanation: "❌ Fout! Hoofdzin splitst.", tip: "💡 Ik doe mijn jas uit." },
+        { question: "Hij wil de TV ... (aanzetten)", options: ["aanzetten","zet aan","aan zet","zetten aan"], correct: 0, explanation: "❌ Fout! Na modaal = niet splitsen.", tip: "💡 Wil + heel werkwoord." },
+        { question: "Zij ... vroeg ... (opstaan)", options: ["staat op","opstaat","staat ... op","op staat"], correct: 2, explanation: "❌ Fout! Hoofdzin splitst.", tip: "💡 Zij staat vroeg op." },
+        { question: "Wij ... morgen ... (weggaan)", options: ["gaan weg","weggaan","gaan ... weg","weg gaan"], correct: 2, explanation: "❌ Fout! Hoofdzin splitst.", tip: "💡 Wij gaan morgen weg." },
+        { question: "Ik ... het licht ... (uitdoen)", options: ["doe uit","uitdoe","doe ... uit","uit doe"], correct: 2, explanation: "❌ Fout! Hoofdzin splitst.", tip: "💡 Ik doe het licht uit." }
+      ],
+      test: [
+        { question: "Hij ... de deur ... (openen)", options: ["doe open","open doe","doe ... open","open doe"], correct: 2, explanation: "Hij doet de deur open." },
+        { question: "Zij moet ... (opbellen)", options: ["opbellen","belt op","bel op","bellen op"], correct: 0, explanation: "Na modaal = niet splitsen." },
+        { question: "Wij ... naar huis ... (teruggaan)", options: ["gaan terug","teruggaan","gaan ... terug","terug gaan"], correct: 2, explanation: "Wij gaan naar huis terug." },
+        { question: "Ik ... de radio ... (aanzetten)", options: ["zet aan","aanzetten","zet ... aan","aan zet"], correct: 2, explanation: "Ik zet de radio aan." },
+        { question: "Jij ... snel ... (inpakken)", options: ["pakt in","inpakt","pakt ... in","in pakt"], correct: 2, explanation: "Jij pakt snel in." },
+        { question: "Hij kan niet ... (mee doen)", options: ["meedoen","doet mee","doe mee","doen mee"], correct: 0, explanation: "Na kan = niet splitsen." },
+        { question: "Zij ... het boek ... (terugbrengen)", options: ["brengt terug","terugbrengen","brengt ... terug","terug brengt"], correct: 2, explanation: "Zij brengt het boek terug." },
+        { question: "Wij ... vroeg ... (opstaan)", options: ["staan op","opstaan","staan ... op","op staan"], correct: 2, explanation: "Wij staan vroeg op." },
+        { question: "Ik wil ... (weggaan)", options: ["weggaan","ga weg","ga ... weg","weg ga"], correct: 0, explanation: "Na wil = niet splitsen." },
+        { question: "Jullie ... de tafel ... (dekken)", options: ["dekken op","opdekken","dekken ... op","op dekken"], correct: 2, explanation: "Jullie dekken de tafel op." }
+      ]
+    },
+    9: { // Wederkerende werkwoorden
+      practice: [
+        { question: "Ik ... me even. (zich vergissen)", options: ["vergis","vergist","vergissen","vergiste"], correct: 0, explanation: "❌ Fout! Ik vergis me.", tip: "💡 Wederkerend: ik + stam + me." },
+        { question: "Zij ... zich snel. (zich aankleden)", options: ["kleed","kleedt","kleden","kleedt aan"], correct: 1, explanation: "❌ Fout! Zij kleedt zich aan.", tip: "💡 Zij + stam+t + zich." },
+        { question: "Wij ... ons voor. (zich voorstellen)", options: ["stel","stelt","stellen","stellen voor"], correct: 2, explanation: "❌ Fout! Wij stellen ons voor.", tip: "💡 Wij + infinitief + ons." },
+        { question: "Hij ... zich. (zich wassen)", options: ["was","wast","wassen","wast zich"], correct: 1, explanation: "❌ Fout! Hij wast zich.", tip: "💡 Hij + stam+t + zich." },
+        { question: "Jij ... je. (zich schamen)", options: ["schaam","schaamt","schamen","schaamt je"], correct: 1, explanation: "❌ Fout! Jij schaamt je.", tip: "💡 Jij + stam+t + je." }
+      ],
+      test: [
+        { question: "Ik ... me. (zich herinneren)", options: ["herinner","herinnert","herinneren","herinnert me"], correct: 0, explanation: "Ik herinner me." },
+        { question: "Zij ... zich. (zich ontspannen)", options: ["ontspan","ontspant","ontspannen","ontspant zich"], correct: 1, explanation: "Zij ontspant zich." },
+        { question: "Wij ... ons. (zich vermaken)", options: ["vermaak","vermaakt","vermaken","vermaakt ons"], correct: 2, explanation: "Wij vermaken ons." },
+        { question: "Hij ... zich. (zich haasten)", options: ["haast","haastt","haasten","haastt zich"], correct: 1, explanation: "Hij haast zich." },
+        { question: "Jullie ... je. (zich gedragen)", options: ["gedraag","gedraagt","gedragen","gedraagt je"], correct: 2, explanation: "Jullie gedragen je." },
+        { question: "Ik ... me. (zich voelen)", options: ["voel","voelt","voelen","voelt me"], correct: 0, explanation: "Ik voel me." },
+        { question: "Zij ... zich. (zich vervelen)", options: ["verveel","verveelt","vervelen","verveelt zich"], correct: 1, explanation: "Zij verveelt zich." },
+        { question: "Wij ... ons. (zich voorbereiden)", options: ["bereid","bereidt","bereiden","bereidt ons"], correct: 2, explanation: "Wij bereiden ons voor." },
+        { question: "Hij ... zich. (zich scheren)", options: ["scheer","scheert","scheren","scheert zich"], correct: 1, explanation: "Hij scheert zich." },
+        { question: "Jij ... je. (zich haasten)", options: ["haast","haastt","haasten","haastt je"], correct: 1, explanation: "Jij haast je." }
+      ]
+    },
+    10: { // Meervoud
+      practice: [
+        { question: "Meervoud van 'tafel'?", options: ["tafels","tafelen","tafel","tafeltjes"], correct: 0, explanation: "❌ Fout! Tafel → tafels.", tip: "💡 Meeste woorden = -en of -s." },
+        { question: "Meervoud van 'kind'?", options: ["kinden","kinderen","kinds","kinder"], correct: 1, explanation: "❌ Fout! Onregelmatig: kinderen.", tip: "💡 Kind → kinderen." },
+        { question: "Meervoud van 'auto'?", options: ["autos","auto's","autosen","autoen"], correct: 1, explanation: "❌ Fout! Klinker → -'s.", tip: "💡 Auto, radio, taxi → -'s." },
+        { question: "Meervoud van 'man'?", options: ["mans","mannen","manen","mans"], correct: 1, explanation: "❌ Fout! Onregelmatig: mannen.", tip: "💡 Man → mannen." },
+        { question: "Meervoud van 'huis'?", options: ["huizen","huisen","huizen","huis"], correct: 0, explanation: "❌ Fout! Huis → huizen.", tip: "💡 -s → -zen soms." }
+      ],
+      test: [
+        { question: "Meervoud van 'boek'?", options: ["boeken","boeks","boeken","boek"], correct: 0, explanation: "Boeken." },
+        { question: "Meervoud van 'vrouw'?", options: ["vrouwen","vrouws","vrouw","vrouws"], correct: 0, explanation: "Vrouwen." },
+        { question: "Meervoud van 'dag'?", options: ["dagen","dags","dag","dagen"], correct: 0, explanation: "Dagen." },
+        { question: "Meervoud van 'stad'?", options: ["steden","stads","stad","stads"], correct: 0, explanation: "Steden." },
+        { question: "Meervoud van 'ei'?", options: ["eieren","eis","ei","eieren"], correct: 0, explanation: "Eieren." },
+        { question: "Meervoud van 'pen'?", options: ["pennen","pens","pen","pens"], correct: 0, explanation: "Pennen." },
+        { question: "Meervoud van 'glas'?", options: ["glazen","glass","glas","glass"], correct: 0, explanation: "Glazen." },
+        { question: "Meervoud van 'schip'?", options: ["schepen","schips","schip","schips"], correct: 0, explanation: "Schepen." },
+        { question: "Meervoud van 'blad'?", options: ["bladen","blads","blad","blads"], correct: 0, explanation: "Bladen." },
+        { question: "Meervoud van 'been'?", options: ["benen","beens","been","beens"], correct: 0, explanation: "Benen." }
+      ]
+    },
+    11: { // Verkleinwoorden
+      practice: [
+        { question: "Verkleinwoord van 'boom'?", options: ["boompje","boomje","boometje","boompken"], correct: 0, explanation: "❌ Fout! Na m → -pje.", tip: "💡 boom → boompje." },
+        { question: "Verkleinwoord van 'tafel'?", options: ["tafeltje","tafelje","tafeletje","tafelken"], correct: 0, explanation: "❌ Fout! -el → -tje.", tip: "💡 tafel → tafeltje." },
+        { question: "Verkleinwoord van 'koning'?", options: ["koninkje","koningje","koningetje","koningtje"], correct: 0, explanation: "❌ Fout! ng → nk + je.", tip: "💡 koning → koninkje." },
+        { question: "Verkleinwoord van 'blad'?", options: ["blaadje","bladje","bladetje","blatje"], correct: 0, explanation: "❌ Fout! aa wordt lang.", tip: "💡 blad → blaadje." },
+        { question: "Verkleinwoord van 'auto'?", options: ["autootje","autotje","auto'tje","autoken"], correct: 0, explanation: "❌ Fout! Extra o voor klank.", tip: "💡 auto → autootje." }
+      ],
+      test: [
+        { question: "Verkleinwoord van 'huis'?", options: ["huisje","huistje","huisken","huisie"], correct: 0, explanation: "huis → huisje." },
+        { question: "Verkleinwoord van 'glas'?", options: ["glaasje","glasje","glasetje","glassie"], correct: 0, explanation: "glas → glaasje." },
+        { question: "Verkleinwoord van 'ring'?", options: ["ringetje","ringje","rinkje","ringken"], correct: 0, explanation: "ring → ringetje." },
+        { question: "Verkleinwoord van 'kat'?", options: ["katje","kattje","kateje","katken"], correct: 0, explanation: "kat → katje." },
+        { question: "Verkleinwoord van 'bal'?", options: ["balletje","baltje","baletje","balken"], correct: 0, explanation: "bal → balletje." },
+        { question: "Verkleinwoord van 'stoel'?", options: ["stoeltje","stoelje","stoeletje","stoelken"], correct: 0, explanation: "stoel → stoeltje." },
+        { question: "Verkleinwoord van 'vogel'?", options: ["vogeltje","vogelje","vogeletje","vogelken"], correct: 0, explanation: "vogel → vogeltje." },
+        { question: "Verkleinwoord van 'bed'?", options: ["bedje","beddje","bedetje","bedken"], correct: 0, explanation: "bed → bedje." },
+        { question: "Verkleinwoord van 'pen'?", options: ["pennetje","penneke","pentje","penje"], correct: 0, explanation: "pen → pennetje." },
+        { question: "Verkleinwoord van 'fiets'?", options: ["fietsje","fietstje","fietsetje","fietske"], correct: 0, explanation: "fiets → fietsje." }
+      ]
+    },
+    12: { // Bijvoeglijke naamwoorden
+      practice: [
+        { question: "een ... huis (groot)", options: ["groot","grote","groten","groots"], correct: 0, explanation: "❌ Fout! het-woord onbepaald → geen -e.", tip: "💡 een groot huis, maar het grote huis." },
+        { question: "de ... auto (mooi)", options: ["mooi","mooie","mooien","moois"], correct: 1, explanation: "❌ Fout! de-woord → altijd -e.", tip: "💡 de mooie auto." },
+        { question: "een ... deur (open)", options: ["open","opene","openen","opens"], correct: 0, explanation: "❌ Fout! het-woord onbepaald → geen -e.", tip: "💡 een open deur." },
+        { question: "het ... boek (nieuw)", options: ["nieuw","nieuwe","nieuwen","nieuws"], correct: 1, explanation: "❌ Fout! bepaald het-woord → -e.", tip: "💡 het nieuwe boek." },
+        { question: "een ... vrouw (lief)", options: ["lief","lieve","lieven","liefs"], correct: 1, explanation: "❌ Fout! de-woord onbepaald → -e.", tip: "💡 een lieve vrouw." }
+      ],
+      test: [
+        { question: "het ... kind (klein)", options: ["klein","kleine","kleinen","kleins"], correct: 1, explanation: "bepaald → kleine." },
+        { question: "een ... man (oud)", options: ["oud","oude","ouden","ouds"], correct: 1, explanation: "de-woord → oude." },
+        { question: "de ... tafel (groot)", options: ["groot","grote","groten","groots"], correct: 1, explanation: "de-woord → grote." },
+        { question: "een ... huis (wit)", options: ["wit","witte","witten","wits"], correct: 0, explanation: "het-woord onbepaald → wit." },
+        { question: "het ... meisje (jong)", options: ["jong","jonge","jongen","jongs"], correct: 1, explanation: "bepaald → jonge." },
+        { question: "een ... dag (mooi)", options: ["mooi","mooie","mooien","moois"], correct: 1, explanation: "de-woord → mooie." },
+        { question: "de ... stad (groot)", options: ["groot","grote","groten","groots"], correct: 1, explanation: "de-woord → grote." },
+        { question: "een ... probleem (groot)", options: ["groot","grote","groten","groots"], correct: 0, explanation: "het-woord onbepaald → groot." },
+        { question: "het ... antwoord (juist)", options: ["juist","juiste","juisten","juists"], correct: 1, explanation: "bepaald → juiste." },
+        { question: "een ... idee (goed)", options: ["goed","goede","goeden","goeds"], correct: 1, explanation: "het-woord maar goed is uitzondering → goede." }
+      ]
+    },
+    13: { // Trappen van vergelijking
+      practice: [
+        { question: "Hij is ... dan ik. (groot)", options: ["groot","groter","grootst","meest groot"], correct: 1, explanation: "❌ Fout! Vergrotende trap = -er.", tip: "💡 groot → groter → grootst." },
+        { question: "Zij is de ... van de klas. (slim)", options: ["slim","slimmer","slimst","meest slim"], correct: 2, explanation: "❌ Fout! Overtreffende trap = -st.", tip: "💡 slim → slimmer → slimst." },
+        { question: "Dit boek is ... dan dat. (interessant)", options: ["interessant","interessanter","interessantst","meest interessant"], correct: 3, explanation: "❌ Fout! Lang woord → meest + bn.", tip: "💡 interessant → meest interessant." },
+        { question: "Hij loopt ... dan jij. (snel)", options: ["snel","sneller","snelst","meest snel"], correct: 1, explanation: "❌ Fout! Vergrotende trap = -er.", tip: "💡 snel → sneller → snelst." },
+        { question: "Dit is het ... antwoord. (goed)", options: ["goed","beter","best","meest goed"], correct: 2, explanation: "❌ Fout! Onregelmatig: goed → beter → best.", tip: "💡 Onregelmatige trappen memoriseren." }
+      ],
+      test: [
+        { question: "Zij is ... dan haar zus. (mooi)", options: ["mooi","mooier","mooist","meest mooi"], correct: 1, explanation: "mooi → mooier." },
+        { question: "Hij is de ... leerling. (goed)", options: ["goed","beter","best","meest goed"], correct: 2, explanation: "goed → best." },
+        { question: "Deze taak is ... dan die. (moeilijk)", options: ["moeilijk","moeilijker","moeilijkst","meest moeilijk"], correct: 3, explanation: "Lang woord → meest." },
+        { question: "Hij is ... dan gisteren. (blij)", options: ["blij","blijer","blijst","meest blij"], correct: 1, explanation: "blij → blijer." },
+        { question: "Dit is het ... verhaal. (spannend)", options: ["spannend","spannender","spannendst","meest spannend"], correct: 3, explanation: "Lang woord → meest." },
+        { question: "Zij is ... dan ik. (jong)", options: ["jong","jonger","jongst","meest jong"], correct: 1, explanation: "jong → jonger." },
+        { question: "Hij is de ... van allen. (rijk)", options: ["rijk","rijker","rijkst","meest rijk"], correct: 2, explanation: "rijk → rijkst." },
+        { question: "Dit is ... dan dat. (duur)", options: ["duur","duurder","duurst","meest duur"], correct: 1, explanation: "duur → duurder." },
+        { question: "Zij is de ... persoon. (vriendelijk)", options: ["vriendelijk","vriendelijker","vriendelijkst","meest vriendelijk"], correct: 3, explanation: "Lang woord → meest." },
+        { question: "Hij is ... dan vorig jaar. (sterk)", options: ["sterk","sterker","sterkst","meest sterk"], correct: 1, explanation: "sterk → sterker." }
+      ]
+    },
+    14: { // Voorzetsels
+      practice: [
+        { question: "Ik wacht ... de bus.", options: ["op","in","aan","bij"], correct: 0, explanation: "❌ Fout! wachten op = vast.", tip: "💡 Leer werkwoorden met vaste voorzetsels." },
+        { question: "Hij is goed ... wiskunde.", options: ["in","op","met","bij"], correct: 0, explanation: "❌ Fout! goed in = vaardigheid.", tip: "💡 goed in + vak/vaardigheid." },
+        { question: "We gaan ... zaterdag.", options: ["op","in","aan","bij"], correct: 0, explanation: "❌ Fout! dagen → op.", tip: "💡 op maandag, op 5 mei." },
+        { question: "Ik ben bang ... spinnen.", options: ["op","in","voor","bij"], correct: 2, explanation: "❌ Fout! bang voor = vast.", tip: "💡 bang voor + iets." },
+        { question: "Hij woont ... Amsterdam.", options: ["op","in","aan","bij"], correct: 1, explanation: "❌ Fout! steden → in.", tip: "💡 in een stad, op een eiland." }
+      ],
+      test: [
+        { question: "Ik ga ... vakantie.", options: ["op","in","met","naar"], correct: 0, explanation: "op vakantie." },
+        { question: "Ik ben verliefd ... jou.", options: ["op","in","met","van"], correct: 0, explanation: "verliefd op." },
+        { question: "Hij kijkt ... de TV.", options: ["op","naar","in","bij"], correct: 1, explanation: "kijken naar." },
+        { question: "Ik denk ... jou.", options: ["op","aan","in","bij"], correct: 1, explanation: "denken aan." },
+        { question: "Ze praten ... het weer.", options: ["op","over","in","bij"], correct: 1, explanation: "praten over." },
+        { question: "Hij gelooft ... mij.", options: ["op","in","aan","bij"], correct: 1, explanation: "geloven in." },
+        { question: "Ik zoek ... mijn sleutels.", options: ["op","naar","in","bij"], correct: 1, explanation: "zoeken naar." },
+        { question: "Ze lachen ... de grap.", options: ["op","om","in","bij"], correct: 1, explanation: "lachen om." },
+        { question: "Hij zorgt ... de kinderen.", options: ["op","voor","in","bij"], correct: 1, explanation: "zorgen voor." },
+        { question: "Ik luister ... muziek.", options: ["op","naar","in","bij"], correct: 1, explanation: "luisteren naar." }
+      ]
+    },
+    15: { // Vragende voornaamwoorden
+      practice: [
+        { question: "... boek is dat?", options: ["Welk","Welke","Wat","Wie"], correct: 0, explanation: "❌ Fout! het-woord → welk.", tip: "💡 Welk voor het-woorden." },
+        { question: "... heeft dat gedaan?", options: ["Wie","Wat","Welk","Waar"], correct: 0, explanation: "❌ Fout! persoon → wie.", tip: "💡 Wie = personen, wat = zaken." },
+        { question: "... kleur vind je mooi?", options: ["Welk","Welke","Wat","Wie"], correct: 1, explanation: "❌ Fout! de-woord → welke.", tip: "💡 Welke voor de-woorden/meervoud." },
+        { question: "... is er gebeurd?", options: ["Wie","Wat","Welk","Waar"], correct: 1, explanation: "❌ Fout! gebeurtenis → wat.", tip: "💡 Wat voor zaken/gebeurtenissen." },
+        { question: "... auto rijdt hij?", options: ["Welk","Welke","Wat voor","Wie"], correct: 2, explanation: "❌ Fout! soort → wat voor.", tip: "💡 Wat voor + zelfstandig naamwoord." }
+      ],
+      test: [
+        { question: "... is je naam?", options: ["Wie","Wat","Welk","Welke"], correct: 1, explanation: "Naam = zaak → wat." },
+        { question: "... mensen komen er?", options: ["Hoeveel","Wat","Welk","Wie"], correct: 0, explanation: "Aantal → hoeveel." },
+        { question: "... tas is van jou?", options: ["Welk","Welke","Wat","Wie"], correct: 1, explanation: "de-woord → welke." },
+        { question: "... heb je nodig?", options: ["Wie","Wat","Welk","Welke"], correct: 1, explanation: "Zaak → wat." },
+        { question: "... woont hier?", options: ["Wie","Wat","Welk","Welke"], correct: 0, explanation: "Persoon → wie." },
+        { question: "... dag is het?", options: ["Welke","Welk","Wat","Wie"], correct: 0, explanation: "de-woord → welke." },
+        { question: "... bedoel je?", options: ["Wie","Wat","Welk","Welke"], correct: 1, explanation: "Zaak → wat." },
+        { question: "... boek lees je?", options: ["Welk","Welke","Wat","Wie"], correct: 0, explanation: "het-woord → welk." },
+        { question: "... tijd vertrekken we?", options: ["Hoe laat","Wat","Welk","Wie"], correct: 0, explanation: "Tijd → hoe laat." },
+        { question: "... reden heb je?", options: ["Welke","Welk","Wat","Wie"], correct: 0, explanation: "de-woord → welke." }
+      ]
+    },
+    16: { // Aanwijzende voornaamwoorden
+      practice: [
+        { question: "... huis is groot. (dichtbij, het)", options: ["Deze","Die","Dit","Dat"], correct: 2, explanation: "❌ Fout! dichtbij + het → dit.", tip: "💡 Dit/dat voor het-woorden." },
+        { question: "... auto daar is van mij. (ver, de)", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "❌ Fout! ver + de → die.", tip: "💡 Deze/die voor de-woorden." },
+        { question: "... boek daar wil ik. (ver, het)", options: ["Deze","Die","Dit","Dat"], correct: 3, explanation: "❌ Fout! ver + het → dat.", tip: "💡 Dat voor ver weg het-woord." },
+        { question: "... mensen hier zijn aardig. (dichtbij, mv)", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "❌ Fout! dichtbij + mv → deze.", tip: "💡 Deze voor dichtbij meervoud." },
+        { question: "... tas daar is zwaar. (ver, de)", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "❌ Fout! ver + de → die.", tip: "💡 Die voor ver weg de-woord." }
+      ],
+      test: [
+        { question: "... pen hier is rood.", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "dichtbij + de → deze." },
+        { question: "... kind daar lacht.", options: ["Deze","Die","Dit","Dat"], correct: 3, explanation: "ver + het → dat." },
+        { question: "... boeken hier zijn nieuw.", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "dichtbij + mv → deze." },
+        { question: "... huis daar is oud.", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "ver + het → dat." },
+        { question: "... vrouw hier is mijn moeder.", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "dichtbij + de → deze." },
+        { question: "... stoel daar is kapot.", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "ver + de → die." },
+        { question: "... idee hier is goed.", options: ["Deze","Die","Dit","Dat"], correct: 2, explanation: "dichtbij + het → dit." },
+        { question: "... kinderen daar spelen.", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "ver + mv → die." },
+        { question: "... tafel hier is nieuw.", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "dichtbij + de → deze." },
+        { question: "... probleem daar is opgelost.", options: ["Deze","Die","Dit","Dat"], correct: 3, explanation: "ver + het → dat." }
+      ]
+    },
+    17: { // Onbepaalde voornaamwoorden
+      practice: [
+        { question: "Ik heb ... gezien. (geen persoon)", options: ["iemand","niemand","iets","niets"], correct: 1, explanation: "❌ Fout! niemand = geen persoon.", tip: "💡 Iemand/niemand voor personen." },
+        { question: "... mag meedoen. (alle personen)", options: ["Iedereen","Alles","Alle","Elk"], correct: 0, explanation: "❌ Fout! iedereen = alle mensen.", tip: "💡 Iedereen = personen, alles = dingen." },
+        { question: "Er is ... te eten.", options: ["iemand","iets","niemand","niets"], correct: 1, explanation: "❌ Fout! iets = zaak.", tip: "💡 Iets voor onbepaalde zaken." },
+        { question: "... zegt dat het morgen regent.", options: ["Iemand","Men","Alles","Elk"], correct: 1, explanation: "❌ Fout! men = onbepaald persoon.", tip: "💡 Men = formeel, algemeen." },
+        { question: "Ik heb ... tijd meer.", options: ["geen","niet","niets","nooit"], correct: 0, explanation: "❌ Fout! geen + zelfstandig naamwoord.", tip: "💡 Geen voor zelfstandige naamwoorden." }
+      ],
+      test: [
+        { question: "Er is ... aan de deur.", options: ["iemand","iets","niemand","niets"], correct: 0, explanation: "Persoon → iemand." },
+        { question: "Ik weet ... niet.", options: ["iets","niets","niemand","geen"], correct: 1, explanation: "Zaak ontkend → niets." },
+        { question: "... heeft mijn sleutels gepakt.", options: ["Iemand","Iets","Niemand","Niets"], correct: 0, explanation: "Persoon → iemand." },
+        { question: "Ik heb ... gehoord.", options: ["iemand","iets","niemand","niets"], correct: 1, explanation: "Zaak → iets." },
+        { question: "... was er gisteren.", options: ["Niemand","Niets","Iemand","Iets"], correct: 0, explanation: "Geen persoon → niemand." },
+        { question: "Ik zie ... bijzonders.", options: ["iets","niets","iemand","niemand"], correct: 0, explanation: "Onbepaalde zaak → iets." },
+        { question: "... kan dit doen.", options: ["Iedereen","Alles","Alle","Elk"], correct: 0, explanation: "Alle personen → iedereen." },
+        { question: "Ik heb ... meer nodig.", options: ["niets","niemand","geen","niet"], correct: 0, explanation: "Geen zaak → niets." },
+        { question: "... weet het antwoord.", options: ["Niemand","Niets","Iemand","Iets"], correct: 0, explanation: "Geen persoon → niemand." },
+        { question: "Er is ... mis.", options: ["iets","niets","iemand","niemand"], correct: 0, explanation: "Onbepaalde zaak → iets." }
+      ]
+    },
+    18: { // Ontkenningen
+      practice: [
+        { question: "Ik heb ... geld.", options: ["niet","geen","nooit","niemand"], correct: 1, explanation: "❌ Fout! geen + zelfstandig naamwoord.", tip: "💡 Geen voor zelfstandige naamwoorden." },
+        { question: "Ik weet het ...", options: ["niet","geen","nooit","niets"], correct: 0, explanation: "❌ Fout! niet voor werkwoord.", tip: "💡 Niet ontkent werkwoord/bijvoeglijk naamwoord." },
+        { question: "Hij is ... thuis.", options: ["niet","geen","nooit","niemand"], correct: 0, explanation: "❌ Fout! niet voor 'zijn'.", tip: "💡 Niet na werkwoord." },
+        { question: "Ik heb ... honger.", options: ["niet","geen","nooit","niets"], correct: 1, explanation: "❌ Fout! honger = zelfstandig naamwoord.", tip: "💡 Geen + zelfstandig naamwoord." },
+        { question: "Ik zie ...", options: ["niet","geen","niemand","niets"], correct: 2, explanation: "❌ Fout! niemand = geen persoon.", tip: "💡 Niemand voor personen ontkend." }
+      ],
+      test: [
+        { question: "Ik heb ... zin.", options: ["niet","geen","nooit","niets"], correct: 1, explanation: "Zelfstandig naamwoord → geen." },
+        { question: "Hij werkt ... vandaag.", options: ["niet","geen","nooit","niemand"], correct: 0, explanation: "Werkwoord → niet." },
+        { question: "Er is ... melk meer.", options: ["niet","geen","nooit","niets"], correct: 1, explanation: "Zelfstandig naamwoord → geen." },
+        { question: "Ik begrijp het ...", options: ["niet","geen","nooit","niets"], correct: 0, explanation: "Werkwoord → niet." },
+        { question: "Ze heeft ... vrienden.", options: ["niet","geen","nooit","niets"], correct: 1, explanation: "Zelfstandig naamwoord → geen." },
+        { question: "Hij komt ... meer.", options: ["niet","geen","nooit","niets"], correct: 2, explanation: "Tijd ontkend → nooit." },
+        { question: "Ik heb ... gezien.", options: ["niet","geen","niemand","niets"], correct: 3, explanation: "Zaak ontkend → niets." },
+        { question: "Er is ... probleem.", options: ["niet","geen","nooit","niets"], correct: 1, explanation: "Zelfstandig naamwoord → geen." },
+        { question: "Ze lacht ...", options: ["niet","geen","nooit","niets"], correct: 0, explanation: "Werkwoord → niet." },
+        { question: "Ik ken ... hier.", options: ["niet","geen","niemand","niets"], correct: 2, explanation: "Persoon ontkend → niemand." }
+      ]
+    },
+    19: { // Woordvolgorde hoofdzinnen
+      practice: [
+        { question: "Juiste volgorde: Ik / morgen / naar school / ga", options: ["Ik ga morgen naar school.","Ik morgen ga naar school.","Morgen ik ga naar school.","Ga ik morgen naar school."], correct: 0, explanation: "❌ Fout! V2: onderwerp – PV – rest.", tip: "💡 Persoonsvorm op plaats 2 in hoofdzin." },
+        { question: "Inversie: Morgen ... ik naar Amsterdam.", options: ["ga","gaan","ging","gaat"], correct: 0, explanation: "❌ Fout! Tijdsbepaling eerst → inversie.", tip: "💡 PV – onderwerp na tijdsbepaling." },
+        { question: "Juiste volgorde: Hij / altijd / zijn huiswerk / maakt", options: ["Hij maakt altijd zijn huiswerk.","Hij altijd maakt zijn huiswerk.","Maakt hij altijd zijn huiswerk.","Zijn huiswerk maakt hij altijd."], correct: 0, explanation: "❌ Fout! Standaardvolgorde.", tip: "💡 Onderwerp – PV – tijd – rest." },
+        { question: "Inversie: Gisteren ... wij een film.", options: ["hebben gezien","gezien hebben","hebben zien","zagen"], correct: 0, explanation: "❌ Fout! Inversie na tijdsbepaling.", tip: "💡 PV direct na tijdsbepaling." },
+        { question: "Juiste volgorde: Zij / vaak / naar de bioscoop / gaat", options: ["Zij gaat vaak naar de bioscoop.","Zij vaak gaat naar de bioscoop.","Gaat zij vaak naar de bioscoop.","Naar de bioscoop gaat zij vaak."], correct: 0, explanation: "❌ Fout! Standaardvolgorde.", tip: "💡 PV op plaats 2." }
+      ],
+      test: [
+        { question: "Morgen ... ik studeren.", options: ["ga","gaan","ging","gaat"], correct: 0, explanation: "Inversie: ga ik." },
+        { question: "Vandaag ... het mooi weer.", options: ["is","zijn","was","zal"], correct: 0, explanation: "Inversie: is het." },
+        { question: "Nu ... wij naar huis.", options: ["gaan","ga","ging","gaat"], correct: 0, explanation: "Inversie: gaan wij." },
+        { question: "Straks ... jij bellen.", options: ["zal","zult","zullen","zal"], correct: 1, explanation: "Inversie: zul jij." },
+        { question: "Later ... zij komen.", options: ["zal","zullen","gaat","gaan"], correct: 1, explanation: "Inversie: zullen zij." },
+        { question: "Altijd ... hij vroeg op.", options: ["staat","staan","stond","staat"], correct: 0, explanation: "Inversie: staat hij." },
+        { question: "Vaak ... wij samen eten.", options: ["eten","eet","at","eten"], correct: 0, explanation: "Inversie: eten wij." },
+        { question: "Soms ... zij te laat.", options: ["komt","komen","kwam","komt"], correct: 0, explanation: "Inversie: komt zij." },
+        { question: "Nooit ... ik dat gedaan.", options: ["heb","hebben","had","heeft"], correct: 0, explanation: "Inversie: heb ik." },
+        { question: "Misschien ... het regenen.", options: ["zal","zullen","gaat","gaan"], correct: 0, explanation: "Inversie: zal het." }
+      ]
+    },
+    20: { // Woordvolgorde bijzinnen
+      practice: [
+        { question: "Ik denk dat hij morgen ... (komen)", options: ["komt","komen","kwam","gekomen"], correct: 0, explanation: "❌ Fout! Bijzin: PV achteraan.", tip: "💡 Na dat/omdat/als → PV naar einde." },
+        { question: "... omdat hij ziek is.", options: ["Hij blijft thuis","Blijft hij thuis","Thuis blijft hij","Hij thuis blijft"], correct: 0, explanation: "❌ Fout! Hoofdzin eerst, dan bijzin.", tip: "💡 Hoofdzin + omdat + bijzin (PV achteraan)." },
+        { question: "Ze zegt dat ze het niet ... (begrijpen)", options: ["begrijpt","begrijp","begrijpen","begrepen"], correct: 0, explanation: "❌ Fout! Bijzin: PV achteraan.", tip: "💡 PV op laatste plek in bijzin." },
+        { question: "Als je ... , moet je betalen. (bestellen)", options: ["bestelt","bestellen","besteld","bestelde"], correct: 0, explanation: "❌ Fout! Bijzin na als: PV achteraan.", tip: "💡 Als-zin = bijzin." },
+        { question: "Ik hoop dat het morgen ... (regenen)", options: ["regen","regent","regenen","geregend"], correct: 1, explanation: "❌ Fout! Bijzin: PV achteraan.", tip: "💡 regent op einde." }
+      ],
+      test: [
+        { question: "Hij zegt dat hij ... (werken)", options: ["werkt","werk","werken","werkte"], correct: 0, explanation: "Bijzin: werkt achteraan." },
+        { question: "Omdat zij ... (komen), wachten we.", options: ["komt","komen","kwam","gekomen"], correct: 1, explanation: "Bijzin: komen achteraan." },
+        { question: "Als hij ... (bellen), zeg het me.", options: ["belt","bellen","belde","gebeld"], correct: 0, explanation: "Bijzin: belt achteraan." },
+        { question: "Ik weet dat jij ... (kunnen) het.", options: ["kunt","kan","kunnen","kon"], correct: 0, explanation: "Bijzin: kunt achteraan." },
+        { question: "Ze vraagt of wij ... (willen) komen.", options: ["willen","wil","wilden","gewild"], correct: 0, explanation: "Bijzin: willen achteraan." },
+        { question: "Terwijl hij ... (lezen), sliep ik.", options: ["las","lezen","leest","gelezen"], correct: 0, explanation: "Bijzin: las achteraan." },
+        { question: "Hoewel zij ... (weten) het, zei ze niets.", options: ["wist","weten","weet","geweten"], correct: 0, explanation: "Bijzin: wist achteraan." },
+        { question: "Nadat hij ... (eten), ging hij slapen.", options: ["at","eten","eet","gegeten"], correct: 0, explanation: "Bijzin: at achteraan." },
+        { question: "Voordat zij ... (vertrekken), bel ze.", options: ["vertrekt","vertrekken","vertrok","vertrokken"], correct: 1, explanation: "Bijzin: vertrekken achteraan." },
+        { question: "Zodra hij ... (aankomen), begin.", options: ["aankomt","aankomen","aankwam","aangekomen"], correct: 0, explanation: "Bijzin: aankomt achteraan." }
+      ]
+    },
+    21: { // Nevenschikkende voegwoorden
+      practice: [
+        { question: "Ik drink koffie, ... ik eet een koekje.", options: ["en","maar","of","want"], correct: 0, explanation: "❌ Fout! Opsomming → en.", tip: "💡 En = toevoeging." },
+        { question: "Wil je thee ... koffie?", options: ["en","maar","of","want"], correct: 2, explanation: "❌ Fout! Keuze → of.", tip: "💡 Of = alternatief." },
+        { question: "Hij is moe, ... hij gaat toch sporten.", options: ["en","maar","of","dus"], correct: 1, explanation: "❌ Fout! Tegenstelling → maar.", tip: "💡 Maar = contrast." },
+        { question: "Het regent, ... we blijven thuis.", options: ["en","maar","want","dus"], correct: 3, explanation: "❌ Fout! Gevolg → dus.", tip: "💡 Dus = gevolg." },
+        { question: "Ik blijf thuis, ... ik ben ziek.", options: ["en","maar","want","dus"], correct: 2, explanation: "❌ Fout! Reden → want.", tip: "💡 Want = oorzaak." }
+      ],
+      test: [
+        { question: "Ze zingt ... danst.", options: ["en","maar","of","want"], correct: 0, explanation: "Opsomming → en." },
+        { question: "Wil je gaan ... blijven?", options: ["en","maar","of","want"], correct: 2, explanation: "Keuze → of." },
+        { question: "Hij is rijk, ... niet gelukkig.", options: ["en","maar","of","dus"], correct: 1, explanation: "Tegenstelling → maar." },
+        { question: "Het is koud, ... ik doe een jas aan.", options: ["en","maar","want","dus"], correct: 3, explanation: "Gevolg → dus." },
+        { question: "Ik eet niet, ... ik heb geen honger.", options: ["en","maar","want","dus"], correct: 2, explanation: "Reden → want." },
+        { question: "Ze lacht ... huilt.", options: ["en","maar","of","want"], correct: 1, explanation: "Tegenstelling → maar." },
+        { question: "Kom je ... bel je?", options: ["en","maar","of","want"], correct: 2, explanation: "Keuze → of." },
+        { question: "Hij studeert hard, ... hij slaagt.", options: ["en","maar","want","dus"], correct: 3, explanation: "Gevolg → dus." },
+        { question: "Ik slaap, ... ik ben moe.", options: ["en","maar","want","dus"], correct: 2, explanation: "Reden → want." },
+        { question: "Ze kookt ... wast af.", options: ["en","maar","of","want"], correct: 0, explanation: "Opsomming → en." }
+      ]
+    },
+    22: { // Onderschikkende voegwoorden
+      practice: [
+        { question: "Ik blijf thuis, ... het regent.", options: ["omdat","want","maar","dus"], correct: 0, explanation: "❌ Fout! Reden → omdat (PV achteraan).", tip: "💡 Omdat = bijzin, want = hoofdzin." },
+        { question: "... hij hard studeert, haalt hij goede cijfers.", options: ["Omdat","Als","Hoewel","Terwijl"], correct: 1, explanation: "❌ Fout! Voorwaarde → als.", tip: "💡 Als = voorwaarde/tijd." },
+        { question: "... het koud was, gingen we toch wandelen.", options: ["Omdat","Hoewel","Als","Terwijl"], correct: 1, explanation: "❌ Fout! Tegenstelling → hoewel.", tip: "💡 Hoewel = concessie." },
+        { question: "Ik weet ... hij komt.", options: ["dat","omdat","als","hoewel"], correct: 0, explanation: "❌ Fout! Mededeling → dat.", tip: "💡 Dat leidt bijzin in." },
+        { question: "... ik tijd heb, help ik je.", options: ["Omdat","Als","Hoewel","Terwijl"], correct: 1, explanation: "❌ Fout! Voorwaarde → als.", tip: "💡 Als = conditioneel." }
+      ],
+      test: [
+        { question: "Ik eet een appel, ... ik honger heb.", options: ["omdat","want","dus","maar"], correct: 0, explanation: "Reden → omdat." },
+        { question: "... hij komt, vertel ik het.", options: ["Omdat","Als","Hoewel","Terwijl"], correct: 1, explanation: "Voorwaarde → als." },
+        { question: "Ze lacht, ... ze verdrietig is.", options: ["omdat","hoewel","als","terwijl"], correct: 1, explanation: "Tegenstelling → hoewel." },
+        { question: "Hij zei ... hij moe was.", options: ["dat","omdat","als","hoewel"], correct: 0, explanation: "Mededeling → dat." },
+        { question: "... ik wakker werd, regende het.", options: ["Omdat","Toen","Hoewel","Terwijl"], correct: 1, explanation: "Tijd → toen." },
+        { question: "Ze blijft, ... ze wil.", options: ["omdat","als","hoewel","terwijl"], correct: 1, explanation: "Voorwaarde → als." },
+        { question: "... hij rijk is, is hij niet gelukkig.", options: ["Omdat","Hoewel","Als","Terwijl"], correct: 1, explanation: "Tegenstelling → hoewel." },
+        { question: "Ik vraag ... je komt.", options: ["dat","of","als","hoewel"], correct: 1, explanation: "Vraag → of." },
+        { question: "... ik sliep, belde hij.", options: ["Omdat","Terwijl","Hoewel","Als"], correct: 1, explanation: "Tijd → terwijl." },
+        { question: "Hij komt niet, ... hij ziek is.", options: ["omdat","als","hoewel","terwijl"], correct: 0, explanation: "Reden → omdat." }
+      ]
+    },
+    23: { // Betrekkelijke bijzinnen
+      practice: [
+        { question: "De man ... daar loopt, is mijn oom.", options: ["die","dat","wat","wie"], correct: 0, explanation: "❌ Fout! de-woord → die.", tip: "💡 Die voor de-woorden." },
+        { question: "Het boek ... ik lees, is spannend.", options: ["die","dat","wat","wie"], correct: 1, explanation: "❌ Fout! het-woord → dat.", tip: "💡 Dat voor het-woorden." },
+        { question: "Alles ... hij zegt, is waar.", options: ["die","dat","wat","wie"], correct: 2, explanation: "❌ Fout! onbepaald → wat.", tip: "💡 Wat na alles/iets/niets." },
+        { question: "Het meisje met ... ik sprak, heet Anne.", options: ["die","dat","wat","wie"], correct: 3, explanation: "❌ Fout! na voorzetsel → wie.", tip: "💡 Wie na voorzetsel bij personen." },
+        { question: "De auto ... hij kocht, is rood.", options: ["die","dat","wat","wie"], correct: 0, explanation: "❌ Fout! de-woord → die.", tip: "💡 Die verwijst naar de-woord." }
+      ],
+      test: [
+        { question: "De vrouw ... zingt, is mijn zus.", options: ["die","dat","wat","wie"], correct: 0, explanation: "de-woord → die." },
+        { question: "Het huis ... ik koop, is groot.", options: ["die","dat","wat","wie"], correct: 1, explanation: "het-woord → dat." },
+        { question: "Iets ... ik niet begrijp, is dit.", options: ["die","dat","wat","wie"], correct: 2, explanation: "iets → wat." },
+        { question: "De man aan ... ik schreef, antwoordde.", options: ["die","dat","wat","wie"], correct: 3, explanation: "na voorzetsel → wie." },
+        { question: "De kinderen ... spelen, zijn blij.", options: ["die","dat","wat","wie"], correct: 0, explanation: "meervoud → die." },
+        { question: "Het probleem ... we hebben, is opgelost.", options: ["die","dat","wat","wie"], correct: 1, explanation: "het-woord → dat." },
+        { question: "Niets ... hij zei, hielp.", options: ["die","dat","wat","wie"], correct: 2, explanation: "niets → wat." },
+        { question: "De vriendin van ... ik houd, is lief.", options: ["die","dat","wat","wie"], correct: 3, explanation: "na voorzetsel → wie." },
+        { question: "De honden ... blaffen, zijn groot.", options: ["die","dat","wat","wie"], correct: 0, explanation: "meervoud → die." },
+        { question: "Het idee ... hij had, was goed.", options: ["die","dat","wat","wie"], correct: 1, explanation: "het-woord → dat." }
+      ]
+    },
+    24: { // Passieve zinnen
+      practice: [
+        { question: "Passief: 'De bakker bakt het brood.'", options: ["Het brood wordt gebakken door de bakker.","Het brood bakt door de bakker.","Het brood is gebakken door de bakker.","De bakker wordt gebakken."], correct: 0, explanation: "❌ Fout! Passief = worden + voltooid deelwoord.", tip: "💡 Actief: onderwerp doet. Passief: onderwerp ondergaat." },
+        { question: "'De brief ... gisteren verstuurd.'", options: ["wordt","is","werd","was"], correct: 1, explanation: "❌ Fout! Voltooide tijd passief = zijn + voltooid deelwoord.", tip: "💡 Tegenwoordig: wordt, verleden: werd, voltooid: is." },
+        { question: "Passief: 'Ze verven het huis.'", options: ["Het huis wordt geverfd.","Het huis verft.","Het huis is geverfd.","Het huis werd geverfd."], correct: 0, explanation: "❌ Fout! Tegenwoordige tijd → wordt.", tip: "💡 Wordt + voltooid deelwoord." },
+        { question: "Actief van: 'De taart is gebakken.'", options: ["Iemand bakt de taart.","De taart bakt.","Men heeft de taart gebakken.","De taart wordt gebakken."], correct: 2, explanation: "❌ Fout! Voltooid passief → actief: men heeft + voltooid deelwoord.", tip: "💡 Is gebakken = voltooid." },
+        { question: "'Het raam ... door de jongen.' (breken)", options: ["wordt gebroken","is gebroken","werd gebroken","was gebroken"], correct: 0, explanation: "❌ Fout! Tegenwoordige tijd → wordt.", tip: "💡 Wordt + voltooid deelwoord." }
+      ],
+      test: [
+        { question: "Passief: 'Hij schrijft de brief.'", options: ["De brief wordt geschreven.","De brief schrijft.","De brief is geschreven.","De brief werd geschreven."], correct: 0, explanation: "Tegenwoordig → wordt." },
+        { question: "'De auto ... gisteren gewassen.'", options: ["wordt","is","werd","was"], correct: 2, explanation: "Verleden → werd." },
+        { question: "Passief: 'Zij maken de taart.'", options: ["De taart wordt gemaakt.","De taart maakt.","De taart is gemaakt.","De taart werd gemaakt."], correct: 0, explanation: "Tegenwoordig → wordt." },
+        { question: "'Het boek ... al gelezen.'", options: ["wordt","is","werd","was"], correct: 1, explanation: "Voltooid → is." },
+        { question: "Passief: 'Men bouwt het huis.'", options: ["Het huis wordt gebouwd.","Het huis bouwt.","Het huis is gebouwd.","Het huis werd gebouwd."], correct: 0, explanation: "Tegenwoordig → wordt." },
+        { question: "'De deur ... net gesloten.'", options: ["wordt","is","werd","was"], correct: 1, explanation: "Voltooid → is." },
+        { question: "Passief: 'Hij repareert de fiets.'", options: ["De fiets wordt gerepareerd.","De fiets repareert.","De fiets is gerepareerd.","De fiets werd gerepareerd."], correct: 0, explanation: "Tegenwoordig → wordt." },
+        { question: "'Het eten ... al opgegeten.'", options: ["wordt","is","werd","was"], correct: 1, explanation: "Voltooid → is." },
+        { question: "Passief: 'Ze schilderen de muur.'", options: ["De muur wordt geschilderd.","De muur schildert.","De muur is geschilderd.","De muur werd geschilderd."], correct: 0, explanation: "Tegenwoordig → wordt." },
+        { question: "'De brief ... morgen verstuurd.'", options: ["wordt","is","zal worden","werd"], correct: 2, explanation: "Toekomst → zal worden." }
+      ]
+    },
+    25: { // Conditionele zinnen
+      practice: [
+        { question: "'Als ik rijk ... , kocht ik een groot huis.'", options: ["ben","was","zou zijn","ware"], correct: 1, explanation: "❌ Fout! Irrealis heden → verleden tijd.", tip: "💡 Als ik rijk was (maar ben het niet)." },
+        { question: "'Als hij harder had gestudeerd, ... hij geslaagd.'", options: ["was","is","zou zijn","had"], correct: 0, explanation: "❌ Fout! Irrealis verleden → was + voltooid deelwoord.", tip: "💡 Dan zou hij geslaagd zijn." },
+        { question: "'Als ik jou was, ... ik het niet doen.'", options: ["zou","had","was","ben"], correct: 0, explanation: "❌ Fout! Hoofdzin: zou + infinitief.", tip: "💡 Zou(den) in hoofdzin bij irrealis." },
+        { question: "'Als het ... , waren we naar het strand gegaan.'", options: ["mooi weer is","mooi weer was","mooi weer zou zijn","mooi weer geweest is"], correct: 1, explanation: "❌ Fout! Irrealis verleden: als + verleden tijd.", tip: "💡 Als + verleden, dan + zou/zouden + voltooid." },
+        { question: "'Als zij tijd ... , zou ze komen.'", options: ["heeft","had","zou hebben","hebben"], correct: 1, explanation: "❌ Fout! Irrealis: had in bijzin.", tip: "💡 Had in bijzin, zou in hoofdzin." }
+      ],
+      test: [
+        { question: "'Als ik meer geld ... , kocht ik een auto.'", options: ["heb","had","zou hebben","hebben"], correct: 1, explanation: "Irrealis: had." },
+        { question: "'Als hij ... , zou hij helpen.'", options: ["kan","kon","zou kunnen","kunnen"], correct: 1, explanation: "Irrealis: kon." },
+        { question: "'Als we eerder ... , hadden we de trein gehaald.'", options: ["vertrekken","vertrokken","zouden vertrekken","vertrokken zijn"], correct: 1, explanation: "Irrealis verleden: vertrokken." },
+        { question: "'Als zij ... , zou ze bellen.'", options: ["weet","wist","zou weten","weten"], correct: 1, explanation: "Irrealis: wist." },
+        { question: "'Als het niet ... , gingen we wandelen.'", options: ["regent","regende","zou regenen","geregend"], correct: 1, explanation: "Irrealis: regende." },
+        { question: "'Als ik ... , zou ik studeren.'", options: ["jong ben","jong was","jong zou zijn","jong"], correct: 1, explanation: "Irrealis: was." },
+        { question: "'Als hij ... , had hij gewonnen.'", options: ["harder werkt","harder werkte","harder zou werken","harder gewerkt"], correct: 1, explanation: "Irrealis verleden: werkte." },
+        { question: "'Als zij ... , zou ze komen.'", options: ["wil","wilde","zou willen","willen"], correct: 1, explanation: "Irrealis: wilde." },
+        { question: "'Als we ... , zouden we winnen.'", options: ["beter spelen","beter speelden","beter zouden spelen","beter gespeeld"], correct: 1, explanation: "Irrealis: speelden." },
+        { question: "'Als het ... , was ik gekomen.'", options: ["mogelijk is","mogelijk was","mogelijk zou zijn","mogelijk geweest"], correct: 1, explanation: "Irrealis: was." }
+      ]
+    },
+    26: { // Indirecte rede
+      practice: [
+        { question: "'Hij zei: \"Ik ben moe.\"' → indirect:", options: ["Hij zei dat hij moe is.","Hij zei dat hij moe was.","Hij zei dat hij moe bent.","Hij zei dat hij moe zal zijn."], correct: 1, explanation: "❌ Fout! Tegenwoordige tijd → verleden tijd.", tip: "💡 Indirecte rede: één stap terug in tijd." },
+        { question: "'Zij vroeg: \"Ga je mee?\"' → indirect:", options: ["Zij vroeg of ik meega.","Zij vroeg of ik meeging.","Zij vroeg of ik meegaat.","Zij vroeg of ik meegaan."], correct: 1, explanation: "❌ Fout! Vraag → of + verleden tijd.", tip: "💡 Ja/nee-vraag wordt of + bijzin." },
+        { question: "'Hij zei: \"Ik heb honger.\"' → indirect:", options: ["Hij zei dat hij honger heeft.","Hij zei dat hij honger had.","Hij zei dat hij honger gehad.","Hij zei dat hij honger zou hebben."], correct: 1, explanation: "❌ Fout! Tegenwoordige tijd → verleden tijd.", tip: "💡 Heeft → had." },
+        { question: "'Zij vroeg: \"Waar woon je?\"' → indirect:", options: ["Zij vroeg waar ik woon.","Zij vroeg waar ik woonde.","Zij vroeg waar ik gewoond.","Zij vroeg waar ik wonen."], correct: 1, explanation: "❌ Fout! Vraagwoord + bijzin met verleden tijd.", tip: "💡 Waar + onderwerp + PV (achteraan)." },
+        { question: "'Hij zei: \"Ik zal komen.\"' → indirect:", options: ["Hij zei dat hij komt.","Hij zei dat hij zou komen.","Hij zei dat hij zal komen.","Hij zei dat hij gekomen."], correct: 1, explanation: "❌ Fout! Zal → zou in indirecte rede.", tip: "💡 Zullen → zouden." }
+      ],
+      test: [
+        { question: "'Ze zei: \"Ik ben blij.\"' → indirect:", options: ["Ze zei dat ze blij is.","Ze zei dat ze blij was.","Ze zei dat ze blij bent.","Ze zei dat ze blij zal zijn."], correct: 1, explanation: "Tegenwoordig → verleden." },
+        { question: "'Hij vroeg: \"Kom je?\"' → indirect:", options: ["Hij vroeg of ik kom.","Hij vroeg of ik kwam.","Hij vroeg of ik gekomen.","Hij vroeg of ik zou komen."], correct: 1, explanation: "Vraag → of + verleden." },
+        { question: "'Ze zei: \"Ik heb het gezien.\"' → indirect:", options: ["Ze zei dat ze het heeft gezien.","Ze zei dat ze het had gezien.","Ze zei dat ze het gezien heeft.","Ze zei dat ze het zou zien."], correct: 1, explanation: "Voltooid tegenwoordig → voltooid verleden." },
+        { question: "'Hij vroeg: \"Wat doe je?\"' → indirect:", options: ["Hij vroeg wat ik doe.","Hij vroeg wat ik deed.","Hij vroeg wat ik gedaan.","Hij vroeg wat ik zou doen."], correct: 1, explanation: "Vraagwoord + verleden tijd." },
+        { question: "'Ze zei: \"Ik ga morgen.\"' → indirect:", options: ["Ze zei dat ze morgen gaat.","Ze zei dat ze morgen ging.","Ze zei dat ze morgen zou gaan.","Ze zei dat ze morgen gegaan."], correct: 2, explanation: "Gaan → zou gaan." },
+        { question: "'Hij zei: \"Ik kan het.\"' → indirect:", options: ["Hij zei dat hij het kan.","Hij zei dat hij het kon.","Hij zei dat hij het zou kunnen.","Hij zei dat hij het gekund."], correct: 1, explanation: "Kan → kon." },
+        { question: "'Ze vroeg: \"Waar ben je?\"' → indirect:", options: ["Ze vroeg waar ik ben.","Ze vroeg waar ik was.","Ze vroeg waar ik geweest.","Ze vroeg waar ik zou zijn."], correct: 1, explanation: "Ben → was." },
+        { question: "'Hij zei: \"Ik moet werken.\"' → indirect:", options: ["Hij zei dat hij moet werken.","Hij zei dat hij moest werken.","Hij zei dat hij zou moeten werken.","Hij zei dat hij gewerkt moest."], correct: 1, explanation: "Moet → moest." },
+        { question: "'Ze zei: \"Ik wil komen.\"' → indirect:", options: ["Ze zei dat ze wil komen.","Ze zei dat ze wilde komen.","Ze zei dat ze zou willen komen.","Ze zei dat ze gekomen wilde."], correct: 1, explanation: "Wil → wilde." },
+        { question: "'Hij vroeg: \"Heb je tijd?\"' → indirect:", options: ["Hij vroeg of ik tijd heb.","Hij vroeg of ik tijd had.","Hij vroeg of ik tijd gehad.","Hij vroeg of ik tijd zou hebben."], correct: 1, explanation: "Heb → had." }
+      ]
+    },
+    27: { // Om te / te infinitieven
+      practice: [
+        { question: "'Ik ga naar de winkel ... brood ... kopen.'", options: ["om / te","voor / te","om / voor","te / om"], correct: 0, explanation: "❌ Fout! Doel → om ... te + infinitief.", tip: "💡 Om ... te = doel." },
+        { question: "'Hij belooft ... komen.'", options: ["om te","te","voor te","om"], correct: 1, explanation: "❌ Fout! Na beloven/proberen/durven → te + infinitief.", tip: "💡 Bepaalde werkwoorden vragen te." },
+        { question: "'Het is moeilijk ... begrijpen.'", options: ["om te","te","voor te","om"], correct: 1, explanation: "❌ Fout! Na moeilijk/leuk/goed → te.", tip: "💡 Het is + bn + te + infinitief." },
+        { question: "'Ik kom ... je te helpen.'", options: ["om","voor","te","om te"], correct: 0, explanation: "❌ Fout! Doel: om ... te, maar bij komen kan om alleen.", tip: "💡 Om + te of om alleen bij komen." },
+        { question: "'Ze probeert ... slapen.'", options: ["om te","te","voor te","om"], correct: 1, explanation: "❌ Fout! Na proberen → te.", tip: "💡 Proberen + te + infinitief." }
+      ],
+      test: [
+        { question: "'Hij gaat naar school ... leren.'", options: ["om te","te","voor te","om"], correct: 0, explanation: "Doel → om te." },
+        { question: "'Ze belooft ... bellen.'", options: ["om te","te","voor te","om"], correct: 1, explanation: "Beloven + te." },
+        { question: "'Het is leuk ... zwemmen.'", options: ["om te","te","voor te","om"], correct: 1, explanation: "Leuk + te." },
+        { question: "'Ik probeer ... begrijpen.'", options: ["om te","te","voor te","om"], correct: 1, explanation: "Proberen + te." },
+        { question: "'Ze komt ... helpen.'", options: ["om te","te","voor te","om"], correct: 3, explanation: "Komen + om (optioneel)." },
+        { question: "'Het is belangrijk ... studeren.'", options: ["om te","te","voor te","om"], correct: 1, explanation: "Belangrijk + te." },
+        { question: "'Hij gaat naar huis ... eten.'", options: ["om te","te","voor te","om"], correct: 0, explanation: "Doel → om te." },
+        { question: "'Ze durft ... springen.'", options: ["om te","te","voor te","om"], correct: 1, explanation: "Durven + te." },
+        { question: "'Het is makkelijk ... doen.'", options: ["om te","te","voor te","om"], correct: 1, explanation: "Makkelijk + te." },
+        { question: "'Ik kom ... praten.'", options: ["om te","te","voor te","om"], correct: 3, explanation: "Komen + om." }
+      ]
+    },
+    28: { // Continuïteitsvormen
+      practice: [
+        { question: "'Ik ben ... een boek ... lezen.'", options: ["aan het","zit te","sta te","lig te"], correct: 0, explanation: "❌ Fout! Algemene bezigheid → aan het + infinitief.", tip: "💡 Aan het = bezig zijn." },
+        { question: "'Hij ... de krant ... lezen.'", options: ["is aan het","zit te","staat te","loopt te"], correct: 1, explanation: "❌ Fout! Zittende houding → zit te.", tip: "💡 Zitten/staan/liggen/lopen + te + infinitief." },
+        { question: "'Zij ... de afwas ... doen.'", options: ["is aan het","staat te","zit te","ligt te"], correct: 1, explanation: "❌ Fout! Staande houding → staat te.", tip: "💡 Staat te = staand bezig." },
+        { question: "'Ik ... naar muziek ... luisteren.'", options: ["ben aan het","zit te","sta te","loop te"], correct: 1, explanation: "❌ Fout! Zittend luisteren → zit te.", tip: "💡 Zit te = zittend bezig." },
+        { question: "'Hij ... in de tuin ... werken.'", options: ["is aan het","staat te","zit te","ligt te"], correct: 0, explanation: "❌ Fout! Algemene bezigheid → aan het.", tip: "💡 Aan het = algemene continuïteit." }
+      ],
+      test: [
+        { question: "'Ik ben ... koken.'", options: ["aan het","zit te","sta te","lig te"], correct: 0, explanation: "Aan het + infinitief." },
+        { question: "'Zij ... tv ... kijken.'", options: ["is aan het","zit te","staat te","loopt te"], correct: 1, explanation: "Zit te kijken." },
+        { question: "'Hij ... te werken.'", options: ["is aan het","staat te","zit te","ligt te"], correct: 1, explanation: "Staat te werken." },
+        { question: "'Wij ... slapen.'", options: ["zijn aan het","zitten te","staan te","liggen te"], correct: 3, explanation: "Liggen te slapen." },
+        { question: "'Ik ... wandelen.'", options: ["ben aan het","zit te","sta te","loop te"], correct: 3, explanation: "Loop te wandelen." },
+        { question: "'Zij ... eten.'", options: ["is aan het","zit te","staat te","ligt te"], correct: 1, explanation: "Zit te eten." },
+        { question: "'Hij ... fietsen.'", options: ["is aan het","zit te","staat te","loopt te"], correct: 0, explanation: "Is aan het fietsen." },
+        { question: "'Ik ... praten.'", options: ["ben aan het","zit te","sta te","lig te"], correct: 1, explanation: "Zit te praten." },
+        { question: "'Zij ... studeren.'", options: ["is aan het","zit te","staat te","ligt te"], correct: 0, explanation: "Is aan het studeren." },
+        { question: "'Hij ... douchen.'", options: ["is aan het","zit te","staat te","ligt te"], correct: 0, explanation: "Is aan het douchen." }
+      ]
+    },
+    29: { // Vervangende infinitief
+      practice: [
+        { question: "'Ik heb hem ... zingen.' (horen)", options: ["horen","gehoord","hoorde","horend"], correct: 0, explanation: "❌ Fout! Na modale/perceptie ww. → infinitief, geen voltooid deelwoord.", tip: "💡 Horen/zien/laten + infinitief." },
+        { question: "'Hij had het ... doen.' (kunnen)", options: ["kunnen","gekund","kunnend","kon"], correct: 0, explanation: "❌ Fout! Kunnen blijft infinitief.", tip: "💡 Vervangende infinitief bij modale ww." },
+        { question: "'Zij is ... zitten.' (blijven)", options: ["blijven","gebleven","blijft","blijvend"], correct: 0, explanation: "❌ Fout! Blijven + vervangende infinitief.", tip: "💡 Blijven + infinitief, niet gebleven." },
+        { question: "'Wij hebben het niet ... vragen.' (durven)", options: ["durven","gedurfd","durfden","durvend"], correct: 0, explanation: "❌ Fout! Durven → vervangende infinitief.", tip: "💡 Durven + infinitief." },
+        { question: "'Hij heeft niet ... komen.' (willen)", options: ["willen","gewild","wilde","willend"], correct: 0, explanation: "❌ Fout! Willen → infinitief.", tip: "💡 Modale ww. → infinitief." }
+      ],
+      test: [
+        { question: "'Ik heb haar ... zien.'", options: ["zien","gezien","zag","ziend"], correct: 0, explanation: "Zien + infinitief." },
+        { question: "'Hij heeft niet ... willen.'", options: ["willen","gewild","wilde","willend"], correct: 0, explanation: "Willen + infinitief." },
+        { question: "'Zij is ... gaan.' (blijven)", options: ["gaan","gegaan","ging","gaand"], correct: 0, explanation: "Blijven + gaan." },
+        { question: "'Wij hebben hem ... laten.'", options: ["laten","gelaten","liet","latend"], correct: 0, explanation: "Laten + infinitief." },
+        { question: "'Hij heeft niet ... kunnen.'", options: ["kunnen","gekund","kon","kunnend"], correct: 0, explanation: "Kunnen + infinitief." },
+        { question: "'Ik heb haar ... horen.'", options: ["horen","gehoord","hoorde","horend"], correct: 0, explanation: "Horen + infinitief." },
+        { question: "'Zij heeft niet ... mogen.'", options: ["mogen","gemogen","mocht","mogend"], correct: 0, explanation: "Mogen + infinitief." },
+        { question: "'Hij is ... blijven.' (staan)", options: ["staan","gestaan","stond","staand"], correct: 0, explanation: "Blijven + staan." },
+        { question: "'Wij hebben niet ... hoeven.'", options: ["hoeven","gehoeven","hoefde","hoevend"], correct: 0, explanation: "Hoeven + infinitief." },
+        { question: "'Ik heb hem ... zien.' (komen)", options: ["komen","gekomen","kwam","komend"], correct: 0, explanation: "Zien + komen." }
+      ]
+    },
+    30: { // Het woord 'er'
+      practice: [
+        { question: "'Er loopt een hond in de tuin.' Functie van 'er'?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 1, explanation: "❌ Fout! Er kondigt nieuw onderwerp aan.", tip: "💡 Voorlopig onderwerp: er + ww + onbepaald onderwerp." },
+        { question: "'Ik woon in Amsterdam.' Vervang met 'er'.", options: ["Ik woon er.","Ik er woon.","Er woon ik.","Ik er in woon."], correct: 0, explanation: "❌ Fout! Er vervangt plaats.", tip: "💡 Plaatsaanduidend er achter PV." },
+        { question: "'Ik heb er drie.' Functie van 'er'?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 2, explanation: "❌ Fout! Kwantitatief er + telwoord.", tip: "💡 Er + getal = hoeveelheid." },
+        { question: "'Ik denk eraan.' Functie van 'er'?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 3, explanation: "❌ Fout! Prepositioneel er + voorzetsel.", tip: "💡 Er + voorzetsel = eraan/erop/ervan." },
+        { question: "'Er is veel te doen.' Functie van 'er'?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 1, explanation: "❌ Fout! Voorlopig onderwerp.", tip: "💡 Er + is/wordt + onbepaald." }
+      ],
+      test: [
+        { question: "'Er staat een boom.' Functie?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 1, explanation: "Voorlopig onderwerp." },
+        { question: "'Ik heb er twee.' Functie?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 2, explanation: "Kwantitatief." },
+        { question: "'Ik woon er.' Functie?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 0, explanation: "Plaatsaanduidend." },
+        { question: "'Ik reken erop.' Functie?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 3, explanation: "Prepositioneel." },
+        { question: "'Er zijn veel mensen.' Functie?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 1, explanation: "Voorlopig onderwerp." },
+        { question: "'Ik heb er geen.' Functie?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 2, explanation: "Kwantitatief." },
+        { question: "'Ik ben er.' Functie?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 0, explanation: "Plaatsaanduidend." },
+        { question: "'Ik kijk ernaar.' Functie?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 3, explanation: "Prepositioneel." },
+        { question: "'Er wordt gewerkt.' Functie?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 1, explanation: "Voorlopig onderwerp." },
+        { question: "'Ik wil er een.' Functie?", options: ["plaats","voorlopig onderwerp","kwantitatief","prepositioneel"], correct: 2, explanation: "Kwantitatief." }
+      ]
+    },
+    31: { // Pronominale bijwoorden
+      practice: [
+        { question: "'Het boek ligt ...' (op de tafel)", options: ["erop","hierop","daarop","waarop"], correct: 2, explanation: "❌ Fout! Specifieke verwijzing → daarop.", tip: "💡 Daar- = veraf, er- = onbepaald." },
+        { question: "'... ben je trots?' (waar + op)", options: ["Erop","Waarop","Daarop","Hierop"], correct: 1, explanation: "❌ Fout! Vragend → waarop.", tip: "💡 Waar- in vragen." },
+        { question: "'Ik reken ... dat je komt.' (op + dat)", options: ["erop","daarop","hierop","waarop"], correct: 0, explanation: "❌ Fout! Vaste combinatie: rekenen op + erop.", tip: "💡 Er + voorzetsel = pronominaal bijwoord." },
+        { question: "'... denk je?' (aan + wat)", options: ["Eraan","Waaraan","Daaraan","Hieraan"], correct: 1, explanation: "❌ Fout! Vraag → waaraan.", tip: "💡 Waar + voorzetsel = vraag." },
+        { question: "'Ik kijk ...' (naar de TV)", options: ["ernaar","hiernaar","daarnaar","waarnaar"], correct: 2, explanation: "❌ Fout! Specifieke verwijzing → daarnaar.", tip: "💡 Daar- = die specifieke zaak." }
+      ],
+      test: [
+        { question: "'Ik wacht ...' (op de bus)", options: ["erop","hiervoor","daarop","waarop"], correct: 2, explanation: "Specifiek → daarop." },
+        { question: "'... praat je?' (over + wat)", options: ["Erover","Waarover","Daarover","Hierover"], correct: 1, explanation: "Vraag → waarover." },
+        { question: "'Ik ben blij ...' (met het resultaat)", options: ["ermee","hiermee","daarmee","waarmee"], correct: 2, explanation: "Specifiek → daarmee." },
+        { question: "'... kijk je?' (naar + wat)", options: ["Ernaar","Waarnaar","Daarnaar","Hier naar"], correct: 1, explanation: "Vraag → waarnaar." },
+        { question: "'Ik geloof ...' (in jou)", options: ["erin","hierin","daarin","waarin"], correct: 2, explanation: "Specifiek persoon → daarin." },
+        { question: "'... schrijf je?' (met + wat)", options: ["Ermee","Waarmee","Daarmee","Hiermee"], correct: 1, explanation: "Vraag → waarmee." },
+        { question: "'Ik denk ...' (aan de vakantie)", options: ["eraan","hieraan","daaraan","waaraan"], correct: 2, explanation: "Specifiek → daaraan." },
+        { question: "'... luister je?' (naar + wat)", options: ["Ernaar","Waarnaar","Daarnaar","Hier naar"], correct: 1, explanation: "Vraag → waarnaar." },
+        { question: "'Ik ben bang ...' (voor spinnen)", options: ["ervoor","hiervoor","daarvoor","waarvoor"], correct: 2, explanation: "Specifiek → daarvoor." },
+        { question: "'... ga je?' (naar + welke plaats)", options: ["Ernaartoe","Waarnaartoe","Daarnaartoe","Hieraan"], correct: 1, explanation: "Vraag → waarnaartoe." }
+      ]
+    },
+    32: { // Bijwoorden
+      practice: [
+        { question: "'Ik ga ... naar de sportschool.' (tijd)", options: ["morgen","snel","daar","graag"], correct: 0, explanation: "❌ Fout! Morgen = tijd.", tip: "💡 Bijwoorden van tijd: nu, straks, morgen." },
+        { question: "'Hij loopt ...' (wijze)", options: ["snel","thuis","altijd","er"], correct: 0, explanation: "❌ Fout! Snel = hoe hij loopt.", tip: "💡 Bijwoorden van wijze: snel, langzaam, zorgvuldig." },
+        { question: "'Ik ben ... thuis.' (frequentie)", options: ["vaak","morgen","daar","erg"], correct: 0, explanation: "❌ Fout! Vaak = frequentie.", tip: "💡 Frequentie: vaak, soms, nooit." },
+        { question: "'Het is ... koud buiten.' (graad)", options: ["erg","snel","thuis","daar"], correct: 0, explanation: "❌ Fout! Erg = graad.", tip: "💡 Graad: erg, zeer, tamelijk." },
+        { question: "'Hij woont ...' (plaats)", options: ["daar","snel","vaak","erg"], correct: 0, explanation: "❌ Fout! Daar = plaats.", tip: "💡 Plaats: hier, daar, overal." }
+      ],
+      test: [
+        { question: "'Ik zie je ...' (tijd)", options: ["morgen","snel","graag","erg"], correct: 0, explanation: "Morgen = tijd." },
+        { question: "'Ze zingt ...' (wijze)", options: ["mooi","thuis","vaak","daar"], correct: 0, explanation: "Mooi = wijze." },
+        { question: "'Hij komt ...' (frequentie)", options: ["soms","snel","erg","daar"], correct: 0, explanation: "Soms = frequentie." },
+        { question: "'Het is ... warm.' (graad)", options: ["zeer","snel","vaak","daar"], correct: 0, explanation: "Zeer = graad." },
+        { question: "'Ze woont ...' (plaats)", options: ["hier","snel","vaak","erg"], correct: 0, explanation: "Hier = plaats." },
+        { question: "'Ik werk ...' (tijd)", options: ["vandaag","snel","graag","erg"], correct: 0, explanation: "Vandaag = tijd." },
+        { question: "'Hij praat ...' (wijze)", options: ["zacht","thuis","vaak","daar"], correct: 0, explanation: "Zacht = wijze." },
+        { question: "'Ze lacht ...' (frequentie)", options: ["altijd","snel","erg","daar"], correct: 0, explanation: "Altijd = frequentie." },
+        { question: "'Het is ... moeilijk.' (graad)", options: ["tamelijk","snel","vaak","daar"], correct: 0, explanation: "Tamelijk = graad." },
+        { question: "'Ik ben ...' (plaats)", options: ["overal","snel","vaak","erg"], correct: 0, explanation: "Overal = plaats." }
+      ]
+    },
+    33: { // Gebiedende wijs
+      practice: [
+        { question: "'... hier!' (komen)", options: ["Kom","Komt","Komen","Gekomen"], correct: 0, explanation: "❌ Fout! Imperatief = stam.", tip: "💡 Gebiedende wijs: stam." },
+        { question: "'... u even plaatsnemen.' (beleefd)", options: ["Wilt","Wil","Wilt u","Zal"], correct: 2, explanation: "❌ Fout! Beleefd: Wilt u + infinitief.", tip: "💡 Wilt u = beleefd verzoek." },
+        { question: "'... stil!' (zijn)", options: ["Wees","Ben","Zijn","Bent"], correct: 0, explanation: "❌ Fout! Imperatief van zijn = wees.", tip: "💡 Onregelmatig: wees." },
+        { question: "'... we gaan.' (laten)", options: ["Laat","Laten","Laat ons","Laten we"], correct: 0, explanation: "❌ Fout! Aansporing: Laten we + infinitief.", tip: "💡 Laten we = voorstel." },
+        { question: "'... de deur!' (sluiten)", options: ["Sluit","Sluiten","Sluit u","Gesloten"], correct: 0, explanation: "❌ Fout! Imperatief = stam.", tip: "💡 Sluit = gebiedende wijs." }
+      ],
+      test: [
+        { question: "'...!' (lopen)", options: ["Loop","Loopt","Lopen","Gelopen"], correct: 0, explanation: "Stam = imperatief." },
+        { question: "'... u binnen.' (komen)", options: ["Kom","Komt","Komen","Gekomen"], correct: 1, explanation: "Beleefd: Komt u." },
+        { question: "'... je huiswerk!' (maken)", options: ["Maak","Maakt","Maken","Gemaakt"], correct: 0, explanation: "Stam = imperatief." },
+        { question: "'... we eten.' (gaan)", options: ["Ga","Gaan","Ga we","Laten we"], correct: 3, explanation: "Laten we = aansporing." },
+        { question: "'... op!' (passen)", options: ["Pas","Past","Passen","Gepast"], correct: 0, explanation: "Stam = imperatief." },
+        { question: "'... u zitten.' (blijven)", options: ["Blijf","Blijft","Blijven","Gebleven"], correct: 1, explanation: "Beleefd: Blijft u." },
+        { question: "'... de ramen!' (openen)", options: ["Open","Opent","Openen","Geopend"], correct: 0, explanation: "Stam = imperatief." },
+        { question: "'... we vertrekken.' (laten)", options: ["Laat","Laten","Laat we","Laten we"], correct: 3, explanation: "Laten we = voorstel." },
+        { question: "'... je tanden!' (poetsen)", options: ["Poets","Poetst","Poetsen","Gepoetst"], correct: 0, explanation: "Stam = imperatief." },
+        { question: "'... u helpen?' (willen)", options: ["Wil","Wilt","Willen","Gewild"], correct: 1, explanation: "Beleefd: Wilt u." }
+      ]
+    },
+    34: { // Telwoorden
+      practice: [
+        { question: "Schrijf voluit: 24", options: ["vierentwintig","vier en twintig","vier-twintig","viertwintig"], correct: 0, explanation: "❌ Fout! Samenstelling: vierentwintig.", tip: "💡 Tientallen + eenheid aan elkaar." },
+        { question: "Rangtelwoord van 'drie'?", options: ["derde","drieënde","drieste","driede"], correct: 0, explanation: "❌ Fout! Derde.", tip: "💡 Eerste, tweede, derde, vierde." },
+        { question: "Schrijf als getal: 'tweehonderdzevenendertig'", options: ["237","273","2370","732"], correct: 0, explanation: "❌ Fout! 200 + 37 = 237.", tip: "💡 Honderd + tiental + eenheid." },
+        { question: "'1/2' in woorden?", options: ["een tweede","half","een half","halve"], correct: 2, explanation: "❌ Fout! Breuk: een half.", tip: "💡 Een half, twee derde, drie kwart." },
+        { question: "Rangtelwoord van 21?", options: ["eenentwintigste","eenentwintig","een en twintigste","eenentwintigste"], correct: 0, explanation: "❌ Fout! -ste achteraan.", tip: "💡 Rangtelwoord = getal + -de/-ste." }
+      ],
+      test: [
+        { question: "Schrijf: 45", options: ["vijfenveertig","vijf en veertig","vijf-en-veertig","vijfenveertig"], correct: 0, explanation: "Vijfenveertig." },
+        { question: "Rangtelwoord van 5?", options: ["vijfde","vijf","vijfste","vijfende"], correct: 0, explanation: "Vijfde." },
+        { question: "Schrijf: 100", options: ["honderd","honderdt","hondert","honderdste"], correct: 0, explanation: "Honderd." },
+        { question: "'3/4' in woorden?", options: ["drie vierde","drievierde","drie vierden","driekwart"], correct: 3, explanation: "Driekwart." },
+        { question: "Rangtelwoord van 10?", options: ["tiende","tien","tiende","tiental"], correct: 0, explanation: "Tiende." },
+        { question: "Schrijf: 1000", options: ["duizend","duizendste","duizent","duizend"], correct: 0, explanation: "Duizend." },
+        { question: "Rangtelwoord van 1?", options: ["eerste","een","eerst","eende"], correct: 0, explanation: "Eerste." },
+        { question: "'1/3' in woorden?", options: ["een derde","eenderde","een derde","derde"], correct: 0, explanation: "Een derde." },
+        { question: "Rangtelwoord van 100?", options: ["honderdste","honderd","honderdste","honderdende"], correct: 0, explanation: "Honderdste." },
+        { question: "Schrijf: 50", options: ["vijftig","vijftig","vijftig","vijftig"], correct: 0, explanation: "Vijftig." }
+      ]
+    },
+    35: { // Datum en tijd
+      practice: [
+        { question: "Hoe schrijf je: 5 mei 2024?", options: ["5 mei 2024","5 Mei 2024","5 mei, 2024","5-mei-2024"], correct: 0, explanation: "❌ Fout! Dag – maand (kleine letter) – jaar.", tip: "💡 Maanden met kleine letter." },
+        { question: "'Het is kwart over drie.' Hoe laat?", options: ["3:15","3:45","2:45","3:30"], correct: 0, explanation: "❌ Fout! Kwart over = 15 minuten na heel uur.", tip: "💡 Kwart over = :15." },
+        { question: "'Tien voor half negen' = ?", options: ["8:20","8:40","9:20","8:30"], correct: 0, explanation: "❌ Fout! Half negen = 8:30, tien voor = 8:20.", tip: "💡 Half = 30 minuten, voor = eerder." },
+        { question: "Schrijf de dag: 'woensdag'", options: ["woensdag","Woensdag","woensdags","Woensdags"], correct: 0, explanation: "❌ Fout! Dagen met kleine letter.", tip: "💡 Dagen/maanden = klein." },
+        { question: "'Het is kwart voor twaalf.' Hoe laat?", options: ["11:45","12:15","11:15","12:45"], correct: 0, explanation: "❌ Fout! Kwart voor = 15 minuten voor heel uur.", tip: "💡 Kwart voor = :45." }
+      ],
+      test: [
+        { question: "Schrijf: 1 januari 2025", options: ["1 januari 2025","1 Januari 2025","1 januari, 2025","1-januari-2025"], correct: 0, explanation: "Dag – maand – jaar." },
+        { question: "'Kwart over zes' = ?", options: ["6:15","6:45","5:45","6:30"], correct: 0, explanation: "Kwart over = :15." },
+        { question: "'Half vier' = ?", options: ["3:30","4:30","3:15","4:15"], correct: 0, explanation: "Half vier = 3:30." },
+        { question: "Schrijf: 'maandag'", options: ["maandag","Maandag","maandags","Maandags"], correct: 0, explanation: "Dag = klein." },
+        { question: "'Tien over half acht' = ?", options: ["7:40","7:20","8:20","8:40"], correct: 0, explanation: "Half acht = 7:30, tien over = 7:40." },
+        { question: "'Kwart voor negen' = ?", options: ["8:45","9:15","8:15","9:45"], correct: 0, explanation: "Kwart voor = :45." },
+        { question: "Schrijf: 'zondag'", options: ["zondag","Zondag","zondags","Zondags"], correct: 0, explanation: "Dag = klein." },
+        { question: "'Vijf voor twaalf' = ?", options: ["11:55","12:05","11:05","12:55"], correct: 0, explanation: "Vijf voor = :55." },
+        { question: "'Half een' = ?", options: ["12:30","1:30","12:15","1:15"], correct: 0, explanation: "Half een = 12:30." },
+        { question: "Schrijf: 'februari'", options: ["februari","Februari","februari","Februari"], correct: 0, explanation: "Maand = klein." }
+      ]
+    },
+    36: { // Participia
+      practice: [
+        { question: "'Het ... kind' (huilen)", options: ["huilende","gehuild","huilend","gehuilde"], correct: 0, explanation: "❌ Fout! Tegenwoordig deelwoord + -e.", tip: "💡 Infinitief + d(e) = tegenwoordig deelwoord." },
+        { question: "'De ... deur' (sluiten)", options: ["gesloten","sluitende","gesluit","sluitend"], correct: 0, explanation: "❌ Fout! Voltooid deelwoord van sluiten = gesloten.", tip: "💡 Voltooid deelwoord: ge + stam + d/t/en." },
+        { question: "'De ... man' (lachen)", options: ["lachende","gelachen","lachte","gelachende"], correct: 0, explanation: "❌ Fout! Tegenwoordig deelwoord: lachende.", tip: "💡 Lachende = bezig met lachen." },
+        { question: "'Het ... brood' (bakken)", options: ["gebakken","bakkende","gebakte","bakkend"], correct: 0, explanation: "❌ Fout! Voltooid deelwoord: gebakken.", tip: "💡 Gebakken = klaar." },
+        { question: "'De ... auto' (rijden)", options: ["rijdende","gereden","reed","gerijdende"], correct: 0, explanation: "❌ Fout! Tegenwoordig deelwoord: rijdende.", tip: "💡 Rijdende = bezig met rijden." }
+      ],
+      test: [
+        { question: "'De ... vrouw' (zingen)", options: ["zingende","gezongen","zong","gezingende"], correct: 0, explanation: "Tegenwoordig deelwoord: zingende." },
+        { question: "'Het ... raam' (breken)", options: ["gebroken","brekende","brak","gebrekende"], correct: 0, explanation: "Voltooid deelwoord: gebroken." },
+        { question: "'De ... kinderen' (spelen)", options: ["spelende","gespeeld","speelden","gespeelde"], correct: 0, explanation: "Tegenwoordig deelwoord: spelende." },
+        { question: "'Het ... boek' (lezen)", options: ["lezende","gelezen","las","gelezende"], correct: 1, explanation: "Voltooid deelwoord: gelezen." },
+        { question: "'De ... hond' (blaffen)", options: ["blaffende","geblaft","blafte","geblaffende"], correct: 0, explanation: "Tegenwoordig deelwoord: blaffende." },
+        { question: "'Het ... huis' (bouwen)", options: ["bouwende","gebouwd","bouwde","gebouwende"], correct: 1, explanation: "Voltooid deelwoord: gebouwd." },
+        { question: "'De ... man' (werken)", options: ["werkende","gewerkt","werkte","gewerkende"], correct: 0, explanation: "Tegenwoordig deelwoord: werkende." },
+        { question: "'Het ... eten' (koken)", options: ["kokende","gekookt","kookte","gekookende"], correct: 1, explanation: "Voltooid deelwoord: gekookt." },
+        { question: "'De ... vogel' (vliegen)", options: ["vliegende","gevlogen","vloog","gevliegende"], correct: 0, explanation: "Tegenwoordig deelwoord: vliegende." },
+        { question: "'Het ... probleem' (oplossen)", options: ["oplossende","opgelost","loste op","opgelostende"], correct: 1, explanation: "Voltooid deelwoord: opgelost." }
+      ]
+    },
+    37: { // Spellingregels
+      practice: [
+        { question: "'Ik ... in Utrecht.' (wonen)", options: ["woon","won","woont","wonen"], correct: 0, explanation: "❌ Fout! Korte klinker in gesloten lettergreep: woon.", tip: "💡 Hoor je lange klinker → dubbele klinker." },
+        { question: "'Hij ... naar school.' (lopen)", options: ["loopt","loopt","loopd","lope"], correct: 0, explanation: "❌ Fout! Stam loop + t = loopt.", tip: "💡 Na lange klinker geen dubbele medeklinker." },
+        { question: "'De ... hond' (groot)", options: ["grote","groote","groten","grootte"], correct: 0, explanation: "❌ Fout! Lange klinker blijft lang: grote.", tip: "💡 Groot → grote (één o)." },
+        { question: "'Het ... varken' (vet)", options: ["vette","vete","vete","vettte"], correct: 0, explanation: "❌ Fout! Korte klinker → dubbele medeklinker.", tip: "💡 Vet → vette (tt houdt klinker kort)." },
+        { question: "'De ... taart' (zoet)", options: ["zoete","zoote","zoten","zoette"], correct: 0, explanation: "❌ Fout! Lange klinker → geen dubbele medeklinker.", tip: "💡 Zoet → zoete (één t)." }
+      ],
+      test: [
+        { question: "'Ik ... koffie.' (drinken)", options: ["drink","drinkt","drinken","dronk"], correct: 0, explanation: "Ik + stam." },
+        { question: "'De ... tafel' (bruin)", options: ["bruine","bruine","bruinen","bruinne"], correct: 0, explanation: "Bruin → bruine." },
+        { question: "'Hij ... hard.' (rennen)", options: ["rent","rend","rent","rende"], correct: 0, explanation: "Hij + stam + t." },
+        { question: "'Het ... boek' (nieuw)", options: ["nieuwe","nieuewe","nieuwen","nieuwe"], correct: 0, explanation: "Nieuw → nieuwe." },
+        { question: "'De ... auto' (rood)", options: ["rode","roode","roden","rodden"], correct: 0, explanation: "Rood → rode." },
+        { question: "'Ik ... een brief.' (schrijven)", options: ["schrijf","schrijft","schrijven","schreef"], correct: 0, explanation: "Ik + stam." },
+        { question: "'Het ... huis' (wit)", options: ["witte","wite","witen","witten"], correct: 0, explanation: "Wit → witte." },
+        { question: "'De ... man' (oud)", options: ["oude","oude","ouden","oudden"], correct: 0, explanation: "Oud → oude." },
+        { question: "'Hij ... snel.' (fietsen)", options: ["fietst","fietst","fietsten","fietste"], correct: 0, explanation: "Hij + stam + t." },
+        { question: "'Het ... kind' (klein)", options: ["kleine","kleine","kleinen","kleinne"], correct: 0, explanation: "Klein → kleine." }
+      ]
+    },
+    38: { // Wederkerige voornaamwoorden
+      practice: [
+        { question: "'Zij helpen ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "❌ Fout! Wederkerig = elkaar.", tip: "💡 Elkaar = onderlinge actie." },
+        { question: "'We geven ... een cadeau.'", options: ["elkaar","ons","zich","hen"], correct: 0, explanation: "❌ Fout! Onderling → elkaar.", tip: "💡 Elkaar bij meervoud." },
+        { question: "'Ze kussen ...'", options: ["elkaar","zich","hen","zichzelf"], correct: 0, explanation: "❌ Fout! Onderling → elkaar.", tip: "💡 Kussen elkaar = wederkerig." },
+        { question: "'Wij begrijpen ... goed.'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "❌ Fout! Wederkerig → elkaar.", tip: "💡 Begrijpen elkaar." },
+        { question: "'Zij steunen ...' (formeel)", options: ["elkaar","elkander","zich","hen"], correct: 1, explanation: "❌ Fout! Formeel: elkander.", tip: "💡 Elkander = formeel voor elkaar." }
+      ],
+      test: [
+        { question: "'Ze helpen ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "Elkaar." },
+        { question: "'Wij zien ... vaak.'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "Elkaar." },
+        { question: "'Ze bellen ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "Elkaar." },
+        { question: "'Wij vertrouwen ...'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "Elkaar." },
+        { question: "'Ze groeten ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "Elkaar." },
+        { question: "'Wij helpen ...'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "Elkaar." },
+        { question: "'Ze respecteren ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "Elkaar." },
+        { question: "'Wij steunen ...'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "Elkaar." },
+        { question: "'Ze ontmoeten ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "Elkaar." },
+        { question: "'Wij begrijpen ...'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "Elkaar." }
+      ]
+    },
+    39: { // Formeel vs informeel
+      practice: [
+        { question: "Wanneer gebruik je 'u'?", options: ["Tegen oudere mensen of in formele situaties","Altijd tegen vreemden","Alleen in brieven","Nooit"], correct: 0, explanation: "❌ Fout! 'U' = beleefdheidsvorm.", tip: "💡 U = formeel, jij = informeel." },
+        { question: "Informeel: 'Hoe maakt ... het?'", options: ["u","jij","je","gij"], correct: 2, explanation: "❌ Fout! Informeel: Hoe gaat het met je?", tip: "💡 Je = onbeklemtoond, jij = beklemtoond." },
+        { question: "Formeel: '... kunt u mij helpen?'", options: ["Kan","Kunt","Kun","Kan je"], correct: 1, explanation: "❌ Fout! Beleefd: Kunt u.", tip: "💡 Kunt u = formeel verzoek." },
+        { question: "Informeel: '... bent mijn vriend.'", options: ["U","Jij","Gij","Men"], correct: 1, explanation: "❌ Fout! Informeel enkelvoud: jij.", tip: "💡 Jij = informeel, u = formeel." },
+        { question: "Wanneer gebruik je 'jij'?", options: ["Tegen vrienden","Tegen ouderen (onbekend)","Sollicitatiebrief","Tegen een agent"], correct: 0, explanation: "❌ Fout! Jij = informeel, voor bekenden.", tip: "💡 Jij = vrienden/familie." }
+      ],
+      test: [
+        { question: "Formeel: '... heeft u tijd?'", options: ["Heb","Heeft","Hebben","Hebt"], correct: 1, explanation: "U + heeft." },
+        { question: "Informeel: '... heb je tijd?'", options: ["Heb","Heeft","Hebben","Hebt"], correct: 0, explanation: "Jij + heb." },
+        { question: "Formeel: '... wilt u komen?'", options: ["Wil","Wilt","Willen","Wilt u"], correct: 1, explanation: "U + wilt." },
+        { question: "Informeel: '... wil je komen?'", options: ["Wil","Wilt","Willen","Wilt u"], correct: 0, explanation: "Jij + wil." },
+        { question: "Formeel: '... bent u klaar?'", options: ["Ben","Bent","Zijn","Bent u"], correct: 1, explanation: "U + bent." },
+        { question: "Informeel: '... ben je klaar?'", options: ["Ben","Bent","Zijn","Bent u"], correct: 0, explanation: "Jij + ben." },
+        { question: "Formeel: '... gaat u?'", options: ["Ga","Gaat","Gaan","Gaat u"], correct: 1, explanation: "U + gaat." },
+        { question: "Informeel: '... ga je?'", options: ["Ga","Gaat","Gaan","Gaat u"], correct: 0, explanation: "Jij + ga." },
+        { question: "Formeel: '... heeft u gezien?'", options: ["Heb","Heeft","Hebben","Heeft u"], correct: 1, explanation: "U + heeft." },
+        { question: "Informeel: '... heb je gezien?'", options: ["Heb","Heeft","Hebben","Heeft u"], correct: 0, explanation: "Jij + heb." }
+      ]
+    },
+    40: { // Veelgemaakte fouten
+      practice: [
+        { question: "'Ik geef het boek aan ...' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 1, explanation: "❌ Fout! Na voorzetsel (aan) → hen.", tip: "💡 Hen na voorzetsel, hun zonder." },
+        { question: "'Zij is groter ... haar broer.' (dan/als)", options: ["dan","als","of","dat"], correct: 0, explanation: "❌ Fout! Na vergrotende trap → dan.", tip: "💡 Dan = ongelijk, als = gelijk." },
+        { question: "'Het boek ... op tafel.' (liggen/leggen)", options: ["ligt","leg","leit","leggt"], correct: 0, explanation: "❌ Fout! Liggen = zich bevinden, leggen = actie.", tip: "💡 Liggen = statisch, leggen = actief." },
+        { question: "'Het meisje ... daar woont.' (die/dat)", options: ["die","dat","wat","wie"], correct: 1, explanation: "❌ Fout! Meisje = het-woord → dat.", tip: "💡 Dat voor het-woorden." },
+        { question: "'Ik heb ... gezien.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 1, explanation: "❌ Fout! Lijdend voorwerp → hen.", tip: "💡 Hen = lijdend/meewerkend met voorzetsel." }
+      ],
+      test: [
+        { question: "'Ik geef ... het boek.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 0, explanation: "Meewerkend zonder voorzetsel → hun." },
+        { question: "'Hij is even groot ... ik.' (dan/als)", options: ["dan","als","of","dat"], correct: 1, explanation: "Gelijk → als." },
+        { question: "'Ik ... het boek op tafel.' (liggen/leggen)", options: ["lig","leg","ligt","legt"], correct: 1, explanation: "Actie → leggen." },
+        { question: "'De jongen ... daar loopt.' (die/dat)", options: ["die","dat","wat","wie"], correct: 0, explanation: "De-woord → die." },
+        { question: "'Ik zie ... niet.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 1, explanation: "Lijdend voorwerp → hen." },
+        { question: "'Zij is net zo slim ... hij.' (dan/als)", options: ["dan","als","of","dat"], correct: 1, explanation: "Gelijk → als." },
+        { question: "'Ik ... in bed.' (liggen/leggen)", options: ["lig","leg","ligt","legt"], correct: 0, explanation: "Zich bevinden → liggen." },
+        { question: "'Het kind ... speelt.' (die/dat)", options: ["die","dat","wat","wie"], correct: 1, explanation: "Het-woord → dat." },
+        { question: "'Ik bel ... morgen.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 0, explanation: "Meewerkend zonder voorzetsel → hun." },
+        { question: "'Hij is groter ... vorig jaar.' (dan/als)", options: ["dan","als","of","dat"], correct: 0, explanation: "Vergrotende trap → dan." }
+      ]
+    }
   },
-  fr: {
-    1: [ // Les articles
-      {
-        question: "Je voudrais ... baguette, s'il vous plaît.",
-        options: ["le", "la", "une", "un"],
-        correct: 2,
-        explanation: "Baguette est féminin, article indéfini → une."
-      },
-      {
-        question: "J'aime ... chocolat.",
-        options: ["le", "la", "les", "un"],
-        correct: 0,
-        explanation: "Article défini pour une chose en général: le chocolat."
-      },
-      {
-        question: "Il boit ... eau.",
-        options: ["le", "la", "l'", "une"],
-        correct: 2,
-        explanation: "Élision devant voyelle: l'eau (féminin)."
-      }
-    ],
-    2: [ // Genre et nombre
-      {
-        question: "Quel est le pluriel de 'cheval'?",
-        options: ["chevals", "chevaux", "cheveaux", "chevales"],
-        correct: 1,
-        explanation: "Les noms en -al font -aux au pluriel (sauf exceptions)."
-      },
-      {
-        question: "Le mot 'voiture' est ...",
-        options: ["masculin", "féminin", "les deux", "neutre"],
-        correct: 1,
-        explanation: "Voiture est un nom féminin."
-      }
-    ],
-    3: [ // Adjectifs qualificatifs
-      {
-        question: "Une ... maison.",
-        options: ["beau", "belle", "bel", "beaux"],
-        correct: 1,
-        explanation: "Féminin de beau → belle."
-      },
-      {
-        question: "Un ... homme.",
-        options: ["beau", "belle", "bel", "beaux"],
-        correct: 2,
-        explanation: "Beau devient bel devant voyelle ou h muet."
-      }
-    ],
-    4: [ // Pronoms personnels sujets
-      {
-        question: "..., allons au cinéma!",
-        options: ["Je", "Tu", "Nous", "Vous"],
-        correct: 2,
-        explanation: "Nous pour inclure le locuteur et d'autres."
-      },
-      {
-        question: "... est médecin.",
-        options: ["Il", "Elle", "On", "Ils"],
-        correct: 0,
-        explanation: "Il pour masculin singulier."
-      }
-    ],
-    5: [ // Pronoms COD/COI
-      {
-        question: "Je ... vois. (la voiture)",
-        options: ["le", "la", "lui", "les"],
-        correct: 1,
-        explanation: "COD féminin singulier: la."
-      },
-      {
-        question: "Il ... parle. (à sa mère)",
-        options: ["le", "la", "lui", "leur"],
-        correct: 2,
-        explanation: "COI singulier: lui."
-      }
-    ],
-    6: [ // Pronoms possessifs
-      {
-        question: "C'est ... livre. (à moi)",
-        options: ["mon", "ma", "mes", "mien"],
-        correct: 0,
-        explanation: "Mon devant nom masculin singulier."
-      },
-      {
-        question: "Ce stylo est ... (à toi)",
-        options: ["le tien", "la tienne", "les tiens", "tien"],
-        correct: 0,
-        explanation: "Pronom possessif masculin singulier: le tien."
-      }
-    ],
-    7: [ // Pronoms démonstratifs
-      {
-        question: "... livre-ci est intéressant.",
-        options: ["Ce", "Cet", "Cette", "Ces"],
-        correct: 0,
-        explanation: "Ce pour masculin commençant par consonne."
-      },
-      {
-        question: "J'aime celui-ci et ... -là.",
-        options: ["celui", "celle", "ceux", "celles"],
-        correct: 0,
-        explanation: "Celui pour remplacer un nom masculin singulier."
-      }
-    ],
-    8: [ // Pronoms relatifs
-      {
-        question: "La fille ... je parle est gentille.",
-        options: ["qui", "que", "dont", "où"],
-        correct: 2,
-        explanation: "Dont remplace 'de qui' ou 'de quoi'."
-      },
-      {
-        question: "Le livre ... est sur la table est à moi.",
-        options: ["qui", "que", "dont", "lequel"],
-        correct: 0,
-        explanation: "Qui est sujet du verbe 'est'."
-      }
-    ],
-    9: [ // Présent de l'indicatif
-      {
-        question: "Nous ... (finir) le travail.",
-        options: ["finis", "finit", "finissons", "finissez"],
-        correct: 2,
-        explanation: "Verbe en -ir, 1re personne pluriel: -issons."
-      },
-      {
-        question: "Vous ... (aller) à Paris.",
-        options: ["allez", "vont", "vas", "allons"],
-        correct: 0,
-        explanation: "Aller irrégulier: vous allez."
-      }
-    ],
-    10: [ // Passé composé
-      {
-        question: "Elle ... (manger) une pomme.",
-        options: ["a mangé", "est mangé", "a mangée", "est mangée"],
-        correct: 0,
-        explanation: "Avoir + participe passé; pas d'accord avec COD après."
-      },
-      {
-        question: "Ils se sont ... (parler).",
-        options: ["parlé", "parlés", "parlée", "parler"],
-        correct: 1,
-        explanation: "Verbe pronominal réciproque, accord avec 'se' COD."
-      }
-    ],
-    11: [ // Imparfait
-      {
-        question: "Quand j'étais petit, je ... (jouer) au foot.",
-        options: ["jouais", "jouait", "jouaient", "jouiez"],
-        correct: 0,
-        explanation: "Imparfait: je jouais."
-      }
-    ],
-    12: [ // Passé simple
-      {
-        question: "Il ... (parler) au roi.",
-        options: ["parla", "parlait", "parle", "parlé"],
-        correct: 0,
-        explanation: "Passé simple de parler, 3e personne: parla."
-      }
-    ],
-    13: [ // Plus-que-parfait
-      {
-        question: "J'avais déjà ... (finir) quand il est arrivé.",
-        options: ["fini", "finit", "finis", "finais"],
-        correct: 0,
-        explanation: "Plus-que-parfait = imparfait auxiliaire + participe passé."
-      }
-    ],
-    14: [ // Futur
-      {
-        question: "Demain, nous ... (avoir) du soleil.",
-        options: ["aurons", "avons", "allons avoir", "aurions"],
-        correct: 0,
-        explanation: "Futur simple d'avoir: nous aurons."
-      },
-      {
-        question: "Je ... (être) là dans une heure.",
-        options: ["serai", "suis", "vais être", "serais"],
-        correct: 0,
-        explanation: "Être au futur: je serai."
-      }
-    ],
-    15: [ // Conditionnel
-      {
-        question: "Je ... (vouloir) un café, s'il vous plaît.",
-        options: ["voudrais", "veux", "voulais", "voudrai"],
-        correct: 0,
-        explanation: "Conditionnel de politesse: je voudrais."
-      },
-      {
-        question: "Si j'avais le temps, je ... (venir).",
-        options: ["viendrais", "viendrai", "venais", "viens"],
-        correct: 0,
-        explanation: "Conditionnel présent après si + imparfait."
-      }
-    ],
-    16: [ // Subjonctif
-      {
-        question: "Il faut que tu ... (être) à l'heure.",
-        options: ["sois", "es", "seras", "étais"],
-        correct: 0,
-        explanation: "Subjonctif après 'il faut que'."
-      }
-    ],
-    17: [ // Impératif
-      {
-        question: "... (parler) plus fort!",
-        options: ["Parle", "Parles", "Parlent", "Parlez"],
-        correct: 0,
-        explanation: "Impératif tu du verbe parler: Parle."
-      },
-      {
-        question: "... (se taire)-vous!",
-        options: ["Taisez", "Tais-toi", "Taisons", "Taire"],
-        correct: 0,
-        explanation: "Impératif vous du verbe pronominal: Taisez-vous."
-      }
-    ],
-    18: [ // Verbes pronominaux
-      {
-        question: "Je ... lave les mains.",
-        options: ["me", "te", "se", "nous"],
-        correct: 0,
-        explanation: "Pronom réfléchi pour 'je': me."
-      }
-    ],
-    19: [ // Voix passive
-      {
-        question: "La lettre ... par le facteur.",
-        options: ["est distribuée", "a distribué", "distribue", "distribuée"],
-        correct: 0,
-        explanation: "Passif présent: être + participe passé accordé."
-      }
-    ],
-    20: [ // Discours indirect
-      {
-        question: "Il a dit: 'Je suis fatigué.' → Il a dit qu'il ... fatigué.",
-        options: ["était", "est", "soit", "serait"],
-        correct: 0,
-        explanation: "Concordance: présent → imparfait."
-      }
-    ],
-    21: [ // Condition avec 'si'
-      {
-        question: "Si tu ... (venir), nous serions contents.",
-        options: ["venais", "viens", "viendras", "viendrais"],
-        correct: 0,
-        explanation: "Irréel du présent: si + imparfait, conditionnel présent."
-      }
-    ],
-    22: [ // Verbes modaux
-      {
-        question: "Tu ... (pouvoir) m'aider?",
-        options: ["peux", "peut", "pouvez", "peuvent"],
-        correct: 0,
-        explanation: "Pouvoir présent: je peux, tu peux."
-      }
-    ],
-    23: [ // Négation
-      {
-        question: "Je ne mange ... viande.",
-        options: ["pas de", "pas", "rien", "aucun"],
-        correct: 0,
-        explanation: "Après négation, article indéfini/partitif → de."
-      }
-    ],
-    24: [ // Interrogation
-      {
-        question: "Quelle est la forme correcte?",
-        options: ["Parles-tu français?", "Tu parles français?", "Est-ce que tu parles français?", "Toutes"],
-        correct: 3,
-        explanation: "Les trois formes sont correctes selon le registre."
-      }
-    ],
-    25: [ // Prépositions
-      {
-        question: "Je vais ... France.",
-        options: ["à", "en", "au", "aux"],
-        correct: 1,
-        explanation: "Pays féminin → en."
-      },
-      {
-        question: "Il habite ... Japon.",
-        options: ["à", "en", "au", "aux"],
-        correct: 2,
-        explanation: "Pays masculin → au."
-      }
-    ],
-    26: [ // Conjonctions
-      {
-        question: "Il est fatigué ... il a trop travaillé.",
-        options: ["car", "donc", "mais", "ou"],
-        correct: 0,
-        explanation: "Car exprime la cause."
-      }
-    ],
-    27: [ // Adverbes
-      {
-        question: "Il parle ... (lent).",
-        options: ["lentement", "lente", "lent", "lents"],
-        correct: 0,
-        explanation: "Adverbe formé avec -ment: lentement."
-      }
-    ],
-    28: [ // Pronoms y et en
-      {
-        question: "Tu vas à Paris? Oui, j'... vais.",
-        options: ["y", "en", "le", "la"],
-        correct: 0,
-        explanation: "Y remplace un lieu introduit par 'à'."
-      },
-      {
-        question: "Tu as des stylos? Oui, j'... ai trois.",
-        options: ["y", "en", "les", "des"],
-        correct: 1,
-        explanation: "En remplace 'de + nom'."
-      }
-    ],
-    29: [ // Accord du participe passé
-      {
-        question: "La pomme que j'ai ... (manger).",
-        options: ["mangé", "mangée", "mangés", "manger"],
-        correct: 1,
-        explanation: "COD placé avant (que = la pomme, fém.) → accord."
-      }
-    ],
-    30: [ // Temps du futur
-      {
-        question: "Quand tu ... (arriver), appelle-moi.",
-        options: ["arriveras", "arrives", "arriverais", "arrive"],
-        correct: 0,
-        explanation: "Futur antérieur ou simple dans une subordonnée de temps."
-      }
-    ],
-    31: [ // Gérondif
-      {
-        question: "Il lit ... (écouter) de la musique.",
-        options: ["en écoutant", "écoutant", "en écouté", "écoute"],
-        correct: 0,
-        explanation: "Gérondif: en + participe présent."
-      }
-    ],
-    32: [ // Tout, même, demi...
-      {
-        question: "Elle est ... contente.",
-        options: ["tout", "toute", "tous", "toutes"],
-        correct: 0,
-        explanation: "Tout adverbe devant adjectif féminin commençant par consonne."
-      }
-    ],
-    33: [ // Noms géographiques
-      {
-        question: "Il vient ... Canada.",
-        options: ["du", "de", "des", "de la"],
-        correct: 0,
-        explanation: "Venir de + pays masculin: du Canada."
-      }
-    ],
-    34: [ // C'est vs il est
-      {
-        question: "... médecin.",
-        options: ["C'est un", "Il est", "Elle est", "Ce sont"],
-        correct: 1,
-        explanation: "Il/elle est + profession (sans article)."
-      },
-      {
-        question: "... un médecin.",
-        options: ["C'est", "Il est", "Elle est", "Ce sont"],
-        correct: 0,
-        explanation: "C'est + déterminant + nom."
-      }
-    ],
-    35: [ // Nombres et date
-      {
-        question: "1995 se lit:",
-        options: ["mille neuf cent quatre-vingt-quinze", "dix-neuf cent quatre-vingt-quinze", "mille neuf cents quatre-vingt-quinze", "dix-neuf quatre-vingt-quinze"],
-        correct: 0,
-        explanation: "Mille + neuf cent + quatre-vingt-quinze."
-      }
-    ],
-    36: [ // Infinitif après préposition
-      {
-        question: "Sans ... (dire) un mot.",
-        options: ["dire", "dit", "disant", "dise"],
-        correct: 0,
-        explanation: "Après préposition, infinitif."
-      }
-    ],
-    37: [ // Relatives complexes
-      {
-        question: "La chose ... je pense.",
-        options: ["à laquelle", "auquel", "dont", "que"],
-        correct: 0,
-        explanation: "Penser à qqch → à laquelle."
-      }
-    ],
-    38: [ // Inversion
-      {
-        question: "À peine ...-il arrivé qu'il est reparti.",
-        options: ["est", "a", "soit", "était"],
-        correct: 0,
-        explanation: "Inversion après 'à peine'."
-      }
-    ],
-    39: [ // Tu vs vous
-      {
-        question: "Vous pouvez me tutoyer. Quelle est la situation?",
-        options: ["Formel", "Informel", "Administratif", "Lointain"],
-        correct: 1,
-        explanation: "Tutoyer = utiliser 'tu'."
-      }
-    ],
-    40: [ // Erreurs fréquentes
-      {
-        question: "Je vais ... docteur.",
-        options: ["chez le", "au", "à le", "en"],
-        correct: 0,
-        explanation: "Aller chez le docteur (personne)."
-      }
-    ]
-  },
-  en: {
-    1: [ // Articles: a/an/the/zero
-      {
-        question: "I saw ... interesting movie last night.",
-        options: ["a", "an", "the", "—"],
-        correct: 1,
-        explanation: "Use 'an' before vowel sounds."
-      },
-      {
-        question: "He is ... best player on the team.",
-        options: ["a", "an", "the", "—"],
-        correct: 2,
-        explanation: "Superlatives take 'the'."
-      },
-      {
-        question: "... life is beautiful.",
-        options: ["A", "An", "The", "—"],
-        correct: 3,
-        explanation: "Abstract nouns generally take zero article."
-      }
-    ],
-    2: [ // Nouns – Countable & Uncountable
-      {
-        question: "I need ... information.",
-        options: ["a", "an", "some", "many"],
-        correct: 2,
-        explanation: "'Information' is uncountable, use 'some'."
-      },
-      {
-        question: "How ... apples do you want?",
-        options: ["much", "many", "few", "little"],
-        correct: 1,
-        explanation: "Countable plural → many."
-      }
-    ],
-    3: [ // Pronouns – All Types
-      {
-        question: "This is ... book. (I)",
-        options: ["my", "mine", "me", "I"],
-        correct: 0,
-        explanation: "Possessive adjective before noun: my."
-      },
-      {
-        question: "The book is ... (I)",
-        options: ["my", "mine", "me", "I"],
-        correct: 1,
-        explanation: "Possessive pronoun standing alone: mine."
-      }
-    ],
-    4: [ // Present Simple & Continuous
-      {
-        question: "She usually ... to work by car.",
-        options: ["go", "goes", "is going", "going"],
-        correct: 1,
-        explanation: "Present simple for habits, 3rd person singular: -es."
-      },
-      {
-        question: "Listen! Someone ...",
-        options: ["sings", "is singing", "sing", "are singing"],
-        correct: 1,
-        explanation: "Action in progress now: present continuous."
-      }
-    ],
-    5: [ // Past Simple & Continuous
-      {
-        question: "I ... my keys yesterday.",
-        options: ["lose", "lost", "was losing", "have lost"],
-        correct: 1,
-        explanation: "Past simple for completed action at a specific time."
-      },
-      {
-        question: "While I ..., the phone rang.",
-        options: ["was sleeping", "slept", "sleep", "am sleeping"],
-        correct: 0,
-        explanation: "Past continuous for background action."
-      }
-    ],
-    6: [ // Present Perfect (UK focus)
-      {
-        question: "I ... (see) that film already.",
-        options: ["saw", "have seen", "see", "am seeing"],
-        correct: 1,
-        explanation: "Present perfect for experience with 'already'."
-      },
-      {
-        question: "She ... (live) here since 2010.",
-        options: ["lives", "lived", "has lived", "is living"],
-        correct: 2,
-        explanation: "Present perfect with 'since' for duration."
-      }
-    ],
-    7: [ // Present Perfect Continuous
-      {
-        question: "It ... (rain) all day.",
-        options: ["has rained", "rains", "is raining", "has been raining"],
-        correct: 3,
-        explanation: "Emphasis on duration of action up to now."
-      }
-    ],
-    8: [ // Past Perfect
-      {
-        question: "By the time we arrived, the train ... (leave).",
-        options: ["left", "has left", "had left", "was leaving"],
-        correct: 2,
-        explanation: "Past perfect for action before another past action."
-      }
-    ],
-    9: [ // Future Expressions
-      {
-        question: "Look at those clouds! It ... (rain).",
-        options: ["will rain", "is going to rain", "rains", "is raining"],
-        correct: 1,
-        explanation: "Prediction based on evidence: going to."
-      },
-      {
-        question: "I ... (meet) her at 5 pm tomorrow.",
-        options: ["meet", "am meeting", "will meet", "meeting"],
-        correct: 1,
-        explanation: "Present continuous for fixed arrangements."
-      }
-    ],
-    10: [ // Modal Verbs
-      {
-        question: "You ... smoke here. It's forbidden.",
-        options: ["mustn't", "don't have to", "shouldn't", "can't"],
-        correct: 0,
-        explanation: "Mustn't = prohibition."
-      },
-      {
-        question: "I ... swim when I was five.",
-        options: ["can", "could", "may", "might"],
-        correct: 1,
-        explanation: "Could for past ability."
-      }
-    ],
-    11: [ // Passive Voice
-      {
-        question: "The cake ... by my mum.",
-        options: ["made", "was made", "is made", "has made"],
-        correct: 1,
-        explanation: "Past passive: was/were + past participle."
-      }
-    ],
-    12: [ // Reported Speech
-      {
-        question: "She said: 'I am tired.' → She said she ... tired.",
-        options: ["is", "was", "has been", "had been"],
-        correct: 1,
-        explanation: "Backshift: present simple → past simple."
-      }
-    ],
-    13: [ // Conditional Sentences
-      {
-        question: "If I ... you, I would say sorry.",
-        options: ["am", "was", "were", "be"],
-        correct: 2,
-        explanation: "Second conditional, subjunctive 'were' for all persons."
-      }
-    ],
-    14: [ // Subjunctive (British)
-      {
-        question: "I suggest that he ... (be) there.",
-        options: ["is", "be", "will be", "was"],
-        correct: 1,
-        explanation: "Mandative subjunctive: base form of verb."
-      }
-    ],
-    15: [ // Relative Clauses
-      {
-        question: "The man ... lives next door is a doctor.",
-        options: ["which", "who", "whose", "whom"],
-        correct: 1,
-        explanation: "Who for people as subject."
-      }
-    ],
-    16: [ // Noun Clauses
-      {
-        question: "I don't know ... he will come.",
-        options: ["that", "if", "what", "which"],
-        correct: 1,
-        explanation: "If/whether for yes/no questions embedded."
-      }
-    ],
-    17: [ // Adverbial Clauses
-      {
-        question: "... he was tired, he continued working.",
-        options: ["Because", "Although", "If", "When"],
-        correct: 1,
-        explanation: "Although shows contrast."
-      }
-    ],
-    18: [ // Infinitives & Gerunds
-      {
-        question: "I enjoy ... (read).",
-        options: ["read", "to read", "reading", "for reading"],
-        correct: 2,
-        explanation: "Enjoy + gerund."
-      }
-    ],
-    19: [ // Adjectives
-      {
-        question: "It's a ... wooden table.",
-        options: ["beautiful old", "old beautiful", "beautifully old", "old beautifully"],
-        correct: 0,
-        explanation: "Opinion before age: beautiful old."
-      }
-    ],
-    20: [ // Comparatives & Superlatives
-      {
-        question: "She is ... than her sister.",
-        options: ["taller", "more tall", "tallest", "most tall"],
-        correct: 0,
-        explanation: "One syllable: -er."
-      }
-    ],
-    21: [ // Adverbs
-      {
-        question: "He drives ... (careful).",
-        options: ["careful", "carefully", "more careful", "carefuller"],
-        correct: 1,
-        explanation: "Adverb form: adjective + -ly."
-      }
-    ],
-    22: [ // Prepositions
-      {
-        question: "I'll see you ... Friday.",
-        options: ["at", "on", "in", "by"],
-        correct: 1,
-        explanation: "Days of the week take 'on'."
-      }
-    ],
-    23: [ // Conjunctions
-      {
-        question: "He was hungry, ... he made a sandwich.",
-        options: ["so", "because", "but", "or"],
-        correct: 0,
-        explanation: "So shows result."
-      }
-    ],
-    24: [ // Determiners & Quantifiers
-      {
-        question: "There are ... people here.",
-        options: ["a lot of", "much", "a little", "any"],
-        correct: 0,
-        explanation: "Countable plural → a lot of."
-      }
-    ],
-    25: [ // Negation
-      {
-        question: "I have ... money.",
-        options: ["no", "not", "none", "any"],
-        correct: 0,
-        explanation: "No + noun = not any."
-      }
-    ],
-    26: [ // Questions & Inversion
-      {
-        question: "You're coming, ... you?",
-        options: ["aren't", "isn't", "don't", "won't"],
-        correct: 0,
-        explanation: "Question tag: positive statement → negative tag."
-      }
-    ],
-    27: [ // Phrasal Verbs
-      {
-        question: "I need to ... my homework.",
-        options: ["hand in", "hand over", "hand out", "hand up"],
-        correct: 0,
-        explanation: "Hand in = submit."
-      }
-    ],
-    28: [ // Collocations & Fixed Expressions
-      {
-        question: "She ... a mistake.",
-        options: ["made", "did", "had", "took"],
-        correct: 0,
-        explanation: "Collocation: make a mistake."
-      }
-    ],
-    29: [ // Word Order & Emphasis
-      {
-        question: "Never ... seen such a thing.",
-        options: ["I have", "have I", "I had", "had I"],
-        correct: 1,
-        explanation: "Inversion after negative adverbial."
-      }
-    ],
-    30: [ // Ellipsis & Substitution
-      {
-        question: "I hope ... (that you can come).",
-        options: ["so", "it", "not", "that"],
-        correct: 0,
-        explanation: "Ellipsis with 'so': I hope so."
-      }
-    ],
-    31: [ // Noun Phrases & Modification
-      {
-        question: "The house ... was sold.",
-        options: ["built last year", "which built last year", "building last year", "was built last year"],
-        correct: 0,
-        explanation: "Reduced relative clause: built last year."
-      }
-    ],
-    32: [ // Verb Valency
-      {
-        question: "She gave ... a present.",
-        options: ["to me", "me", "for me", "at me"],
-        correct: 1,
-        explanation: "Ditransitive verb: give + indirect object + direct object."
-      }
-    ],
-    33: [ // Aspect
-      {
-        question: "I ... (think) about it all day.",
-        options: ["thought", "was thinking", "have thought", "think"],
-        correct: 1,
-        explanation: "Continuous aspect for ongoing activity in past."
-      }
-    ],
-    34: [ // Spelling – British English
-      {
-        question: "Which spelling is British?",
-        options: ["color", "center", "theatre", "organize"],
-        correct: 2,
-        explanation: "-re ending is British (theatre)."
-      }
-    ],
-    35: [ // Punctuation – British Style
-      {
-        question: "He said, 'I'll be late.' → quotes are:",
-        options: ["single", "double", "both", "neither"],
-        correct: 0,
-        explanation: "British English prefers single quotes for first level."
-      }
-    ],
-    36: [ // Formal vs Informal
-      {
-        question: "To ... it may concern,",
-        options: ["who", "whom", "which", "that"],
-        correct: 1,
-        explanation: "Formal letter opening: To whom it may concern."
-      }
-    ],
-    37: [ // Wishes & Regrets
-      {
-        question: "I wish I ... taller.",
-        options: ["am", "was", "were", "be"],
-        correct: 2,
-        explanation: "Wish + past subjunctive: were."
-      }
-    ],
-    38: [ // Compound & Complex Sentences
-      {
-        question: "I like coffee, ... my wife prefers tea.",
-        options: ["and", "but", "so", "or"],
-        correct: 1,
-        explanation: "But joins contrasting independent clauses."
-      }
-    ],
-    39: [ // Common Errors
-      {
-        question: "I have ... money than you.",
-        options: ["fewer", "less", "little", "least"],
-        correct: 1,
-        explanation: "Money is uncountable → less."
-      }
-    ],
-    40: [ // Advanced Syntax
-      {
-        question: "... I known, I would have helped.",
-        options: ["If", "Had", "Were", "Should"],
-        correct: 1,
-        explanation: "Inversion in third conditional: Had I known."
-      }
-    ]
-  }
+  fr: {},
+  en: {}
 };
 
 // =============================================
