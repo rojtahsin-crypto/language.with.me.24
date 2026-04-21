@@ -18773,10 +18773,15 @@ async function openPractice(id) {
 }
 
 function renderPracticeQ() {
-  // ... bestaande code ...
+  const lb = LABELS[lang];
+  const q = Qs[qi];
+  const pct = Math.round(qi / Qs.length * 100);
   document.getElementById('pquiz').innerHTML = `
-    <div class="qhdr">...</div>
-    <div class="qcard practice-card">   <!-- extra klasse -->
+    <div class="qhdr">
+      <div class="pbar-wrap"><div class="pbar-fill" style="width:${pct}%"></div></div>
+      <div class="qmeta"><span>${lb.q} ${qi+1} ${lb.of} ${Qs.length}</span><span>${pct}%</span></div>
+    </div>
+    <div class="qcard">
       <div class="qtext">${q.question}</div>
       <div class="opts" id="opts">
         ${q.options.map((o,i)=>`
@@ -18787,19 +18792,34 @@ function renderPracticeQ() {
       </div>
       <div id="expbl"></div>
     </div>
-    <div class="qnav">...</div>
+    <div class="qnav">
+      <div></div>
+      <button class="btn btn-p" id="nxtbtn" style="display:none" onclick="nextPractice()">
+        ${qi < Qs.length-1 ? lb.next : '✓ '+lb.backTop}
+      </button>
+    </div>
   `;
 }
 
 function pickPractice(sel) {
   const lb = LABELS[lang];
   const q = Qs[qi];
-  document.querySelectorAll('.obtn').forEach((b,i) => {
+  document.querySelectorAll('.obtn').forEach((b, i) => {
     b.disabled = true;
-    if(i === q.correct) b.classList.add('correct');
-    else if(i === sel && sel !== q.correct) b.classList.add('incorrect');
+    if (i === q.correct) b.classList.add('correct');
+    else if (i === sel && sel !== q.correct) b.classList.add('incorrect');
   });
-  document.getElementById('expbl').innerHTML = `<div class="expbox"><strong>${lb.expl}</strong> ${q.explanation}</div>`;
+
+  // دروستکردنی سندوقی ڕوونکردنەوە
+  let feedback = `<div class="expbox"><strong>${lb.expl}</strong> ${q.explanation}`;
+  
+  if (sel !== q.correct) {
+    feedback += `<br><br>📘 <strong>زانیاری زیاتر:</strong> `;
+    feedback += q.tip ? q.tip : "هەوڵ بدە یاساکە دووبارە بخوێنیتەوە.";
+  }
+  
+  feedback += `</div>`;
+  document.getElementById('expbl').innerHTML = feedback;
   document.getElementById('nxtbtn').style.display = 'inline-flex';
   ans[qi] = sel;
 }
@@ -18936,19 +18956,15 @@ async function fetchQuestions(l, id, title, count, qtype) {
   const cacheKey = `q_${qtype}_${l}_${id}`;
   if (cache[cacheKey]) return cache[cacheKey];
 
-  // بزانە ئایا پرسیاری جێگیر (Static) هەیە بۆ ئەم زمانە و ئەم بابەتە
-  const topicQuestions = STATIC_QUESTIONS?.[l]?.[id];
+  const topic = STATIC_QUESTIONS?.[l]?.[id];
+  if (!topic) return [];
 
-  if (topicQuestions && topicQuestions.length > 0) {
-    // تەنها ئەو ژمارە پرسیارە بگەڕێنەوە کە داوا کراوە
-    const selected = topicQuestions.slice(0, count);
-    cache[cacheKey] = selected;
-    return selected;
-  }
+  let questions = topic[qtype]; // لێرە 'practice' یان 'test' هەڵدەبژێرێت
+  if (!questions || questions.length === 0) return [];
 
-  // هیچ پرسیارێک نەدۆزرایەوە - ئاگادارکردنەوەیەک لە کۆنسۆڵ نیشان بدە
-  console.warn(`⚠️ Geen vragen gevonden voor ${l} - onderwerp ${id}. Voeg ze toe aan STATIC_QUESTIONS.`);
-  return [];
+  const selected = questions.slice(0, count);
+  cache[cacheKey] = selected;
+  return selected;
 }
 // =============================================
 // INIT
