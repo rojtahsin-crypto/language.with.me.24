@@ -18773,15 +18773,10 @@ async function openPractice(id) {
 }
 
 function renderPracticeQ() {
-  const lb = LABELS[lang];
-  const q = Qs[qi];
-  const pct = Math.round(qi / Qs.length * 100);
+  // ... bestaande code ...
   document.getElementById('pquiz').innerHTML = `
-    <div class="qhdr">
-      <div class="pbar-wrap"><div class="pbar-fill" style="width:${pct}%"></div></div>
-      <div class="qmeta"><span>${lb.q} ${qi+1} ${lb.of} ${Qs.length}</span><span>${pct}%</span></div>
-    </div>
-    <div class="qcard">
+    <div class="qhdr">...</div>
+    <div class="qcard practice-card">   <!-- extra klasse -->
       <div class="qtext">${q.question}</div>
       <div class="opts" id="opts">
         ${q.options.map((o,i)=>`
@@ -18792,12 +18787,7 @@ function renderPracticeQ() {
       </div>
       <div id="expbl"></div>
     </div>
-    <div class="qnav">
-      <div></div>
-      <button class="btn btn-p" id="nxtbtn" style="display:none" onclick="nextPractice()">
-        ${qi < Qs.length-1 ? lb.next : '✓ '+lb.backTop}
-      </button>
-    </div>
+    <div class="qnav">...</div>
   `;
 }
 
