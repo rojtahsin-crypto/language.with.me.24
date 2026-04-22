@@ -17905,87 +17905,1228 @@ test: [
   { question: "... kinderen spelen. (wij)", options: ["ons","onze","jullie","hun"], correct: 1, explanation: "🟢 Meervoud → onze." }
 ]    },
     3: { // Tegenwoordige tijd
-      practice: [
-        { question: "Hij ... naar school. (lopen)", options: ["loop","loopt","lopen","loopt"], correct: 1, explanation: "❌ Fout! Hij = stam+t.", tip: "💡 Hij/zij/het = stam+t." },
-        { question: "Jij ... een taart. (bakken)", options: ["bakt","bak","bakt","bakken"], correct: 0, explanation: "❌ Fout! Jij = stam+t.", tip: "💡 Vraag: bak jij? → dan stam." },
-        { question: "Wij ... muziek. (luisteren)", options: ["luister","luistert","luisteren","luisterd"], correct: 2, explanation: "❌ Fout! Meervoud = heel werkwoord.", tip: "💡 Wij/jullie/zij = infinitief." },
-        { question: "Ik ... koffie. (drinken)", options: ["drink","drinkt","drinken","gedronken"], correct: 0, explanation: "❌ Fout! Ik = stam.", tip: "💡 Ik = altijd stam." },
-        { question: "Zij ... snel. (rennen)", options: ["ren","rent","rennen","rende"], correct: 1, explanation: "❌ Fout! Zij (enkelvoud) = stam+t.", tip: "💡 Korte klinker → medeklinker dubbel." }
-      ],
-      test: [
-        { question: "Hij ... hard. (werken)", options: ["werk","werkt","werken","werkte"], correct: 1, explanation: "Hij werkt." },
-        { question: "Jullie ... naar huis. (gaan)", options: ["ga","gaat","gaan","ging"], correct: 2, explanation: "Jullie gaan." },
-        { question: "Ik ... een brief. (schrijven)", options: ["schrijf","schrijft","schrijven","geschreven"], correct: 0, explanation: "Ik schrijf." },
-        { question: "Zij ... mooi. (zingen)", options: ["zing","zingt","zingen","zong"], correct: 1, explanation: "Zij zingt." },
-        { question: "Wij ... vaak. (fietsen)", options: ["fiets","fietst","fietsen","fietste"], correct: 2, explanation: "Wij fietsen." },
-        { question: "Jij ... de deur. (openen)", options: ["open","opent","openen","opende"], correct: 1, explanation: "Jij opent." },
-        { question: "Hij ... een boek. (lezen)", options: ["lees","leest","lezen","las"], correct: 1, explanation: "Hij leest." },
-        { question: "Ik ... nooit. (liegen)", options: ["lieg","liegt","liegen","loog"], correct: 0, explanation: "Ik lieg." },
-        { question: "Zij ... snel. (praten)", options: ["praat","praat","praten","praatte"], correct: 2, explanation: "Zij praten." },
-        { question: "Jij ... goed. (koken)", options: ["kook","kookt","koken","kookte"], correct: 1, explanation: "Jij kookt." }
-      ]
-    },
+practice: [
+  { 
+    question: "Ik ... naar school. (lopen)", 
+    options: ["loop","loopt","lopen","lop"], 
+    correct: 0, 
+    explanation: "🟢 Bij 'ik' gebruik je de stam: lopen → loop.", 
+    tip: "💡 Ik + stam (geen -t)" 
+  },
+  { 
+    question: "Jij ... goed. (zingen)", 
+    options: ["zing","zingt","zingen","zong"], 
+    correct: 1, 
+    explanation: "🟢 Jij achter onderwerp → stam + t: zing + t = zingt.", 
+    tip: "💡 Jij + stam+t" 
+  },
+  { 
+    question: "Hij ... elke dag. (zwemmen)", 
+    options: ["zwem","zwemt","zwemmen","zwom"], 
+    correct: 1, 
+    explanation: "🟢 Hij/zij/het = derde persoon → stam + t.", 
+    tip: "💡 Hij/zij/het + stam+t" 
+  },
+  { 
+    question: "Wij ... samen. (werken)", 
+    options: ["werk","werkt","werken","werkte"], 
+    correct: 2, 
+    explanation: "🟢 Wij/jullie/zij (meervoud) → heel werkwoord.", 
+    tip: "💡 Meervoud = hele werkwoord" 
+  },
+  { 
+    question: "... jij van ijs? (houden)", 
+    options: ["Hou","Houdt","Houden","Houd"], 
+    correct: 1, 
+    explanation: "🟢 Vraagzin met 'jij' achter persoonsvorm → stam + t.", 
+    tip: "💡 Jij in vraag = stam+t" 
+  },
+  { 
+    question: "Zij ... heel snel. (rijden)", 
+    options: ["rijd","rijdt","rijden","reed"], 
+    correct: 1, 
+    explanation: "🟢 Zij (enkelvoud) = derde persoon → stam + t.", 
+    tip: "💡 Zij (1 pers.) + stam+t" 
+  },
+  { 
+    question: "... u Nederlands? (spreken)", 
+    options: ["Spreek","Spreekt","Spreken","Sprak"], 
+    correct: 1, 
+    explanation: "🟢 'U' = derde persoon enkelvoud → stam + t.", 
+    tip: "💡 U = hij/zij → stam+t" 
+  },
+  { 
+    question: "Het ... buiten. (regenen)", 
+    options: ["regen","regent","regenen","regende"], 
+    correct: 1, 
+    explanation: "🟢 Het = derde persoon enkelvoud → stam + t.", 
+    tip: "💡 Het + stam+t" 
+  },
+  { 
+    question: "Ik ... geen brood. (willen)", 
+    options: ["wil","wilt","willen","wilde"], 
+    correct: 0, 
+    explanation: "🟢 Onregelmatig: ik wil, jij wilt, hij wil, wij willen.", 
+    tip: "💡 willen → ik wil" 
+  },
+  { 
+    question: "Jij ... te veel. (eten)", 
+    options: ["eet","ete","eten","at"], 
+    correct: 0, 
+    explanation: "🟢 Klankverandering: et → eet bij jij/hij.", 
+    tip: "💡 eten → jij eet" 
+  },
+  { 
+    question: "Wij ... naar de film. (gaan)", 
+    options: ["ga","gaat","gaan","gingen"], 
+    correct: 2, 
+    explanation: "🟢 Meervoud (wij) = heel werkwoord.", 
+    tip: "💡 Wij + hele werkwoord" 
+  },
+  { 
+    question: "Zij (meervoud) ... in Amsterdam. (wonen)", 
+    options: ["woon","woont","wonen","woonde"], 
+    correct: 2, 
+    explanation: "🟢 Zij meervoud = heel werkwoord.", 
+    tip: "💡 Zij (mv.) = hele werkwoord" 
+  },
+  { 
+    question: "... hij altijd te laat? (komen)", 
+    options: ["Kom","Komt","Komen","Kwam"], 
+    correct: 1, 
+    explanation: "🟢 Vraagzin met 'hij' → stam + t.", 
+    tip: "💡 Hij in vraag = stam+t" 
+  },
+  { 
+    question: "Ik ... dat niet. (begrijpen)", 
+    options: ["begrijp","begrijpt","begrijpen","begreep"], 
+    correct: 0, 
+    explanation: "🟢 Ik = stam zonder t.", 
+    tip: "💡 Ik = altijd stam" 
+  },
+  { 
+    question: "Zij (enkelvoud) ... mooi. (tekenen)", 
+    options: ["teken","tekent","tekenen","tekende"], 
+    correct: 1, 
+    explanation: "🟢 Stam (teken) + t = tekent.", 
+    tip: "💡 Zij (1 pers.) + stam+t" 
+  },
+  { 
+    question: "Het ... me dat je komt. (verheugen)", 
+    options: ["verheug","verheugt","verheugen","verheugde"], 
+    correct: 1, 
+    explanation: "🟢 Het = onderwerp, derde persoon → stam + t.", 
+    tip: "💡 Het + stam+t" 
+  },
+  { 
+    question: "Jullie ... goed samen. (werken)", 
+    options: ["werk","werkt","werken","werkten"], 
+    correct: 2, 
+    explanation: "🟢 Jullie = meervoud → heel werkwoord.", 
+    tip: "💡 Jullie = hele werkwoord" 
+  },
+  { 
+    question: "Ik ... een nieuwe jas. (kopen)", 
+    options: ["koop","koopt","kopen","kocht"], 
+    correct: 0, 
+    explanation: "🟢 Ik = stam.", 
+    tip: "💡 Ik = stam" 
+  },
+  { 
+    question: "... je mee? (gaan)", 
+    options: ["Ga","Gaat","Gaan","Ging"], 
+    correct: 1, 
+    explanation: "🟢 Vraagzin met 'je' (jij) achter persoonsvorm → stam + t.", 
+    tip: "💡 Je in vraag = stam+t" 
+  },
+  { 
+    question: "Hij ... altijd zijn huiswerk. (maken)", 
+    options: ["maak","maakt","maken","maakte"], 
+    correct: 1, 
+    explanation: "🟢 Hij = derde persoon → stam + t.", 
+    tip: "💡 Hij + stam+t" 
+  },
+  { 
+    question: "Wij ... graag vakantie. (hebben)", 
+    options: ["heb","hebt","hebben","had"], 
+    correct: 2, 
+    explanation: "🟢 Hebben is onregelmatig: wij hebben.", 
+    tip: "💡 wij hebben" 
+  },
+  { 
+    question: "Ik ... moe. (zijn)", 
+    options: ["ben","bent","is","zijn"], 
+    correct: 0, 
+    explanation: "🟢 Zijn: ik ben, jij bent, hij is, wij zijn.", 
+    tip: "💡 zijn → ik ben" 
+  },
+  { 
+    question: "Jij ... een goede leerling. (zijn)", 
+    options: ["ben","bent","is","zijn"], 
+    correct: 1, 
+    explanation: "🟢 Jij bent (tweede persoon).", 
+    tip: "💡 jij bent" 
+  },
+  { 
+    question: "Het ... koud vandaag. (zijn)", 
+    options: ["ben","bent","is","zijn"], 
+    correct: 2, 
+    explanation: "🟢 Het = derde persoon enkelvoud → is.", 
+    tip: "💡 het is" 
+  },
+  { 
+    question: "Zij (meervoud) ... vriendelijk. (zijn)", 
+    options: ["ben","is","zijn","bent"], 
+    correct: 2, 
+    explanation: "🟢 Zij meervoud → zijn.", 
+    tip: "💡 zij (mv.) zijn" 
+  },
+  { 
+    question: "Ik ... niet kunnen komen. (kunnen)", 
+    options: ["kan","kunt","kunnen","kon"], 
+    correct: 0, 
+    explanation: "🟢 Kunnen: ik kan, jij kunt, hij kan, wij kunnen.", 
+    tip: "💡 ik kan" 
+  },
+  { 
+    question: "Jij ... dat wel. (kunnen)", 
+    options: ["kan","kunt","kunnen","kon"], 
+    correct: 1, 
+    explanation: "🟢 Formeel/jij → kunt (kan is ook toegestaan).", 
+    tip: "💡 jij kunt" 
+  },
+  { 
+    question: "Wij ... naar het station lopen. (moeten)", 
+    options: ["moet","moet","moeten","moest"], 
+    correct: 2, 
+    explanation: "🟢 Wij = meervoud → hele werkwoord.", 
+    tip: "💡 wij moeten" 
+  },
+  { 
+    question: "Hij ... heel hard. (kunnen)", 
+    options: ["kan","kunt","kunnen","kon"], 
+    correct: 0, 
+    explanation: "🟢 Hij kan.", 
+    tip: "💡 hij kan" 
+  },
+  { 
+    question: "... je mij even helpen? (kunnen)", 
+    options: ["Kan","Kunt","Kunnen","Kon"], 
+    correct: 1, 
+    explanation: "🟢 Vraag met 'je' (jij) → kunt.", 
+    tip: "💡 kunt je?" 
+  },
+  { 
+    question: "Ik ... mijn sleutels kwijt. (raken)", 
+    options: ["raak","raakt","raken","raakte"], 
+    correct: 0, 
+    explanation: "🟢 Ik = stam.", 
+    tip: "💡 ik raak" 
+  },
+  { 
+    question: "... jij van koffie? (houden)", 
+    options: ["Hou","Houdt","Houden","Houd"], 
+    correct: 1, 
+    explanation: "🟢 Vraag met 'jij' erachter → stam + t.", 
+    tip: "💡 houdt jij?" 
+  },
+  { 
+    question: "Het ... me zorgen. (baren)", 
+    options: ["baar","baart","baren","baarde"], 
+    correct: 1, 
+    explanation: "🟢 Het baart (stam baar + t).", 
+    tip: "💡 het baart" 
+  },
+  { 
+    question: "Zij (enkelvoud) ... vaak te laat. (komen)", 
+    options: ["kom","komt","komen","kwam"], 
+    correct: 1, 
+    explanation: "🟢 Zij komt.", 
+    tip: "💡 zij komt" 
+  },
+  { 
+    question: "Wij ... altijd de waarheid. (zeggen)", 
+    options: ["zeg","zegt","zeggen","zei"], 
+    correct: 2, 
+    explanation: "🟢 Wij zeggen.", 
+    tip: "💡 wij zeggen" 
+  },
+  { 
+    question: "... u het wachtwoord? (vergeten)", 
+    options: ["Vergeet","Vergeets","Vergeten","Vergat"], 
+    correct: 0, 
+    explanation: "🟢 U = stam + t (vergeet).", 
+    tip: "💡 u vergeet" 
+  },
+  { 
+    question: "Ik ... hem niet. (kennen)", 
+    options: ["ken","kent","kennen","kende"], 
+    correct: 0, 
+    explanation: "🟢 Ik ken.", 
+    tip: "💡 ik ken" 
+  },
+  { 
+    question: "Jullie ... te veel lawaai. (maken)", 
+    options: ["maak","maakt","maken","maakte"], 
+    correct: 2, 
+    explanation: "🟢 Jullie = meervoud → maken.", 
+    tip: "💡 jullie maken" 
+  },
+  { 
+    question: "Het ... regenen. (gaan)", 
+    options: ["ga","gaat","gaan","ging"], 
+    correct: 1, 
+    explanation: "🟢 Hulpwerkwoord gaan: het gaat regenen.", 
+    tip: "💡 het gaat" 
+  },
+  { 
+    question: "... je broer in België? (wonen)", 
+    options: ["Woon","Woont","Wonen","Woonde"], 
+    correct: 1, 
+    explanation: "🟢 'Je broer' = hij → stam + t.", 
+    tip: "💡 hij woont" 
+  }
+],
+test: [
+  { question: "Ik ... naar school. (lopen)", options: ["loop","loopt","lopen","lop"], correct: 0, explanation: "🟢 Ik + stam." },
+  { question: "Jij ... goed. (zingen)", options: ["zing","zingt","zingen","zong"], correct: 1, explanation: "🟢 Jij + stam+t." },
+  { question: "Hij ... elke dag. (zwemmen)", options: ["zwem","zwemt","zwemmen","zwom"], correct: 1, explanation: "🟢 Hij/zij/het + stam+t." },
+  { question: "Wij ... samen. (werken)", options: ["werk","werkt","werken","werkte"], correct: 2, explanation: "🟢 Meervoud = hele werkwoord." },
+  { question: "... u Nederlands? (spreken)", options: ["Spreek","Spreekt","Spreken","Sprak"], correct: 1, explanation: "🟢 U = derde persoon → stam+t." },
+  { question: "Het ... buiten. (regenen)", options: ["regen","regent","regenen","regende"], correct: 1, explanation: "🟢 Het + stam+t." },
+  { question: "Ik ... geen brood. (willen)", options: ["wil","wilt","willen","wilde"], correct: 0, explanation: "🟢 Onregelmatig: ik wil." },
+  { question: "Wij ... naar de film. (gaan)", options: ["ga","gaat","gaan","gingen"], correct: 2, explanation: "🟢 Wij = hele werkwoord." },
+  { question: "Zij (mv.) ... in Amsterdam. (wonen)", options: ["woon","woont","wonen","woonde"], correct: 2, explanation: "🟢 Zij meervoud = hele werkwoord." },
+  { question: "... hij altijd te laat? (komen)", options: ["Kom","Komt","Komen","Kwam"], correct: 1, explanation: "🟢 Hij in vraag = stam+t." },
+  { question: "Het ... me dat je komt. (verheugen)", options: ["verheug","verheugt","verheugen","verheugde"], correct: 1, explanation: "🟢 Het = derde persoon." },
+  { question: "Jullie ... goed samen. (werken)", options: ["werk","werkt","werken","werkten"], correct: 2, explanation: "🟢 Jullie = meervoud." },
+  { question: "Ik ... moe. (zijn)", options: ["ben","bent","is","zijn"], correct: 0, explanation: "🟢 Ik ben." },
+  { question: "Jij ... een goede leerling. (zijn)", options: ["ben","bent","is","zijn"], correct: 1, explanation: "🟢 Jij bent." },
+  { question: "Zij (mv.) ... vriendelijk. (zijn)", options: ["ben","is","zijn","bent"], correct: 2, explanation: "🟢 Zij meervoud = zijn." },
+  { question: "Ik ... niet kunnen komen. (kunnen)", options: ["kan","kunt","kunnen","kon"], correct: 0, explanation: "🟢 Ik kan." },
+  { question: "Wij ... naar het station. (moeten)", options: ["moet","moet","moeten","moest"], correct: 2, explanation: "🟢 Wij moeten." },
+  { question: "... je mij helpen? (kunnen)", options: ["Kan","Kunt","Kunnen","Kon"], correct: 1, explanation: "🟢 Kunt je?" },
+  { question: "Het ... regenen. (gaan)", options: ["ga","gaat","gaan","ging"], correct: 1, explanation: "🟢 Het gaat." },
+  { question: "... je broer in België? (wonen)", options: ["Woon","Woont","Wonen","Woonde"], correct: 1, explanation: "🟢 Je broer = hij → woont." }
+]    },
     4: { // Verleden tijd
-      practice: [
-        { question: "Gisteren ... ik een film. (kijken)", options: ["keek","kijkte","gekeken","kijk"], correct: 0, explanation: "❌ Fout! Kijken = sterk: keek.", tip: "💡 Sterk = klinker verandert." },
-        { question: "Vorig jaar ... wij. (reizen)", options: ["reisden","reisten","reizen","gereisd"], correct: 1, explanation: "❌ Fout! Stam op s → -te(n).", tip: "💡 't kofschip: s erin = -te." },
-        { question: "Hij ... laat. (slapen)", options: ["slaap","sliep","geslapen","slapen"], correct: 1, explanation: "❌ Fout! Sterk: slapen → sliep.", tip: "💡 aa → ie." },
-        { question: "Zij ... de hele dag. (werken)", options: ["werk","werkte","gewerkt","werken"], correct: 1, explanation: "❌ Fout! Zwak: werk + te.", tip: "💡 Zwak = stam + te/de." },
-        { question: "Wij ... snel. (rennen)", options: ["ren","rende","gerend","renden"], correct: 3, explanation: "❌ Fout! Zwak meervoud: renden.", tip: "💡 Meervoud = -den/-ten + n." }
-      ],
-      test: [
-        { question: "Ik ... een lied. (zingen)", options: ["zing","zong","gezongen","zingen"], correct: 1, explanation: "Sterk: zong." },
-        { question: "Hij ... de bal. (trappen)", options: ["trap","trapte","getrapt","trappen"], correct: 1, explanation: "Zwak: trapte." },
-        { question: "Zij ... een brief. (schrijven)", options: ["schrijf","schreef","geschreven","schrijven"], correct: 1, explanation: "Sterk: schreef." },
-        { question: "Wij ... hard. (lopen)", options: ["loop","liep","gelopen","liepen"], correct: 3, explanation: "Sterk meervoud: liepen." },
-        { question: "Jij ... de deur. (sluiten)", options: ["sluit","sloot","gesloten","sloten"], correct: 1, explanation: "Sterk: sloot." },
-        { question: "Hij ... snel. (bellen)", options: ["bel","belde","gebeld","belden"], correct: 1, explanation: "Zwak: belde." },
-        { question: "Ik ... het raam. (openen)", options: ["open","opende","geopend","openden"], correct: 1, explanation: "Zwak: opende." },
-        { question: "Zij ... een taart. (bakken)", options: ["bak","bakte","gebakken","bakten"], correct: 1, explanation: "Zwak: bakte." },
-        { question: "Wij ... naar huis. (fietsen)", options: ["fiets","fietste","gefietst","fietsten"], correct: 3, explanation: "Zwak meervoud: fietsten." },
-        { question: "Hij ... een fout. (maken)", options: ["maak","maakte","gemaakt","maakten"], correct: 1, explanation: "Zwak: maakte." }
-      ]
-    },
-    5: { // Voltooide tijden
-      practice: [
-        { question: "Ik heb huiswerk ... (maken)", options: ["gemaakt","gemaakd","maakte","maken"], correct: 0, explanation: "❌ Fout! Zwak: gemaakt.", tip: "💡 Klinkt als t? Dan -t!" },
-        { question: "Zij is naar huis ... (gaan)", options: ["gegaan","gaat","ging","gegaant"], correct: 0, explanation: "❌ Fout! Sterk: gegaan.", tip: "💡 Beweging = zijn + voltooid deelwoord." },
-        { question: "Wij hebben de film ... (kijken)", options: ["gekeken","kekken","keek","kijken"], correct: 0, explanation: "❌ Fout! Sterk: gekeken.", tip: "💡 Sterk = vaak klinkerwisseling." },
-        { question: "Hij is snel ... (rennen)", options: ["gerend","rende","rende","rennen"], correct: 0, explanation: "❌ Fout! Zwak met zijn: gerend.", tip: "💡 Plaatsverandering = zijn." },
-        { question: "Ik heb een boek ... (lezen)", options: ["gelezen","las","lees","lezen"], correct: 0, explanation: "❌ Fout! Sterk: gelezen.", tip: "💡 Voltooid deelwoord sterke ww. = ge...en." }
-      ],
-      test: [
-        { question: "Zij heeft een taart ... (bakken)", options: ["gebakken","bakte","bak","bakken"], correct: 0, explanation: "Zwak: gebakken." },
-        { question: "Wij zijn naar buiten ... (gaan)", options: ["gegaan","ging","gaat","gaan"], correct: 0, explanation: "Beweging → zijn + gegaan." },
-        { question: "Hij heeft de bal ... (trappen)", options: ["getrapt","trapte","trap","trappen"], correct: 0, explanation: "Zwak: getrapt." },
-        { question: "Ik ben gisteren ... (slapen)", options: ["geslapen","sliep","slaap","slapen"], correct: 0, explanation: "Sterk: geslapen." },
-        { question: "Zij heeft een brief ... (schrijven)", options: ["geschreven","schreef","schrijf","schrijven"], correct: 0, explanation: "Sterk: geschreven." },
-        { question: "Wij hebben hard ... (werken)", options: ["gewerkt","werkte","werk","werken"], correct: 0, explanation: "Zwak: gewerkt." },
-        { question: "Hij is snel ... (fietsen)", options: ["gefietst","fietste","fiets","fietsen"], correct: 0, explanation: "Beweging + zwak: gefietst." },
-        { question: "Ik heb de deur ... (sluiten)", options: ["gesloten","sloot","sluit","sluiten"], correct: 0, explanation: "Sterk: gesloten." },
-        { question: "Zij heeft een lied ... (zingen)", options: ["gezongen","zong","zing","zingen"], correct: 0, explanation: "Sterk: gezongen." },
-        { question: "Wij hebben de auto ... (wassen)", options: ["gewassen","waste","was","wassen"], correct: 0, explanation: "Sterk: gewassen." }
+practice: [
+  { 
+    question: "Gisteren ... ik naar huis. (lopen)", 
+    options: ["loopte","liep","liepte","lopte"], 
+    correct: 1, 
+    explanation: "🟢 'Lopen' is sterk: ik liep, wij liepen.", 
+    tip: "💡 Sterk = klinker verandert (oo → ie)" 
+  },
+  { 
+    question: "Wij ... de hele dag. (werken)", 
+    options: ["werkten","werkden","werkte","gewerkt"], 
+    correct: 0, 
+    explanation: "🟢 'Werken' is zwak, stam eindigt op k ('t kofschip) → +ten.", 
+    tip: "💡 't Kofschip: k,f,s,ch,p,t,x → +te(n)" 
+  },
+  { 
+    question: "Hij ... een brief. (schrijven)", 
+    options: ["schreef","schrijfde","schreefte","schrijfte"], 
+    correct: 0, 
+    explanation: "🟢 'Schrijven' is sterk: ik schreef, wij schreven.", 
+    tip: "💡 ij → ee (schrijven → schreef)" 
+  },
+  { 
+    question: "... jij dat boek? (lezen)", 
+    options: ["Leestte","Las","Lezend","Leesde"], 
+    correct: 1, 
+    explanation: "🟢 'Lezen' is sterk: ik las, jij las, hij las.", 
+    tip: "💡 ee → a (lezen → las)" 
+  },
+  { 
+    question: "Zij ... vroeg op. (staan)", 
+    options: ["stande","stond","staande","stant"], 
+    correct: 1, 
+    explanation: "🟢 'Staan' is sterk: ik stond, wij stonden.", 
+    tip: "💡 aa → o (staan → stond)" 
+  },
+  { 
+    question: "Ik ... niet goed slapen. (kunnen)", 
+    options: ["kon","konde","kunste","kond"], 
+    correct: 0, 
+    explanation: "🟢 'Kunnen' is modaal: ik kon, jij kon, hij kon.", 
+    tip: "💡 Modaal: kunnen → kon, mogen → mocht" 
+  },
+  { 
+    question: "Wij ... naar de film. (gaan)", 
+    options: ["gingen","gaanden","ging","gaatten"], 
+    correct: 0, 
+    explanation: "🟢 'Gaan' is sterk: ik ging, wij gingen.", 
+    tip: "💡 aa → i (gaan → ging)" 
+  },
+  { 
+    question: "Het ... de hele nacht. (regenen)", 
+    options: ["regende","regente","regen","regentte"], 
+    correct: 0, 
+    explanation: "🟢 'Regenen' is zwak, stam eindigt op n (niet in 't kofschip) → +de.", 
+    tip: "💡 Niet in 't kofschip → +de(n)" 
+  },
+  { 
+    question: "Jullie ... veel lawaai. (maken)", 
+    options: ["maakten","maakden","maakte","gemaakt"], 
+    correct: 0, 
+    explanation: "🟢 'Maken' is zwak, stam eindigt op k ('t kofschip) → +ten.", 
+    tip: "💡 k in 't kofschip → maakten" 
+  },
+  { 
+    question: "Ik ... hem gisteren. (zien)", 
+    options: ["zag","zaag","ziede","zage"], 
+    correct: 0, 
+    explanation: "🟢 'Zien' is sterk: ik zag, wij zagen.", 
+    tip: "💡 ie → a (zien → zag)" 
+  },
+  { 
+    question: "... u mijn brief? (ontvangen)", 
+    options: ["Ontving","Ontvangde","Ontvangen","Ontvong"], 
+    correct: 0, 
+    explanation: "🟢 'Ontvangen' is sterk: ik ontving, wij ontvingen.", 
+    tip: "💡 a → i (vangen → ving)" 
+  },
+  { 
+    question: "Zij ... vrolijk. (zingen)", 
+    options: ["zongen","zongden","zongten","zingen"], 
+    correct: 0, 
+    explanation: "🟢 'Zingen' is sterk: ik zong, wij zongen.", 
+    tip: "💡 i → o (zingen → zong)" 
+  },
+  { 
+    question: "Hij ... zijn sleutels. (verliezen)", 
+    options: ["verliestte","verloor","verliesde","verloren"], 
+    correct: 1, 
+    explanation: "🟢 'Verliezen' is sterk: ik verloor, wij verloren.", 
+    tip: "💡 ie → oo (verliezen → verloor)" 
+  },
+  { 
+    question: "Wij ... een nieuwe auto. (kopen)", 
+    options: ["kochten","koopten","kopen","koopden"], 
+    correct: 0, 
+    explanation: "🟢 'Kopen' is sterk: ik kocht, wij kochten.", 
+    tip: "💡 oo → ocht (kopen → kocht)" 
+  },
+  { 
+    question: "Ik ... te veel. (eten)", 
+    options: ["eette","at","eetde","ete"], 
+    correct: 1, 
+    explanation: "🟢 'Eten' is sterk: ik at, wij aten.", 
+    tip: "💡 ee → a (eten → at)" 
+  },
+  { 
+    question: "Het ... me spijt. (berouwen)", 
+    options: ["berouwde","berouwte","berouwen","berouw"], 
+    correct: 0, 
+    explanation: "🟢 'Berouwen' is zwak, w niet in 't kofschip → +de.", 
+    tip: "💡 w niet in 't kofschip → berouwde" 
+  },
+  { 
+    question: "Jij ... dat niet. (weten)", 
+    options: ["wist","wiste","wetde","wette"], 
+    correct: 0, 
+    explanation: "🟢 'Weten' is sterk: ik wist, wij wisten.", 
+    tip: "💡 ee → i (weten → wist)" 
+  },
+  { 
+    question: "Zij ... heel hard. (rennen)", 
+    options: ["rende","rente","rande","ronnen"], 
+    correct: 0, 
+    explanation: "🟢 'Rennen' is zwak, n niet in 't kofschip → +de.", 
+    tip: "💡 n niet in 't kofschip → rende" 
+  },
+  { 
+    question: "Wij ... op tijd. (aankomen)", 
+    options: ["kwamen aan","aankwamen","kwam aan","komen aan"], 
+    correct: 0, 
+    explanation: "🟢 Scheidbaar werkwoord: aankomen → kwamen aan.", 
+    tip: "💡 Scheidbaar: voorvoegsel gaat naar einde" 
+  },
+  { 
+    question: "Hij ... een cadeau. (krijgen)", 
+    options: ["kreeg","kreg","krijsde","kreegte"], 
+    correct: 0, 
+    explanation: "🟢 'Krijgen' is sterk: ik kreeg, wij kregen.", 
+    tip: "💡 ij → ee (krijgen → kreeg)" 
+  },
+  { 
+    question: "Ik ... in bad. (liggen)", 
+    options: ["lag","legde","ligde","loog"], 
+    correct: 0, 
+    explanation: "🟢 'Liggen' is sterk: ik lag, wij lagen.", 
+    tip: "💡 i → a (liggen → lag)" 
+  },
+  { 
+    question: "... jij vroeger veel? (zwemmen)", 
+    options: ["Zwemde","Zwom","Zwemte","Zwomde"], 
+    correct: 1, 
+    explanation: "🟢 'Zwemmen' is sterk: ik zwom, wij zwommen.", 
+    tip: "💡 e → o (zwemmen → zwom)" 
+  },
+  { 
+    question: "Het ... donker. (worden)", 
+    options: ["werd","wordde","werdt","wierd"], 
+    correct: 0, 
+    explanation: "🟢 'Worden' is sterk: ik werd, wij werden.", 
+    tip: "💡 o → e (worden → werd)" 
+  },
+  { 
+    question: "Zij ... blij. (zijn)", 
+    options: ["waren","wassen","zijn","werd"], 
+    correct: 0, 
+    explanation: "🟢 'Zijn' is onregelmatig: ik was, wij waren.", 
+    tip: "💡 zijn → was/waren (uit je hoofd!)" 
+  },
+  { 
+    question: "Ik ... geen tijd. (hebben)", 
+    options: ["had","hadde","hebde","hebt"], 
+    correct: 0, 
+    explanation: "🟢 'Hebben' is onregelmatig: ik had, wij hadden.", 
+    tip: "💡 hebben → had/hadden" 
+  },
+  { 
+    question: "Wij ... het antwoord niet. (weten)", 
+    options: ["wisten","wiste","westen","wisten"], 
+    correct: 0, 
+    explanation: "🟢 'Weten' is sterk: ik wist, wij wisten.", 
+    tip: "💡 Meervoud sterk = +en (wist → wisten)" 
+  },
+  { 
+    question: "Hij ... zijn vinger. (snijden)", 
+    options: ["sneed","snijde","snede","sneet"], 
+    correct: 0, 
+    explanation: "🟢 'Snijden' is sterk: ik sneed, wij sneden.", 
+    tip: "💡 ij → ee (snijden → sneed)" 
+  },
+  { 
+    question: "Jullie ... te lang. (praten)", 
+    options: ["praatten","praatden","prateten","praat"], 
+    correct: 0, 
+    explanation: "🟢 'Praten' is zwak, stam eindigt op t → verdubbeling: praatten.", 
+    tip: "💡 Stam op t/d → verdubbel: praat + ten = praatten" 
+  },
+  { 
+    question: "Ik ... niet durven. (durven)", 
+    options: ["durfde","durfte","dorst","durf"], 
+    correct: 0, 
+    explanation: "🟢 'Durven' is zwak in moderne taal: ik durfde.", 
+    tip: "💡 Durven = meestal zwak: durfde" 
+  },
+  { 
+    question: "Zij ... de deur. (sluiten)", 
+    options: ["sloot","sluitte","sluiste","sloot"], 
+    correct: 0, 
+    explanation: "🟢 'Sluiten' is sterk: ik sloot, wij sloten.", 
+    tip: "💡 ui → oo (sluiten → sloot)" 
+  },
+  { 
+    question: "Wij ... naar muziek. (luisteren)", 
+    options: ["luisterden","luisterten","luisteren","luisterde"], 
+    correct: 0, 
+    explanation: "🟢 'Luisteren' is zwak, r niet in 't kofschip → +den.", 
+    tip: "💡 r niet in 't kofschip → luisterden" 
+  },
+  { 
+    question: "Hij ... in het water. (vallen)", 
+    options: ["viel","valde","valte","velde"], 
+    correct: 0, 
+    explanation: "🟢 'Vallen' is sterk: ik viel, wij vielen.", 
+    tip: "💡 a → ie (vallen → viel)" 
+  },
+  { 
+    question: "Ik ... een fout. (maken)", 
+    options: ["maakte","maakten","maakde","gemaakt"], 
+    correct: 0, 
+    explanation: "🟢 'Maken' is zwak, k in 't kofschip → +te (enkelvoud).", 
+    tip: "💡 Enkelvoud zwak = stam+te/de" 
+  },
+  { 
+    question: "Jij ... de waarheid. (zeggen)", 
+    options: ["zei","zegde","zegte","zegt"], 
+    correct: 0, 
+    explanation: "🟢 'Zeggen' is sterk: ik zei, wij zeiden.", 
+    tip: "💡 eg → ei (zeggen → zei)" 
+  },
+  { 
+    question: "Het ... ons goed. (gaan)", 
+    options: ["ging","gaande","gangde","gong"], 
+    correct: 0, 
+    explanation: "🟢 'Gaan' is sterk: ik ging, wij gingen.", 
+    tip: "💡 aa → i (gaan → ging)" 
+  },
+  { 
+    question: "Zij ... de stad uit. (rijden)", 
+    options: ["reden","rijdden","rijden","reedden"], 
+    correct: 0, 
+    explanation: "🟢 'Rijden' is sterk: ik reed, wij reden.", 
+    tip: "💡 ij → e (rijden → reed/reden)" 
+  },
+  { 
+    question: "Ik ... naar haar lach. (kijken)", 
+    options: ["keek","kijkte","kijkde","keken"], 
+    correct: 0, 
+    explanation: "🟢 'Kijken' is sterk: ik keek, wij keken.", 
+    tip: "💡 ij → ee (kijken → keek)" 
+  },
+  { 
+    question: "... u dat weten? (kunnen)", 
+    options: ["Kon","Konde","Kunde","Koste"], 
+    correct: 0, 
+    explanation: "🟢 'Kunnen' is modaal: ik kon, u kon.", 
+    tip: "💡 Kunnen → kon (alle personen)" 
+  },
+  { 
+    question: "Hij ... zijn werk goed. (doen)", 
+    options: ["deed","deede","doede","dee"], 
+    correct: 0, 
+    explanation: "🟢 'Doen' is sterk: ik deed, wij deden.", 
+    tip: "💡 oe → ee (doen → deed)" 
+  },
+  { 
+    question: "Wij ... elkaar op straat. (ontmoeten)", 
+    options: ["ontmoetten","ontmoetden","ontmoeten","ontmoette"], 
+    correct: 0, 
+    explanation: "🟢 'Ontmoeten' is zwak, stam eindigt op t → verdubbeling: ontmoetten.", 
+    tip: "💡 Stam op t → verdubbel: ontmoet + ten = ontmoetten" 
+  }
+],
+
+test: [
+  { question: "Gisteren ... ik naar huis. (lopen)", options: ["loopte","liep","liepte","lopte"], correct: 1, explanation: "🟢 Lopen → liep (sterk)." },
+  { question: "Wij ... de hele dag. (werken)", options: ["werkten","werkden","werkte","gewerkt"], correct: 0, explanation: "🟢 Werken → werkten (zwak, k in 't kofschip)." },
+  { question: "Hij ... een brief. (schrijven)", options: ["schreef","schrijfde","schreefte","schrijfte"], correct: 0, explanation: "🟢 Schrijven → schreef (sterk)." },
+  { question: "... jij dat boek? (lezen)", options: ["Leestte","Las","Lezend","Leesde"], correct: 1, explanation: "🟢 Lezen → las (sterk)." },
+  { question: "Zij ... vroeg op. (staan)", options: ["stande","stond","staande","stant"], correct: 1, explanation: "🟢 Staan → stond (sterk)." },
+  { question: "Ik ... niet slapen. (kunnen)", options: ["kon","konde","kunste","kond"], correct: 0, explanation: "🟢 Kunnen → kon (modaal)." },
+  { question: "Wij ... naar de film. (gaan)", options: ["gingen","gaanden","ging","gaatten"], correct: 0, explanation: "🟢 Gaan → gingen (sterk)." },
+  { question: "Het ... de hele nacht. (regenen)", options: ["regende","regente","regen","regentte"], correct: 0, explanation: "🟢 Regenen → regende (zwak)." },
+  { question: "Jullie ... veel lawaai. (maken)", options: ["maakten","maakden","maakte","gemaakt"], correct: 0, explanation: "🟢 Maken → maakten (zwak)." },
+  { question: "Ik ... hem gisteren. (zien)", options: ["zag","zaag","ziede","zage"], correct: 0, explanation: "🟢 Zien → zag (sterk)." },
+  { question: "... u mijn brief? (ontvangen)", options: ["Ontving","Ontvangde","Ontvangen","Ontvong"], correct: 0, explanation: "🟢 Ontvangen → ontving (sterk)." },
+  { question: "Zij ... vrolijk. (zingen)", options: ["zongen","zongden","zongten","zingen"], correct: 0, explanation: "🟢 Zingen → zongen (sterk)." },
+  { question: "Hij ... zijn sleutels. (verliezen)", options: ["verliestte","verloor","verliesde","verloren"], correct: 1, explanation: "🟢 Verliezen → verloor (sterk)." },
+  { question: "Wij ... een auto. (kopen)", options: ["kochten","koopten","kopen","koopden"], correct: 0, explanation: "🟢 Kopen → kochten (sterk)." },
+  { question: "Ik ... te veel. (eten)", options: ["eette","at","eetde","ete"], correct: 1, explanation: "🟢 Eten → at (sterk)." },
+  { question: "Het ... me spijt. (berouwen)", options: ["berouwde","berouwte","berouwen","berouw"], correct: 0, explanation: "🟢 Berouwen → berouwde (zwak)." },
+  { question: "Jij ... dat niet. (weten)", options: ["wist","wiste","wetde","wette"], correct: 0, explanation: "🟢 Weten → wist (sterk)." },
+  { question: "Zij ... heel hard. (rennen)", options: ["rende","rente","rande","ronnen"], correct: 0, explanation: "🟢 Rennen → rende (zwak)." },
+  { question: "Wij ... op tijd. (aankomen)", options: ["kwamen aan","aankwamen","kwam aan","komen aan"], correct: 0, explanation: "🟢 Aankomen → kwamen aan (sterk, scheidbaar)." },
+  { question: "Hij ... een cadeau. (krijgen)", options: ["kreeg","kreg","krijsde","kreegte"], correct: 0, explanation: "🟢 Krijgen → kreeg (sterk)." }
+]    },
+  5: { // Voltooide tijden
+practice: [
+  { 
+    question: "Ik ... gisteren mijn huiswerk ... (maken)", 
+    options: ["heb / maakt","ben / gemaakt","heb / gemaakt","ben / makend"], 
+    correct: 2, 
+    explanation: "🟢 ‘Maken’ is overgankelijk → hebben. Voltooid deelwoord: gemaakt.", 
+    tip: "💡 Overgankelijk/activiteit = hebben + gemaakt" 
+  },
+  { 
+    question: "Hij ... naar huis ... (gaan)", 
+    options: ["is / gegaan","heeft / gegaan","is / gegaand","heeft / gegaand"], 
+    correct: 0, 
+    explanation: "🟢 ‘Gaan’ = beweging → zijn. Voltooid deelwoord: gegaan.", 
+    tip: "💡 Beweging/verandering = zijn" 
+  },
+  { 
+    question: "Wij ... al ... (eten)", 
+    options: ["hebben / gegeten","zijn / gegeten","hebben / geëet","zijn / geëten"], 
+    correct: 0, 
+    explanation: "🟢 ‘Eten’ (overgankelijk) → hebben. Sterk: gegeten.", 
+    tip: "💡 Eten → gegeten (sterk)" 
+  },
+  { 
+    question: "Zij ... vanmorgen ... (aankomen)", 
+    options: ["heeft / aangekomen","is / aangekomen","is / aangekomt","heeft / aangekomt"], 
+    correct: 1, 
+    explanation: "🟢 ‘Aankomen’ = beweging → zijn. Voltooid deelwoord: aangekomen.", 
+    tip: "💢 Aankomen → is aangekomen" 
+  },
+  { 
+    question: "... jij dat boek ...? (lezen)", 
+    options: ["Heeft / geleest","Ben / gelezen","Heb / gelezen","Hebt / gelezen"], 
+    correct: 2, 
+    explanation: "🟢 Vraag met ‘jij’ → ‘heb jij’. Lezen is sterk: gelezen.", 
+    tip: "💢 Lezen → gelezen (sterk)" 
+  },
+  { 
+    question: "Ik ... nooit zo hard ... (werken)", 
+    options: ["heb / gewerkt","ben / gewerkt","heb / gewerkd","ben / gewerkd"], 
+    correct: 0, 
+    explanation: "🟢 ‘Werken’ = activiteit → hebben. Zwak: gewerkt.", 
+    tip: "💢 ’t Kofschip: k → +t (gewerkt)" 
+  },
+  { 
+    question: "Het ... de hele nacht ... (regenen)", 
+    options: ["heeft / geregend","is / geregend","heeft / geregent","is / geregent"], 
+    correct: 0, 
+    explanation: "🟢 Onpersoonlijk weerswerkwoord → hebben. Zwak: geregend.", 
+    tip: "💢 Regen → geregend (n)" 
+  },
+  { 
+    question: "Zij ... al ... toen ik belde. (vertrekken)", 
+    options: ["was / vertrokken","had / vertrokken","was / vertrekt","had / vertrekken"], 
+    correct: 0, 
+    explanation: "🟢 ‘Vertrekken’ = beweging → zijn. VVT: was vertrokken.", 
+    tip: "💢 VVT: was/waren + voltooid deelwoord" 
+  },
+  { 
+    question: "Ik ... mijn sleutels ... (verliezen)", 
+    options: ["heb / verliest","ben / verloren","heb / verloren","ben / verliezen"], 
+    correct: 2, 
+    explanation: "🟢 ‘Verliezen’ (overgankelijk) → hebben. Sterk: verloren.", 
+    tip: "💢 Verliezen → verloren (sterk)" 
+  },
+  { 
+    question: "Wij ... nog nooit in Londen ... (zijn)", 
+    options: ["zijn / geweest","hebben / geweest","zijn / gezet","hebben / gehad"], 
+    correct: 0, 
+    explanation: "🟢 ‘Zijn’ als hoofdwerkwoord → zijn als hulpwerkwoord.", 
+    tip: "💢 Zijn → ben geweest / zijn geweest" 
+  },
+  { 
+    question: "... u de brief al ...? (ontvangen)", 
+    options: ["Heeft / ontvangen","Is / ontvangen","Hebt / ontvangen","Heeft / ontvangd"], 
+    correct: 0, 
+    explanation: "🟢 ‘Ontvangen’ → hebben. Voltooid deelwoord blijft gelijk (geen ge-).", 
+    tip: "💢 Ontvangen → ontvangen (geen ge-)" 
+  },
+  { 
+    question: "Hij ... te veel ... (roken)", 
+    options: ["is / gerookt","heeft / gerookt","is / gerooken","heeft / gerooken"], 
+    correct: 1, 
+    explanation: "🟢 ‘Roken’ = activiteit → hebben. Zwak: gerookt.", 
+    tip: "💢 k in ’t kofschip → +t (gerookt)" 
+  },
+  { 
+    question: "Toen ik binnenkwam, ... het al ... (gebeuren)", 
+    options: ["was / gebeurt","had / gebeurd","was / gebeurd","had / gebeurt"], 
+    correct: 2, 
+    explanation: "🟢 ‘Gebeuren’ = verandering → zijn. VVT: was gebeurd.", 
+    tip: "💢 Gebeuren → is/was gebeurd" 
+  },
+  { 
+    question: "... je de melk al ...? (drinken)", 
+    options: ["Ben / gedronken","Heb / gedronken","Hebt / gedronkt","Ben / gedronkt"], 
+    correct: 1, 
+    explanation: "🟢 ‘Drinken’ (overgankelijk) → hebben. Sterk: gedronken.", 
+    tip: "💢 Drinken → gedronken (sterk)" 
+  },
+  { 
+    question: "Zij ... zich ... (vergissen)", 
+    options: ["heeft / vergist","is / vergist","heeft / vergissed","is / vergissed"], 
+    correct: 0, 
+    explanation: "🟢 Wederkerend werkwoord → hebben. Zwak: vergist.", 
+    tip: "💢 Zich vergissen → heeft vergist" 
+  },
+  { 
+    question: "Wij ... de hele middag ... (zwemmen)", 
+    options: ["zijn / gezwommen","hebben / gezwommen","zijn / gezwemd","hebben / gezwemd"], 
+    correct: 1, 
+    explanation: "🟢 ‘Zwemmen’ (activiteit zonder richting) → hebben. Sterk: gezwommen.", 
+    tip: "💢 Zwemmen → gezwommen (sterk)" 
+  },
+  { 
+    question: "Het ... me altijd ... (verbazen)", 
+    options: ["heeft / verbaasd","is / verbaasd","heeft / verbaast","is / verbaast"], 
+    correct: 0, 
+    explanation: "🟢 ‘Verbazen’ (overgankelijk) → hebben. Zwak: verbaasd.", 
+    tip: "💢 Verbazen → verbaasd (zwak)" 
+  },
+  { 
+    question: "Ik ... al ... voordat jij kwam. (slapen)", 
+    options: ["had / geslapen","was / geslapen","had / geslaapt","was / geslaapt"], 
+    correct: 0, 
+    explanation: "🟢 ‘Slapen’ (toestand) → hebben. VVT: had geslapen.", 
+    tip: "💢 Slapen → geslapen (sterk)" 
+  },
+  { 
+    question: "Hij ... nooit in een vliegtuig ... (vliegen)", 
+    options: ["is / gevlogen","heeft / gevlogen","is / gevliegd","heeft / gevliegd"], 
+    correct: 0, 
+    explanation: "🟢 ‘Vliegen’ (beweging) → zijn. Sterk: gevlogen.", 
+    tip: "💢 Vliegen → gevlogen (sterk)" 
+  },
+  { 
+    question: "Zij ... een nieuwe auto ... (kopen)", 
+    options: ["heeft / gekocht","is / gekocht","heeft / gekoopd","is / gekoopd"], 
+    correct: 0, 
+    explanation: "🟢 ‘Kopen’ (overgankelijk) → hebben. Sterk: gekocht.", 
+    tip: "💢 Kopen → gekocht (sterk)" 
+  },
+  { 
+    question: "... jullie het nieuws ...? (horen)", 
+    options: ["Hebben / gehoord","Zijn / gehoord","Hebt / gehoord","Zijn / gehoort"], 
+    correct: 0, 
+    explanation: "🟢 ‘Horen’ (zintuig) → hebben. Zwak: gehoord.", 
+    tip: "💢 Horen → gehoord (zwak)" 
+  },
+  { 
+    question: "Hoe ... het ...? (lopen)", 
+    options: ["heeft / gelopen","is / gelopen","heeft / lopen","is / lopen"], 
+    correct: 1, 
+    explanation: "🟢 ‘Lopen’ (verloop) → zijn. Sterk: gelopen.", 
+    tip: "💢 Hoe is het gelopen? = zijn" 
+  },
+  { 
+    question: "Ik ... het hem ... (vertellen)", 
+    options: ["heb / verteld","ben / verteld","heb / vertelt","ben / vertelt"], 
+    correct: 0, 
+    explanation: "🟢 ‘Vertellen’ → hebben. Zwak: verteld.", 
+    tip: "💢 Vertellen → verteld (zwak)" 
+  },
+  { 
+    question: "De trein ... al ... toen wij aankwamen. (vertrekken)", 
+    options: ["was / vertrokken","had / vertrokken","was / vertrekt","had / vertrekken"], 
+    correct: 0, 
+    explanation: "🟢 ‘Vertrekken’ → zijn. VVT: was vertrokken.", 
+    tip: "💢 VVT beweging = was/waren + deelwoord" 
+  },
+  { 
+    question: "... je wel ... naar me? (luisteren)", 
+    options: ["Heb / geluisterd","Ben / geluisterd","Hebt / geluisterd","Ben / geluistert"], 
+    correct: 0, 
+    explanation: "🟢 ‘Luisteren’ → hebben. Informeel: ‘heb je’.", 
+    tip: "💢 Luisteren → heb je geluisterd" 
+  },
+  { 
+    question: "Het ... nog nooit zo hard ... (waaien)", 
+    options: ["heeft / gewaaid","is / gewaaid","heeft / gewaait","is / gewaait"], 
+    correct: 0, 
+    explanation: "🟢 Weerswerkwoord ‘waaien’ → hebben. Zwak: gewaaid.", 
+    tip: "💢 Waaien → gewaaid (zwak)" 
+  },
+  { 
+    question: "Zij ... de hele dag ... (stilzitten)", 
+    options: ["heeft / stilgezeten","is / stilgezeten","heeft / stilgezit","is / stilgezit"], 
+    correct: 0, 
+    explanation: "🟢 ‘Stilzitten’ (activiteit) → hebben. Sterk: stilgezeten.", 
+    tip: "💢 Zitten → stilgezeten (sterk)" 
+  },
+  { 
+    question: "Hij ... hem ... (slaan)", 
+    options: ["heeft / geslagen","is / geslagen","heeft / geslaan","is / geslaan"], 
+    correct: 0, 
+    explanation: "🟢 ‘Slaan’ (overgankelijk) → hebben. Sterk: geslagen.", 
+    tip: "💢 Slaan → geslagen (sterk)" 
+  },
+  { 
+    question: "Ik ... het kaartje ... (versturen)", 
+    options: ["heb / verstuurd","ben / verstuurd","heb / verstuurd","ben / verstuurd"], 
+    correct: 0, 
+    explanation: "🟢 ‘Versturen’ → hebben. Zwak: verstuurd.", 
+    tip: "💢 Versturen → verstuurd (zwak)" 
+  },
+  { 
+    question: "Het water ... sterk ... (stijgen)", 
+    options: ["is / gestegen","heeft / gestegen","is / gestijgd","heeft / gestijgd"], 
+    correct: 0, 
+    explanation: "🟢 ‘Stijgen’ (verandering) → zijn. Sterk: gestegen.", 
+    tip: "💢 Stijgen → is gestegen (sterk)" 
+  },
+  { 
+    question: "Ze ... ons nog niet ... (bellen)", 
+    options: ["heeft / gebeld","is / gebeld","hebben / gebeld","zijn / gebeld"], 
+    correct: 2, 
+    explanation: "🟢 ‘Bellen’ → hebben. ‘Ze’ (mv.) = hebben.", 
+    tip: "💢 Ze (mv.) → hebben gebeld" 
+  },
+  { 
+    question: "Toen ik aankwam, ... ze al ... (beginnen)", 
+    options: ["waren / begonnen","hadden / begonnen","waren / begint","hadden / begint"], 
+    correct: 0, 
+    explanation: "🟢 ‘Beginnen’ (verandering) → zijn. VVT: waren begonnen.", 
+    tip: "💢 Beginnen → zijn begonnen" 
+  },
+  { 
+    question: "Hij ... het vuur ... (aansteken)", 
+    options: ["heeft / aangestoken","is / aangestoken","heeft / aangestekt","is / aangestekt"], 
+    correct: 0, 
+    explanation: "🟢 ‘Aansteken’ → hebben. Sterk: aangestoken.", 
+    tip: "💢 Aansteken → aangestoken (sterk)" 
+  },
+  { 
+    question: "Wij ... elkaar nog nooit ... (ontmoeten)", 
+    options: ["hebben / ontmoet","zijn / ontmoet","hebben / ontmoeten","zijn / ontmoeten"], 
+    correct: 0, 
+    explanation: "🟢 ‘Ontmoeten’ → hebben. Voltooid deelwoord: ontmoet (geen ge-).", 
+    tip: "💢 Ontmoeten → hebben ontmoet" 
+  },
+  { 
+    question: "Ik ... nooit zo gelukkig ... (zijn)", 
+    options: ["ben / geweest","heb / geweest","ben / gezet","heb / gehad"], 
+    correct: 0, 
+    explanation: "🟢 ‘Zijn’ → zijn als hulpwerkwoord. Voltooid deelwoord: geweest.", 
+    tip: "💢 Zijn → ben geweest" 
+  },
+  { 
+    question: "Hij ... zijn werk al ... toen ik belde. (doen)", 
+    options: ["had / gedaan","was / gedaan","had / gedaand","was / gedaand"], 
+    correct: 0, 
+    explanation: "🟢 ‘Doen’ → hebben. VVT: had gedaan. Sterk: gedaan.", 
+    tip: "💢 Doen → had gedaan (VVT)" 
+  },
+  { 
+    question: "Zij ... lang ... (blijven)", 
+    options: ["is / gebleven","heeft / gebleven","is / gebleeft","heeft / gebleeft"], 
+    correct: 0, 
+    explanation: "🟢 ‘Blijven’ (toestand/verandering) → zijn. Sterk: gebleven.", 
+    tip: "💢 Blijven → is gebleven" 
+  },
+  { 
+    question: "Ik ... het antwoord ... (vinden)", 
+    options: ["heb / gevonden","ben / gevonden","heb / vindt","ben / vindt"], 
+    correct: 0, 
+    explanation: "🟢 ‘Vinden’ → hebben. Sterk: gevonden.", 
+    tip: "💢 Vinden → gevonden (sterk)" 
+  },
+  { 
+    question: "De zon ... al ... toen we vertrokken. (opkomen)", 
+    options: ["was / opgekomen","had / opgekomen","was / opgekomt","had / opgekomt"], 
+    correct: 0, 
+    explanation: "🟢 ‘Opkomen’ (beweging) → zijn. VVT: was opgekomen.", 
+    tip: "💢 Opkomen → was opgekomen" 
+  },
+  { 
+    question: "... je ooit in Parijs ...? (zijn)", 
+    options: ["Ben / geweest","Heb / geweest","Ben / gehad","Heb / gehad"], 
+    correct: 0, 
+    explanation: "🟢 ‘Zijn’ op een plaats → zijn. Vraag: ‘Ben je geweest?’", 
+    tip: "💢 Zijn → ben geweest" 
+  }
+],
+
+test: [
+  { question: "Ik ... mijn huiswerk ... (maken)", options: ["heb / maakt","ben / gemaakt","heb / gemaakt","ben / makend"], correct: 2, explanation: "🟢 Overgankelijk → hebben + gemaakt." },
+  { question: "Hij ... naar huis ... (gaan)", options: ["is / gegaan","heeft / gegaan","is / gegaand","heeft / gegaand"], correct: 0, explanation: "🟢 Beweging → zijn + gegaan." },
+  { question: "Wij ... al ... (eten)", options: ["hebben / gegeten","zijn / gegeten","hebben / geëet","zijn / geëten"], correct: 0, explanation: "🟢 Overgankelijk → hebben + gegeten." },
+  { question: "Zij ... vanmorgen ... (aankomen)", options: ["heeft / aangekomen","is / aangekomen","is / aangekomt","heeft / aangekomt"], correct: 1, explanation: "🟢 Beweging → zijn + aangekomen." },
+  { question: "... jij dat boek ...? (lezen)", options: ["Heeft / geleest","Ben / gelezen","Heb / gelezen","Hebt / gelezen"], correct: 2, explanation: "🟢 Heb jij + gelezen (sterk)." },
+  { question: "Ik ... nooit zo hard ... (werken)", options: ["heb / gewerkt","ben / gewerkt","heb / gewerkd","ben / gewerkd"], correct: 0, explanation: "🟢 Activiteit → hebben + gewerkt." },
+  { question: "Het ... de hele nacht ... (regenen)", options: ["heeft / geregend","is / geregend","heeft / geregent","is / geregent"], correct: 0, explanation: "🟢 Weer → heeft geregend." },
+  { question: "Zij ... al ... (vertrekken)", options: ["was / vertrokken","had / vertrokken","was / vertrekt","had / vertrekken"], correct: 0, explanation: "🟢 Beweging VVT → was vertrokken." },
+  { question: "Ik ... mijn sleutels ... (verliezen)", options: ["heb / verliest","ben / verloren","heb / verloren","ben / verliezen"], correct: 2, explanation: "🟢 Overgankelijk → hebben + verloren." },
+  { question: "Wij ... in Londen ... (zijn)", options: ["zijn / geweest","hebben / geweest","zijn / gezet","hebben / gehad"], correct: 0, explanation: "🟢 Zijn → zijn geweest." },
+  { question: "... u de brief ...? (ontvangen)", options: ["Heeft / ontvangen","Is / ontvangen","Hebt / ontvangen","Heeft / ontvangd"], correct: 0, explanation: "🟢 Heeft + ontvangen (geen ge-)." },
+  { question: "Hij ... te veel ... (roken)", options: ["is / gerookt","heeft / gerookt","is / gerooken","heeft / gerooken"], correct: 1, explanation: "🟢 Activiteit → heeft gerookt." },
+  { question: "Toen ik kwam, ... het al ... (gebeuren)", options: ["was / gebeurt","had / gebeurd","was / gebeurd","had / gebeurt"], correct: 2, explanation: "🟢 Verandering VVT → was gebeurd." },
+  { question: "... je de melk ...? (drinken)", options: ["Ben / gedronken","Heb / gedronken","Hebt / gedronkt","Ben / gedronkt"], correct: 1, explanation: "🟢 Heb + gedronken (sterk)." },
+  { question: "Wij ... de hele middag ... (zwemmen)", options: ["zijn / gezwommen","hebben / gezwommen","zijn / gezwemd","hebben / gezwemd"], correct: 1, explanation: "🟢 Activiteit → hebben gezwommen." },
+  { question: "Het ... me altijd ... (verbazen)", options: ["heeft / verbaasd","is / verbaasd","heeft / verbaast","is / verbaast"], correct: 0, explanation: "🟢 Overgankelijk → heeft verbaasd." },
+  { question: "Ik ... al ... (slapen)", options: ["had / geslapen","was / geslapen","had / geslaapt","was / geslaapt"], correct: 0, explanation: "🟢 Toestand VVT → had geslapen." },
+  { question: "Hij ... in een vliegtuig ... (vliegen)", options: ["is / gevlogen","heeft / gevlogen","is / gevliegd","heeft / gevliegd"], correct: 0, explanation: "🟢 Beweging → is gevlogen." },
+  { question: "Zij ... een auto ... (kopen)", options: ["heeft / gekocht","is / gekocht","heeft / gekoopd","is / gekoopd"], correct: 0, explanation: "🟢 Overgankelijk → heeft gekocht." },
+  { question: "... je ooit in Parijs ...? (zijn)", options: ["Ben / geweest","Heb / geweest","Ben / gehad","Heb / gehad"], correct: 0, explanation: "🟢 Zijn → ben geweest." }
       ]
     },
     6: { // Toekomende tijd
-      practice: [
-        { question: "Morgen ... het regenen.", options: ["zal","gaat","wordt","is"], correct: 0, explanation: "❌ Fout! Zullen + infinitief.", tip: "💡 Zal/zullen = toekomst formeel." },
-        { question: "We ... vanavond film kijken.", options: ["gaan","zullen","zijn","worden"], correct: 0, explanation: "❌ Fout! Gaan + infinitief.", tip: "💡 Gaan = geplande actie." },
-        { question: "Ik ... morgen werken.", options: ["zal","ga","gaan","zal gaan"], correct: 0, explanation: "❌ Fout! Zal + infinitief.", tip: "💡 Zal + hele werkwoord." },
-        { question: "Zij ... later komen.", options: ["zal","zullen","gaat","gaan"], correct: 1, explanation: "❌ Fout! Zij (mv) + zullen.", tip: "💡 Zij/zullen, hij/zal." },
-        { question: "Het ... morgen zonnig zijn.", options: ["zal","wordt","gaat","is"], correct: 0, explanation: "❌ Fout! Zal + infinitief.", tip: "💡 Weer = zal." }
-      ],
-      test: [
-        { question: "Morgen ... ik studeren.", options: ["zal","ga","gaan","zal gaan"], correct: 0, explanation: "Ik zal." },
-        { question: "Wij ... straks eten.", options: ["gaan","zullen","zijn","worden"], correct: 0, explanation: "Wij gaan." },
-        { question: "Hij ... bellen.", options: ["zal","zullen","gaat","gaan"], correct: 0, explanation: "Hij zal." },
-        { question: "Zij ... komen.", options: ["zal","zullen","gaat","gaan"], correct: 1, explanation: "Zij (mv) zullen." },
-        { question: "Het ... koud worden.", options: ["zal","wordt","gaat","is"], correct: 0, explanation: "Het zal." },
-        { question: "Jullie ... winnen.", options: ["zal","zullen","gaat","gaan"], correct: 1, explanation: "Jullie zullen." },
-        { question: "Ik ... helpen.", options: ["zal","ga","gaan","zal gaan"], correct: 0, explanation: "Ik zal." },
-        { question: "We ... vertrekken.", options: ["gaan","zullen","zijn","worden"], correct: 0, explanation: "We gaan." },
-        { question: "De trein ... komen.", options: ["zal","zullen","gaat","gaan"], correct: 0, explanation: "De trein zal." },
-        { question: "Zij ... studeren.", options: ["zal","zullen","gaat","gaan"], correct: 1, explanation: "Zij (mv) zullen." }
+practice: [
+  { 
+    question: "Morgen ... ik naar school ... (gaan)", 
+    options: ["zal / gaan","ga / gaan","zal / ga","ga /"], 
+    correct: 0, 
+    explanation: "🟢 'Zullen' + infinitief = toekomende tijd.", 
+    tip: "💡 Ik zal + infinitief" 
+  },
+  { 
+    question: "Volgende week ... hij zijn verjaardag ... (vieren)", 
+    options: ["zal / viert","zal / vieren","gaat / vieren","viert"], 
+    correct: 1, 
+    explanation: "🟢 'Zullen' + infinitief = zal vieren.", 
+    tip: "💡 Hij/zij/het + zal + infinitief" 
+  },
+  { 
+    question: "... je mij morgen even ...? (helpen)", 
+    options: ["Zul / helpen","Zal / helpen","Gaat / helpen","Helpt"], 
+    correct: 0, 
+    explanation: "🟢 Inversie met 'jij': 'zul je' (geen -t).", 
+    tip: "💡 Zul je? / Zult u?" 
+  },
+  { 
+    question: "Over een uur ... de trein ... (vertrekken)", 
+    options: ["zal / vertrekken","vertrekt","gaat / vertrekt","zal / vertrekt"], 
+    correct: 0, 
+    explanation: "🟢 Toekomende tijd: zal + infinitief.", 
+    tip: "💡 De trein zal vertrekken" 
+  },
+  { 
+    question: "Wij ... morgen naar het strand ... (gaan)", 
+    options: ["zullen / gaan","gaan / gaan","zullen / gegaan","gaan /"], 
+    correct: 0, 
+    explanation: "🟢 Meervoud: wij zullen + infinitief.", 
+    tip: "💡 Wij zullen gaan" 
+  },
+  { 
+    question: "... u mij dat ...? (uitleggen)", 
+    options: ["Zult / uitleggen","Zal / uitleggen","Gaat / uitleggen","Legt / uit"], 
+    correct: 1, 
+    explanation: "🟢 Bij 'u' gebruik je 'zal' (formeel).", 
+    tip: "💡 U zal + infinitief" 
+  },
+  { 
+    question: "Volgend jaar ... ik naar Spanje ... (vliegen)", 
+    options: ["zal / vlieg","zal / vliegen","ga / vlieg","vlieg"], 
+    correct: 1, 
+    explanation: "🟢 Ik zal + infinitief (vliegen).", 
+    tip: "💡 Zal + hele werkwoord" 
+  },
+  { 
+    question: "Zij ... morgen haar presentatie ... (houden)", 
+    options: ["zal / houden","zal / houdt","gaat / houden","houdt"], 
+    correct: 0, 
+    explanation: "🟢 Zij (enkelvoud) + zal + infinitief.", 
+    tip: "💡 Zij zal houden" 
+  },
+  { 
+    question: "... jullie op tijd ...? (komen)", 
+    options: ["Zullen / komen","Gaan / komen","Zullend / komen","Komt"], 
+    correct: 0, 
+    explanation: "🟢 Jullie + zullen + infinitief.", 
+    tip: "💡 Jullie zullen komen" 
+  },
+  { 
+    question: "Hij ... volgende week niet ... (kunnen)", 
+    options: ["zal / kunnen","kan / kunnen","zal / kan","kan /"], 
+    correct: 0, 
+    explanation: "🟢 Hij zal + infinitief (kunnen).", 
+    tip: "💡 Zal + modaal + infinitief" 
+  },
+  { 
+    question: "Over vijf minuten ... het ... (beginnen)", 
+    options: ["zal / beginnen","begint","gaat / begint","zal / begint"], 
+    correct: 0, 
+    explanation: "🟢 Het zal + infinitief.", 
+    tip: "💡 Het zal beginnen" 
+  },
+  { 
+    question: "Wat ... jij morgen ...? (doen)", 
+    options: ["zul / doen","zal / doen","gaat / doen","doe"], 
+    correct: 0, 
+    explanation: "🟢 Inversie: 'wat zul jij' (zonder t).", 
+    tip: "💡 Wat zul jij doen?" 
+  },
+  { 
+    question: "Ik ... je morgen alles ... (vertellen)", 
+    options: ["zal / vertellen","ga / vertellen","zal / vertel","vertel"], 
+    correct: 0, 
+    explanation: "🟢 Ik zal + infinitief.", 
+    tip: "💡 Ik zal vertellen" 
+  },
+  { 
+    question: "De wedstrijd ... om drie uur ... (beginnen)", 
+    options: ["zal / beginnen","begint","gaat / begint","zal / begonnen"], 
+    correct: 1, 
+    explanation: "🟢 Vast schema → tegenwoordige tijd.", 
+    tip: "💡 Schema = huidige tijd" 
+  },
+  { 
+    question: "Wanneer ... je me ...? (bellen)", 
+    options: ["zul / bellen","zal / bellen","gaat / bellen","belt"], 
+    correct: 0, 
+    explanation: "🟢 Inversie: 'wanneer zul je'.", 
+    tip: "💡 Wanneer zul je bellen?" 
+  },
+  { 
+    question: "Zij ... morgen wel ... (thuisblijven)", 
+    options: ["zal / thuisblijven","blijft / thuis","gaat / thuisblijven","zal / thuisblijft"], 
+    correct: 0, 
+    explanation: "🟢 Zij zal + infinitief (thuisblijven).", 
+    tip: "💡 Zal + scheidbaar werkwoord" 
+  },
+  { 
+    question: "Over een paar dagen ... het weer ... (verbeteren)", 
+    options: ["zal / verbeteren","zal / verbetert","gaat / verbeteren","verbetert"], 
+    correct: 0, 
+    explanation: "🟢 Het weer zal + infinitief.", 
+    tip: "💡 Het weer zal verbeteren" 
+  },
+  { 
+    question: "... jij vanavond het avondeten ...? (koken)", 
+    options: ["Zul / koken","Zal / koken","Gaat / koken","Kookt"], 
+    correct: 0, 
+    explanation: "🟢 Inversie: 'zul jij'.", 
+    tip: "💡 Zul jij koken?" 
+  },
+  { 
+    question: "Hij ... waarschijnlijk te laat ... (aankomen)", 
+    options: ["zal / aankomen","komt / aan","zal / aankomt","gaat / aankomt"], 
+    correct: 0, 
+    explanation: "🟢 Hij zal + infinitief.", 
+    tip: "💡 Zal aankomen" 
+  },
+  { 
+    question: "Wij ... morgen een film ... (kijken)", 
+    options: ["zullen / kijken","gaan / kijken","zullen / kijkt","kijken"], 
+    correct: 0, 
+    explanation: "🟢 Wij zullen + infinitief.", 
+    tip: "💡 Wij zullen kijken" 
+  },
+  { 
+    question: "Volgend semester ... ik een cursus ... (volgen)", 
+    options: ["zal / volgen","ga / volgen","zal / volg","volg"], 
+    correct: 0, 
+    explanation: "🟢 Ik zal + infinitief.", 
+    tip: "💡 Ik zal volgen" 
+  },
+  { 
+    question: "... u mij alstublieft ...? (helpen)", 
+    options: ["Zult / helpen","Zal / helpen","Gaat / helpen","Helpt"], 
+    correct: 1, 
+    explanation: "🟢 Beleefdheidsvorm 'u' → zal.", 
+    tip: "💡 U zal helpen" 
+  },
+  { 
+    question: "Morgenochtend ... ik vroeg ... (opstaan)", 
+    options: ["zal / opstaan","sta / op","zal / opsta","ga / opstaan"], 
+    correct: 0, 
+    explanation: "🟢 Ik zal + infinitief (opstaan).", 
+    tip: "💡 Ik zal opstaan" 
+  },
+  { 
+    question: "Zij ... later dokter ... (worden)", 
+    options: ["zal / worden","wordt","zal / word","gaat / worden"], 
+    correct: 1, 
+    explanation: "🟢 Beroep/feit → tegenwoordige tijd.", 
+    tip: "💡 Wordt later dokter" 
+  },
+  { 
+    question: "Over een uur ... het museum ... (sluiten)", 
+    options: ["zal / sluiten","sluit","gaat / sluit","zal / sluit"], 
+    correct: 1, 
+    explanation: "🟢 Openingstijden → tegenwoordige tijd.", 
+    tip: "💡 Het museum sluit" 
+  },
+  { 
+    question: "... je ooit naar Mars ...? (reizen)", 
+    options: ["Zul / reizen","Zal / reizen","Gaat / reizen","Reist"], 
+    correct: 0, 
+    explanation: "🟢 Inversie: 'zul je'.", 
+    tip: "💡 Zul je reizen?" 
+  },
+  { 
+    question: "Ik ... je morgen terug ... (bellen)", 
+    options: ["zal / bellen","ga / bellen","zal / bel","bel"], 
+    correct: 0, 
+    explanation: "🟢 Ik zal + infinitief.", 
+    tip: "💡 Ik zal terugbellen" 
+  },
+  { 
+    question: "Volgende maand ... hij met pensioen ... (gaan)", 
+    options: ["zal / gaan","gaat","zal / ga","gaat / gaan"], 
+    correct: 1, 
+    explanation: "🟢 Vaststaand feit → tegenwoordige tijd.", 
+    tip: "💡 Hij gaat met pensioen" 
+  },
+  { 
+    question: "Wat ... we morgen ...? (eten)", 
+    options: ["zullen / eten","gaan / eten","zullen / aten","eten"], 
+    correct: 0, 
+    explanation: "🟢 Wij zullen + infinitief.", 
+    tip: "💡 Wat zullen we eten?" 
+  },
+  { 
+    question: "Zij ... haar best wel ... (doen)", 
+    options: ["zal / doen","doet","zal / doet","gaat / doen"], 
+    correct: 0, 
+    explanation: "🟢 Zij zal + infinitief.", 
+    tip: "💡 Zij zal haar best doen" 
+  },
+  { 
+    question: "Over twee weken ... de directie de uitslag ... (bekendmaken)", 
+    options: ["zal / bekendmaken","maakt / bekend","zal / bekendmaakt","gaat / bekendmaken"], 
+    correct: 0, 
+    explanation: "🟢 Toekomende tijd actief.", 
+    tip: "💡 Zal bekendmaken" 
+  },
+  { 
+    question: "Hij ... je binnenkort ... (schrijven)", 
+    options: ["zal / schrijven","schrijft","zal / schrijft","gaat / schrijven"], 
+    correct: 0, 
+    explanation: "🟢 Hij zal + infinitief.", 
+    tip: "💡 Hij zal schrijven" 
+  },
+  { 
+    question: "Denk je dat het morgen ...? (regenen)", 
+    options: ["zal / regenen","regent","zal / regent","gaat / regenen"], 
+    correct: 0, 
+    explanation: "🟢 Voorspelling: het zal regenen.", 
+    tip: "💡 Het zal regenen" 
+  },
+  { 
+    question: "We ... nog wel zien wat er gebeurt.", 
+    options: ["zullen","gaan","zouden","zien"], 
+    correct: 0, 
+    explanation: "🟢 'We zullen zien' = vaste uitdrukking.", 
+    tip: "💡 We zullen zien" 
+  },
+  { 
+    question: "Zij ... over een half uur ... (arriveren)", 
+    options: ["zal / arriveren","arriveert","zal / arriveert","gaat / arriveren"], 
+    correct: 1, 
+    explanation: "🟢 Exact tijdstip → tegenwoordige tijd.", 
+    tip: "💡 Zij arriveert" 
+  },
+  { 
+    question: "... je dat nog een keer ...? (uitleggen)", 
+    options: ["Zul / uitleggen","Zal / uitleggen","Gaat / uitleggen","Legt / uit"], 
+    correct: 0, 
+    explanation: "🟢 Inversie: 'zul je'.", 
+    tip: "💡 Zul je uitleggen?" 
+  },
+  { 
+    question: "Hij ... volgende week examen ... (doen)", 
+    options: ["zal / doen","doet","zal / doet","gaat / doen"], 
+    correct: 1, 
+    explanation: "🟢 Examen = vast schema → tegenwoordige tijd.", 
+    tip: "💡 Hij doet examen" 
+  },
+  { 
+    question: "Wanneer ... jullie het huis ...? (verlaten)", 
+    options: ["zullen / verlaten","verlaten","zullen / verlaat","gaan / verlaten"], 
+    correct: 0, 
+    explanation: "🟢 Jullie zullen + infinitief.", 
+    tip: "💡 Jullie zullen verlaten" 
+  },
+  { 
+    question: "Ik ... nog even ... (wachten)", 
+    options: ["zal / wachten","wacht","zal / wacht","ga / wachten"], 
+    correct: 0, 
+    explanation: "🟢 Ik zal + infinitief.", 
+    tip: "💡 Ik zal wachten" 
+  },
+  { 
+    question: "Volgend jaar ... ik afgestudeerd ... (zijn)", 
+    options: ["zal / zijn","ben","zal / wezen","ga / zijn"], 
+    correct: 0, 
+    explanation: "🟢 Voltooide toekomst: zal + zijn.", 
+    tip: "💡 Ik zal afgestudeerd zijn" 
+  }
+],
+
+test: [
+  { question: "Morgen ... ik naar school ... (gaan)", options: ["zal / gaan","ga / gaan","zal / ga","ga /"], correct: 0, explanation: "🟢 Ik zal gaan." },
+  { question: "Volgende week ... hij ... (vieren)", options: ["zal / viert","zal / vieren","gaat / vieren","viert"], correct: 1, explanation: "🟢 Hij zal vieren." },
+  { question: "... je mij ...? (helpen)", options: ["Zul / helpen","Zal / helpen","Gaat / helpen","Helpt"], correct: 0, explanation: "🟢 Zul je helpen?" },
+  { question: "Over een uur ... de trein ... (vertrekken)", options: ["zal / vertrekken","vertrekt","gaat / vertrekt","zal / vertrekt"], correct: 0, explanation: "🟢 Zal vertrekken." },
+  { question: "Wij ... naar het strand ... (gaan)", options: ["zullen / gaan","gaan / gaan","zullen / gegaan","gaan /"], correct: 0, explanation: "🟢 Wij zullen gaan." },
+  { question: "... u mij ...? (uitleggen)", options: ["Zult / uitleggen","Zal / uitleggen","Gaat / uitleggen","Legt / uit"], correct: 1, explanation: "🟢 Zal u uitleggen?" },
+  { question: "Volgend jaar ... ik ... (vliegen)", options: ["zal / vlieg","zal / vliegen","ga / vlieg","vlieg"], correct: 1, explanation: "🟢 Ik zal vliegen." },
+  { question: "Zij ... haar presentatie ... (houden)", options: ["zal / houden","zal / houdt","gaat / houden","houdt"], correct: 0, explanation: "🟢 Zij zal houden." },
+  { question: "... jullie op tijd ...? (komen)", options: ["Zullen / komen","Gaan / komen","Zullend / komen","Komt"], correct: 0, explanation: "🟢 Zullen jullie komen?" },
+  { question: "Hij ... niet ... (kunnen)", options: ["zal / kunnen","kan / kunnen","zal / kan","kan /"], correct: 0, explanation: "🟢 Hij zal kunnen." },
+  { question: "Over vijf minuten ... het ... (beginnen)", options: ["zal / beginnen","begint","gaat / begint","zal / begint"], correct: 0, explanation: "🟢 Het zal beginnen." },
+  { question: "Wat ... jij ...? (doen)", options: ["zul / doen","zal / doen","gaat / doen","doe"], correct: 0, explanation: "🟢 Wat zul jij doen?" },
+  { question: "Ik ... je alles ... (vertellen)", options: ["zal / vertellen","ga / vertellen","zal / vertel","vertel"], correct: 0, explanation: "🟢 Ik zal vertellen." },
+  { question: "De wedstrijd ... om drie uur ... (beginnen)", options: ["zal / beginnen","begint","gaat / begint","zal / begonnen"], correct: 1, explanation: "🟢 De wedstrijd begint." },
+  { question: "Wanneer ... je ...? (bellen)", options: ["zul / bellen","zal / bellen","gaat / bellen","belt"], correct: 0, explanation: "🟢 Wanneer zul je bellen?" },
+  { question: "Zij ... morgen wel ... (thuisblijven)", options: ["zal / thuisblijven","blijft / thuis","gaat / thuisblijven","zal / thuisblijft"], correct: 0, explanation: "🟢 Zij zal thuisblijven." },
+  { question: "Over een paar dagen ... het weer ... (verbeteren)", options: ["zal / verbeteren","zal / verbetert","gaat / verbeteren","verbetert"], correct: 0, explanation: "🟢 Zal verbeteren." },
+  { question: "... jij ... koken?", options: ["Zul / koken","Zal / koken","Gaat / koken","Kookt"], correct: 0, explanation: "🟢 Zul jij koken?" },
+  { question: "Hij ... te laat ... (aankomen)", options: ["zal / aankomen","komt / aan","zal / aankomt","gaat / aankomt"], correct: 0, explanation: "🟢 Zal aankomen." },
+  { question: "Wij ... een film ... (kijken)", options: ["zullen / kijken","gaan / kijken","zullen / kijkt","kijken"], correct: 0, explanation: "🟢 Wij zullen kijken." }
       ]
     },
     7: { // Modale werkwoorden
