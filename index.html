@@ -18554,11 +18554,27 @@ function showDetail() {
 }
 
 function backFromDetail() {
+  // Verberg detail/quiz sectie
   document.getElementById('sec-detail').style.display = 'none';
-  document.getElementById('sec-'+mode).style.display = '';
-  document.getElementById('tab-'+mode).classList.add('active');
+  
+  // Toon hoofdmenu + topics grid
+  document.getElementById('app').style.display = 'block';
+  document.getElementById('sec-topics').style.display = 'grid';
+  document.getElementById('sec-practice').style.display = 'none';
+  document.getElementById('sec-test').style.display = 'none';
+  
+  // Reset state
+  qi = 0;
+  ans = [];
+  Qs = [];
+  topicId = null;
+  currentMode = null;
+  
+  // Refresh topics als ze leeg zijn
+  if (document.getElementById('topicsGrid').children.length === 0) {
+    renderTopics();
+  }
 }
-
 // =============================================
 // TOPIC CLICK HANDLERS (global, used in innerHTML)
 // =============================================
@@ -18766,10 +18782,15 @@ function closeResults() {
   const overlay = document.querySelector('.res-overlay');
   if (overlay) {
     overlay.classList.remove('active');
+    // Wacht tot animatie klaar is
     setTimeout(() => {
       overlay.remove();
+      // Nu pas terug navigeren
       backFromDetail();
-    }, 300);
+    }, 300); // Moet matchen met CSS transition: .3s
+  } else {
+    // Fallback als overlay niet gevonden wordt
+    backFromDetail();
   }
 }
 
