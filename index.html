@@ -18663,18 +18663,23 @@ function renderPracticeQ() {
 function pickPractice(sel) {
   const lb = LABELS[lang];
   const q = Qs[qi];
+  
+  // Disable all buttons and highlight correct/incorrect
   document.querySelectorAll('.obtn').forEach((b, i) => {
     b.disabled = true;
-    if (i === q.correct) b.classList.add('correct');
-    else if (i === sel && sel !== q.correct) b.classList.add('incorrect');
+    if (i === q.correct) {
+      b.classList.add('correct');
+    } else if (i === sel && sel !== q.correct) {
+      b.classList.add('incorrect');
+    }
   });
 
-  // دروستکردنی سندوقی ڕوونکردنەوە
+  // Build feedback box with proper language
   let feedback = `<div class="expbox"><strong>${lb.expl}</strong> ${q.explanation}`;
   
-  if (sel !== q.correct) {
-    feedback += `<br><br>📘 <strong>زانیاری زیاتر:</strong> `;
-    feedback += q.tip ? q.tip : "هەوڵ بدە یاساکە دووبارە بخوێنیتەوە.";
+  // Only show extra tip if answer was wrong AND tip exists in the question
+  if (sel !== q.correct && q.tip) {
+    feedback += `<br><br>💡 <strong>${lb.tip || 'Tip'}:</strong> ${q.tip}`;
   }
   
   feedback += `</div>`;
@@ -18684,10 +18689,19 @@ function pickPractice(sel) {
 }
 
 function nextPractice() {
-  if(qi < Qs.length-1){ qi++; renderPracticeQ(); }
-  else { backFromDetail(); }
+  const lb = LABELS[lang];
+  if (qi < Qs.length - 1) {
+    qi++;
+    renderPracticeQ();
+  } else {
+    // Show final message before returning
+    const correct = ans.filter((a, i) => a === Qs[i].correct).length;
+    const pct = Math.round(correct / Qs.length * 100);
+    const msg = pct === 100 ? lb.perfect : pct >= 70 ? lb.great : pct >= 40 ? lb.ok : lb.keep;
+    alert(`${lb.results}: ${correct}/${Qs.length} (${pct}%) - ${msg}`);
+    backFromDetail();
+  }
 }
-
 // =============================================
 // TEST MODE (10 questions, submit at end)
 // =============================================
