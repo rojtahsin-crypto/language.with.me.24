@@ -350,16 +350,17 @@ const TOPICS = {
         font-family: 'Nunito', sans-serif; color: var(--gw-text);
         line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
       }
-/* === 🔥 FIX: EXPBOX DARK MODE LEESBAAR === */
+/* === 🔥 ULTIEME FIX: EXPBOX DARK MODE - LEESBAAR OVERAL === */
 [data-theme="dark"] .expbox {
   background: #14231c !important;
-  border: 2px solid #2d4a3e !important;
+  border: 2px solid #059669 !important;
   border-left: 5px solid #10b981 !important;
   color: #e6f4ea !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.35) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
 }
-[data-theme="dark"] .expbox strong { color: #4ade80 !important; }
-[data-theme="dark"] .expbox em { color: #a7f3d0 !important; }      .gw-wrap * { box-sizing: border-box; }
+[data-theme="dark"] .expbox strong { color: #4ade80 !important; font-weight: 700; }
+[data-theme="dark"] .expbox em { color: #a7f3d0 !important; }
+[data-theme="dark"] .expbox br { display: block; margin: 0.3em 0; }      .gw-wrap * { box-sizing: border-box; }
 
       .gw-hero {
         background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
