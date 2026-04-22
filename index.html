@@ -18838,26 +18838,32 @@ function showDetail() {
 }
 
 function backFromDetail() {
-  // Verberg detail/quiz sectie
+  // 1. Verberg detail/quiz sectie
   document.getElementById('sec-detail').style.display = 'none';
   
-  // Toon hoofdmenu + topics grid
+  // 2. Toon hoofdmenu + topics grid (ALTIJD)
   document.getElementById('app').style.display = 'block';
   document.getElementById('sec-topics').style.display = 'grid';
   document.getElementById('sec-practice').style.display = 'none';
   document.getElementById('sec-test').style.display = 'none';
   
-  // Reset state
+  // 3. Reset quiz-state
   qi = 0;
   ans = [];
   Qs = [];
   topicId = null;
   currentMode = null;
   
-  // Refresh topics als ze leeg zijn
-  if (document.getElementById('topicsGrid').children.length === 0) {
-    renderTopics();
+  // 4. HERRENDER topics - DIT WAS DE BUG!
+  const grid = document.getElementById('topicsGrid');
+  if (grid) {
+    grid.innerHTML = ''; // Maak eerst leeg
+    renderTopics();      // Dan opnieuw renderen
   }
+  
+  // 5. Reset tab-activering
+  document.querySelectorAll('.ntab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-grammar').classList.add('active');
 }
 // =============================================
 // TOPIC CLICK HANDLERS (global, used in innerHTML)
