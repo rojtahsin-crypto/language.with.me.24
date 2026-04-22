@@ -18616,50 +18616,31 @@ function renderPracticeQ() {
 function pickPractice(sel) {
   const lb = LABELS[lang];
   const q = Qs[qi];
-  
-  // Disable alle knoppen en markeer juist/fout
   document.querySelectorAll('.obtn').forEach((b, i) => {
     b.disabled = true;
     if (i === q.correct) b.classList.add('correct');
     else if (i === sel && sel !== q.correct) b.classList.add('incorrect');
   });
 
-  // Bouw de feedback/uitslag
+  // دروستکردنی سندوقی ڕوونکردنەوە
   let feedback = `<div class="expbox"><strong>${lb.expl}</strong> ${q.explanation}`;
   
   if (sel !== q.correct) {
-    feedback += `<br><br>📘 <strong>Tip:</strong> `;
-    feedback += q.tip ? q.tip : "Probeer de regel nog eens te lezen.";
+    feedback += `<br><br>📘 <strong>زانیاری زیاتر:</strong> `;
+    feedback += q.tip ? q.tip : "هەوڵ بدە یاساکە دووبارە بخوێنیتەوە.";
   }
   
   feedback += `</div>`;
   document.getElementById('expbl').innerHTML = feedback;
-  
-  // Sla antwoord op
+  document.getElementById('nxtbtn').style.display = 'inline-flex';
   ans[qi] = sel;
-  
-  // ⚡ DIRECT DOOR NAAR VOLGENDE VRAAG (na 1,5 seconde zodat je de uitleg kunt lezen)
-  setTimeout(() => {
-    if (qi < Qs.length - 1) {
-      qi++;
-      renderPracticeQ();
-    } else {
-      // ✅ Laatste vraag geweest → terug naar overzicht
-      backFromDetail();
-    }
-  }, 1500); // 1500ms = 1,5 seconde wachttijd
 }
 
-// Deze functie is nu niet meer nodig voor de knop, maar houd hem voor de zekerheid:
 function nextPractice() {
-  // Wordt nu automatisch aangeroepen via setTimeout in pickPractice
-  if (qi < Qs.length - 1) {
-    qi++;
-    renderPracticeQ();
-  } else {
-    backFromDetail();
-  }
+  if(qi < Qs.length-1){ qi++; renderPracticeQ(); }
+  else { backFromDetail(); }
 }
+
 // =============================================
 // TEST MODE (10 questions, submit at end)
 // =============================================
