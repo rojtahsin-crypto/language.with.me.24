@@ -17600,26 +17600,310 @@ const STATIC_QUESTIONS = {
   
 },
    2: { // Bezittelijke voornaamwoorden
-      practice: [
-        { question: "Is dit ... boek? (jij)", options: ["jouw","jou","jij","je"], correct: 0, explanation: "❌ Fout! Bezit jij = jouw/je.", tip: "💡 Jouw = nadruk, je = standaard." },
-        { question: "Zij verkocht ... fiets.", options: ["zijn","haar","hun","z'n"], correct: 1, explanation: "❌ Fout! Vrouwelijk = haar.", tip: "💡 Haar = van haar." },
-        { question: "Wij gaan naar ... grootouders.", options: ["ons","onze","hun","jullie"], correct: 1, explanation: "❌ Fout! Meervoud/de-woord = onze.", tip: "💡 Onze bij de-woord/meervoud." },
-        { question: "Hij leest ... krant.", options: ["zijn","haar","z'n","hun"], correct: 0, explanation: "❌ Fout! Bezit hem = zijn.", tip: "💡 Zijn = van hem." },
-        { question: "Hebben jullie ... huisdieren?", options: ["jullie","hun","jullie's","jullie"], correct: 0, explanation: "❌ Fout! Jullie is onveranderlijk.", tip: "💡 Jullie blijft jullie." }
-      ],
-      test: [
-        { question: "Is dit ... jas? (u)", options: ["uw","jouw","je","u"], correct: 0, explanation: "Beleefd → uw." },
-        { question: "Kat likt ... poot.", options: ["zijn","haar","z'n","zijn"], correct: 0, explanation: "Onzijdig → zijn." },
-        { question: "Wij komen met ... auto.", options: ["ons","onze","hun","ons"], correct: 1, explanation: "De-woord → onze." },
-        { question: "Zij verkochten ... boeken.", options: ["hun","hen","hunnen","hun"], correct: 0, explanation: "Meervoud → hun." },
-        { question: "Dit is ... huis. (ik)", options: ["mijn","mij","me","mijne"], correct: 0, explanation: "Mijn huis." },
-        { question: "Neem ... tas mee! (jij)", options: ["jouw","je","jou","jij"], correct: 1, explanation: "Onbeklemtoond → je." },
-        { question: "Hij verloor ... sleutel.", options: ["zijn","haar","z'n","zijn"], correct: 0, explanation: "Zijn sleutel." },
-        { question: "Wij wachten op ... beurt.", options: ["onze","ons","onze","onze"], correct: 0, explanation: "Onze beurt." },
-        { question: "Is dit ... auto? (mevrouw)", options: ["uw","jouw","je","u"], correct: 0, explanation: "Uw auto." },
-        { question: "Zij zoeken ... sleutels.", options: ["hun","hen","hunnen","hun"], correct: 0, explanation: "Hun sleutels." }
-      ]
-    },
+practice: [
+  { 
+    question: "Dat is ... boek. (ik)", 
+    options: ["mijn","jouw","zijn","haar"], 
+    correct: 0, 
+    explanation: "🟢 'Mijn' is bezittelijk voor 'ik'.", 
+    tip: "💡 Ik → mijn, Jij → jouw/jou, Hij → zijn" 
+  },
+  { 
+    question: "Is dit ... fiets? (jij)", 
+    options: ["mijn","jouw","uw","zijn"], 
+    correct: 1, 
+    explanation: "🟢 'Jouw' gebruik je voor 'jij' (informeel).", 
+    tip: "💡 Jouw = nadruk, je = standaard" 
+  },
+  { 
+    question: "... tas is rood. (zij, enkelvoud)", 
+    options: ["zijn","haar","ons","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Haar' is bezittelijk voor vrouwelijk enkelvoud.", 
+    tip: "💡 Zij (vrouw) → haar, Hij → zijn" 
+  },
+  { 
+    question: "... auto is nieuw. (hij)", 
+    options: ["mijn","jouw","zijn","haar"], 
+    correct: 2, 
+    explanation: "🟢 'Zijn' gebruik je voor 'hij'.", 
+    tip: "💡 Hij → zijn, Zij → haar" 
+  },
+  { 
+    question: "... huis staat in het centrum. (wij)", 
+    options: ["mijn","jullie","hun","ons"], 
+    correct: 3, 
+    explanation: "🟢 'Ons' bij het-woorden: het huis → ons huis.", 
+    tip: "💡 Ons + het-woord | Onze + de-woord/meervoud" 
+  },
+  { 
+    question: "Hebben ... ouders tijd? (jullie)", 
+    options: ["jullie","onze","hun","uw"], 
+    correct: 0, 
+    explanation: "🟢 'Jullie' is zowel persoonlijk als bezittelijk.", 
+    tip: "💡 Jullie blijft altijd 'jullie'" 
+  },
+  { 
+    question: "... mening is belangrijk. (zij, meervoud)", 
+    options: ["haar","hun","onze","jullie"], 
+    correct: 1, 
+    explanation: "🟢 'Hun' is bezittelijk voor 'zij' meervoud.", 
+    tip: "💡 Zij (meervoud) → hun" 
+  },
+  { 
+    question: "Mevrouw, is dit ... paraplu? (u, formeel)", 
+    options: ["jouw","uw","zijn","haar"], 
+    correct: 1, 
+    explanation: "🟢 'Uw' is de beleefdheidsvorm.", 
+    tip: "💡 U → uw (altijd)" 
+  },
+  { 
+    question: "Ik geef ... boek aan de leraar. (ik)", 
+    options: ["mijn","jouw","ons","hun"], 
+    correct: 0, 
+    explanation: "🟢 'Mijn' blijft gelijk bij alle zelfstandige naamwoorden.", 
+    tip: "💡 Mijn boek, mijn tafel, mijn kinderen" 
+  },
+  { 
+    question: "... kat is zwart. (hij)", 
+    options: ["haar","zijn","onze","jullie"], 
+    correct: 1, 
+    explanation: "🟢 Bezit van 'hij' = 'zijn'.", 
+    tip: "💡 Hij → zijn kat, zijn huis, zijn idee" 
+  },
+  { 
+    question: "... broer werkt in een ziekenhuis. (zij, enkelvoud)", 
+    options: ["zijn","haar","onze","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Haar broer' – bezit van een vrouwelijk persoon.", 
+    tip: "💡 Zij (vrouw) → haar" 
+  },
+  { 
+    question: "... tuin is prachtig. (wij)", 
+    options: ["ons","onze","jullie","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Onze' bij de-woorden: de tuin → onze tuin.", 
+    tip: "💡 Onze + de-woord | Ons + het-woord" 
+  },
+  { 
+    question: "... docent is streng. (jullie)", 
+    options: ["jouw","onze","jullie","hun"], 
+    correct: 2, 
+    explanation: "🟢 'Jullie docent' – bezittelijk van jullie.", 
+    tip: "💡 Jullie verandert nooit" 
+  },
+  { 
+    question: "... idee is goed. (u, formeel)", 
+    options: ["jouw","uw","zijn","haar"], 
+    correct: 1, 
+    explanation: "🟢 'Uw idee' – beleefdheidsvorm.", 
+    tip: "💡 U → uw, altijd" 
+  },
+  { 
+    question: "... vader is kok. (ik)", 
+    options: ["mijn","jouw","zijn","haar"], 
+    correct: 0, 
+    explanation: "🟢 'Mijn vader' – ik bezit.", 
+    tip: "💡 Ik → mijn" 
+  },
+  { 
+    question: "Hebben ... boeken nog nodig? (wij)", 
+    options: ["ons","onze","jullie","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Onze boeken' – meervoud = altijd 'onze'.", 
+    tip: "💡 Meervoud → onze (nooit ons)" 
+  },
+  { 
+    question: "... telefoon is leeg. (hij)", 
+    options: ["zijn","haar","mijn","jouw"], 
+    correct: 0, 
+    explanation: "🟢 Bezit van 'hij' = 'zijn telefoon'.", 
+    tip: "💡 Hij → zijn" 
+  },
+  { 
+    question: "... koffie is koud. (jij)", 
+    options: ["mijn","jouw","zijn","haar"], 
+    correct: 1, 
+    explanation: "🟢 'Jouw koffie' – de koffie.", 
+    tip: "💡 Jij → jouw/je" 
+  },
+  { 
+    question: "... verhaal was spannend. (zij, enkelvoud)", 
+    options: ["zijn","haar","ons","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Haar verhaal' – bezittelijk past zich aan de bezitter aan, niet aan het woord.", 
+    tip: "💡 Haar + elk woord" 
+  },
+  { 
+    question: "... kinderen zijn lief. (wij)", 
+    options: ["ons","onze","jullie","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Onze kinderen' – meervoud = altijd 'onze'.", 
+    tip: "💡 Meervoud → onze" 
+  },
+  { 
+    question: "... hond blaft veel. (zij, meervoud)", 
+    options: ["haar","hun","onze","jullie"], 
+    correct: 1, 
+    explanation: "🟢 Bezit van 'zij meervoud' is 'hun'.", 
+    tip: "💡 Zij (meervoud) → hun" 
+  },
+  { 
+    question: "Is dit ... pen? (u, formeel)", 
+    options: ["jouw","uw","zijn","haar"], 
+    correct: 1, 
+    explanation: "🟢 'Uw pen' – beleefd.", 
+    tip: "💡 U → uw" 
+  },
+  { 
+    question: "... zus woont in België. (ik)", 
+    options: ["mijn","jouw","zijn","haar"], 
+    correct: 0, 
+    explanation: "🟢 'Mijn zus' – ik.", 
+    tip: "💡 Ik → mijn" 
+  },
+  { 
+    question: "... naam is Ahmed. (hij)", 
+    options: ["haar","zijn","mijn","jouw"], 
+    correct: 1, 
+    explanation: "🟢 'Zijn naam' – hij.", 
+    tip: "💡 Hij → zijn" 
+  },
+  { 
+    question: "... bureau is rommelig. (jullie)", 
+    options: ["ons","onze","jullie","hun"], 
+    correct: 2, 
+    explanation: "🟢 'Jullie bureau' – bureau is het-woord, maar 'jullie' verandert niet.", 
+    tip: "💡 Jullie = altijd jullie" 
+  },
+  { 
+    question: "... moeder kookt lekker. (zij, enkelvoud)", 
+    options: ["zijn","haar","onze","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Haar moeder'.", 
+    tip: "💡 Zij (vrouw) → haar" 
+  },
+  { 
+    question: "... auto's zijn duur. (wij)", 
+    options: ["ons","onze","jullie","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Onze auto's' – meervoud.", 
+    tip: "💡 Meervoud → onze" 
+  },
+  { 
+    question: "... grootouders wonen in Groningen. (ik)", 
+    options: ["mijn","jouw","zijn","haar"], 
+    correct: 0, 
+    explanation: "🟢 'Mijn grootouders'.", 
+    tip: "💡 Ik → mijn" 
+  },
+  { 
+    question: "Heeft ... zus een kat? (jij)", 
+    options: ["mijn","jouw","zijn","haar"], 
+    correct: 1, 
+    explanation: "🟢 'Jouw zus'.", 
+    tip: "💡 Jij → jouw/je" 
+  },
+  { 
+    question: "... docent geeft veel huiswerk. (wij)", 
+    options: ["ons","onze","jullie","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Onze docent' (de docent).", 
+    tip: "💡 Onze + de-woord" 
+  },
+  { 
+    question: "... lerares is aardig. (hij)", 
+    options: ["zijn","haar","mijn","jouw"], 
+    correct: 0, 
+    explanation: "🟢 'Zijn lerares'.", 
+    tip: "💡 Hij → zijn" 
+  },
+  { 
+    question: "... spullen liggen op de grond. (jullie)", 
+    options: ["ons","onze","jullie","hun"], 
+    correct: 2, 
+    explanation: "🟢 'Jullie spullen' – meervoud.", 
+    tip: "💡 Jullie = altijd jullie" 
+  },
+  { 
+    question: "... opa is gepensioneerd. (zij, meervoud)", 
+    options: ["haar","hun","onze","jullie"], 
+    correct: 1, 
+    explanation: "🟢 'Hun opa'.", 
+    tip: "💡 Zij (meervoud) → hun" 
+  },
+  { 
+    question: "... werk is uitdagend. (ik)", 
+    options: ["mijn","jouw","zijn","haar"], 
+    correct: 0, 
+    explanation: "🟢 'Mijn werk' – het werk.", 
+    tip: "💡 Mijn + elk woord" 
+  },
+  { 
+    question: "... vakantie was geweldig. (u, formeel)", 
+    options: ["jouw","uw","zijn","haar"], 
+    correct: 1, 
+    explanation: "🟢 'Uw vakantie'.", 
+    tip: "💡 U → uw" 
+  },
+  { 
+    question: "... rapport is goed. (hij)", 
+    options: ["zijn","haar","mijn","jouw"], 
+    correct: 0, 
+    explanation: "🟢 'Zijn rapport'.", 
+    tip: "💡 Hij → zijn" 
+  },
+  { 
+    question: "... kamer is netjes. (wij)", 
+    options: ["ons","onze","jullie","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Onze kamer' (de kamer).", 
+    tip: "💡 Onze + de-woord" 
+  },
+  { 
+    question: "... broers zijn lang. (zij, enkelvoud)", 
+    options: ["zijn","haar","onze","hun"], 
+    correct: 1, 
+    explanation: "🟢 'Haar broers'.", 
+    tip: "💡 Zij (vrouw) → haar" 
+  },
+  { 
+    question: "... beslissing was moeilijk. (jullie)", 
+    options: ["ons","onze","jullie","hun"], 
+    correct: 2, 
+    explanation: "🟢 'Jullie beslissing'.", 
+    tip: "💡 Jullie = altijd jullie" 
+  },
+  { 
+    question: "... huis is verbouwd. (zij, meervoud)", 
+    options: ["haar","hun","onze","jullie"], 
+    correct: 1, 
+    explanation: "🟢 'Hun huis' – bezit van 'zij' meervoud.", 
+    tip: "💡 Zij (meervoud) → hun" 
+  }
+],     
+test: [
+  { question: "Dat is ... boek. (ik)", options: ["mijn","jouw","zijn","haar"], correct: 0, explanation: "🟢 Ik → mijn." },
+  { question: "Is dit ... fiets? (jij)", options: ["mijn","jouw","uw","zijn"], correct: 1, explanation: "🟢 Jij → jouw." },
+  { question: "... tas is rood. (zij)", options: ["zijn","haar","ons","hun"], correct: 1, explanation: "🟢 Zij (vrouw) → haar." },
+  { question: "... auto is nieuw. (hij)", options: ["mijn","jouw","zijn","haar"], correct: 2, explanation: "🟢 Hij → zijn." },
+  { question: "... huis staat centraal. (wij)", options: ["mijn","jullie","hun","ons"], correct: 3, explanation: "🟢 Het huis → ons huis." },
+  { question: "Hebben ... ouders tijd? (jullie)", options: ["jullie","onze","hun","uw"], correct: 0, explanation: "🟢 Jullie = altijd jullie." },
+  { question: "... mening telt. (zij, mv.)", options: ["haar","hun","onze","jullie"], correct: 1, explanation: "🟢 Zij (mv.) → hun." },
+  { question: "Is dit ... paraplu? (u)", options: ["jouw","uw","zijn","haar"], correct: 1, explanation: "🟢 U → uw." },
+  { question: "Ik geef ... boek weg. (ik)", options: ["mijn","jouw","ons","hun"], correct: 0, explanation: "🟢 Ik → mijn." },
+  { question: "... kat slaapt. (hij)", options: ["haar","zijn","onze","jullie"], correct: 1, explanation: "🟢 Hij → zijn." },
+  { question: "... broer werkt. (zij)", options: ["zijn","haar","onze","hun"], correct: 1, explanation: "🟢 Zij → haar." },
+  { question: "... tuin is mooi. (wij)", options: ["ons","onze","jullie","hun"], correct: 1, explanation: "🟢 De tuin → onze tuin." },
+  { question: "... docent is streng. (jullie)", options: ["jouw","onze","jullie","hun"], correct: 2, explanation: "🟢 Jullie = altijd jullie." },
+  { question: "... idee is goed. (u)", options: ["jouw","uw","zijn","haar"], correct: 1, explanation: "🟢 U → uw." },
+  { question: "... vader is kok. (ik)", options: ["mijn","jouw","zijn","haar"], correct: 0, explanation: "🟢 Ik → mijn." },
+  { question: "Hebben ... boeken tijd? (wij)", options: ["ons","onze","jullie","hun"], correct: 1, explanation: "🟢 Meervoud → onze." },
+  { question: "... telefoon is leeg. (hij)", options: ["zijn","haar","mijn","jouw"], correct: 0, explanation: "🟢 Hij → zijn." },
+  { question: "... koffie is koud. (jij)", options: ["mijn","jouw","zijn","haar"], correct: 1, explanation: "🟢 Jij → jouw." },
+  { question: "... verhaal was spannend. (zij)", options: ["zijn","haar","ons","hun"], correct: 1, explanation: "🟢 Zij → haar." },
+  { question: "... kinderen spelen. (wij)", options: ["ons","onze","jullie","hun"], correct: 1, explanation: "🟢 Meervoud → onze." }
+]    },
     3: { // Tegenwoordige tijd
       practice: [
         { question: "Hij ... naar school. (lopen)", options: ["loop","loopt","lopen","loopt"], correct: 1, explanation: "❌ Fout! Hij = stam+t.", tip: "💡 Hij/zij/het = stam+t." },
