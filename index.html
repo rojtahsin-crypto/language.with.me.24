@@ -18704,16 +18704,85 @@ function pickPractice(sel) {
 
 function nextPractice() {
   const lb = LABELS[lang];
+  
   if (qi < Qs.length - 1) {
     qi++;
     renderPracticeQ();
   } else {
-    // Toon eindresultaat voordat je teruggaat
+    // Bereken resultaten
     const correct = ans.filter((a, i) => a === Qs[i].correct).length;
-    const pct = Math.round(correct / Qs.length * 100);
-    const msg = pct === 100 ? lb.perfect : pct >= 70 ? lb.great : pct >= 40 ? lb.ok : lb.keep;
-    alert(`${lb.results}: ${correct}/${Qs.length} (${pct}%) - ${msg}`);
-    backFromDetail();
+    const total = Qs.length;
+    const pct = Math.round(correct / total * 100);
+    
+    // Bepaal boodschap + icoon + kleur
+    let msg, icon, color;
+    if (pct === 100) { msg = lb.perfect || 'Perfect!'; icon = '🏆'; color = '#fbbf24'; }
+    else if (pct >= 70) { msg = lb.great || 'Goed gedaan!'; icon = '🌟'; color = '#4ade80'; }
+    else if (pct >= 40) { msg = lb.ok || 'Niet slecht!'; icon = '📚'; color = '#60a5fa'; }
+    else { msg = lb.keep || 'Blijf oefenen!'; icon = '💪'; color = '#f87171'; }
+    
+    // Toon mooie results-card
+    showResults(correct, total, pct, msg, icon, color);
+  }
+}
+
+function showResults(correct, total, pct, msg, icon, color) {
+  const overlay = document.createElement('div');
+  overlay.className = 'res-overlay';
+  overlay.innerHTML = `
+    <div class="res-card">
+      <span class="res-icon">${icon}</span>
+      <div class="res-score">${correct}/${total}</div>
+      <div class="res-pct">${pct}%</div>
+      <div class="res-msg" style="color:${color}">${msg}</div>
+      <div class="res-stats">
+        <div class="res-stat">
+          <span class="res-stat-num" style="color:#4ade80">${correct}</span>
+          <span class="res-stat-lbl">Juist</span>
+        </div>
+        <div class="res-stat">
+          <span class="res-stat-num" style="color:#f87171">${total - correct}</span>
+          <span class="res-stat-lbl">Fout</span>
+        </div>
+      </div>
+      <div class="res-acts">
+        <button class="res-btn s" onclick="closeResults()">❌ Sluiten</button>
+        <button class="res-btn p" onclick="restartPractice()">🔄 Opnieuw</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  
+  // Activeer animatie
+  setTimeout(() => overlay.classList.add('active'), 10);
+  
+  // Sluiten bij klik buiten de card
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeResults();
+  });
+}
+
+function closeResults() {
+  const overlay = document.querySelector('.res-overlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      overlay.remove();
+      backFromDetail();
+    }, 300);
+  }
+}
+
+function restartPractice() {
+  const overlay = document.querySelector('.res-overlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      overlay.remove();
+      qi = 0;
+      ans = [];
+      renderPracticeQ();
+    }, 300);
   }
 }
 // =============================================
