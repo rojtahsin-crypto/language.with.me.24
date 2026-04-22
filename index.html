@@ -18629,15 +18629,15 @@ async function openTest(id) {
   document.getElementById('detailContent').innerHTML = `
     <div class="det-hdr">
       <h1>${tp.t}</h1>
-      <p>${lb.test} — 10 ${lb.q}s</p>
+      <p>${lb.test} — 20 ${lb.q}s</p>
     </div>
     <div id="tquiz">
       <div class="ldwrap"><div class="spin"></div><span>${lb.loading}</span></div>
     </div>
   `;
   try {
-    Qs = await fetchQuestions(lang, id, tp.t, 10, 'test');
-    qi = 0; ans = new Array(10).fill(null);
+    Qs = await fetchQuestions(lang, id, tp.t, 20, 'test');
+    qi = 0; ans = new Array(20).fill(null);
     renderTestQ(0);
   } catch(e) {
     document.getElementById('tquiz').innerHTML = `<p style="color:var(--text2)">⚠️ Could not load questions. Please try again.</p>`;
