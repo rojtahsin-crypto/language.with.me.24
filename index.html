@@ -18687,6 +18687,7 @@ function renderTestQ(idx) {
           </button>
         `).join('')}
       </div>
+      <div id="explanation-area"></div>
     </div>
     <div class="qnav">
       ${idx>0 ? `<button class="btn btn-o" onclick="renderTestQ(${idx-1})">← </button>` : '<div></div>'}
@@ -18696,8 +18697,16 @@ function renderTestQ(idx) {
       }
     </div>
   `;
-}
 
+  // ✅ NIEUW: Toon uitleg direct als je terugklikt naar een vraag waar je al antwoord op gaf
+  if (selAns !== undefined && selAns !== null) {
+    const isCorrect = selAns === q.correct;
+    const expArea = document.getElementById('explanation-area');
+    if (expArea && typeof renderExplanation === 'function') {
+      renderExplanation(q, isCorrect, expArea);
+    }
+  }
+}
 function pickTest(qi_, opt) {
   ans[qi_] = opt;
   renderTestQ(qi_);
