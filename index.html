@@ -1,7 +1,3 @@
-Mail van Hasp-O - Katholiek Onderwijs in Haspengouw	Roj Tahsin <roj.tahsin@leerling.hasp-o.be>
-(geen onderwerp)
-Roj Tahsin <roj.tahsin@leerling.hasp-o.be>	20 april 2026 om 09:29
-Aan: Roj Hawar <rojhawar24@gmail.com>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17146,173 +17142,380 @@ const TOPICS = {
 
 const STATIC_QUESTIONS = {
   nl: {
+
+  1: { // De lidwoorden - ULTIMATE EDITIE 🌙
     
-  1: { // De lidwoorden
+    // 🎓 PRACTICE: met tips + uitgebreide uitleg
     practice: [
       { 
         question: "Ik zie ... hond in de tuin.", 
         options: ["de","het","een","geen"], 
         correct: 2, 
-        explanation: "❌ Fout! 'Hond' is een de-woord, maar hier onbepaald → 'een'.", 
-        tip: "💡 Nieuw/onbekend = een. Bekend/specifiek = de/het." 
+        explanation: "🔴 Fout! 'Hond' is een de-woord, MAAR: hier is het onbepaald (niet welke hond?) → dus 'een'.", 
+        tip: "💡 Nieuw/onbekend = een | Bekend/specifiek = de/het",
+        rule: "📚 Regel: Onbepaald enkelvoud → een + zelfstandig naamwoord"
       },
       { 
         question: "Dat is ... mooi huis.", 
         options: ["de","het","een","geen"], 
         correct: 2, 
-        explanation: "❌ Fout! 'Huis' is het-woord, onbepaald → 'een'.", 
-        tip: "💡 een + het-woord = geen -e achter het bijvoeglijk naamwoord!" 
+        explanation: "🔴 Fout! 'Huis' is een het-woord. Onbepaald → 'een'. Let op: 'een mooi huis' (geen -e achter mooi!).", 
+        tip: "💡 een + het-woord = bijvoeglijk naamwoord ZONDER -e",
+        rule: "📚 Regel: een + [het-woord] → geen -e bij adj."
       },
       { 
         question: "Welk lidwoord bij 'meisje'?", 
         options: ["de","het","een","geen"], 
         correct: 1, 
-        explanation: "❌ Fout! Verkleinwoorden (-je, -tje, -pje) = altijd 'het'.", 
-        tip: "💡 Zie je -je? Denk: HET!" 
+        explanation: "🔴 Fout! Alle verkleinwoorden (-je, -tje, -pje, -kje) zijn ONZIJDIG → altijd 'het'.", 
+        tip: "💡 Zie je -je? Denk: HET! (het hondje, het huisje, het meisje)",
+        rule: "📚 Regel: Verkleinwoord = altijd het-woord"
       },
       { 
         question: "... water is koud.", 
         options: ["De","Het","Een","Geen"], 
         correct: 1, 
-        explanation: "❌ Fout! 'Water' is een stofnaam → 'het'.", 
-        tip: "💡 Water, brood, goud, liefde = vaak het (of geen lidwoord)." 
+        explanation: "🔴 Fout! 'Water' is een stofnaam (niet-telbaar) → in algemene zin: 'het water'.", 
+        tip: "💡 Stofnamen: water, brood, goud, lucht = vaak het (of geen lidwoord)",
+        rule: "📚 Regel: Stofnaam algemeen → het OF geen lidwoord"
       },
       { 
         question: "Ik eet ... appel.", 
         options: ["de","het","een","—"], 
         correct: 2, 
-        explanation: "❌ Fout! Eerste keer noemen, niet specifiek → 'een'.", 
-        tip: "💡 Nieuw onderwerp = een. Bekend = de/het." 
+        explanation: "🔴 Fout! Eerste keer noemen + niet specifiek → onbepaald = 'een appel'.", 
+        tip: "💡 Nieuw onderwerp = een | Bekend onderwerp = de/het",
+        rule: "📚 Regel: Eerste vermelding → een"
       },
       { 
         question: "... kinderen spelen buiten.", 
         options: ["De","Het","Een","—"], 
         correct: 0, 
-        explanation: "❌ Fout! Meervoud = altijd 'de'.", 
-        tip: "💡 Plural? Altijd DE. Punt." 
+        explanation: "🔴 Fout! MEERVOUD is altijd 'de' – nooit 'het' of 'een'!", 
+        tip: "💡 Plural? Altijd DE. Punt. (de kinderen, de huizen, de boeken)",
+        rule: "📚 Regel: Meervoud → altijd de"
       },
       { 
         question: "Ik hou van ... chocolade.", 
         options: ["de","het","een","—"], 
         correct: 3, 
-        explanation: "❌ Fout! Stofnaam in algemene zin → géén lidwoord.", 
-        tip: "💡 'Ik hou van chocolade' = algemeen, dus geen lidwoord." 
+        explanation: "🔴 Fout! 'Chocolade' is een stofnaam in algemene zin → géén lidwoord nodig.", 
+        tip: "💡 'Ik hou van chocolade' = algemeen | 'Ik eet een chocolade' = één stuk",
+        rule: "📚 Regel: Stofnaam (algemeen) → geen lidwoord"
       },
       { 
         question: "Zij leest ... interessant boek.", 
         options: ["de","het","een","—"], 
         correct: 2, 
-        explanation: "❌ Fout! 'Boek' = het-woord, onbepaald → 'een'.", 
-        tip: "💡 een + het-woord → bijvoeglijk naamwoord zonder -e!" 
+        explanation: "🔴 Fout! 'Boek' = het-woord. Onbepaald → 'een'. Let op: 'een interessant boek' (geen -e!).", 
+        tip: "💡 een + het-woord → bijvoeglijk naamwoord zonder -e!",
+        rule: "📚 Regel: een + het-woord → adj. zonder -e"
       },
       { 
         question: "... maan is vol vanavond.", 
         options: ["De","Het","Een","—"], 
         correct: 0, 
-        explanation: "❌ Fout! Uniek object → 'de'.", 
-        tip: "💡 Zon, maan, aarde, wereld = de." 
+        explanation: "🔴 Fout! Er is maar één maan → uniek object → bepaald lidwoord 'de'.", 
+        tip: "💡 Unieke dingen: de zon, de maan, de aarde, de wereld = de",
+        rule: "📚 Regel: Uniek object → de"
       },
       { 
         question: "Hij koopt ... nieuwe fiets.", 
         options: ["de","het","een","geen"], 
         correct: 2, 
-        explanation: "❌ Fout! Niet specifieke fiets → 'een'.", 
-        tip: "💡 Eerste keer noemen + niet welke = een." 
+        explanation: "🔴 Fout! Niet specifieke fiets (welke?) → onbepaald = 'een'.", 
+        tip: "💡 Eerste keer noemen + niet welke = een",
+        rule: "📚 Regel: Onbepaald enkelvoud → een"
       },
       { 
         question: "... tafel is van hout.", 
         options: ["De","Het","Een","—"], 
         correct: 0, 
-        explanation: "❌ Fout! 'Tafel' = de-woord.", 
-        tip: "💡 Meubilair: de tafel, de stoel, de kast." 
+        explanation: "🔴 Fout! 'Tafel' is vrouwelijk → de-woord. 'De tafel'.", 
+        tip: "💡 Meubilair: de tafel, de stoel, de kast, de lamp",
+        rule: "📚 Regel: Leer de-woorden per categorie"
       },
       { 
         question: "Ik drink ... koffie.", 
         options: ["de","het","een","—"], 
         correct: 3, 
-        explanation: "❌ Fout! Stofnaam, algemeen → geen lidwoord.", 
-        tip: "💡 'Koffie drinken' = algemeen. 'Een koffie' = een kopje." 
+        explanation: "🔴 Fout! 'Koffie' = stofnaam, algemeen → geen lidwoord. 'Een koffie' = één kopje.", 
+        tip: "💡 'Koffie drinken' = algemeen | 'Een koffie' = portie",
+        rule: "📚 Regel: Stofnaam → geen lidwoord (algemeen)"
       },
       { 
         question: "... glas is gebroken.", 
         options: ["De","Het","Een","—"], 
         correct: 1, 
-        explanation: "❌ Fout! 'Glas' = het-woord.", 
-        tip: "💡 Het glas, het raam, het bord = onzijdig." 
+        explanation: "🔴 Fout! 'Glas' is onzijdig → het-woord. 'Het glas'.", 
+        tip: "💡 Het glas, het raam, het bord, het mes = onzijdig",
+        rule: "📚 Regel: Leer het-woorden uit je hoofd"
       },
       { 
         question: "Zij is ... arts.", 
         options: ["de","het","een","—"], 
         correct: 2, 
-        explanation: "❌ Fout! Beroep, onbepaald → 'een'.", 
-        tip: "💡 'Zij is een arts' = niet specifieker." 
+        explanation: "🔴 Fout! Beroep, onbepaald → 'een arts'. Niet specifieker dan 'arts'.", 
+        tip: "💡 'Zij is een arts' = algemeen | 'Zij is de arts' = die specifieke",
+        rule: "📚 Regel: Beroep onbepaald → een"
       },
       { 
         question: "... weer is mooi vandaag.", 
         options: ["De","Het","Een","—"], 
         correct: 1, 
-        explanation: "❌ Fout! 'Weer' = onzijdig abstractum → 'het'.", 
-        tip: "💡 Het weer, het geluk, het leven = het." 
+        explanation: "🔴 Fout! 'Weer' is een onzijdig abstractum → 'het weer'.", 
+        tip: "💡 Het weer, het geluk, het leven, het nieuws = het",
+        rule: "📚 Regel: Abstractum onzijdig → het"
       },
       { 
         question: "Ik zoek ... sleutel.", 
         options: ["de","het","een","geen"], 
         correct: 2, 
-        explanation: "❌ Fout! Niet specifieke sleutel → 'een'.", 
-        tip: "💡 Onbepaald enkelvoud = een." 
+        explanation: "🔴 Fout! Niet specifieke sleutel → onbepaald = 'een'.", 
+        tip: "💡 Onbepaald enkelvoud = een | Bepaald = de/het",
+        rule: "📚 Regel: Niet specifiek → een"
       },
       { 
         question: "... vogels zingen.", 
         options: ["De","Het","Een","—"], 
         correct: 0, 
-        explanation: "❌ Fout! Meervoud → altijd 'de'.", 
-        tip: "💡 de vogels, de huizen, de boeken = altijd de." 
+        explanation: "🔴 Fout! 'Vogels' = meervoud → altijd 'de'.", 
+        tip: "💡 de vogels, de huizen, de boeken = altijd de (nooit het!)",
+        rule: "📚 Regel: Meervoud → altijd de"
       },
       { 
         question: "Hij eet ... boterham.", 
         options: ["de","het","een","—"], 
         correct: 2, 
-        explanation: "❌ Fout! Eerste keer, onbepaald → 'een'.", 
-        tip: "💡 Nieuw item = een. Bekend item = de." 
+        explanation: "🔴 Fout! Eerste keer noemen, niet specifiek → 'een boterham'.", 
+        tip: "💡 Nieuw item = een | Bekend item = de/het",
+        rule: "📚 Regel: Eerste vermelding → een"
       },
       { 
         question: "... universiteit is oud.", 
         options: ["De","Het","Een","—"], 
         correct: 0, 
-        explanation: "❌ Fout! Woorden op -iteit, -tie, -ing = de-woorden.", 
-        tip: "💡 De universiteit, de beslissing, de actie." 
+        explanation: "🔴 Fout! Woorden op -iteit, -tie, -ing, -heid = bijna altijd de-woorden.", 
+        tip: "💡 De universiteit, de beslissing, de actie, de vrijheid",
+        rule: "📚 Regel: -iteit/-tie/-ing/-heid → de"
       },
       { 
         question: "Wil je ... koekje?", 
         options: ["de","het","een","—"], 
         correct: 2, 
-        explanation: "❌ Fout! 'Koekje' = verkleinwoord = het-woord, maar onbepaald → 'een'.", 
-        tip: "💡 Verkleinwoord = het, maar 'een koekje' = onbepaald." 
+        explanation: "🔴 Fout! 'Koekje' = verkleinwoord = het-woord, MAAR onbepaald → 'een koekje'.", 
+        tip: "💡 Verkleinwoord = het, maar 'een koekje' = onbepaald",
+        rule: "📚 Regel: een + verkleinwoord = mogelijk!"
+      },
+      // === EXTRA PRACTICE (20) ===
+      { 
+        question: "... zon schijnt fel.", 
+        options: ["De","Het","Een","—"], 
+        correct: 0, 
+        explanation: "🔴 Fout! 'Zon' is uniek → bepaald lidwoord 'de'.", 
+        tip: "💡 Uniek: de zon, de maan, de aarde = de",
+        rule: "📚 Regel: Uniek object → de"
+      },
+      { 
+        question: "Hij geeft ... voorbeeld.", 
+        options: ["de","het","een","—"], 
+        correct: 2, 
+        explanation: "🔴 Fout! 'Voorbeeld' = het-woord, onbepaald → 'een'.", 
+        tip: "💡 een + het-woord → geen -e: 'een goed voorbeeld'",
+        rule: "📚 Regel: een + het-woord → adj. zonder -e"
+      },
+      { 
+        question: "... liefde is mooi.", 
+        options: ["De","Het","Een","—"], 
+        correct: 0, 
+        explanation: "🔴 Fout! 'Liefde' is abstract, vrouwelijk → 'de liefde'.", 
+        tip: "💡 Abstracta op -de/-te/-heid = vaak de",
+        rule: "📚 Regel: Abstractum vrouwelijk → de"
+      },
+      { 
+        question: "Ik heb ... idee.", 
+        options: ["de","het","een","—"], 
+        correct: 2, 
+        explanation: "🔴 Fout! 'Idee' = het-woord (leenwoord), onbepaald → 'een'.", 
+        tip: "💡 Leenwoorden op -um/-um/-isme: het centrum, het probleem",
+        rule: "📚 Regel: Leenwoord onzijdig → het"
+      },
+      { 
+        question: "... jongen fietst snel.", 
+        options: ["De","Het","Een","—"], 
+        correct: 0, 
+        explanation: "🔴 Fout! 'Jongen' is mannelijk → de-woord. 'De jongen'.", 
+        tip: "💡 Mannelijk: de man, de jongen, de vader",
+        rule: "📚 Regel: Mannelijk → de"
+      },
+      { 
+        question: "Zij draagt ... jurk.", 
+        options: ["de","het","een","geen"], 
+        correct: 2, 
+        explanation: "🔴 Fout! 'Jurk' = de-woord, onbepaald → 'een jurk'.", 
+        tip: "💡 Kleding: de jurk, de broek, de jas = de",
+        rule: "📚 Regel: Kleding = meestal de-woord"
+      },
+      { 
+        question: "... antwoord is juist.", 
+        options: ["De","Het","Een","—"], 
+        correct: 1, 
+        explanation: "🔴 Fout! 'Antwoord' is onzijdig → 'het antwoord'.", 
+        tip: "💡 Het antwoord, het resultaat, het probleem = het",
+        rule: "📚 Regel: Onzijdig → het"
+      },
+      { 
+        question: "We bezoeken ... museum.", 
+        options: ["de","het","een","—"], 
+        correct: 2, 
+        explanation: "🔴 Fout! 'Museum' = het-woord, onbepaald → 'een museum'.", 
+        tip: "💡 Gebouwen: het museum, het theater, het station",
+        rule: "📚 Regel: Gebouw = vaak het-woord"
+      },
+      { 
+        question: "... mensen wachten.", 
+        options: ["De","Het","Een","—"], 
+        correct: 0, 
+        explanation: "🔴 Fout! 'Mensen' = meervoud → altijd 'de'.", 
+        tip: "💡 Meervoud = altijd de (de mensen, de dingen)",
+        rule: "📚 Regel: Meervoud → altijd de"
+      },
+      { 
+        question: "Hij leest ... boek.", 
+        options: ["de","het","een","—"], 
+        correct: 2, 
+        explanation: "🔴 Fout! 'Boek' = het-woord, onbepaald → 'een boek'.", 
+        tip: "💡 een boek, een huis, een kind = een + het-woord",
+        rule: "📚 Regel: een + het-woord = mogelijk"
+      },
+      { 
+        question: "... sleutel ligt op tafel.", 
+        options: ["De","Het","Een","—"], 
+        correct: 0, 
+        explanation: "🔴 Fout! 'Sleutel' = de-woord. Specifiek (deze sleutel) → 'de'.", 
+        tip: "💡 Bekend/specifiek = de/het | Nieuw = een",
+        rule: "📚 Regel: Bepaald → de/het"
+      },
+      { 
+        question: "Ik zie ... vogel.", 
+        options: ["de","het","een","geen"], 
+        correct: 2, 
+        explanation: "🔴 Fout! 'Vogel' = de-woord, onbepaald → 'een vogel'.", 
+        tip: "💡 Dieren: de hond, de kat, de vogel = de",
+        rule: "📚 Regel: Dier = meestal de-woord"
+      },
+      { 
+        question: "... glas water, alstublieft.", 
+        options: ["De","Het","Een","—"], 
+        correct: 2, 
+        explanation: "🔴 Fout! 'Glas' = het-woord, maar hier: 'een glas' = één portie.", 
+        tip: "💡 'Een glas water' = portie | 'Het glas' = object",
+        rule: "📚 Regel: Portie/eenheid = een"
+      },
+      { 
+        question: "Zij is ... beste leerling.", 
+        options: ["De","Het","Een","—"], 
+        correct: 0, 
+        explanation: "🔴 Fout! Overtreffende trap ('beste') → altijd bepaald lidwoord: 'de beste'.", 
+        tip: "💡 de beste, het mooiste, de snelste = overtreffend",
+        rule: "📚 Regel: Overtreffende trap → de/het"
+      },
+      { 
+        question: "... paard rent.", 
+        options: ["De","Het","Een","—"], 
+        correct: 1, 
+        explanation: "🔴 Fout! 'Paard' is onzijdig → 'het paard'.", 
+        tip: "💡 Dieren: het paard, het schaap, het varken = het",
+        rule: "📚 Regel: Leer per dier: de of het?"
+      },
+      { 
+        question: "Hij eet ... appel.", 
+        options: ["de","het","een","—"], 
+        correct: 2, 
+        explanation: "🔴 Fout! 'Appel' = de-woord, onbepaald → 'een appel'.", 
+        tip: "💡 Fruit: de appel, de banaan, de sinaasappel = de",
+        rule: "📚 Regel: Fruit = meestal de-woord"
+      },
+      { 
+        question: "... centrum is druk.", 
+        options: ["De","Het","Een","—"], 
+        correct: 1, 
+        explanation: "🔴 Fout! 'Centrum' = leenwoord op -um → onzijdig: 'het centrum'.", 
+        tip: "💡 -um/-um/-isme: het museum, het centrum, het probleem",
+        rule: "📚 Regel: Leenwoord -um → het"
+      },
+      { 
+        question: "Ik koop ... brood.", 
+        options: ["de","het","een","—"], 
+        correct: 3, 
+        explanation: "🔴 Fout! 'Brood' = stofnaam, algemeen → geen lidwoord. 'Een brood' = heel stuk.", 
+        tip: "💡 'Brood kopen' = algemeen | 'Een brood' = stuk",
+        rule: "📚 Regel: Stofnaam → geen lidwoord (algemeen)"
+      },
+      { 
+        question: "... vakantie begint morgen.", 
+        options: ["De","Het","Een","—"], 
+        correct: 0, 
+        explanation: "🔴 Fout! 'Vakantie' = vrouwelijk → 'de vakantie'.", 
+        tip: "💡 Tijd: de vakantie, de week, de maand = de",
+        rule: "📚 Regel: Tijdseenheid = vaak de"
+      },
+      { 
+        question: "Wil je ... taart?", 
+        options: ["de","het","een","—"], 
+        correct: 3, 
+        explanation: "🔴 Fout! 'Taart' = stofnaam, algemeen → geen lidwoord. 'Een taart' = hele taart.", 
+        tip: "💡 'Taart eten' = algemeen | 'Een taart' = heel exemplaar",
+        rule: "📚 Regel: Stofnaam → geen lidwoord"
       }
     ],
+    
+    // 🎯 TEST: strakker, alleen korte uitleg
     test: [
-      { question: "... zon schijnt.", options: ["De","Het","Een","—"], correct: 0, explanation: "Uniek object → de." },
-      { question: "Ik wil ... brood.", options: ["de","het","een","geen"], correct: 1, explanation: "Stofnaam → het." },
-      { question: "Hij kocht ... auto.", options: ["de","het","een","—"], correct: 2, explanation: "Onbepaald → een." },
-      { question: "... boek is leuk.", options: ["De","Het","Een","—"], correct: 1, explanation: "Het boek." },
-      { question: "... man loopt.", options: ["De","Het","Een","—"], correct: 0, explanation: "De man." },
-      { question: "Ik drink ... water.", options: ["de","het","een","—"], correct: 1, explanation: "Het water." },
-      { question: "Zij heeft ... kat.", options: ["de","het","een","geen"], correct: 2, explanation: "Een kat." },
-      { question: "... paard rent.", options: ["De","Het","Een","—"], correct: 1, explanation: "Het paard." },
-      { question: "Ik zie ... vogel.", options: ["de","het","een","geen"], correct: 2, explanation: "Een vogel." },
-      { question: "... aarde draait.", options: ["De","Het","Een","—"], correct: 0, explanation: "De aarde." },
-      { question: "... sleutels liggen op tafel.", options: ["De","Het","Een","—"], correct: 0, explanation: "Meervoud → altijd de." },
-      { question: "Zij leest ... krant.", options: ["de","het","een","—"], correct: 2, explanation: "Onbepaald → een." },
-      { question: "... meisje lacht.", options: ["De","Het","Een","—"], correct: 1, explanation: "Verkleinwoord = altijd het." },
-      { question: "Hij eet ... appel.", options: ["de","het","een","—"], correct: 2, explanation: "Onbepaald → een." },
-      { question: "... centrum is druk.", options: ["De","Het","Een","—"], correct: 1, explanation: "Leenwoord op -um = het." },
-      { question: "Ik heb ... vraag.", options: ["de","het","een","—"], correct: 2, explanation: "Onbepaald → een." },
-      { question: "... antwoord is goed.", options: ["De","Het","Een","—"], correct: 1, explanation: "Het antwoord." },
-      { question: "... mensen wachten.", options: ["De","Het","Een","—"], correct: 0, explanation: "Meervoud → de." },
-      { question: "Hij geeft ... voorbeeld.", options: ["de","het","een","—"], correct: 2, explanation: "Onbepaald → een." },
-      { question: "... zilver glanst.", options: ["De","Het","Een","—"], correct: 1, explanation: "Materiaal → het." }
+      { question: "... zon schijnt.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 Uniek object → de." },
+      { question: "Ik wil ... brood.", options: ["de","het","een","geen"], correct: 1, explanation: "🟢 Stofnaam → het." },
+      { question: "Hij kocht ... auto.", options: ["de","het","een","—"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... boek is leuk.", options: ["De","Het","Een","—"], correct: 1, explanation: "🟢 Het boek." },
+      { question: "... man loopt.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 De man." },
+      { question: "Ik drink ... water.", options: ["de","het","een","—"], correct: 1, explanation: "🟢 Het water." },
+      { question: "Zij heeft ... kat.", options: ["de","het","een","geen"], correct: 2, explanation: "🟢 Een kat." },
+      { question: "... paard rent.", options: ["De","Het","Een","—"], correct: 1, explanation: "🟢 Het paard." },
+      { question: "Ik zie ... vogel.", options: ["de","het","een","geen"], correct: 2, explanation: "🟢 Een vogel." },
+      { question: "... aarde draait.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 De aarde." },
+      { question: "... sleutels liggen op tafel.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 Meervoud → altijd de." },
+      { question: "Zij leest ... krant.", options: ["de","het","een","—"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... meisje lacht.", options: ["De","Het","Een","—"], correct: 1, explanation: "🟢 Verkleinwoord = altijd het." },
+      { question: "Hij eet ... appel.", options: ["de","het","een","—"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... centrum is druk.", options: ["De","Het","Een","—"], correct: 1, explanation: "🟢 Leenwoord op -um = het." },
+      { question: "Ik heb ... vraag.", options: ["de","het","een","—"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... antwoord is goed.", options: ["De","Het","Een","—"], correct: 1, explanation: "🟢 Het antwoord." },
+      { question: "... mensen wachten.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 Meervoud → de." },
+      { question: "Hij geeft ... voorbeeld.", options: ["de","het","een","—"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... zilver glanst.", options: ["De","Het","Een","—"], correct: 1, explanation: "🟢 Materiaal → het." },
+      // === EXTRA TEST (20) ===
+      { question: "... kinderen spelen.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 Meervoud → de." },
+      { question: "Ik eet ... boterham.", options: ["de","het","een","—"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... tafel is houten.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 De tafel." },
+      { question: "Zij is ... arts.", options: ["de","het","een","—"], correct: 2, explanation: "🟢 Beroep onbepaald → een." },
+      { question: "... weer is fijn.", options: ["De","Het","Een","—"], correct: 1, explanation: "🟢 Het weer." },
+      { question: "Ik zoek ... sleutel.", options: ["de","het","een","geen"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... vogels zingen.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 Meervoud → de." },
+      { question: "... universiteit is groot.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 -iteit = de." },
+      { question: "Wil je ... koekje?", options: ["de","het","een","—"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... liefde is sterk.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 Abstract de-woord." },
+      { question: "Hij heeft ... idee.", options: ["de","het","een","—"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... jongen rent.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 De jongen." },
+      { question: "Zij draagt ... jas.", options: ["de","het","een","geen"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... museum is open.", options: ["De","Het","Een","—"], correct: 1, explanation: "🟢 Het museum." },
+      { question: "... glas is leeg.", options: ["De","Het","Een","—"], correct: 1, explanation: "🟢 Het glas." },
+      { question: "Ik koop ... vlees.", options: ["de","het","een","—"], correct: 3, explanation: "🟢 Stofnaam → geen lidwoord." },
+      { question: "... vakantie was leuk.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 De vakantie." },
+      { question: "Hij eet ... taart.", options: ["de","het","een","—"], correct: 2, explanation: "🟢 Onbepaald → een." },
+      { question: "... schoonheid telt.", options: ["De","Het","Een","—"], correct: 0, explanation: "🟢 -heid = de." },
+      { question: "... lezen is leuk.", options: ["De","Het","Een","—"], correct: 1, explanation: "🟢 Infinitief = het." }
     ]
-  },
+  
+},
    2: { // Bezittelijke voornaamwoorden
       practice: [
         { question: "Is dit ... boek? (jij)", options: ["jouw","jou","jij","je"], correct: 0, explanation: "❌ Fout! Bezit jij = jouw/je.", tip: "💡 Jouw = nadruk, je = standaard." },
