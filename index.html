@@ -350,13 +350,16 @@ const TOPICS = {
         font-family: 'Nunito', sans-serif; color: var(--gw-text);
         line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
       }
-      [data-theme="dark"] .gw-wrap {
-        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
-        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
-        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
-        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
-        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
-      }
+/* === 🔥 FIX: DARK MODE OEFENBOX LEESBAAR === */
+[data-theme="dark"] .expbox {
+  background: #14231c !important;
+  border: 2px solid #2d4a3e !important;
+  border-left: 5px solid #10b981 !important;
+  color: #e6f4ea !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+}
+[data-theme="dark"] .expbox strong { color: #4ade80 !important; }
+[data-theme="dark"] .expbox em { color: #a7f3d0 !important; }
       .gw-wrap * { box-sizing: border-box; }
 
       .gw-hero {
