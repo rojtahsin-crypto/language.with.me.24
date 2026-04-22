@@ -18664,7 +18664,7 @@ function pickPractice(sel) {
   const lb = LABELS[lang];
   const q = Qs[qi];
   
-  // Disable all buttons and highlight correct/incorrect
+  // Disable alle knoppen en markeer juist/fout
   document.querySelectorAll('.obtn').forEach((b, i) => {
     b.disabled = true;
     if (i === q.correct) {
@@ -18674,10 +18674,11 @@ function pickPractice(sel) {
     }
   });
 
-  // Build feedback box with proper language
-  let feedback = `<div class="expbox"><strong>${lb.expl}</strong> ${q.explanation}`;
+  // Build feedback box - GEEN Koerdisch, WEL juiste taal + dark mode
+  const darkClass = dark ? ' dark' : '';
+  let feedback = `<div class="expbox${darkClass}"><strong>${lb.expl}</strong> ${q.explanation}`;
   
-  // Only show extra tip if answer was wrong AND tip exists in the question
+  // Toon alleen extra tip bij fout antwoord én als tip bestaat
   if (sel !== q.correct && q.tip) {
     feedback += `<br><br>💡 <strong>${lb.tip || 'Tip'}:</strong> ${q.tip}`;
   }
@@ -18694,7 +18695,7 @@ function nextPractice() {
     qi++;
     renderPracticeQ();
   } else {
-    // Show final message before returning
+    // Toon eindresultaat voordat je teruggaat
     const correct = ans.filter((a, i) => a === Qs[i].correct).length;
     const pct = Math.round(correct / Qs.length * 100);
     const msg = pct === 100 ? lb.perfect : pct >= 70 ? lb.great : pct >= 40 ? lb.ok : lb.keep;
