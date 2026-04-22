@@ -18546,14 +18546,14 @@ async function openPractice(id) {
   document.getElementById('detailContent').innerHTML = `
     <div class="det-hdr">
       <h1>${tp.t}</h1>
-      <p>${lb.practice} — 5 ${lb.q}s</p>
+      <p>${lb.practice} — 20 ${lb.q}s</p>
     </div>
     <div id="pquiz">
       <div class="ldwrap"><div class="spin"></div><span>${lb.loading}</span></div>
     </div>
   `;
   try {
-    Qs = await fetchQuestions(lang, id, tp.t, 5, 'practice');
+    Qs = await fetchQuestions(lang, id, tp.t, 20, 'practice');
     qi = 0; ans = [];
     renderPracticeQ();
   } catch(e) {
