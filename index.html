@@ -124,7 +124,9 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line
 .obtn.sel-test{background:var(--acbg);border-color:var(--accent)}
 .obtn.sel-test .oltr{background:var(--accent);border-color:var(--accent);color:#fff}
 .expbox{background:var(--acbg);border:1.5px solid var(--acbo);border-radius:var(--rs);padding:.85rem 1.1rem;margin-top:.9rem;font-size:.88rem;color:var(--text);animation:fadeIn .3s ease both;font-weight:600;line-height:1.55}
-.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;gap:.6rem}
+[data-theme="dark"] .expbox{background:#14231c !important;border-color:#059669 !important;color:#e6f4ea !important}
+[data-theme="dark"] .expbox strong{color:#4ade80 !important}
+[data-theme="dark"] .expbox em{color:#a7f3d0 !important}.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;gap:.6rem}
 
 /* === RESULTS === */
 .res-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:2.5rem;text-align:center;animation:fadeIn .5s ease both}
@@ -350,17 +352,14 @@ const TOPICS = {
         font-family: 'Nunito', sans-serif; color: var(--gw-text);
         line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
       }
-/* === 🔥 ULTIEME FIX: EXPBOX DARK MODE - LEESBAAR OVERAL === */
-[data-theme="dark"] .expbox {
-  background: #14231c !important;
-  border: 2px solid #059669 !important;
-  border-left: 5px solid #10b981 !important;
-  color: #e6f4ea !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
-}
-[data-theme="dark"] .expbox strong { color: #4ade80 !important; font-weight: 700; }
-[data-theme="dark"] .expbox em { color: #a7f3d0 !important; }
-[data-theme="dark"] .expbox br { display: block; margin: 0.3em 0; }      .gw-wrap * { box-sizing: border-box; }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
 
       .gw-hero {
         background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
