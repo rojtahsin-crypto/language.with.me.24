@@ -18838,32 +18838,20 @@ function showDetail() {
 }
 
 function backFromDetail() {
-  // 1. Verberg detail/quiz sectie
   document.getElementById('sec-detail').style.display = 'none';
+  document.getElementById('sec-'+mode).style.display = '';
+  document.getElementById('tab-'+mode).classList.add('active');
   
-  // 2. Toon hoofdmenu + topics grid (ALTIJD)
-  document.getElementById('app').style.display = 'block';
-  document.getElementById('sec-topics').style.display = 'grid';
-  document.getElementById('sec-practice').style.display = 'none';
-  document.getElementById('sec-test').style.display = 'none';
+  qi = 0; ans = []; Qs = []; topicId = null;
   
-  // 3. Reset quiz-state
-  qi = 0;
-  ans = [];
-  Qs = [];
-  topicId = null;
-  currentMode = null;
-  
-  // 4. HERRENDER topics - DIT WAS DE BUG!
-  const grid = document.getElementById('topicsGrid');
+  // 🔥 FIX: Grid verversen
+  const gridId = mode === 'grammar' ? 'grammarGrid' : mode === 'practice' ? 'practiceGrid' : 'testGrid';
+  const grid = document.getElementById(gridId);
   if (grid) {
-    grid.innerHTML = ''; // Maak eerst leeg
-    renderTopics();      // Dan opnieuw renderen
+    grid.innerHTML = '';
+    const fn = mode === 'grammar' ? topicClickGrammar : mode === 'practice' ? topicClickPractice : topicClickTest;
+    renderGrid(gridId, fn);
   }
-  
-  // 5. Reset tab-activering
-  document.querySelectorAll('.ntab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-grammar').classList.add('active');
 }
 // =============================================
 // TOPIC CLICK HANDLERS (global, used in innerHTML)
