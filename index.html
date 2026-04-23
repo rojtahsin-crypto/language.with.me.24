@@ -21038,129 +21038,1605 @@ test: [
       ]
     },
     14: { // Voorzetsels
-      practice: [
-        { question: "Ik wacht ... de bus.", options: ["op","in","aan","bij"], correct: 0, explanation: "❌ Fout! wachten op = vast.", tip: "💡 Leer werkwoorden met vaste voorzetsels." },
-        { question: "Hij is goed ... wiskunde.", options: ["in","op","met","bij"], correct: 0, explanation: "❌ Fout! goed in = vaardigheid.", tip: "💡 goed in + vak/vaardigheid." },
-        { question: "We gaan ... zaterdag.", options: ["op","in","aan","bij"], correct: 0, explanation: "❌ Fout! dagen → op.", tip: "💡 op maandag, op 5 mei." },
-        { question: "Ik ben bang ... spinnen.", options: ["op","in","voor","bij"], correct: 2, explanation: "❌ Fout! bang voor = vast.", tip: "💡 bang voor + iets." },
-        { question: "Hij woont ... Amsterdam.", options: ["op","in","aan","bij"], correct: 1, explanation: "❌ Fout! steden → in.", tip: "💡 in een stad, op een eiland." }
-      ],
-      test: [
-        { question: "Ik ga ... vakantie.", options: ["op","in","met","naar"], correct: 0, explanation: "op vakantie." },
-        { question: "Ik ben verliefd ... jou.", options: ["op","in","met","van"], correct: 0, explanation: "verliefd op." },
-        { question: "Hij kijkt ... de TV.", options: ["op","naar","in","bij"], correct: 1, explanation: "kijken naar." },
-        { question: "Ik denk ... jou.", options: ["op","aan","in","bij"], correct: 1, explanation: "denken aan." },
-        { question: "Ze praten ... het weer.", options: ["op","over","in","bij"], correct: 1, explanation: "praten over." },
-        { question: "Hij gelooft ... mij.", options: ["op","in","aan","bij"], correct: 1, explanation: "geloven in." },
-        { question: "Ik zoek ... mijn sleutels.", options: ["op","naar","in","bij"], correct: 1, explanation: "zoeken naar." },
-        { question: "Ze lachen ... de grap.", options: ["op","om","in","bij"], correct: 1, explanation: "lachen om." },
-        { question: "Hij zorgt ... de kinderen.", options: ["op","voor","in","bij"], correct: 1, explanation: "zorgen voor." },
-        { question: "Ik luister ... muziek.", options: ["op","naar","in","bij"], correct: 1, explanation: "luisteren naar." }
+practice: [
+  { 
+    question: "Ik sta ... de bus te wachten.", 
+    options: ["voor","op","aan","bij"], 
+    correct: 1, 
+    explanation: "🟢 'Wachten op' is een vast voorzetsel.", 
+    tip: "💡 wachten op = vast" 
+  },
+  { 
+    question: "Hij woont ... Amsterdam.", 
+    options: ["in","te","op","naar"], 
+    correct: 0, 
+    explanation: "🟢 Bij steden en landen gebruik je 'in'.", 
+    tip: "💡 in + stad/land" 
+  },
+  { 
+    question: "Ik ga ... school.", 
+    options: ["naar","in","op","tot"], 
+    correct: 0, 
+    explanation: "🟢 'Gaan naar' drukt richting uit.", 
+    tip: "💡 gaan naar = richting" 
+  },
+  { 
+    question: "De winkel is ... 17.00 uur gesloten.", 
+    options: ["om","tot","voor","na"], 
+    correct: 1, 
+    explanation: "🟢 'Tot' geeft een tijdsgrens aan.", 
+    tip: "💡 tot + tijd = einde" 
+  },
+  { 
+    question: "Zij is dol ... chocolade.", 
+    options: ["voor","naar","op","aan"], 
+    correct: 2, 
+    explanation: "🟢 'Dol zijn op' = veel van houden.", 
+    tip: "💡 dol zijn op = liefhebben" 
+  },
+  { 
+    question: "Het boek ligt ... tafel.", 
+    options: ["op","aan","in","bij"], 
+    correct: 0, 
+    explanation: "🟢 'Op' voor een oppervlak.", 
+    tip: "💡 op tafel = oppervlak" 
+  },
+  { 
+    question: "Ik kom ... huis.", 
+    options: ["tot","naar","uit","van"], 
+    correct: 2, 
+    explanation: "🟢 'Uit huis komen' = verlaten.", 
+    tip: "💡 uit huis = verlaten" 
+  },
+  { 
+    question: "Hij is bang ... spinnen.", 
+    options: ["voor","van","met","door"], 
+    correct: 0, 
+    explanation: "🟢 'Bang zijn voor' is vast.", 
+    tip: "💡 bang zijn voor + angst" 
+  },
+  { 
+    question: "We gaan ... vakantie ... Italië.", 
+    options: ["naar / in","op / naar","op / in","voor / op"], 
+    correct: 1, 
+    explanation: "🟢 'Op vakantie' + 'naar Italië'.", 
+    tip: "💡 op vakantie + naar + land" 
+  },
+  { 
+    question: "Hij is verantwoordelijk ... deze afdeling.", 
+    options: ["voor","van","over","aan"], 
+    correct: 0, 
+    explanation: "🟢 'Verantwoordelijk voor' is vast.", 
+    tip: "💡 verantwoordelijk voor" 
+  },
+  { 
+    question: "De vergadering begint ... 10 uur.", 
+    options: ["om","op","in","tot"], 
+    correct: 0, 
+    explanation: "🟢 Bij exact tijdstip: 'om'.", 
+    tip: "💡 om + tijd = precies" 
+  },
+  { 
+    question: "Ik loop ... het park.", 
+    options: ["door","in","op","naar"], 
+    correct: 0, 
+    explanation: "🟢 'Door' = beweging erdoorheen.", 
+    tip: "💡 door = erdoorheen" 
+  },
+  { 
+    question: "Zij houdt ... muziek.", 
+    options: ["van","op","naar","met"], 
+    correct: 0, 
+    explanation: "🟢 'Houden van' = liefhebben.", 
+    tip: "💡 houden van = liefde" 
+  },
+  { 
+    question: "De kat springt ... de tafel.", 
+    options: ["op","aan","in","tot"], 
+    correct: 0, 
+    explanation: "🟢 'Springen op' = naar boven.", 
+    tip: "💡 springen op = omhoog" 
+  },
+  { 
+    question: "... zondag ga ik naar de kerk.", 
+    options: ["Op","In","Om","Tot"], 
+    correct: 0, 
+    explanation: "🟢 Bij dagen gebruik je 'op'.", 
+    tip: "💡 op + dag" 
+  },
+  { 
+    question: "Hij is getrouwd ... haar.", 
+    options: ["met","aan","voor","bij"], 
+    correct: 0, 
+    explanation: "🟢 'Trouwen met' is correct.", 
+    tip: "💡 trouwen met + persoon" 
+  },
+  { 
+    question: "Ik ben ... de trein gestapt.", 
+    options: ["in","op","naar","aan"], 
+    correct: 0, 
+    explanation: "🟢 In een trein stap je 'in'.", 
+    tip: "💡 in de trein = instappen" 
+  },
+  { 
+    question: "Hij lijkt ... zijn vader.", 
+    options: ["op","naar","met","van"], 
+    correct: 0, 
+    explanation: "🟢 'Lijken op' = gelijkenis.", 
+    tip: "💡 lijken op = gelijken" 
+  },
+  { 
+    question: "We leven ... de 21e eeuw.", 
+    options: ["in","op","van","tot"], 
+    correct: 0, 
+    explanation: "🟢 Bij eeuwen: 'in'.", 
+    tip: "💡 in + eeuw/periode" 
+  },
+  { 
+    question: "Hij denkt ... zijn toekomst.", 
+    options: ["aan","over","op","voor"], 
+    correct: 0, 
+    explanation: "🟢 'Denken aan' = zich voorstellen.", 
+    tip: "💡 denken aan = herinneren" 
+  },
+  { 
+    question: "Hij is ... huis (binnen).", 
+    options: ["in","op","naar","tot"], 
+    correct: 0, 
+    explanation: "🟢 'In huis' = binnen het huis.", 
+    tip: "💡 in huis = binnen" 
+  },
+  { 
+    question: "Ik heb geen tijd ... vakantie.", 
+    options: ["voor","naar","met","van"], 
+    correct: 0, 
+    explanation: "🟢 'Tijd voor' = beschikbare tijd.", 
+    tip: "💡 tijd voor + activiteit" 
+  },
+  { 
+    question: "Zij is geslaagd ... haar examen.", 
+    options: ["voor","van","met","op"], 
+    correct: 0, 
+    explanation: "🟢 'Slagen voor' een examen.", 
+    tip: "💡 slagen voor = examen" 
+  },
+  { 
+    question: "Hij leunt ... de muur.", 
+    options: ["tegen","aan","op","bij"], 
+    correct: 0, 
+    explanation: "🟢 'Leunen tegen' = ondersteuning.", 
+    tip: "💡 leunen tegen = steun" 
+  },
+  { 
+    question: "We gaan ... zee ... vakantie.", 
+    options: ["naar / op","in / voor","op / naar","tot / met"], 
+    correct: 0, 
+    explanation: "🟢 'Naar zee' + 'op vakantie'.", 
+    tip: "💡 naar zee + op vakantie" 
+  },
+  { 
+    question: "Hij is beroemd ... zijn liedjes.", 
+    options: ["om","van","met","door"], 
+    correct: 0, 
+    explanation: "🟢 'Beroemd om' = bekend vanwege.", 
+    tip: "💡 beroemd om = bekend" 
+  },
+  { 
+    question: "Ik woon ... nummer 12.", 
+    options: ["op","aan","in","bij"], 
+    correct: 0, 
+    explanation: "🟢 'Wonen op een nummer'.", 
+    tip: "💡 op + huisnummer" 
+  },
+  { 
+    question: "Het glas valt ... de grond.", 
+    options: ["op","naar","aan","door"], 
+    correct: 0, 
+    explanation: "🟢 'Vallen op de grond'.", 
+    tip: "💡 vallen op = neer" 
+  },
+  { 
+    question: "Ze is verliefd ... hem.", 
+    options: ["op","naar","met","voor"], 
+    correct: 0, 
+    explanation: "🟢 'Verliefd op' iemand.", 
+    tip: "💡 verliefd op = liefde" 
+  },
+  { 
+    question: "Hij schrijft ... een pen.", 
+    options: ["met","door","van","op"], 
+    correct: 0, 
+    explanation: "🟢 'Schrijven met' = instrument.", 
+    tip: "💡 met + instrument" 
+  },
+  { 
+    question: "Ik reis ... het openbaar vervoer.", 
+    options: ["met","in","op","naar"], 
+    correct: 0, 
+    explanation: "🟢 'Reizen met' = vervoermiddel.", 
+    tip: "💡 met + vervoer" 
+  },
+  { 
+    question: "Hij heeft last ... zijn rug.", 
+    options: ["van","met","op","aan"], 
+    correct: 0, 
+    explanation: "🟢 'Last hebben van' = klachten.", 
+    tip: "💡 last hebben van = pijn" 
+  },
+  { 
+    question: "De sleutel hangt ... de haak.", 
+    options: ["aan","op","bij","in"], 
+    correct: 0, 
+    explanation: "🟢 'Aan de haak hangen'.", 
+    tip: "💡 aan de haak = ophangen" 
+  },
+  { 
+    question: "Ik kom ... de supermarkt.", 
+    options: ["uit","van","naar","op"], 
+    correct: 0, 
+    explanation: "🟢 'Uit de supermarkt komen' = verlaten.", 
+    tip: "💡 uit = verlaten" 
+  },
+  { 
+    question: "... welke tijd begint de film?", 
+    options: ["Om","Op","In","Tegen"], 
+    correct: 0, 
+    explanation: "🟢 'Om welke tijd?' = tijdstip.", 
+    tip: "💡 om + tijd = vraag" 
+  },
+  { 
+    question: "Hij is jarig ... 15 mei.", 
+    options: ["op","in","om","van"], 
+    correct: 0, 
+    explanation: "🟢 Bij datums: 'op'.", 
+    tip: "💡 op + datum" 
+  },
+  { 
+    question: "Zij gelooft ... God.", 
+    options: ["in","op","aan","naar"], 
+    correct: 0, 
+    explanation: "🟢 'Geloven in' = overtuigd zijn.", 
+    tip: "💡 geloven in = overtuiging" 
+  },
+  { 
+    question: "Ik kan niet ... jou.", 
+    options: ["met","zonder","tegen","naar"], 
+    correct: 1, 
+    explanation: "🟢 'Zonder jou' = afwezigheid.", 
+    tip: "💡 zonder = afwezig" 
+  },
+  { 
+    question: "Hij let altijd ... zijn zusje.", 
+    options: ["op","naar","voor","bij"], 
+    correct: 0, 
+    explanation: "🟢 'Letten op' = toezien.", 
+    tip: "💡 letten op = oppassen" 
+  },
+  { 
+    question: "De hond rent ... de tuin.", 
+    options: ["door","in","op","naar"], 
+    correct: 0, 
+    explanation: "🟢 'Rent door de tuin' = beweging.", 
+    tip: "💡 door = beweging" 
+  }
+],
+
+test: [
+  { question: "Ik sta ... de bus te wachten.", options: ["voor","op","aan","bij"], correct: 1, explanation: "🟢 wachten op = vast." },
+  { question: "Hij woont ... Amsterdam.", options: ["in","te","op","naar"], correct: 0, explanation: "🟢 in + stad." },
+  { question: "Ik ga ... school.", options: ["naar","in","op","tot"], correct: 0, explanation: "🟢 gaan naar = richting." },
+  { question: "De winkel is ... 17.00 uur gesloten.", options: ["om","tot","voor","na"], correct: 1, explanation: "🟢 tot + tijd = einde." },
+  { question: "Zij is dol ... chocolade.", options: ["voor","naar","op","aan"], correct: 2, explanation: "🟢 dol zijn op." },
+  { question: "Het boek ligt ... tafel.", options: ["op","aan","in","bij"], correct: 0, explanation: "🟢 op + oppervlak." },
+  { question: "Hij is bang ... spinnen.", options: ["voor","van","met","door"], correct: 0, explanation: "🟢 bang zijn voor." },
+  { question: "We gaan ... vakantie ... Italië.", options: ["naar / in","op / naar","op / in","voor / op"], correct: 1, explanation: "🟢 op vakantie + naar land." },
+  { question: "Hij is verantwoordelijk ... deze afdeling.", options: ["voor","van","over","aan"], correct: 0, explanation: "🟢 verantwoordelijk voor." },
+  { question: "De vergadering begint ... 10 uur.", options: ["om","op","in","tot"], correct: 0, explanation: "🟢 om + tijd = precies." },
+  { question: "Zij houdt ... muziek.", options: ["van","op","naar","met"], correct: 0, explanation: "🟢 houden van." },
+  { question: "De kat springt ... de tafel.", options: ["op","aan","in","tot"], correct: 0, explanation: "🟢 springen op." },
+  { question: "... zondag ga ik naar de kerk.", options: ["Op","In","Om","Tot"], correct: 0, explanation: "🟢 op + dag." },
+  { question: "Hij is getrouwd ... haar.", options: ["met","aan","voor","bij"], correct: 0, explanation: "🟢 trouwen met." },
+  { question: "Ik ben ... de trein gestapt.", options: ["in","op","naar","aan"], correct: 0, explanation: "🟢 in de trein." },
+  { question: "Hij lijkt ... zijn vader.", options: ["op","naar","met","van"], correct: 0, explanation: "🟢 lijken op." },
+  { question: "We leven ... de 21e eeuw.", options: ["in","op","van","tot"], correct: 0, explanation: "🟢 in + eeuw." },
+  { question: "Hij denkt ... zijn toekomst.", options: ["aan","over","op","voor"], correct: 0, explanation: "🟢 denken aan." },
+  { question: "Zij is geslaagd ... haar examen.", options: ["voor","van","met","op"], correct: 0, explanation: "🟢 slagen voor." },
+  { question: "Hij leunt ... de muur.", options: ["tegen","aan","op","bij"], correct: 0, explanation: "🟢 leunen tegen." }
       ]
     },
     15: { // Vragende voornaamwoorden
-      practice: [
-        { question: "... boek is dat?", options: ["Welk","Welke","Wat","Wie"], correct: 0, explanation: "❌ Fout! het-woord → welk.", tip: "💡 Welk voor het-woorden." },
-        { question: "... heeft dat gedaan?", options: ["Wie","Wat","Welk","Waar"], correct: 0, explanation: "❌ Fout! persoon → wie.", tip: "💡 Wie = personen, wat = zaken." },
-        { question: "... kleur vind je mooi?", options: ["Welk","Welke","Wat","Wie"], correct: 1, explanation: "❌ Fout! de-woord → welke.", tip: "💡 Welke voor de-woorden/meervoud." },
-        { question: "... is er gebeurd?", options: ["Wie","Wat","Welk","Waar"], correct: 1, explanation: "❌ Fout! gebeurtenis → wat.", tip: "💡 Wat voor zaken/gebeurtenissen." },
-        { question: "... auto rijdt hij?", options: ["Welk","Welke","Wat voor","Wie"], correct: 2, explanation: "❌ Fout! soort → wat voor.", tip: "💡 Wat voor + zelfstandig naamwoord." }
-      ],
-      test: [
-        { question: "... is je naam?", options: ["Wie","Wat","Welk","Welke"], correct: 1, explanation: "Naam = zaak → wat." },
-        { question: "... mensen komen er?", options: ["Hoeveel","Wat","Welk","Wie"], correct: 0, explanation: "Aantal → hoeveel." },
-        { question: "... tas is van jou?", options: ["Welk","Welke","Wat","Wie"], correct: 1, explanation: "de-woord → welke." },
-        { question: "... heb je nodig?", options: ["Wie","Wat","Welk","Welke"], correct: 1, explanation: "Zaak → wat." },
-        { question: "... woont hier?", options: ["Wie","Wat","Welk","Welke"], correct: 0, explanation: "Persoon → wie." },
-        { question: "... dag is het?", options: ["Welke","Welk","Wat","Wie"], correct: 0, explanation: "de-woord → welke." },
-        { question: "... bedoel je?", options: ["Wie","Wat","Welk","Welke"], correct: 1, explanation: "Zaak → wat." },
-        { question: "... boek lees je?", options: ["Welk","Welke","Wat","Wie"], correct: 0, explanation: "het-woord → welk." },
-        { question: "... tijd vertrekken we?", options: ["Hoe laat","Wat","Welk","Wie"], correct: 0, explanation: "Tijd → hoe laat." },
-        { question: "... reden heb je?", options: ["Welke","Welk","Wat","Wie"], correct: 0, explanation: "de-woord → welke." }
+practice: [
+  { 
+    question: "... heb je gisteren gezien? (persoon)", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Wie' vraag je naar personen.", 
+    tip: "💡 Wie = personen" 
+  },
+  { 
+    question: "... boek is dat? (bezit)", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 3, 
+    explanation: "🟢 'Wiens' vraag je naar de bezitter.", 
+    tip: "💡 Wiens = van wie (bezit)" 
+  },
+  { 
+    question: "... kleur heeft jouw auto?", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 2, 
+    explanation: "🟢 'Welke' vraagt naar keuze uit bekende set.", 
+    tip: "💡 Welke = keuze" 
+  },
+  { 
+    question: "... voor een weer is het vandaag?", 
+    options: ["Wat","Welke","Wie","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Wat voor (een)' vraagt naar soort/type.", 
+    tip: "💡 Wat voor = soort" 
+  },
+  { 
+    question: "... heb je nodig? (gereedschap)", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 1, 
+    explanation: "🟢 'Wat' vraag je naar zaken/dingen.", 
+    tip: "💡 Wat = zaken" 
+  },
+  { 
+    question: "... van deze twee jurken vind je mooier?", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 2, 
+    explanation: "🟢 Bij beperkte keuze gebruik je 'welke'.", 
+    tip: "💡 Welke = beperkte keuze" 
+  },
+  { 
+    question: "... tas ligt hier? (bezit)", 
+    options: ["Wiens","Wie","Wat","Welke"], 
+    correct: 0, 
+    explanation: "🟢 'Wiens tas?' = vraag naar bezitter.", 
+    tip: "💡 Wiens = bezit" 
+  },
+  { 
+    question: "... heb je dat verteld? (persoon)", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Wie' als meewerkend voorwerp (persoon).", 
+    tip: "💡 Wie = persoon" 
+  },
+  { 
+    question: "... is er gebeurd?", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 1, 
+    explanation: "🟢 'Wat' voor gebeurtenissen/zaken.", 
+    tip: "💡 Wat = gebeurtenis" 
+  },
+  { 
+    question: "... auto rijdt het snelst?", 
+    options: ["Wiens","Welke","Wat","Wie"], 
+    correct: 1, 
+    explanation: "🟢 'Welke auto?' = keuze uit auto's.", 
+    tip: "💡 Welke = keuze" 
+  },
+  { 
+    question: "... meen je? (persoon)", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Wie' bij personen als lijdend voorwerp.", 
+    tip: "💡 Wie = persoon" 
+  },
+  { 
+    question: "... huis staat daar? (bezit)", 
+    options: ["Wiens","Wie","Wat","Welke"], 
+    correct: 0, 
+    explanation: "🟢 'Wiens huis?' = van wie.", 
+    tip: "💡 Wiens = bezit" 
+  },
+  { 
+    question: "... vind je van dit plan?", 
+    options: ["Wat","Wie","Welke","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Wat vind je van...?' is vaste uitdrukking.", 
+    tip: "💡 Wat vind je van...?" 
+  },
+  { 
+    question: "... van jullie heeft de sleutel?", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Wie van jullie' = persoon uit groep.", 
+    tip: "💡 Wie van = persoon" 
+  },
+  { 
+    question: "... voor een auto is dat?", 
+    options: ["Wat","Welke","Wie","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Wat voor een' = vraag naar soort.", 
+    tip: "💡 Wat voor = soort" 
+  },
+  { 
+    question: "... heb je dat boek geleend?", 
+    options: ["Aan wie","Van wie","Met wie","Voor wie"], 
+    correct: 1, 
+    explanation: "🟢 'Van wie geleend?' = bezit/bron.", 
+    tip: "💡 Van wie = bron" 
+  },
+  { 
+    question: "... wacht je? (op)", 
+    options: ["Waarop","Waarvoor","Waar","Waarmee"], 
+    correct: 0, 
+    explanation: "🟢 'Wachten op' → 'Waarop wacht je?'.", 
+    tip: "💡 Waar + op = waarop" 
+  },
+  { 
+    question: "... heb je dat cadeau gegeven?", 
+    options: ["Wie","Aan wie","Van wie","Wiens"], 
+    correct: 1, 
+    explanation: "🟢 'Aan wie' = meewerkend voorwerp.", 
+    tip: "💡 Aan wie = ontvanger" 
+  },
+  { 
+    question: "... gaat de film?", 
+    options: ["Waarover","Waar","Waarheen","Waarvoor"], 
+    correct: 0, 
+    explanation: "🟢 'Waarover' = over welk onderwerp.", 
+    tip: "💡 Waarover = onderwerp" 
+  },
+  { 
+    question: "... ben je bang?", 
+    options: ["Waarvoor","Waarover","Waarop","Waarmee"], 
+    correct: 0, 
+    explanation: "🟢 'Bang zijn voor' → 'Waarvoor'.", 
+    tip: "💡 Waarvoor = angst" 
+  },
+  { 
+    question: "... heb je die sleutel nodig?", 
+    options: ["Waar","Waarvoor","Waarop","Waarmee"], 
+    correct: 1, 
+    explanation: "🟢 'Waarvoor' = voor welk doel.", 
+    tip: "💡 Waarvoor = doel" 
+  },
+  { 
+    question: "... schrijf je? (instrument)", 
+    options: ["Waarmee","Waarop","Waar","Waarvoor"], 
+    correct: 0, 
+    explanation: "🟢 'Waarmee' = met welk instrument.", 
+    tip: "💡 Waarmee = middel" 
+  },
+  { 
+    question: "... denk je? (aan)", 
+    options: ["Waaraan","Waarover","Waar","Waarom"], 
+    correct: 0, 
+    explanation: "🟢 'Denken aan' → 'Waaraan'.", 
+    tip: "💡 Waaraan = herinneren" 
+  },
+  { 
+    question: "... meisje is jouw zus?", 
+    options: ["Welk","Welke","Wat","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Meisje' is het-woord → 'welk'.", 
+    tip: "💡 Welk = het-woord" 
+  },
+  { 
+    question: "... heb je gesproken? (met)", 
+    options: ["Met wie","Van wie","Wie","Wat"], 
+    correct: 0, 
+    explanation: "🟢 'Spreken met' → 'Met wie'.", 
+    tip: "💡 Met wie = gesprek" 
+  },
+  { 
+    question: "... heb je dat gekocht? (betaalmiddel)", 
+    options: ["Waarmee","Waar","Waarvoor","Waarover"], 
+    correct: 0, 
+    explanation: "🟢 'Waarmee' = met welk geld/middel.", 
+    tip: "💡 Waarmee = betaalmiddel" 
+  },
+  { 
+    question: "... kind heeft dat gedaan?", 
+    options: ["Welk","Welke","Wat","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Kind' is het-woord → 'welk'.", 
+    tip: "💡 Welk = het-woord" 
+  },
+  { 
+    question: "... heb je het over?", 
+    options: ["Waar","Waarover","Waaraan","Waarmee"], 
+    correct: 1, 
+    explanation: "🟢 'Over wat' → 'Waarover'.", 
+    tip: "💡 Waarover = onderwerp" 
+  },
+  { 
+    question: "... hobby's heb je?", 
+    options: ["Wat voor","Welke","Wie","Wiens"], 
+    correct: 1, 
+    explanation: "🟢 'Welke hobby's?' = vraag naar opsomming.", 
+    tip: "💡 Welke = opsomming" 
+  },
+  { 
+    question: "... broer is dat? (bezit)", 
+    options: ["Wiens","Wie","Wat","Welke"], 
+    correct: 0, 
+    explanation: "🟢 'Wiens broer?' = van wie.", 
+    tip: "💡 Wiens = bezit" 
+  },
+  { 
+    question: "... voor een weer wordt het morgen?", 
+    options: ["Wat","Welke","Wie","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Wat voor een' = vraag naar soort.", 
+    tip: "💡 Wat voor = soort" 
+  },
+  { 
+    question: "... zat er naast jou? (persoon)", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Wie' = persoon als onderwerp.", 
+    tip: "💡 Wie = persoon" 
+  },
+  { 
+    question: "... heb je je piano gekocht? (bij persoon)", 
+    options: ["Bij wie","Van wie","Met wie","Voor wie"], 
+    correct: 0, 
+    explanation: "🟢 'Gekocht bij' → 'Bij wie'.", 
+    tip: "💡 Bij wie = verkoper" 
+  },
+  { 
+    question: "... is jouw favoriete film?", 
+    options: ["Wat","Wie","Welke","Wiens"], 
+    correct: 2, 
+    explanation: "🟢 'Welke film?' = keuze uit films.", 
+    tip: "💡 Welke = keuze" 
+  },
+  { 
+    question: "... hoed is dat? (bezit, vrouw)", 
+    options: ["Wiens","Wier","Wie","Wat"], 
+    correct: 0, 
+    explanation: "🟢 'Wiens' is algemeen voor bezit.", 
+    tip: "💡 Wiens = bezit" 
+  },
+  { 
+    question: "... leg je dat uit? (ontvanger)", 
+    options: ["Aan wie","Van wie","Met wie","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Uitleggen aan' → 'Aan wie'.", 
+    tip: "💡 Aan wie = ontvanger" 
+  },
+  { 
+    question: "... voertaal gebruiken jullie?", 
+    options: ["Wat","Welke","Wie","Wiens"], 
+    correct: 1, 
+    explanation: "🟢 'Welke voertaal?' = keuze.", 
+    tip: "💡 Welke = keuze" 
+  },
+  { 
+    question: "... vader is gestorven? (bezit)", 
+    options: ["Wiens","Wie","Wat","Welke"], 
+    correct: 0, 
+    explanation: "🟢 'Wiens vader?' = van wie.", 
+    tip: "💡 Wiens = bezit" 
+  },
+  { 
+    question: "... heb je het liefst? (van drie opties)", 
+    options: ["Wie","Wat","Welke","Wiens"], 
+    correct: 2, 
+    explanation: "🟢 'Welke' bij beperkte keuze.", 
+    tip: "💡 Welke = keuze" 
+  },
+  { 
+    question: "... voor een baan zoek je?", 
+    options: ["Wat","Welke","Wie","Wiens"], 
+    correct: 0, 
+    explanation: "🟢 'Wat voor een baan' = vraag naar soort.", 
+    tip: "💡 Wat voor = soort" 
+  }
+],
+
+test: [
+  { question: "... heb je gisteren gezien?", options: ["Wie","Wat","Welke","Wiens"], correct: 0, explanation: "🟢 Wie = personen." },
+  { question: "... boek is dat?", options: ["Wie","Wat","Welke","Wiens"], correct: 3, explanation: "🟢 Wiens = bezit." },
+  { question: "... kleur heeft jouw auto?", options: ["Wie","Wat","Welke","Wiens"], correct: 2, explanation: "🟢 Welke = keuze." },
+  { question: "... voor een weer is het?", options: ["Wat","Welke","Wie","Wiens"], correct: 0, explanation: "🟢 Wat voor = soort." },
+  { question: "... heb je nodig?", options: ["Wie","Wat","Welke","Wiens"], correct: 1, explanation: "🟢 Wat = zaken." },
+  { question: "... van deze twee jurken?", options: ["Wie","Wat","Welke","Wiens"], correct: 2, explanation: "🟢 Welke = beperkte keuze." },
+  { question: "... heb je dat verteld?", options: ["Wie","Wat","Welke","Wiens"], correct: 0, explanation: "🟢 Wie = persoon." },
+  { question: "... is er gebeurd?", options: ["Wie","Wat","Welke","Wiens"], correct: 1, explanation: "🟢 Wat = gebeurtenis." },
+  { question: "... wacht je? (op)", options: ["Waarop","Waarvoor","Waar","Waarmee"], correct: 0, explanation: "🟢 Waarop = waar + op." },
+  { question: "... heb je dat cadeau gegeven?", options: ["Wie","Aan wie","Van wie","Wiens"], correct: 1, explanation: "🟢 Aan wie = ontvanger." },
+  { question: "... gaat de film?", options: ["Waarover","Waar","Waarheen","Waarvoor"], correct: 0, explanation: "🟢 Waarover = onderwerp." },
+  { question: "... ben je bang?", options: ["Waarvoor","Waarover","Waarop","Waarmee"], correct: 0, explanation: "🟢 Waarvoor = angst." },
+  { question: "... schrijf je? (instrument)", options: ["Waarmee","Waarop","Waar","Waarvoor"], correct: 0, explanation: "🟢 Waarmee = middel." },
+  { question: "... meisje is jouw zus?", options: ["Welk","Welke","Wat","Wiens"], correct: 0, explanation: "🟢 Welk = het-woord." },
+  { question: "... heb je gesproken?", options: ["Met wie","Van wie","Wie","Wat"], correct: 0, explanation: "🟢 Met wie = gesprek." },
+  { question: "... kind heeft dat gedaan?", options: ["Welk","Welke","Wat","Wiens"], correct: 0, explanation: "🟢 Welk = het-woord." },
+  { question: "... hobby's heb je?", options: ["Wat voor","Welke","Wie","Wiens"], correct: 1, explanation: "🟢 Welke = opsomming." },
+  { question: "... is jouw favoriete film?", options: ["Wat","Wie","Welke","Wiens"], correct: 2, explanation: "🟢 Welke = keuze." },
+  { question: "... leg je dat uit?", options: ["Aan wie","Van wie","Met wie","Wiens"], correct: 0, explanation: "🟢 Aan wie = ontvanger." },
+  { question: "... voor een baan zoek je?", options: ["Wat","Welke","Wie","Wiens"], correct: 0, explanation: "🟢 Wat voor = soort." }
       ]
     },
     16: { // Aanwijzende voornaamwoorden
-      practice: [
-        { question: "... huis is groot. (dichtbij, het)", options: ["Deze","Die","Dit","Dat"], correct: 2, explanation: "❌ Fout! dichtbij + het → dit.", tip: "💡 Dit/dat voor het-woorden." },
-        { question: "... auto daar is van mij. (ver, de)", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "❌ Fout! ver + de → die.", tip: "💡 Deze/die voor de-woorden." },
-        { question: "... boek daar wil ik. (ver, het)", options: ["Deze","Die","Dit","Dat"], correct: 3, explanation: "❌ Fout! ver + het → dat.", tip: "💡 Dat voor ver weg het-woord." },
-        { question: "... mensen hier zijn aardig. (dichtbij, mv)", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "❌ Fout! dichtbij + mv → deze.", tip: "💡 Deze voor dichtbij meervoud." },
-        { question: "... tas daar is zwaar. (ver, de)", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "❌ Fout! ver + de → die.", tip: "💡 Die voor ver weg de-woord." }
-      ],
-      test: [
-        { question: "... pen hier is rood.", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "dichtbij + de → deze." },
-        { question: "... kind daar lacht.", options: ["Deze","Die","Dit","Dat"], correct: 3, explanation: "ver + het → dat." },
-        { question: "... boeken hier zijn nieuw.", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "dichtbij + mv → deze." },
-        { question: "... huis daar is oud.", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "ver + het → dat." },
-        { question: "... vrouw hier is mijn moeder.", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "dichtbij + de → deze." },
-        { question: "... stoel daar is kapot.", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "ver + de → die." },
-        { question: "... idee hier is goed.", options: ["Deze","Die","Dit","Dat"], correct: 2, explanation: "dichtbij + het → dit." },
-        { question: "... kinderen daar spelen.", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "ver + mv → die." },
-        { question: "... tafel hier is nieuw.", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "dichtbij + de → deze." },
-        { question: "... probleem daar is opgelost.", options: ["Deze","Die","Dit","Dat"], correct: 3, explanation: "ver + het → dat." }
+practice: [
+  { 
+    question: "... auto is van mij. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 'Auto' is een de-woord, dichtbij → deze.", 
+    tip: "💡 De-woord + dichtbij = deze" 
+  },
+  { 
+    question: "... boek is interessant. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 3, 
+    explanation: "🟢 'Boek' is een het-woord, veraf → dat.", 
+    tip: "💡 Het-woord + veraf = dat" 
+  },
+  { 
+    question: "... huizen zijn groot. (dichtbij, mv)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 Meervoud + dichtbij → deze.", 
+    tip: "💡 Meervoud + dichtbij = deze" 
+  },
+  { 
+    question: "... meisje daar speelt in de tuin. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 3, 
+    explanation: "🟢 'Meisje' is een het-woord, veraf → dat.", 
+    tip: "💡 Meisje = het-woord → dat" 
+  },
+  { 
+    question: "... stoelen zijn nieuw. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 Meervoud + dichtbij → deze.", 
+    tip: "💡 Meervoud = deze/die" 
+  },
+  { 
+    question: "... pen daar is van mij. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 'Pen' is een de-woord, veraf → die.", 
+    tip: "💡 De-woord + veraf = die" 
+  },
+  { 
+    question: "... huis hier is heel oud. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 2, 
+    explanation: "🟢 'Huis' is een het-woord, dichtbij → dit.", 
+    tip: "💡 Het-woord + dichtbij = dit" 
+  },
+  { 
+    question: "... jongens heb ik al gezien. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud + veraf → die.", 
+    tip: "💡 Meervoud + veraf = die" 
+  },
+  { 
+    question: "... tafel staat in de keuken. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 'Tafel' is een de-woord, dichtbij → deze.", 
+    tip: "💡 De-woord + dichtbij = deze" 
+  },
+  { 
+    question: "... gebeurtenis was vreselijk. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 'Gebeurtenis' is een de-woord, veraf → die.", 
+    tip: "💡 De-woord + veraf = die" 
+  },
+  { 
+    question: "... kind hier is mijn zoon. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 2, 
+    explanation: "🟢 'Kind' is een het-woord, dichtbij → dit.", 
+    tip: "💡 Kind = het-woord → dit" 
+  },
+  { 
+    question: "... dames kennen we niet. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud + veraf → die.", 
+    tip: "💡 Meervoud + veraf = die" 
+  },
+  { 
+    question: "... potlood ligt op de grond. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 2, 
+    explanation: "🟢 'Potlood' is een het-woord, dichtbij → dit.", 
+    tip: "💡 Het-woord + dichtbij = dit" 
+  },
+  { 
+    question: "... krant is van gisteren. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 'Krant' is een de-woord, veraf → die.", 
+    tip: "💡 De-woord + veraf = die" 
+  },
+  { 
+    question: "... bloemen zijn prachtig. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 Meervoud + dichtbij → deze.", 
+    tip: "💡 Meervoud + dichtbij = deze" 
+  },
+  { 
+    question: "... kopje daar is gebarsten. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 3, 
+    explanation: "🟢 'Kopje' is een het-woord, veraf → dat.", 
+    tip: "💡 Het-woord + veraf = dat" 
+  },
+  { 
+    question: "... computer werkt niet. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 'Computer' is een de-woord, dichtbij → deze.", 
+    tip: "💡 De-woord + dichtbij = deze" 
+  },
+  { 
+    question: "... verhaal heb ik al gehoord. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 3, 
+    explanation: "🟢 'Verhaal' is een het-woord, veraf → dat.", 
+    tip: "💡 Het-woord + veraf = dat" 
+  },
+  { 
+    question: "... fiets hier is van mij. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 'Fiets' is een de-woord, dichtbij → deze.", 
+    tip: "💡 De-woord + dichtbij = deze" 
+  },
+  { 
+    question: "... maatregelen zijn streng. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud + veraf → die.", 
+    tip: "💡 Meervoud + veraf = die" 
+  },
+  { 
+    question: "... water is troebel. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 2, 
+    explanation: "🟢 'Water' is een het-woord, dichtbij → dit.", 
+    tip: "💡 Water = het-woord → dit" 
+  },
+  { 
+    question: "... schoenen zijn te klein. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud + veraf → die.", 
+    tip: "💡 Meervoud + veraf = die" 
+  },
+  { 
+    question: "... idee is briljant. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 2, 
+    explanation: "🟢 'Idee' is een het-woord, dichtbij → dit.", 
+    tip: "💡 Idee = het-woord → dit" 
+  },
+  { 
+    question: "... planten daar hebben water nodig. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud + veraf → die.", 
+    tip: "💡 Meervoud + veraf = die" 
+  },
+  { 
+    question: "... brood is vers gebakken. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 2, 
+    explanation: "🟢 'Brood' is een het-woord, dichtbij → dit.", 
+    tip: "💡 Brood = het-woord → dit" 
+  },
+  { 
+    question: "... vakantie was geweldig. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 'Vakantie' is een de-woord, veraf → die.", 
+    tip: "💡 De-woord + veraf = die" 
+  },
+  { 
+    question: "... eiland hier is onbewoond. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 2, 
+    explanation: "🟢 'Eiland' is een het-woord, dichtbij → dit.", 
+    tip: "💡 Eiland = het-woord → dit" 
+  },
+  { 
+    question: "... bewoners zijn vriendelijk. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud + veraf → die.", 
+    tip: "💡 Meervoud + veraf = die" 
+  },
+  { 
+    question: "... appel smaakt zuur. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 'Appel' is een de-woord, dichtbij → deze.", 
+    tip: "💡 De-woord + dichtbij = deze" 
+  },
+  { 
+    question: "... huis daar is te koop. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 3, 
+    explanation: "🟢 'Huis' is een het-woord, veraf → dat.", 
+    tip: "💡 Het-woord + veraf = dat" 
+  },
+  { 
+    question: "... problemen zijn opgelost. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 Meervoud + dichtbij → deze.", 
+    tip: "💡 Meervoud + dichtbij = deze" 
+  },
+  { 
+    question: "... auto daar is van mijn broer. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 'Auto' is een de-woord, veraf → die.", 
+    tip: "💡 De-woord + veraf = die" 
+  },
+  { 
+    question: "... glas hier is vol. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 2, 
+    explanation: "🟢 'Glas' is een het-woord, dichtbij → dit.", 
+    tip: "💡 Het-woord + dichtbij = dit" 
+  },
+  { 
+    question: "... foto's zijn mooi. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 Meervoud + dichtbij → deze.", 
+    tip: "💡 Meervoud + dichtbij = deze" 
+  },
+  { 
+    question: "... gebouw is nieuw. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 3, 
+    explanation: "🟢 'Gebouw' is een het-woord, veraf → dat.", 
+    tip: "💡 Het-woord + veraf = dat" 
+  },
+  { 
+    question: "... tas hier is van leer. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 'Tas' is een de-woord, dichtbij → deze.", 
+    tip: "💡 De-woord + dichtbij = deze" 
+  },
+  { 
+    question: "... meisje hier heet Sanne. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 2, 
+    explanation: "🟢 'Meisje' is een het-woord, dichtbij → dit.", 
+    tip: "💡 Meisje = het-woord → dit" 
+  },
+  { 
+    question: "... schilderij daar is van Rembrandt. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 3, 
+    explanation: "🟢 'Schilderij' is een het-woord, veraf → dat.", 
+    tip: "💡 Het-woord + veraf = dat" 
+  },
+  { 
+    question: "... opmerking vond ik kwetsend. (dichtbij)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 0, 
+    explanation: "🟢 'Opmerking' is een de-woord, dichtbij → deze.", 
+    tip: "💡 De-woord + dichtbij = deze" 
+  },
+  { 
+    question: "... hoofdstukken moet je lezen. (veraf)", 
+    options: ["Deze","Die","Dit","Dat"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud + veraf → die.", 
+    tip: "💡 Meervoud + veraf = die" 
+  }
+],
+
+test: [
+  { question: "... auto is van mij. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "🟢 De-woord + dichtbij = deze." },
+  { question: "... boek is interessant. (veraf)", options: ["Deze","Die","Dit","Dat"], correct: 3, explanation: "🟢 Het-woord + veraf = dat." },
+  { question: "... huizen zijn groot. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "🟢 Meervoud + dichtbij = deze." },
+  { question: "... meisje daar speelt. (veraf)", options: ["Deze","Die","Dit","Dat"], correct: 3, explanation: "🟢 Meisje = het-woord + veraf = dat." },
+  { question: "... pen daar is van mij. (veraf)", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "🟢 De-woord + veraf = die." },
+  { question: "... huis hier is oud. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 2, explanation: "🟢 Het-woord + dichtbij = dit." },
+  { question: "... jongens heb ik gezien. (veraf)", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "🟢 Meervoud + veraf = die." },
+  { question: "... tafel staat in de keuken. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "🟢 De-woord + dichtbij = deze." },
+  { question: "... kind hier is mijn zoon. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 2, explanation: "🟢 Kind = het-woord + dichtbij = dit." },
+  { question: "... dames kennen we niet. (veraf)", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "🟢 Meervoud + veraf = die." },
+  { question: "... potlood ligt op de grond. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 2, explanation: "🟢 Het-woord + dichtbij = dit." },
+  { question: "... krant is van gisteren. (veraf)", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "🟢 De-woord + veraf = die." },
+  { question: "... bloemen zijn prachtig. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "🟢 Meervoud + dichtbij = deze." },
+  { question: "... kopje daar is gebarsten. (veraf)", options: ["Deze","Die","Dit","Dat"], correct: 3, explanation: "🟢 Het-woord + veraf = dat." },
+  { question: "... computer werkt niet. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "🟢 De-woord + dichtbij = deze." },
+  { question: "... verhaal heb ik gehoord. (veraf)", options: ["Deze","Die","Dit","Dat"], correct: 3, explanation: "🟢 Het-woord + veraf = dat." },
+  { question: "... fiets hier is van mij. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 0, explanation: "🟢 De-woord + dichtbij = deze." },
+  { question: "... maatregelen zijn streng. (veraf)", options: ["Deze","Die","Dit","Dat"], correct: 1, explanation: "🟢 Meervoud + veraf = die." },
+  { question: "... water is troebel. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 2, explanation: "🟢 Water = het-woord + dichtbij = dit." },
+  { question: "... idee is briljant. (dichtbij)", options: ["Deze","Die","Dit","Dat"], correct: 2, explanation: "🟢 Idee = het-woord + dichtbij = dit." }
       ]
     },
     17: { // Onbepaalde voornaamwoorden
-      practice: [
-        { question: "Ik heb ... gezien. (geen persoon)", options: ["iemand","niemand","iets","niets"], correct: 1, explanation: "❌ Fout! niemand = geen persoon.", tip: "💡 Iemand/niemand voor personen." },
-        { question: "... mag meedoen. (alle personen)", options: ["Iedereen","Alles","Alle","Elk"], correct: 0, explanation: "❌ Fout! iedereen = alle mensen.", tip: "💡 Iedereen = personen, alles = dingen." },
-        { question: "Er is ... te eten.", options: ["iemand","iets","niemand","niets"], correct: 1, explanation: "❌ Fout! iets = zaak.", tip: "💡 Iets voor onbepaalde zaken." },
-        { question: "... zegt dat het morgen regent.", options: ["Iemand","Men","Alles","Elk"], correct: 1, explanation: "❌ Fout! men = onbepaald persoon.", tip: "💡 Men = formeel, algemeen." },
-        { question: "Ik heb ... tijd meer.", options: ["geen","niet","niets","nooit"], correct: 0, explanation: "❌ Fout! geen + zelfstandig naamwoord.", tip: "💡 Geen voor zelfstandige naamwoorden." }
-      ],
-      test: [
-        { question: "Er is ... aan de deur.", options: ["iemand","iets","niemand","niets"], correct: 0, explanation: "Persoon → iemand." },
-        { question: "Ik weet ... niet.", options: ["iets","niets","niemand","geen"], correct: 1, explanation: "Zaak ontkend → niets." },
-        { question: "... heeft mijn sleutels gepakt.", options: ["Iemand","Iets","Niemand","Niets"], correct: 0, explanation: "Persoon → iemand." },
-        { question: "Ik heb ... gehoord.", options: ["iemand","iets","niemand","niets"], correct: 1, explanation: "Zaak → iets." },
-        { question: "... was er gisteren.", options: ["Niemand","Niets","Iemand","Iets"], correct: 0, explanation: "Geen persoon → niemand." },
-        { question: "Ik zie ... bijzonders.", options: ["iets","niets","iemand","niemand"], correct: 0, explanation: "Onbepaalde zaak → iets." },
-        { question: "... kan dit doen.", options: ["Iedereen","Alles","Alle","Elk"], correct: 0, explanation: "Alle personen → iedereen." },
-        { question: "Ik heb ... meer nodig.", options: ["niets","niemand","geen","niet"], correct: 0, explanation: "Geen zaak → niets." },
-        { question: "... weet het antwoord.", options: ["Niemand","Niets","Iemand","Iets"], correct: 0, explanation: "Geen persoon → niemand." },
-        { question: "Er is ... mis.", options: ["iets","niets","iemand","niemand"], correct: 0, explanation: "Onbepaalde zaak → iets." }
+practice: [
+  { 
+    question: "... heeft mijn sleutels gezien? (persoon)", 
+    options: ["Iemand","Niemand","Iets","Men"], 
+    correct: 0, 
+    explanation: "🟢 'Iemand' verwijst naar een onbepaalde persoon.", 
+    tip: "💡 Iemand = persoon onbekend" 
+  },
+  { 
+    question: "Er is ... te eten in de koelkast.", 
+    options: ["iemand","niets","iets","alles"], 
+    correct: 2, 
+    explanation: "🟢 'Iets' verwijst naar een onbepaald ding/hoeveelheid.", 
+    tip: "💡 Iets = zaak onbepaald" 
+  },
+  { 
+    question: "... mag te laat komen.", 
+    options: ["Iedereen","Iemand","Niemand","Men"], 
+    correct: 2, 
+    explanation: "🟢 'Niemand' = geen enkele persoon.", 
+    tip: "💡 Niemand = geen persoon" 
+  },
+  { 
+    question: "... moet zijn eigen afval opruimen.", 
+    options: ["Iedereen","Men","Je","Iemand"], 
+    correct: 1, 
+    explanation: "🟢 'Men' is een onpersoonlijk onderwerp, algemene regel.", 
+    tip: "💡 Men = formeel, algemeen" 
+  },
+  { 
+    question: "Heb je ... leuks gedaan in het weekend?", 
+    options: ["niets","iemand","iets","alles"], 
+    correct: 2, 
+    explanation: "🟢 'Iets' vraagt naar een onbepaalde activiteit.", 
+    tip: "💡 Iets = activiteit onbepaald" 
+  },
+  { 
+    question: "We hebben ... brood meer.", 
+    options: ["geen","niet","iets","alle"], 
+    correct: 0, 
+    explanation: "🟢 'Geen' ontkent een zelfstandig naamwoord zonder lidwoord.", 
+    tip: "💡 Geen + zelfstandig naamwoord" 
+  },
+  { 
+    question: "... kind krijgt een cadeautje.", 
+    options: ["Elk","Ieder","Alle","Enkele"], 
+    correct: 0, 
+    explanation: "🟢 'Elk' bij onzijdige woorden (het kind).", 
+    tip: "💡 Elk + het-woord" 
+  },
+  { 
+    question: "... mensen zijn te laat.", 
+    options: ["Ieder","Elk","Enkele","Men"], 
+    correct: 2, 
+    explanation: "🟢 'Enkele' = een onbepaald, klein aantal.", 
+    tip: "💡 Enkele = klein aantal" 
+  },
+  { 
+    question: "Ik heb ... zin om te werken.", 
+    options: ["geen","niet","niets","ieder"], 
+    correct: 0, 
+    explanation: "🟢 'Geen zin' – ontkenning van zelfstandig naamwoord.", 
+    tip: "💡 Geen + zin/behoefte" 
+  },
+  { 
+    question: "... moet je je aan de regels houden.", 
+    options: ["Men","Je","Iedereen","Iemand"], 
+    correct: 1, 
+    explanation: "🟢 'Je' wordt informeel gebruikt als algemeen onderwerp.", 
+    tip: "💡 Je = informeel algemeen" 
+  },
+  { 
+    question: "... van hen is geslaagd.", 
+    options: ["Ieder","Elk","Beide","Sommige"], 
+    correct: 0, 
+    explanation: "🟢 'Ieder van hen' = elke persoon afzonderlijk.", 
+    tip: "💡 Ieder van = elk individu" 
+  },
+  { 
+    question: "Er staat ... op het whiteboard.", 
+    options: ["niets","niemand","geen","iets"], 
+    correct: 0, 
+    explanation: "🟢 'Niets' = geen enkele zaak.", 
+    tip: "💡 Niets = geen zaak" 
+  },
+  { 
+    question: "... dag is het mooi weer.", 
+    options: ["Iedere","Elke","Sommige","Enkele"], 
+    correct: 1, 
+    explanation: "🟢 'Elke dag' = alle dagen herhaald.", 
+    tip: "💡 Elke + dag" 
+  },
+  { 
+    question: "Heb je ... geld bij je?", 
+    options: ["enig","enkele","ieder","men"], 
+    correct: 0, 
+    explanation: "🟢 'Enig' in vragende zin = een beetje, enige hoeveelheid.", 
+    tip: "💡 Enig = enige hoeveelheid" 
+  },
+  { 
+    question: "... wil graag geliefd zijn.", 
+    options: ["Iedereen","Men","Iemand","Je"], 
+    correct: 0, 
+    explanation: "🟢 'Iedereen' = alle mensen, algemene waarheid.", 
+    tip: "💡 Iedereen = alle mensen" 
+  },
+  { 
+    question: "We hebben ... problemen gehad.", 
+    options: ["enige","enkele","ieder","elk"], 
+    correct: 1, 
+    explanation: "🟢 'Enkele problemen' = een aantal (niet veel).", 
+    tip: "💡 Enkele = een paar" 
+  },
+  { 
+    question: "... kan fouten maken.", 
+    options: ["Iemand","Men","Iedereen","Niemand"], 
+    correct: 2, 
+    explanation: "🟢 'Iedereen' = alle personen, algemene uitspraak.", 
+    tip: "💡 Iedereen = algemeen" 
+  },
+  { 
+    question: "Ik heb ... te verbergen.", 
+    options: ["niets","niemand","iets","geen"], 
+    correct: 0, 
+    explanation: "🟢 'Niets te verbergen' = geen enkele zaak.", 
+    tip: "💡 Niets = geen zaak" 
+  },
+  { 
+    question: "... van de studenten had het antwoord goed.", 
+    options: ["Sommige","Enkele","Weinig","Veel"], 
+    correct: 0, 
+    explanation: "🟢 'Sommige' = een onbepaald deel.", 
+    tip: "💡 Sommige = onbepaald deel" 
+  },
+  { 
+    question: "Heb je ... gewenst?", 
+    options: ["iemand","iets","niets","alles"], 
+    correct: 1, 
+    explanation: "🟢 'Iets gewenst?' = heb je een wens/ding.", 
+    tip: "💡 Iets = wens/zaak" 
+  },
+  { 
+    question: "... mensen kunnen goed zingen.", 
+    options: ["Weinig","Sommige","Enkele","Veel"], 
+    correct: 1, 
+    explanation: "🟢 'Sommige mensen' = een onbepaalde, niet-alle.", 
+    tip: "💡 Sommige = niet alle" 
+  },
+  { 
+    question: "Ik heb ... behoefte aan rust.", 
+    options: ["geen","niet","niets","ieder"], 
+    correct: 0, 
+    explanation: "🟢 'Geen behoefte' – ontkenning van zelfstandig naamwoord.", 
+    tip: "💡 Geen + behoefte" 
+  },
+  { 
+    question: "... moet eerlijk zijn tegenover elkaar.", 
+    options: ["Men","Je","Iedereen","Iemand"], 
+    correct: 2, 
+    explanation: "🟢 'Iedereen' = alle personen, algemene norm.", 
+    tip: "💡 Iedereen = norm" 
+  },
+  { 
+    question: "Hij heeft ... boeken gelezen.", 
+    options: ["veel","vele","menig","ieder"], 
+    correct: 0, 
+    explanation: "🟢 'Veel' als onbepaald voornaamwoord bij meervoud.", 
+    tip: "💡 Veel + meervoud" 
+  },
+  { 
+    question: "... kan zich vergissen.", 
+    options: ["Men","Je","Iemand","Niemand"], 
+    correct: 0, 
+    explanation: "🟢 'Men' = algemene uitspraak, formeel.", 
+    tip: "💡 Men = formeel algemeen" 
+  },
+  { 
+    question: "Er is ... dat ik je moet vertellen.", 
+    options: ["iets","niets","iemand","alles"], 
+    correct: 0, 
+    explanation: "🟢 'Iets' = een onbepaalde zaak.", 
+    tip: "💡 Iets = zaak onbepaald" 
+  },
+  { 
+    question: "... van de aanwezigen was dronken.", 
+    options: ["Niemand","Ieder","Iemand","Men"], 
+    correct: 0, 
+    explanation: "🟢 'Niemand' = geen enkele persoon.", 
+    tip: "💡 Niemand = geen persoon" 
+  },
+  { 
+    question: "Ik heb ... tijd om te eten.", 
+    options: ["voldoende","genoeg","veel","alle"], 
+    correct: 1, 
+    explanation: "🟢 'Genoeg' = voldoende, onbepaalde hoeveelheid.", 
+    tip: "💡 Genoeg = voldoende" 
+  },
+  { 
+    question: "... was de schuld van de chauffeur.", 
+    options: ["Alles","Iets","Niets","Men"], 
+    correct: 0, 
+    explanation: "🟢 'Alles' = de volledige situatie.", 
+    tip: "💡 Alles = volledig" 
+  },
+  { 
+    question: "... kind in de klas is aardig.", 
+    options: ["Ieder","Elk","Alle","Sommige"], 
+    correct: 1, 
+    explanation: "🟢 'Elk kind' – enkelvoud, onzijdig.", 
+    tip: "💡 Elk + het-woord" 
+  },
+  { 
+    question: "We hebben ... te vieren.", 
+    options: ["iets","niets","alles","iemand"], 
+    correct: 0, 
+    explanation: "🟢 'Iets te vieren' = een onbepaalde reden.", 
+    tip: "💡 Iets = reden onbepaald" 
+  },
+  { 
+    question: "... van hen wil meedoen.", 
+    options: ["Sommigen","Enkelen","Velen","Allen"], 
+    correct: 0, 
+    explanation: "🟢 'Sommigen' = sommige personen.", 
+    tip: "💡 Sommigen = personen" 
+  },
+  { 
+    question: "Is er ... die Nederlands spreekt?", 
+    options: ["iemand","niemand","men","iedereen"], 
+    correct: 0, 
+    explanation: "🟢 'Iemand' = een onbepaalde persoon.", 
+    tip: "💡 Iemand = persoon" 
+  },
+  { 
+    question: "Hij deed ... verkeerd.", 
+    options: ["niets","iets","alles","ieder"], 
+    correct: 0, 
+    explanation: "🟢 'Niets verkeerd' = ontkenning.", 
+    tip: "💡 Niets = geen zaak" 
+  },
+  { 
+    question: "... student kreeg een beurs.", 
+    options: ["Iedere","Elke","Alle","Menige"], 
+    correct: 1, 
+    explanation: "🟢 'Elke student' – de-woord.", 
+    tip: "💡 Elke + de-woord" 
+  },
+  { 
+    question: "... mensen houden van katten.", 
+    options: ["Vele","Veel","Menige","Ieder"], 
+    correct: 1, 
+    explanation: "🟢 'Veel mensen' – onbepaalde hoeveelheid.", 
+    tip: "💡 Veel + meervoud" 
+  },
+  { 
+    question: "Er zat ... op de bank.", 
+    options: ["iemand","niemand","ieder","men"], 
+    correct: 0, 
+    explanation: "🟢 'Iemand' = een onbepaalde persoon.", 
+    tip: "💡 Iemand = persoon" 
+  },
+  { 
+    question: "Zij heeft ... opmerkingen over het plan.", 
+    options: ["enkele","enige","geen","alle"], 
+    correct: 0, 
+    explanation: "🟢 'Enkele opmerkingen' = een paar.", 
+    tip: "💡 Enkele = een paar" 
+  },
+  { 
+    question: "... zal dat begrijpen.", 
+    options: ["Iedereen","Men","Je","Allen"], 
+    correct: 0, 
+    explanation: "🟢 'Iedereen' = alle personen.", 
+    tip: "💡 Iedereen = algemeen" 
+  },
+  { 
+    question: "Er is ... nieuws onder de zon.", 
+    options: ["niets","iets","geen","alles"], 
+    correct: 0, 
+    explanation: "🟢 Spreekwoord: 'niets nieuws'.", 
+    tip: "💡 Niets = geen zaak" 
+  }
+],
+
+test: [
+  { question: "... heeft mijn sleutels gezien?", options: ["Iemand","Niemand","Iets","Men"], correct: 0, explanation: "🟢 Iemand = persoon." },
+  { question: "Er is ... te eten in de koelkast.", options: ["iemand","niets","iets","alles"], correct: 2, explanation: "🟢 Iets = zaak onbepaald." },
+  { question: "... mag te laat komen.", options: ["Iedereen","Iemand","Niemand","Men"], correct: 2, explanation: "🟢 Niemand = geen persoon." },
+  { question: "... moet zijn eigen afval opruimen.", options: ["Iedereen","Men","Je","Iemand"], correct: 1, explanation: "🟢 Men = formeel algemeen." },
+  { question: "We hebben ... brood meer.", options: ["geen","niet","iets","alle"], correct: 0, explanation: "🟢 Geen + zelfstandig naamwoord." },
+  { question: "... kind krijgt een cadeautje.", options: ["Elk","Ieder","Alle","Enkele"], correct: 0, explanation: "🟢 Elk + het-woord." },
+  { question: "... mensen zijn te laat.", options: ["Ieder","Elk","Enkele","Men"], correct: 2, explanation: "🟢 Enkele = klein aantal." },
+  { question: "Ik heb ... zin om te werken.", options: ["geen","niet","niets","ieder"], correct: 0, explanation: "🟢 Geen + zin." },
+  { question: "... moet je je aan de regels houden.", options: ["Men","Je","Iedereen","Iemand"], correct: 1, explanation: "🟢 Je = informeel algemeen." },
+  { question: "Er staat ... op het whiteboard.", options: ["niets","niemand","geen","iets"], correct: 0, explanation: "🟢 Niets = geen zaak." },
+  { question: "... dag is het mooi weer.", options: ["Iedere","Elke","Sommige","Enkele"], correct: 1, explanation: "🟢 Elke + dag." },
+  { question: "... wil graag geliefd zijn.", options: ["Iedereen","Men","Iemand","Je"], correct: 0, explanation: "🟢 Iedereen = alle mensen." },
+  { question: "We hebben ... problemen gehad.", options: ["enige","enkele","ieder","elk"], correct: 1, explanation: "🟢 Enkele = een paar." },
+  { question: "... kan fouten maken.", options: ["Iemand","Men","Iedereen","Niemand"], correct: 2, explanation: "🟢 Iedereen = algemeen." },
+  { question: "Ik heb ... te verbergen.", options: ["niets","niemand","iets","geen"], correct: 0, explanation: "🟢 Niets = geen zaak." },
+  { question: "Hij heeft ... boeken gelezen.", options: ["veel","vele","menig","ieder"], correct: 0, explanation: "🟢 Veel + meervoud." },
+  { question: "... kan zich vergissen.", options: ["Men","Je","Iemand","Niemand"], correct: 0, explanation: "🟢 Men = formeel." },
+  { question: "Ik heb ... tijd om te eten.", options: ["voldoende","genoeg","veel","alle"], correct: 1, explanation: "🟢 Genoeg = voldoende." },
+  { question: "... student kreeg een beurs.", options: ["Iedere","Elke","Alle","Menige"], correct: 1, explanation: "🟢 Elke + de-woord." },
+  { question: "Er is ... nieuws onder de zon.", options: ["niets","iets","geen","alles"], correct: 0, explanation: "🟢 Niets = spreekwoord." }
       ]
     },
     18: { // Ontkenningen
-      practice: [
-        { question: "Ik heb ... geld.", options: ["niet","geen","nooit","niemand"], correct: 1, explanation: "❌ Fout! geen + zelfstandig naamwoord.", tip: "💡 Geen voor zelfstandige naamwoorden." },
-        { question: "Ik weet het ...", options: ["niet","geen","nooit","niets"], correct: 0, explanation: "❌ Fout! niet voor werkwoord.", tip: "💡 Niet ontkent werkwoord/bijvoeglijk naamwoord." },
-        { question: "Hij is ... thuis.", options: ["niet","geen","nooit","niemand"], correct: 0, explanation: "❌ Fout! niet voor 'zijn'.", tip: "💡 Niet na werkwoord." },
-        { question: "Ik heb ... honger.", options: ["niet","geen","nooit","niets"], correct: 1, explanation: "❌ Fout! honger = zelfstandig naamwoord.", tip: "💡 Geen + zelfstandig naamwoord." },
-        { question: "Ik zie ...", options: ["niet","geen","niemand","niets"], correct: 2, explanation: "❌ Fout! niemand = geen persoon.", tip: "💡 Niemand voor personen ontkend." }
-      ],
-      test: [
-        { question: "Ik heb ... zin.", options: ["niet","geen","nooit","niets"], correct: 1, explanation: "Zelfstandig naamwoord → geen." },
-        { question: "Hij werkt ... vandaag.", options: ["niet","geen","nooit","niemand"], correct: 0, explanation: "Werkwoord → niet." },
-        { question: "Er is ... melk meer.", options: ["niet","geen","nooit","niets"], correct: 1, explanation: "Zelfstandig naamwoord → geen." },
-        { question: "Ik begrijp het ...", options: ["niet","geen","nooit","niets"], correct: 0, explanation: "Werkwoord → niet." },
-        { question: "Ze heeft ... vrienden.", options: ["niet","geen","nooit","niets"], correct: 1, explanation: "Zelfstandig naamwoord → geen." },
-        { question: "Hij komt ... meer.", options: ["niet","geen","nooit","niets"], correct: 2, explanation: "Tijd ontkend → nooit." },
-        { question: "Ik heb ... gezien.", options: ["niet","geen","niemand","niets"], correct: 3, explanation: "Zaak ontkend → niets." },
-        { question: "Er is ... probleem.", options: ["niet","geen","nooit","niets"], correct: 1, explanation: "Zelfstandig naamwoord → geen." },
-        { question: "Ze lacht ...", options: ["niet","geen","nooit","niets"], correct: 0, explanation: "Werkwoord → niet." },
-        { question: "Ik ken ... hier.", options: ["niet","geen","niemand","niets"], correct: 2, explanation: "Persoon ontkend → niemand." }
+practice: [
+  { 
+    question: "Ik heb ... honger.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Geen' ontkent een zelfstandig naamwoord zonder lidwoord.", 
+    tip: "💡 Geen + zelfstandig naamwoord" 
+  },
+  { 
+    question: "Hij is ... thuis.", 
+    options: ["geen","niet","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Niet' ontkent werkwoorden, bijvoeglijke naamwoorden, bijwoorden.", 
+    tip: "💡 Niet = algemene ontkenning" 
+  },
+  { 
+    question: "Ik zie ... auto.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Geen' bij onbepaald zelfstandig naamwoord (een auto → geen auto).", 
+    tip: "💡 Geen = ontkenning van een" 
+  },
+  { 
+    question: "Hij heeft ... gedaan.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 2, 
+    explanation: "🟢 'Niets' is het ontkennend voornaamwoord voor zaken.", 
+    tip: "💡 Niets = geen zaak" 
+  },
+  { 
+    question: "Ik heb ... hem gezien.", 
+    options: ["geen","niets","niet","niemand"], 
+    correct: 2, 
+    explanation: "🟢 Bij persoonlijke voornaamwoorden gebruik je 'niet'.", 
+    tip: "💡 Niet + persoonlijk vnw." 
+  },
+  { 
+    question: "... is er in de kamer.", 
+    options: ["Geen","Niet","Niemand","Niets"], 
+    correct: 2, 
+    explanation: "🟢 'Niemand' is de ontkenning van personen.", 
+    tip: "💡 Niemand = geen persoon" 
+  },
+  { 
+    question: "Hij komt ... op tijd.", 
+    options: ["geen","niemand","niet","niets"], 
+    correct: 2, 
+    explanation: "🟢 'Niet' ontkent de bijwoordelijke bepaling 'op tijd'.", 
+    tip: "💡 Niet + bijwoord" 
+  },
+  { 
+    question: "We hebben ... problemen.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Geen' bij meervoud zonder lidwoord.", 
+    tip: "💡 Geen + meervoud" 
+  },
+  { 
+    question: "Ik heb die man ... gezien.", 
+    options: ["niet","geen","nooit","niemand"], 
+    correct: 0, 
+    explanation: "🟢 'Die man' heeft bepaald lidwoord → ontkenning met 'niet'.", 
+    tip: "💡 Bepaald lidwoord = niet" 
+  },
+  { 
+    question: "... rookt hier.", 
+    options: ["Geen","Niet","Niemand","Niets"], 
+    correct: 2, 
+    explanation: "🟢 'Niemand' = geen enkele persoon.", 
+    tip: "💡 Niemand = geen persoon" 
+  },
+  { 
+    question: "Ik kan ... vinden.", 
+    options: ["niets","niet","geen","nooit"], 
+    correct: 0, 
+    explanation: "🟢 'Niets vinden' = geen enkel ding vinden.", 
+    tip: "💡 Niets = geen zaak" 
+  },
+  { 
+    question: "Zij eet ... vlees.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Vlees' is niet-telbaar, geen lidwoord → geen.", 
+    tip: "💡 Geen + stofnaam" 
+  },
+  { 
+    question: "Hij is ... bang.", 
+    options: ["geen","niets","niet","nooit"], 
+    correct: 2, 
+    explanation: "🟢 'Bang' is bijvoeglijk naamwoord → niet bang.", 
+    tip: "💡 Niet + bijvoeglijk naamwoord" 
+  },
+  { 
+    question: "Ik heb ... zin om te werken.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Zin' is zelfstandig naamwoord → geen zin.", 
+    tip: "💡 Geen + zelfstandig naamwoord" 
+  },
+  { 
+    question: "Hij gaat ... naar school.", 
+    options: ["geen","niet","niemand","niets"], 
+    correct: 1, 
+    explanation: "🟢 'Niet' ontkent het werkwoord 'gaat'.", 
+    tip: "💡 Niet + werkwoord" 
+  },
+  { 
+    question: "Ik heb ... interessants gezien.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 2, 
+    explanation: "🟢 'Niets interessants' = geen enkel ding dat interessant is.", 
+    tip: "💡 Niets + bijvoeglijk naamwoord" 
+  },
+  { 
+    question: "... weet het antwoord.", 
+    options: ["Geen","Niet","Niemand","Nooit"], 
+    correct: 2, 
+    explanation: "🟢 'Niemand weet' = geen enkele persoon.", 
+    tip: "💡 Niemand = geen persoon" 
+  },
+  { 
+    question: "Dat is ... mijn schuld.", 
+    options: ["geen","niet","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 Bezittelijk voornaamwoord + zelfstandig naamwoord → niet.", 
+    tip: "💡 Niet + bezittelijk vnw." 
+  },
+  { 
+    question: "Er is ... brood meer.", 
+    options: ["geen","niet","niets","nooit"], 
+    correct: 0, 
+    explanation: "🟢 'Brood' is niet-telbaar → geen brood.", 
+    tip: "💡 Geen + stofnaam" 
+  },
+  { 
+    question: "Ik heb ... in de donkere kamer gezien. (geen personen)", 
+    options: ["niemand","niets","niet","geen"], 
+    correct: 0, 
+    explanation: "🟢 'Niemand gezien' = geen persoon gezien.", 
+    tip: "💡 Niemand = geen persoon" 
+  },
+  { 
+    question: "Hij wil ... meer eten.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Geen ... meer' bij zelfstandig naamwoord.", 
+    tip: "💡 Geen + zelfstandig naamwoord" 
+  },
+  { 
+    question: "We gaan ... naar het strand.", 
+    options: ["niet","geen","niemand","niets"], 
+    correct: 0, 
+    explanation: "🟢 'Niet' ontkent het werkwoord 'gaan'.", 
+    tip: "💡 Niet + werkwoord" 
+  },
+  { 
+    question: "Ik heb ... dat je zegt.", 
+    options: ["niet begrepen","geen begrepen","niets begrepen","nooit begrepen"], 
+    correct: 0, 
+    explanation: "🟢 Voltooid deelwoord wordt ontkend met 'niet'.", 
+    tip: "💡 Niet + voltooid deelwoord" 
+  },
+  { 
+    question: "Hij doet ... verkeerd.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 2, 
+    explanation: "🟢 'Niets verkeerd doen' = geen enkele verkeerde handeling.", 
+    tip: "💡 Niets = geen zaak" 
+  },
+  { 
+    question: "Ze is ... moe.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 0, 
+    explanation: "🟢 'Moe' is bijvoeglijk naamwoord → niet moe.", 
+    tip: "💡 Niet + bijvoeglijk naamwoord" 
+  },
+  { 
+    question: "Ik heb ... zin om te lezen.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Zin' is zelfstandig naamwoord → geen zin.", 
+    tip: "💡 Geen + zelfstandig naamwoord" 
+  },
+  { 
+    question: "... is perfect.", 
+    options: ["Niets","Niet","Geen","Niemand"], 
+    correct: 0, 
+    explanation: "🟢 'Niets is perfect' = geen enkel ding.", 
+    tip: "💡 Niets = geen zaak" 
+  },
+  { 
+    question: "Hij komt ... uit Spanje.", 
+    options: ["niet","geen","niemand","niets"], 
+    correct: 0, 
+    explanation: "🟢 'Niet' ontkent de handeling 'komt uit'.", 
+    tip: "💡 Niet + werkwoord" 
+  },
+  { 
+    question: "Ik heb ... hulp nodig.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Hulp' is zelfstandig naamwoord → geen hulp.", 
+    tip: "💡 Geen + zelfstandig naamwoord" 
+  },
+  { 
+    question: "... heeft gelijk.", 
+    options: ["Geen","Niet","Niemand","Niets"], 
+    correct: 2, 
+    explanation: "🟢 'Niemand heeft gelijk' = geen enkele persoon.", 
+    tip: "💡 Niemand = geen persoon" 
+  },
+  { 
+    question: "Zij is ... verliefd op hem.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 0, 
+    explanation: "🟢 'Verliefd' is bijvoeglijk naamwoord → niet verliefd.", 
+    tip: "💡 Niet + bijvoeglijk naamwoord" 
+  },
+  { 
+    question: "We hebben ... tijd.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Tijd' is niet-telbaar → geen tijd.", 
+    tip: "💡 Geen + stofnaam" 
+  },
+  { 
+    question: "Hij heeft ... auto.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Auto' is onbepaald zelfstandig naamwoord → geen auto.", 
+    tip: "💡 Geen = ontkenning van een" 
+  },
+  { 
+    question: "Ik kan ... voelen.", 
+    options: ["niets","niet","geen","nooit"], 
+    correct: 0, 
+    explanation: "🟢 'Niets voelen' = geen enkel gevoel.", 
+    tip: "💡 Niets = geen zaak" 
+  },
+  { 
+    question: "... komt te laat.", 
+    options: ["Geen","Niet","Niemand","Nooit"], 
+    correct: 2, 
+    explanation: "🟢 'Niemand komt te laat' = geen enkele persoon.", 
+    tip: "💡 Niemand = geen persoon" 
+  },
+  { 
+    question: "Dat is ... waar.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 0, 
+    explanation: "🟢 'Waar' is bijvoeglijk naamwoord → niet waar.", 
+    tip: "💡 Niet + bijvoeglijk naamwoord" 
+  },
+  { 
+    question: "Ik heb ... problemen met grammatica.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 1, 
+    explanation: "🟢 'Problemen' is meervoud zonder lidwoord → geen.", 
+    tip: "💡 Geen + meervoud" 
+  },
+  { 
+    question: "Hij heeft ... vrienden.", 
+    options: ["niet","geen","niemand","niets"], 
+    correct: 1, 
+    explanation: "🟢 'Vrienden' is meervoud zonder lidwoord → geen.", 
+    tip: "💡 Geen + meervoud" 
+  },
+  { 
+    question: "... is onmogelijk.", 
+    options: ["Niets","Niet","Geen","Niemand"], 
+    correct: 0, 
+    explanation: "🟢 'Niets is onmogelijk' = geen enkel ding.", 
+    tip: "💡 Niets = geen zaak" 
+  },
+  { 
+    question: "We gaan ... op vakantie dit jaar.", 
+    options: ["niet","geen","niets","nooit"], 
+    correct: 0, 
+    explanation: "🟢 'Niet' ontkent het werkwoord 'gaan'.", 
+    tip: "💡 Niet + werkwoord" 
+  }
+],
+
+test: [
+  { question: "Ik heb ... honger.", options: ["niet","geen","niets","nooit"], correct: 1, explanation: "🟢 Geen + zelfstandig naamwoord." },
+  { question: "Hij is ... thuis.", options: ["geen","niet","niets","nooit"], correct: 1, explanation: "🟢 Niet + bijwoord." },
+  { question: "Ik zie ... auto.", options: ["niet","geen","niets","nooit"], correct: 1, explanation: "🟢 Geen = ontkenning van een." },
+  { question: "Hij heeft ... gedaan.", options: ["niet","geen","niets","nooit"], correct: 2, explanation: "🟢 Niets = geen zaak." },
+  { question: "Ik heb ... hem gezien.", options: ["geen","niets","niet","niemand"], correct: 2, explanation: "🟢 Niet + persoonlijk vnw." },
+  { question: "... is er in de kamer.", options: ["Geen","Niet","Niemand","Niets"], correct: 2, explanation: "🟢 Niemand = geen persoon." },
+  { question: "We hebben ... problemen.", options: ["niet","geen","niets","nooit"], correct: 1, explanation: "🟢 Geen + meervoud." },
+  { question: "Ik heb die man ... gezien.", options: ["niet","geen","nooit","niemand"], correct: 0, explanation: "🟢 Bepaald lidwoord = niet." },
+  { question: "... rookt hier.", options: ["Geen","Niet","Niemand","Niets"], correct: 2, explanation: "🟢 Niemand = geen persoon." },
+  { question: "Ik kan ... vinden.", options: ["niets","niet","geen","nooit"], correct: 0, explanation: "🟢 Niets = geen zaak." },
+  { question: "Zij eet ... vlees.", options: ["niet","geen","niets","nooit"], correct: 1, explanation: "🟢 Geen + stofnaam." },
+  { question: "Hij is ... bang.", options: ["geen","niets","niet","nooit"], correct: 2, explanation: "🟢 Niet + bijvoeglijk naamwoord." },
+  { question: "Ik heb ... zin om te werken.", options: ["niet","geen","niets","nooit"], correct: 1, explanation: "🟢 Geen + zelfstandig naamwoord." },
+  { question: "Hij gaat ... naar school.", options: ["geen","niet","niemand","niets"], correct: 1, explanation: "🟢 Niet + werkwoord." },
+  { question: "... weet het antwoord.", options: ["Geen","Niet","Niemand","Nooit"], correct: 2, explanation: "🟢 Niemand = geen persoon." },
+  { question: "Er is ... brood meer.", options: ["geen","niet","niets","nooit"], correct: 0, explanation: "🟢 Geen + stofnaam." },
+  { question: "Hij wil ... meer eten.", options: ["niet","geen","niets","nooit"], correct: 1, explanation: "🟢 Geen + zelfstandig naamwoord." },
+  { question: "Ik heb ... dat je zegt.", options: ["niet begrepen","geen begrepen","niets begrepen","nooit begrepen"], correct: 0, explanation: "🟢 Niet + voltooid deelwoord." },
+  { question: "... is perfect.", options: ["Niets","Niet","Geen","Niemand"], correct: 0, explanation: "🟢 Niets = geen zaak." },
+  { question: "We hebben ... tijd.", options: ["niet","geen","niets","nooit"], correct: 1, explanation: "🟢 Geen + stofnaam." }
       ]
     },
     19: { // Woordvolgorde hoofdzinnen
-      practice: [
-        { question: "Juiste volgorde: Ik / morgen / naar school / ga", options: ["Ik ga morgen naar school.","Ik morgen ga naar school.","Morgen ik ga naar school.","Ga ik morgen naar school."], correct: 0, explanation: "❌ Fout! V2: onderwerp – PV – rest.", tip: "💡 Persoonsvorm op plaats 2 in hoofdzin." },
-        { question: "Inversie: Morgen ... ik naar Amsterdam.", options: ["ga","gaan","ging","gaat"], correct: 0, explanation: "❌ Fout! Tijdsbepaling eerst → inversie.", tip: "💡 PV – onderwerp na tijdsbepaling." },
-        { question: "Juiste volgorde: Hij / altijd / zijn huiswerk / maakt", options: ["Hij maakt altijd zijn huiswerk.","Hij altijd maakt zijn huiswerk.","Maakt hij altijd zijn huiswerk.","Zijn huiswerk maakt hij altijd."], correct: 0, explanation: "❌ Fout! Standaardvolgorde.", tip: "💡 Onderwerp – PV – tijd – rest." },
-        { question: "Inversie: Gisteren ... wij een film.", options: ["hebben gezien","gezien hebben","hebben zien","zagen"], correct: 0, explanation: "❌ Fout! Inversie na tijdsbepaling.", tip: "💡 PV direct na tijdsbepaling." },
-        { question: "Juiste volgorde: Zij / vaak / naar de bioscoop / gaat", options: ["Zij gaat vaak naar de bioscoop.","Zij vaak gaat naar de bioscoop.","Gaat zij vaak naar de bioscoop.","Naar de bioscoop gaat zij vaak."], correct: 0, explanation: "❌ Fout! Standaardvolgorde.", tip: "💡 PV op plaats 2." }
-      ],
-      test: [
-        { question: "Morgen ... ik studeren.", options: ["ga","gaan","ging","gaat"], correct: 0, explanation: "Inversie: ga ik." },
-        { question: "Vandaag ... het mooi weer.", options: ["is","zijn","was","zal"], correct: 0, explanation: "Inversie: is het." },
-        { question: "Nu ... wij naar huis.", options: ["gaan","ga","ging","gaat"], correct: 0, explanation: "Inversie: gaan wij." },
-        { question: "Straks ... jij bellen.", options: ["zal","zult","zullen","zal"], correct: 1, explanation: "Inversie: zul jij." },
-        { question: "Later ... zij komen.", options: ["zal","zullen","gaat","gaan"], correct: 1, explanation: "Inversie: zullen zij." },
-        { question: "Altijd ... hij vroeg op.", options: ["staat","staan","stond","staat"], correct: 0, explanation: "Inversie: staat hij." },
-        { question: "Vaak ... wij samen eten.", options: ["eten","eet","at","eten"], correct: 0, explanation: "Inversie: eten wij." },
-        { question: "Soms ... zij te laat.", options: ["komt","komen","kwam","komt"], correct: 0, explanation: "Inversie: komt zij." },
-        { question: "Nooit ... ik dat gedaan.", options: ["heb","hebben","had","heeft"], correct: 0, explanation: "Inversie: heb ik." },
-        { question: "Misschien ... het regenen.", options: ["zal","zullen","gaat","gaan"], correct: 0, explanation: "Inversie: zal het." }
+practice: [
+  { question: "Normale volgorde: Ik ... morgen naar huis. (gaan)", options: ["ga","gaan","gaat","gegaan"], correct: 0, explanation: "🟢 Standaardvolgorde: onderwerp (1) – PV (2).", tip: "💡 PV op plaats 2 in hoofdzin." },
+  { question: "Inversie: Morgen ... ik naar huis.", options: ["ga","gaan","gaat","gegaan"], correct: 0, explanation: "🟢 Tijdsbepaling eerst → inversie: PV direct erna.", tip: "💡 Tijdsbepaling → PV – onderwerp" },
+  { question: "Hij ... elke dag naar school .... (lopen)", options: ["loopt / -","lopen / -","- / loopt","loop / te"], correct: 0, explanation: "🟢 Enkelvoudig werkwoord in hoofdzin: PV op 2.", tip: "💡 Hij/zij/het + stam+t" },
+  { question: "Wij ... vanavond een film .... (kijken)", options: ["zullen / kijken","kijken / zullen","zullen / kijkt","kijken / kijken"], correct: 0, explanation: "🟢 Hulpww op 2, infinitief aan het einde.", tip: "💡 Hulpww (2) ... hoofdww (einde)" },
+  { question: "Gisteren ... ik mijn vriend .... (zien)", options: ["heb / gezien","heb / zien","ben / gezien","zag / -"], correct: 0, explanation: "🟢 Inversie + voltooide tijd met 'hebben'.", tip: "💢 Zien → hebben + gezien" },
+  { question: "Waarom ... je zo hard .... (werken)", options: ["werk / -","werk / te","werkt / -","werk / werkt"], correct: 0, explanation: "🟢 Vraagwoord op 1, inversie met 'je' → geen -t.", tip: "💡 Vraagwoord → inversie (geen -t bij je)" },
+  { question: "Ik ... hem niet .... (begrijpen)", options: ["begrijp / -","begrijpt / -","begrijpen / -","heb / begrepen"], correct: 0, explanation: "🟢 Tegenwoordige tijd: ik begrijp.", tip: "💡 Ik + stam (geen -t)" },
+  { question: "Hij ... gisteren te laat .... (aankomen)", options: ["is / aangekomen","heeft / aangekomen","is / aankwam","werd / aangekomen"], correct: 0, explanation: "🟢 'Aankomen' (verandering) neemt 'zijn'.", tip: "💢 Aankomen → zijn + aangekomen" },
+  { question: "In de tuin ... een mooie boom .... (staan)", options: ["staat / -","staan / -","stond / -","gestaan /"], correct: 0, explanation: "🟢 Plaatsbepaling vooraan → inversie.", tip: "💡 Plaatsbepaling → inversie" },
+  { question: "Ik ... morgen wel .... (kunnen komen)", options: ["kan / komen","kan / gekomen","zal / komen","kan / kom"], correct: 0, explanation: "🟢 Hulpww 'kan' op 2, infinitief 'komen' einde.", tip: "💡 Kan + infinitief" },
+  { question: "Zij ... haar huiswerk .... (maken – VT)", options: ["maakt / -","maakte / -","heeft / gemaakt","was / gemaakt"], correct: 1, explanation: "🟢 Verleden tijd enkelvoudig: maakte.", tip: "💢 VT: stam + te/de" },
+  { question: "Vanavond ... we naar de film .... (gaan)", options: ["zullen / gaan","gaan / -","zullen / gingen","gaan / zullen"], correct: 0, explanation: "🟢 Inversie + toekomende tijd.", tip: "💡 Inversie + infinitief einde" },
+  { question: "Hij ... zijn vriendin elke dag .... (opbellen)", options: ["belt / op","opbelt / -","bellen / op","belt / -"], correct: 0, explanation: "🟢 Scheidbaar werkwoord: PV op 2, deel achteraan.", tip: "💡 Scheidbaar: voorvoegsel naar einde" },
+  { question: "Waar ... jij ....? (wonen)", options: ["woon / -","woont / -","woon / te","woon / wonen"], correct: 0, explanation: "🟢 Vraagwoord + inversie met 'jij' → woon.", tip: "💡 Waar + woon jij? (geen -t)" },
+  { question: "Ik ... hem de weg .... (kunnen vragen)", options: ["kan / vragen","kan / vraag","kan / gevraagd","kan / te vragen"], correct: 0, explanation: "🟢 Hulpww 'kan' op 2, infinitief 'vragen' einde.", tip: "💡 Kan + vragen" },
+  { question: "Hoe laat ... de film ....? (beginnen)", options: ["begint / -","begonnen / -","begint / begonnen","zal / beginnen"], correct: 0, explanation: "🟢 Tegenwoordige tijd, enkelvoud: begint.", tip: "💡 Hoe laat + begint?" },
+  { question: "Zij ... gisteren niet thuis .... (zijn)", options: ["was / -","is / -","was / geweest","werd / -"], correct: 0, explanation: "🟢 Verleden tijd van zijn: was.", tip: "💢 Zijn → was/waren" },
+  { question: "Eindelijk ... hij zijn examen .... (halen)", options: ["heeft / gehaald","heeft / haalt","haalde / -","heeft / halen"], correct: 0, explanation: "🟢 Inversie + voltooide tijd met 'hebben'.", tip: "💢 Hebben + gehaald" },
+  { question: "Ik ... dat niet .... (geloven)", options: ["geloof / -","geloof / te","geloof / geloven","heb / geloofd"], correct: 0, explanation: "🟢 Tegenwoordige tijd: ik geloof.", tip: "💡 Ik + stam" },
+  { question: "Waarom ... je niet ....? (meekomen)", options: ["kom / mee","komt / mee","kom / meekomen","kom / meekomt"], correct: 0, explanation: "🟢 Scheidbaar: waarom + kom + je + niet + mee.", tip: "💡 Meekomen → kom ... mee" },
+  { question: "Gisteravond ... ik een boek .... (lezen – VT)", options: ["las / -","heb / gelezen","las / gelezen","lees / -"], correct: 0, explanation: "🟢 Inversie + verleden tijd enkelvoudig: las.", tip: "💢 Lezen → las/lazen" },
+  { question: "Hij ... nooit .... (te laat komen)", options: ["komt / te laat","komt / te laat aan","komt / te laat komen","komt / te"], correct: 0, explanation: "🟢 PV 'komt' op 2, 'te laat' erna.", tip: "💡 Komt te laat" },
+  { question: "Ik ... hem nog niet .... (ontmoeten – VTT)", options: ["heb / ontmoet","ben / ontmoet","heb / ontmoeten","ben / ontmoeten"], correct: 0, explanation: "🟢 Ontmoeten + hebben + ontmoet.", tip: "💢 Hebben + ontmoet" },
+  { question: "Waar ... dat ....? (gebeuren – VT)", options: ["gebeurde / -","is / gebeurd","werd / gebeurd","gebeurde / gebeurd"], correct: 1, explanation: "🟢 Voltooide tijd met 'zijn': is gebeurd.", tip: "💢 Gebeuren → zijn + gebeurd" },
+  { question: "Ik ... dat boek .... (uitlezen – voltooid)", options: ["heb / uitgelezen","ben / uitgelezen","heb / uitlezen","ben / uitlezen"], correct: 0, explanation: "🟢 Uitlezen + hebben + uitgelezen.", tip: "💢 Hebben + uitgelezen" },
+  { question: "Morgen ... we vroeg .... (opstaan)", options: ["staan / op","zullen / opstaan","staan / opstaan","stonden / op"], correct: 1, explanation: "🟢 Toekomende tijd: zullen + opstaan.", tip: "💡 Zullen + infinitief" },
+  { question: "Hij ... zijn haar altijd .... (kammen)", options: ["kamt / -","kammen / -","kamt / kammen","is / gekamd"], correct: 0, explanation: "🟢 Tegenwoordige tijd: hij kamt.", tip: "💡 Hij + stam+t" },
+  { question: "Waarmee ... je dat ....? (schrijven – VT)", options: ["hebt / geschreven","heb / geschreven","schreef / -","schrijf / -"], correct: 1, explanation: "🟢 Vragende inversie met 'je' → heb (geen t).", tip: "💢 Waar + heb je + geschreven" },
+  { question: "Zij ... zich nooit .... (vergissen)", options: ["vergist / -","vergist / vergist","heeft / vergist","is / vergist"], correct: 0, explanation: "🟢 Wederkerend werkwoord: zij vergist zich.", tip: "💡 Vergissen → vergist zich" },
+  { question: "Hoe ... je dat ....? (weten)", options: ["weet / -","weet / te weten","weet / geweten","weet / weten"], correct: 0, explanation: "🟢 Tegenwoordige tijd: Hoe weet je dat?", tip: "💡 Weet + dat" },
+  { question: "Ik ... naar je .... (luisteren)", options: ["luister / -","luister / te","luister / luisteren","heb / geluisterd"], correct: 0, explanation: "🟢 Ik luister naar je.", tip: "💡 Ik luister" },
+  { question: "Op het station ... hij een vriend .... (ontmoeten – VT)", options: ["ontmoette / -","heeft / ontmoet","ontmoette / ontmoet","is / ontmoet"], correct: 0, explanation: "🟢 Inversie + verleden tijd: ontmoette.", tip: "💢 Plaatsbepaling → inversie VT" },
+  { question: "Ik ... je morgen .... (bellen)", options: ["bel / -","bel / te bellen","zal / bellen","ga / bellen"], correct: 2, explanation: "🟢 Toekomende tijd: Ik zal je morgen bellen.", tip: "💡 Zal + bellen" },
+  { question: "Hij ... dat hij gelijk .... (hebben – tegenwoordig)", options: ["heeft / -","heb / -","heeft / heeft","is / -"], correct: 2, explanation: "🟢 Hoofdzin PV op 2, bijzin PV aan het einde.", tip: "💡 Hoofdzin V2, bijzin einde" },
+  { question: "Van wie ... deze tas ....? (zijn)", options: ["is / -","zijn / -","was / -","is / geweest"], correct: 0, explanation: "🟢 Tegenwoordige tijd: Van wie is deze tas?", tip: "💡 Van wie + is?" },
+  { question: "Ik ... nog nooit in Nederland .... (zijn)", options: ["ben / geweest","heb / geweest","was / -","ben / -"], correct: 0, explanation: "🟢 Voltooide tijd met 'zijn': ben geweest.", tip: "💢 Ben + geweest" },
+  { question: "Waar ... je die schoenen ....? (kopen – VT)", options: ["kocht / -","hebt / gekocht","heb / gekocht","hebt / kopen"], correct: 2, explanation: "🟢 Inversie met 'je' → heb (geen t).", tip: "💢 Waar + heb je + gekocht" },
+  { question: "Hij ... dat hij te laat .... (weten/zijn)", options: ["is / -","is / is","weet / is","weet / -"], correct: 2, explanation: "🟢 Hoofdzin: Hij weet. Bijzin: ... dat hij te laat is.", tip: "💡 Bijzin: werkwoord naar einde" },
+  { question: "Waarom ... je me niet ....? (helpen – VT)", options: ["hielp / -","hebt / geholpen","helpt / -","heb / geholpen"], correct: 3, explanation: "🟢 Vragende inversie: Waarom + heb (geen t) + je.", tip: "💢 Waarom + heb je + geholpen" },
+  { question: "Ik ... hem dat niet .... (toestaan)", options: ["sta toe / -","sta / toe","sta / toestaan","staat / toe"], correct: 1, explanation: "🟢 Scheidbaar: Ik sta hem dat niet toe.", tip: "💡 Toestaan → sta ... toe" }
+],
+
+test: [
+  { question: "Normale volgorde: Ik ... morgen naar huis.", options: ["ga","gaan","gaat","gegaan"], correct: 0, explanation: "🟢 Onderwerp – PV." },
+  { question: "Inversie: Morgen ... ik naar huis.", options: ["ga","gaan","gaat","gegaan"], correct: 0, explanation: "🟢 Tijdsbepaling → inversie." },
+  { question: "Wij ... vanavond een film ....", options: ["zullen / kijken","kijken / zullen","zullen / kijkt","kijken / kijken"], correct: 0, explanation: "🟢 Hulpww (2) ... infinitief (einde)." },
+  { question: "Gisteren ... ik mijn vriend ....", options: ["heb / gezien","heb / zien","ben / gezien","zag / -"], correct: 0, explanation: "🟢 Inversie + hebben + gezien." },
+  { question: "Waarom ... je zo hard ....?", options: ["werk / -","werk / te","werkt / -","werk / werkt"], correct: 0, explanation: "🟢 Vraagwoord → inversie (geen -t)." },
+  { question: "Hij ... gisteren te laat ....", options: ["is / aangekomen","heeft / aangekomen","is / aankwam","werd / aangekomen"], correct: 0, explanation: "🟢 Aankomen → zijn + deelwoord." },
+  { question: "In de tuin ... een mooie boom ....", options: ["staat / -","staan / -","stond / -","gestaan /"], correct: 0, explanation: "🟢 Plaatsbepaling → inversie." },
+  { question: "Ik ... morgen wel ....", options: ["kan / komen","kan / gekomen","zal / komen","kan / kom"], correct: 0, explanation: "🟢 Kan + infinitief." },
+  { question: "Vanavond ... we naar de film ....", options: ["zullen / gaan","gaan / -","zullen / gingen","gaan / zullen"], correct: 0, explanation: "🟢 Inversie + toekomend." },
+  { question: "Hij ... zijn vriendin elke dag ....", options: ["belt / op","opbelt / -","bellen / op","belt / -"], correct: 0, explanation: "🟢 Scheidbaar: voorvoegsel naar einde." },
+  { question: "Waar ... jij ....? (wonen)", options: ["woon / -","woont / -","woon / te","woon / wonen"], correct: 0, explanation: "🟢 Waar + woon jij? (geen -t)." },
+  { question: "Hoe laat ... de film ....?", options: ["begint / -","begonnen / -","begint / begonnen","zal / beginnen"], correct: 0, explanation: "🟢 Tegenwoordige tijd: begint." },
+  { question: "Zij ... gisteren niet thuis ....", options: ["was / -","is / -","was / geweest","werd / -"], correct: 0, explanation: "🟢 Verleden tijd: was." },
+  { question: "Eindelijk ... hij zijn examen ....", options: ["heeft / gehaald","heeft / haalt","haalde / -","heeft / halen"], correct: 0, explanation: "🟢 Inversie + hebben + gehaald." },
+  { question: "Waarom ... je niet ....? (meekomen)", options: ["kom / mee","komt / mee","kom / meekomen","kom / meekomt"], correct: 0, explanation: "🟢 Scheidbaar: kom ... mee." },
+  { question: "Waarmee ... je dat ....? (schrijven – VT)", options: ["hebt / geschreven","heb / geschreven","schreef / -","schrijf / -"], correct: 1, explanation: "🟢 Waar + heb je + geschreven." },
+  { question: "Zij ... zich nooit ....", options: ["vergist / -","vergist / vergist","heeft / vergist","is / vergist"], correct: 0, explanation: "🟢 Wederkerend: vergist zich." },
+  { question: "Morgen ... we vroeg ....", options: ["staan / op","zullen / opstaan","staan / opstaan","stonden / op"], correct: 1, explanation: "🟢 Zullen + opstaan." },
+  { question: "Waar ... je die schoenen ....? (kopen – VT)", options: ["kocht / -","hebt / gekocht","heb / gekocht","hebt / kopen"], correct: 2, explanation: "🟢 Waar + heb je + gekocht." },
+  { question: "Ik ... hem dat niet .... (toestaan)", options: ["sta toe / -","sta / toe","sta / toestaan","staat / toe"], correct: 1, explanation: "🟢 Sta ... toe (scheidbaar)." }
       ]
     },
     20: { // Woordvolgorde bijzinnen
