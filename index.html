@@ -17138,7 +17138,277 @@ const TOPICS = {
 },
   ],
   fr:[
-    {id:1,t:"Les articles (définis, indéfinis, partitifs)",d:"Le, la, les, un, une, des, du, de la"},
+{
+  id: 1,
+  t: "Les articles (définis, indéfinis, partitifs)",
+  d: "Le, la, les, un, une, des, du, de la — maîtrisez les articles français",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.le { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.la { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.un { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge.des { background: var(--gw-bg3); color: var(--gw-text); border-color: var(--gw-border); }
+      .gw-badge.du { background: var(--gw-warn-bg); color: var(--gw-warn-text); border-color: var(--gw-warn); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+      .gw-summary {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      }
+      .gw-summary h3 { margin: 0 0 16px; color: var(--gw-accent); font-size: 1.3rem; font-weight: 700; }
+      .gw-summary ul { margin: 0 0 16px 28px; padding: 0; }
+      .gw-summary li { margin-bottom: 10px; line-height: 1.6; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🇫🇷 Les Articles en Français</h1>
+        <p>Définis • Indéfinis • Partitifs — les clés de la précision</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Les articles sont de petits mots placés devant les noms. Ils indiquent le <strong>genre</strong>, le <strong>nombre</strong> et le <strong>degré de spécificité</strong>. Une bonne maîtrise est essentielle pour parler français avec naturel.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>📘 1. Les articles définis</h2>
+        <p>Ils désignent une chose ou une personne <strong>précise</strong>, déjà connue ou identifiable.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Genre / Nombre</th><th>Article</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td>Masculin singulier</td><td><span class="gw-badge le">le</span></td><td><em>le chien</em></td></tr>
+              <tr><td>Féminin singulier</td><td><span class="gw-badge la">la</span></td><td><em>la Lune</em></td></tr>
+              <tr><td>Devant voyelle / h muet</td><td><span class="gw-badge un">l'</span></td><td><em>l'arbre, l'homme</em></td></tr>
+              <tr><td>Pluriel (masc. & fém.)</td><td><span class="gw-badge des">les</span></td><td><em>les enfants</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example">
+          💬 <em>"<strong>Le</strong> chien du voisin aboie."</em> (ce chien précis)<br>
+          💬 <em>"<strong>La</strong> Lune est pleine."</em> (unique, connue)<br>
+          💬 <em>"<strong>L'</strong>arbre est un chêne."</em><br>
+          💬 <em>"<strong>Les</strong> enfants jouent."</em>
+        </div>
+
+        <div class="gw-card gw-card--tip">
+          <div class="gw-card-title">📝 Emplois particuliers :</div>
+          <p style="margin:0; color:var(--gw-text)">
+            • Généralité : <em>Le café est cultivé au Brésil.</em><br>
+            • Dates : <em>Nous sommes le 23 avril.</em><br>
+            • Titres/fonctions : <em>le président, la reine.</em><br>
+            • Possession : <em>le stylo de Paul.</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🟢 2. Les articles indéfinis</h2>
+        <p>Ils introduisent un nom <strong>non spécifique</strong>, non compté ou mentionné pour la première fois.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Genre / Nombre</th><th>Article</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td>Masculin singulier</td><td><span class="gw-badge le">un</span></td><td><em>un livre</em></td></tr>
+              <tr><td>Féminin singulier</td><td><span class="gw-badge la">une</span></td><td><em>une femme</em></td></tr>
+              <tr><td>Pluriel (masc. & fém.)</td><td><span class="gw-badge des">des</span></td><td><em>des nuages</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example">
+          💬 <em>"J'ai acheté <strong>un</strong> livre."</em> (quelconque)<br>
+          💬 <em>"<strong>Une</strong> femme t'attend."</em><br>
+          💬 <em>"Il y a <strong>des</strong> nuages."</em>
+        </div>
+
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">⚠️ Règle à la négation :</div>
+          <p style="margin:0; color:var(--gw-text)">
+            Après une négation, <strong>un / une / des</strong> → <strong>de / d'</strong><br>
+            • <em>Je n'ai pas <strong>de</strong> voiture.</em><br>
+            • <em>Il n'y a pas <strong>d'</strong>enfants.</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🟡 3. Les articles partitifs</h2>
+        <p>Ils expriment une <strong>quantité indéterminée</strong> d'une chose non comptable (masse, liquide, abstrait).</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Genre / Nombre</th><th>Article partitif</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td>Masculin singulier</td><td><span class="gw-badge du">du</span> (= de+le)</td><td><em>du lait</em></td></tr>
+              <tr><td>Féminin singulier</td><td><span class="gw-badge la">de la</span></td><td><em>de la confiture</em></td></tr>
+              <tr><td>Devant voyelle / h muet</td><td><span class="gw-badge un">de l'</span></td><td><em>de l'eau</em></td></tr>
+              <tr><td>Pluriel (non comptables)</td><td><span class="gw-badge des">des</span></td><td><em>des épinards</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example">
+          💬 <em>"Je bois <strong>du</strong> lait."</em><br>
+          💬 <em>"Elle mange <strong>de la</strong> confiture."</em><br>
+          💬 <em>"Voudriez-vous <strong>de l'</strong>eau ?"</em><br>
+          💬 <em>"Il y a <strong>des</strong> épinards."</em>
+        </div>
+
+        <div class="gw-card gw-card--tip">
+          <div class="gw-card-title">🔍 Partitif vs Indéfini pluriel :</div>
+          <p style="margin:0; color:var(--gw-text)">
+            • <strong>Indéfini</strong> → comptable → remplaçable par <em>quelques</em><br>
+            <em>"des pommes" → "quelques pommes"</em><br>
+            • <strong>Partitif</strong> → non comptable → remplaçable par <em>un peu de</em><br>
+            <em>"des épinards" → "un peu d'épinards"</em><br>
+            ⚠️ À la négation : <em>"Je ne bois pas <strong>de</strong> vin."</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔄 Négation : Tableau récapitulatif</h2>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Affirmatif</th><th>Négatif</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge le">un</span> / <span class="gw-badge la">une</span></td><td><strong>de / d'</strong></td><td><em>J'ai un frère → Je n'ai pas de frère</em></td></tr>
+              <tr><td><span class="gw-badge du">du</span> / <span class="gw-badge la">de la</span></td><td><strong>de / d'</strong></td><td><em>Il y a du pain → Il n'y a pas de pain</em></td></tr>
+              <tr><td><span class="gw-badge des">des</span></td><td><strong>de / d'</strong></td><td><em>Elle a des amis → Elle n'a pas d'amis</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          ⚠️ <strong>Exceptions :</strong><br>
+          • Après <em>être</em> : <em>"C'est un médecin" → "Ce n'est pas un médecin"</em> (inchangé)<br>
+          • Après <em>sans</em> : <em>"sans parapluie"</em> (pas d'article)<br>
+          • Quantité précisée : <em>"beaucoup de bruit"</em> (de sans article)<br>
+          • Négation restrictive : <em>"Je ne bois que du thé"</em> (partitif conservé)
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Résumé rapide</h3>
+        <ul>
+          <li><span class="gw-badge le">le/la/l'/les</span> → spécifique, connu, généralités, dates, titres</li>
+          <li><span class="gw-badge un">un/une/des</span> → non spécifique, première mention, objets comptables</li>
+          <li><span class="gw-badge du">du/de la/de l'/des</span> → quantité indéterminée, non comptable (masse, liquide)</li>
+          <li><strong>Négation</strong> → un/une/du/de la/des → <strong>de / d'</strong> (sauf après être)</li>
+          <li><strong>💡 Astuce</strong> → Testez avec <em>quelques</em> (comptable) ou <em>un peu de</em> (masse)</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Besoin d'éclaircissements sur un point ? N'hésitez pas à demander ! 🚀</p>
+      </div>
+    </div>
+  `
+},
     {id:2,t:"Le genre et le nombre des noms",d:"Masculin/féminin, singulier/pluriel, règles et exceptions"},
     {id:3,t:"Les adjectifs qualificatifs",d:"Accord, place et degrés de comparaison"},
     {id:4,t:"Les pronoms personnels",d:"Sujets, COD, COI, toniques, ordre et place"},
@@ -22640,66 +22910,204 @@ test: [
       ]
     },
     20: { // Woordvolgorde bijzinnen
-      practice: [
-        { question: "Ik denk dat hij morgen ... (komen)", options: ["komt","komen","kwam","gekomen"], correct: 0, explanation: "❌ Fout! Bijzin: PV achteraan.", tip: "💡 Na dat/omdat/als → PV naar einde." },
-        { question: "... omdat hij ziek is.", options: ["Hij blijft thuis","Blijft hij thuis","Thuis blijft hij","Hij thuis blijft"], correct: 0, explanation: "❌ Fout! Hoofdzin eerst, dan bijzin.", tip: "💡 Hoofdzin + omdat + bijzin (PV achteraan)." },
-        { question: "Ze zegt dat ze het niet ... (begrijpen)", options: ["begrijpt","begrijp","begrijpen","begrepen"], correct: 0, explanation: "❌ Fout! Bijzin: PV achteraan.", tip: "💡 PV op laatste plek in bijzin." },
-        { question: "Als je ... , moet je betalen. (bestellen)", options: ["bestelt","bestellen","besteld","bestelde"], correct: 0, explanation: "❌ Fout! Bijzin na als: PV achteraan.", tip: "💡 Als-zin = bijzin." },
-        { question: "Ik hoop dat het morgen ... (regenen)", options: ["regen","regent","regenen","geregend"], correct: 1, explanation: "❌ Fout! Bijzin: PV achteraan.", tip: "💡 regent op einde." }
-      ],
-      test: [
-        { question: "Hij zegt dat hij ... (werken)", options: ["werkt","werk","werken","werkte"], correct: 0, explanation: "Bijzin: werkt achteraan." },
-        { question: "Omdat zij ... (komen), wachten we.", options: ["komt","komen","kwam","gekomen"], correct: 1, explanation: "Bijzin: komen achteraan." },
-        { question: "Als hij ... (bellen), zeg het me.", options: ["belt","bellen","belde","gebeld"], correct: 0, explanation: "Bijzin: belt achteraan." },
-        { question: "Ik weet dat jij ... (kunnen) het.", options: ["kunt","kan","kunnen","kon"], correct: 0, explanation: "Bijzin: kunt achteraan." },
-        { question: "Ze vraagt of wij ... (willen) komen.", options: ["willen","wil","wilden","gewild"], correct: 0, explanation: "Bijzin: willen achteraan." },
-        { question: "Terwijl hij ... (lezen), sliep ik.", options: ["las","lezen","leest","gelezen"], correct: 0, explanation: "Bijzin: las achteraan." },
-        { question: "Hoewel zij ... (weten) het, zei ze niets.", options: ["wist","weten","weet","geweten"], correct: 0, explanation: "Bijzin: wist achteraan." },
-        { question: "Nadat hij ... (eten), ging hij slapen.", options: ["at","eten","eet","gegeten"], correct: 0, explanation: "Bijzin: at achteraan." },
-        { question: "Voordat zij ... (vertrekken), bel ze.", options: ["vertrekt","vertrekken","vertrok","vertrokken"], correct: 1, explanation: "Bijzin: vertrekken achteraan." },
-        { question: "Zodra hij ... (aankomen), begin.", options: ["aankomt","aankomen","aankwam","aangekomen"], correct: 0, explanation: "Bijzin: aankomt achteraan." }
+practice: [
+  { question: "Ik denk dat hij ....", options: ["morgen komt","komt morgen","morgen kom","komt morgen"], correct: 0, explanation: "🟢 In een bijzin staat de persoonsvorm helemaal achteraan.", tip: "💡 Bijzin = PV aan het einde" },
+  { question: "Hij zegt dat hij een nieuwe auto ....", options: ["wil kopen","kopen wil","wil gekocht","gekocht wil"], correct: 0, explanation: "🟢 Modaal hulpwerkwoord staat vóór de infinitief in de bijzin.", tip: "💡 Wil kopen (niet kopen wil)" },
+  { question: "We hopen dat ze gisteren ....", options: ["is aangekomen","aangekomen is","werd aangekomen","aangekomen werd"], correct: 1, explanation: "🟢 Voltooid met 'zijn': voltooid deelwoord vóór hulpwerkwoord.", tip: "💢 Deelwoord + zijn" },
+  { question: "Hij vertelt dat hij zijn sleutels ....", options: ["verloren heeft","heeft verloren","verliezen heeft","heeft verliezen"], correct: 0, explanation: "🟢 Voltooid met 'hebben': deelwoord vóór hulpwerkwoord.", tip: "💢 Deelwoord + hebben" },
+  { question: "Ik weet niet waarom hij ....", options: ["niet komt","komt niet","niet kom","kom niet"], correct: 0, explanation: "🟢 'Niet' staat in een bijzin altijd vóór de persoonsvorm.", tip: "💡 Niet + PV (achteraan)" },
+  { question: "Hij zei dat hij die film ....", options: ["niet wilde zien","niet zien wilde","wilde niet zien","zien niet wilde"], correct: 0, explanation: "🟢 Ontkenning + modaal + infinitief in bijzin.", tip: "💡 Niet wilde zien" },
+  { question: "Ik hoop dat je mij ....", options: ["helpen kunt","kunt helpen","helpt kunnen","kunnen helpt"], correct: 1, explanation: "🟢 Modaal hulpwerkwoord vóór infinitief.", tip: "💡 Kunt helpen" },
+  { question: "Het is jammer dat hij ....", options: ["niet is gekomen","is niet gekomen","niet gekomen is","gekomen niet is"], correct: 2, explanation: "🟢 Volgorde: niet + voltooid deelwoord + hulpwerkwoord.", tip: "💢 Niet gekomen is" },
+  { question: "Zij vraagt of ik haar ....", options: ["wil helpen","helpen wil","wilde helpen","help wil"], correct: 0, explanation: "🟢 'Willen' + infinitief: persoonsvorm vóór hoofdwerkwoord.", tip: "💡 Wil helpen" },
+  { question: "Hij beweert dat hij het ....", options: ["gedaan heeft","heeft gedaan","deed heeft","heeft gedaan"], correct: 0, explanation: "🟢 Voltooid deelwoord staat vóór 'hebben' in bijzin.", tip: "💢 Gedaan heeft" },
+  { question: "We begrijpen niet waarom hij ....", options: ["te laat is gekomen","is te laat gekomen","te laat gekomen is","gekomen is te laat"], correct: 2, explanation: "🟢 Bepaling + deelwoord + hulpwerkwoord.", tip: "💡 Bepaling + deelwoord + is" },
+  { question: "Hij vroeg of ik ....", options: ["hem kon bellen","kon hem bellen","hem bellen kon","bellen hem kon"], correct: 0, explanation: "🟢 Voorwerp + modaal + infinitief.", tip: "💡 Hem kon bellen" },
+  { question: "Ik denk dat hij morgen ....", options: ["zal aankomen","aankomen zal","zal aankomt","aankomen zal"], correct: 0, explanation: "🟢 Toekomende tijd: zal + infinitief.", tip: "💡 Zal aankomen" },
+  { question: "Ze zegt dat ze haar werk ....", options: ["heeft afgemaakt","afgemaakt heeft","afmaakte heeft","heeft afmaakt"], correct: 1, explanation: "🟢 Scheidbaar ww voltooid: deelwoord vóór hulpwerkwoord.", tip: "💢 Afgemaakt heeft" },
+  { question: "Hij wist dat ik gisteren ....", options: ["niet thuis was","was niet thuis","niet thuis ben","ben niet thuis"], correct: 0, explanation: "🟢 'Niet' + bijwoord + persoonsvorm 'was' achteraan.", tip: "💡 Niet thuis was" },
+  { question: "We hopen dat de zon ....", options: ["schijnt morgen","morgen schijnt","morgen schijn","schijnt morgen"], correct: 1, explanation: "🟢 Bijwoord vóór persoonsvorm in bijzin.", tip: "💡 Morgen schijnt" },
+  { question: "Hij legt uit waarom hij ....", options: ["dat niet gedaan heeft","heeft dat niet gedaan","dat gedaan heeft niet","dat niet heeft gedaan"], correct: 3, explanation: "🟢 Gangbare volgorde: dat + niet + hulpww + deelwoord.", tip: "💡 Dat niet heeft gedaan" },
+  { question: "Zij vertelde dat ze ....", options: ["zich vergist heeft","heeft zich vergist","zich vergiste heeft","heeft vergist zich"], correct: 0, explanation: "🟢 Wederkerend ww: zich + deelwoord + hulpwerkwoord.", tip: "💢 Zich vergist heeft" },
+  { question: "Ik vraag me af of hij ....", options: ["komen kan","kan komen","komt kunnen","kunnen komt"], correct: 1, explanation: "🟢 Modaal vóór infinitief.", tip: "💡 Kan komen" },
+  { question: "Hij zei dat hij het licht ....", options: ["aandeed","deed aan","aan deed","doet aan"], correct: 0, explanation: "🟢 In bijzin wordt scheidbaar werkwoord aan elkaar geschreven.", tip: "💡 Aandeed (aan elkaar)" },
+  { question: "We zien dat de kinderen ....", options: ["buiten spelen","spelen buiten","buiten speelt","speelt buiten"], correct: 0, explanation: "🟢 Bijwoord + persoonsvorm (meervoud) achteraan.", tip: "💡 Buiten spelen" },
+  { question: "Hij dacht dat ze hem ....", options: ["niet zag","zag niet","niet ziet","ziet niet"], correct: 0, explanation: "🟢 'Niet' + persoonsvorm verleden tijd.", tip: "💡 Niet zag" },
+  { question: "Ik hoop dat je je ....", options: ["geen zorgen maakt","maakt geen zorgen","zorgen maakt geen","geen maakt zorgen"], correct: 0, explanation: "🟢 Lijdend voorwerp + persoonsvorm achteraan.", tip: "💡 Geen zorgen maakt" },
+  { question: "Hij zei dat hij vroeg ....", options: ["is opgestaan","opgestaan is","heeft opgestaan","opgestaan heeft"], correct: 1, explanation: "🟢 'Opstaan' met 'zijn': deelwoord vóór hulpwerkwoord.", tip: "💢 Opgestaan is" },
+  { question: "We weten niet of zij ....", options: ["thuis is","is thuis","thuis ben","ben thuis"], correct: 0, explanation: "🟢 Bijwoord vóór persoonsvorm 'is'.", tip: "💡 Thuis is" },
+  { question: "De leraar zegt dat de toets ....", options: ["is nagekeken","nagekeken is","heeft nagekeken","nagekeken heeft"], correct: 1, explanation: "🟢 Deelwoord vóór 'zijn'.", tip: "💢 Nagekeken is" },
+  { question: "Hij vertelt dat hij zijn tas ....", options: ["heeft verloren","verloren heeft","verliest heeft","heeft verliest"], correct: 1, explanation: "🟢 Voltooid deelwoord vóór 'hebben'.", tip: "💢 Verloren heeft" },
+  { question: "Het spijt me dat ik ....", options: ["niet ben gekomen","ben niet gekomen","niet gekomen ben","gekomen ben niet"], correct: 2, explanation: "🟢 'Niet' + deelwoord + 'ben'.", tip: "💢 Niet gekomen ben" },
+  { question: "Kun je me vertellen waar hij ....?", options: ["woont","woon","wonen","gewoond"], correct: 0, explanation: "🟢 Indirecte vraag = bijzin → PV achteraan.", tip: "💡 Waar hij woont" },
+  { question: "Ze weet niet wie dat ....", options: ["heeft gedaan","gedaan heeft","deed heeft","heeft deed"], correct: 1, explanation: "🟢 Voltooid deelwoord + hulpwerkwoord.", tip: "💢 Gedaan heeft" },
+  { question: "Hij schrijft dat hij morgen ....", options: ["zal komen","komen zal","komt zal","zal gekomen"], correct: 0, explanation: "🟢 Toekomende tijd: zal + infinitief.", tip: "💡 Zal komen" },
+  { question: "We vragen ons af of de trein ....", options: ["vertraagd is","is vertraagd","vertraagde is","is vertraagde"], correct: 0, explanation: "🟢 Deelwoord vóór 'is'.", tip: "💢 Vertraagd is" },
+  { question: "Hij zei dat hij het nog niet ....", options: ["wist","weet","heeft geweten","geweten heeft"], correct: 0, explanation: "🟢 'Nog niet' + persoonsvorm verleden tijd.", tip: "💡 Nog niet wist" },
+  { question: "Ik hoop dat je je sleutels ....", options: ["niet bent vergeten","bent niet vergeten","niet vergeten bent","vergeten bent niet"], correct: 2, explanation: "🟢 'Vergeten' met 'zijn': niet + deelwoord + hulpww.", tip: "💢 Niet vergeten bent" },
+  { question: "Hij vraagt of ik hem ....", options: ["helpen zou","zou helpen","help zou","zou help"], correct: 1, explanation: "🟢 Voorwaardelijke wijs: zou + infinitief.", tip: "💡 Zou helpen" },
+  { question: "We denken dat ze ....", options: ["al is vertrokken","al vertrokken is","vertrokken al is","is al vertrokken"], correct: 1, explanation: "🟢 'Al' vóór deelwoord, dan 'is'.", tip: "💡 Al vertrokken is" },
+  { question: "Hij zei dat hij het raam ....", options: ["dichtdeed","deed dicht","dicht deed","deed dicht"], correct: 0, explanation: "🟢 Scheidbaar ww in bijzin = aan elkaar.", tip: "💡 Dichtdeed (aan elkaar)" },
+  { question: "Ik weet niet of jullie ....", options: ["mee willen doen","willen mee doen","mee doen willen","doen mee willen"], correct: 0, explanation: "🟢 Scheidbaar deel + modaal + infinitief.", tip: "💡 Mee willen doen" },
+  { question: "Hij hoopt dat ze ....", options: ["hem morgen belt","morgen belt hem","belt hem morgen","hem belt morgen"], correct: 0, explanation: "🟢 Voorwerp + bijwoord + persoonsvorm.", tip: "💡 Hem morgen belt" },
+  { question: "Het is waar dat hij ....", options: ["nooit te laat komt","komt nooit te laat","nooit komt te laat","te laat komt nooit"], correct: 0, explanation: "🟢 Bepaling + persoonsvorm achteraan.", tip: "💡 Nooit te laat komt" }
+],
+
+test: [
+  { question: "Ik denk dat hij ....", options: ["morgen komt","komt morgen","morgen kom","komt morgen"], correct: 0, explanation: "🟢 Bijzin = PV aan het einde." },
+  { question: "Hij zegt dat hij een nieuwe auto ....", options: ["wil kopen","kopen wil","wil gekocht","gekocht wil"], correct: 0, explanation: "🟢 Modaal + infinitief." },
+  { question: "We hopen dat ze gisteren ....", options: ["is aangekomen","aangekomen is","werd aangekomen","aangekomen werd"], correct: 1, explanation: "🟢 Deelwoord + zijn." },
+  { question: "Hij vertelt dat hij zijn sleutels ....", options: ["verloren heeft","heeft verloren","verliezen heeft","heeft verliezen"], correct: 0, explanation: "🟢 Deelwoord + hebben." },
+  { question: "Ik weet niet waarom hij ....", options: ["niet komt","komt niet","niet kom","kom niet"], correct: 0, explanation: "🟢 Niet + PV (achteraan)." },
+  { question: "Hij zei dat hij die film ....", options: ["niet wilde zien","niet zien wilde","wilde niet zien","zien niet wilde"], correct: 0, explanation: "🟢 Niet wilde zien." },
+  { question: "Het is jammer dat hij ....", options: ["niet is gekomen","is niet gekomen","niet gekomen is","gekomen niet is"], correct: 2, explanation: "🟢 Niet + deelwoord + hulpww." },
+  { question: "Zij vraagt of ik haar ....", options: ["wil helpen","helpen wil","wilde helpen","help wil"], correct: 0, explanation: "🟢 Wil helpen." },
+  { question: "Hij beweert dat hij het ....", options: ["gedaan heeft","heeft gedaan","deed heeft","heeft gedaan"], correct: 0, explanation: "🟢 Gedaan heeft." },
+  { question: "Ik denk dat hij morgen ....", options: ["zal aankomen","aankomen zal","zal aankomt","aankomen zal"], correct: 0, explanation: "🟢 Zal aankomen." },
+  { question: "Hij zei dat hij het licht ....", options: ["aandeed","deed aan","aan deed","doet aan"], correct: 0, explanation: "🟢 Aandeed (aan elkaar)." },
+  { question: "We zien dat de kinderen ....", options: ["buiten spelen","spelen buiten","buiten speelt","speelt buiten"], correct: 0, explanation: "🟢 Buiten spelen." },
+  { question: "Ik hoop dat je je ....", options: ["geen zorgen maakt","maakt geen zorgen","zorgen maakt geen","geen maakt zorgen"], correct: 0, explanation: "🟢 Geen zorgen maakt." },
+  { question: "Hij zei dat hij vroeg ....", options: ["is opgestaan","opgestaan is","heeft opgestaan","opgestaan heeft"], correct: 1, explanation: "🟢 Opgestaan is." },
+  { question: "De leraar zegt dat de toets ....", options: ["is nagekeken","nagekeken is","heeft nagekeken","nagekeken heeft"], correct: 1, explanation: "🟢 Nagekeken is." },
+  { question: "Kun je me vertellen waar hij ....?", options: ["woont","woon","wonen","gewoond"], correct: 0, explanation: "🟢 Indirecte vraag = bijzin." },
+  { question: "Ze weet niet wie dat ....", options: ["heeft gedaan","gedaan heeft","deed heeft","heeft deed"], correct: 1, explanation: "🟢 Gedaan heeft." },
+  { question: "Hij schrijft dat hij morgen ....", options: ["zal komen","komen zal","komt zal","zal gekomen"], correct: 0, explanation: "🟢 Zal komen." },
+  { question: "Ik weet niet of jullie ....", options: ["mee willen doen","willen mee doen","mee doen willen","doen mee willen"], correct: 0, explanation: "🟢 Mee willen doen." },
+  { question: "Het is waar dat hij ....", options: ["nooit te laat komt","komt nooit te laat","nooit komt te laat","te laat komt nooit"], correct: 0, explanation: "🟢 Nooit te laat komt." }
       ]
     },
     21: { // Nevenschikkende voegwoorden
-      practice: [
-        { question: "Ik drink koffie, ... ik eet een koekje.", options: ["en","maar","of","want"], correct: 0, explanation: "❌ Fout! Opsomming → en.", tip: "💡 En = toevoeging." },
-        { question: "Wil je thee ... koffie?", options: ["en","maar","of","want"], correct: 2, explanation: "❌ Fout! Keuze → of.", tip: "💡 Of = alternatief." },
-        { question: "Hij is moe, ... hij gaat toch sporten.", options: ["en","maar","of","dus"], correct: 1, explanation: "❌ Fout! Tegenstelling → maar.", tip: "💡 Maar = contrast." },
-        { question: "Het regent, ... we blijven thuis.", options: ["en","maar","want","dus"], correct: 3, explanation: "❌ Fout! Gevolg → dus.", tip: "💡 Dus = gevolg." },
-        { question: "Ik blijf thuis, ... ik ben ziek.", options: ["en","maar","want","dus"], correct: 2, explanation: "❌ Fout! Reden → want.", tip: "💡 Want = oorzaak." }
-      ],
-      test: [
-        { question: "Ze zingt ... danst.", options: ["en","maar","of","want"], correct: 0, explanation: "Opsomming → en." },
-        { question: "Wil je gaan ... blijven?", options: ["en","maar","of","want"], correct: 2, explanation: "Keuze → of." },
-        { question: "Hij is rijk, ... niet gelukkig.", options: ["en","maar","of","dus"], correct: 1, explanation: "Tegenstelling → maar." },
-        { question: "Het is koud, ... ik doe een jas aan.", options: ["en","maar","want","dus"], correct: 3, explanation: "Gevolg → dus." },
-        { question: "Ik eet niet, ... ik heb geen honger.", options: ["en","maar","want","dus"], correct: 2, explanation: "Reden → want." },
-        { question: "Ze lacht ... huilt.", options: ["en","maar","of","want"], correct: 1, explanation: "Tegenstelling → maar." },
-        { question: "Kom je ... bel je?", options: ["en","maar","of","want"], correct: 2, explanation: "Keuze → of." },
-        { question: "Hij studeert hard, ... hij slaagt.", options: ["en","maar","want","dus"], correct: 3, explanation: "Gevolg → dus." },
-        { question: "Ik slaap, ... ik ben moe.", options: ["en","maar","want","dus"], correct: 2, explanation: "Reden → want." },
-        { question: "Ze kookt ... wast af.", options: ["en","maar","of","want"], correct: 0, explanation: "Opsomming → en." }
-      ]
-    },
+practice: [
+  { question: "Ik hou van koffie, ... mijn zus drinkt liever thee.", options: ["en","maar","want","dus"], correct: 1, explanation: "🟢 'Maar' drukt een tegenstelling uit.", tip: "💡 Maar = tegenstelling" },
+  { question: "Hij is moe, ... hij gaat vroeg slapen.", options: ["en","maar","want","dus"], correct: 3, explanation: "🟢 'Dus' geeft een gevolg aan.", tip: "💡 Dus = gevolg" },
+  { question: "Kom je mee, ... blijf je thuis?", options: ["en","maar","of","want"], correct: 2, explanation: "🟢 'Of' geeft een keuze aan.", tip: "💡 Of = keuze" },
+  { question: "Ze is niet gekomen, ... ze was ziek.", options: ["en","maar","want","dus"], correct: 2, explanation: "🟢 'Want' geeft een reden/oorzaak.", tip: "💡 Want = reden" },
+  { question: "Ik eet graag vis, ... ik lust ook vlees.", options: ["maar","want","of","en"], correct: 3, explanation: "🟢 'En' voegt twee gelijksoortige zinnen samen.", tip: "💡 En = optelling" },
+  { question: "Hij heeft hard gestudeerd, ... hij is gezakt.", options: ["want","dus","maar","en"], correct: 2, explanation: "🟢 Tegenstelling: ondanks hard studeren gezakt.", tip: "💡 Maar = tegenstelling" },
+  { question: "Het regent, ... we blijven binnen.", options: ["want","maar","dus","of"], correct: 2, explanation: "🟢 Gevolg: regen → binnen blijven.", tip: "💡 Dus = gevolg" },
+  { question: "Wil je koffie, ... wil je thee?", options: ["en","maar","want","of"], correct: 3, explanation: "🟢 Keuze tussen twee alternatieven.", tip: "💡 Of = keuze" },
+  { question: "Ze is intelligent, ... ze is ook erg bescheiden.", options: ["maar","want","en","dus"], correct: 2, explanation: "🟢 Toevoeging van een eigenschap.", tip: "💡 En = toevoeging" },
+  { question: "Hij moet opschieten, ... hij mist de trein.", options: ["want","maar","of","dus"], correct: 2, explanation: "🟢 'Of' als waarschuwing: 'anders'.", tip: "💡 Of = anders/waarschuwing" },
+  { question: "Ik ben niet dik, ... ik weeg wel negentig kilo.", options: ["en","maar","want","of"], correct: 1, explanation: "🟢 Tegenstelling: niet dik maar wel zwaar.", tip: "💡 Maar = tegenstelling" },
+  { question: "Hij spreekt vloeiend Frans, ... hij woont al jaren in Parijs.", options: ["en","maar","want","dus"], correct: 2, explanation: "🟢 'Want' geeft de reden/verklaring.", tip: "💡 Want = reden" },
+  { question: "We hebben geen geld, ... we gaan niet op vakantie.", options: ["maar","want","dus","of"], correct: 2, explanation: "🟢 Gevolg: geen geld → geen vakantie.", tip: "💡 Dus = gevolg" },
+  { question: "Hij is rijk, ... hij is niet gelukkig.", options: ["en","maar","want","dus"], correct: 1, explanation: "🟢 Tegenstelling: rijk maar niet gelukkig.", tip: "💡 Maar = tegenstelling" },
+  { question: "Je kunt met de auto gaan, ... je kunt de trein nemen.", options: ["en","maar","want","of"], correct: 3, explanation: "🟢 Keuze tussen twee vervoersmiddelen.", tip: "💡 Of = keuze" },
+  { question: "Het is koud, ... we doen de verwarming aan.", options: ["want","maar","dus","of"], correct: 2, explanation: "🟢 Gevolg: koud → verwarming aan.", tip: "💡 Dus = gevolg" },
+  { question: "Ze zong prachtig, ... ik kreeg kippenvel.", options: ["en","maar","want","dus"], correct: 3, explanation: "🟢 'Dus' geeft het logische gevolg aan.", tip: "💡 Dus = gevolg" },
+  { question: "Hij is allergisch voor pinda's, ... hij eet geen pindakaas.", options: ["en","maar","want","dus"], correct: 3, explanation: "🟢 Allergie → gevolg: geen pindakaas.", tip: "💡 Dus = gevolg" },
+  { question: "Ze kon niet slapen, ... ze zette een kop thee.", options: ["want","dus","maar","of"], correct: 1, explanation: "🟢 Handeling als gevolg van niet kunnen slapen.", tip: "💡 Dus = gevolg" },
+  { question: "Is het huis te koop, ... is het al verkocht?", options: ["en","maar","of","want"], correct: 2, explanation: "🟢 Keuzevraag.", tip: "💡 Of = vraag/keuze" },
+  { question: "Hij is klein, ... hij kan goed basketballen.", options: ["en","maar","want","dus"], correct: 1, explanation: "🟢 Tegenstelling: klein maar goed in basketbal.", tip: "💡 Maar = tegenstelling" },
+  { question: "Ze heeft veel geld gespaard, ... ze koopt een huis.", options: ["en","maar","want","dus"], correct: 3, explanation: "🟢 Gevolg: gespaard → huis kopen.", tip: "💡 Dus = gevolg" },
+  { question: "Hij is aardig, ... soms is hij eigenwijs.", options: ["en","maar","want","of"], correct: 1, explanation: "🟢 Tegenstellende nuance.", tip: "💡 Maar = nuance/tegenstelling" },
+  { question: "Ze kan niet komen, ... ze is ziek.", options: ["want","dus","maar","en"], correct: 0, explanation: "🟢 Reden voor haar afwezigheid.", tip: "💡 Want = reden" },
+  { question: "Eerst eet ik mijn bord leeg, ... dan krijg ik toetje.", options: ["want","maar","dus","en"], correct: 3, explanation: "🟢 Tijdsvolgorde/opsomming.", tip: "💡 En = volgorde" },
+  { question: "Je mag meegaan, ... je moet je mond houden.", options: ["en","maar","want","of"], correct: 1, explanation: "🟢 Voorwaarde met tegenstelling.", tip: "💡 Maar = voorwaarde" },
+  { question: "Hij heeft geen ervaring, ... hij wordt aangenomen.", options: ["en","maar","want","dus"], correct: 1, explanation: "🟢 Tegenstelling: geen ervaring maar toch aangenomen.", tip: "💡 Maar = tegenstelling" },
+  { question: "Hij werkt hard, ... hij is erg ambitieus.", options: ["en","maar","want","dus"], correct: 2, explanation: "🟢 Verklaring: hard werken omdat ambitieus.", tip: "💡 Want = verklaring" },
+  { question: "De winkel is gesloten, ... we kunnen niet winkelen.", options: ["want","maar","dus","of"], correct: 2, explanation: "🟢 Gevolg: gesloten → niet winkelen.", tip: "💡 Dus = gevolg" },
+  { question: "Zullen we naar het strand gaan, ... naar het bos?", options: ["en","maar","want","of"], correct: 3, explanation: "🟢 Keuze tussen twee bestemmingen.", tip: "💡 Of = keuze" },
+  { question: "Ik ben moe, ... ik ga niet naar het feest.", options: ["want","maar","dus","en"], correct: 2, explanation: "🟢 Gevolg: moe → niet gaan.", tip: "💡 Dus = gevolg" },
+  { question: "Hij is veel afwezig, ... hij is vaak ziek.", options: ["en","maar","want","dus"], correct: 2, explanation: "🟢 Reden voor afwezigheid.", tip: "💡 Want = reden" },
+  { question: "Ze wilde naar huis, ... ze bleef toch nog even.", options: ["want","maar","of","dus"], correct: 1, explanation: "🟢 Tegenstelling: wilde gaan maar bleef.", tip: "💡 Maar = tegenstelling" },
+  { question: "Het is donker, ... we zetten de lichten aan.", options: ["want","maar","dus","of"], correct: 2, explanation: "🟢 Gevolg: donker → lichten aan.", tip: "💡 Dus = gevolg" },
+  { question: "Hij lust geen vis, ... hij eet wel garnalen.", options: ["en","maar","want","dus"], correct: 1, explanation: "🟢 Tegenstelling: geen vis maar garnalen wel.", tip: "💡 Maar = tegenstelling" },
+  { question: "Ze heeft gisteren hard getraind, ... ze is vandaag stijf.", options: ["en","maar","want","dus"], correct: 3, explanation: "🟢 'Dus' geeft het logische gevolg aan.", tip: "💡 Dus = gevolg" },
+  { question: "Je kunt de trein nemen, ... je kunt de bus pakken.", options: ["en","maar","of","want"], correct: 2, explanation: "🟢 Keuze tussen trein en bus.", tip: "💡 Of = keuze" },
+  { question: "Hij is niet sterk, ... hij is wel snel.", options: ["en","maar","want","dus"], correct: 1, explanation: "🟢 Tegenstelling: niet sterk maar wel snel.", tip: "💡 Maar = tegenstelling" },
+  { question: "Ze heeft haar best gedaan, ... ze is geslaagd.", options: ["want","maar","dus","en"], correct: 2, explanation: "🟢 'Dus' duidt een gevolg aan.", tip: "💡 Dus = gevolg" },
+  { question: "We moeten opschieten, ... we zijn al te laat.", options: ["en","maar","want","dus"], correct: 2, explanation: "🟢 'Want' geeft de verklaring/reden.", tip: "💡 Want = reden" }
+],
+
+test: [
+  { question: "Ik hou van koffie, ... mijn zus drinkt liever thee.", options: ["en","maar","want","dus"], correct: 1, explanation: "🟢 Maar = tegenstelling." },
+  { question: "Hij is moe, ... hij gaat vroeg slapen.", options: ["en","maar","want","dus"], correct: 3, explanation: "🟢 Dus = gevolg." },
+  { question: "Kom je mee, ... blijf je thuis?", options: ["en","maar","of","want"], correct: 2, explanation: "🟢 Of = keuze." },
+  { question: "Ze is niet gekomen, ... ze was ziek.", options: ["en","maar","want","dus"], correct: 2, explanation: "🟢 Want = reden." },
+  { question: "Ik eet graag vis, ... ik lust ook vlees.", options: ["maar","want","of","en"], correct: 3, explanation: "🟢 En = optelling." },
+  { question: "Hij heeft hard gestudeerd, ... hij is gezakt.", options: ["want","dus","maar","en"], correct: 2, explanation: "🟢 Maar = tegenstelling." },
+  { question: "Het regent, ... we blijven binnen.", options: ["want","maar","dus","of"], correct: 2, explanation: "🟢 Dus = gevolg." },
+  { question: "Wil je koffie, ... wil je thee?", options: ["en","maar","want","of"], correct: 3, explanation: "🟢 Of = keuze." },
+  { question: "Hij moet opschieten, ... hij mist de trein.", options: ["want","maar","of","dus"], correct: 2, explanation: "🟢 Of = waarschuwing." },
+  { question: "Ik ben niet dik, ... ik weeg wel negentig kilo.", options: ["en","maar","want","of"], correct: 1, explanation: "🟢 Maar = tegenstelling." },
+  { question: "Hij spreekt vloeiend Frans, ... hij woont in Parijs.", options: ["en","maar","want","dus"], correct: 2, explanation: "🟢 Want = verklaring." },
+  { question: "We hebben geen geld, ... we gaan niet op vakantie.", options: ["maar","want","dus","of"], correct: 2, explanation: "🟢 Dus = gevolg." },
+  { question: "Hij is rijk, ... hij is niet gelukkig.", options: ["en","maar","want","dus"], correct: 1, explanation: "🟢 Maar = tegenstelling." },
+  { question: "Het is koud, ... we doen de verwarming aan.", options: ["want","maar","dus","of"], correct: 2, explanation: "🟢 Dus = gevolg." },
+  { question: "Hij is allergisch voor pinda's, ... hij eet geen pindakaas.", options: ["en","maar","want","dus"], correct: 3, explanation: "🟢 Dus = gevolg." },
+  { question: "Ze kan niet komen, ... ze is ziek.", options: ["want","dus","maar","en"], correct: 0, explanation: "🟢 Want = reden." },
+  { question: "Je mag meegaan, ... je moet je mond houden.", options: ["en","maar","want","of"], correct: 1, explanation: "🟢 Maar = voorwaarde." },
+  { question: "Hij heeft geen ervaring, ... hij wordt aangenomen.", options: ["en","maar","want","dus"], correct: 1, explanation: "🟢 Maar = tegenstelling." },
+  { question: "De winkel is gesloten, ... we kunnen niet winkelen.", options: ["want","maar","dus","of"], correct: 2, explanation: "🟢 Dus = gevolg." },
+  { question: "We moeten opschieten, ... we zijn al te laat.", options: ["en","maar","want","dus"], correct: 2, explanation: "🟢 Want = reden." }
+]    },
+
     22: { // Onderschikkende voegwoorden
-      practice: [
-        { question: "Ik blijf thuis, ... het regent.", options: ["omdat","want","maar","dus"], correct: 0, explanation: "❌ Fout! Reden → omdat (PV achteraan).", tip: "💡 Omdat = bijzin, want = hoofdzin." },
-        { question: "... hij hard studeert, haalt hij goede cijfers.", options: ["Omdat","Als","Hoewel","Terwijl"], correct: 1, explanation: "❌ Fout! Voorwaarde → als.", tip: "💡 Als = voorwaarde/tijd." },
-        { question: "... het koud was, gingen we toch wandelen.", options: ["Omdat","Hoewel","Als","Terwijl"], correct: 1, explanation: "❌ Fout! Tegenstelling → hoewel.", tip: "💡 Hoewel = concessie." },
-        { question: "Ik weet ... hij komt.", options: ["dat","omdat","als","hoewel"], correct: 0, explanation: "❌ Fout! Mededeling → dat.", tip: "💡 Dat leidt bijzin in." },
-        { question: "... ik tijd heb, help ik je.", options: ["Omdat","Als","Hoewel","Terwijl"], correct: 1, explanation: "❌ Fout! Voorwaarde → als.", tip: "💡 Als = conditioneel." }
-      ],
-      test: [
-        { question: "Ik eet een appel, ... ik honger heb.", options: ["omdat","want","dus","maar"], correct: 0, explanation: "Reden → omdat." },
-        { question: "... hij komt, vertel ik het.", options: ["Omdat","Als","Hoewel","Terwijl"], correct: 1, explanation: "Voorwaarde → als." },
-        { question: "Ze lacht, ... ze verdrietig is.", options: ["omdat","hoewel","als","terwijl"], correct: 1, explanation: "Tegenstelling → hoewel." },
-        { question: "Hij zei ... hij moe was.", options: ["dat","omdat","als","hoewel"], correct: 0, explanation: "Mededeling → dat." },
-        { question: "... ik wakker werd, regende het.", options: ["Omdat","Toen","Hoewel","Terwijl"], correct: 1, explanation: "Tijd → toen." },
-        { question: "Ze blijft, ... ze wil.", options: ["omdat","als","hoewel","terwijl"], correct: 1, explanation: "Voorwaarde → als." },
-        { question: "... hij rijk is, is hij niet gelukkig.", options: ["Omdat","Hoewel","Als","Terwijl"], correct: 1, explanation: "Tegenstelling → hoewel." },
-        { question: "Ik vraag ... je komt.", options: ["dat","of","als","hoewel"], correct: 1, explanation: "Vraag → of." },
-        { question: "... ik sliep, belde hij.", options: ["Omdat","Terwijl","Hoewel","Als"], correct: 1, explanation: "Tijd → terwijl." },
-        { question: "Hij komt niet, ... hij ziek is.", options: ["omdat","als","hoewel","terwijl"], correct: 0, explanation: "Reden → omdat." }
+practice: [
+  { question: "Ik denk ... hij gelijk heeft.", options: ["want","dat","maar","dus"], correct: 1, explanation: "🟢 'Dat' leidt een lijdendvoorwerpszin in.", tip: "💡 Dat = bijzin, PV achteraan" },
+  { question: "Hij blijft thuis ... hij ziek is.", options: ["omdat","en","maar","want"], correct: 0, explanation: "🟢 'Omdat' geeft een reden aan.", tip: "💡 Omdat = reden/oorzaak" },
+  { question: "Ik wacht hier ... jij terugkomt.", options: ["totdat","omdat","hoewel","als"], correct: 0, explanation: "🟢 'Totdat' geeft een tijdsgrens aan.", tip: "💡 Totdat = eindpunt" },
+  { question: "... het regent, gaan we naar binnen.", options: ["Terwijl","Als","Omdat","Hoewel"], correct: 1, explanation: "🟢 'Als' voor voorwaarde of tijd.", tip: "💡 Als = voorwaarde/tijd" },
+  { question: "Hij is vrolijk, ... hij net zijn baan is verloren.", options: ["omdat","zodat","hoewel","doordat"], correct: 2, explanation: "🟢 'Hoewel' drukt een tegenstelling uit.", tip: "💡 Hoewel = tegenstelling" },
+  { question: "Ik deed mijn best, ... ik zou slagen.", options: ["omdat","hoewel","zodat","doordat"], correct: 2, explanation: "🟢 'Zodat' geeft een doel aan.", tip: "💡 Zodat = doel" },
+  { question: "Je mag gaan, ... je belooft terug te zijn.", options: ["tenzij","mits","als","hoewel"], correct: 1, explanation: "🟢 'Mits' drukt een voorwaarde uit.", tip: "💡 Mits = positieve voorwaarde" },
+  { question: "Hij valt in slaap ... hij televisie kijkt.", options: ["terwijl","zodat","omdat","opdat"], correct: 0, explanation: "🟢 'Terwijl' geeft gelijktijdigheid aan.", tip: "💡 Terwijl = tegelijkertijd" },
+  { question: "Ze praatte zacht ... niemand haar zou horen.", options: ["omdat","zodat","hoewel","opdat"], correct: 3, explanation: "🟢 'Opdat' drukt een (formeel) doel uit.", tip: "💡 Opdat = formeel doel" },
+  { question: "... je het vraagt, zal ik je helpen.", options: ["Mits","Tenzij","Als","Hoewel"], correct: 2, explanation: "🟢 'Als' voor voorwaarde.", tip: "💡 Als = als voorwaarde" },
+  { question: "We gingen naar huis ... de film was afgelopen.", options: ["nadat","voordat","totdat","terwijl"], correct: 0, explanation: "🟢 'Nadat' geeft tijdsvolgorde aan.", tip: "💡 Nadat = eerst dit, dan dat" },
+  { question: "Hij kon niet slapen ... het lawaai.", options: ["doordat","omdat","zodat","opdat"], correct: 0, explanation: "🟢 'Doordat' = directe, feitelijke oorzaak.", tip: "💡 Doordat = directe oorzaak" },
+  { question: "Ik blijf thuis, ... ik me niet lekker voel.", options: ["omdat","doordat","zodat","hoewel"], correct: 0, explanation: "🟢 'Omdat' = reden voor actie.", tip: "💡 Omdat = reden" },
+  { question: "... je klaar bent, mag je gaan.", options: ["Zodra","Terwijl","Omdat","Hoewel"], correct: 0, explanation: "🟢 'Zodra' = zo gauw als.", tip: "💡 Zodra = moment" },
+  { question: "Hij doet alsof hij rijk is, ... hij arm is.", options: ["hoewel","omdat","zodat","opdat"], correct: 0, explanation: "🟢 'Hoewel' = tegenstelling.", tip: "💡 Hoewel = contrast" },
+  { question: "Ik neem een paraplu mee ... het gaat regenen.", options: ["als","mits","tenzij","hoewel"], correct: 0, explanation: "🟢 'Als' = mogelijkheid/voorwaarde.", tip: "💡 Als = mogelijkheid" },
+  { question: "... we vroeg vertrekken, zijn we op tijd.", options: ["Tenzij","Mits","Als","Hoewel"], correct: 2, explanation: "🟢 'Als' = voorwaarde.", tip: "💡 Als = voorwaarde" },
+  { question: "Ik eet geen vlees ... ik vegetariër ben.", options: ["omdat","want","hoewel","mits"], correct: 0, explanation: "🟢 'Omdat' = reden in bijzin.", tip: "💡 Omdat + PV achteraan" },
+  { question: "Hij deed alsof hij sliep, ... hij alles hoorde.", options: ["zodat","terwijl","hoewel","omdat"], correct: 1, explanation: "🟢 'Terwijl' = tegenstellende gelijktijdigheid.", tip: "💡 Terwijl = terwijl eigenlijk..." },
+  { question: "Ze studeert hard, ... ze een beurs wil krijgen.", options: ["omdat","opdat","doordat","hoewel"], correct: 1, explanation: "🟢 'Opdat' = formeel doel.", tip: "💡 Opdat = doel (formeel)" },
+  { question: "... hij te laat kwam, werd hij gestraft.", options: ["Omdat","Doordat","Opdat","Mits"], correct: 0, explanation: "🟢 'Omdat' = reden.", tip: "💡 Omdat = reden" },
+  { question: "We spraken af ... we elkaar zouden bellen.", options: ["dat","opdat","omdat","terwijl"], correct: 0, explanation: "🟢 'Dat' leidt bijzin in na 'afspreken'.", tip: "💡 Dat = inhoud bijzin" },
+  { question: "... je het niet gelooft, het is waar.", options: ["Hoewel","Als","Omdat","Opdat"], correct: 0, explanation: "🟢 'Hoewel' = tegenstelling.", tip: "💡 Hoewel = contrast" },
+  { question: "Hij rent snel ... hij oud is.", options: ["hoewel","omdat","doordat","tenzij"], correct: 0, explanation: "🟢 'Hoewel' = tegenstelling.", tip: "💡 Hoewel = onverwacht" },
+  { question: "Zet de deur op slot ... je weggaat.", options: ["voordat","nadat","totdat","terwijl"], correct: 0, explanation: "🟢 'Voordat' = eerst dit, dan dat.", tip: "💡 Voordat = eerder" },
+  { question: "Je mag niet naar buiten, ... je je jas aandoet.", options: ["mits","tenzij","als","hoewel"], correct: 1, explanation: "🟢 'Tenzij' = negatieve voorwaarde.", tip: "💡 Tenzij = alleen als niet" },
+  { question: "Hij bleef werken ... hij erg moe was.", options: ["hoewel","omdat","doordat","opdat"], correct: 0, explanation: "🟢 'Hoewel' = tegenstelling.", tip: "💡 Hoewel = ondanks" },
+  { question: "De trein vertrok ... we op het perron aankwamen.", options: ["zodra","voordat","nadat","totdat"], correct: 1, explanation: "🟢 'Voordat' = trein eerst, wij later.", tip: "💡 Voordat = eerder" },
+  { question: "Ik loop naar huis, ... het donker wordt.", options: ["totdat","voordat","nadat","terwijl"], correct: 0, explanation: "🟢 'Totdat' = eindpunt van actie.", tip: "💡 Totdat = tot dat moment" },
+  { question: "... hij het wist, was het te laat.", options: ["Voordat","Nadat","Zodra","Terwijl"], correct: 0, explanation: "🟢 'Voordat' = eerst te laat, dan weten.", tip: "💡 Voordat = eerder" },
+  { question: "Hij is zo sterk ... hij een auto kan tillen.", options: ["dat","zodat","opdat","doordat"], correct: 0, explanation: "🟢 'Zo...dat' = gevolg.", tip: "💡 Zo...dat = gevolg" },
+  { question: "Ze waren verdrietig ... hun hond was weggelopen.", options: ["omdat","doordat","zodat","opdat"], correct: 0, explanation: "🟢 'Omdat' = reden.", tip: "💡 Omdat = reden" },
+  { question: "... je het vraagt, zal ik het doen.", options: ["Mits","Tenzij","Als","Hoewel"], correct: 2, explanation: "🟢 'Als' = voorwaarde.", tip: "💡 Als = voorwaarde" },
+  { question: "Ik ga naar bed ... ik mijn tanden heb gepoetst.", options: ["nadat","voordat","totdat","terwijl"], correct: 0, explanation: "🟢 'Nadat' = eerst poetsen, dan bed.", tip: "💡 Nadat = eerst dit" },
+  { question: "Hij luistert naar muziek ... hij zijn werk doet.", options: ["terwijl","nadat","voordat","zodra"], correct: 0, explanation: "🟢 'Terwijl' = gelijktijdigheid.", tip: "💡 Terwijl = tegelijk" },
+  { question: "Het water steeg ... de dijk doorbrak.", options: ["totdat","zodat","nadat","doordat"], correct: 0, explanation: "🟢 'Totdat' = eindpunt van stijgen.", tip: "💡 Totdat = eindpunt" },
+  { question: "Ik bel je ... ik thuis ben.", options: ["zodra","totdat","voordat","terwijl"], correct: 0, explanation: "🟢 'Zodra' = zo gauw als.", tip: "💡 Zodra = direct" },
+  { question: "Hij doet alsof hij iemand is, ... hij in werkelijkheid niet is.", options: ["terwijl","want","maar","als"], correct: 0, explanation: "🟢 'Terwijl' = tegenstellende bijzin.", tip: "💡 Terwijl = terwijl eigenlijk" },
+  { question: "We blijven hier ... de regen ophoudt.", options: ["totdat","zodra","nadat","voordat"], correct: 0, explanation: "🟢 'Totdat' = wachten tot eindpunt.", tip: "💡 Totdat = wachten tot" },
+  { question: "... je weggaat, doe dan het licht uit.", options: ["Als","Wanneer","Zodra","Hoewel"], correct: 0, explanation: "🟢 'Als' = algemene voorwaarde/tijd.", tip: "💡 Als = algemene voorwaarde" }
+],
+
+test: [
+  { question: "Ik denk ... hij gelijk heeft.", options: ["want","dat","maar","dus"], correct: 1, explanation: "🟢 Dat = bijzin, PV achteraan." },
+  { question: "Hij blijft thuis ... hij ziek is.", options: ["omdat","en","maar","want"], correct: 0, explanation: "🟢 Omdat = reden." },
+  { question: "Ik wacht hier ... jij terugkomt.", options: ["totdat","omdat","hoewel","als"], correct: 0, explanation: "🟢 Totdat = eindpunt." },
+  { question: "... het regent, gaan we naar binnen.", options: ["Terwijl","Als","Omdat","Hoewel"], correct: 1, explanation: "🟢 Als = voorwaarde/tijd." },
+  { question: "Hij is vrolijk, ... hij zijn baan verloor.", options: ["omdat","zodat","hoewel","doordat"], correct: 2, explanation: "🟢 Hoewel = tegenstelling." },
+  { question: "Ik deed mijn best, ... ik zou slagen.", options: ["omdat","hoewel","zodat","doordat"], correct: 2, explanation: "🟢 Zodat = doel." },
+  { question: "Je mag gaan, ... je belooft terug te zijn.", options: ["tenzij","mits","als","hoewel"], correct: 1, explanation: "🟢 Mits = voorwaarde." },
+  { question: "Hij valt in slaap ... hij tv kijkt.", options: ["terwijl","zodat","omdat","opdat"], correct: 0, explanation: "🟢 Terwijl = gelijktijdig." },
+  { question: "Ze praatte zacht ... niemand haar zou horen.", options: ["omdat","zodat","hoewel","opdat"], correct: 3, explanation: "🟢 Opdat = formeel doel." },
+  { question: "... je het vraagt, zal ik helpen.", options: ["Mits","Tenzij","Als","Hoewel"], correct: 2, explanation: "🟢 Als = voorwaarde." },
+  { question: "We gingen naar huis ... de film afgelopen was.", options: ["nadat","voordat","totdat","terwijl"], correct: 0, explanation: "🟢 Nadat = tijdsvolgorde." },
+  { question: "Hij kon niet slapen ... het lawaai.", options: ["doordat","omdat","zodat","opdat"], correct: 0, explanation: "🟢 Doordat = directe oorzaak." },
+  { question: "Ik blijf thuis, ... ik me niet lekker voel.", options: ["omdat","doordat","zodat","hoewel"], correct: 0, explanation: "🟢 Omdat = reden." },
+  { question: "... je klaar bent, mag je gaan.", options: ["Zodra","Terwijl","Omdat","Hoewel"], correct: 0, explanation: "🟢 Zodra = moment." },
+  { question: "Hij doet alsof hij rijk is, ... hij arm is.", options: ["hoewel","omdat","zodat","opdat"], correct: 0, explanation: "🟢 Hoewel = tegenstelling." },
+  { question: "Ik eet geen vlees ... ik vegetariër ben.", options: ["omdat","want","hoewel","mits"], correct: 0, explanation: "🟢 Omdat + PV achteraan." },
+  { question: "Hij deed alsof hij sliep, ... hij alles hoorde.", options: ["zodat","terwijl","hoewel","omdat"], correct: 1, explanation: "🟢 Terwijl = tegenstelling." },
+  { question: "Ze studeert hard, ... ze een beurs wil.", options: ["omdat","opdat","doordat","hoewel"], correct: 1, explanation: "🟢 Opdat = doel." },
+  { question: "We spraken af ... we elkaar zouden bellen.", options: ["dat","opdat","omdat","terwijl"], correct: 0, explanation: "🟢 Dat = inhoud bijzin." },
+  { question: "Zet de deur op slot ... je weggaat.", options: ["voordat","nadat","totdat","terwijl"], correct: 0, explanation: "🟢 Voordat = eerder." }
       ]
     },
     23: { // Betrekkelijke bijzinnen
