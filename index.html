@@ -21042,11 +21042,1587 @@ const TOPICS = {
     </div>
   `
 },
-    {id:12,t:"Le passé simple",d:"Formation et usage dans la langue écrite et littéraire"},
-    {id:13,t:"Le plus-que-parfait",d:"Antériorité dans le passé"},
-    {id:14,t:"Le futur simple",d:"Radicaux réguliers et irréguliers"},
-    {id:15,t:"Le conditionnel présent et passé",d:"Politesse, hypothèse, information non confirmée"},
-    {id:16,t:"Le subjonctif présent et passé",d:"Emplois : obligation, sentiment, doute, conjonctions"},
+{
+  id: 12,
+  t: "Le passé simple",
+  d: "Formation, terminaisons, emplois — le temps du récit littéraire et historique",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.s1 { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.s2 { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.s3 { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge.acc { background: var(--gw-warn-bg); color: var(--gw-warn-text); border-color: var(--gw-warn); }
+      .gw-badge.lit { background: var(--gw-bg3); color: var(--gw-text); border-color: var(--gw-border); }
+      .gw-badge.hist { background: var(--gw-bg3); color: var(--gw-text2); border-color: var(--gw-border); font-style: italic; }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+      .gw-summary {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      }
+      .gw-summary h3 { margin: 0 0 16px; color: var(--gw-accent); font-size: 1.3rem; font-weight: 700; }
+      .gw-summary ul { margin: 0 0 16px 28px; padding: 0; }
+      .gw-summary li { margin-bottom: 10px; line-height: 1.6; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>📜 Le Passé Simple</h1>
+        <p>Terminaisons • Irréguliers • Emplois — le temps du récit littéraire et historique</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Le passé simple est un temps du <strong>passé</strong> qui exprime une action <strong>achevée, ponctuelle et totalement révolue</strong>, sans lien avec le présent. C'est le temps par excellence du <strong>récit écrit</strong>, de la narration littéraire, historique ou journalistique soutenue.</p>
+        <div class="gw-example">
+          💬 <em>"Il <strong>entra</strong> dans la pièce et <strong>salua</strong> l'assemblée."</em><br>
+          💬 <em>"Soudain, le téléphone <strong>sonna</strong>."</em><br>
+          💬 <em>"Les Romains <strong>envahirent</strong> la Gaule."</em>
+        </div>
+        <div class="gw-note">
+          ⚠️ <strong>À l'oral</strong>, il est quasiment inemployé, remplacé par le <strong>passé composé</strong> dans la langue courante. Il reste essentiel pour la <strong>lecture</strong> et l'<strong>écriture littéraire</strong>.
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔧 Les trois séries de terminaisons</h2>
+        <p>Le passé simple se construit sur un radical + des terminaisons spécifiques. Il existe <strong>trois grandes séries</strong> :</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Groupe</th><th>Terminaisons</th><th>Exemple type</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge s1">1er groupe (-er) + aller</span></td><td><code>-ai, -as, -a, -âmes, -âtes, -èrent</code></td><td><em>je parl<strong>ai</strong></em></td></tr>
+              <tr><td><span class="gw-badge s2">2e groupe (-ir) + nombreux 3e</span></td><td><code>-is, -is, -it, -îmes, -îtes, -irent</code></td><td><em>je fin<strong>is</strong></em></td></tr>
+              <tr><td><span class="gw-badge s3">Autres 3e groupe (-oir, -re…)</span></td><td><code>-us, -us, -ut, -ûmes, -ûtes, -urent</code></td><td><em>je voul<strong>us</strong></em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📊 Conjugaison détaillée par série</h2>
+        
+        <h3>✨ Série en -a (1er groupe et aller)</h3>
+        <p>Radical = infinitif sans <code>-er</code> (sauf <em>aller → all-</em>). Terminaisons en <strong>a</strong>.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Personne</th><th>Terminaison</th><th>Parler</th><th>Aller</th></tr></thead>
+            <tbody>
+              <tr><td>je</td><td><span class="gw-badge acc">-ai</span></td><td>parl<strong>ai</strong></td><td>all<strong>ai</strong></td></tr>
+              <tr><td>tu</td><td><span class="gw-badge acc">-as</span></td><td>parl<strong>as</strong></td><td>all<strong>as</strong></td></tr>
+              <tr><td>il/elle/on</td><td><span class="gw-badge acc">-a</span></td><td>parl<strong>a</strong></td><td>all<strong>a</strong></td></tr>
+              <tr><td>nous</td><td><span class="gw-badge acc">-âmes</span> ⚠️</td><td>parl<strong>âmes</strong></td><td>all<strong>âmes</strong></td></tr>
+              <tr><td>vous</td><td><span class="gw-badge acc">-âtes</span> ⚠️</td><td>parl<strong>âtes</strong></td><td>all<strong>âtes</strong></td></tr>
+              <tr><td>ils/elles</td><td><span class="gw-badge acc">-èrent</span></td><td>parl<strong>èrent</strong></td><td>all<strong>èrent</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note">
+          💡 <strong>Particularités</strong> :<br>
+          • Accent circonflexe obligatoire sur <code>-âmes, -âtes</code><br>
+          • <code>-ger</code> : garde le <strong>e</strong> → <em>je mangeai, nous mangeâmes</em><br>
+          • <code>-cer</code> : cédille devant <strong>a</strong> → <em>je commençai, nous commençâmes</em>
+        </div>
+
+        <h3>✨ Série en -i (2e groupe + nombreux 3e)</h3>
+        <p>Radical souvent proche du participe passé. Terminaisons en <strong>i</strong>.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Personne</th><th>Terminaison</th><th>Finir</th><th>Partir</th><th>Prendre</th></tr></thead>
+            <tbody>
+              <tr><td>je</td><td><span class="gw-badge acc">-is</span></td><td>fin<strong>is</strong></td><td>part<strong>is</strong></td><td><strong>pris</strong></td></tr>
+              <tr><td>tu</td><td><span class="gw-badge acc">-is</span></td><td>fin<strong>is</strong></td><td>part<strong>is</strong></td><td><strong>pris</strong></td></tr>
+              <tr><td>il/elle/on</td><td><span class="gw-badge acc">-it</span></td><td>fin<strong>it</strong></td><td>part<strong>it</strong></td><td><strong>prit</strong></td></tr>
+              <tr><td>nous</td><td><span class="gw-badge acc">-îmes</span> ⚠️</td><td>fin<strong>îmes</strong></td><td>part<strong>îmes</strong></td><td><strong>prîmes</strong></td></tr>
+              <tr><td>vous</td><td><span class="gw-badge acc">-îtes</span> ⚠️</td><td>fin<strong>îtes</strong></td><td>part<strong>îtes</strong></td><td><strong>prîtes</strong></td></tr>
+              <tr><td>ils/elles</td><td><span class="gw-badge acc">-irent</span></td><td>fin<strong>irent</strong></td><td>part<strong>irent</strong></td><td><strong>prirent</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note">
+          💡 <strong>Verbes fréquents de ce type</strong> : <em>sortir, dormir, mentir, sentir, servir, suivre, rire (je ris), dire (je dis), écrire (j'écrivis), faire (je fis), mettre (je mis), voir (je vis), s'asseoir (je m'assis)...</em><br>
+          ⚠️ Certains ont un radical modifié : <em>écrire → écriv- • voir → v-</em>
+        </div>
+
+        <h3>✨ Série en -u (3e groupe : -oir, -re, certains -ir)</h3>
+        <p>Radical souvent lié au participe passé. Terminaisons en <strong>u</strong>.</p>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Personne</th><th>Terminaison</th><th>Vouloir</th><th>Pouvoir</th><th>Devoir</th><th>Courir</th></tr></thead>
+            <tbody>
+              <tr><td>je</td><td><span class="gw-badge acc">-us</span></td><td>voul<strong>us</strong></td><td><strong>pus</strong></td><td><strong>dus</strong></td><td>cour<strong>us</strong></td></tr>
+              <tr><td>tu</td><td><span class="gw-badge acc">-us</span></td><td>voul<strong>us</strong></td><td><strong>pus</strong></td><td><strong>dus</strong></td><td>cour<strong>us</strong></td></tr>
+              <tr><td>il/elle/on</td><td><span class="gw-badge acc">-ut</span></td><td>voul<strong>ut</strong></td><td><strong>put</strong></td><td><strong>dut</strong></td><td>cour<strong>ut</strong></td></tr>
+              <tr><td>nous</td><td><span class="gw-badge acc">-ûmes</span> ⚠️</td><td>voul<strong>ûmes</strong></td><td><strong>pûmes</strong></td><td><strong>dûmes</strong></td><td>cour<strong>ûmes</strong></td></tr>
+              <tr><td>vous</td><td><span class="gw-badge acc">-ûtes</span> ⚠️</td><td>voul<strong>ûtes</strong></td><td><strong>pûtes</strong></td><td><strong>dûtes</strong></td><td>cour<strong>ûtes</strong></td></tr>
+              <tr><td>ils/elles</td><td><span class="gw-badge acc">-urent</span></td><td>voul<strong>urent</strong></td><td><strong>purent</strong></td><td><strong>durent</strong></td><td>cour<strong>urent</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note">
+          💡 <strong>Autres verbes de cette série</strong> : <em>avoir (j'eus), être (je fus), lire (je lus), connaître (je connus), vivre (je vécus), pleuvoir (il plut), falloir (il fallut), croire (je crus), recevoir (je reçus)...</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Être et Avoir (irréguliers fondamentaux)</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Personne</th><th><span class="gw-badge s3">Être</span></th><th><span class="gw-badge s3">Avoir</span></th></tr></thead>
+            <tbody>
+              <tr><td>je</td><td><strong>fus</strong></td><td><strong>eus</strong></td></tr>
+              <tr><td>tu</td><td><strong>fus</strong></td><td><strong>eus</strong></td></tr>
+              <tr><td>il/elle/on</td><td><strong>fut</strong></td><td><strong>eut</strong></td></tr>
+              <tr><td>nous</td><td><strong>fûmes</strong> ⚠️</td><td><strong>eûmes</strong> ⚠️</td></tr>
+              <tr><td>vous</td><td><strong>fûtes</strong> ⚠️</td><td><strong>eûtes</strong> ⚠️</td></tr>
+              <tr><td>ils/elles</td><td><strong>furent</strong></td><td><strong>eurent</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔥 Autres irréguliers fréquents</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Verbe</th><th>je</th><th>tu</th><th>il</th><th>nous</th><th>vous</th><th>ils</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Faire</strong></td><td>fis</td><td>fis</td><td>fit</td><td>fîmes ⚠️</td><td>fîtes ⚠️</td><td>firent</td></tr>
+              <tr><td><strong> Dire</strong></td><td>dis</td><td>dis</td><td>dit</td><td>dîmes ⚠️</td><td>dîtes ⚠️</td><td>dirent</td></tr>
+              <tr><td><strong>Venir</strong></td><td>vins</td><td>vins</td><td>vint</td><td>vînmes ⚠️</td><td>vîntes ⚠️</td><td>vinrent</td></tr>
+              <tr><td><strong>Tenir</strong></td><td>tins</td><td>tins</td><td>tint</td><td>tînmes ⚠️</td><td>tîntes ⚠️</td><td>tinrent</td></tr>
+              <tr><td><strong>Naître</strong></td><td>naquis</td><td>naquis</td><td>naquit</td><td>naquîmes ⚠️</td><td>naquîtes ⚠️</td><td>naquirent</td></tr>
+              <tr><td><strong>Mourir</strong></td><td>mourus</td><td>mourus</td><td>mourut</td><td>mourûmes ⚠️</td><td>mourûtes ⚠️</td><td>moururent</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-note">
+          💡 <strong>Venir / Tenir</strong> et leurs dérivés (<em>revenir, obtenir, contenir…</em>) prennent <code>-in-</code> au singulier et <code>-inrent</code> au pluriel, avec accent circonflexe à <em>nous/vous</em>.
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Emplois du passé simple</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge lit">🔹 Action achevée, ponctuelle</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Relate des événements successifs qui font avancer l'action dans un récit au passé.<br><br>
+              💬 <em>"Il <strong>se leva</strong>, <strong>prit</strong> son manteau et <strong>sortit</strong>."</em><br>
+              💬 <em>"Le train <strong>arriva</strong> à l'heure. Les voyageurs <strong>descendirent</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge lit">🔹 Soudaineté dans un décor à l'imparfait</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le passé simple intervient souvent dans un contexte décrit à l'imparfait.<br><br>
+              💬 <em>"Le soleil <strong>brillait</strong>, les oiseaux <strong>chantaient</strong>. Soudain, un orage <strong>éclata</strong>."</em><br>
+              💬 <em>"Je <strong>lisais</strong> quand quelqu'un <strong>frappa</strong> à la porte."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge hist">🔹 Événements historiques</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Faits datés, totalement révolus, sans lien avec le présent.<br><br>
+              💬 <em>"Louis XIV <strong>mourut</strong> en 1715."</em><br>
+              💬 <em>"La Révolution française <strong>éclata</strong> en 1789."</em><br>
+              💬 <em>"En 1515, François Ier <strong>remporta</strong> Marignan."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge hist">🔹 Distance avec le présent</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le passé simple maintient une distance totale avec l'instant présent. Les faits sont coupés du présent, contrairement au passé composé.<br><br>
+              💬 <em>"Il <strong>écrivit</strong> une lettre." (récit littéraire)<br>
+              vs "Il <strong>a écrit</strong> une lettre." (lien possible avec le présent)</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚖️ Passé simple vs Passé composé vs Imparfait</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Aspect</th><th>Passé simple</th><th>Passé composé</th><th>Imparfait</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Registre</strong></td><td><span class="gw-badge lit">Écrit soutenu, littéraire</span></td><td>Oral et écrit courant</td><td>Tous registres</td></tr>
+              <tr><td><strong>Aspect</strong></td><td>Action achevée, limite claire</td><td>Action achevée, lien possible avec présent</td><td>Action en cours, description</td></tr>
+              <tr><td><strong>Exemple</strong></td><td><em>Il <strong>écrivit</strong> une lettre.</em></td><td><em>Il <strong>a écrit</strong> une lettre.</em></td><td><em>Il <strong>écrivait</strong> une lettre.</em></td></tr>
+              <tr><td><strong>Fréquence</strong></td><td>Littérature, récits historiques</td><td>Très courant à l'oral</td><td>Très courant partout</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gw-example">
+          💬 <strong>Combinaison dans un récit</strong> :<br>
+          <em>"La nuit <strong>tomba</strong> (passé simple) rapidement. Le vent <strong>se leva</strong> et les loups <strong>se mirent</strong> à hurler. Le jeune homme <strong>alluma</strong> un feu et <strong>s'assit</strong> pour attendre l'aube. Il <strong>repensa</strong> aux paroles de son père et <strong>sentit</strong> une tristesse l'envahir. Bientôt, il <strong>aperçut</strong> une lumière : quelqu'un <strong>approchait</strong> (imparfait = action en cours)."</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🚫 Points de vigilance</h2>
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Accents circonflexes obligatoires</div>
+            <p style="margin:0; color:var(--gw-text)">
+              À <strong>nous</strong> et <strong>vous</strong>, les terminaisons portent un accent circonflexe :<br>
+              <code>-âmes, -âtes • -îmes, -îtes • -ûmes, -ûtes</code><br><br>
+              ❌ <em>"nous parlames"</em><br>
+              ✅ <em>"nous parl<strong>â</strong>mes"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Ne pas confondre avec l'imparfait</div>
+            <p style="margin:0; color:var(--gw-text)">
+              La 3e personne du singulier du passé simple diffère de l'imparfait :<br><br>
+              <table style="width:100%; font-size:0.95em;">
+                <tr><td><strong>Passé simple</strong></td><td><strong>Imparfait</strong></td></tr>
+                <tr><td><em>il <strong>fut</strong></em></td><td><em>il <strong>était</strong></em></td></tr>
+                <tr><td><em>il <strong>eut</strong></em></td><td><em>il <strong>avait</strong></em></td></tr>
+                <tr><td><em>il <strong>fit</strong></em></td><td><em>il <strong>faisait</strong></em></td></tr>
+                <tr><td><em>il <strong>dit</strong></em></td><td><em>il <strong>disait</strong></em></td></tr>
+              </table>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Terminaisons du pluriel</div>
+            <p style="margin:0; color:var(--gw-text)">
+              À la 3e personne du pluriel, attention aux séries :<br>
+              • <span class="gw-badge s1">1er groupe</span> : <code>-èrent</code> → <em>ils parl<strong>èrent</strong></em><br>
+              • <span class="gw-badge s2">Série en -i</span> : <code>-irent</code> → <em>ils fin<strong>irent</strong></em><br>
+              • <span class="gw-badge s3">Série en -u</span> : <code>-urent</code> → <em>ils voul<strong>urent</strong></em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Radical parfois modifié</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Certains verbes changent de radical au passé simple :<br>
+              <em>écrire → j'<strong>écrivis</strong> • voir → je <strong>vis</strong> • prendre → je <strong>pris</strong> • naître → je <strong>naquis</strong></em><br><br>
+              💡 Astuce : mémoriser les radicaux des verbes les plus fréquents !
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 Tableau synthétique des séries</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Série</th><th>Terminaisons</th><th>Exemples</th><th>Verbes typiques</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge s1">En -a</span></td><td><code>-ai, -as, -a, -âmes, -âtes, -èrent</code></td><td><em>je chantai, tu allas, il parla</em></td><td>1er groupe (-er) + aller</td></tr>
+              <tr><td><span class="gw-badge s2">En -i</span></td><td><code>-is, -is, -it, -îmes, -îtes, -irent</code></td><td><em>je finis, tu partis, il prit</em></td><td>2e groupe + partir, sortir, prendre, faire, dire, voir…</td></tr>
+              <tr><td><span class="gw-badge s3">En -u</span></td><td><code>-us, -us, -ut, -ûmes, -ûtes, -urent</code></td><td><em>je voulus, tu pus, il but</em></td><td>Vouloir, pouvoir, devoir, savoir, courir, boire, lire…</td></tr>
+              <tr><td><span class="gw-badge acc">Irréguliers</span></td><td>Radicaux spécifiques</td><td><em>je fus, tu eus, je vins</em></td><td>Être, avoir, venir, tenir, naître, mourir…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Résumé rapide</h3>
+        <ul>
+          <li><strong>Formation</strong> : radical + terminaisons spécifiques selon 3 séries : <code>-a / -i / -u</code></li>
+          <li><span class="gw-badge s1">Série -a</span> : 1er groupe + aller → <code>-ai, -as, -a, -âmes, -âtes, -èrent</code></li>
+          <li><span class="gw-badge s2">Série -i</span> : 2e groupe + nombreux 3e → <code>-is, -is, -it, -îmes, -îtes, -irent</code></li>
+          <li><span class="gw-badge s3">Série -u</span> : verbes en -oir/-re → <code>-us, -us, -ut, -ûmes, -ûtes, -urent</code></li>
+          <li><strong>Accents</strong> : circonflexes obligatoires à <em>nous/vous</em> : <code>-âmes, -îmes, -ûmes</code></li>
+          <li><strong>Emplois</strong> : récit littéraire • narration historique • action ponctuelle achevée • distance avec le présent</li>
+          <li><strong>💡 Astuce</strong> → Pour reconnaître un passé simple : cherchez les terminaisons en <code>-a / -i / -u</code> au singulier, et les accents circonflexes au pluriel. C'est un temps de l'écrit soutenu !</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Besoin d'exercices de conjugaison ou d'une comparaison détaillée avec le passé antérieur ? N'hésitez pas à demander ! 🚀</p>
+      </div>
+    </div>
+  `
+},
+{
+  id: 13,
+  t: "Le plus-que-parfait",
+  d: "Antériorité • Formation • Accord • Emplois — maîtriser le « passé du passé »",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.avoir { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.etre { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.ant { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge.cod { background: var(--gw-bg3); color: var(--gw-text); border-color: var(--gw-border); }
+      .gw-badge.coi { background: var(--gw-bg3); color: var(--gw-text2); border-color: var(--gw-border); font-style: italic; }
+      .gw-badge.cond { background: var(--gw-warn-bg); color: var(--gw-warn-text); border-color: var(--gw-warn); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+      .gw-summary {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      }
+      .gw-summary h3 { margin: 0 0 16px; color: var(--gw-accent); font-size: 1.3rem; font-weight: 700; }
+      .gw-summary ul { margin: 0 0 16px 28px; padding: 0; }
+      .gw-summary li { margin-bottom: 10px; line-height: 1.6; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>⏪ Le Plus-que-parfait</h1>
+        <p>Antériorité • Formation • Accord • Emplois — le « passé du passé »</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Le plus-que-parfait est un temps <strong>composé du passé</strong> qui exprime une action <strong>achevée, antérieure à une autre action passée</strong>. Il joue le rôle du <em>« passé dans le passé »</em>, essentiel pour marquer la chronologie dans les récits ou le discours indirect.</p>
+        <div class="gw-example">
+          💬 <em>"Quand je <strong>suis arrivé</strong>, il <strong>était déjà parti</strong>."</em><br>
+          💬 <em>"Elle m'a raconté qu'elle <strong>avait vécu</strong> au Canada."</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔧 Formation du plus-que-parfait</h2>
+        <p>Structure : <strong>auxiliaire (être/avoir) à l'imparfait</strong> + <strong>participe passé</strong> du verbe.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Auxiliaire à l'imparfait</th><th>Participe passé</th><th>Exemples</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge avoir">j'avais / tu avais…</span></td><td><strong>parlé / fini / vendu</strong></td><td><em>J'<strong>avais mangé</strong>. • Nous <strong>avions pris</strong>.</em></td></tr>
+              <tr><td><span class="gw-badge etre">j'étais / tu étais…</span></td><td><strong>allé(e) / venu(e) / parti(e)</strong></td><td><em>Je <strong>m'étais lavé</strong>. • Elles <strong>étaient tombées</strong>.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          💡 <strong>Choix de l'auxiliaire</strong> : mêmes règles qu'au passé composé.<br>
+          • <span class="gw-badge avoir">Avoir</span> : majorité des verbes (transitifs, nombreux intransitifs)<br>
+          • <span class="gw-badge etre">Être</span> : 14 verbes de mouvement/état + tous les verbes pronominaux
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚖️ L'accord du participe passé</h2>
+        <p>Les règles d'accord sont <strong>exactement les mêmes qu'au passé composé</strong>.</p>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--rule">
+            <div class="gw-card-title"><span class="gw-badge etre">Avec ÊTRE</span> → accord avec le sujet</div>
+            <p style="margin:0; color:var(--gw-text)">
+              💬 <em>"Elle <strong>était partie</strong>." • "Mes sœurs <strong>étaient arrivées</strong>."<br>
+              "Nous nous <strong>étions levés</strong> tôt." (si se = COD)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--rule">
+            <div class="gw-card-title"><span class="gw-badge avoir">Avec AVOIR</span> → accord avec le COD antéposé</div>
+            <p style="margin:0; color:var(--gw-text)">
+              💬 <em>"J'<strong>avais acheté</strong> des pommes." (après → invariable)<br>
+              "Les pommes <strong>que</strong> j'<strong>avais achetées</strong>…" (avant → accord)<br>
+              "Nous les <strong>avions vues</strong>." (pronom COD avant → accord)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title">🔄 Verbes pronominaux</div>
+            <p style="margin:0; color:var(--gw-text)">
+              • Si <code>se</code> = <span class="gw-badge cod">COD</span> → accord avec sujet : <em>Elle <strong>s'était lavée</strong>.</em><br>
+              • Si <code>se</code> = <span class="gw-badge coi">COI</span> → invariable : <em>Ils <strong>s'étaient écrit</strong>.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Emplois principaux du plus-que-parfait</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge ant">🔹 Antériorité dans le passé</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Action achevée <strong>avant</strong> un autre moment passé.<br><br>
+              💬 <em>"Quand je <strong>suis arrivé</strong>, il <strong>était déjà sorti</strong>."<br>
+              "Le sol <strong>était</strong> mouillé : il <strong>avait plu</strong> toute la nuit."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge ant">🔹 Discours rapporté</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Quand le verbe introducteur est au passé, le passé composé de la subordonnée devient PQP.<br><br>
+              💬 Direct : <em>"J'<strong>ai fini</strong> mon livre."</em><br>
+              Indirect : <em>Il m'a dit qu'il <strong>avait fini</strong> son livre.</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge cond">🔹 Hypothèse irréelle (si + PQP)</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Condition <strong>non réalisée</strong> dans le passé → principale au <strong>conditionnel passé</strong>.<br><br>
+              💬 <em>"Si j'<strong>avais su</strong>, je ne <strong>serais</strong> pas <strong>venu</strong>."<br>
+              "S'il <strong>avait fait</strong> beau, nous <strong>serions sortis</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge cond">🔹 Regret ou reproche</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Souvent avec <em>seulement, au moins</em>.<br><br>
+              💬 <em>"Si seulement j'<strong>avais écouté</strong> tes conseils !"<br>
+              "Ah, si tu m'<strong>avais prévenu</strong> plus tôt !"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge ant">🔹 Après « après que »</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              L'indicatif est requis. Le PQP marque l'antériorité.<br><br>
+              💬 <em>"Nous sommes sortis <strong>après que</strong> la pluie <strong>avait cessé</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge ant">🔹 Retour en arrière (flashback)</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Dans un récit au passé, pour évoquer un événement antérieur.<br><br>
+              💬 <em>"Ce jour-là, il faisait gris. Marie <strong>était restée</strong> chez elle la veille parce qu'elle se sentait mal."</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📊 Comparaison avec les autres temps du passé</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Temps</th><th>Emploi principal</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge etre">Imparfait</span></td><td>Action en cours, description, habitude</td><td><em>Je <strong>lisais</strong> quand il est entré.</em></td></tr>
+              <tr><td><span class="gw-badge avoir">Passé composé</span></td><td>Action achevée, lien possible avec présent</td><td><em>J'<strong>ai lu</strong> ce livre hier.</em></td></tr>
+              <tr><td><span class="gw-badge avoir">Passé simple</span></td><td>Action achevée, coupée du présent (écrit)</td><td><em>Il <strong>lut</strong> la lettre et sourit.</em></td></tr>
+              <tr><td><span class="gw-badge ant">Plus-que-parfait</span></td><td>Action achevée <strong>antérieure</strong> à une autre action passée</td><td><em>J'<strong>avais déjà lu</strong> ce livre quand il me l'a offert.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Points de vigilance</h2>
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Accord avec avoir</div>
+            <p style="margin:0; color:var(--gw-text)">
+              N'oubliez pas l'accord si le COD précède l'auxiliaire.<br>
+              ✅ <em>"Les fleurs <strong>qu'il avait cueillies</strong>…"</em><br>
+              ❌ <em>"…qu'il avait cueilli."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Pronominaux à COI</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Si le pronom réfléchi est COI, pas d'accord :<br>
+              <em>"Ils <strong>s'étaient parlé</strong>." / "Elles <strong>s'étaient téléphoné</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Si + PQP → Conditionnel passé</div>
+            <p style="margin:0; color:var(--gw-text)">
+              La structure hypothétique du passé exige :<br>
+              <code>Si + PQP → Conditionnel passé</code><br>
+              💬 <em>"Si tu <strong>avais écouté</strong>, tu <strong>aurais réussi</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 PQP ≠ Conditionnel passé</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Ne confondez pas la forme avec l'auxiliaire + participe passé au conditionnel.<br>
+              <em>Il <strong>avait dit</strong> (PQP) / Il <strong>aurait dit</strong> (Conditionnel passé)</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💬 Exemples supplémentaires</h2>
+        <div class="gw-example">
+          🔹 <em>"Quand le facteur <strong>est passé</strong>, je <strong>n'étais pas encore levé</strong>."</em><br>
+          🔹 <em>"Elle <strong>avait tant travaillé</strong> qu'elle <strong>s'est endormie</strong> sur son bureau."</em><br>
+          🔹 <em>"Vous <strong>aviez raison</strong> : j'<strong>avais oublié</strong> mes clés !"</em><br>
+          🔹 <em>"Après que tout le monde <strong>était parti</strong>, elle <strong>a nettoyé</strong> la maison."</em><br>
+          🔹 <em>"Il <strong>avait annoncé</strong> qu'il <strong>ne viendrait pas</strong>."</em>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Résumé rapide</h3>
+        <ul>
+          <li><strong>Formation</strong> : auxiliaire (avoir/être) à l'imparfait + participe passé</li>
+          <li><span class="gw-badge avoir">Avoir</span> : majorité | <span class="gw-badge etre">Être</span> : mouvement/état + pronominaux</li>
+          <li><strong>Accord</strong> : Être → sujet | Avoir → COD antéposé | Pronominaux → règle COD/COI</li>
+          <li><strong>Emplois</strong> : antériorité • discours rapporté • si + hypothèse irréelle • regret • flashback</li>
+          <li><strong>💡 Astuce</strong> → Repérez le "repère passé" (PC, imparfait, passé simple). Le PQP se place toujours <em>avant</em> ce repère sur la ligne du temps.</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Besoin d'exercices sur les accords complexes ou la concordance des temps ? N'hésitez pas à demander ! 🚀</p>
+      </div>
+    </div>
+  `
+},
+{
+  id: 14,
+  t: "Le futur simple de l'indicatif",
+  d: "Formation • Irréguliers • Emplois • Futur proche — exprimer l'avenir avec précision",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.g1 { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.g2 { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.g3 { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge.irr { background: var(--gw-warn-bg); color: var(--gw-warn-text); border-color: var(--gw-warn); }
+      .gw-badge.term { background: var(--gw-bg3); color: var(--gw-text); border-color: var(--gw-border); }
+      .gw-badge.emp { background: var(--gw-bg3); color: var(--gw-text2); border-color: var(--gw-border); font-style: italic; }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+      .gw-summary {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      }
+      .gw-summary h3 { margin: 0 0 16px; color: var(--gw-accent); font-size: 1.3rem; font-weight: 700; }
+      .gw-summary ul { margin: 0 0 16px 28px; padding: 0; }
+      .gw-summary li { margin-bottom: 10px; line-height: 1.6; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🔮 Le Futur Simple</h1>
+        <p>Formation • Irréguliers • Emplois • Futur proche — exprimer l'avenir avec précision</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Le futur simple est un temps <strong>simple</strong> (un seul mot) qui exprime une <strong>action à venir</strong>, qui n'a pas encore eu lieu au moment où l'on parle. Il situe un événement dans l'avenir, de manière plus ou moins éloignée.</p>
+        <div class="gw-example">
+          💬 <em>"Demain, je <strong>partirai</strong> en vacances."</em><br>
+          💬 <em>"L'année prochaine, nous <strong>déménagerons</strong>."</em><br>
+          💬 <em>"Un jour, tu <strong>comprendras</strong>."</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔧 Formation régulière</h2>
+        <p>Le futur simple se forme sur <strong>l'infinitif entier</strong> du verbe + les terminaisons : <span class="gw-badge term">-ai, -as, -a, -ons, -ez, -ont</span>.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Personne</th><th>Terminaison</th><th>Parler (-er)</th><th>Finir (-ir)</th><th>Vendre (-re)</th></tr></thead>
+            <tbody>
+              <tr><td>je</td><td><span class="gw-badge term">-ai</span></td><td>je parler<strong>ai</strong></td><td>je finir<strong>ai</strong></td><td>je vendr<strong>ai</strong> ⚠️</td></tr>
+              <tr><td>tu</td><td><span class="gw-badge term">-as</span></td><td>tu parler<strong>as</strong></td><td>tu finir<strong>as</strong></td><td>tu vendr<strong>as</strong></td></tr>
+              <tr><td>il/elle/on</td><td><span class="gw-badge term">-a</span></td><td>il parler<strong>a</strong></td><td>il finir<strong>a</strong></td><td>il vendr<strong>a</strong></td></tr>
+              <tr><td>nous</td><td><span class="gw-badge term">-ons</span></td><td>nous parler<strong>ons</strong></td><td>nous finir<strong>ons</strong></td><td>nous vendr<strong>ons</strong></td></tr>
+              <tr><td>vous</td><td><span class="gw-badge term">-ez</span></td><td>vous parler<strong>ez</strong></td><td>vous finir<strong>ez</strong></td><td>vous vendr<strong>ez</strong></td></tr>
+              <tr><td>ils/elles</td><td><span class="gw-badge term">-ont</span></td><td>ils parler<strong>ont</strong></td><td>ils finir<strong>ont</strong></td><td>ils vendr<strong>ont</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          ⚠️ <strong>Verbes en -re</strong> : on retire le <strong>e</strong> final de l'infinitif avant d'ajouter les terminaisons.<br>
+          💬 <em>vendre → je vendr<strong>ai</strong> (pas ~~vendrerai~~) • attendre → j'attendr<strong>ai</strong></em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Radicaux irréguliers fréquents</h2>
+        <p>Plusieurs verbes très courants ont un radical de futur <strong>différent de l'infinitif</strong>. Les terminaisons restent <strong>toujours les mêmes</strong>.</p>
+       
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge irr">ÊTRE / AVOIR / ALLER / FAIRE</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>être</strong></td><td>→ <code>ser-</code></td><td><em>je serai, tu seras…</em></td></tr>
+                <tr><td><strong>avoir</strong></td><td>→ <code>aur-</code></td><td><em>j'aurai, tu auras…</em></td></tr>
+                <tr><td><strong>aller</strong></td><td>→ <code>ir-</code></td><td><em>j'irai, tu iras…</em></td></tr>
+                <tr><td><strong>faire</strong></td><td>→ <code>fer-</code></td><td><em>je ferai, tu feras…</em></td></tr>
+              </table>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge irr">POUVOIR / VOULOIR / DEVOIR</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>pouvoir</strong></td><td>→ <code>pourr-</code></td><td><em>je pourrai…</em></td></tr>
+                <tr><td><strong>vouloir</strong></td><td>→ <code>voudr-</code></td><td><em>je voudrai…</em></td></tr>
+                <tr><td><strong>devoir</strong></td><td>→ <code>devr-</code></td><td><em>je devrai…</em></td></tr>
+              </table>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge irr">SAVOIR / VENIR / TENIR</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>savoir</strong></td><td>→ <code>saur-</code></td><td><em>je saurai…</em></td></tr>
+                <tr><td><strong>venir</strong></td><td>→ <code>viendr-</code></td><td><em>je viendrai…</em></td></tr>
+                <tr><td><strong>tenir</strong></td><td>→ <code>tiendr-</code></td><td><em>je tiendrai…</em></td></tr>
+              </table>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge irr">VOIR / ENVOYER / COURIR</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>voir</strong></td><td>→ <code>verr-</code></td><td><em>je verrai…</em></td></tr>
+                <tr><td><strong>envoyer</strong></td><td>→ <code>enverr-</code></td><td><em>j'enverrai…</em></td></tr>
+                <tr><td><strong>courir</strong></td><td>→ <code>courr-</code></td><td><em>je courrai…</em></td></tr>
+              </table>
+            </p>
+          </div>
+        </div>
+
+        <div class="gw-note">
+          💡 <strong>Conseil</strong> : Ces radicaux sont souvent les mêmes qu'au conditionnel présent. Mémorisez-les car ce sont des verbes essentiels !
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Emplois du futur simple</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge emp">🔹 Action future (éloignée)</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Événement à venir, plus ou moins lointain.<br><br>
+              💬 <em>"Demain, je <strong>passerai</strong> te voir."</em><br>
+              💬 <em>"Dans cent ans, la planète <strong>sera</strong> peut-être méconnaissable."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge emp">🔹 Promesse / Engagement</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Décision immédiate, promesse, engagement.<br><br>
+              💬 <em>"Je te promets que je <strong>ne recommencerai</strong> pas."</em><br>
+              💬 <em>"D'accord, je <strong>viendrai</strong> chez toi à 20 heures."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge emp">🔹 Prévisions</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Météo, résultats, anticipations.<br><br>
+              💬 <em>"Demain, il <strong>pleuvra</strong> sur la moitié nord."</em><br>
+              💬 <em>"Selon les sondages, ce candidat <strong>gagnera</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge emp">🔹 Ordre poli / Conseil</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Autorité enveloppée, plus doux que l'impératif.<br><br>
+              💬 <em>"Vous <strong>prendrez</strong> ce médicament trois fois par jour."</em><br>
+              💬 <em>"Tu <strong>iras</strong> ranger ta chambre avant de sortir."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge emp">🔹 Politesse / Atténuation</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Formules de courtoisie, demande adoucie.<br><br>
+              💬 <em>"Je vous <strong>demanderai</strong> un peu de patience."</em><br>
+              💬 <em>"Tu <strong>voudras</strong> bien fermer la porte ?"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge emp">🔹 Hypothèse sur le présent</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Supposition probable sur ce qui se passe maintenant.<br><br>
+              💬 <em>"On frappe : ce <strong>sera</strong> le facteur." (= probablement)<br>
+              "Il est en retard : il <strong>aura</strong> des embouteillages."</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ « Si » + futur : règle essentielle</h2>
+        <p>Avec <strong>si</strong> de condition, on n'emploie <strong>jamais</strong> le futur simple dans la subordonnée.</p>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--rule">
+            <div class="gw-card-title">✅ Structure correcte :</div>
+            <p style="margin:0; color:var(--gw-text)">
+              <code>Si + présent → futur simple</code><br><br>
+              💬 <em>"Si tu <strong>viens</strong>, je <strong>serai</strong> content."</em><br>
+              💬 <em>"S'il <strong>fait</strong> beau, nous <strong>irons</strong> à la plage."</em><br>
+              💬 <em>"Je t'<strong>appellerai</strong> si j'<strong>ai</strong> du nouveau."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">❌ Erreur fréquente :</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Ne jamais mettre le futur après <em>si</em> :<br><br>
+              ❌ <em>"Si j'aurai le temps…"</em><br>
+              ✅ <em>"Si j'<strong>ai</strong> le temps, je le ferai."</em><br><br>
+              💡 Astuce : <em>si</em> = présent ; la principale = futur
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚖️ Futur simple vs Futur proche</h2>
+        <p>Le <strong>futur proche</strong> (aller + infinitif) exprime un avenir plus immédiat ou une intention certaine.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Futur proche</th><th>Futur simple</th></tr></thead>
+            <tbody>
+              <tr><td><em>Je <strong>vais acheter</strong> du pain.</em><br><small>(dans quelques minutes, intention immédiate)</small></td><td><em>J'<strong>achèterai</strong> du pain demain.</em><br><small>(plus tard, projet)</small></td></tr>
+              <tr><td><em>Attention, tu <strong>vas tomber</strong> !</em><br><small>(imminence, certitude)</small></td><td><em>Un jour, tu <strong>tomberas</strong>.</em><br><small>(éloigné, hypothétique)</small></td></tr>
+              <tr><td><strong>Oral courant</strong>, spontané</td><td><strong>Écrit / oral formel</strong>, plus littéraire</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          💡 Les deux futurs sont souvent interchangeables à l'oral, mais le futur proche est plus fréquent dans la langue parlée spontanée.
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔤 Particularités orthographiques</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title"><code>-oyer / -uyer / -ayer</code></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le <strong>y</strong> devient <strong>i</strong> devant les terminaisons en voyelle :<br><br>
+              <em>employer → j'emploierai, tu emploieras…</em><br>
+              <em>essuyer → j'essuierai…</em><br>
+              <em>payer → je paierai / je payerai</em> (les deux acceptés)
+            </p>
+          </div>
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title"><code>-eler / -eter</code></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Même règle qu'au présent (double consonne ou accent grave) :<br><br>
+              <em>appeler → j'appellerai</em> (double l)<br>
+              <em>acheter → j'achèterai</em> (accent grave)<br>
+              <em>jeter → je jetterai</em> (double t)
+            </p>
+          </div>
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title"><code>-éer</code> (créer, suppléer…)</div>
+            <p style="margin:0; color:var(--gw-text)">
+              On conserve le <strong>é</strong> et on ajoute les terminaisons :<br><br>
+              <em>créer → je créerai, nous créerons</em><br>
+              (deux <em>e</em> successifs : c'est correct !)
+            </p>
+          </div>
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title">Verbes impersonnels</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Se conjuguent à la 3e personne du singulier :<br><br>
+              <em>Il <strong>faudra</strong> prévenir les parents.</em><br>
+              <em>Il <strong>pleuvra</strong> en fin de journée.</em><br>
+              <em>Il <strong>neigera</strong> demain matin.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🚫 Points de vigilance</h2>
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Futur ≠ Conditionnel</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Ne confondez pas les terminaisons :<br><br>
+              <strong>Futur</strong> : <code>-ai, -as, -a, -ons, -ez, -ont</code><br>
+              <strong>Conditionnel</strong> : <code>-ais, -ais, -ait, -ions, -iez, -aient</code><br><br>
+              💬 <em>"Je parler<strong>ai</strong> demain." (futur)<br>
+              "Je parler<strong>ais</strong> si je pouvais." (conditionnel)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Terminaisons toujours identiques</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Même pour les verbes irréguliers, les terminaisons restent :<br>
+              <code>-ai, -as, -a, -ons, -ez, -ont</code><br><br>
+              💬 <em>"Je ser<strong>ai</strong>, tu ser<strong>as</strong>, il ser<strong>a</strong>…"</em><br>
+              💬 <em>"J'aur<strong>ai</strong>, nous aur<strong>ons</strong>, ils aur<strong>ont</strong>…"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Verbes en -re : pas de -e</div>
+            <p style="margin:0; color:var(--gw-text)">
+              On retire le <strong>e</strong> final avant d'ajouter les terminaisons :<br><br>
+              ✅ <em>vendre → je vendr<strong>ai</strong></em><br>
+              ❌ <em>~~je vendrerai~~</em><br><br>
+              💡 Même règle pour : <em>attendre, répondre, perdre, entendre…</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 « Si » + présent, jamais futur</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Règle absolue : après <em>si</em> de condition, toujours le présent :<br><br>
+              ✅ <em>"Si j'<strong>ai</strong> le temps, je viendrai."</em><br>
+              ❌ <em>"Si j'aurai le temps…"</em> (incorrect)<br><br>
+              💡 Mnémotechnique : <em>Les « si » n'aiment pas les « rai » !</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💬 Exemples en contexte</h2>
+        <div class="gw-example">
+          🔹 <em>"Quand est-ce que tu <strong>iras</strong> chez le médecin ?"</em><br>
+          🔹 <em>"Je te promets que je <strong>ne dirai</strong> rien."</em><br>
+          🔹 <em>"Nous <strong>participerons</strong> à la réunion, mais nous <strong>ne resterons</strong> pas jusqu'à la fin."</em><br>
+          🔹 <em>"Elle <strong>aura</strong> bientôt fini ses études."</em><br>
+          🔹 <em>"Si vous avez besoin d'aide, nous <strong>serons</strong> là."</em><br>
+          🔹 <em>"Un jour, on <strong>trouvera</strong> une solution."</em>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Résumé rapide</h3>
+        <ul>
+          <li><strong>Formation</strong> : infinitif (ou radical irrégulier) + <code>-ai, -as, -a, -ons, -ez, -ont</code></li>
+          <li><span class="gw-badge g1">1er groupe</span> : infinitif complet + terminaisons → <em>je parlerai</em></li>
+          <li><span class="gw-badge g2">2e groupe</span> : infinitif complet + terminaisons → <em>je finirai</em></li>
+          <li><span class="gw-badge g3">3e groupe (-re)</span> : infinitif sans -e + terminaisons → <em>je vendrai</em></li>
+          <li><span class="gw-badge irr">Irréguliers</span> : radical spécial + mêmes terminaisons → <em>je serai, j'aurai, j'irai…</em></li>
+          <li><strong>« Si » + présent</strong> → futur dans la principale (jamais futur après <em>si</em>)</li>
+          <li><strong>💡 Astuce</strong> → Pour reconnaître un futur : cherchez les terminaisons en <code>-ai/-as/-a/-ons/-ez/-ont</code>. Pour les irréguliers : mémorisez les radicaux les plus fréquents !</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Besoin d'exercices de conjugaison ou d'une comparaison détaillée avec le conditionnel présent ? N'hésitez pas à demander ! 🚀</p>
+      </div>
+    </div>
+  `
+},
+{
+  id: 15,
+  t: "Le conditionnel présent et passé",
+  d: "Formation • Hypothèse • Politesse • Information incertaine — maîtriser le mode de l'hypothèse",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.pres { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.passe { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.hyp { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge.pol { background: var(--gw-bg3); color: var(--gw-text); border-color: var(--gw-border); }
+      .gw-badge.info { background: var(--gw-warn-bg); color: var(--gw-warn-text); border-color: var(--gw-warn); }
+      .gw-badge.term { background: var(--gw-bg3); color: var(--gw-text2); border-color: var(--gw-border); font-style: italic; }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+      .gw-summary {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      }
+      .gw-summary h3 { margin: 0 0 16px; color: var(--gw-accent); font-size: 1.3rem; font-weight: 700; }
+      .gw-summary ul { margin: 0 0 16px 28px; padding: 0; }
+      .gw-summary li { margin-bottom: 10px; line-height: 1.6; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🎭 Le Conditionnel</h1>
+        <p>Présent • Passé • Hypothèse • Politesse — le mode de l'incertitude et de la nuance</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Le conditionnel est un <strong>mode</strong> (et non un temps) qui présente une action comme <strong>hypothétique, soumise à une condition, incertaine ou atténuée</strong>. Il comporte deux formes principales : le <span class="gw-badge pres">conditionnel présent</span> (forme simple) et le <span class="gw-badge passe">conditionnel passé</span> (forme composée).</p>
+        <div class="gw-example">
+          💬 <em>"Si j'<strong>avais</strong> le temps, je <strong>partirais</strong> en voyage." (hypothèse)<br>
+          "Je <strong>voudrais</strong> un café, s'il vous plaît." (politesse)<br>
+          "Le président <strong>serait</strong> malade." (information non confirmée)</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔧 Formation du conditionnel présent</h2>
+        <p>Le conditionnel présent se forme sur le <strong>radical du futur simple</strong> + les <strong>terminaisons de l'imparfait</strong> : <span class="gw-badge term">-ais, -ais, -ait, -ions, -iez, -aient</span>.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Personne</th><th>Terminaison</th><th>Parler</th><th>Finir</th><th>Vendre</th></tr></thead>
+            <tbody>
+              <tr><td>je</td><td><span class="gw-badge term">-ais</span></td><td>je parler<strong>ais</strong></td><td>je finir<strong>ais</strong></td><td>je vendr<strong>ais</strong></td></tr>
+              <tr><td>tu</td><td><span class="gw-badge term">-ais</span></td><td>tu parler<strong>ais</strong></td><td>tu finir<strong>ais</strong></td><td>tu vendr<strong>ais</strong></td></tr>
+              <tr><td>il/elle/on</td><td><span class="gw-badge term">-ait</span></td><td>il parler<strong>ait</strong></td><td>il finir<strong>ait</strong></td><td>il vendr<strong>ait</strong></td></tr>
+              <tr><td>nous</td><td><span class="gw-badge term">-ions</span></td><td>nous parler<strong>ions</strong></td><td>nous finir<strong>ions</strong></td><td>nous vendr<strong>ions</strong></td></tr>
+              <tr><td>vous</td><td><span class="gw-badge term">-iez</span></td><td>vous parler<strong>iez</strong></td><td>vous finir<strong>iez</strong></td><td>vous vendr<strong>iez</strong></td></tr>
+              <tr><td>ils/elles</td><td><span class="gw-badge term">-aient</span></td><td>ils parler<strong>aient</strong></td><td>ils finir<strong>aient</strong></td><td>ils vendr<strong>aient</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          💡 <strong>Règle d'or</strong> : Le radical du conditionnel est <strong>identique à celui du futur simple</strong>. Les irréguliers du futur sont donc irréguliers au conditionnel !
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Radicaux irréguliers essentiels</h2>
+        <p>Mêmes radicaux qu'au futur simple. Les terminaisons restent <strong>toujours celles de l'imparfait</strong>.</p>
+       
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge pres">ÊTRE / AVOIR / ALLER / FAIRE</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>être</strong> → <code>ser-</code></td><td><em>je serais, tu serais…</em></td></tr>
+                <tr><td><strong>avoir</strong> → <code>aur-</code></td><td><em>j'aurais, tu aurais…</em></td></tr>
+                <tr><td><strong>aller</strong> → <code>ir-</code></td><td><em>j'irais, tu irais…</em></td></tr>
+                <tr><td><strong>faire</strong> → <code>fer-</code></td><td><em>je ferais, tu ferais…</em></td></tr>
+              </table>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge pres">POUVOIR / VOULOIR / DEVOIR</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>pouvoir</strong> → <code>pourr-</code></td><td><em>je pourrais…</em></td></tr>
+                <tr><td><strong>vouloir</strong> → <code>voudr-</code></td><td><em>je voudrais…</em></td></tr>
+                <tr><td><strong>devoir</strong> → <code>devr-</code></td><td><em>je devrais…</em></td></tr>
+              </table>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge pres">SAVOIR / VENIR / TENIR</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>savoir</strong> → <code>saur-</code></td><td><em>je saurais…</em></td></tr>
+                <tr><td><strong>venir</strong> → <code>viendr-</code></td><td><em>je viendrais…</em></td></tr>
+                <tr><td><strong>tenir</strong> → <code>tiendr-</code></td><td><em>je tiendrais…</em></td></tr>
+              </table>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge pres">VOIR / ENVOYER / COURIR</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>voir</strong> → <code>verr-</code></td><td><em>je verrais…</em></td></tr>
+                <tr><td><strong>envoyer</strong> → <code>enverr-</code></td><td><em>j'enverrais…</em></td></tr>
+                <tr><td><strong>courir</strong> → <code>courr-</code></td><td><em>je courrais…</em></td></tr>
+              </table>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔙 Formation du conditionnel passé</h2>
+        <p>Forme composée : <strong>auxiliaire (être/avoir) au conditionnel présent</strong> + <strong>participe passé</strong>. Mêmes règles d'accord qu'au passé composé.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Auxiliaire (cond. présent)</th><th>Participe passé</th><th>Exemples</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge pres">j'aurais / tu aurais…</span></td><td><strong>parlé / fini / pris</strong></td><td><em>J'<strong>aurais aimé</strong> être présent.</em></td></tr>
+              <tr><td><span class="gw-badge pres">je serais / tu serais…</span></td><td><strong>allé(e) / venu(e) / parti(e)</strong></td><td><em>Elle <strong>serait venue</strong> si elle avait pu.</em></td></tr>
+              <tr><td><span class="gw-badge pres">je me serais…</span></td><td><strong>lavé(e) / souvenu(e)…</strong></td><td><em>Nous <strong>nous serions rencontrés</strong> plus tôt.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          💡 <strong>Accord</strong> : avec <em>être</em> → sujet | avec <em>avoir</em> → COD antéposé | pronominaux → règle COD/COI
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Emplois du conditionnel présent</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge hyp">🔹 Hypothèse (avec « si »)</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <code>Si + imparfait → conditionnel présent</code><br><br>
+              💬 <em>"Si j'<strong>avais</strong> le temps, je <strong>partirais</strong> en voyage."</em><br>
+              💬 <em>"S'il <strong>faisait</strong> beau, nous <strong>irions</strong> à la plage."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge pol">🔹 Politesse / Atténuation</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Demande ou affirmation adoucie.<br><br>
+              💬 <em>"Je <strong>voudrais</strong> un café, s'il vous plaît."</em><br>
+              💬 <em>"<strong>Pourriez</strong>-vous fermer la porte ?"</em><br>
+              💬 <em>"Tu <strong>devrais</strong> lui parler." (conseil)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge info">🔹 Information non confirmée</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Précaution journalistique, rumeur.<br><br>
+              💬 <em>"Le président <strong>serait</strong> malade." (= on dit que…)<br>
+              "Il y <strong>aurait</strong> eu plusieurs victimes." (cond. passé)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge hyp">🔹 Imaginaire / Souhait</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Rêve, désir, situation hypothétique.<br><br>
+              💬 <em>"Une maison au bord de la mer, ce <strong>serait</strong> parfait !"</em><br>
+              💬 <em>"J'<strong>aimerais</strong> tant voir ce film."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge hyp">🔹 Futur dans le passé</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Dans un récit au passé, le futur devient conditionnel.<br><br>
+              💬 Direct : <em>"Je viendrai demain."</em><br>
+              Indirect : <em>"Il a dit qu'il <strong>viendrait</strong> demain."</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔙 Emplois du conditionnel passé</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge hyp">🔹 Hypothèse irréelle du passé</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <code>Si + plus-que-parfait → conditionnel passé</code><br><br>
+              💬 <em>"Si j'<strong>avais su</strong>, je <strong>serais venu</strong>." (je n'ai pas su)<br>
+              "Elle <strong>aurait réussi</strong> si elle <strong>avait travaillé</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge pol">🔹 Regret / Reproche</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Action passée non réalisée, avec nuance de regret.<br><br>
+              💬 <em>"J'<strong>aurais dû</strong> l'écouter."</em><br>
+              💬 <em>"Tu <strong>aurais pu</strong> me prévenir !"</em><br>
+              💬 <em>"Nous <strong>aurions aimé</strong> être présents."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge info">🔹 Information passée non confirmée</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Rumeur ou fait non vérifié concernant le passé.<br><br>
+              💬 <em>"L'accident <strong>aurait fait</strong> trois blessés."</em><br>
+              💬 <em>"Selon certaines sources, le ministre <strong>aurait démissionné</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge hyp">🔹 Supposition sur le passé</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Probabilité concernant un événement passé.<br><br>
+              💬 <em>"Il <strong>aurait oublié</strong> votre rendez-vous."</em><br>
+              💬 <em>"Qui <strong>aurait imaginé</strong> une telle chose ?"</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ « Si » + conditionnel : règles essentielles</h2>
+        <p>Après <strong>si</strong> de condition, <strong>jamais de conditionnel</strong> dans la subordonnée.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Structure</th><th>Exemple</th><th>Signification</th></tr></thead>
+            <tbody>
+              <tr><td><code>Si + présent → futur</code></td><td><em>"Si tu veux, tu pourras venir."</em></td><td>Condition réalisable</td></tr>
+              <tr><td><code>Si + imparfait → cond. présent</code></td><td><em>"Si tu voulais, tu pourrais venir."</em></td><td>Hypothèse irréelle présent/futur</td></tr>
+              <tr><td><code>Si + PQP → cond. passé</code></td><td><em>"Si tu avais voulu, tu aurais pu venir."</em></td><td>Hypothèse irréelle passée</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--warn">
+          <div class="gw-card-title">❌ Erreurs fréquentes :</div>
+          <p style="margin:0; color:var(--gw-text)">
+            ❌ <em>"Si j'aurais le temps…"</em> → ✅ <em>"Si j'<strong>ai</strong> le temps, je le ferai."</em><br>
+            ❌ <em>"Si j'aurais su…"</em> → ✅ <em>"Si j'<strong>avais</strong> su, je serais venu."</em><br><br>
+            💡 Mnémotechnique : <em>Les « si » n'aiment pas les « rais » !</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🚫 Confusions fréquentes</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Conditionnel vs Futur simple</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Même prononciation à la 1re personne, orthographe différente :<br><br>
+              <strong>Futur</strong> : <code>-ai, -as, -a, -ons, -ez, -ont</code><br>
+              <strong>Conditionnel</strong> : <code>-ais, -ais, -ait, -ions, -iez, -aient</code><br><br>
+              💬 <em>"Je parler<strong>ai</strong> demain." (futur = certain)<br>
+              "Je parler<strong>ais</strong> si je pouvais." (conditionnel = hypothèse)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Accord au conditionnel passé</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Mêmes règles qu'au passé composé :<br><br>
+              • Avec <em>avoir</em> : accord si COD avant → <em>"Les lettres qu'elle <strong>aurait écrites</strong>."</em><br>
+              • Avec <em>être</em> : accord avec sujet → <em>"Elle <strong>se serait trompée</strong>."</em><br>
+              • Pronominaux COI : invariable → <em>"Ils <strong>se seraient téléphoné</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 « Si » interrogatif ≠ conditionnel</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Quand <em>si</em> signifie « whether » (interrogation indirecte), le conditionnel est possible :<br><br>
+              ✅ <em>"Je ne sais pas <strong>s'il viendrait</strong>."</em> (si = whether)<br>
+              ❌ <em>"Si il viendrait…" (si = if → incorrect)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Conditionnel passé 2e forme (littéraire)</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Forme rare, identique au subjonctif plus-que-parfait :<br><br>
+              <em>"S'il <strong>eût su</strong>, il ne serait pas venu."</em><br>
+              (au lieu de : <em>"S'il avait su…"</em>)<br><br>
+              💡 Usage très soutenu/littéraire uniquement.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📊 Tableau récapitulatif des emplois</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Emploi</th><th>Conditionnel présent</th><th>Conditionnel passé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Hypothèse irréelle</strong></td><td><em>Si j'étais riche, je voyagerais.</em></td><td><em>Si j'avais été riche, j'aurais voyagé.</em></td></tr>
+              <tr><td><strong>Politesse</strong></td><td><em>Je voudrais un renseignement.</em></td><td><em>J'aurais souhaité vous parler.</em></td></tr>
+              <tr><td><strong>Conseil / Reproche</strong></td><td><em>Tu devrais te reposer.</em></td><td><em>Tu aurais dû te reposer.</em></td></tr>
+              <tr><td><strong>Info non confirmée</strong></td><td><em>Le ministre serait démissionnaire.</em></td><td><em>Le ministre aurait démissionné.</em></td></tr>
+              <tr><td><strong>Futur dans le passé</strong></td><td><em>Il a promis qu'il viendrait.</em></td><td><em>Elle a dit qu'elle aurait fini.</em></td></tr>
+              <tr><td><strong>Supposition</strong></td><td><em>Il serait peut-être en retard.</em></td><td><em>Il aurait raté son train.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💬 Exemples en contexte</h2>
+        <div class="gw-example">
+          🔹 <em>"Si je gagnais au loto, je <strong>ferais</strong> le tour du monde."</em><br>
+          🔹 <em>"Vous <strong>devriez</strong> vraiment essayer cette recette."</em><br>
+          🔹 <em>"D'après les témoins, le voleur <strong>aurait</strong> pris la fuite à pied."</em><br>
+          🔹 <em>"Il <strong>aurait été</strong> plus prudent de réserver."</em><br>
+          🔹 <em>"J'<strong>aurais tellement aimé</strong> te voir avant ton départ."</em><br>
+          🔹 <em>"On <strong>se serait</strong> bien passés de cette mauvaise surprise !"</em><br>
+          🔹 <em>"À ta place, je <strong>n'aurais pas hésité</strong> une seconde."</em><br>
+          🔹 <em>"Elle m'a confié qu'elle <strong>changerait</strong> de travail."</em><br>
+          🔹 <em>"Sans ton aide, nous <strong>ne serions jamais arrivés</strong> à l'heure."</em>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Résumé rapide</h3>
+        <ul>
+          <li><strong>Formation présent</strong> : radical du futur + <code>-ais, -ais, -ait, -ions, -iez, -aient</code></li>
+          <li><strong>Formation passé</strong> : auxiliaire au conditionnel présent + participe passé (mêmes accords qu'au PC)</li>
+          <li><span class="gw-badge hyp">Hypothèse</span> : <code>Si + imparfait → cond. présent</code> | <code>Si + PQP → cond. passé</code></li>
+          <li><span class="gw-badge pol">Politesse</span> : <em>Je voudrais… / Pourriez-vous…</em> (plus doux que l'indicatif)</li>
+          <li><span class="gw-badge info">Information incertaine</span> : <em>Il serait… / Il aurait…</em> (= on dit que, sans confirmation)</li>
+          <li><strong>💡 Astuce</strong> → Pour reconnaître un conditionnel : cherchez les terminaisons en <code>-ais/-ait/-aient</code>. Après <em>si</em> de condition, jamais de conditionnel dans la subordonnée !</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Besoin d'exercices d'application ou d'une comparaison avec le subjonctif ? N'hésitez pas à demander ! 🚀</p>
+      </div>
+    </div>
+  `
+},    {id:16,t:"Le subjonctif présent et passé",d:"Emplois : obligation, sentiment, doute, conjonctions"},
     {id:17,t:"L'impératif",d:"Ordres, conseils et propositions"},
     {id:18,t:"Les verbes pronominaux",d:"Réfléchis, réciproques, essentiellement pronominaux"},
     {id:19,t:"La voix passive",d:"Formation, emploi et alternatives"},
@@ -27947,110 +29523,336 @@ test: [
   { question: "... u naar huis! (gaan – beleefd)", options: ["Ga","Gaat","Gaat u","Gaan u"], correct: 2, explanation: "🟢 Gaat u = beleefd." }
 ]    },
     34: { // Telwoorden
-      practice: [
-        { question: "Schrijf voluit: 24", options: ["vierentwintig","vier en twintig","vier-twintig","viertwintig"], correct: 0, explanation: "❌ Fout! Samenstelling: vierentwintig.", tip: "💡 Tientallen + eenheid aan elkaar." },
-        { question: "Rangtelwoord van 'drie'?", options: ["derde","drieënde","drieste","driede"], correct: 0, explanation: "❌ Fout! Derde.", tip: "💡 Eerste, tweede, derde, vierde." },
-        { question: "Schrijf als getal: 'tweehonderdzevenendertig'", options: ["237","273","2370","732"], correct: 0, explanation: "❌ Fout! 200 + 37 = 237.", tip: "💡 Honderd + tiental + eenheid." },
-        { question: "'1/2' in woorden?", options: ["een tweede","half","een half","halve"], correct: 2, explanation: "❌ Fout! Breuk: een half.", tip: "💡 Een half, twee derde, drie kwart." },
-        { question: "Rangtelwoord van 21?", options: ["eenentwintigste","eenentwintig","een en twintigste","eenentwintigste"], correct: 0, explanation: "❌ Fout! -ste achteraan.", tip: "💡 Rangtelwoord = getal + -de/-ste." }
-      ],
-      test: [
-        { question: "Schrijf: 45", options: ["vijfenveertig","vijf en veertig","vijf-en-veertig","vijfenveertig"], correct: 0, explanation: "Vijfenveertig." },
-        { question: "Rangtelwoord van 5?", options: ["vijfde","vijf","vijfste","vijfende"], correct: 0, explanation: "Vijfde." },
-        { question: "Schrijf: 100", options: ["honderd","honderdt","hondert","honderdste"], correct: 0, explanation: "Honderd." },
-        { question: "'3/4' in woorden?", options: ["drie vierde","drievierde","drie vierden","driekwart"], correct: 3, explanation: "Driekwart." },
-        { question: "Rangtelwoord van 10?", options: ["tiende","tien","tiende","tiental"], correct: 0, explanation: "Tiende." },
-        { question: "Schrijf: 1000", options: ["duizend","duizendste","duizent","duizend"], correct: 0, explanation: "Duizend." },
-        { question: "Rangtelwoord van 1?", options: ["eerste","een","eerst","eende"], correct: 0, explanation: "Eerste." },
-        { question: "'1/3' in woorden?", options: ["een derde","eenderde","een derde","derde"], correct: 0, explanation: "Een derde." },
-        { question: "Rangtelwoord van 100?", options: ["honderdste","honderd","honderdste","honderdende"], correct: 0, explanation: "Honderdste." },
-        { question: "Schrijf: 50", options: ["vijftig","vijftig","vijftig","vijftig"], correct: 0, explanation: "Vijftig." }
-      ]
-    },
+practice: [
+  { question: "Ik heb ... broer en twee zussen.", options: ["een","één","eerste","ene"], correct: 0, explanation: "🟢 'Een' is het onbepaald lidwoord. 'Één' (met accent) is het telwoord voor nadruk.", tip: "💡 Een (lidwoord) vs. Één (telwoord)" },
+  { question: "Hij wordt vandaag ... jaar oud. (dertig)", options: ["dertig","dertigste","derdig","dertigtig"], correct: 0, explanation: "🟢 Leeftijd wordt uitgedrukt met een hoofdtelwoord.", tip: "💡 Leeftijd = hoofdtelwoord" },
+  { question: "Dit is mijn ... auto. (vorige was de eerste)", options: ["twee","tweede","tweed","tweeë"], correct: 1, explanation: "🟢 Rangtelwoord voor volgorde: tweede.", tip: "💡 Eerste, tweede, derde..." },
+  { question: "... mei is een feestdag. (1 mei)", options: ["Eerste","Een","Één","Eerst"], correct: 0, explanation: "🟢 Bij datums gebruik je rangtelwoorden.", tip: "💡 Datum = rangtelwoord" },
+  { question: "De helft van 100 is ....", options: ["vijftig","vijftigste","vijftigst","vijftigen"], correct: 0, explanation: "🟢 De helft is een getal → hoofdtelwoord.", tip: "💡 Helft = hoofdtelwoord" },
+  { question: "Ik kom op ... plaats. (nummer 4)", options: ["vier","vierde","veertien","veertigste"], correct: 1, explanation: "🟢 Plaats in een rij/wedstrijd: rangtelwoord.", tip: "💡 Plaats = rangtelwoord" },
+  { question: "We hebben met ... man gewerkt. (twee)", options: ["twee","tweede","tweemaal","tweetjes"], correct: 0, explanation: "🟢 Aantal personen: hoofdtelwoord.", tip: "💡 Aantal = hoofdtelwoord" },
+  { question: "Dat is de ... keer dat ik dit zeg. (3)", options: ["drie","dertien","derde","driede"], correct: 2, explanation: "🟢 'Keer' met rangtelwoord: derde keer.", tip: "💡 De ... keer = rangtelwoord" },
+  { question: "... deelnemers hebben zich aangemeld. (50)", options: ["Vijftig","Vijftigste","Vijftigen","Vijftigtal"], correct: 0, explanation: "🟢 Exact aantal: hoofdtelwoord.", tip: "💡 Aantal = hoofdtelwoord" },
+  { question: "Hij is ... jaar oud. (20)", options: ["twintig","twintigste","twintigst","twintigtal"], correct: 0, explanation: "🟢 Leeftijd: hoofdtelwoord.", tip: "💡 Leeftijd = hoofdtelwoord" },
+  { question: "Karel de Grote was de ... koning van het Frankische Rijk. (1)", options: ["een","eerste","eenste","eerst"], correct: 1, explanation: "🟢 Volgorde in reeks: rangtelwoord.", tip: "💡 De eerste = rangtelwoord" },
+  { question: "Hij heeft ... boeken gelezen. (10)", options: ["tien","tiende","tiental","tienvoud"], correct: 0, explanation: "🟢 Aantal boeken: hoofdtelwoord.", tip: "💡 Aantal = hoofdtelwoord" },
+  { question: "... april is het begin van het nieuwe boekjaar. (1 april)", options: ["Eerste","Een","Één","Eerste"], correct: 0, explanation: "🟢 Datum: rangtelwoord.", tip: "💡 Datum = rangtelwoord" },
+  { question: "Hij woont op de ... verdieping. (3)", options: ["drie","derde","dertiende","driede"], correct: 1, explanation: "🟢 Verdiepingen: rangtelwoord.", tip: "💡 Verdieping = rangtelwoord" },
+  { question: "Een derde van de taart is ....", options: ["derde","driede","dertien","derd"], correct: 0, explanation: "🟢 Breuk: 'een derde' = 1/3.", tip: "💡 Een derde = breuk" },
+  { question: "Hij heeft ... auto's. (2)", options: ["twee","tweede","tweetal","twees"], correct: 0, explanation: "🟢 Aantal: hoofdtelwoord.", tip: "💡 Aantal = hoofdtelwoord" },
+  { question: "Ik heb dat ... keer al gezegd. (10)", options: ["tien","tiende","tienmaal","tiental"], correct: 0, explanation: "🟢 Bij 'keer' gebruik je hoofdtelwoord.", tip: "💡 Tien keer = hoofdtelwoord" },
+  { question: "Hij eindigde als .... (nummer 8)", options: ["acht","achtste","achttiende","achtst"], correct: 1, explanation: "🟢 Rang in wedstrijd: rangtelwoord.", tip: "💡 Als ... = rangtelwoord" },
+  { question: "... van de kandidaten is gezakt. (10)", options: ["Tien","Tiende","Tiental","Tienduizend"], correct: 0, explanation: "🟢 Aantal personen: hoofdtelwoord.", tip: "💡 Aantal = hoofdtelwoord" },
+  { question: "In het jaar ... brak de oorlog uit. (1940)", options: ["negentien veertig","negentienhonderdveertig","een duizend negenhonderd veertig","duizend negenhonderd veertig"], correct: 0, explanation: "🟢 Jaartallen: twee getallen van twee cijfers.", tip: "💡 1940 = negentien veertig" },
+  { question: "Het was ... uur. (2)", options: ["Twee","Tweede","Tweetal","Tweemaal"], correct: 0, explanation: "🟢 Tijdstip: hoofdtelwoord.", tip: "💡 Tijd = hoofdtelwoord" },
+  { question: "Zijn zoon is in de ... klas van de basisschool. (groep 5)", options: ["vijf","vijfde","vijftigste","vijftien"], correct: 1, explanation: "🟢 Klas/groep: rangtelwoord.", tip: "💡 Klas = rangtelwoord" },
+  { question: "Hij kocht ... eieren. (12)", options: ["twaalf","twaalfde","twaalftal","twaalfvoud"], correct: 0, explanation: "🟢 Aantal: hoofdtelwoord.", tip: "💡 Aantal = hoofdtelwoord" },
+  { question: "Ze is de ... van de vier dochters. (oudste)", options: ["eerste","een","ene","eenste"], correct: 0, explanation: "🟢 Volgorde: rangtelwoord.", tip: "💡 De eerste = rangtelwoord" },
+  { question: "Het kost ... euro. (1000)", options: ["duizend","duizendste","duizendtal","duizen"], correct: 0, explanation: "🟢 Bedrag: hoofdtelwoord.", tip: "💡 Bedrag = hoofdtelwoord" },
+  { question: "Hij is ... eerder gewaarschuwd. (twee keer)", options: ["twee keer","tweede keer","tweemaal","tweedemaal"], correct: 0, explanation: "🟢 'Twee keer' is de gewone vorm.", tip: "💡 Twee keer = frequentie" },
+  { question: "Hij reed ... kilometer per uur. (130)", options: ["honderddertig","honderddertigste","eenhonderddertig","dertighonderd"], correct: 0, explanation: "🟢 Samenstelling zonder 'en': honderddertig.", tip: "💡 130 = honderddertig" },
+  { question: "De vergadering duurt ... minuten. (45)", options: ["vijfenveertig","vijfenveertigste","vijftig min","vijfenveertien"], correct: 0, explanation: "🟢 Getallen 21-99: eenheid + en + tiental.", tip: "💡 45 = vijfenveertig" },
+  { question: "Dit is de ... keer dat ik je waarschuw. (5)", options: ["vijfde","vijf","vijftien","vijftiende"], correct: 0, explanation: "🟢 'De ... keer' = rangtelwoord.", tip: "💡 De vijfde keer" },
+  { question: "De boer heeft ... koeien. (25)", options: ["vijfentwintig","vijfentwintigste","twintigvijf","vijfentwintigen"], correct: 0, explanation: "🟢 25 = vijfentwintig (eenheid + en + tiental).", tip: "💡 25 = vijfentwintig" },
+  { question: "Ze woont op nummer .... (12)", options: ["twaalf","twaalfde","twaalfste","twaalfden"], correct: 0, explanation: "🟢 Huisnummers: hoofdtelwoord.", tip: "💡 Huisnummer = hoofdtelwoord" },
+  { question: "Hij heeft ... kinderen. (0)", options: ["nul","geen","niets","nulde"], correct: 0, explanation: "🟢 'Nul' is een hoofdtelwoord.", tip: "💡 Nul = hoofdtelwoord" },
+  { question: "Een ... van de bevolking is ouder dan 65. (1/4)", options: ["vierde","kwart","vier","viertal"], correct: 1, explanation: "🟢 'Een kwart' = 1/4 (breuk).", tip: "💡 Een kwart = breuk" },
+  { question: "Hij fietst ... zo hard als ik. (dubbel)", options: ["dubbel","twee keer","tweemaal","tweedubbel"], correct: 0, explanation: "🟢 'Dubbel' = vermenigvuldiging.", tip: "💡 Dubbel = 2x" },
+  { question: "Ik woon al ... jaar in Amsterdam. (7)", options: ["zeven","zevende","zeventig","zeventiende"], correct: 0, explanation: "🟢 Aantal jaren: hoofdtelwoord.", tip: "💡 Aantal = hoofdtelwoord" },
+  { question: "Hij heeft ... zoveel geld als jij. (3)", options: ["drie","drie keer","derde","driemaal"], correct: 1, explanation: "🟢 'Drie keer zoveel' = vermenigvuldiging.", tip: "💡 Drie keer = 3x" },
+  { question: "Het feest is op de ... van de maand. (31)", options: ["eenendertigste","eenendertig","dertigste","eenendertigtig"], correct: 0, explanation: "🟢 Datum: rangtelwoord.", tip: "💡 Datum = rangtelwoord" },
+  { question: "Hij heeft ... pogingen gedaan. (100)", options: ["honderd","honderdste","honderdtal","honderdvoud"], correct: 0, explanation: "🟢 Aantal: hoofdtelwoord.", tip: "💡 Aantal = hoofdtelwoord" },
+  { question: "De les begint om ... over negen. (kwartier)", options: ["kwart","vierde","vijftien","kwartier"], correct: 0, explanation: "🟢 'Kwart over' = 1/4 uur.", tip: "💡 Kwart = 1/4 uur" },
+  { question: "We hebben ..., twaalf, dertien... (11)", options: ["elf","elfde","elftal","elven"], correct: 0, explanation: "🟢 11 = elf (hoofdtelwoord).", tip: "💡 11 = elf" }
+],
+
+test: [
+  { question: "Ik heb ... broer en twee zussen.", options: ["een","één","eerste","ene"], correct: 0, explanation: "🟢 Een = lidwoord." },
+  { question: "Hij wordt vandaag ... jaar oud.", options: ["dertig","dertigste","derdig","dertigtig"], correct: 0, explanation: "🟢 Leeftijd = hoofdtelwoord." },
+  { question: "Dit is mijn ... auto.", options: ["twee","tweede","tweed","tweeë"], correct: 1, explanation: "🟢 Tweede = rangtelwoord." },
+  { question: "... mei is een feestdag.", options: ["Eerste","Een","Één","Eerst"], correct: 0, explanation: "🟢 Datum = rangtelwoord." },
+  { question: "Ik kom op ... plaats. (4)", options: ["vier","vierde","veertien","veertigste"], correct: 1, explanation: "🟢 Plaats = rangtelwoord." },
+  { question: "Dat is de ... keer dat ik dit zeg.", options: ["drie","dertien","derde","driede"], correct: 2, explanation: "🟢 De derde keer = rangtelwoord." },
+  { question: "In het jaar ... brak de oorlog uit.", options: ["negentien veertig","negentienhonderdveertig","een duizend negenhonderd veertig","duizend negenhonderd veertig"], correct: 0, explanation: "🟢 Jaartal = twee getallen." },
+  { question: "Hij woont op de ... verdieping.", options: ["drie","derde","dertiende","driede"], correct: 1, explanation: "🟢 Verdieping = rangtelwoord." },
+  { question: "De vergadering duurt ... minuten. (45)", options: ["vijfenveertig","vijfenveertigste","vijftig min","vijfenveertien"], correct: 0, explanation: "🟢 45 = vijfenveertig." },
+  { question: "Ze woont op nummer ....", options: ["twaalf","twaalfde","twaalfste","twaalfden"], correct: 0, explanation: "🟢 Huisnummer = hoofdtelwoord." },
+  { question: "Een ... van de bevolking is ouder dan 65.", options: ["vierde","kwart","vier","viertal"], correct: 1, explanation: "🟢 Een kwart = breuk." },
+  { question: "Hij fietst ... zo hard als ik.", options: ["dubbel","twee keer","tweemaal","tweedubbel"], correct: 0, explanation: "🟢 Dubbel = vermenigvuldiging." },
+  { question: "Het feest is op de ... van de maand.", options: ["eenendertigste","eenendertig","dertigste","eenendertigtig"], correct: 0, explanation: "🟢 Datum = rangtelwoord." },
+  { question: "De les begint om ... over negen.", options: ["kwart","vierde","vijftien","kwartier"], correct: 0, explanation: "🟢 Kwart = 1/4 uur." },
+  { question: "We hebben ..., twaalf, dertien...", options: ["elf","elfde","elftal","elven"], correct: 0, explanation: "🟢 11 = elf." },
+  { question: "Hij heeft ... kinderen. (0)", options: ["nul","geen","niets","nulde"], correct: 0, explanation: "🟢 Nul = hoofdtelwoord." },
+  { question: "Hij reed ... kilometer per uur.", options: ["honderddertig","honderddertigste","eenhonderddertig","dertighonderd"], correct: 0, explanation: "🟢 130 = honderddertig." },
+  { question: "De boer heeft ... koeien.", options: ["vijfentwintig","vijfentwintigste","twintigvijf","vijfentwintigen"], correct: 0, explanation: "🟢 25 = vijfentwintig." },
+  { question: "Hij eindigde als ....", options: ["acht","achtste","achttiende","achtst"], correct: 1, explanation: "🟢 Achtste = rangtelwoord." },
+  { question: "Het kost ... euro.", options: ["duizend","duizendste","duizendtal","duizen"], correct: 0, explanation: "🟢 Duizend = hoofdtelwoord." }
+]    },
     35: { // Datum en tijd
-      practice: [
-        { question: "Hoe schrijf je: 5 mei 2024?", options: ["5 mei 2024","5 Mei 2024","5 mei, 2024","5-mei-2024"], correct: 0, explanation: "❌ Fout! Dag – maand (kleine letter) – jaar.", tip: "💡 Maanden met kleine letter." },
-        { question: "'Het is kwart over drie.' Hoe laat?", options: ["3:15","3:45","2:45","3:30"], correct: 0, explanation: "❌ Fout! Kwart over = 15 minuten na heel uur.", tip: "💡 Kwart over = :15." },
-        { question: "'Tien voor half negen' = ?", options: ["8:20","8:40","9:20","8:30"], correct: 0, explanation: "❌ Fout! Half negen = 8:30, tien voor = 8:20.", tip: "💡 Half = 30 minuten, voor = eerder." },
-        { question: "Schrijf de dag: 'woensdag'", options: ["woensdag","Woensdag","woensdags","Woensdags"], correct: 0, explanation: "❌ Fout! Dagen met kleine letter.", tip: "💡 Dagen/maanden = klein." },
-        { question: "'Het is kwart voor twaalf.' Hoe laat?", options: ["11:45","12:15","11:15","12:45"], correct: 0, explanation: "❌ Fout! Kwart voor = 15 minuten voor heel uur.", tip: "💡 Kwart voor = :45." }
-      ],
-      test: [
-        { question: "Schrijf: 1 januari 2025", options: ["1 januari 2025","1 Januari 2025","1 januari, 2025","1-januari-2025"], correct: 0, explanation: "Dag – maand – jaar." },
-        { question: "'Kwart over zes' = ?", options: ["6:15","6:45","5:45","6:30"], correct: 0, explanation: "Kwart over = :15." },
-        { question: "'Half vier' = ?", options: ["3:30","4:30","3:15","4:15"], correct: 0, explanation: "Half vier = 3:30." },
-        { question: "Schrijf: 'maandag'", options: ["maandag","Maandag","maandags","Maandags"], correct: 0, explanation: "Dag = klein." },
-        { question: "'Tien over half acht' = ?", options: ["7:40","7:20","8:20","8:40"], correct: 0, explanation: "Half acht = 7:30, tien over = 7:40." },
-        { question: "'Kwart voor negen' = ?", options: ["8:45","9:15","8:15","9:45"], correct: 0, explanation: "Kwart voor = :45." },
-        { question: "Schrijf: 'zondag'", options: ["zondag","Zondag","zondags","Zondags"], correct: 0, explanation: "Dag = klein." },
-        { question: "'Vijf voor twaalf' = ?", options: ["11:55","12:05","11:05","12:55"], correct: 0, explanation: "Vijf voor = :55." },
-        { question: "'Half een' = ?", options: ["12:30","1:30","12:15","1:15"], correct: 0, explanation: "Half een = 12:30." },
-        { question: "Schrijf: 'februari'", options: ["februari","Februari","februari","Februari"], correct: 0, explanation: "Maand = klein." }
-      ]
-    },
+practice: [
+  { question: "Mijn verjaardag is ... 15 april.", options: ["op","in","om","van"], correct: 0, explanation: "🟢 Bij een exacte datum gebruik je 'op'.", tip: "💡 Op + datum" },
+  { question: "De vergadering begint ... 10 uur.", options: ["om","op","in","van"], correct: 0, explanation: "🟢 Bij een kloktijd gebruik je 'om'.", tip: "💡 Om + tijd" },
+  { question: "We gaan ... zaterdag naar de film.", options: ["op","in","om","tegen"], correct: 0, explanation: "🟢 Bij dagen gebruik je 'op'.", tip: "💡 Op + dag" },
+  { question: "Hij is geboren ... 1995.", options: ["op","in","om","sinds"], correct: 1, explanation: "🟢 Bij jaren gebruik je 'in'.", tip: "💡 In + jaar" },
+  { question: "Het is nu tien ... twaalf. (11:50)", options: ["voor","over","na","half"], correct: 0, explanation: "🟢 'Voor' wordt gebruikt als de minuten vóór het volgende uur zijn.", tip: "💡 Voor = vóór het uur" },
+  { question: "Het is kwart ... twee. (1:45)", options: ["voor","over","na","half"], correct: 0, explanation: "🟢 'Kwart voor twee' betekent 1:45.", tip: "💡 Kwart voor = :45" },
+  { question: "De winkel sluit ... 18.00 uur.", options: ["om","op","in","tot"], correct: 0, explanation: "🟢 Bij een kloktijd gebruik je 'om'.", tip: "💡 Om + tijd" },
+  { question: "Hij komt ... vrijdagavond thuis.", options: ["op","in","om","tegen"], correct: 0, explanation: "🟢 Bij dagen met 'avond' gebruik je 'op'.", tip: "💡 Op + dag + avond" },
+  { question: "Het is half .... (10:30)", options: ["tien","tien uur","elven","elf"], correct: 3, explanation: "🟢 Half elf = 10:30. De ondergrens is het komende uur.", tip: "💡 Half + komende uur" },
+  { question: "... de zomer is het warm.", options: ["Op","In","Om","Tijdens"], correct: 1, explanation: "🟢 Seizoenen: 'in' + het seizoen.", tip: "💡 In + seizoen" },
+  { question: "De trein vertrekt om 8.15 uur. Dat is kwart ... acht.", options: ["voor","over","na","half"], correct: 1, explanation: "🟢 'Kwart over acht' betekent 8:15.", tip: "💡 Kwart over = :15" },
+  { question: "Ik ben jarig ... 3 mei.", options: ["op","in","om","van"], correct: 0, explanation: "🟢 Bij een datum gebruik je 'op'.", tip: "💡 Op + datum" },
+  { question: "De winkel is geopend ... maandag tot en met vrijdag.", options: ["van","op","sinds","voor"], correct: 0, explanation: "🟢 'Van' bij begin van een periode.", tip: "💡 Van ... tot = periode" },
+  { question: "Hij werkt hier ... 2010. (nog steeds)", options: ["sinds","van","op","in"], correct: 0, explanation: "🟢 'Sinds' geeft een beginpunt in het verleden dat doorloopt tot nu.", tip: "💡 Sinds = vanaf toen tot nu" },
+  { question: "Het feest duurt ... vrijdag tot zondag.", options: ["van","op","sinds","om"], correct: 0, explanation: "🟢 'Van' bij begin van een periode.", tip: "💡 Van ... tot = periode" },
+  { question: "We gaan ... de vakantie naar Spanje.", options: ["in","op","tijdens","over"], correct: 2, explanation: "🟢 'Tijdens de vakantie' = in de periode van de vakantie.", tip: "💡 Tijdens = gedurende" },
+  { question: "De les begint om 9.30 uur, dat is half ....", options: ["negen","tien","zeven","acht"], correct: 1, explanation: "🟢 Half tien = 9:30.", tip: "💡 Half + komende uur" },
+  { question: "Hij komt ... 10 minuten aan. (binnen 10 minuten)", options: ["over","na","in","op"], correct: 2, explanation: "🟢 'In' geeft een tijdsduur waarbinnen iets gebeurt.", tip: "💡 In = binnen" },
+  { question: "Het is tien ... half elf. (10:20)", options: ["over","voor","na","op"], correct: 1, explanation: "🟢 'Voor' wordt gebruikt bij minuten vóór het genoemde half uur.", tip: "💡 Voor = vóór" },
+  { question: "De vergadering is ... 14.00 uur verplaatst naar 15.00 uur.", options: ["van","om","op","in"], correct: 0, explanation: "🟢 'Van … naar' bij verplaatsing van tijd.", tip: "💡 Van ... naar = verandering" },
+  { question: "Hij is ... 's morgens altijd moe.", options: ["op","in","om","tegen"], correct: 1, explanation: "🟢 'In de ochtend/morgen' is de juiste combinatie.", tip: "💡 In + dagdeel" },
+  { question: "Ik ga ... het weekend naar huis.", options: ["op","in","over","tijdens"], correct: 2, explanation: "🟢 'Over' bij toekomstige tijdseenheden.", tip: "💡 Over = in de toekomst" },
+  { question: "Het is twaalf ... twaalf. (12:00 – middag)", options: ["over","voor","uur","precies"], correct: 2, explanation: "🟢 'Twaalf uur' is 12:00.", tip: "💡 Twaalf uur = 12:00" },
+  { question: "De winkel is open ... 9.00 tot 18.00 uur.", options: ["van","om","op","sinds"], correct: 0, explanation: "🟢 'Van' bij begin van een periode.", tip: "💡 Van ... tot = openingstijden" },
+  { question: "... kerstmis geven we cadeautjes.", options: ["Op","In","Met","Tijdens"], correct: 2, explanation: "🟢 'Met Kerstmis' is een vaste uitdrukking.", tip: "💡 Met + feestdag" },
+  { question: "Het is nu vijf ... drie. (15:05)", options: ["over","voor","na","half"], correct: 0, explanation: "🟢 'Vijf over drie' = 15:05.", tip: "💡 Over = na het uur" },
+  { question: "Hij komt ... een week terug. (over zeven dagen)", options: ["in","over","na","op"], correct: 1, explanation: "🟢 'Over' bij toekomstige tijdseenheden.", tip: "💡 Over + tijd = toekomst" },
+  { question: "... 1 januari vieren we nieuwjaar.", options: ["Op","In","Om","Van"], correct: 0, explanation: "🟢 Bij een exacte datum gebruik je 'op'.", tip: "💡 Op + datum" },
+  { question: "Het is ... (01:00 – een uur 's nachts)", options: ["een uur","een uur in de nacht","een uur 's nachts","half een"], correct: 2, explanation: "🟢 1 uur 's nachts = 01:00.", tip: "💡 's nachts = nacht" },
+  { question: "De cursus duurt ... januari tot maart.", options: ["van","op","sinds","in"], correct: 0, explanation: "🟢 'Van' bij begin van een periode.", tip: "💡 Van ... tot = periode" },
+  { question: "Ik sta altijd ... 7.00 uur op.", options: ["op","in","om","voor"], correct: 2, explanation: "🟢 Bij een kloktijd gebruik je 'om'.", tip: "💡 Om + tijd" },
+  { question: "... de middag drink ik koffie.", options: ["Op","In","Om","Tegen"], correct: 1, explanation: "🟢 'In de middag' is de juiste combinatie.", tip: "💡 In + dagdeel" },
+  { question: "De winkel sluit ... 17.00 uur vanavond.", options: ["om","op","in","tot"], correct: 0, explanation: "🟢 Bij een kloktijd gebruik je 'om'.", tip: "💡 Om + tijd" },
+  { question: "Hij is ... 19.00 uur nog aan het werk. (tot 19.00 uur)", options: ["tot","op","om","tegen"], correct: 0, explanation: "🟢 'Tot' geeft een eindtijd aan.", tip: "💡 Tot = einde" },
+  { question: "We vertrekken ... 10 minuten. (over 10 minuten)", options: ["in","over","na","voor"], correct: 1, explanation: "🟢 'Over' bij toekomstige tijdseenheden.", tip: "💡 Over = in de toekomst" },
+  { question: "De baby is geboren ... 3 juni 2020.", options: ["op","in","om","van"], correct: 0, explanation: "🟢 Bij een exacte datum gebruik je 'op'.", tip: "💡 Op + datum" },
+  { question: "Het is ... (14:00 – twee uur)", options: ["twee uur","veertien uur","half twee","kwart over twee"], correct: 0, explanation: "🟢 In informele context is 'twee uur' genoeg voor 14:00.", tip: "💡 Twee uur = 14:00" },
+  { question: "Ik heb afgesproken ... 12.30 uur.", options: ["op","om","in","tegen"], correct: 1, explanation: "🟢 Bij een kloktijd gebruik je 'om'.", tip: "💡 Om + tijd" },
+  { question: "De zomer begint ... 21 juni.", options: ["op","in","om","sinds"], correct: 0, explanation: "🟢 Bij een exacte datum gebruik je 'op'.", tip: "💡 Op + datum" },
+  { question: "Het is nu half .... (12:30)", options: ["twaalf","een","dertien","twaalf uur"], correct: 1, explanation: "🟢 Half een = 12:30 (middag) of 00:30 (nacht).", tip: "💡 Half een = 12:30" }
+],
+
+test: [
+  { question: "Mijn verjaardag is ... 15 april.", options: ["op","in","om","van"], correct: 0, explanation: "🟢 Op + datum." },
+  { question: "De vergadering begint ... 10 uur.", options: ["om","op","in","van"], correct: 0, explanation: "🟢 Om + tijd." },
+  { question: "We gaan ... zaterdag naar de film.", options: ["op","in","om","tegen"], correct: 0, explanation: "🟢 Op + dag." },
+  { question: "Hij is geboren ... 1995.", options: ["op","in","om","sinds"], correct: 1, explanation: "🟢 In + jaar." },
+  { question: "Het is nu tien ... twaalf. (11:50)", options: ["voor","over","na","half"], correct: 0, explanation: "🟢 Voor = vóór het uur." },
+  { question: "Het is kwart ... twee. (1:45)", options: ["voor","over","na","half"], correct: 0, explanation: "🟢 Kwart voor = :45." },
+  { question: "De winkel sluit ... 18.00 uur.", options: ["om","op","in","tot"], correct: 0, explanation: "🟢 Om + tijd." },
+  { question: "Het is half .... (10:30)", options: ["tien","tien uur","elven","elf"], correct: 3, explanation: "🟢 Half elf = 10:30." },
+  { question: "... de zomer is het warm.", options: ["Op","In","Om","Tijdens"], correct: 1, explanation: "🟢 In + seizoen." },
+  { question: "De trein vertrekt om 8.15 uur. Dat is kwart ... acht.", options: ["voor","over","na","half"], correct: 1, explanation: "🟢 Kwart over = :15." },
+  { question: "De winkel is geopend ... maandag tot en met vrijdag.", options: ["van","op","sinds","voor"], correct: 0, explanation: "🟢 Van ... tot = periode." },
+  { question: "Hij werkt hier ... 2010.", options: ["sinds","van","op","in"], correct: 0, explanation: "🟢 Sinds = vanaf toen tot nu." },
+  { question: "De les begint om 9.30 uur, dat is half ....", options: ["negen","tien","zeven","acht"], correct: 1, explanation: "🟢 Half tien = 9:30." },
+  { question: "Hij komt ... 10 minuten aan.", options: ["over","na","in","op"], correct: 2, explanation: "🟢 In = binnen." },
+  { question: "De vergadering is ... 14.00 uur verplaatst.", options: ["van","om","op","in"], correct: 0, explanation: "🟢 Van ... naar = verandering." },
+  { question: "Ik ga ... het weekend naar huis.", options: ["op","in","over","tijdens"], correct: 2, explanation: "🟢 Over = in de toekomst." },
+  { question: "De winkel is open ... 9.00 tot 18.00 uur.", options: ["van","om","op","sinds"], correct: 0, explanation: "🟢 Van ... tot = openingstijden." },
+  { question: "... kerstmis geven we cadeautjes.", options: ["Op","In","Met","Tijdens"], correct: 2, explanation: "🟢 Met + feestdag." },
+  { question: "Het is nu vijf ... drie. (15:05)", options: ["over","voor","na","half"], correct: 0, explanation: "🟢 Over = na het uur." },
+  { question: "Het is nu half .... (12:30)", options: ["twaalf","een","dertien","twaalf uur"], correct: 1, explanation: "🟢 Half een = 12:30." }
+]    },
     36: { // Participia
-      practice: [
-        { question: "'Het ... kind' (huilen)", options: ["huilende","gehuild","huilend","gehuilde"], correct: 0, explanation: "❌ Fout! Tegenwoordig deelwoord + -e.", tip: "💡 Infinitief + d(e) = tegenwoordig deelwoord." },
-        { question: "'De ... deur' (sluiten)", options: ["gesloten","sluitende","gesluit","sluitend"], correct: 0, explanation: "❌ Fout! Voltooid deelwoord van sluiten = gesloten.", tip: "💡 Voltooid deelwoord: ge + stam + d/t/en." },
-        { question: "'De ... man' (lachen)", options: ["lachende","gelachen","lachte","gelachende"], correct: 0, explanation: "❌ Fout! Tegenwoordig deelwoord: lachende.", tip: "💡 Lachende = bezig met lachen." },
-        { question: "'Het ... brood' (bakken)", options: ["gebakken","bakkende","gebakte","bakkend"], correct: 0, explanation: "❌ Fout! Voltooid deelwoord: gebakken.", tip: "💡 Gebakken = klaar." },
-        { question: "'De ... auto' (rijden)", options: ["rijdende","gereden","reed","gerijdende"], correct: 0, explanation: "❌ Fout! Tegenwoordig deelwoord: rijdende.", tip: "💡 Rijdende = bezig met rijden." }
-      ],
-      test: [
-        { question: "'De ... vrouw' (zingen)", options: ["zingende","gezongen","zong","gezingende"], correct: 0, explanation: "Tegenwoordig deelwoord: zingende." },
-        { question: "'Het ... raam' (breken)", options: ["gebroken","brekende","brak","gebrekende"], correct: 0, explanation: "Voltooid deelwoord: gebroken." },
-        { question: "'De ... kinderen' (spelen)", options: ["spelende","gespeeld","speelden","gespeelde"], correct: 0, explanation: "Tegenwoordig deelwoord: spelende." },
-        { question: "'Het ... boek' (lezen)", options: ["lezende","gelezen","las","gelezende"], correct: 1, explanation: "Voltooid deelwoord: gelezen." },
-        { question: "'De ... hond' (blaffen)", options: ["blaffende","geblaft","blafte","geblaffende"], correct: 0, explanation: "Tegenwoordig deelwoord: blaffende." },
-        { question: "'Het ... huis' (bouwen)", options: ["bouwende","gebouwd","bouwde","gebouwende"], correct: 1, explanation: "Voltooid deelwoord: gebouwd." },
-        { question: "'De ... man' (werken)", options: ["werkende","gewerkt","werkte","gewerkende"], correct: 0, explanation: "Tegenwoordig deelwoord: werkende." },
-        { question: "'Het ... eten' (koken)", options: ["kokende","gekookt","kookte","gekookende"], correct: 1, explanation: "Voltooid deelwoord: gekookt." },
-        { question: "'De ... vogel' (vliegen)", options: ["vliegende","gevlogen","vloog","gevliegende"], correct: 0, explanation: "Tegenwoordig deelwoord: vliegende." },
-        { question: "'Het ... probleem' (oplossen)", options: ["oplossende","opgelost","loste op","opgelostende"], correct: 1, explanation: "Voltooid deelwoord: opgelost." }
-      ]
+practice: [
+  { question: "Wat is het voltooid deelwoord van 'maken'?", options: ["gemaakt","makend","maakte","gemak"], correct: 0, explanation: "🟢 Zwak werkwoord: ge + maak + t = gemaakt.", tip: "💡 't kofschip: maak + t" },
+  { question: "Wat is het tegenwoordig deelwoord van 'zingen'?", options: ["gezongen","zingend","zingende","zing"], correct: 1, explanation: "🟢 Tegenwoordig deelwoord = infinitief + d.", tip: "💡 Infinitief + d = zingend" },
+  { question: "Wat is het voltooid deelwoord van 'lopen'?", options: ["gelopen","liep","lopend","geloopd"], correct: 0, explanation: "🟢 Sterk werkwoord: lopen – liep – gelopen.", tip: "💢 Sterk = klinkerwisseling + ge- + en" },
+  { question: "Wat is het voltooid deelwoord van 'verhuizen'?", options: ["verhuisd","verhuist","gehuisd","verhuizend"], correct: 0, explanation: "🟢 Voorvoegsel 'ver-' → geen 'ge-'. Stam + d.", tip: "💡 ver- + stam + d" },
+  { question: "Hij liep ... de kamer binnen. (zingen)", options: ["zingend","gezongen","zingende","zingen"], correct: 0, explanation: "🟢 Tegenwoordig deelwoord als bijwoord van wijze: onverbogen.", tip: "💡 Bijwoordelijk = geen -e" },
+  { question: "De ... bloemen staan op tafel. (plukken)", options: ["plukkende","geplukte","geplukt","plukte"], correct: 1, explanation: "🟢 Voltooid deelwoord als bijvoeglijk naamwoord bij de-woord → +e.", tip: "💡 Geplukt + e = geplukte" },
+  { question: "Het voltooid deelwoord van 'uiten' is:", options: ["geüit","geüte","geüten","uitged"], correct: 0, explanation: "🟢 Zwak: uiten → geüit (trema voor uitspraak).", tip: "💡 Ge- + uit + t = geüit" },
+  { question: "Wat is het tegenwoordig deelwoord van 'repareren'?", options: ["repareerend","reparerend","gerepareerd","repareerde"], correct: 0, explanation: "🟢 Infinitief zonder -en + d: repareren → repareerend.", tip: "💡 Repareren → repareer + d" },
+  { question: "De ... hond blaft hard. (blaffen)", options: ["geblaft","blaffend","blaffende","blafte"], correct: 2, explanation: "🟢 Tegenwoordig deelwoord bij de-woord → +e.", tip: "💡 Blaffend + e = blaffende" },
+  { question: "Het voltooid deelwoord van 'bestellen' is:", options: ["besteld","bestelt","gesteld","bestellend"], correct: 0, explanation: "🟢 Voorvoegsel 'be-' → geen 'ge-'. Stam + d.", tip: "💡 Be- + stam + d = besteld" },
+  { question: "Wat is het voltooid deelwoord van 'wassen'?", options: ["gewast","gewassen","waste","wassend"], correct: 1, explanation: "🟢 Onregelmatig/sterk: wassen – waste – gewassen.", tip: "💢 Wassen → gewassen" },
+  { question: "Het ... kind huilde. (verwennen)", options: ["verwend","verwende","verwennend","verwennde"], correct: 1, explanation: "🟢 'Verwennen' → verwend. Bij bepaald lidwoord 'het' → +e.", tip: "💡 Verwend + e = verwende" },
+  { question: "Wat is het voltooid deelwoord van 'genieten'?", options: ["geniet","genoten","genietend","genietd"], correct: 1, explanation: "🟢 Sterk: genieten – genoot – genoten.", tip: "💢 Genieten → genoten" },
+  { question: "De schrijver is ... door zijn fans. (aanbidden)", options: ["aanbiddend","aanbeden","aangebeden","aanbidt"], correct: 2, explanation: "🟢 Scheidbaar sterk werkwoord: aan + ge + beden = aangebeden.", tip: "💡 Aan + ge + beden = aangebeden" },
+  { question: "Het tegenwoordig deelwoord van 'praten' gebruik je in: Hij komt ... binnen.", options: ["pratend","gepraat","prate","pratende"], correct: 0, explanation: "🟢 Bijwoordelijke bepaling: onverbogen tegenwoordig deelwoord.", tip: "💡 Pratend = bijwoord" },
+  { question: "Wat is het voltooid deelwoord van 'vergeten'?", options: ["vergeet","vergeten","vergeetd","vergetend"], correct: 1, explanation: "🟢 Sterk: vergeten – vergat – vergeten. Geen 'ge-' door 'ver-'.", tip: "💢 Ver- + oten = vergeten" },
+  { question: "De ... auto stond in de garage. (repareren)", options: ["repareerde","gerepareerd","gerepareerde","reparerende"], correct: 2, explanation: "🟢 Zwak: repareren → gerepareerd. Bij 'de auto' → +e.", tip: "💡 Gerepareerd + e = gerepareerde" },
+  { question: "Wat is het tegenwoordig deelwoord van 'zijn'?", options: ["geweest","zijnde","wezend","zijn"], correct: 1, explanation: "🟢 Onregelmatig tegenwoordig deelwoord: zijn → zijnde.", tip: "💡 Zijn → zijnde" },
+  { question: "Het voltooid deelwoord van 'bakken' is:", options: ["gebakt","gebakken","bakkend","bakte"], correct: 1, explanation: "🟢 Onregelmatig/sterk: bakken – bakte – gebakken.", tip: "💢 Bakken → gebakken" },
+  { question: "De ... melk is bedorven. (koken)", options: ["gekookte","koke","kokende","gekokte"], correct: 0, explanation: "🟢 Zwak: koken → gekookt. Bij 'de melk' → +e.", tip: "💡 Gekookt + e = gekookte" },
+  { question: "Wat is het voltooid deelwoord van 'verkiezen'?", options: ["verkozen","verkiezend","verkiest","verkoos"], correct: 0, explanation: "🟢 Sterk: verkiezen – verkoos – verkozen.", tip: "💢 Verkiezen → verkozen" },
+  { question: "Hij zat ... naar de televisie te kijken. (luieren)", options: ["geluierd","luierend","luierende","luier"], correct: 1, explanation: "🟢 Bijwoord bij 'zitten': luierend.", tip: "💡 Luieren → luierend" },
+  { question: "Het voltooid deelwoord van 'telefoneren' is:", options: ["telefoneerd","getelefoneerd","telefoneert","telefonerend"], correct: 1, explanation: "🟢 Zwak: telefoneren → getelefoneerd.", tip: "💡 Ge- + telefoneer + d" },
+  { question: "De ... man, de ... auto. (overreden)", options: ["overreden, overreden","overreedde, overreedde","overredende, overredende","overreed, overreed"], correct: 0, explanation: "🟢 Sterk: overrijden – overreed – overreden. Blijft onveranderd.", tip: "💡 Overreden = sterk voltooid" },
+  { question: "Wat is het voltooid deelwoord van 'laten'?", options: ["gelaten","laat","latend","gelat"], correct: 0, explanation: "🟢 Sterk: laten – liet – gelaten.", tip: "💢 Laten → gelaten" },
+  { question: "Het ... water is niet drinkbaar. (vervuilen)", options: ["vervuild","vervuilde","vervuilend","vervuilen"], correct: 1, explanation: "🟢 Vervuilen → vervuild. Bij 'het water' (bepaald) → +e.", tip: "💡 Vervuild + e = vervuilde" },
+  { question: "Tegenwoordig deelwoord van 'doen' is:", options: ["doend","gedaan","doende","doe"], correct: 0, explanation: "🟢 Infinitief zonder -en + d: doen → doend.", tip: "💡 Doen → doend" },
+  { question: "De hond lag ... op de vloer. (rillen)", options: ["gerild","rillend","rillende","rilte"], correct: 1, explanation: "🟢 Bijwoordelijke bepaling: rillend.", tip: "💡 Rillen → rillend" },
+  { question: "Wat is het voltooid deelwoord van 'brengen'?", options: ["gebrach","gebracht","brengd","gebringt"], correct: 1, explanation: "🟢 Onregelmatig: brengen – bracht – gebracht.", tip: "💢 Brengen → gebracht" },
+  { question: "De ... planten waren dood. (verwaarlozen)", options: ["verwaarloosde","verwaarloosd","verwaarlozende","verwaarloost"], correct: 0, explanation: "🟢 Verwaarlozen → verwaarloosd. Bij meervoud 'de planten' → +e.", tip: "💡 Verwaarloosd + e = verwaarloosde" },
+  { question: "Wat is het voltooid deelwoord van 'besteden'?", options: ["besteed","besteedd","besteedt","besteeds"], correct: 0, explanation: "🟢 Besteden → besteed (geen extra d/t).", tip: "💡 Besteden → besteed" },
+  { question: "Het tegenwoordig deelwoord van 'hebben' is:", options: ["hebbend","hebbende","gehad","heb"], correct: 0, explanation: "🟢 Hebben → hebbend (dubbele b voor korte klinker).", tip: "💡 Hebben → hebbend" },
+  { question: "Het voltooid deelwoord van 'zien' is:", options: ["gezien","zag","zied","gezend"], correct: 0, explanation: "🟢 Sterk: zien – zag – gezien.", tip: "💢 Zien → gezien" },
+  { question: "Een ... bal rolt snel. (stuiteren)", options: ["gestuiterd","stuiterende","stuiterend","stuiterde"], correct: 1, explanation: "🟢 Stuiteren → stuiterend. Bij 'een bal' → +e.", tip: "💡 Stuiterend + e = stuiterende" },
+  { question: "Wat is het voltooid deelwoord van 'weten'?", options: ["geweten","geweet","wisten","wetend"], correct: 0, explanation: "🟢 Sterk: weten – wist – geweten.", tip: "💢 Weten → geweten" },
+  { question: "De ... goederen zijn aangekomen. (verzenden)", options: ["verzend","verzonden","verzendd","verzendende"], correct: 1, explanation: "🟢 Sterk: verzenden – verzond – verzonden. Geen 'ge-' door 'ver-'.", tip: "💢 Verzenden → verzonden" },
+  { question: "Het tegenwoordig deelwoord van 'krijgen' is:", options: ["gekregen","krijgend","krijgende","kreeg"], correct: 1, explanation: "🟢 Krijgen → krijgend.", tip: "💡 Krijgen → krijgend" },
+  { question: "De ... student kreeg een beurs. (selecteren)", options: ["selecteerde","geselecteerde","geselecteerd","selecterende"], correct: 1, explanation: "🟢 Selecteren → geselecteerd. Bij 'de student' → +e.", tip: "💡 Geselecteerd + e = geselecteerde" },
+  { question: "Wat is het voltooid deelwoord van 'verdwijnen'?", options: ["verdween","verdwenen","verdwijnd","verdwijnend"], correct: 1, explanation: "🟢 Sterk: verdwijnen – verdween – verdwenen.", tip: "💢 Verdwijnen → verdwenen" },
+  { question: "Het ... glas lag op de grond. (vallen)", options: ["gevallen","vallende","gevallende","viel"], correct: 0, explanation: "🟢 Vallen → gevallen. Bij 'het glas' (onzijdig bepaald) blijft het zonder -e.", tip: "💡 Gevallen = onzijdig bepaald" }
+],
+
+test: [
+  { question: "Wat is het voltooid deelwoord van 'maken'?", options: ["gemaakt","makend","maakte","gemak"], correct: 0, explanation: "🟢 Ge + maak + t = gemaakt." },
+  { question: "Wat is het tegenwoordig deelwoord van 'zingen'?", options: ["gezongen","zingend","zingende","zing"], correct: 1, explanation: "🟢 Infinitief + d = zingend." },
+  { question: "Wat is het voltooid deelwoord van 'lopen'?", options: ["gelopen","liep","lopend","geloopd"], correct: 0, explanation: "🟢 Sterk = klinkerwisseling + ge- + en." },
+  { question: "Wat is het voltooid deelwoord van 'verhuizen'?", options: ["verhuisd","verhuist","gehuisd","verhuizend"], correct: 0, explanation: "🟢 ver- + stam + d." },
+  { question: "De ... bloemen staan op tafel. (plukken)", options: ["plukkende","geplukte","geplukt","plukte"], correct: 1, explanation: "🟢 Geplukt + e = geplukte." },
+  { question: "Wat is het tegenwoordig deelwoord van 'repareren'?", options: ["repareerend","reparerend","gerepareerd","repareerde"], correct: 0, explanation: "🟢 Repareren → repareer + d." },
+  { question: "Het voltooid deelwoord van 'bestellen' is:", options: ["besteld","bestelt","gesteld","bestellend"], correct: 0, explanation: "🟢 Be- + stam + d = besteld." },
+  { question: "Het ... kind huilde. (verwennen)", options: ["verwend","verwende","verwennend","verwennde"], correct: 1, explanation: "🟢 Verwend + e = verwende." },
+  { question: "Wat is het voltooid deelwoord van 'genieten'?", options: ["geniet","genoten","genietend","genietd"], correct: 1, explanation: "🟢 Genieten → genoten." },
+  { question: "Wat is het voltooid deelwoord van 'vergeten'?", options: ["vergeet","vergeten","vergeetd","vergetend"], correct: 1, explanation: "🟢 Ver- + oten = vergeten." },
+  { question: "De ... auto stond in de garage. (repareren)", options: ["repareerde","gerepareerd","gerepareerde","reparerende"], correct: 2, explanation: "🟢 Gerepareerd + e = gerepareerde." },
+  { question: "Het voltooid deelwoord van 'bakken' is:", options: ["gebakt","gebakken","bakkend","bakte"], correct: 1, explanation: "🟢 Bakken → gebakken." },
+  { question: "Wat is het voltooid deelwoord van 'verkiezen'?", options: ["verkozen","verkiezend","verkiest","verkoos"], correct: 0, explanation: "🟢 Verkiezen → verkozen." },
+  { question: "Het voltooid deelwoord van 'telefoneren' is:", options: ["telefoneerd","getelefoneerd","telefoneert","telefonerend"], correct: 1, explanation: "🟢 Ge- + telefoneer + d." },
+  { question: "Wat is het voltooid deelwoord van 'laten'?", options: ["gelaten","laat","latend","gelat"], correct: 0, explanation: "🟢 Laten → gelaten." },
+  { question: "Het tegenwoordig deelwoord van 'doen' is:", options: ["doend","gedaan","doende","doe"], correct: 0, explanation: "🟢 Doen → doend." },
+  { question: "Wat is het voltooid deelwoord van 'brengen'?", options: ["gebrach","gebracht","brengd","gebringt"], correct: 1, explanation: "🟢 Brengen → gebracht." },
+  { question: "Het voltooid deelwoord van 'besteden' is:", options: ["besteed","besteedd","besteedt","besteeds"], correct: 0, explanation: "🟢 Besteden → besteed." },
+  { question: "Het voltooid deelwoord van 'zien' is:", options: ["gezien","zag","zied","gezend"], correct: 0, explanation: "🟢 Zien → gezien." },
+  { question: "Wat is het voltooid deelwoord van 'verdwijnen'?", options: ["verdween","verdwenen","verdwijnd","verdwijnend"], correct: 1, explanation: "🟢 Verdwijnen → verdwenen." }
+]
     },
     37: { // Spellingregels
-      practice: [
-        { question: "'Ik ... in Utrecht.' (wonen)", options: ["woon","won","woont","wonen"], correct: 0, explanation: "❌ Fout! Korte klinker in gesloten lettergreep: woon.", tip: "💡 Hoor je lange klinker → dubbele klinker." },
-        { question: "'Hij ... naar school.' (lopen)", options: ["loopt","loopt","loopd","lope"], correct: 0, explanation: "❌ Fout! Stam loop + t = loopt.", tip: "💡 Na lange klinker geen dubbele medeklinker." },
-        { question: "'De ... hond' (groot)", options: ["grote","groote","groten","grootte"], correct: 0, explanation: "❌ Fout! Lange klinker blijft lang: grote.", tip: "💡 Groot → grote (één o)." },
-        { question: "'Het ... varken' (vet)", options: ["vette","vete","vete","vettte"], correct: 0, explanation: "❌ Fout! Korte klinker → dubbele medeklinker.", tip: "💡 Vet → vette (tt houdt klinker kort)." },
-        { question: "'De ... taart' (zoet)", options: ["zoete","zoote","zoten","zoette"], correct: 0, explanation: "❌ Fout! Lange klinker → geen dubbele medeklinker.", tip: "💡 Zoet → zoete (één t)." }
-      ],
-      test: [
-        { question: "'Ik ... koffie.' (drinken)", options: ["drink","drinkt","drinken","dronk"], correct: 0, explanation: "Ik + stam." },
-        { question: "'De ... tafel' (bruin)", options: ["bruine","bruine","bruinen","bruinne"], correct: 0, explanation: "Bruin → bruine." },
-        { question: "'Hij ... hard.' (rennen)", options: ["rent","rend","rent","rende"], correct: 0, explanation: "Hij + stam + t." },
-        { question: "'Het ... boek' (nieuw)", options: ["nieuwe","nieuewe","nieuwen","nieuwe"], correct: 0, explanation: "Nieuw → nieuwe." },
-        { question: "'De ... auto' (rood)", options: ["rode","roode","roden","rodden"], correct: 0, explanation: "Rood → rode." },
-        { question: "'Ik ... een brief.' (schrijven)", options: ["schrijf","schrijft","schrijven","schreef"], correct: 0, explanation: "Ik + stam." },
-        { question: "'Het ... huis' (wit)", options: ["witte","wite","witen","witten"], correct: 0, explanation: "Wit → witte." },
-        { question: "'De ... man' (oud)", options: ["oude","oude","ouden","oudden"], correct: 0, explanation: "Oud → oude." },
-        { question: "'Hij ... snel.' (fietsen)", options: ["fietst","fietst","fietsten","fietste"], correct: 0, explanation: "Hij + stam + t." },
-        { question: "'Het ... kind' (klein)", options: ["kleine","kleine","kleinen","kleinne"], correct: 0, explanation: "Klein → kleine." }
-      ]
-    },
+practice: [
+  { question: "Hoe spel je het meervoud van 'boom'?", options: ["bomen","boomen","boomn","bommen"], correct: 0, explanation: "🟢 'Boom' heeft een lange klinker 'oo'. In het meervoud blijft de klinker lang, dus één 'o' + 'men'.", tip: "💡 Lange klinker → 1 letter in meervoud" },
+  { question: "Hoe spel je het meervoud van 'bal'?", options: ["ballen","balen","balles","bals"], correct: 0, explanation: "🟢 'Bal' heeft een korte klinker 'a' + 1 medeklinker. In het meervoud verdubbelt de medeklinker.", tip: "💡 Korte klinker → medeklinker dubbel" },
+  { question: "Wat is de juiste spelling van de verleden tijd: hij (blozen)?", options: ["bloosde","blooste","bloesde","bloeste"], correct: 0, explanation: "🟢 Stam 'bloos' eindigt op 's' (niet in 't kofschip') → + de.", tip: "💡 't kofschip: s niet erin → +de" },
+  { question: "Hij ... al weken ziek. (zijn – verleden tijd)", options: ["was","wart","wast","waste"], correct: 0, explanation: "🟢 Verleden tijd van 'zijn' is onregelmatig: hij was.", tip: "💢 Zijn → was/waren (onregelmatig)" },
+  { question: "Wat is de juiste spelling van het voltooid deelwoord: (verhuizen)?", options: ["verhuist","verhuisd","verhuizt","verhuist"], correct: 1, explanation: "🟢 'Verhuizen' – stam 'verhuis'. 'S' niet in 't kofschip' → + d. Geen 'ge-' door 'ver-'.", tip: "💡 ver- + stam + d (geen ge-)" },
+  { question: "Hoe spel je de gebiedende wijs: (zijn) aardig!", options: ["Ben","Bent","Wees","Weest"], correct: 2, explanation: "🟢 'Zijn' heeft onregelmatige imperatief: 'wees'.", tip: "💢 Zijn → wees (onregelmatig)" },
+  { question: "Hoe spel je het woord: [idee] meervoud?", options: ["ideën","idees","ideeën","ideeëns"], correct: 2, explanation: "🟢 Woorden op -ee krijgen trema op tweede e in meervoud: ideeën.", tip: "💡 -ee → -eeën (trema)" },
+  { question: "De samenstelling van 'zee' en 'water' is:", options: ["zeewater","zeeëwater","zeeënwater","zee-water"], correct: 0, explanation: "🟢 Samenstellingen worden aan elkaar geschreven zonder extra tekens.", tip: "💡 Samenstelling = aan elkaar" },
+  { question: "Wat is de juiste spelling: (twee + en + twintig)?", options: ["tweeëntwintig","tweeentwintig","twee en twintig","tweeëntwintig"], correct: 0, explanation: "🟢 Getallen 21-99 met eenheid krijgen trema op 'en' om klinkerbotsing te voorkomen.", tip: "💡 Trema bij klinkerbotsing: tweeëntwintig" },
+  { question: "Hoe spel je de verleden tijd van (reizen) – hij ...?", options: ["reisde","reiste","reisde","reizde"], correct: 0, explanation: "🟢 Stam 'reis' eindigt op 's' (niet in 't kofschip') → + de.", tip: "💡 Reis + de = reisde" },
+  { question: "Hoe spel je het woord: (de man die de krant bezorgt) – bezorger?", options: ["bezorger","bezorgder","bezorger","bezorgt"], correct: 0, explanation: "🟢 Van 'bezorgen' (stam bezorg) + er → bezorger. 'G' blijft.", tip: "💡 Bezorg + er = bezorger" },
+  { question: "Wat is de juiste spelling van het voltooid deelwoord: (razen)?", options: ["geraast","geraazd","geraasd","raasd"], correct: 0, explanation: "🟢 Stam 'raas' eindigt op 's' (in 't kofschip') → + t. Ge- + raas + t.", tip: "💡 't kofschip: s erin → +t" },
+  { question: "Hoe spel je het meervoud van 'kano'?", options: ["kano's","kanos","kanoën","kanoos"], correct: 0, explanation: "🟢 Woorden eindigend op -o krijgen apostrof + s in meervoud.", tip: "💡 -o → -'s (apostrof)" },
+  { question: "Hoe spel je de gebiedende wijs: (lopen) naar huis!", options: ["Loop","Lop","Loopt","Lopen"], correct: 0, explanation: "🟢 Imperatief = stam van het werkwoord: loop.", tip: "💡 Imperatief = stam" },
+  { question: "Wat is de juiste schrijfwijze van het bijvoeglijk naamwoord: (drama + tisch)?", options: ["dramatisch","dramaties","drammatisch","dramtisch"], correct: 0, explanation: "🟢 Van 'drama' wordt 'dramatisch' (medeklinker 't' ingevoegd).", tip: "💡 Drama → dramatisch (t-invoeging)" },
+  { question: "Hoe spel je het woord: (samen + trekking)?", options: ["samentrekking","samen trekking","sammtrekking","samentrekking"], correct: 3, explanation: "🟢 Samenstelling 'samen' + 'trekking' – de 'n' van 'samen' blijft, geen verdubbeling.", tip: "💡 Samen + trekking = samentrekking" },
+  { question: "Wat is de juiste spelling: (hij betaald / betaalt)?", options: ["betaald","betaalt","betaaldt","betaalt"], correct: 1, explanation: "🟢 Tegenwoordige tijd, derde persoon enkelvoud: hij betaalt (stam betaal + t).", tip: "💡 Hij/zij/het = stam + t" },
+  { question: "Hoe spel je het voltooid deelwoord van 'branden'?", options: ["gebrand","gebrandt","gebrant","gebrantt"], correct: 0, explanation: "🟢 Stam 'brand' eindigt op 'd'. Voltooid deelwoord = ge- + stam (geen extra d/t).", tip: "💡 Brand → gebrand (geen extra letter)" },
+  { question: "Wat is de juiste meervoudsvorm van 'café'?", options: ["café's","cafés","caféën","cafees"], correct: 0, explanation: "🟢 Woorden eindigend op beklemtoonde -é krijgen apostrof + s: café's.", tip: "💡 -é → -'s (apostrof)" },
+  { question: "Hoe spel je: (scenario + s) meervoud?", options: ["scenario's","scenarioos","scenarioën","scenaria"], correct: 0, explanation: "🟢 Leenwoorden op -o krijgen apostrof + s: scenario's.", tip: "💡 -o → -'s (leenwoord)" },
+  { question: "Wat is de correcte spelling: (verkoop + prijs)?", options: ["verkoopprijs","verkoop-prijs","verkoopprijs","verkooprijs"], correct: 2, explanation: "🟢 Samenstelling 'verkoop' + 'prijs' – twee p's na elkaar: verkoopprijs.", tip: "💡 Verkoop + prijs = verkoopprijs (pp)" },
+  { question: "Hoe spel je: (hij wordt / word / wort)?", options: ["word","wordt","wort","word"], correct: 1, explanation: "🟢 Tegenwoordige tijd van 'worden': hij wordt (stam word + t).", tip: "💡 Worden → wordt (stam + t)" },
+  { question: "Wat is de juiste schrijfwijze: (een / één) van de twee?", options: ["een","één","een","eên"], correct: 1, explanation: "🟢 Als je het getal 1 benadrukt, schrijf je 'één' met accenten. 'Een' is het lidwoord.", tip: "💡 Één = getal 1 | Een = lidwoord" },
+  { question: "Hoe spel je het voltooid deelwoord van 'betalen'?", options: ["betaald","betaalt","betaalde","betaaldt"], correct: 0, explanation: "🟢 Stam 'betaal' + d (l niet in 't kofschip') → betaald. Geen ge- door 'be-'.", tip: "💡 Be- + betaal + d = betaald" },
+  { question: "Wat is de juiste spelling: (apart + heid)?", options: ["apartheid","apartheid","apartheit","apartheijd"], correct: 0, explanation: "🟢 Aan elkaar geschreven, 'apart' + 'heid' zonder verandering.", tip: "💡 Apart + heid = apartheid" },
+  { question: "Hoe spel je: (baby + s) meervoud?", options: ["baby's","babies","babyen","babes"], correct: 0, explanation: "🟢 Woorden op -y die niet op een klinker eindigen krijgen apostrof + s.", tip: "💡 -y → -'s (medeklinkerklank)" },
+  { question: "Wat is de juiste spelling: (zij word / wordt) boos?", options: ["word","wordt","wort","word"], correct: 1, explanation: "🟢 Zij = derde persoon enkelvoud → wordt (stam word + t).", tip: "💡 Zij/hij/het = stam + t" },
+  { question: "Hoe spel je het voltooid deelwoord van 'verrassen'?", options: ["verrast","verrasd","verrast","verrast"], correct: 0, explanation: "🟢 Stam 'verras' eindigt op 's' (in 't kofschip') → + t. Geen ge- door 'ver-'.", tip: "💡 Ver- + verras + t = verrast" },
+  { question: "Hoe spel je: (reus + achtig)?", options: ["reusachtig","reusachtig","reuzenachtig","reuzaftig"], correct: 0, explanation: "🟢 'Reusachtig' schrijf je met s, geen tussen-n of z.", tip: "💡 Reus + achtig = reusachtig" },
+  { question: "Wat is de juiste spelling van de verleden tijd: ik (blazen)?", options: ["blies","blaasde","bliesde","blaste"], correct: 0, explanation: "🟢 'Blazen' is sterk: ik blies (geen zwakke -de/-te).", tip: "💢 Blazen → blies (sterk)" },
+  { question: "Hoe spel je het meervoud van 'film'?", options: ["films","filmmen","filmes","film's"], correct: 0, explanation: "🟢 Woorden eindigend op medeklinkercluster (lm) krijgen meestal -s.", tip: "💡 Film → films (-s)" },
+  { question: "Wat is de juiste spelling: (hij antwoord / antwoordt)?", options: ["antwoord","antwoordt","antwoort","antwoor"], correct: 1, explanation: "🟢 'Antwoorden' – stam antwoord. Hij antwoordt (stam + t).", tip: "💡 Antwoord + t = antwoordt" },
+  { question: "Hoe spel je: (zon + bril)?", options: ["zonnebril","zonbril","zonnebril","zonnenbril"], correct: 0, explanation: "🟢 'Zon' krijgt in samenstellingen vaak 'zonne' (zonnebril, zonnestraal).", tip: "💡 Zon → zonne- in samenstelling" },
+  { question: "Hoe spel je de tegenwoordige tijd: jij (worden)?", options: ["word","wordt","wort","word"], correct: 1, explanation: "🟢 Jij wordt (stam word + t).", tip: "💡 Jij = stam + t" },
+  { question: "Wat is de juiste schrijfwijze: (auto + wassen)?", options: ["autowassen","auto wassen","autowassen","auto-wassen"], correct: 0, explanation: "🟢 Samenstellingen worden aan elkaar geschreven.", tip: "💡 Auto + wassen = autowassen" },
+  { question: "Hoe spel je: (maand + loon)?", options: ["maandloon","maandloon","maandloon","maand loon"], correct: 0, explanation: "🟢 Tussenklank 'd' blijft, geen extra -en-.", tip: "💡 Maand + loon = maandloon" },
+  { question: "Wat is de juiste spelling van: (roman + schrijver)?", options: ["romanschrijver","romanschrijver","romanschrijver","roman-schrijver"], correct: 0, explanation: "🟢 Samenstelling: roman + schrijver → 'ns' blijft.", tip: "💡 Roman + schrijver = romanschrijver" },
+  { question: "Hoe spel je: (hij (worden) wakker?) – hij ... wakker?", options: ["word","wordt","wort","wordt"], correct: 1, explanation: "🟢 Hij wordt wakker (stam word + t).", tip: "💡 Worden → wordt" },
+  { question: "Hoe spel je het meervoud van 'sjaal'?", options: ["sjaals","sjaals","sjaallen","sjaaltjes"], correct: 0, explanation: "🟢 'Sjaal' heeft lange klinker 'aa' → geen verdubbeling, meervoud -s.", tip: "💡 Lange klinker → -s meervoud" },
+  { question: "Wat is de juiste spelling: (weer + bericht)?", options: ["weerbericht","weerbericht","weerbericht","werbericht"], correct: 0, explanation: "🟢 Samenstelling 'weer' + 'bericht' – 'er' blijft.", tip: "💡 Weer + bericht = weerbericht" }
+],
+
+test: [
+  { question: "Hoe spel je het meervoud van 'boom'?", options: ["bomen","boomen","boomn","bommen"], correct: 0, explanation: "🟢 Lange klinker → 1 letter." },
+  { question: "Hoe spel je het meervoud van 'bal'?", options: ["ballen","balen","balles","bals"], correct: 0, explanation: "🟢 Korte klinker → medeklinker dubbel." },
+  { question: "Wat is de verleden tijd van 'blozen'?", options: ["bloosde","blooste","bloesde","bloeste"], correct: 0, explanation: "🟢 Stam + de (s niet in 't kofschip')." },
+  { question: "Hij ... al weken ziek. (zijn)", options: ["was","wart","wast","waste"], correct: 0, explanation: "🟢 Zijn → was (onregelmatig)." },
+  { question: "Voltooid deelwoord van 'verhuizen'?", options: ["verhuist","verhuisd","verhuizt","verhuist"], correct: 1, explanation: "🟢 ver- + stam + d (geen ge-)." },
+  { question: "Gebiedende wijs van 'zijn'?", options: ["Ben","Bent","Wees","Weest"], correct: 2, explanation: "🟢 Zijn → wees (onregelmatig)." },
+  { question: "Meervoud van 'idee'?", options: ["ideën","idees","ideeën","ideeëns"], correct: 2, explanation: "🟢 -ee → -eeën (trema)." },
+  { question: "Samenstelling 'zee' + 'water'?", options: ["zeewater","zeeëwater","zeeënwater","zee-water"], correct: 0, explanation: "🟢 Aan elkaar." },
+  { question: "Spelling: twee + en + twintig?", options: ["tweeëntwintig","tweeentwintig","twee en twintig","tweeëntwintig"], correct: 0, explanation: "🟢 Trema bij klinkerbotsing." },
+  { question: "Verleden tijd van 'reizen'?", options: ["reisde","reiste","reisde","reizde"], correct: 0, explanation: "🟢 Reis + de." },
+  { question: "Voltooid deelwoord van 'razen'?", options: ["geraast","geraazd","geraasd","raasd"], correct: 0, explanation: "🟢 't kofschip: s erin → +t." },
+  { question: "Meervoud van 'kano'?", options: ["kano's","kanos","kanoën","kanoos"], correct: 0, explanation: "🟢 -o → -'s." },
+  { question: "Gebiedende wijs van 'lopen'?", options: ["Loop","Lop","Loopt","Lopen"], correct: 0, explanation: "🟡 Imperatief = stam." },
+  { question: "Bijvoeglijk naamwoord: drama + tisch?", options: ["dramatisch","dramaties","drammatisch","dramtisch"], correct: 0, explanation: "🟡 Drama → dramatisch (t-invoeging)." },
+  { question: "Samenstelling: verkoop + prijs?", options: ["verkoopprijs","verkoop-prijs","verkoopprijs","verkooprijs"], correct: 2, explanation: "🟡 Verkoop + prijs = verkoopprijs (pp)." },
+  { question: "Hij ... (worden)?", options: ["word","wordt","wort","word"], correct: 1, explanation: "🟡 Worden → wordt." },
+  { question: "Een of één van de twee?", options: ["een","één","een","eên"], correct: 1, explanation: "🟡 Één = getal 1." },
+  { question: "Voltooid deelwoord van 'betalen'?", options: ["betaald","betaalt","betaalde","betaaldt"], correct: 0, explanation: "🟡 Be- + betaal + d." },
+  { question: "Meervoud van 'baby'?", options: ["baby's","babies","babyen","babes"], correct: 0, explanation: "🟡 -y → -'s." },
+  { question: "Samenstelling: zon + bril?", options: ["zonnebril","zonbril","zonnebril","zonnenbril"], correct: 0, explanation: "🟡 Zon → zonne- in samenstelling." }
+]    },
     38: { // Wederkerige voornaamwoorden
-      practice: [
-        { question: "'Zij helpen ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "❌ Fout! Wederkerig = elkaar.", tip: "💡 Elkaar = onderlinge actie." },
-        { question: "'We geven ... een cadeau.'", options: ["elkaar","ons","zich","hen"], correct: 0, explanation: "❌ Fout! Onderling → elkaar.", tip: "💡 Elkaar bij meervoud." },
-        { question: "'Ze kussen ...'", options: ["elkaar","zich","hen","zichzelf"], correct: 0, explanation: "❌ Fout! Onderling → elkaar.", tip: "💡 Kussen elkaar = wederkerig." },
-        { question: "'Wij begrijpen ... goed.'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "❌ Fout! Wederkerig → elkaar.", tip: "💡 Begrijpen elkaar." },
-        { question: "'Zij steunen ...' (formeel)", options: ["elkaar","elkander","zich","hen"], correct: 1, explanation: "❌ Fout! Formeel: elkander.", tip: "💡 Elkander = formeel voor elkaar." }
-      ],
-      test: [
-        { question: "'Ze helpen ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "Elkaar." },
-        { question: "'Wij zien ... vaak.'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "Elkaar." },
-        { question: "'Ze bellen ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "Elkaar." },
-        { question: "'Wij vertrouwen ...'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "Elkaar." },
-        { question: "'Ze groeten ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "Elkaar." },
-        { question: "'Wij helpen ...'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "Elkaar." },
-        { question: "'Ze respecteren ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "Elkaar." },
-        { question: "'Wij steunen ...'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "Elkaar." },
-        { question: "'Ze ontmoeten ...'", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "Elkaar." },
-        { question: "'Wij begrijpen ...'", options: ["elkaar","ons","zich","onszelf"], correct: 0, explanation: "Elkaar." }
-      ]
-    },
+practice: [
+  { question: "Zij zien ... elke dag op school.", options: ["elkaar","me","zich","ons"], correct: 0, explanation: "🟢 'Elkaar' geeft wederkerigheid aan: zij zien elkaar = zij zien ieder de ander.", tip: "💡 Elkaar = wederzijdse actie" },
+  { question: "Ze staan ... te helpen met de klus.", options: ["mekaar","jou","zich","hen"], correct: 0, explanation: "🟢 'Mekaar' is een informeel wederkerig voornaamwoord.", tip: "💡 Mekaar = informeel voor elkaar" },
+  { question: "We moeten ... vertrouwen.", options: ["ons","elkaar","me","zich"], correct: 1, explanation: "🟢 Wederzijds vertrouwen: we vertrouwen elkaar.", tip: "💡 Vertrouwen elkaar = wederkerig" },
+  { question: "Jullie hebben ... niet gezien op het feest.", options: ["jullie","je","elkaar","zich"], correct: 2, explanation: "🟢 De handeling 'zien' is wederkerig tussen jullie.", tip: "💡 Jullie zien elkaar" },
+  { question: "De twee vrienden schrijven ... brieven.", options: ["mekaar","elkander","elkaar","alle A,B,C"], correct: 2, explanation: "🟢 Standaard wederkerig voornaamwoord: elkaar.", tip: "💡 Elkaar = standaardvorm" },
+  { question: "Ze kunnen ... niet uitstaan.", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "🟢 'Kunnen niet uitstaan' is wederkerig.", tip: "💡 Niet uitstaan = wederkerig" },
+  { question: "Hij en ik begrijpen ... prima.", options: ["mekaar","elkaar","ons","elkander"], correct: 1, explanation: "🟢 'Begrijpen' is wederkerig bij twee personen.", tip: "💡 Begrijpen elkaar" },
+  { question: "Zij hadden ... nog nooit ontmoet.", options: ["elkaar","hun","hen","zich"], correct: 0, explanation: "🟢 'Ontmoeten' is inherent wederkerig.", tip: "💡 Ontmoeten elkaar" },
+  { question: "De docent en de student corrigeren ....", options: ["mekaar","elkander","elkaar","elkaar/elkander"], correct: 2, explanation: "🟢 Standaard: 'elkaar' corrigeren.", tip: "💡 Corrigeren elkaar" },
+  { question: "Wij moeten ... steunen in moeilijke tijden.", options: ["elkaar","ons","me","zich"], correct: 0, explanation: "🟢 Wederzijdse steun: wij steunen elkaar.", tip: "💡 Steunen elkaar" },
+  { question: "Ze kenden ... al jaren.", options: ["zich","elkaar","elkander","mekaar"], correct: 1, explanation: "🟢 'Kennen' is wederkerig bij meerdere personen.", tip: "💡 Kennen elkaar" },
+  { question: "Jullie moeten ... de waarheid zeggen.", options: ["jullie","je","elkaar","elkander"], correct: 2, explanation: "🟢 Wederkerig: jullie zeggen elkaar de waarheid.", tip: "💡 Zeggen elkaar" },
+  { question: "De twee teams beconcurreren ... fel.", options: ["elkander","elkaar","mekaar","alle bovenstaande"], correct: 1, explanation: "🟢 Standaard: 'elkaar' beconcurreren.", tip: "💡 Beconcurreren elkaar" },
+  { question: "We kunnen ... beter leren kennen.", options: ["elkaar","ons","elkander","mekaar"], correct: 0, explanation: "🟢 Wederkerig: we leren elkaar kennen.", tip: "💡 Leren kennen elkaar" },
+  { question: "De spelers complimenteerden ... na de wedstrijd.", options: ["elkaar","elkander","mekaar","hun"], correct: 0, explanation: "🟢 Complimenteren is wederkerig.", tip: "💡 Complimenteren elkaar" },
+  { question: "Zij en ik willen ... graag ontmoeten.", options: ["elkander","mekaar","elkaar","ons"], correct: 2, explanation: "🟢 'Ontmoeten' is inherent wederkerig.", tip: "💡 Ontmoeten elkaar" },
+  { question: "Na het ruzie vermeden ze ....", options: ["elkander","elkaar","mekaar","alle A,B,C"], correct: 1, explanation: "🟢 Standaard: 'elkaar' vermijden.", tip: "💡 Vermijden elkaar" },
+  { question: "We moeten ... eerlijk behandelen.", options: ["elkaar","ons","elkander","mekaar"], correct: 0, explanation: "🟢 Wederkerig: we behandelen elkaar eerlijk.", tip: "💡 Behandelen elkaar" },
+  { question: "De tweeling lijkt veel op ....", options: ["mekaar","elkander","elkaar","zich"], correct: 2, explanation: "🟢 'Lijken op' is wederkerig bij twee personen.", tip: "💡 Lijken op elkaar" },
+  { question: "Jullie mogen ... niet kwetsen.", options: ["elkander","mekaar","elkaar","jullie"], correct: 2, explanation: "🟢 Wederkerig: jullie kwetsen elkaar niet.", tip: "💡 Kwetsen elkaar" },
+  { question: "De leerlingen helpen ... met huiswerk.", options: ["elkander","elkaar","mekaar","hun"], correct: 1, explanation: "🟢 Standaard: 'elkaar' helpen.", tip: "💡 Helpen elkaar" },
+  { question: "Ze spraken ... zachtjes toe.", options: ["elkaar","elkander","mekaar","hen"], correct: 0, explanation: "🟢 'Toespreken' is wederkerig.", tip: "💡 Spreken elkaar toe" },
+  { question: "Zouden jullie ... nog eens willen zien?", options: ["elkander","mekaar","elkaar","jullie"], correct: 2, explanation: "🟢 Wederkerig: jullie zien elkaar.", tip: "💡 Zien elkaar" },
+  { question: "De twee landen voerden oorlog tegen ....", options: ["elkander","elkaar","mekaar","hen"], correct: 1, explanation: "🟢 Standaard: 'elkaar' bestrijden.", tip: "💡 Oorlog tegen elkaar" },
+  { question: "Ze nodigden ... uit voor het feest.", options: ["elkander","elkaar","mekaar","zich"], correct: 1, explanation: "🟢 Wederkerig: ze nodigen elkaar uit.", tip: "💡 Uitnodigen elkaar" },
+  { question: "We zijn ... tegengekomen in de stad.", options: ["elkander","mekaar","elkaar","ons"], correct: 2, explanation: "🟢 'Tegenkomen' is wederkerig.", tip: "💡 Tegenkomen elkaar" },
+  { question: "De twee zussen bellen ... elke week.", options: ["elkander","mekaar","elkaar","alle A,B,C"], correct: 2, explanation: "🟢 Standaard: 'elkaar' bellen.", tip: "💡 Bellen elkaar" },
+  { question: "Jullie moeten ... niets verwijten.", options: ["jullie","elkander","elkaar","mekaar"], correct: 2, explanation: "🟢 Wederkerig: jullie verwijten elkaar niets.", tip: "💡 Verwijten elkaar" },
+  { question: "Hij en zijn broer lijken totaal niet op ....", options: ["elkander","mekaar","elkaar","zich"], correct: 2, explanation: "🟢 'Lijken op' is wederkerig.", tip: "💡 Lijken op elkaar" },
+  { question: "Zij geven ... cadeautjes voor kerst.", options: ["elkander","elkaar","mekaar","hen"], correct: 1, explanation: "🟢 Wederkerig: zij geven elkaar cadeaus.", tip: "💡 Geven elkaar" },
+  { question: "We moeten ... kunnen vertrouwen.", options: ["elkander","mekaar","elkaar","ons"], correct: 2, explanation: "🟢 Wederkerig: we vertrouwen elkaar.", tip: "💡 Vertrouwen elkaar" },
+  { question: "De vrouwen kenden ... van de vergadering.", options: ["elkaar","elkander","mekaar","hen"], correct: 0, explanation: "🟢 'Kennen' is wederkerig.", tip: "💡 Kennen elkaar" },
+  { question: "De rechter en de advocaat respecteren ....", options: ["elkander","mekaar","elkaar","hun"], correct: 2, explanation: "🟢 Standaard: 'elkaar' respecteren.", tip: "💡 Respecteren elkaar" },
+  { question: "Zij begroeten ... hartelijk.", options: ["elkander","mekaar","elkaar","ons"], correct: 2, explanation: "🟢 Wederkerig: zij begroeten elkaar.", tip: "💡 Begroeten elkaar" },
+  { question: "Wij zitten ... niet in de weg.", options: ["elkander","mekaar","elkaar","ons"], correct: 2, explanation: "🟢 Wederkerig: wij zitten elkaar niet in de weg.", tip: "💡 In de weg zitten elkaar" },
+  { question: "De studenten citeren ... in hun scripties.", options: ["elkaar","elkander","mekaar","zich"], correct: 0, explanation: "🟢 'Citeren' is wederkerig.", tip: "💡 Citeren elkaar" },
+  { question: "Jullie moeten ... steunen, niet bekritiseren.", options: ["elkander","mekaar","elkaar","jullie"], correct: 2, explanation: "🟢 Wederkerig: jullie steunen elkaar.", tip: "💡 Steunen elkaar" },
+  { question: "Hij en zij sporen ... aan om te sporten.", options: ["elkander","mekaar","elkaar","zich"], correct: 2, explanation: "🟢 'Aansporen' is wederkerig.", tip: "💡 Aansporen elkaar" },
+  { question: "De katten en honden kunnen ... niet uitstaan.", options: ["elkander","mekaar","elkaar","hen"], correct: 2, explanation: "🟢 Standaard: 'elkaar' niet uitstaan.", tip: "💡 Niet uitstaan elkaar" },
+  { question: "We schrijven ... brieven sinds 2010.", options: ["elkander","mekaar","elkaar","ons"], correct: 2, explanation: "🟢 Wederkerig: we schrijven elkaar.", tip: "💡 Schrijven elkaar" }
+],
+
+test: [
+  { question: "Zij zien ... elke dag op school.", options: ["elkaar","me","zich","ons"], correct: 0, explanation: "🟢 Elkaar = wederkerig." },
+  { question: "We moeten ... vertrouwen.", options: ["ons","elkaar","me","zich"], correct: 1, explanation: "🟢 Vertrouwen elkaar." },
+  { question: "Jullie hebben ... niet gezien op het feest.", options: ["jullie","je","elkaar","zich"], correct: 2, explanation: "🟢 Jullie zien elkaar." },
+  { question: "De twee vrienden schrijven ... brieven.", options: ["mekaar","elkander","elkaar","alle A,B,C"], correct: 2, explanation: "🟢 Elkaar = standaard." },
+  { question: "Ze kunnen ... niet uitstaan.", options: ["elkaar","zich","hen","hun"], correct: 0, explanation: "🟢 Niet uitstaan elkaar." },
+  { question: "Hij en ik begrijpen ... prima.", options: ["mekaar","elkaar","ons","elkander"], correct: 1, explanation: "🟢 Begrijpen elkaar." },
+  { question: "Zij hadden ... nog nooit ontmoet.", options: ["elkaar","hun","hen","zich"], correct: 0, explanation: "🟢 Ontmoeten elkaar." },
+  { question: "Wij moeten ... steunen in moeilijke tijden.", options: ["elkaar","ons","me","zich"], correct: 0, explanation: "🟢 Steunen elkaar." },
+  { question: "Ze kenden ... al jaren.", options: ["zich","elkaar","elkander","mekaar"], correct: 1, explanation: "🟢 Kennen elkaar." },
+  { question: "Jullie moeten ... de waarheid zeggen.", options: ["jullie","je","elkaar","elkander"], correct: 2, explanation: "🟢 Zeggen elkaar." },
+  { question: "De twee teams beconcurreren ... fel.", options: ["elkander","elkaar","mekaar","alle bovenstaande"], correct: 1, explanation: "🟢 Beconcurreren elkaar." },
+  { question: "We kunnen ... beter leren kennen.", options: ["elkaar","ons","elkander","mekaar"], correct: 0, explanation: "🟢 Leren kennen elkaar." },
+  { question: "De spelers complimenteerden ... na de wedstrijd.", options: ["elkaar","elkander","mekaar","hun"], correct: 0, explanation: "🟢 Complimenteren elkaar." },
+  { question: "Na het ruzie vermeden ze ....", options: ["elkander","elkaar","mekaar","alle A,B,C"], correct: 1, explanation: "🟢 Vermijden elkaar." },
+  { question: "We moeten ... eerlijk behandelen.", options: ["elkaar","ons","elkander","mekaar"], correct: 0, explanation: "🟢 Behandelen elkaar." },
+  { question: "De tweeling lijkt veel op ....", options: ["mekaar","elkander","elkaar","zich"], correct: 2, explanation: "🟢 Lijken op elkaar." },
+  { question: "Jullie mogen ... niet kwetsen.", options: ["elkander","mekaar","elkaar","jullie"], correct: 2, explanation: "🟢 Kwetsen elkaar." },
+  { question: "De leerlingen helpen ... met huiswerk.", options: ["elkander","elkaar","mekaar","hun"], correct: 1, explanation: "🟢 Helpen elkaar." },
+  { question: "Ze spraken ... zachtjes toe.", options: ["elkaar","elkander","mekaar","hen"], correct: 0, explanation: "🟢 Spreken elkaar toe." },
+  { question: "We schrijven ... brieven sinds 2010.", options: ["elkander","mekaar","elkaar","ons"], correct: 2, explanation: "🟢 Schrijven elkaar." }
+]    },
     39: { // Formeel vs informeel
       practice: [
         { question: "Wanneer gebruik je 'u'?", options: ["Tegen oudere mensen of in formele situaties","Altijd tegen vreemden","Alleen in brieven","Nooit"], correct: 0, explanation: "❌ Fout! 'U' = beleefdheidsvorm.", tip: "💡 U = formeel, jij = informeel." },
