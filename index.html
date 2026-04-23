@@ -22622,8 +22622,828 @@ const TOPICS = {
       </div>
     </div>
   `
-},    {id:16,t:"Le subjonctif présent et passé",d:"Emplois : obligation, sentiment, doute, conjonctions"},
-    {id:17,t:"L'impératif",d:"Ordres, conseils et propositions"},
+}, 
+{
+  id: 16,
+  t: "Le subjonctif présent et passé",
+  d: "Formation • Emplois • Déclencheurs • Concordance — maîtriser le mode de l'incertitude et de la volonté",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.pres { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.passe { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.vol { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge.sent { background: var(--gw-bg3); color: var(--gw-text); border-color: var(--gw-border); }
+      .gw-badge.conj { background: var(--gw-warn-bg); color: var(--gw-warn-text); border-color: var(--gw-warn); }
+      .gw-badge.term { background: var(--gw-bg3); color: var(--gw-text2); border-color: var(--gw-border); font-style: italic; }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+      .gw-summary {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      }
+      .gw-summary h3 { margin: 0 0 16px; color: var(--gw-accent); font-size: 1.3rem; font-weight: 700; }
+      .gw-summary ul { margin: 0 0 16px 28px; padding: 0; }
+      .gw-summary li { margin-bottom: 10px; line-height: 1.6; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🎭 Le Subjonctif</h1>
+        <p>Présent • Passé • Volonté • Incertitude — le mode du virtuel et du souhait</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Le subjonctif est un <strong>mode</strong> (et non un temps) qui exprime l'<strong>incertitude, la volonté, le sentiment, le doute, la possibilité, la nécessité</strong>. Par opposition à l'indicatif (mode du réel), le subjonctif présente l'action comme <em>non réalisée, envisagée dans la pensée</em>. Il apparaît presque toujours dans une <strong>proposition subordonnée</strong>, introduite par <strong>que</strong>.</p>
+        <div class="gw-example">
+          💬 <em>"Je veux <strong>que tu viennes</strong>." (volonté)<br>
+          "Je cherche une maison <strong>qui soit</strong> calme." (relative avec nuance)<br>
+          "Bien qu'il <strong>fasse</strong> froid, je sors." (concession)</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔧 Formation du subjonctif présent</h2>
+        <p>Le subjonctif présent se construit sur le <strong>radical de la 3e personne du pluriel du présent de l'indicatif</strong> (<em>ils/elles</em>), auquel on retire <code>-ent</code>, puis on ajoute les terminaisons : <span class="gw-badge term">-e, -es, -e, -ions, -iez, -ent</span>.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Personne</th><th>Terminaison</th><th>Parler</th><th>Finir</th></tr></thead>
+            <tbody>
+              <tr><td>que je</td><td><span class="gw-badge term">-e</span></td><td>que je parl<strong>e</strong></td><td>que je finiss<strong>e</strong></td></tr>
+              <tr><td>que tu</td><td><span class="gw-badge term">-es</span></td><td>que tu parl<strong>es</strong></td><td>que tu finiss<strong>es</strong></td></tr>
+              <tr><td>qu'il/elle/on</td><td><span class="gw-badge term">-e</span></td><td>qu'il parl<strong>e</strong></td><td>qu'il finiss<strong>e</strong></td></tr>
+              <tr><td>que nous</td><td><span class="gw-badge term">-ions</span></td><td>que nous parl<strong>ions</strong></td><td>que nous finiss<strong>ions</strong></td></tr>
+              <tr><td>que vous</td><td><span class="gw-badge term">-iez</span></td><td>que vous parl<strong>iez</strong></td><td>que vous finiss<strong>iez</strong></td></tr>
+              <tr><td>qu'ils/elles</td><td><span class="gw-badge term">-ent</span></td><td>qu'ils parl<strong>ent</strong></td><td>qu'ils finiss<strong>ent</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          💡 <strong>Particularités orthographiques</strong> : <code>-ger</code> garde le <strong>e</strong> (<em>que nous mangions</em>) | <code>-cer</code> prend la cédille devant <strong>a</strong> (<em>que nous commencions</em>)
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔄 Verbes à deux radicaux (alternance)</h2>
+        <p>De nombreux verbes du 3e groupe ont <strong>deux radicaux</strong> : un pour <em>je/tu/il/ils</em> (issu de <em>ils</em> au présent) et un autre pour <em>nous/vous</em> (souvent celui de <em>nous</em> au présent).</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Verbe</th><th>Radical 1 (je/tu/il/ils)</th><th>Radical 2 (nous/vous)</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td><strong>prendre</strong></td><td><code>prenn-</code></td><td><code>pren-</code></td><td><em>que je <strong>prenne</strong> / que nous <strong>prenions</strong></em></td></tr>
+              <tr><td><strong>venir</strong></td><td><code>vienn-</code></td><td><code>ven-</code></td><td><em>que je <strong>vienne</strong> / que nous <strong>venions</strong></em></td></tr>
+              <tr><td><strong>boire</strong></td><td><code>boiv-</code></td><td><code>buv-</code></td><td><em>que je <strong>boive</strong> / que nous <strong>buvions</strong></em></td></tr>
+              <tr><td><strong>devoir</strong></td><td><code>doiv-</code></td><td><code>dev-</code></td><td><em>que je <strong>doive</strong> / que nous <strong>devions</strong></em></td></tr>
+              <tr><td><strong>recevoir</strong></td><td><code>reçoiv-</code></td><td><code>recev-</code></td><td><em>que je <strong>reçoive</strong> / que nous <strong>recevions</strong></em></td></tr>
+              <tr><td><strong>mourir</strong></td><td><code>meur-</code></td><td><code>mour-</code></td><td><em>que je <strong>meure</strong> / que nous <strong>mourions</strong></em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Verbes totalement irréguliers</h2>
+        <p>Ces verbes très courants ont un radical spécifique au subjonctif. Les terminaisons restent <strong>toujours les mêmes</strong>.</p>
+       
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge pres">ÊTRE / AVOIR / ALLER / FAIRE</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>être</strong></td><td>→ <em>que je <strong>sois</strong>, que nous <strong>soyons</strong></em></td></tr>
+                <tr><td><strong>avoir</strong></td><td>→ <em>que j'<strong>aie</strong>, que nous <strong>ayons</strong></em></td></tr>
+                <tr><td><strong>aller</strong></td><td>→ <em>que j'<strong>aille</strong>, que nous <strong>allions</strong></em></td></tr>
+                <tr><td><strong>faire</strong></td><td>→ <em>que je <strong>fasse</strong>, que nous <strong>fassions</strong></em></td></tr>
+              </table>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge pres">POUVOIR / VOULOIR / SAVOIR</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>pouvoir</strong></td><td>→ <em>que je <strong>puisse</strong>, que nous <strong>puissions</strong></em></td></tr>
+                <tr><td><strong>vouloir</strong></td><td>→ <em>que je <strong>veuille</strong>, que nous <strong>voulions</strong></em></td></tr>
+                <tr><td><strong>savoir</strong></td><td>→ <em>que je <strong>sache</strong>, que nous <strong>sachions</strong></em></td></tr>
+              </table>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title"><span class="gw-badge pres">Impersonnels</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <em>falloir</em> → <strong>qu'il faille</strong><br>
+              <em>pleuvoir</em> → <strong>qu'il pleuve</strong><br>
+              <em>valoir</em> → <em>que je vaille, que nous valions</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Emplois du subjonctif présent</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge vol">🔹 Volonté / Souhait / Obligation</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Après : <em>vouloir, souhaiter, exiger, ordonner, préférer, il faut que…</em><br><br>
+              💬 <em>"Je veux que tu <strong>sois</strong> à l'heure."</em><br>
+              💬 <em>"Il faut que vous <strong>fassiez</strong> attention."</em><br>
+              💬 <em>"Elle souhaite que nous <strong>venions</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge sent">🔹 Sentiment / Appréciation</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Après : <em>être heureux/triste/surpris que, craindre, avoir peur que, regretter…</em><br><br>
+              💬 <em>"Je suis heureux que vous <strong>soyez</strong> là."</em><br>
+              💬 <em>"J'ai peur qu'il <strong>pleuve</strong>."</em><br>
+              💬 <em>"Elle regrette que tu ne <strong>puisses</strong> pas venir."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge vol">🔹 Tournures impersonnelles</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <em>il est important/nécessaire/possible/dommage que, il vaut mieux que…</em><br><br>
+              💬 <em>"Il est possible qu'elle <strong>arrive</strong> en retard."</em><br>
+              💬 <em>"Il vaut mieux que tu <strong>partes</strong> maintenant."</em><br>
+              💬 <em>"Il semble que ce <strong>soit</strong> la bonne solution."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge conj">🔹 Conjonctions de subordination</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <table style="width:100%; font-size:0.9em;">
+                <tr><td><strong>but</strong></td><td><em>pour que, afin que</em></td></tr>
+                <tr><td><strong>concession</strong></td><td><em>bien que, quoique</em></td></tr>
+                <tr><td><strong>temps</strong></td><td><em>avant que, jusqu'à ce que</em></td></tr>
+                <tr><td><strong>crainte</strong></td><td><em>de peur que, de crainte que</em></td></tr>
+                <tr><td><strong>condition</strong></td><td><em>à moins que, pourvu que</em></td></tr>
+                <tr><td><strong>manière</strong></td><td><em>sans que</em></td></tr>
+              </table>
+              💬 <em>"Bien qu'il <strong>fasse</strong> froid, je sors."</em><br>
+              💬 <em>"Je t'explique afin que tu <strong>comprennes</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge vol">🔹 Relatives avec nuance</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Après un superlatif, <em>le seul/l'unique</em>, ou antécédent indéfini :<br><br>
+              💬 <em>"C'est la plus belle femme que j'<strong>aie</strong> jamais vue."</em><br>
+              💬 <em>"Voici le seul ami qui me <strong>comprenne</strong>."</em><br>
+              💬 <em>"Y a-t-il quelqu'un qui <strong>puisse</strong> m'aider ?"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge sent">🔹 Souhaits indépendants</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Formes figées ou solennelles :<br><br>
+              💬 <em>"Que la lumière <strong>soit</strong> !"</em><br>
+              💬 <em>"Que le sort vous <strong>soit</strong> favorable !"</em><br>
+              💬 <em>"Dieu vous <strong>bénisse</strong> !"</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔙 Formation du subjonctif passé</h2>
+        <p>Forme composée : <strong>auxiliaire (être/avoir) au subjonctif présent</strong> + <strong>participe passé</strong>. Mêmes règles d'accord qu'au passé composé.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Auxiliaire (subj. présent)</th><th>Participe passé</th><th>Exemples</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge pres">que j'aie / que tu aies…</span></td><td><strong>parlé / fini / pris</strong></td><td><em>que j'<strong>aie mangé</strong></em></td></tr>
+              <tr><td><span class="gw-badge pres">que je sois / que tu sois…</span></td><td><strong>allé(e) / venu(e) / parti(e)</strong></td><td><em>que je <strong>sois allé(e)</strong></em></td></tr>
+              <tr><td><span class="gw-badge pres">que je me sois…</span></td><td><strong>lavé(e) / souvenu(e)…</strong></td><td><em>que nous <strong>nous soyons rencontrés</strong></em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          💡 <strong>Accord</strong> : avec <em>être</em> → sujet | avec <em>avoir</em> → COD antéposé | pronominaux → règle COD/COI
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Emplois du subjonctif passé</h2>
+        <p>Le subjonctif passé exprime une action <strong>antérieure</strong> au verbe principal, dans le cadre du subjonctif (incertitude, volonté, sentiment…).</p>
+       
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge passe">🔹 Antériorité après un déclencheur</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              💬 <em>"Je suis surpris qu'il <strong>ait déjà fini</strong>." (finir avant ma surprise)<br>
+              "Il faut que tu <strong>aies téléphoné</strong> avant 18h." (action à accomplir dans un délai)<br>
+              "Je regrette que vous <strong>ne soyez pas venus</strong>." (absence passée)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge passe">🔹 Concordance simplifiée</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              • Principal au présent/futur : subj. présent (simultané) ou passé (antérieur)<br>
+              • Principal au passé : idem, le subjonctif présent reste toléré<br><br>
+              💬 <em>"Je ne pense pas qu'il <strong>ait compris</strong>." (maintenant)<br>
+              "Avant que tu <strong>n'arrives</strong>, nous avions mangé." (usage courant)</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Pièges et confusions fréquentes</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 « Après que » → indicatif</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Malgré l'usage courant, <em>après que</em> demande l'<strong>indicatif</strong> car l'action est présentée comme accomplie.<br><br>
+              ✅ <em>"Après qu'il <strong>est parti</strong>, j'ai pleuré."</em><br>
+              ❌ <em>"Après qu'il soit parti…" (incorrect mais fréquent)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 « Avant que » + ne explétif</div>
+            <p style="margin:0; color:var(--gw-text)">
+              On peut ajouter un <strong>ne</strong> explétif (sans valeur négative) après <em>avant que, à moins que, de peur que…</em><br><br>
+              💬 <em>"Avant qu'il <strong>(ne) pleuve</strong>."</em><br>
+              💬 <em>"À moins que tu <strong>(ne) sois</strong> d'accord."</em><br>
+              Les deux formes (avec ou sans <em>ne</em>) sont correctes.
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 « Il semble » vs « Il me semble »</div>
+            <p style="margin:0; color:var(--gw-text)">
+              • <em>Il semble que</em> → <strong>subjonctif</strong> (incertitude)<br>
+              • <em>Il me semble que</em> → <strong>indicatif</strong> (certitude personnelle)<br>
+              • <em>Il paraît que</em> → <strong>indicatif</strong><br><br>
+              💬 <em>"Il semble qu'il <strong>soit</strong> malade." / "Il me semble qu'il <strong>est</strong> malade."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 « Espérer » : indicatif généralement</div>
+            <p style="margin:0; color:var(--gw-text)">
+              <em>Espérer</em> est généralement suivi de l'<strong>indicatif</strong>, sauf à la forme négative/interrogative où le subjonctif est possible mais rare.<br><br>
+              ✅ <em>"J'espère qu'il <strong>viendra</strong>."</em><br>
+              ❓ <em>"Espères-tu qu'il <strong>vienne</strong> ?" (subjonctif possible mais rare)</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📊 Tableau récapitulatif des constructions</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Élément déclencheur</th><th>Mode</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Volonté / Souhait</strong></td><td><span class="gw-badge pres">Subjonctif</span></td><td><em>Je veux qu'il <strong>fasse</strong> ses devoirs.</em></td></tr>
+              <tr><td><strong>Sentiment / Crainte</strong></td><td><span class="gw-badge pres">Subjonctif</span></td><td><em>J'ai peur qu'il ne <strong>pleuve</strong>.</em></td></tr>
+              <tr><td><strong>Doute / Incertitude</strong></td><td><span class="gw-badge pres">Subjonctif</span></td><td><em>Je doute qu'elle <strong>sache</strong> la vérité.</em></td></tr>
+              <tr><td><strong>Conjonctions</strong> (bien que, pour que…)</td><td><span class="gw-badge pres">Subjonctif</span></td><td><em>Bien qu'il <strong>soit</strong> tard, je reste.</em></td></tr>
+              <tr><td><strong>Superlatif / Restrictif</strong></td><td><span class="gw-badge pres">Subjonctif</span></td><td><em>C'est le meilleur film que j'<strong>aie</strong> vu.</em></td></tr>
+              <tr><td><strong>Opinion négative</strong></td><td><span class="gw-badge pres">Subjonctif</span></td><td><em>Je ne pense pas qu'il <strong>vienne</strong>.</em></td></tr>
+              <tr><td><strong>Antériorité</strong></td><td><span class="gw-badge passe">Subj. passé</span></td><td><em>Je regrette qu'il <strong>soit déjà parti</strong>.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💬 Exemples en contexte</h2>
+        <div class="gw-example">
+          🔹 <em>"Que tu <strong>sois</strong> en retard ne me surprend pas."</em><br>
+          🔹 <em>"Je ne crois pas qu'elle <strong>ait</strong> raison."</em><br>
+          🔹 <em>"Cherchons un endroit où il <strong>fasse</strong> bon vivre."</em><br>
+          🔹 <em>"Mon vœu le plus cher est que vous <strong>réussissiez</strong>."</em><br>
+          🔹 <em>"Pourvu qu'il <strong>ne soit pas</strong> trop tard !"</em><br>
+          🔹 <em>"Nous sommes ravis que vous <strong>ayez pu</strong> vous joindre à nous."</em><br>
+          🔹 <em>"Quoi que tu <strong>fasses</strong>, je serai là pour toi."</em><br>
+          🔹 <em>"Bien qu'il <strong>ait plu</strong> toute la journée, la fête a été un succès."</em>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Résumé rapide</h3>
+        <ul>
+          <li><strong>Formation présent</strong> : radical de <em>ils</em> au présent + <code>-e, -es, -e, -ions, -iez, -ent</code></li>
+          <li><strong>Formation passé</strong> : auxiliaire au subjonctif présent + participe passé (mêmes accords qu'au PC)</li>
+          <li><span class="gw-badge vol">Déclencheurs</span> : volonté • sentiment • doute • impersonnels • conjonctions (bien que, pour que…)</li>
+          <li><span class="gw-badge passe">Subjonctif passé</span> : pour marquer l'antériorité dans le cadre du subjonctif</li>
+          <li><strong>« Après que »</strong> → indicatif (pas subjonctif) | <strong>« Avant que »</strong> → subjonctif (+ ne explétif possible)</li>
+          <li><strong>💡 Astuce</strong> → Posez-vous : "L'action est-elle réelle/certaine ?" → indicatif. "Est-elle souhaitée, douteuse, incertaine ?" → subjonctif.</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Besoin d'exercices sur les déclencheurs du subjonctif ou des nuances indicatif/subjonctif ? N'hésitez pas à demander ! 🚀</p>
+      </div>
+    </div>
+  `
+},
+{
+  id: 17,
+  t: "L'impératif présent et passé",
+  d: "Ordre • Conseil • Interdiction • Pronoms — maîtriser le mode de la volonté directe",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.g1 { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.g2 { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.g3 { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge.aff { background: var(--gw-bg3); color: var(--gw-text); border-color: var(--gw-border); }
+      .gw-badge.neg { background: var(--gw-warn-bg); color: var(--gw-warn-text); border-color: var(--gw-warn); }
+      .gw-badge.pron { background: var(--gw-bg3); color: var(--gw-text2); border-color: var(--gw-border); font-style: italic; }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+      .gw-summary {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      }
+      .gw-summary h3 { margin: 0 0 16px; color: var(--gw-accent); font-size: 1.3rem; font-weight: 700; }
+      .gw-summary ul { margin: 0 0 16px 28px; padding: 0; }
+      .gw-summary li { margin-bottom: 10px; line-height: 1.6; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🗣️ L'Impératif</h1>
+        <p>Ordre • Conseil • Interdiction • Pronoms — le mode de la volonté directe</p>
+      </div>
+
+      <div class="gw-section">
+        <p>L'impératif est un <strong>mode</strong> qui sert à exprimer un <strong>ordre, un conseil, une interdiction, une prière, une instruction ou un souhait</strong>. Il ne se conjugue qu'à <strong>trois personnes</strong> (sans sujet exprimé) : <span class="gw-badge g1">tu</span>, <span class="gw-badge g2">nous</span>, <span class="gw-badge g3">vous</span>.</p>
+        <div class="gw-example">
+          💬 <em>"<strong>Regarde</strong> !" (tu) • "<strong>Regardons</strong> !" (nous) • "<strong>Regardez</strong> !" (vous)</em><br>
+          💬 <em>"<strong>Va</strong> chercher du pain." • "<strong>Ne fumez</strong> pas." • "<strong>Soyez</strong> heureux !"</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔧 Formation de l'impératif présent</h2>
+        <p>On part du <strong>présent de l'indicatif</strong> des personnes correspondantes, en supprimant le sujet. Mais il y a des règles de simplification.</p>
+       
+        <h3>✨ Verbes du 1er groupe (-er) + assimilés</h3>
+        <p>Pour les verbes en <strong>-er</strong> (y compris <em>aller</em>) et certains verbes en <em>-ir</em> (<em>ouvrir, offrir, cueillir…</em>), la 2e personne du singulier <strong>perd le -s</strong> final.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Verbe</th><th>Présent (tu)</th><th>Impératif (tu)</th><th>(nous)</th><th>(vous)</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge g1">parler</span></td><td>tu parles</td><td><strong>parle</strong></td><td>parlons</td><td>parlez</td></tr>
+              <tr><td><span class="gw-badge g1">aller</span></td><td>tu vas</td><td><strong>va</strong> ⚠️</td><td>allons</td><td>allez</td></tr>
+              <tr><td><span class="gw-badge g3">ouvrir</span></td><td>tu ouvres</td><td><strong>ouvre</strong></td><td>ouvrons</td><td>ouvrez</td></tr>
+              <tr><td><span class="gw-badge g3">cueillir</span></td><td>tu cueilles</td><td><strong>cueille</strong></td><td>cueillons</td><td>cueillez</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>✨ Autres verbes (2e groupe + 3e groupe)</h3>
+        <p>Ils gardent la forme du présent de l'indicatif. La 2e personne du singulier se termine généralement par <strong>-s</strong> ou <strong>-x</strong>.</p>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Verbe</th><th>Présent (tu)</th><th>Impératif (tu)</th><th>(nous)</th><th>(vous)</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge g2">finir</span></td><td>tu finis</td><td><strong>finis</strong></td><td>finissons</td><td>finissez</td></tr>
+              <tr><td><span class="gw-badge g3">vendre</span></td><td>tu vends</td><td><strong>vends</strong></td><td>vendons</td><td>vendez</td></tr>
+              <tr><td><span class="gw-badge g3">partir</span></td><td>tu pars</td><td><strong>pars</strong></td><td>partons</td><td>partez</td></tr>
+              <tr><td><span class="gw-badge g3">prendre</span></td><td>tu prends</td><td><strong>prends</strong></td><td>prenons</td><td>prenez</td></tr>
+              <tr><td><span class="gw-badge g3">être</span></td><td>tu es</td><td><strong>sois</strong></td><td>soyons</td><td>soyez</td></tr>
+              <tr><td><span class="gw-badge g3">avoir</span></td><td>tu as</td><td><strong>aie</strong></td><td>ayons</td><td>ayez</td></tr>
+              <tr><td><span class="gw-badge g3">savoir</span></td><td>tu sais</td><td><strong>sache</strong></td><td>sachons</td><td>sachez</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          💡 <strong>Attention</strong> : <em>pouvoir</em> n'a pas d'impératif usuel (on utilise le subjonctif : <em>puisse-t-il…</em>). <em>Vouloir</em> admet <em>veux/voulons/voulez</em> mais <strong>veuillez</strong> est la forme de politesse courante.
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔤 Règle du -s euphonique devant « en » et « y »</h2>
+        <p>À la 2e personne du singulier, on <strong>remet un -s</strong> pour des raisons de prononciation lorsque le verbe est suivi des pronoms <strong>en</strong> ou <strong>y</strong>.</p>
+       
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--rule">
+            <div class="gw-card-title"><span class="gw-badge g1">Verbes en -er (et assimilés)</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le -s revient devant <code>en</code> ou <code>y</code> :<br><br>
+              💬 <em>"Mange !" → "Mange<strong>s</strong>-en !"</em><br>
+              💬 <em>"Va !" → "Va<strong>s</strong>-y !"</em><br>
+              💬 <em>"Pense !" → "Pense<strong>s</strong>-y !"</em><br>
+              💬 <em>"Donne !" → "Donne<strong>s</strong>-en !"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title"><span class="gw-badge g2">Autres verbes (gardent -s)</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le -s est déjà présent, il se prononce dans la liaison :<br><br>
+              💬 <em>"Finis !" → "Finis-en !" [fini‿zɑ̃]</em><br>
+              💬 <em>"Viens !" → "Viens-y !"</em><br><br>
+              💡 Le -s euphonique ne s'écrit que pour les verbes qui l'ont perdu à l'impératif !
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🚫 Impératif négatif</h2>
+        <p>À la forme négative, les pronoms compléments <strong>reprennent leur place habituelle avant le verbe</strong> et <code>ne… pas</code> encadre le verbe.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Impératif affirmatif</th><th>Impératif négatif</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge aff">Parle !</span></td><td><span class="gw-badge neg">Ne parle pas !</span></td></tr>
+              <tr><td><span class="gw-badge aff">Finis !</span></td><td><span class="gw-badge neg">Ne finis pas !</span></td></tr>
+              <tr><td><span class="gw-badge aff">Allons-y !</span></td><td><span class="gw-badge neg">N'y allons pas !</span></td></tr>
+              <tr><td><span class="gw-badge aff">Lève-toi !</span></td><td><span class="gw-badge neg">Ne te lève pas !</span></td></tr>
+              <tr><td><span class="gw-badge aff">Donne-le-moi !</span></td><td><span class="gw-badge neg">Ne me le donne pas !</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔗 Place des pronoms compléments</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--rule">
+            <div class="gw-card-title"><span class="gw-badge aff">À l'affirmatif : après le verbe</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Pronoms après le verbe, reliés par un <strong>trait d'union</strong>.<br>
+              Ordre : <code>COD → COI → y → en</code><br><br>
+              💬 <em>"Regarde le livre !" → "Regarde-<strong>le</strong> !"</em><br>
+              💬 <em>"Écris à Marie !" → "Écris-<strong>lui</strong> !"</em><br>
+              💬 <em>"Donne des bonbons aux enfants !" → "Donne-<strong>leur-en</strong> !"</em><br>
+              💬 <em>"Allez dans votre chambre !" → "Allez-<strong>y</strong> !"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title"><span class="gw-badge pron">⚠️ me / te → moi / toi</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              <code>me, te</code> deviennent <strong>moi, toi</strong> en position finale, sauf devant <code>en</code> :<br><br>
+              ✅ <em>"Parle-<strong>moi</strong> !" • "Lève-<strong>toi</strong> !"</em><br>
+              ✅ <em>"Donne-<strong>m'</strong>en !" (pas ~~moi-en~~)</em><br>
+              ✅ <em>"Va-<strong>t'</strong>en !" (pas ~~toi-en~~)</em><br><br>
+              💡 Devant <code>en/y</code>, <em>te</em> s'élide en <strong>t'</strong> !
+            </p>
+          </div>
+        </div>
+
+        <div class="gw-card gw-card--warn">
+          <div class="gw-card-title"><span class="gw-badge neg">Au négatif : avant le verbe</span></div>
+          <p style="margin:0; color:var(--gw-text)">
+            Les pronoms reprennent l'ordre normal <strong>avant</strong> le verbe :<br><br>
+            💬 <em>"Ne <strong>me le</strong> donne pas."</em><br>
+            💬 <em>"Ne <strong>t'en</strong> va pas."</em><br>
+            💬 <em>"Ne <strong>lui en</strong> parle pas."</em><br>
+            💬 <em>"Ne <strong>vous y</strong> rendez pas."</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔄 Verbes pronominaux</h2>
+        <p>L'impératif des verbes pronominaux suit les mêmes règles. Le pronom réfléchi se place <strong>après</strong> le verbe à l'affirmatif, <strong>avant</strong> au négatif.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Verbe</th><th>Affirmatif</th><th>Négatif</th></tr></thead>
+            <tbody>
+              <tr><td><strong>se lever</strong></td><td><em>Lève-<strong>toi</strong> ! • Levons-<strong>nous</strong> ! • Levez-<strong>vous</strong> !</em></td><td><em>Ne <strong>te</strong> lève pas ! • Ne <strong>nous</strong> levons pas ! • Ne <strong>vous</strong> levez pas !</em></td></tr>
+              <tr><td><strong>s'en aller</strong></td><td><em>Va-<strong>t'en</strong> ! • Allons-<strong>nous-en</strong> ! • Allez-<strong>vous-en</strong> !</em></td><td><em>Ne <strong>t'en</strong> va pas ! • Ne <strong>nous en</strong> allons pas ! • Ne <strong>vous en</strong> allez pas !</em></td></tr>
+              <tr><td><strong>se souvenir</strong></td><td><em>Souviens-<strong>toi</strong> ! • Souvenons-<strong>nous</strong> ! • Souvenez-<strong>vous</strong> !</em></td><td><em>Ne <strong>te</strong> souviens pas ! • Ne <strong>nous</strong> souvenons pas ! • Ne <strong>vous</strong> souvenez pas !</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          💡 <strong>Verbes réciproques</strong> : même règle → <em>"Embrassez-vous !" • "Téléphonons-nous !"</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🎭 Emplois de l'impératif présent</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Ordre / Commandement</div>
+            <p style="margin:0; color:var(--gw-text)">
+              💬 <em>"<strong>Tais-toi</strong> !"</em><br>
+              💬 <em>"<strong>Rangez</strong> votre chambre immédiatement !"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Interdiction</div>
+            <p style="margin:0; color:var(--gw-text)">
+              💬 <em>"<strong>Ne fumez</strong> pas."</em><br>
+              💬 <em>"<strong>Ne marche</strong> pas sur la pelouse."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Conseil / Recommandation</div>
+            <p style="margin:0; color:var(--gw-text)">
+              💬 <em>"<strong>Repose-toi</strong> un peu."</em><br>
+              💬 <em>"<strong>Prenez</strong> le bus, c'est plus simple."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Prière / Souhait</div>
+            <p style="margin:0; color:var(--gw-text)">
+              💬 <em>"<strong>Pardonnez-nous</strong> nos offenses."</em><br>
+              💬 <em>"<strong>Sois</strong> heureux !"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Instruction / Mode d'emploi</div>
+            <p style="margin:0; color:var(--gw-text)">
+              💬 <em>"<strong>Ajoutez</strong> le sucre, puis <strong>mélangez</strong>."</em><br>
+              💬 <em>"<strong>Appuyez</strong> sur le bouton pour démarrer."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Valeur de condition</div>
+            <p style="margin:0; color:var(--gw-text)">
+              💬 <em>"<strong>Avoue</strong> ton erreur, et tu seras pardonné." (= Si tu avoues…)<br>
+              "<strong>Fais</strong> ce que je te dis, sinon gare à toi !"</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔙 L'impératif passé (rare, littéraire)</h2>
+        <p>Exprime un ordre à exécuter <strong>avant un moment donné</strong>. Formation : auxiliaire (<em>être/avoir</em>) à l'impératif présent + participe passé.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Auxiliaire (impératif)</th><th>Participe passé</th><th>Exemples</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge g3">aie / ayons / ayez</span></td><td><strong>fini / mangé / pris…</strong></td><td><em>"<strong>Aie fini</strong> tes devoirs avant 18h !"</em></td></tr>
+              <tr><td><span class="gw-badge g3">sois / soyons / soyez</span></td><td><strong>parti(s) / venu(s)…</strong></td><td><em>"<strong>Soyez rentrés</strong> avant minuit !"</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-note">
+          💡 Cet usage, parfaitement correct, est peu employé dans la langue courante. On préfère l'impératif présent + complément de temps : <em>"Finis tes devoirs avant 18h !"</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 Tableau récapitulatif de formation</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Type de verbe</th><th>(tu)</th><th>(nous)</th><th>(vous)</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge g1">1er groupe (-er)</span> : parler</td><td>parle</td><td>parlons</td><td>parlez</td></tr>
+              <tr><td><span class="gw-badge g1">aller</span></td><td>va (vas-y) ⚠️</td><td>allons</td><td>allez</td></tr>
+              <tr><td><span class="gw-badge g2">2e groupe (-ir)</span> : finir</td><td>finis</td><td>finissons</td><td>finissez</td></tr>
+              <tr><td><span class="gw-badge g3">3e groupe (-re)</span> : vendre</td><td>vends</td><td>vendons</td><td>vendez</td></tr>
+              <tr><td><span class="gw-badge g3">être</span></td><td>sois</td><td>soyons</td><td>soyez</td></tr>
+              <tr><td><span class="gw-badge g3">avoir</span></td><td>aie</td><td>ayons</td><td>ayez</td></tr>
+              <tr><td><span class="gw-badge g3">savoir</span></td><td>sache</td><td>sachons</td><td>sachez</td></tr>
+              <tr><td><span class="gw-badge g3">vouloir (politesse)</span></td><td>veuille</td><td>—</td><td>veuillez</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💬 Exemples variés en contexte</h2>
+        <div class="gw-example">
+          🔹 <em>"<strong>Attends-moi</strong> après le cours."</em><br>
+          🔹 <em>"<strong>N'oubliez pas</strong> votre parapluie."</em><br>
+          🔹 <em>"<strong>Finissons-en</strong> avec ce problème."</em><br>
+          🔹 <em>"<strong>Va chercher</strong> du pain, s'il te plaît."</em><br>
+          🔹 <em>"<strong>Prenez-en</strong> plusieurs si vous voulez."</em><br>
+          🔹 <em>"<strong>Rappelle-toi</strong> ce que je t'ai dit."</em><br>
+          🔹 <em>"<strong>Ne vous inquiétez pas</strong>, tout va bien."</em><br>
+          🔹 <em>"<strong>Sachez que</strong> je suis là pour vous aider."</em><br>
+          🔹 <em>"<strong>Ayons confiance</strong> en l'avenir."</em>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Résumé rapide</h3>
+        <ul>
+          <li><strong>Personnes</strong> : uniquement <code>tu / nous / vous</code> (sans sujet exprimé)</li>
+          <li><span class="gw-badge g1">1er groupe (-er)</span> : <code>tu</code> perd le -s → <em>parle, va</em> (sauf devant <em>en/y</em> : <em>parles-en, vas-y</em>)</li>
+          <li><span class="gw-badge g2 g3">Autres verbes</span> : gardent la forme du présent → <em>finis, vends, sois, aie, sache</em></li>
+          <li><strong>Pronoms affirmatif</strong> : après le verbe, avec trait d'union → <em>Donne-le-moi ! Va-t'en !</em></li>
+          <li><strong>Pronoms négatif</strong> : avant le verbe → <em>Ne me le donne pas. Ne t'en va pas.</em></li>
+          <li><strong>💡 Astuce</strong> → Pour former l'impératif : prenez le présent de l'indicatif, retirez le sujet, et pour les verbes en -er, enlevez le -s à <em>tu</em> (sauf devant <em>en/y</em>) !</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Besoin d'exercices sur la place des pronoms ou les doubles pronoms à l'impératif ? N'hésitez pas à demander ! 🚀</p>
+      </div>
+    </div>
+  `
+},
     {id:18,t:"Les verbes pronominaux",d:"Réfléchis, réciproques, essentiellement pronominaux"},
     {id:19,t:"La voix passive",d:"Formation, emploi et alternatives"},
     {id:20,t:"Le discours indirect",d:"Concordance des temps et transformation des indicateurs"},
@@ -29854,47 +30674,122 @@ test: [
   { question: "We schrijven ... brieven sinds 2010.", options: ["elkander","mekaar","elkaar","ons"], correct: 2, explanation: "🟢 Schrijven elkaar." }
 ]    },
     39: { // Formeel vs informeel
-      practice: [
-        { question: "Wanneer gebruik je 'u'?", options: ["Tegen oudere mensen of in formele situaties","Altijd tegen vreemden","Alleen in brieven","Nooit"], correct: 0, explanation: "❌ Fout! 'U' = beleefdheidsvorm.", tip: "💡 U = formeel, jij = informeel." },
-        { question: "Informeel: 'Hoe maakt ... het?'", options: ["u","jij","je","gij"], correct: 2, explanation: "❌ Fout! Informeel: Hoe gaat het met je?", tip: "💡 Je = onbeklemtoond, jij = beklemtoond." },
-        { question: "Formeel: '... kunt u mij helpen?'", options: ["Kan","Kunt","Kun","Kan je"], correct: 1, explanation: "❌ Fout! Beleefd: Kunt u.", tip: "💡 Kunt u = formeel verzoek." },
-        { question: "Informeel: '... bent mijn vriend.'", options: ["U","Jij","Gij","Men"], correct: 1, explanation: "❌ Fout! Informeel enkelvoud: jij.", tip: "💡 Jij = informeel, u = formeel." },
-        { question: "Wanneer gebruik je 'jij'?", options: ["Tegen vrienden","Tegen ouderen (onbekend)","Sollicitatiebrief","Tegen een agent"], correct: 0, explanation: "❌ Fout! Jij = informeel, voor bekenden.", tip: "💡 Jij = vrienden/familie." }
-      ],
-      test: [
-        { question: "Formeel: '... heeft u tijd?'", options: ["Heb","Heeft","Hebben","Hebt"], correct: 1, explanation: "U + heeft." },
-        { question: "Informeel: '... heb je tijd?'", options: ["Heb","Heeft","Hebben","Hebt"], correct: 0, explanation: "Jij + heb." },
-        { question: "Formeel: '... wilt u komen?'", options: ["Wil","Wilt","Willen","Wilt u"], correct: 1, explanation: "U + wilt." },
-        { question: "Informeel: '... wil je komen?'", options: ["Wil","Wilt","Willen","Wilt u"], correct: 0, explanation: "Jij + wil." },
-        { question: "Formeel: '... bent u klaar?'", options: ["Ben","Bent","Zijn","Bent u"], correct: 1, explanation: "U + bent." },
-        { question: "Informeel: '... ben je klaar?'", options: ["Ben","Bent","Zijn","Bent u"], correct: 0, explanation: "Jij + ben." },
-        { question: "Formeel: '... gaat u?'", options: ["Ga","Gaat","Gaan","Gaat u"], correct: 1, explanation: "U + gaat." },
-        { question: "Informeel: '... ga je?'", options: ["Ga","Gaat","Gaan","Gaat u"], correct: 0, explanation: "Jij + ga." },
-        { question: "Formeel: '... heeft u gezien?'", options: ["Heb","Heeft","Hebben","Heeft u"], correct: 1, explanation: "U + heeft." },
-        { question: "Informeel: '... heb je gezien?'", options: ["Heb","Heeft","Hebben","Heeft u"], correct: 0, explanation: "Jij + heb." }
-      ]
+practice: [
+  { question: "Wat zeg je tegen je vriend?", options: ["U","Je","Men","Hem"], correct: 1, explanation: "🟢 'Je' is informeel en gebruik je onder vrienden en familie.", tip: "💡 Je = informeel | U = formeel" },
+  { question: "Wat zeg je tegen een onbekende oudere mevrouw?", options: ["Jij","Je","U","Ze"], correct: 2, explanation: "🟢 'U' is de beleefde aanspreekvorm voor onbekenden en ouderen.", tip: "💡 U = beleefdheid/afstand" },
+  { question: "Informele begroeting bij aankomst:", options: ["Goedemorgen","Hoi","Goedenavond","Welkom"], correct: 1, explanation: "🟢 'Hoi' is informeel. 'Goedemorgen' is neutraal/formeel.", tip: "💡 Hoi = informeel begin" },
+  { question: "Formele afsluiting van een e-mail aan een klant:", options: ["Doei","Groetjes","Met vriendelijke groet","Later"], correct: 2, explanation: "🟢 'Met vriendelijke groet' is de standaard formele slotformule.", tip: "💡 Formeel = Met vriendelijke groet" },
+  { question: "Informeel: '... je even iets vragen?'", options: ["Mag ik u","Kan ik jou","Zou ik u","Mocht ik u"], correct: 1, explanation: "🟢 'Jou' is informeel. 'U' is formeel.", tip: "💡 Jou = informeel | U = formeel" },
+  { question: "Formeel: '... u mij helpen?'", options: ["Kan je","Kun jij","Kan u","Kunt u"], correct: 3, explanation: "🟢 'Kunt u' is de correcte formele vorm. 'Kan u' is fout.", tip: "💡 Kunt u = correct formeel" },
+  { question: "Informeel antwoord op 'Dank je wel':", options: ["Graag gedaan","Geen dank","Ajb","Niets te danken"], correct: 2, explanation: "🟢 'Ajb' (afkorting van alsjeblieft) is informeel.", tip: "💡 Afbkortingen = informeel" },
+  { question: "Formeel: 'Ik heb ... nodig.' (hulp)", options: ["je hulp","jouw hulp","uw hulp","jullie hulp"], correct: 2, explanation: "🟢 'Uw' is de formele bezittelijke vorm.", tip: "💡 Uw = formeel bezit" },
+  { question: "Informeel verzoekje aan een vriend:", options: ["Zou u me alstublieft kunnen helpen?","Wil jij me even helpen?","Zou je me willen helpen?","Help je me even?"], correct: 3, explanation: "🟢 'Help je me even?' is kort en direct informeel.", tip: "💡 Korte imperatief = informeel" },
+  { question: "Formele schrijfwijze in een zakelijke brief:", options: ["info","informatie","info.","inf"], correct: 1, explanation: "🟢 In formele teksten schrijf je woorden voluit.", tip: "💡 Voluit schrijven = formeel" },
+  { question: "Informeel: 'Ik ... naar de film.' (toekomst)", options: ["zal gaan","ga","zal","ga"], correct: 1, explanation: "🟢 In spreektaal gebruik je vaak de tegenwoordige tijd voor toekomst.", tip: "💡 Tegenwoordige tijd = informele toekomst" },
+  { question: "Formeel: 'Wanneer ... u terugkomen?'", options: ["ga je","kom je","kunt u","zal u"], correct: 2, explanation: "🟢 'Kunt u' is de formele vorm. 'Zal u' is archaïsch.", tip: "💡 Kunt u = formeel verzoek" },
+  { question: "Informele manier om te zeggen: 'Ik begrijp het niet':", options: ["Ik snap het niet","Ik versta het niet","Het is mij onduidelijk","Ik kan er geen wijs uit"], correct: 0, explanation: "🟢 'Snappen' is informeel voor 'begrijpen'.", tip: "💡 Snappen = informeel begrijpen" },
+  { question: "Formele vervanger van 'doen' in een officiële tekst:", options: ["uitvoeren","plegen","maken","zetten"], correct: 0, explanation: "🟢 'Uitvoeren' is formeler en preciezer dan 'doen'.", tip: "💡 Uitvoeren = formeel doen" },
+  { question: "Informele afkorting van 'tranen': 'Hij had ...'", options: ["traantjes","tranen","trek","trs"], correct: 0, explanation: "🟢 Verkleinwoorden geven een informele, vertrouwde toon.", tip: "💡 Verkleinwoord = informeel" },
+  { question: "Formeel adres in een brief: '... de heer Jansen'", options: ["Beste","Hallo","Geachte","Lieve"], correct: 2, explanation: "🟢 'Geachte' is de standaard formele aanhef.", tip: "💡 Geachte = formele aanhef" },
+  { question: "Informele vraag: 'Zullen we ...?' (iets gaan drinken)", options: ["een drankje nuttigen","wat drinken","een verfrissing nemen","iets tot ons nemen"], correct: 1, explanation: "🟢 'Wat drinken' is informeel en natuurlijk in spreektaal.", tip: "💡 Wat drinken = informeel" },
+  { question: "Formeel: '... de bijlage vindt u de offerte.'", options: ["In","Bij","Onder","Zie"], correct: 0, explanation: "🟢 'In de bijlage' is formeel en correct.", tip: "💡 In de bijlage = formeel" },
+  { question: "Informeel synoniem voor 'vervelend':", options: ["lastig","naar","balen","hinderlijk"], correct: 2, explanation: "🟢 'Balen' is informeel. 'Hinderlijk' is formeel.", tip: "💡 Balen = informeel vervelend" },
+  { question: "Formeel: 'De heer De Vries heeft ... gesolliciteerd.'", options: ["op de baan","voor de functie","naar de job","op de plek"], correct: 1, explanation: "🟢 'Solliciteren voor de functie' is formeel. 'Job' is informeel.", tip: "💡 Functie = formeel | Job = informeel" },
+  { question: "Informeel: 'Kom ...!' (uitnodiging te blijven zitten)", options: ["erbij","binnen","maar","gezellig"], correct: 2, explanation: "🟢 Het modale partikel 'maar' maakt het informeel.", tip: "💡 Maar = informeel partikel" },
+  { question: "Formele afsluiting van een sollicitatiebrief:", options: ["Groet,","Met vriendelijke groet,","Later,","Hoogachtend,"], correct: 3, explanation: "🟢 'Hoogachtend' is zeer formeel, typisch voor sollicitaties.", tip: "💡 Hoogachtend = zeer formeel" },
+  { question: "Informeel: 'Ik heb ... honger.'", options: ["enorm","vreselijk","heel","geweldig"], correct: 2, explanation: "🟢 'Heel' is informeel en gewoner in spreektaal.", tip: "💡 Heel = informele versterking" },
+  { question: "Formeel: 'Mocht u nog ... hebben, neem dan contact op.'", options: ["vragen","vraagjes","opmerkingen","dingetjes"], correct: 0, explanation: "🟢 'Vragen' is neutraal/formeel. Verkleinwoorden zijn informeel.", tip: "💡 Geen verkleinwoord = formeel" },
+  { question: "Informeel: 'Het is ... goed.'", options: ["geheel","best","volledig","uitstekend"], correct: 1, explanation: "🟢 'Best goed' is informeel en spreektaalachtig.", tip: "💡 Best = informele matiging" },
+  { question: "Formele vraag om herhaling:", options: ["Wat zei je?","Hoe?","Pardon?","Hè?"], correct: 2, explanation: "🟢 'Pardon?' is beleefd en formeel. 'Hè?' is informeel.", tip: "💡 Pardon = beleefd verzoek" },
+  { question: "Informeel: 'Doe ... die deur.'", options: ["eens","eventjes","maar eens","gewoon"], correct: 2, explanation: "🟢 'Maar eens' verzacht de imperatief in spreektaal.", tip: "💡 Maar eens = informele verzachting" },
+  { question: "Formeel: 'De ... wordt uitgelegd in paragraaf 2.'", options: ["zaak","kwestie","ding","affaire"], correct: 1, explanation: "🟢 'Kwestie' is formeler dan 'zaak' en veel formeler dan 'ding'.", tip: "💡 Kwestie = formeel onderwerp" },
+  { question: "Informeel: 'Ik ga ...' (naar bed)", options: ["slapen","onder de wol","mijn rust zoeken","de nacht in"], correct: 1, explanation: "🟢 'Onder de wol gaan' is een beeldende, informele uitdrukking.", tip: "💡 Onder de wol = informeel slapen" },
+  { question: "Formeel: 'Hierbij nodig ik ... uit voor de vergadering.'", options: ["je","jou","u","jullie"], correct: 2, explanation: "🟢 In een formele uitnodiging spreek je de ontvanger aan met 'u'.", tip: "💡 U = formele uitnodiging" },
+  { question: "Informeel antwoord op 'Hoe gaat het?':", options: ["Goed, dank u.","Best, en met u?","Ja, hoor.","Goed, en met jou?"], correct: 3, explanation: "🟢 'Met jou' is informeel. 'Met u' is formeel.", tip: "💡 Met jou = informeel | Met u = formeel" },
+  { question: "Formeel: 'Het spijt me ... te moeten melden dat...'", options: ["je","u","jullie","jou"], correct: 1, explanation: "🟢 Beleefde/formeel aanspreken van lezer/ontvanger.", tip: "💡 U = formeel aanspreken" },
+  { question: "Informele stoplap aan het begin van een gesprek:", options: ["Wel","Nu","Dus","Nou"], correct: 3, explanation: "🟢 'Nou' is een typisch informeel modaal partikel.", tip: "💡 Nou = informeel beginwoord" },
+  { question: "Formele vervanging van 'klaar' in een rapport:", options: ["afgerond","af","gereed","klaar"], correct: 0, explanation: "🟢 'Afgerond' is zakelijk en formeel. 'Af' en 'klaar' zijn informeel.", tip: "💡 Afgerond = formeel klaar" },
+  { question: "Informeel: 'Dat ... me niet.' (bevalt)", options: ["zegt","spreekt","ligt","zint"], correct: 2, explanation: "🟢 'Liggen' in deze betekenis is spreektaal.", tip: "💡 Ligt me niet = informeel" },
+  { question: "Formeel verzoek om geduld:", options: ["Wacht even","Een ogenblik geduld alstublieft","Houd je stil","Blijf zitten"], correct: 1, explanation: "🟢 Dit is de beleefde, formele formulering.", tip: "💡 Een ogenblik geduld = formeel" },
+  { question: "Informeel: 'Ik ben ...' (moe)", options: ["bekaf","akelig vermoeid","doodop","de nacht in"], correct: 2, explanation: "🟢 'Doodop' is alledaags informeel. 'Bekaf' is wat ouderwets.", tip: "💡 Doodop = informeel moe" },
+  { question: "Formeel: 'Graag ... ik u ontmoeten.'", options: ["had","wou","zou willen","wilde"], correct: 2, explanation: "🟢 'Zou willen' is beleefder en formeler dan 'wilde' of 'wou'.", tip: "💡 Zou willen = beleefd formeel" },
+  { question: "Informeel: '... je dat?' (begrijp je dat?)", options: ["Begrijp","Snap","Vat","Volg"], correct: 1, explanation: "🟢 'Snappen' is informeel voor 'begrijpen'.", tip: "💡 Snap = informeel begrijpen" },
+  { question: "Formeel: 'In ... te zien, ...' (bij nader inzien)", options: ["retrospectief","terugblik","retrospect","achteraf"], correct: 0, explanation: "🟢 'In retrospectief' is een formele, wat boekachtige uitdrukking.", tip: "💡 In retrospectief = formeel achteraf" }
+],
+
+test: [
+  { question: "Wat zeg je tegen je vriend?", options: ["U","Je","Men","Hem"], correct: 1, explanation: "🟢 Je = informeel." },
+  { question: "Wat zeg je tegen een onbekende oudere mevrouw?", options: ["Jij","Je","U","Ze"], correct: 2, explanation: "🟢 U = beleefd." },
+  { question: "Informele begroeting bij aankomst:", options: ["Goedemorgen","Hoi","Goedenavond","Welkom"], correct: 1, explanation: "🟢 Hoi = informeel." },
+  { question: "Formele afsluiting van een e-mail aan een klant:", options: ["Doei","Groetjes","Met vriendelijke groet","Later"], correct: 2, explanation: "🟢 Met vriendelijke groet = formeel." },
+  { question: "Formeel: '... u mij helpen?'", options: ["Kan je","Kun jij","Kan u","Kunt u"], correct: 3, explanation: "🟢 Kunt u = correct formeel." },
+  { question: "Formele schrijfwijze in een zakelijke brief:", options: ["info","informatie","info.","inf"], correct: 1, explanation: "🟢 Voluit schrijven = formeel." },
+  { question: "Formeel: 'Wanneer ... u terugkomen?'", options: ["ga je","kom je","kunt u","zal u"], correct: 2, explanation: "🟢 Kunt u = formeel." },
+  { question: "Informele manier om te zeggen: 'Ik begrijp het niet':", options: ["Ik snap het niet","Ik versta het niet","Het is mij onduidelijk","Ik kan er geen wijs uit"], correct: 0, explanation: "🟢 Snappen = informeel." },
+  { question: "Formele vervanger van 'doen':", options: ["uitvoeren","plegen","maken","zetten"], correct: 0, explanation: "🟢 Uitvoeren = formeel doen." },
+  { question: "Formeel adres in een brief: '... de heer Jansen'", options: ["Beste","Hallo","Geachte","Lieve"], correct: 2, explanation: "🟢 Geachte = formele aanhef." },
+  { question: "Informele vraag: 'Zullen we ...?'", options: ["een drankje nuttigen","wat drinken","een verfrissing nemen","iets tot ons nemen"], correct: 1, explanation: "🟢 Wat drinken = informeel." },
+  { question: "Informeel synoniem voor 'vervelend':", options: ["lastig","naar","balen","hinderlijk"], correct: 2, explanation: "🟢 Balen = informeel." },
+  { question: "Formeel: 'De heer De Vries heeft ... gesolliciteerd.'", options: ["op de baan","voor de functie","naar de job","op de plek"], correct: 1, explanation: "🟢 Voor de functie = formeel." },
+  { question: "Formele afsluiting van een sollicitatiebrief:", options: ["Groet,","Met vriendelijke groet,","Later,","Hoogachtend,"], correct: 3, explanation: "🟢 Hoogachtend = zeer formeel." },
+  { question: "Formeel: 'Mocht u nog ... hebben, neem dan contact op.'", options: ["vragen","vraagjes","opmerkingen","dingetjes"], correct: 0, explanation: "🟢 Vragen = formeel (geen verkleinwoord)." },
+  { question: "Formele vraag om herhaling:", options: ["Wat zei je?","Hoe?","Pardon?","Hè?"], correct: 2, explanation: "🟢 Pardon = beleefd." },
+  { question: "Formeel: 'De ... wordt uitgelegd in paragraaf 2.'", options: ["zaak","kwestie","ding","affaire"], correct: 1, explanation: "🟢 Kwestie = formeel onderwerp." },
+  { question: "Formeel: 'Hierbij nodig ik ... uit voor de vergadering.'", options: ["je","jou","u","jullie"], correct: 2, explanation: "🟢 U = formele uitnodiging." },
+  { question: "Formeel: 'Het spijt me ... te moeten melden dat...'", options: ["je","u","jullie","jou"], correct: 1, explanation: "🟢 U = formeel aanspreken." },
+  { question: "Formele vervanging van 'klaar' in een rapport:", options: ["afgerond","af","gereed","klaar"], correct: 0, explanation: "🟢 Afgerond = formeel klaar." }
+]    },
+40: { // Veelgemaakte fouten
+  practice: [
+    {
+      question: "'Ik geef het boek aan ...' (hun/hen)",
+      options: ["hun","hen","zij","ze"],
+      correct: 1,
+      explanation: "❌ Fout! Na voorzetsel (aan) → hen.",
+      tip: "💡 Hen na voorzetsel, hun zonder."
     },
-    40: { // Veelgemaakte fouten
-      practice: [
-        { question: "'Ik geef het boek aan ...' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 1, explanation: "❌ Fout! Na voorzetsel (aan) → hen.", tip: "💡 Hen na voorzetsel, hun zonder." },
-        { question: "'Zij is groter ... haar broer.' (dan/als)", options: ["dan","als","of","dat"], correct: 0, explanation: "❌ Fout! Na vergrotende trap → dan.", tip: "💡 Dan = ongelijk, als = gelijk." },
-        { question: "'Het boek ... op tafel.' (liggen/leggen)", options: ["ligt","leg","leit","leggt"], correct: 0, explanation: "❌ Fout! Liggen = zich bevinden, leggen = actie.", tip: "💡 Liggen = statisch, leggen = actief." },
-        { question: "'Het meisje ... daar woont.' (die/dat)", options: ["die","dat","wat","wie"], correct: 1, explanation: "❌ Fout! Meisje = het-woord → dat.", tip: "💡 Dat voor het-woorden." },
-        { question: "'Ik heb ... gezien.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 1, explanation: "❌ Fout! Lijdend voorwerp → hen.", tip: "💡 Hen = lijdend/meewerkend met voorzetsel." }
-      ],
-      test: [
-        { question: "'Ik geef ... het boek.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 0, explanation: "Meewerkend zonder voorzetsel → hun." },
-        { question: "'Hij is even groot ... ik.' (dan/als)", options: ["dan","als","of","dat"], correct: 1, explanation: "Gelijk → als." },
-        { question: "'Ik ... het boek op tafel.' (liggen/leggen)", options: ["lig","leg","ligt","legt"], correct: 1, explanation: "Actie → leggen." },
-        { question: "'De jongen ... daar loopt.' (die/dat)", options: ["die","dat","wat","wie"], correct: 0, explanation: "De-woord → die." },
-        { question: "'Ik zie ... niet.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 1, explanation: "Lijdend voorwerp → hen." },
-        { question: "'Zij is net zo slim ... hij.' (dan/als)", options: ["dan","als","of","dat"], correct: 1, explanation: "Gelijk → als." },
-        { question: "'Ik ... in bed.' (liggen/leggen)", options: ["lig","leg","ligt","legt"], correct: 0, explanation: "Zich bevinden → liggen." },
-        { question: "'Het kind ... speelt.' (die/dat)", options: ["die","dat","wat","wie"], correct: 1, explanation: "Het-woord → dat." },
-        { question: "'Ik bel ... morgen.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 0, explanation: "Meewerkend zonder voorzetsel → hun." },
-        { question: "'Hij is groter ... vorig jaar.' (dan/als)", options: ["dan","als","of","dat"], correct: 0, explanation: "Vergrotende trap → dan." }
-      ]
+    {
+      question: "'Zij is groter ... haar broer.' (dan/als)",
+      options: ["dan","als","of","dat"],
+      correct: 0,
+      explanation: "❌ Fout! Na vergrotende trap → dan.",
+      tip: "💡 Dan = ongelijk, als = gelijk."
+    },
+    {
+      question: "'Het boek ... op tafel.' (liggen/leggen)",
+      options: ["ligt","leg","leit","leggt"],
+      correct: 0,
+      explanation: "❌ Fout! Liggen = zich bevinden, leggen = actie.",
+      tip: "💡 Liggen = statisch, leggen = actief."
+    },
+    {
+      question: "'Het meisje ... daar woont.' (die/dat)",
+      options: ["die","dat","wat","wie"],
+      correct: 1,
+      explanation: "❌ Fout! Meisje = het-woord → dat.",
+      tip: "💡 Dat voor het-woorden."
+    },
+    {
+      question: "'Ik heb ... gezien.' (hun/hen)",
+      options: ["hun","hen","zij","ze"],
+      correct: 1,
+      explanation: "❌ Fout! Lijdend voorwerp → hen.",
+      tip: "💡 Hen = lijdend/meewerkend met voorzetsel."
     }
+  ],
+  test: [
+    { question: "'Ik geef ... het boek.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 0, explanation: "Meewerkend zonder voorzetsel → hun." },
+    { question: "'Hij is even groot ... ik.' (dan/als)", options: ["dan","als","of","dat"], correct: 1, explanation: "Gelijk → als." },
+    { question: "'Ik ... het boek op tafel.' (liggen/leggen)", options: ["lig","leg","ligt","legt"], correct: 1, explanation: "Actie → leggen." },
+    { question: "'De jongen ... daar loopt.' (die/dat)", options: ["die","dat","wat","wie"], correct: 0, explanation: "De-woord → die." },
+    { question: "'Ik zie ... niet.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 1, explanation: "Lijdend voorwerp → hen." },
+    { question: "'Zij is net zo slim ... hij.' (dan/als)", options: ["dan","als","of","dat"], correct: 1, explanation: "Gelijk → als." },
+    { question: "'Ik ... in bed.' (liggen/leggen)", options: ["lig","leg","ligt","legt"], correct: 0, explanation: "Zich bevinden → liggen." },
+    { question: "'Het kind ... speelt.' (die/dat)", options: ["die","dat","wat","wie"], correct: 1, explanation: "Het-woord → dat." },
+    { question: "'Ik bel ... morgen.' (hun/hen)", options: ["hun","hen","zij","ze"], correct: 0, explanation: "Meewerkend zonder voorzetsel → hun." },
+    { question: "'Hij is groter ... vorig jaar.' (dan/als)", options: ["dan","als","of","dat"], correct: 0, explanation: "Vergrotende trap → dan." }
+  ]
+},
   },
   fr: {},
   en: {}
