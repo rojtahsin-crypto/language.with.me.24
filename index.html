@@ -19130,66 +19130,923 @@ test: [
       ]
     },
     7: { // Modale werkwoorden
-      practice: [
-        { question: "Je ... hier niet roken.", options: ["mag","kan","wil","moet"], correct: 0, explanation: "❌ Fout! Mogen = toestemming.", tip: "💡 Mag niet = verbod." },
-        { question: "Hij ... goed zwemmen.", options: ["mag","moet","kan","wil"], correct: 2, explanation: "❌ Fout! Kunnen = vaardigheid.", tip: "💡 Kan = ability." },
-        { question: "Ik ... naar huis.", options: ["mag","moet","kan","wil"], correct: 1, explanation: "❌ Fout! Moeten = noodzaak.", tip: "💡 Moet = verplichting." },
-        { question: "Zij ... een ijsje.", options: ["mag","moet","kan","wil"], correct: 3, explanation: "❌ Fout! Willen = wens.", tip: "💡 Wil = desire." },
-        { question: "Wij ... helpen.", options: ["mogen","moeten","kunnen","willen"], correct: 1, explanation: "❌ Fout! Moeten = verplichting.", tip: "💡 Moeten + infinitief." }
-      ],
-      test: [
-        { question: "Je ... niet parkeren.", options: ["mag","kan","wil","moet"], correct: 0, explanation: "Mag niet = verbod." },
-        { question: "Hij ... piano spelen.", options: ["mag","moet","kan","wil"], correct: 2, explanation: "Kan = vaardigheid." },
-        { question: "Ik ... slapen.", options: ["mag","moet","kan","wil"], correct: 1, explanation: "Moet = noodzaak." },
-        { question: "Zij ... reizen.", options: ["mag","moet","kan","wil"], correct: 3, explanation: "Wil = wens." },
-        { question: "Wij ... komen.", options: ["mogen","moeten","kunnen","willen"], correct: 2, explanation: "Kunnen = mogelijkheid." },
-        { question: "Jullie ... wachten.", options: ["mogen","moeten","kunnen","willen"], correct: 1, explanation: "Moeten = verplichting." },
-        { question: "Het ... regenen.", options: ["mag","moet","kan","wil"], correct: 2, explanation: "Kan = mogelijkheid." },
-        { question: "Ik ... koffie.", options: ["mag","moet","kan","wil"], correct: 3, explanation: "Wil = wens." },
-        { question: "Zij ... niet komen.", options: ["mag","moet","kan","wil"], correct: 0, explanation: "Mag niet = geen toestemming." },
-        { question: "Hij ... werken.", options: ["mag","moet","kan","wil"], correct: 1, explanation: "Moet = verplichting." }
-      ]
-    },
+practice: [
+  { 
+    question: "Ik ... niet zo goed zwemmen. (kunnen)", 
+    options: ["kan","mag","wil","moet"], 
+    correct: 0, 
+    explanation: "🟢 ‘Kunnen’ drukt vaardigheid of mogelijkheid uit.", 
+    tip: "💡 Kan = vaardigheid/mogelijkheid" 
+  },
+  { 
+    question: "... jij mij de weg wijzen? (kunnen)", 
+    options: ["Wil","Kan","Mag","Moet"], 
+    correct: 1, 
+    explanation: "🟢 ‘Kan’ in een vriendelijk verzoek om mogelijkheid.", 
+    tip: "💡 Kan je...? = verzoek" 
+  },
+  { 
+    question: "U ... hier niet roken. (mogen)", 
+    options: ["kunt","mag","wilt","moet"], 
+    correct: 1, 
+    explanation: "🟢 ‘Mogen’ drukt toestemming of verbod uit.", 
+    tip: "💡 Mag niet = verbod" 
+  },
+  { 
+    question: "Hij ... heel graag naar Italië. (willen)", 
+    options: ["kan","mag","wil","moet"], 
+    correct: 2, 
+    explanation: "🟢 ‘Willen’ drukt een wens of verlangen uit.", 
+    tip: "💡 Wil = wens/verlangen" 
+  },
+  { 
+    question: "Je ... je huiswerk maken voor je tv kijkt. (moeten)", 
+    options: ["kan","mag","wilt","moet"], 
+    correct: 3, 
+    explanation: "🟢 ‘Moeten’ drukt noodzaak of verplichting uit.", 
+    tip: "💡 Moet = verplichting" 
+  },
+  { 
+    question: "Zij ... morgen naar de tandarts. (moeten)", 
+    options: ["kan","mag","wil","moet"], 
+    correct: 3, 
+    explanation: "🟢 ‘Moet’ = verplichting (afspraak).", 
+    tip: "💡 Moet = noodzaak" 
+  },
+  { 
+    question: "... je me even helpen? (kunnen)", 
+    options: ["Wil","Kan","Mag","Moet"], 
+    correct: 1, 
+    explanation: "🟢 ‘Kan je’ = beleefd verzoek om hulp.", 
+    tip: "💡 Kan je...? = mogelijkheid/vraag" 
+  },
+  { 
+    question: "Je ... niet te laat komen. (mogen)", 
+    options: ["kunt","mag","wilt","hoeft"], 
+    correct: 1, 
+    explanation: "🟢 ‘Mag niet’ = verbod.", 
+    tip: "💡 Mag niet = niet toegestaan" 
+  },
+  { 
+    question: "We ... nog even wachten, het is nog vroeg. (kunnen)", 
+    options: ["kunnen","mogen","willen","moeten"], 
+    correct: 0, 
+    explanation: "🟢 ‘Kunnen’ = mogelijkheid.", 
+    tip: "💡 Kunnen = het is mogelijk" 
+  },
+  { 
+    question: "Hij ... altijd het laatste woord hebben. (willen)", 
+    options: ["kan","mag","wil","moet"], 
+    correct: 2, 
+    explanation: "🟢 ‘Wil’ = vasthoudend zijn/eigen keuze.", 
+    tip: "💡 Wil = eigen keuze/wens" 
+  },
+  { 
+    question: "... ik het raam openen? (mogen)", 
+    options: ["Kan","Mag","Wil","Moet"], 
+    correct: 1, 
+    explanation: "🟢 ‘Mag ik’ vraagt toestemming.", 
+    tip: "💡 Mag ik? = toestemming" 
+  },
+  { 
+    question: "Je ... je veters strikken voordat je valt. (moeten)", 
+    options: ["kan","mag","wilt","moet"], 
+    correct: 3, 
+    explanation: "🟢 Noodzaak om te voorkomen dat je valt.", 
+    tip: "💡 Moet = noodzaak" 
+  },
+  { 
+    question: "Zij ... gisteren niet komen, want ze was ziek. (kunnen)", 
+    options: ["kon","mocht","wilde","moest"], 
+    correct: 0, 
+    explanation: "🟢 Verleden tijd van ‘kunnen’ = ‘kon’.", 
+    tip: "💡 Kon = niet mogelijk (vt)" 
+  },
+  { 
+    question: "Je ... niet zo veel lawaai maken in de bibliotheek. (mogen)", 
+    options: ["kan","mag","wilt","hoeft"], 
+    correct: 1, 
+    explanation: "🟢 Verbod.", 
+    tip: "💡 Mag niet = verbod/regel" 
+  },
+  { 
+    question: "... je nog een koekje? (willen)", 
+    options: ["Kan","Mag","Wil","Moet"], 
+    correct: 2, 
+    explanation: "🟢 ‘Wil je’ = vraag naar wens/aanbod.", 
+    tip: "💡 Wil je? = aanbod/wens" 
+  },
+  { 
+    question: "Ik ... mijn tas niet vinden. (kunnen)", 
+    options: ["kan","mag","wil","moet"], 
+    correct: 0, 
+    explanation: "🟢 ‘Kan niet’ = niet in staat.", 
+    tip: "💡 Kan niet = onmogelijk/niet vinden" 
+  },
+  { 
+    question: "Je ... niet hard lopen op het ijs. (kunnen)", 
+    options: ["kunt","mag","wilt","moet"], 
+    correct: 0, 
+    explanation: "🟢 ‘Kunt niet’ = fysiek onmogelijk.", 
+    tip: "💡 Kunt niet = onmogelijk" 
+  },
+  { 
+    question: "We ... vroeg opstaan morgen. (moeten)", 
+    options: ["kunnen","mogen","willen","moeten"], 
+    correct: 3, 
+    explanation: "🟢 Verplichting.", 
+    tip: "💡 Moeten = verplichting" 
+  },
+  { 
+    question: "... u iets drinken? (willen)", 
+    options: ["Kunt","Mag","Wilt","Moet"], 
+    correct: 2, 
+    explanation: "🟢 Beleefd aanbieden: ‘Wilt u...?’", 
+    tip: "💡 Wilt u? = beleefd aanbod" 
+  },
+  { 
+    question: "Hij ... wel wat aardiger zijn. (kunnen)", 
+    options: ["kan","mag","wil","moet"], 
+    correct: 0, 
+    explanation: "🟢 ‘Kan’ = mogelijkheid/aanbeveling.", 
+    tip: "💡 Kan wel... = mogelijkheid" 
+  },
+  { 
+    question: "Je ... je schoenen uitdoen in de moskee. (moeten)", 
+    options: ["kan","mag","wilt","moet"], 
+    correct: 3, 
+    explanation: "🟢 Verplichting (regel).", 
+    tip: "💡 Moet = regel/verplichting" 
+  },
+  { 
+    question: "... jij vanavond naar het feest? (willen)", 
+    options: ["Kan","Mag","Wil","Moet"], 
+    correct: 2, 
+    explanation: "🟢 ‘Wil jij’ = vraag naar wens.", 
+    tip: "💡 Wil jij? = intentie/wens" 
+  },
+  { 
+    question: "Je ... niet bang te zijn. (hoeven)", 
+    options: ["kan","mag","hoeft","moet"], 
+    correct: 2, 
+    explanation: "🟢 ‘Hoeven + te’ drukt afwezigheid van noodzaak uit.", 
+    tip: "💡 Hoeven + te = niet nodig" 
+  },
+  { 
+    question: "Ik ... niet naar huis te lopen. (hoeven)", 
+    options: ["kan","mag","hoef","wil"], 
+    correct: 2, 
+    explanation: "🟢 ‘Hoeven + te’ = geen verplichting.", 
+    tip: "💡 Hoef niet te... = niet nodig" 
+  },
+  { 
+    question: "Zij ... dat niet zeggen, het is onbeleefd. (mogen)", 
+    options: ["kan","mag","wil","moet"], 
+    correct: 1, 
+    explanation: "🟢 ‘Mag niet’ = niet toegestaan.", 
+    tip: "💡 Mag niet = verbod" 
+  },
+  { 
+    question: "We ... nog even doorlopen, de winkel gaat zo dicht. (moeten)", 
+    options: ["kunnen","mogen","willen","moeten"], 
+    correct: 3, 
+    explanation: "🟢 Noodzaak.", 
+    tip: "💡 Moeten = noodzaak" 
+  },
+  { 
+    question: "... je misschien een dag later komen? (kunnen)", 
+    options: ["Kan","Mag","Wil","Moet"], 
+    correct: 0, 
+    explanation: "🟢 ‘Kan je’ = mogelijkheid/vraag.", 
+    tip: "💡 Kan je...? = mogelijkheid" 
+  },
+  { 
+    question: "Hij ... alles alleen doen, hij vraagt nooit om hulp. (willen)", 
+    options: ["kan","mag","wil","moet"], 
+    correct: 2, 
+    explanation: "🟢 ‘Wil’ = wens/eigen keuze.", 
+    tip: "💡 Wil = eigen keuze" 
+  },
+  { 
+    question: "... je die steen optillen? Die is heel zwaar. (kunnen)", 
+    options: ["Kan","Mag","Wil","Moet"], 
+    correct: 0, 
+    explanation: "🟢 ‘Kan je’ = fysieke mogelijkheid.", 
+    tip: "💡 Kan je? = fysieke mogelijkheid" 
+  },
+  { 
+    question: "Ik ... niet te veel snoepen, ik ben op dieet. (mogen)", 
+    options: ["kan","mag","wil","moet"], 
+    correct: 1, 
+    explanation: "🟢 ‘Mag niet’ = niet toegestaan (door dieet).", 
+    tip: "💡 Mag niet = zelfopgelegd verbod" 
+  },
+  { 
+    question: "Zij ... haar vriend wel eens bellen. (zullen/conditioneel)", 
+    options: ["kan","mag","zou","moet"], 
+    correct: 2, 
+    explanation: "🟢 ‘Zou’ drukt een mild advies of suggestie uit.", 
+    tip: "💡 Zou = advies/suggestie" 
+  },
+  { 
+    question: "... je mij alsjeblieft stil zijn? (willen)", 
+    options: ["Kan","Mag","Wil","Moet"], 
+    correct: 2, 
+    explanation: "🟢 ‘Wil je’ = dringend verzoek.", 
+    tip: "💡 Wil je...? = verzoek" 
+  },
+  { 
+    question: "Je ... niet zo snel rijden, het is hier 30 km/u. (mogen)", 
+    options: ["kan","mag","wil","hoeft"], 
+    correct: 1, 
+    explanation: "🟢 ‘Mag niet’ = verbod (snelheidslimiet).", 
+    tip: "💡 Mag niet = wettelijk verbod" 
+  },
+  { 
+    question: "Ik ... mijn broer niet overtuigen. (kunnen)", 
+    options: ["kan","mag","wil","moet"], 
+    correct: 0, 
+    explanation: "🟢 ‘Kan niet’ = niet in staat.", 
+    tip: "💡 Kan niet = onvermogen" 
+  },
+  { 
+    question: "We ... nu echt gaan, anders missen we de bus. (moeten)", 
+    options: ["kunnen","mogen","willen","moeten"], 
+    correct: 3, 
+    explanation: "🟢 Dringende noodzaak.", 
+    tip: "💡 Moeten = dringende noodzaak" 
+  },
+  { 
+    question: "... ik even uw telefoon gebruiken? (mogen)", 
+    options: ["Kan","Mag","Wil","Moet"], 
+    correct: 1, 
+    explanation: "🟢 Toestemming vragen.", 
+    tip: "💡 Mag ik? = beleefd verzoek" 
+  },
+  { 
+    question: "Hij ... niet van de duikplank te springen. (durven)", 
+    options: ["kan","mag","wil","durft"], 
+    correct: 3, 
+    explanation: "🟢 ‘Durven’ = moed hebben.", 
+    tip: "💡 Durven = moed/lefbheid" 
+  },
+  { 
+    question: "... je het raam dichtdoen? Het tocht. (kunnen)", 
+    options: ["Kan","Mag","Wil","Durf"], 
+    correct: 0, 
+    explanation: "🟢 ‘Kan je’ = verzoek (mogelijkheid).", 
+    tip: "💡 Kan je...? = vriendelijk verzoek" 
+  },
+  { 
+    question: "We ... nu echt gaan, anders missen we de bus. (moeten)", 
+    options: ["kunnen","mogen","willen","moeten"], 
+    correct: 3, 
+    explanation: "🟢 Dringende noodzaak.", 
+    tip: "💡 Moeten = noodzaak" 
+  },
+  { 
+    question: "Je ... niet liegen tegen je ouders. (mogen)", 
+    options: ["kan","mag","wilt","hoeft"], 
+    correct: 1, 
+    explanation: "🟢 ‘Mag niet’ = moreel verbod.", 
+    tip: "💡 Mag niet = moreel/ethisch verbod" 
+  }
+],
+
+test: [
+  { question: "Ik ... niet zo goed zwemmen.", options: ["kan","mag","wil","moet"], correct: 0, explanation: "🟢 Kunnen = vaardigheid." },
+  { question: "U ... hier niet roken.", options: ["kunt","mag","wilt","moet"], correct: 1, explanation: "🟢 Mogen niet = verbod." },
+  { question: "Hij ... heel graag naar Italië.", options: ["kan","mag","wil","moet"], correct: 2, explanation: "🟢 Willen = wens/verlangen." },
+  { question: "Je ... je huiswerk maken.", options: ["kan","mag","wilt","moet"], correct: 3, explanation: "🟢 Moeten = verplichting." },
+  { question: "... je me even helpen?", options: ["Wil","Kan","Mag","Moet"], correct: 1, explanation: "🟢 Kan je...? = beleefd verzoek." },
+  { question: "We ... nog even wachten.", options: ["kunnen","mogen","willen","moeten"], correct: 0, explanation: "🟢 Kunnen = mogelijkheid." },
+  { question: "... ik het raam openen?", options: ["Kan","Mag","Wil","Moet"], correct: 1, explanation: "🟢 Mag ik? = toestemming." },
+  { question: "Zij ... gisteren niet komen. (vt)", options: ["kon","mocht","wilde","moest"], correct: 0, explanation: "🟢 Kon = verleden tijd kunnen." },
+  { question: "... je nog een koekje?", options: ["Kan","Mag","Wil","Moet"], correct: 2, explanation: "🟢 Wil je? = aanbod/wens." },
+  { question: "Je ... niet hard lopen op het ijs.", options: ["kunt","mag","wilt","moet"], correct: 0, explanation: "🟢 Kunt niet = onmogelijk." },
+  { question: "Je ... niet bang te zijn.", options: ["kan","mag","hoeft","moet"], correct: 2, explanation: "🟢 Hoeven + te = niet nodig." },
+  { question: "Ik ... niet naar huis te lopen.", options: ["kan","mag","hoef","wil"], correct: 2, explanation: "🟢 Hoef niet te... = geen verplichting." },
+  { question: "Zij ... dat niet zeggen.", options: ["kan","mag","wil","moet"], correct: 1, explanation: "🟢 Mag niet = niet toegestaan." },
+  { question: "... je misschien een dag later komen?", options: ["Kan","Mag","Wil","Moet"], correct: 0, explanation: "🟢 Kan je...? = mogelijkheid." },
+  { question: "Je ... niet zo snel rijden.", options: ["kan","mag","wil","hoeft"], correct: 1, explanation: "🟢 Mag niet = wettelijk verbod." },
+  { question: "Ik ... mijn broer niet overtuigen.", options: ["kan","mag","wil","moet"], correct: 0, explanation: "🟢 Kan niet = onvermogen." },
+  { question: "... ik even uw telefoon gebruiken?", options: ["Kan","Mag","Wil","Moet"], correct: 1, explanation: "🟢 Mag ik? = toestemming." },
+  { question: "Hij ... niet van de duikplank te springen.", options: ["kan","mag","wil","durft"], correct: 3, explanation: "🟢 Durven = moed." },
+  { question: "... je het raam dichtdoen?", options: ["Kan","Mag","Wil","Durf"], correct: 0, explanation: "🟢 Kan je...? = verzoek." },
+  { question: "Je ... niet liegen tegen je ouders.", options: ["kan","mag","wilt","hoeft"], correct: 1, explanation: "🟢 Mag niet = moreel verbod." }
+]    },
     8: { // Scheidbare werkwoorden
-      practice: [
-        { question: "Ik ... mijn jas ... (uitdoen)", options: ["doe uit","uitdoe","doe ... uit","uit doe"], correct: 2, explanation: "❌ Fout! Hoofdzin splitst.", tip: "💡 Ik doe mijn jas uit." },
-        { question: "Hij wil de TV ... (aanzetten)", options: ["aanzetten","zet aan","aan zet","zetten aan"], correct: 0, explanation: "❌ Fout! Na modaal = niet splitsen.", tip: "💡 Wil + heel werkwoord." },
-        { question: "Zij ... vroeg ... (opstaan)", options: ["staat op","opstaat","staat ... op","op staat"], correct: 2, explanation: "❌ Fout! Hoofdzin splitst.", tip: "💡 Zij staat vroeg op." },
-        { question: "Wij ... morgen ... (weggaan)", options: ["gaan weg","weggaan","gaan ... weg","weg gaan"], correct: 2, explanation: "❌ Fout! Hoofdzin splitst.", tip: "💡 Wij gaan morgen weg." },
-        { question: "Ik ... het licht ... (uitdoen)", options: ["doe uit","uitdoe","doe ... uit","uit doe"], correct: 2, explanation: "❌ Fout! Hoofdzin splitst.", tip: "💡 Ik doe het licht uit." }
-      ],
-      test: [
-        { question: "Hij ... de deur ... (openen)", options: ["doe open","open doe","doe ... open","open doe"], correct: 2, explanation: "Hij doet de deur open." },
-        { question: "Zij moet ... (opbellen)", options: ["opbellen","belt op","bel op","bellen op"], correct: 0, explanation: "Na modaal = niet splitsen." },
-        { question: "Wij ... naar huis ... (teruggaan)", options: ["gaan terug","teruggaan","gaan ... terug","terug gaan"], correct: 2, explanation: "Wij gaan naar huis terug." },
-        { question: "Ik ... de radio ... (aanzetten)", options: ["zet aan","aanzetten","zet ... aan","aan zet"], correct: 2, explanation: "Ik zet de radio aan." },
-        { question: "Jij ... snel ... (inpakken)", options: ["pakt in","inpakt","pakt ... in","in pakt"], correct: 2, explanation: "Jij pakt snel in." },
-        { question: "Hij kan niet ... (mee doen)", options: ["meedoen","doet mee","doe mee","doen mee"], correct: 0, explanation: "Na kan = niet splitsen." },
-        { question: "Zij ... het boek ... (terugbrengen)", options: ["brengt terug","terugbrengen","brengt ... terug","terug brengt"], correct: 2, explanation: "Zij brengt het boek terug." },
-        { question: "Wij ... vroeg ... (opstaan)", options: ["staan op","opstaan","staan ... op","op staan"], correct: 2, explanation: "Wij staan vroeg op." },
-        { question: "Ik wil ... (weggaan)", options: ["weggaan","ga weg","ga ... weg","weg ga"], correct: 0, explanation: "Na wil = niet splitsen." },
-        { question: "Jullie ... de tafel ... (dekken)", options: ["dekken op","opdekken","dekken ... op","op dekken"], correct: 2, explanation: "Jullie dekken de tafel op." }
-      ]
+practice: [
+  { 
+    question: "Hij ... zijn hoed ... (opzetten)", 
+    options: ["zet / op","op / zet","zet / opzetten","zet / aan"], 
+    correct: 0, 
+    explanation: "🟢 Hoofdzin: persoonsvorm 'zet', scheidbaar deel 'op' naar einde.", 
+    tip: "💡 Hij zet zijn hoed op." 
+  },
+  { 
+    question: "Ik ... de tv ... (aanzetten)", 
+    options: ["zet / aan","aan / zet","zet / aanzetten","zet / uit"], 
+    correct: 0, 
+    explanation: "🟢 'Aanzetten' – ik zet de tv aan.", 
+    tip: "💡 Ik zet aan." 
+  },
+  { 
+    question: "... jij de afwas ...? (afwassen)", 
+    options: ["Was / af","Af / was","Wast / af","Af / wast"], 
+    correct: 0, 
+    explanation: "🟢 Vraagzin inversie: 'was' (zonder t), 'af' naar achter.", 
+    tip: "💡 Was jij af?" 
+  },
+  { 
+    question: "We ... het feest ... (afblazen)", 
+    options: ["blazen / af","af / blazen","blazen / afblazen","blazen / uit"], 
+    correct: 0, 
+    explanation: "🟢 'Afblazen' – wij blazen het feest af.", 
+    tip: "💡 We blazen af." 
+  },
+  { 
+    question: "Zij ... haar vriendin ... (opbellen)", 
+    options: ["belt / op","op / belt","belt / opbellen","belt / aan"], 
+    correct: 0, 
+    explanation: "🟢 'Opbellen' – zij belt haar vriendin op.", 
+    tip: "💡 Zij belt op." 
+  },
+  { 
+    question: "Hij ... altijd zijn jas ... (aandoen)", 
+    options: ["doet / aan","aan / doet","doet / aandoen","doet / uit"], 
+    correct: 0, 
+    explanation: "🟢 'Aandoen' – hij doet altijd zijn jas aan.", 
+    tip: "💡 Hij doet aan." 
+  },
+  { 
+    question: "Ik ... het licht ... (uitdoen)", 
+    options: ["doe / uit","uit / doe","doe / uitdoen","doe / aan"], 
+    correct: 0, 
+    explanation: "🟢 'Uitdoen' – ik doe het licht uit.", 
+    tip: "💡 Ik doe uit." 
+  },
+  { 
+    question: "Wanneer ... je ...? (thuiskomen)", 
+    options: ["kom / thuis","thuis / kom","komt / thuis","thuis / komt"], 
+    correct: 0, 
+    explanation: "🟢 Inversie met 'je' → 'kom' (zonder t).", 
+    tip: "💡 Wanneer kom je thuis?" 
+  },
+  { 
+    question: "Hij ... dat hij nooit ... (meedoen)", 
+    options: ["zegt / meedoet","zegt / doet mee","zegt / mee doet","zegt / meedoen"], 
+    correct: 0, 
+    explanation: "🟢 Bijzin: heel werkwoord 'meedoet' aan elkaar op einde.", 
+    tip: "💢 Bijzin = nooit splitsen" 
+  },
+  { 
+    question: "We ... de berg ... (opklimmen)", 
+    options: ["klimmen / op","op / klimmen","klimmen / opklimmen","klimmen / af"], 
+    correct: 0, 
+    explanation: "🟢 'Opklimmen' – wij klimmen de berg op.", 
+    tip: "💡 We klimmen op." 
+  },
+  { 
+    question: "Ik ... de brief gisteren ... (opsturen)", 
+    options: ["heb / opgestuurd","ben / opgestuurd","heb / opstuur","ben / opstuur"], 
+    correct: 0, 
+    explanation: "🟢 Voltooide tijd: op + ge + stuur + d = opgestuurd.", 
+    tip: "💢 op + ge + stuur + d" 
+  },
+  { 
+    question: "Zij ... de deur ... (dichtdoen)", 
+    options: ["doet / dicht","dicht / doet","doet / dichtdoen","doet / open"], 
+    correct: 0, 
+    explanation: "🟢 'Dichtdoen' – zij doet de deur dicht.", 
+    tip: "💡 Zij doet dicht." 
+  },
+  { 
+    question: "... je het raam ...? (dichtmaken)", 
+    options: ["Maak / dicht","Dicht / maak","Maakt / dicht","Dicht / maakt"], 
+    correct: 0, 
+    explanation: "🟢 Vraagzin inversie: 'Maak' (stam), 'dicht' naar achter.", 
+    tip: "💡 Maak je dicht?" 
+  },
+  { 
+    question: "Hij ... elke dag ... (aankomen)", 
+    options: ["komt / aan","aan / komt","komt / aankomen","komt / weg"], 
+    correct: 0, 
+    explanation: "🟢 'Aankomen' – hij komt elke dag aan.", 
+    tip: "💡 Hij komt aan." 
+  },
+  { 
+    question: "We ... het pakketje ... (afgeven)", 
+    options: ["geven / af","af / geven","geven / afgeven","geven / op"], 
+    correct: 0, 
+    explanation: "🟢 'Afgeven' – wij geven het pakketje af.", 
+    tip: "💡 We geven af." 
+  },
+  { 
+    question: "Ik ... dat hij de wedstrijd ... (opgeven)", 
+    options: ["denk / opgeeft","denk / geeft op","denk / op geeft","denk / opgeeft"], 
+    correct: 0, 
+    explanation: "🟢 Bijzin: 'opgeeft' aan elkaar op einde.", 
+    tip: "💢 Bijzin = aan elkaar" 
+  },
+  { 
+    question: "Zij ... haar moeder ... (mechelpen)", 
+    options: ["helpt / mee","mee / helpt","helpt / mechelpen","helpt / af"], 
+    correct: 0, 
+    explanation: "🟢 'Mechelpen' – zij helpt haar moeder mee.", 
+    tip: "💡 Zij helpt mee." 
+  },
+  { 
+    question: "Hij is gisteren naar huis ... (teruggaan)", 
+    options: ["teruggegaan","teruggaan","terugging","teruggegaand"], 
+    correct: 0, 
+    explanation: "🟢 Beweging → 'zijn' + terug + ge + gaan = teruggegaan.", 
+    tip: "💢 terug + ge + gaan" 
+  },
+  { 
+    question: "Ik ... mijn kamer ... (opruimen)", 
+    options: ["ruim / op","op / ruim","ruim / opruimen","ruim / uit"], 
+    correct: 0, 
+    explanation: "🟢 'Opruimen' – ik ruim mijn kamer op.", 
+    tip: "💡 Ik ruim op." 
+  },
+  { 
+    question: "... je dat even ...? (voordoen)", 
+    options: ["Doe / voor","Voor / doe","Doet / voor","Voor / doet"], 
+    correct: 0, 
+    explanation: "🟢 Vraagzin inversie: 'Doe' (stam), 'voor' naar achter.", 
+    tip: "💡 Doe je voor?" 
+  },
+  { 
+    question: "We ... de presentatie ... (klaarmaken)", 
+    options: ["maken / klaar","klaar / maken","maken / klaarmaken","maken / uit"], 
+    correct: 0, 
+    explanation: "🟢 'Klaarmaken' – wij maken de presentatie klaar.", 
+    tip: "💡 We maken klaar." 
+  },
+  { 
+    question: "Hij ... dat hij het ... (afmaken)", 
+    options: ["hoopt / afmaakt","hoopt / maakt af","hoopt / af maakt","hoopt / afmaken"], 
+    correct: 0, 
+    explanation: "🟢 Bijzin: 'afmaakt' aan elkaar op einde.", 
+    tip: "💢 Bijzin = ongesplitst" 
+  },
+  { 
+    question: "Ik ... de planten ... (water geven)", 
+    options: ["geef / water","water / geef","geef / watergeven","geef / af"], 
+    correct: 0, 
+    explanation: "🟢 'Watergeven' – ik geef de planten water.", 
+    tip: "💡 Ik geef water." 
+  },
+  { 
+    question: "Zij ... haar jas ... (uitdoen)", 
+    options: ["doet / uit","uit / doet","doet / uitdoen","doet / aan"], 
+    correct: 0, 
+    explanation: "🟢 'Uitdoen' – zij doet haar jas uit.", 
+    tip: "💡 Zij doet uit." 
+  },
+  { 
+    question: "Wanneer ... jullie ...? (terugkomen)", 
+    options: ["komen / terug","terug / komen","komt / terug","terug / komt"], 
+    correct: 0, 
+    explanation: "🟢 Meervoud 'jullie' → 'komen', 'terug' naar achter.", 
+    tip: "💡 Jullie komen terug." 
+  },
+  { 
+    question: "Hij heeft zijn sleutels ... (kwijtraken)", 
+    options: ["kwijtgeraakt","kwijtraakt","kwijtraakte","kwijtge raakt"], 
+    correct: 0, 
+    explanation: "🟢 Voltooid: kwijt + ge + raakt = kwijtgeraakt.", 
+    tip: "💢 kwijt + ge + raakt" 
+  },
+  { 
+    question: "We ... het vuur ... (aanmaken)", 
+    options: ["maken / aan","aan / maken","maken / aanmaken","maken / uit"], 
+    correct: 0, 
+    explanation: "🟢 'Aanmaken' – wij maken het vuur aan.", 
+    tip: "💡 We maken aan." 
+  },
+  { 
+    question: "Ik ... de melk ... (opdrinken)", 
+    options: ["drink / op","op / drink","drink / opdrinken","drink / uit"], 
+    correct: 0, 
+    explanation: "🟢 'Opdrinken' – ik drink de melk op.", 
+    tip: "💡 Ik drink op." 
+  },
+  { 
+    question: "Zij ... dat ze vroeg ... (opstaan)", 
+    options: ["zei / opstond","zei / stond op","zei / op stond","zei / opgestaan"], 
+    correct: 0, 
+    explanation: "🟢 Bijzin verleden tijd: 'opstond' aan elkaar.", 
+    tip: "💢 Bijzin vt = aan elkaar" 
+  },
+  { 
+    question: "Hij ... het geld ... (uitgeven)", 
+    options: ["geeft / uit","uit / geeft","geeft / uitgeven","geeft / aan"], 
+    correct: 0, 
+    explanation: "🟢 'Uitgeven' – hij geeft het geld uit.", 
+    tip: "💡 Hij geeft uit." 
+  },
+  { 
+    question: "... je de afwas ...? (afdrogen)", 
+    options: ["Droog / af","Af / droog","Droogt / af","Af / droogt"], 
+    correct: 0, 
+    explanation: "🟢 Vraagzin inversie: 'Droog' (stam), 'af' naar achter.", 
+    tip: "💡 Droog je af?" 
+  },
+  { 
+    question: "We hebben de hele nacht ... (doorwerken)", 
+    options: ["doorgewerkt","doorwerk","doorgewerkt","doorwerkt"], 
+    correct: 0, 
+    explanation: "🟢 Voltooide tijd: door + ge + werk + t = doorgewerkt.", 
+    tip: "💢 door + ge + werk + t" 
+  },
+  { 
+    question: "Hij ... dat hij niet ... (meegaan)", 
+    options: ["zegt / meegaat","zegt / gaat mee","zegt / mee gaat","zegt / meegaat"], 
+    correct: 0, 
+    explanation: "🟢 Bijzin: 'meegaat' aan elkaar op einde.", 
+    tip: "💢 Bijzin = aan elkaar" 
+  },
+  { 
+    question: "Ik ... mijn schoenen ... (vastmaken)", 
+    options: ["maak / vast","vast / maak","maak / vastmaken","maak / los"], 
+    correct: 0, 
+    explanation: "🟢 'Vastmaken' – ik maak mijn schoenen vast.", 
+    tip: "💡 Ik maak vast." 
+  },
+  { 
+    question: "Zij ... de krant ... (openslaan)", 
+    options: ["slaat / open","open / slaat","slaat / openslaan","slaat / dicht"], 
+    correct: 0, 
+    explanation: "🟢 'Openslaan' – zij slaat de krant open.", 
+    tip: "💡 Zij slaat open." 
+  },
+  { 
+    question: "We ... de muziek ... (uitzetten)", 
+    options: ["zetten / uit","uit / zetten","zetten / uitzetten","zetten / aan"], 
+    correct: 0, 
+    explanation: "🟢 'Uitzetten' – wij zetten de muziek uit.", 
+    tip: "💡 We zetten uit." 
+  },
+  { 
+    question: "Hij is vandaag vroeg ... (thuiskomen)", 
+    options: ["thuisgekomen","thuis gekomen","thuiskwam","thuisgekomen"], 
+    correct: 0, 
+    explanation: "🟢 Voltooid: thuis + ge + komen = thuisgekomen.", 
+    tip: "💢 thuis + ge + komen" 
+  },
+  { 
+    question: "Ik ... het licht ... (aandoen)", 
+    options: ["doe / aan","aan / doe","doe / aandoen","doe / uit"], 
+    correct: 0, 
+    explanation: "🟢 'Aandoen' – ik doe het licht aan.", 
+    tip: "💡 Ik doe aan." 
+  },
+  { 
+    question: "... je de bloemen ...? (water geven)", 
+    options: ["Geef / water","Water / geef","Geeft / water","Water / geeft"], 
+    correct: 0, 
+    explanation: "🟢 Vraagzin inversie: 'Geef' (stam), 'water' naar achter.", 
+    tip: "💡 Geef je water?" 
+  },
+  { 
+    question: "We ... de tent ... (opzetten)", 
+    options: ["zetten / op","op / zetten","zetten / opzetten","zetten / af"], 
+    correct: 0, 
+    explanation: "🟢 'Opzetten' – wij zetten de tent op.", 
+    tip: "💡 We zetten op." 
+  }
+],
+
+test: [
+  { question: "Hij ... zijn hoed ... (opzetten)", options: ["zet / op","op / zet","zet / opzetten","zet / aan"], correct: 0, explanation: "🟢 Hoofdzin splitst: zet ... op." },
+  { question: "Ik ... de tv ... (aanzetten)", options: ["zet / aan","aan / zet","zet / aanzetten","zet / uit"], correct: 0, explanation: "🟢 Ik zet aan." },
+  { question: "... jij de afwas ...? (afwassen)", options: ["Was / af","Af / was","Wast / af","Af / wast"], correct: 0, explanation: "🟢 Was jij af?" },
+  { question: "We ... het feest ... (afblazen)", options: ["blazen / af","af / blazen","blazen / afblazen","blazen / uit"], correct: 0, explanation: "🟢 We blazen af." },
+  { question: "Zij ... haar vriendin ... (opbellen)", options: ["belt / op","op / belt","belt / opbellen","belt / aan"], correct: 0, explanation: "🟢 Zij belt op." },
+  { question: "Hij ... altijd zijn jas ... (aandoen)", options: ["doet / aan","aan / doet","doet / aandoen","doet / uit"], correct: 0, explanation: "🟢 Hij doet aan." },
+  { question: "Wanneer ... je ...? (thuiskomen)", options: ["kom / thuis","thuis / kom","komt / thuis","thuis / komt"], correct: 0, explanation: "🟢 Wanneer kom je thuis?" },
+  { question: "Hij ... dat hij nooit ... (meedoen)", options: ["zegt / meedoet","zegt / doet mee","zegt / mee doet","zegt / meedoen"], correct: 0, explanation: "🟢 Bijzin = meedoet." },
+  { question: "We ... de berg ... (opklimmen)", options: ["klimmen / op","op / klimmen","klimmen / opklimmen","klimmen / af"], correct: 0, explanation: "🟢 We klimmen op." },
+  { question: "Ik ... de brief ... (opsturen)", options: ["heb / opgestuurd","ben / opgestuurd","heb / opstuur","ben / opstuur"], correct: 0, explanation: "🟢 op + ge + stuur + d." },
+  { question: "Zij ... de deur ... (dichtdoen)", options: ["doet / dicht","dicht / doet","doet / dichtdoen","doet / open"], correct: 0, explanation: "🟢 Zij doet dicht." },
+  { question: "... je het raam ...? (dichtmaken)", options: ["Maak / dicht","Dicht / maak","Maakt / dicht","Dicht / maakt"], correct: 0, explanation: "🟢 Maak je dicht?" },
+  { question: "Hij ... elke dag ... (aankomen)", options: ["komt / aan","aan / komt","komt / aankomen","komt / weg"], correct: 0, explanation: "🟢 Hij komt aan." },
+  { question: "We ... het pakketje ... (afgeven)", options: ["geven / af","af / geven","geven / afgeven","geven / op"], correct: 0, explanation: "🟢 We geven af." },
+  { question: "Ik ... dat hij de wedstrijd ... (opgeven)", options: ["denk / opgeeft","denk / geeft op","denk / op geeft","denk / opgeeft"], correct: 0, explanation: "🟢 Bijzin = opgeeft." },
+  { question: "Zij ... haar moeder ... (mechelpen)", options: ["helpt / mee","mee / helpt","helpt / mechelpen","helpt / af"], correct: 0, explanation: "🟢 Zij helpt mee." },
+  { question: "Hij is naar huis ... (teruggaan)", options: ["teruggegaan","teruggaan","terugging","teruggegaand"], correct: 0, explanation: "🟢 terug + ge + gaan." },
+  { question: "Ik ... mijn kamer ... (opruimen)", options: ["ruim / op","op / ruim","ruim / opruimen","ruim / uit"], correct: 0, explanation: "🟢 Ik ruim op." },
+  { question: "... je dat even ...? (voordoen)", options: ["Doe / voor","Voor / doe","Doet / voor","Voor / doet"], correct: 0, explanation: "🟢 Doe je voor?" },
+  { question: "We ... de presentatie ... (klaarmaken)", options: ["maken / klaar","klaar / maken","maken / klaarmaken","maken / uit"], correct: 0, explanation: "🟢 We maken klaar." }
+     ]
     },
     9: { // Wederkerende werkwoorden
-      practice: [
-        { question: "Ik ... me even. (zich vergissen)", options: ["vergis","vergist","vergissen","vergiste"], correct: 0, explanation: "❌ Fout! Ik vergis me.", tip: "💡 Wederkerend: ik + stam + me." },
-        { question: "Zij ... zich snel. (zich aankleden)", options: ["kleed","kleedt","kleden","kleedt aan"], correct: 1, explanation: "❌ Fout! Zij kleedt zich aan.", tip: "💡 Zij + stam+t + zich." },
-        { question: "Wij ... ons voor. (zich voorstellen)", options: ["stel","stelt","stellen","stellen voor"], correct: 2, explanation: "❌ Fout! Wij stellen ons voor.", tip: "💡 Wij + infinitief + ons." },
-        { question: "Hij ... zich. (zich wassen)", options: ["was","wast","wassen","wast zich"], correct: 1, explanation: "❌ Fout! Hij wast zich.", tip: "💡 Hij + stam+t + zich." },
-        { question: "Jij ... je. (zich schamen)", options: ["schaam","schaamt","schamen","schaamt je"], correct: 1, explanation: "❌ Fout! Jij schaamt je.", tip: "💡 Jij + stam+t + je." }
-      ],
-      test: [
-        { question: "Ik ... me. (zich herinneren)", options: ["herinner","herinnert","herinneren","herinnert me"], correct: 0, explanation: "Ik herinner me." },
-        { question: "Zij ... zich. (zich ontspannen)", options: ["ontspan","ontspant","ontspannen","ontspant zich"], correct: 1, explanation: "Zij ontspant zich." },
-        { question: "Wij ... ons. (zich vermaken)", options: ["vermaak","vermaakt","vermaken","vermaakt ons"], correct: 2, explanation: "Wij vermaken ons." },
-        { question: "Hij ... zich. (zich haasten)", options: ["haast","haastt","haasten","haastt zich"], correct: 1, explanation: "Hij haast zich." },
-        { question: "Jullie ... je. (zich gedragen)", options: ["gedraag","gedraagt","gedragen","gedraagt je"], correct: 2, explanation: "Jullie gedragen je." },
-        { question: "Ik ... me. (zich voelen)", options: ["voel","voelt","voelen","voelt me"], correct: 0, explanation: "Ik voel me." },
-        { question: "Zij ... zich. (zich vervelen)", options: ["verveel","verveelt","vervelen","verveelt zich"], correct: 1, explanation: "Zij verveelt zich." },
-        { question: "Wij ... ons. (zich voorbereiden)", options: ["bereid","bereidt","bereiden","bereidt ons"], correct: 2, explanation: "Wij bereiden ons voor." },
-        { question: "Hij ... zich. (zich scheren)", options: ["scheer","scheert","scheren","scheert zich"], correct: 1, explanation: "Hij scheert zich." },
-        { question: "Jij ... je. (zich haasten)", options: ["haast","haastt","haasten","haastt je"], correct: 1, explanation: "Jij haast je." }
+practice: [
+  { 
+    question: "Ik ... ... elke dag. (wassen)", 
+    options: ["was / me","was / zich","was / mij","wast / me"], 
+    correct: 0, 
+    explanation: "🟢 Bij 'ik' hoort het reflexief voornaamwoord 'me'.", 
+    tip: "💡 Ik + me, Jij + je, Hij/zij/het + zich" 
+  },
+  { 
+    question: "Hij ... ... vergist. (vergissen)", 
+    options: ["heeft / zich","heeft / hem","heb / zich","hebt / zich"], 
+    correct: 0, 
+    explanation: "🟢 Derde persoon enkelvoud + voltooide tijd = heeft zich.", 
+    tip: "💡 Hij/zij/het + zich" 
+  },
+  { 
+    question: "... jij ... vaak? (vergissen)", 
+    options: ["Vergis / je","Vergist / je","Vergis / u","Vergist / zich"], 
+    correct: 0, 
+    explanation: "🟢 Vraagzin inversie met 'jij' → stam 'vergis' + reflexief 'je'.", 
+    tip: "💡 Vergis je je? (geen -t bij jij in vraag)" 
+  },
+  { 
+    question: "Wij ... ... altijd. (amuseren)", 
+    options: ["amuseren / ons","amuseren / elkaar","amuseert / ons","amuseren / zich"], 
+    correct: 0, 
+    explanation: "🟢 Eerste persoon meervoud = 'ons'.", 
+    tip: "💡 Wij/we + ons" 
+  },
+  { 
+    question: "Zij ... ... gedragen. (gedragen)", 
+    options: ["heeft / zich","hebben / zich","is / zich","hebt / zich"], 
+    correct: 0, 
+    explanation: "🟢 Enkelvoud 'zij' + voltooide tijd = heeft zich.", 
+    tip: "💡 Zij (1 pers.) + heeft zich" 
+  },
+  { 
+    question: "Jullie ... ... klaargemaakt? (klaarmaken)", 
+    options: ["hebben / je","hebben / jullie","hebben / u","hebben / zich"], 
+    correct: 1, 
+    explanation: "🟢 Reflexief voor 'jullie' = 'jullie' (of 'je').", 
+    tip: "💡 Jullie + jullie/je" 
+  },
+  { 
+    question: "Ik ... ... herinnerd. (herinneren)", 
+    options: ["heb / me","ben / me","heb / mij","ben / mij"], 
+    correct: 0, 
+    explanation: "🟢 'Zich herinneren' = hebben + me.", 
+    tip: "💡 Herinneren = altijd hebben" 
+  },
+  { 
+    question: "... u ... even voorstellen? (voorstellen)", 
+    options: ["Kunt / zich","Kan / u","Kunt / u","Kan / zich"], 
+    correct: 0, 
+    explanation: "🟢 Beleefde 'u' + reflexief 'zich' = Kunt u zich voorstellen?", 
+    tip: "💡 U + zich" 
+  },
+  { 
+    question: "Hij ... ... nooit ergens in. (mengen)", 
+    options: ["mengt / zich","mengt / hem","meng / zich","mengt / z'n"], 
+    correct: 0, 
+    explanation: "🟢 Derde persoon enkelvoud + zich.", 
+    tip: "💡 Hij + zich" 
+  },
+  { 
+    question: "We moeten ... ... haasten. (haasten)", 
+    options: ["ons / haasten","zich / haasten","we / haasten","haasten / ons"], 
+    correct: 0, 
+    explanation: "🟢 Na hulpwerkwoord: reflexief voor 'we' = 'ons'.", 
+    tip: "💡 We + ons" 
+  },
+  { 
+    question: "Zij ... ... vergist. (verleden tijd)", 
+    options: ["vergiste / zich","vergistte / zich","vergiste / haar","vergist / zich"], 
+    correct: 0, 
+    explanation: "🟢 Verleden tijd zwak: vergis + te + zich.", 
+    tip: "💢 Zij (vt) + vergiste zich" 
+  },
+  { 
+    question: "... je ... niet te veel zorgen? (zorgen maken)", 
+    options: ["Maak / je","Maakt / je","Maak / u","Maakt / zich"], 
+    correct: 0, 
+    explanation: "🟢 Vraagzin inversie: 'maak' + reflexief 'je'.", 
+    tip: "💡 Maak je je zorgen?" 
+  },
+  { 
+    question: "Ik voel ... niet goed. (voelen)", 
+    options: ["me","mij","zich","je"], 
+    correct: 0, 
+    explanation: "🟢 'Zich voelen' → ik voel me.", 
+    tip: "💡 Ik + me" 
+  },
+  { 
+    question: "Zij hebben ... vermaakt. (vermaken)", 
+    options: ["zich","hun","hen","elkaar"], 
+    correct: 0, 
+    explanation: "🟢 Derde persoon meervoud = zich.", 
+    tip: "💡 Zij (mv.) + zich" 
+  },
+  { 
+    question: "... jij ... weleens? (vergissen)", 
+    options: ["Vergis / je","Vergist / je","Vergis / u","Vergist / zich"], 
+    correct: 0, 
+    explanation: "🟢 Vraagzin met 'jij' → stam 'vergis' + 'je'.", 
+    tip: "💡 Vergis je je?" 
+  },
+  { 
+    question: "Hij ... ... gezond. (voelen)", 
+    options: ["voelt / zich","voel / zich","voelt / hem","voelt / haar"], 
+    correct: 0, 
+    explanation: "🟢 Derde persoon enkelvoud + zich.", 
+    tip: "💡 Hij + zich" 
+  },
+  { 
+    question: "Jij ... ... dat niet. (herinneren)", 
+    options: ["herinnert / je","herinner / je","herinnert / u","herinner / zich"], 
+    correct: 0, 
+    explanation: "🟢 Jij + stam+t + reflexief 'je'.", 
+    tip: "💡 Jij + je" 
+  },
+  { 
+    question: "We ... ... door het bos. (bewegen)", 
+    options: ["bewegen / ons","beweegt / ons","bewegen / elkaar","bewegen / zich"], 
+    correct: 0, 
+    explanation: "🟢 We + bewegen + ons.", 
+    tip: "💡 We + ons" 
+  },
+  { 
+    question: "U moet ... ... haasten. (haasten)", 
+    options: ["u / haasten","zich / haasten","je / haasten","haasten / u"], 
+    correct: 0, 
+    explanation: "🟢 U + u (of zich) + haasten.", 
+    tip: "💡 U + u/zich" 
+  },
+  { 
+    question: "Zij ... ... gisteren vergist. (vergissen)", 
+    options: ["vergiste / zich","vergistte / zich","vergiste / haar","vergist / zich"], 
+    correct: 0, 
+    explanation: "🟢 Verleden tijd enkelvoud: vergiste zich.", 
+    tip: "💢 Zij (vt) + vergiste zich" 
+  },
+  { 
+    question: "Ik ... ... over de uitslag. (verbazen)", 
+    options: ["verbaas / me","verbaast / me","verbaas / mij","verbaast / zich"], 
+    correct: 0, 
+    explanation: "🟢 Ik + stam + me.", 
+    tip: "💡 Ik + me" 
+  },
+  { 
+    question: "Hij ... ... op zijn werk. (vervelen)", 
+    options: ["verveelt / zich","verveelt / hem","verveel / zich","verveelt / haar"], 
+    correct: 0, 
+    explanation: "🟢 Hij + stam+t + zich.", 
+    tip: "💡 Hij + zich" 
+  },
+  { 
+    question: "Wanneer ... jij ... voor het examen? (klaarmaken)", 
+    options: ["maak / je","maakt / je","maak / u","maakt / zich"], 
+    correct: 0, 
+    explanation: "🟢 Inversie 'jij' → stam 'maak' + 'je'.", 
+    tip: "💡 Wanneer maak jij je klaar?" 
+  },
+  { 
+    question: "Jullie ... ... te veel. (haasten)", 
+    options: ["haasten / jullie","haast / jullie","haasten / je","haast / zich"], 
+    correct: 0, 
+    explanation: "🟢 Jullie + meervoud + jullie.", 
+    tip: "💡 Jullie + jullie/je" 
+  },
+  { 
+    question: "Zij ... ... rot. (voelen)", 
+    options: ["voelt / zich","voel / zich","voelt / hem","voelt / haar"], 
+    correct: 0, 
+    explanation: "🟢 Zij (enkelvoud) + voelt zich.", 
+    tip: "💡 Zij + zich" 
+  },
+  { 
+    question: "Ik heb ... ... gedoucht. (douchen)", 
+    options: ["me / gedoucht","mij / gedoucht","me / douchen","me / doucht"], 
+    correct: 0, 
+    explanation: "🟢 Voltooide tijd: heb + me + gedoucht.", 
+    tip: "💢 Heb + me + deelwoord" 
+  },
+  { 
+    question: "Hij kon ... ... niet herinneren. (herinneren)", 
+    options: ["zich / herinneren","hem / herinneren","zich / herinnerd","hem / herinnerd"], 
+    correct: 0, 
+    explanation: "🟢 Na modaal: reflexief + infinitief.", 
+    tip: "💡 Kon + zich + infinitief" 
+  },
+  { 
+    question: "... je ... dat? (herinneren)", 
+    options: ["Herinner / je","Herinnert / je","Herinner / u","Herinnert / zich"], 
+    correct: 0, 
+    explanation: "🟢 Inversie 'je' → stam 'herinner' + reflexief 'je'.", 
+    tip: "💡 Herinner je je dat?" 
+  },
+  { 
+    question: "We moeten ... ... beter gedragen. (gedragen)", 
+    options: ["ons / gedragen","zich / gedragen","we / gedragen","ons / gedraggen"], 
+    correct: 0, 
+    explanation: "🟢 We + ons + infinitief.", 
+    tip: "💡 We + ons" 
+  },
+  { 
+    question: "Zij ... ... nooit. (verslapen)", 
+    options: ["verslaapt / zich","verslaap / zich","verslaapt / haar","verslapen / zich"], 
+    correct: 0, 
+    explanation: "🟢 Zij + stam+t + zich.", 
+    tip: "💡 Zij + zich" 
+  },
+  { 
+    question: "Ik heb ... ... vergist. (vergissen)", 
+    options: ["me / vergist","mij / vergist","me / vergissen","mij / vergissen"], 
+    correct: 0, 
+    explanation: "🟢 Voltooid: heb + me + vergist.", 
+    tip: "💢 Heb + me + vergist" 
+  },
+  { 
+    question: "Hij zat ... ... te scheren. (scheren)", 
+    options: ["zich / te scheren","hem / te scheren","zich / scheren","zich / te scheert"], 
+    correct: 0, 
+    explanation: "🟢 Constructie 'zitten te' + reflexief + infinitief.", 
+    tip: "💡 Zat zich te + werkwoord" 
+  },
+  { 
+    question: "Jij moet ... ... scheren. (scheren)", 
+    options: ["je / scheren","je / scheert","je / te scheren","jij / scheren"], 
+    correct: 0, 
+    explanation: "🟢 Na 'moeten': reflexief + infinitief (zonder te).", 
+    tip: "💡 Moet + je + infinitief" 
+  },
+  { 
+    question: "Zij hebben ... aan het lawaai. (ergeren)", 
+    options: ["zich geërgerd","hun geërgerd","zich ergeerd","hun erger"], 
+    correct: 0, 
+    explanation: "🟢 Voltooid deelwoord: zich + geërgerd.", 
+    tip: "💢 Hebben + zich + geërgerd" 
+  },
+  { 
+    question: "Laten we ... ... haasten. (haasten)", 
+    options: ["ons / haasten","we / haasten","ons / haast","zich / haasten"], 
+    correct: 0, 
+    explanation: "🟢 Gebiedende wijs 'laten we' + ons + infinitief.", 
+    tip: "💡 Laten we + ons" 
+  },
+  { 
+    question: "Ik kan ... ... niet voorstellen. (voorstellen)", 
+    options: ["me / voorstellen","me / voorstel","mij / voorstellen","me / voorstelt"], 
+    correct: 0, 
+    explanation: "🟢 Na 'kan': me + infinitief.", 
+    tip: "💡 Kan + me + infinitief" 
+  },
+  { 
+    question: "Hij ... ... van zijn fouten. (bewust zijn)", 
+    options: ["is / zich","heeft / zich","is / hem","heeft / hem"], 
+    correct: 0, 
+    explanation: "🟢 'Zich bewust zijn' = zijn + zich.", 
+    tip: "💡 Hij is zich bewust" 
+  },
+  { 
+    question: "Zij wilde ... ... niet vergissen. (vergissen)", 
+    options: ["zich / vergissen","haar / vergissen","zich / vergist","haar / vergist"], 
+    correct: 0, 
+    explanation: "🟢 Na 'wilde': zich + infinitief.", 
+    tip: "💡 Wilde + zich + infinitief" 
+  },
+  { 
+    question: "We hebben ... ... lekker geamuseerd. (amuseren)", 
+    options: ["ons / geamuseerd","ons / amuseren","we / geamuseerd","zich / geamuseerd"], 
+    correct: 0, 
+    explanation: "🟢 Voltooid: hebben + ons + geamuseerd.", 
+    tip: "💢 Hebben + ons + geamuseerd" 
+  },
+  { 
+    question: "... je je ooit ... waarom? (afvragen)", 
+    options: ["Vraag / af","Vraagt / af","Vraag / op","Vraagt / op"], 
+    correct: 0, 
+    explanation: "🟢 Inversie 'je' → stam 'vraag' + scheidbaar 'af'.", 
+    tip: "💡 Vraag je je af?" 
+  }
+],
+
+test: [
+  { question: "Ik ... ... elke dag. (wassen)", options: ["was / me","was / zich","was / mij","wast / me"], correct: 0, explanation: "🟢 Ik + me." },
+  { question: "Hij ... ... vergist. (vergissen)", options: ["heeft / zich","heeft / hem","heb / zich","hebt / zich"], correct: 0, explanation: "🟢 Hij/zij/het + heeft/zich." },
+  { question: "... jij ... vaak? (vergissen)", options: ["Vergis / je","Vergist / je","Vergis / u","Vergist / zich"], correct: 0, explanation: "🟢 Vraag jij = vergis + je." },
+  { question: "Wij ... ... altijd. (amuseren)", options: ["amuseren / ons","amuseren / elkaar","amuseert / ons","amuseren / zich"], correct: 0, explanation: "🟢 Wij + ons." },
+  { question: "Jullie ... ... klaargemaakt?", options: ["hebben / je","hebben / jullie","hebben / u","hebben / zich"], correct: 1, explanation: "🟢 Jullie + hebben + jullie." },
+  { question: "Ik ... ... herinnerd.", options: ["heb / me","ben / me","heb / mij","ben / mij"], correct: 0, explanation: "🟢 Herinneren = hebben + me." },
+  { question: "... u ... voorstellen?", options: ["Kunt / zich","Kan / u","Kunt / u","Kan / zich"], correct: 0, explanation: "🟢 U + kunt + zich." },
+  { question: "We moeten ... ... haasten.", options: ["ons / haasten","zich / haasten","we / haasten","haasten / ons"], correct: 0, explanation: "🟢 We + ons." },
+  { question: "Zij ... ... vergist. (vt)", options: ["vergiste / zich","vergistte / zich","vergiste / haar","vergist / zich"], correct: 0, explanation: "🟢 Zij (vt) + vergiste zich." },
+  { question: "... je ... zorgen? (zorgen maken)", options: ["Maak / je","Maakt / je","Maak / u","Maakt / zich"], correct: 0, explanation: "🟢 Maak je je zorgen?" },
+  { question: "Ik voel ... niet goed.", options: ["me","mij","zich","je"], correct: 0, explanation: "🟢 Ik voel me." },
+  { question: "Zij hebben ... vermaakt.", options: ["zich","hun","hen","elkaar"], correct: 0, explanation: "🟢 Zij (mv.) + zich." },
+  { question: "Hij ... ... gezond. (voelen)", options: ["voelt / zich","voel / zich","voelt / hem","voelt / haar"], correct: 0, explanation: "🟢 Hij + voelt zich." },
+  { question: "Wanneer ... jij ... klaar? (klaarmaken)", options: ["maak / je","maakt / je","maak / u","maakt / zich"], correct: 0, explanation: "🟢 Wanneer maak jij je klaar?" },
+  { question: "Ik heb ... ... gedoucht.", options: ["me / gedoucht","mij / gedoucht","me / douchen","me / doucht"], correct: 0, explanation: "🟢 Heb + me + gedoucht." },
+  { question: "Hij kon ... ... niet herinneren.", options: ["zich / herinneren","hem / herinneren","zich / herinnerd","hem / herinnerd"], correct: 0, explanation: "🟢 Kon + zich + herinneren." },
+  { question: "... je ... dat? (herinneren)", options: ["Herinner / je","Herinnert / je","Herinner / u","Herinnert / zich"], correct: 0, explanation: "🟢 Herinner je je dat?" },
+  { question: "Zij ... ... nooit. (verslapen)", options: ["verslaapt / zich","verslaap / zich","verslaapt / haar","verslapen / zich"], correct: 0, explanation: "🟢 Zij + verslaapt zich." },
+  { question: "Laten we ... ... haasten.", options: ["ons / haasten","we / haasten","ons / haast","zich / haasten"], correct: 0, explanation: "🟢 Laten we + ons." },
+  { question: "... je je ooit ... waarom? (afvragen)", options: ["Vraag / af","Vraagt / af","Vraag / op","Vraagt / op"], correct: 0, explanation: "🟢 Vraag je je af?" }
       ]
     },
     10: { // Meervoud
