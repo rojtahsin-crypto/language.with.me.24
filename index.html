@@ -17409,7 +17409,302 @@ const TOPICS = {
     </div>
   `
 },
-    {id:2,t:"Le genre et le nombre des noms",d:"Masculin/féminin, singulier/pluriel, règles et exceptions"},
+{
+  id: 1,
+  t: "Les articles (définis, indéfinis, partitifs)",
+  d: "Le, la, les, un, une, des, du, de la — maîtrisez les articles français",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.le { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.la { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.lp { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge.ls { background: var(--gw-bg3); color: var(--gw-text); border-color: var(--gw-border); }
+      .gw-badge.un { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.une { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.des { background: var(--gw-bg3); color: var(--gw-text); border-color: var(--gw-border); }
+      .gw-badge.du { background: var(--gw-warn-bg); color: var(--gw-warn-text); border-color: var(--gw-warn); }
+      .gw-badge.dela { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.del { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+      .gw-summary {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      }
+      .gw-summary h3 { margin: 0 0 16px; color: var(--gw-accent); font-size: 1.3rem; font-weight: 700; }
+      .gw-summary ul { margin: 0 0 16px 28px; padding: 0; }
+      .gw-summary li { margin-bottom: 10px; line-height: 1.6; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🇫🇷 Les Articles en Français</h1>
+        <p>Définis • Indéfinis • Partitifs — les clés de la précision linguistique</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Les articles français sont de petits mots essentiels qui précèdent les noms. Ils indiquent le <strong>genre</strong>, le <strong>nombre</strong> et le <strong>degré de spécificité</strong>. Une bonne maîtrise est fondamentale pour s'exprimer avec clarté et naturel.</p>
+      </div>
+
+      <div class="gw-section">
+        <h2>📘 1. Les articles définis</h2>
+        <p>Ils désignent une chose ou une personne <strong>précise</strong>, déjà connue ou identifiable dans le contexte.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Genre / Nombre</th><th>Article défini</th></tr></thead>
+            <tbody>
+              <tr><td>Masculin singulier</td><td><span class="gw-badge le">le</span></td></tr>
+              <tr><td>Féminin singulier</td><td><span class="gw-badge la">la</span></td></tr>
+              <tr><td>Devant voyelle ou h muet</td><td><span class="gw-badge lp">l'</span></td></tr>
+              <tr><td>Pluriel (masc. & fém.)</td><td><span class="gw-badge ls">les</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example">
+          💬 <em>"<strong>Le</strong> chien du voisin aboie."</em> (ce chien précis)<br>
+          💬 <em>"<strong>La</strong> Lune est pleine ce soir."</em> (unique, connue)<br>
+          💬 <em>"<strong>L'</strong>arbre devant la maison est un chêne."</em><br>
+          💬 <em>"<strong>Les</strong> enfants jouent dans le parc."</em>
+        </div>
+
+        <div class="gw-card gw-card--tip">
+          <div class="gw-card-title">📝 Emplois particuliers :</div>
+          <p style="margin:0; color:var(--gw-text)">
+            • Généralité / vérité générale : <em>Le café est cultivé au Brésil.</em><br>
+            • Avec une date : <em>Nous sommes le 23 avril.</em><br>
+            • Devant un titre ou une fonction : <em>le président Macron, la reine d'Angleterre.</em><br>
+            • Pour exprimer une possession : <em>le stylo de Paul.</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🟢 2. Les articles indéfinis</h2>
+        <p>Ils introduisent un nom dont l'identité n'est pas encore précisée, non compté ou non spécifique.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Genre / Nombre</th><th>Article indéfini</th></tr></thead>
+            <tbody>
+              <tr><td>Masculin singulier</td><td><span class="gw-badge un">un</span></td></tr>
+              <tr><td>Féminin singulier</td><td><span class="gw-badge une">une</span></td></tr>
+              <tr><td>Pluriel (masc. & fém.)</td><td><span class="gw-badge des">des</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example">
+          💬 <em>"J'ai acheté <strong>un</strong> livre."</em> (quelconque, pas encore défini)<br>
+          💬 <em>"<strong>Une</strong> femme t'attend dans le hall."</em> (on ne sait pas qui)<br>
+          💬 <em>"Il y a <strong>des</strong> nuages dans le ciel."</em> (en général, non comptés)
+        </div>
+
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title">⚠️ Règle importante à la forme négative :</div>
+          <p style="margin:0; color:var(--gw-text)">
+            Après une négation, les articles indéfinis <strong>un, une, des</strong> deviennent généralement <strong>de</strong> (ou <strong>d'</strong>).<br>
+            • <em>Je n'ai pas <strong>de</strong> voiture.</em><br>
+            • <em>Il n'y a pas <strong>d'</strong>enfants dans la cour.</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🟡 3. Les articles partitifs</h2>
+        <p>Ils expriment une <strong>quantité indéterminée</strong> d'une chose qu'on ne peut pas compter (masse, matière, abstrait). Formés de <em>de</em> + article défini.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Genre / Nombre</th><th>Article partitif</th></tr></thead>
+            <tbody>
+              <tr><td>Masculin singulier (consonne)</td><td><span class="gw-badge du">du</span> (= de + le)</td></tr>
+              <tr><td>Féminin singulier (consonne)</td><td><span class="gw-badge dela">de la</span></td></tr>
+              <tr><td>Devant voyelle ou h muet</td><td><span class="gw-badge del">de l'</span></td></tr>
+              <tr><td>Pluriel (non comptables)</td><td><span class="gw-badge des">des</span> ⚠️ identique à l'indéfini</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example">
+          💬 <em>"Je bois <strong>du</strong> lait."</em> (quantité non précisée)<br>
+          💬 <em>"Elle mange <strong>de la</strong> confiture."</em> (partie d'un tout)<br>
+          💬 <em>"Voudriez-vous <strong>de l'</strong>eau ?"</em> (devant voyelle)<br>
+          💬 <em>"Il y a <strong>des</strong> épinards dans l'assiette."</em> (quantité indéterminée)
+        </div>
+
+        <div class="gw-card gw-card--tip">
+          <div class="gw-card-title">🔍 Partitif vs Indéfini pluriel :</div>
+          <p style="margin:0; color:var(--gw-text)">
+            • <strong>Indéfini pluriel</strong> → objets <em>comptables</em> → remplaçable par <em>quelques</em><br>
+            <em>"J'ai acheté des pommes." → "J'ai acheté quelques pommes."</em><br><br>
+            • <strong>Partitif pluriel</strong> → noms <em>non comptables</em> (masse, aliments) → remplaçable par <em>un peu de</em><br>
+            <em>"Je prends des épinards." → "un peu d'épinards."</em><br><br>
+            ⚠️ À la négation, le partitif devient aussi <strong>de / d'</strong> : <em>"Je ne bois pas de vin."</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔄 Tableau : Transformation à la négation</h2>
+        
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Forme affirmative</th><th>Négation</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge un">un</span> / <span class="gw-badge une">une</span></td><td><strong>de / d'</strong></td><td><em>J'ai un frère → Je n'ai pas de frère</em></td></tr>
+              <tr><td><span class="gw-badge du">du</span> / <span class="gw-badge dela">de la</span> / <span class="gw-badge del">de l'</span></td><td><strong>de / d'</strong></td><td><em>Il y a du pain → Il n'y a pas de pain</em></td></tr>
+              <tr><td><span class="gw-badge des">des</span> (partitif ou indéfini)</td><td><strong>de / d'</strong></td><td><em>Elle a des amis → Elle n'a pas d'amis</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-example">
+          🔹 <em>"J'ai un frère." → "Je n'ai pas <strong>de</strong> frère."</em><br>
+          🔹 <em>"Il y a du pain." → "Il n'y a pas <strong>de</strong> pain."</em><br>
+          🔹 <em>"Elle a des amis." → "Elle n'a pas <strong>d'</strong>amis."</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Cas particuliers et pièges à éviter</h2>
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Après le verbe être</div>
+            <p style="margin:0; color:var(--gw-text)"><strong>Un, une, des</strong> restent inchangés après <em>être</em>.<br><em>"C'est un médecin. Ce n'est pas un médecin."</em></p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Après sans</div>
+            <p style="margin:0; color:var(--gw-text)">On emploie souvent <strong>de / d'</strong> sans article.<br><em>"Il est venu sans parapluie."</em></p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Avec une quantité précisée</div>
+            <p style="margin:0; color:var(--gw-text)">On utilise <strong>de</strong> sans article.<br><em>"Un verre d'eau, beaucoup de bruit, assez de temps."</em></p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Négation restrictive</div>
+            <p style="margin:0; color:var(--gw-text)">Les articles réapparaissent si la négation porte sur le verbe et non sur la quantité.<br><em>"Je ne bois que du thé."</em></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Résumé rapide</h3>
+        <ul>
+          <li><span class="gw-badge le">le/la/l'/les</span> → spécifique, connu, généralités, dates, titres</li>
+          <li><span class="gw-badge un">un/une/des</span> → non spécifique, première mention, objets comptables</li>
+          <li><span class="gw-badge du">du/de la/de l'/des</span> → quantité indéterminée, non comptable (masse, liquide)</li>
+          <li><strong>Négation</strong> → un/une/du/de la/de l'/des → <strong>de / d'</strong> (sauf après être)</li>
+          <li><strong>💡 Astuce</strong> → Testez avec <em>quelques</em> (comptable) ou <em>un peu de</em> (masse) pour choisir</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Cette explication couvre les articles de base. N'hésitez pas si vous avez besoin d'éclaircissements sur un point particulier ! 🚀</p>
+      </div>
+    </div>
+  `
+},
     {id:3,t:"Les adjectifs qualificatifs",d:"Accord, place et degrés de comparaison"},
     {id:4,t:"Les pronoms personnels",d:"Sujets, COD, COI, toniques, ordre et place"},
     {id:5,t:"Les pronoms possessifs",d:"Mon, ton, son, notre, votre, leur et formes renforcées"},
@@ -23111,46 +23406,378 @@ test: [
       ]
     },
     23: { // Betrekkelijke bijzinnen
-      practice: [
-        { question: "De man ... daar loopt, is mijn oom.", options: ["die","dat","wat","wie"], correct: 0, explanation: "❌ Fout! de-woord → die.", tip: "💡 Die voor de-woorden." },
-        { question: "Het boek ... ik lees, is spannend.", options: ["die","dat","wat","wie"], correct: 1, explanation: "❌ Fout! het-woord → dat.", tip: "💡 Dat voor het-woorden." },
-        { question: "Alles ... hij zegt, is waar.", options: ["die","dat","wat","wie"], correct: 2, explanation: "❌ Fout! onbepaald → wat.", tip: "💡 Wat na alles/iets/niets." },
-        { question: "Het meisje met ... ik sprak, heet Anne.", options: ["die","dat","wat","wie"], correct: 3, explanation: "❌ Fout! na voorzetsel → wie.", tip: "💡 Wie na voorzetsel bij personen." },
-        { question: "De auto ... hij kocht, is rood.", options: ["die","dat","wat","wie"], correct: 0, explanation: "❌ Fout! de-woord → die.", tip: "💡 Die verwijst naar de-woord." }
-      ],
-      test: [
-        { question: "De vrouw ... zingt, is mijn zus.", options: ["die","dat","wat","wie"], correct: 0, explanation: "de-woord → die." },
-        { question: "Het huis ... ik koop, is groot.", options: ["die","dat","wat","wie"], correct: 1, explanation: "het-woord → dat." },
-        { question: "Iets ... ik niet begrijp, is dit.", options: ["die","dat","wat","wie"], correct: 2, explanation: "iets → wat." },
-        { question: "De man aan ... ik schreef, antwoordde.", options: ["die","dat","wat","wie"], correct: 3, explanation: "na voorzetsel → wie." },
-        { question: "De kinderen ... spelen, zijn blij.", options: ["die","dat","wat","wie"], correct: 0, explanation: "meervoud → die." },
-        { question: "Het probleem ... we hebben, is opgelost.", options: ["die","dat","wat","wie"], correct: 1, explanation: "het-woord → dat." },
-        { question: "Niets ... hij zei, hielp.", options: ["die","dat","wat","wie"], correct: 2, explanation: "niets → wat." },
-        { question: "De vriendin van ... ik houd, is lief.", options: ["die","dat","wat","wie"], correct: 3, explanation: "na voorzetsel → wie." },
-        { question: "De honden ... blaffen, zijn groot.", options: ["die","dat","wat","wie"], correct: 0, explanation: "meervoud → die." },
-        { question: "Het idee ... hij had, was goed.", options: ["die","dat","wat","wie"], correct: 1, explanation: "het-woord → dat." }
-      ]
+practice: [
+  { 
+    question: "De man ... hier woont, is mijn buurman.", 
+    options: ["die","dat","wie","wat"], 
+    correct: 0, 
+    explanation: "🟢 'De man' is een de-woord → betrekkelijk voornaamwoord 'die'.", 
+    tip: "💡 De-woord = die" 
+  },
+  { 
+    question: "Het huis ... ik gekocht heb, is groot.", 
+    options: ["die","dat","wat","waar"], 
+    correct: 1, 
+    explanation: "🟢 'Het huis' is een het-woord → betrekkelijk voornaamwoord 'dat'.", 
+    tip: "💡 Het-woord = dat" 
+  },
+  { 
+    question: "De auto ... voor de deur staat, is van mij.", 
+    options: ["die","dat","wie","welke"], 
+    correct: 0, 
+    explanation: "🟢 'De auto' is een de-woord → 'die'.", 
+    tip: "💡 De-woord = die" 
+  },
+  { 
+    question: "De kinderen ... in de tuin spelen, zijn vrolijk.", 
+    options: ["die","dat","wie","wat"], 
+    correct: 0, 
+    explanation: "🟢 Meervoud 'de kinderen' → 'die'.", 
+    tip: "💡 Meervoud = die" 
+  },
+  { 
+    question: "Het meisje ... ik gisteren ontmoette, heet Laura.", 
+    options: ["die","dat","wie","wat"], 
+    correct: 0, 
+    explanation: "🟢 Bij personen gebruikt men vaak 'die', ongeacht het geslacht.", 
+    tip: "💡 Persoon = vaak die" 
+  },
+  { 
+    question: "Alles ... hij zei, was waar.", 
+    options: ["die","dat","wat","wie"], 
+    correct: 2, 
+    explanation: "🟢 Na onbepaalde voornaamwoorden zoals 'alles' gebruik je 'wat'.", 
+    tip: "💡 Alles/iets/niets = wat" 
+  },
+  { 
+    question: "De fiets ... ik leen, is rood.", 
+    options: ["die","dat","waar","waarmee"], 
+    correct: 0, 
+    explanation: "🟢 'De fiets' is een de-woord → 'die'.", 
+    tip: "💡 De-woord = die" 
+  },
+  { 
+    question: "Het boek ... op tafel ligt, is van mij.", 
+    options: ["die","dat","wat","hetwelk"], 
+    correct: 1, 
+    explanation: "🟢 'Het boek' is een het-woord → 'dat'.", 
+    tip: "💡 Het-woord = dat" 
+  },
+  { 
+    question: "De vrouw met ... ik samenwerk, is aardig.", 
+    options: ["die","dat","wie","wat"], 
+    correct: 2, 
+    explanation: "🟢 Na een voorzetsel ('met') gebruik je bij personen 'wie'.", 
+    tip: "💡 Voorzetsel + persoon = wie" 
+  },
+  { 
+    question: "Het dorp ... ik woon, is klein.", 
+    options: ["waar","waarin","dat","die"], 
+    correct: 1, 
+    explanation: "🟢 'Wonen in' → 'waarin' (formeel).", 
+    tip: "💡 Wonen in = waarin" 
+  },
+  { 
+    question: "De student ... de prijs won, is uit België.", 
+    options: ["die","dat","wie","wat"], 
+    correct: 0, 
+    explanation: "🟢 'De student' is een de-woord → 'die'.", 
+    tip: "💡 De-woord = die" 
+  },
+  { 
+    question: "Dat is het mooiste schilderij ... ik ooit gezien heb.", 
+    options: ["die","dat","wat","hetwelk"], 
+    correct: 2, 
+    explanation: "🟢 Na een overtreffende trap ('het mooiste') gebruik je 'wat'.", 
+    tip: "💡 Overtreffend = wat" 
+  },
+  { 
+    question: "De pen ... ik schrijf, is nieuw.", 
+    options: ["waar","waarmee","waardoor","waarvoor"], 
+    correct: 1, 
+    explanation: "🟢 'Schrijven met' → 'waarmee'.", 
+    tip: "💡 Met + zaak = waarmee" 
+  },
+  { 
+    question: "De dag ... ik jarig ben, is in mei.", 
+    options: ["wanneer","waar","die","dat"], 
+    correct: 3, 
+    explanation: "🟢 Bij tijdsaanduidingen zoals 'de dag' gebruik je 'dat'.", 
+    tip: "💡 De dag/dat = tijd" 
+  },
+  { 
+    question: "We ontmoetten elkaar in een café ... we later zouden trouwen.", 
+    options: ["waar","waarin","waarmee","waarna"], 
+    correct: 1, 
+    explanation: "🟢 'Trouwen in' → 'waarin'.", 
+    tip: "💡 In + zaak = waarin" 
+  },
+  { 
+    question: "De reden ... hij te laat kwam, is onbekend.", 
+    options: ["waarom","waarvoor","waardoor","waarmee"], 
+    correct: 0, 
+    explanation: "🟢 'De reden waarom' is een vaste combinatie.", 
+    tip: "💡 De reden waarom = vast" 
+  },
+  { 
+    question: "De film ... ik gisteren zag, was spannend.", 
+    options: ["die","dat","wat","wie"], 
+    correct: 0, 
+    explanation: "🟢 'De film' is een de-woord → 'die'.", 
+    tip: "💡 De-woord = die" 
+  },
+  { 
+    question: "Het enige ... ik nodig heb, is liefde.", 
+    options: ["die","dat","wat","hetwelk"], 
+    correct: 2, 
+    explanation: "🟢 Na 'het enige' (onbepaald) gebruik je 'wat'.", 
+    tip: "💡 Het enige = wat" 
+  },
+  { 
+    question: "Zij is iemand ... je kunt vertrouwen.", 
+    options: ["op wie","die","dat","waarop"], 
+    correct: 0, 
+    explanation: "🟢 'Vertrouwen op' → 'op wie' bij personen.", 
+    tip: "💡 Op + persoon = op wie" 
+  },
+  { 
+    question: "Hij heeft een hond ... hij gekocht heeft bij de dierenwinkel.", 
+    options: ["die","dat","wat","welke"], 
+    correct: 0, 
+    explanation: "🟢 'Een hond' is een de-woord → 'die'.", 
+    tip: "💡 De-woord = die" 
+  },
+  { 
+    question: "Het meisje ... moeder ik ken, is mijn buurmeisje.", 
+    options: ["wier","wiens","die","dat"], 
+    correct: 0, 
+    explanation: "🟢 'Wier' voor vrouwelijke bezitters.", 
+    tip: "💡 Wier = vrouwelijk bezit" 
+  },
+  { 
+    question: "De jongen ... vader dokter is, heet Jan.", 
+    options: ["wiens","wier","die","dat"], 
+    correct: 0, 
+    explanation: "🟢 'Wiens' voor mannelijke bezitters.", 
+    tip: "💡 Wiens = mannelijk bezit" 
+  },
+  { 
+    question: "Er is niets ... mij blijer maakt.", 
+    options: ["die","dat","wat","wie"], 
+    correct: 2, 
+    explanation: "🟢 'Niets' is onbepaald → 'wat'.", 
+    tip: "💡 Niets = wat" 
+  },
+  { 
+    question: "De manier ... hij het uitlegde, was duidelijk.", 
+    options: ["waarop","waarmee","waardoor","waarvoor"], 
+    correct: 0, 
+    explanation: "🟢 'De manier waarop' is een vaste combinatie.", 
+    tip: "💡 De manier waarop = vast" 
+  },
+  { 
+    question: "Dit is de sleutel ... ik de deur openmaak.", 
+    options: ["waarmee","waarvoor","waardoor","waarop"], 
+    correct: 0, 
+    explanation: "🟢 'Openmaken met' → 'waarmee'.", 
+    tip: "💡 Met + zaak = waarmee" 
+  },
+  { 
+    question: "Het boek ... ik naar zocht, is gevonden.", 
+    options: ["waarnaar","waarvoor","waarmee","waarover"], 
+    correct: 0, 
+    explanation: "🟢 'Zoeken naar' → 'waarnaar'.", 
+    tip: "💡 Naar + zaak = waarnaar" 
+  },
+  { 
+    question: "De verteller ... verhaal we lazen, is bekend.", 
+    options: ["wiens","wier","die","van wie"], 
+    correct: 0, 
+    explanation: "🟢 'De verteller' (mannelijk) → 'wiens'.", 
+    tip: "💡 Wiens = mannelijk bezit" 
+  },
+  { 
+    question: "Dat is het moment ... alles veranderde.", 
+    options: ["waarop","waarin","waarna","waar"], 
+    correct: 0, 
+    explanation: "🟢 'Het moment waarop' is gebruikelijk.", 
+    tip: "💡 Moment waarop = vast" 
+  },
+  { 
+    question: "De problemen ... hij mee worstelt, zijn groot.", 
+    options: ["waar","waarmee","waartegen","waarover"], 
+    correct: 1, 
+    explanation: "🟢 'Worstelen met' → 'waarmee'.", 
+    tip: "💡 Met + zaak = waarmee" 
+  },
+  { 
+    question: "Hij woont in een straat ... niemand woont.", 
+    options: ["waar","waarin","waar in","waarmee"], 
+    correct: 1, 
+    explanation: "🟢 'Wonen in' → 'waarin'.", 
+    tip: "💡 In + zaak = waarin" 
+  },
+  { 
+    question: "Het eerste ... je moet doen, is rustig ademhalen.", 
+    options: ["wat","dat","die","wie"], 
+    correct: 0, 
+    explanation: "🟢 Na rangtelwoorden ('het eerste') gebruik je 'wat'.", 
+    tip: "💡 Het eerste/laatste = wat" 
+  },
+  { 
+    question: "De persoon ... je naar vroeg, is hier.", 
+    options: ["die","dat","wie","naar wie"], 
+    correct: 3, 
+    explanation: "🟢 'Vragen naar' → 'naar wie' bij personen.", 
+    tip: "💡 Naar + persoon = naar wie" 
+  },
+  { 
+    question: "Het zweet ... langs zijn gezicht liep, was koud.", 
+    options: ["die","dat","wat","hetwelk"], 
+    correct: 1, 
+    explanation: "🟢 'Het zweet' is een het-woord → 'dat'.", 
+    tip: "💡 Het-woord = dat" 
+  },
+  { 
+    question: "Hij vertelde over een land ... hij nooit geweest was.", 
+    options: ["waar","waarin","waar hij in","waarnaar"], 
+    correct: 1, 
+    explanation: "🟢 'In een land geweest zijn' → 'waarin'.", 
+    tip: "💡 In + land = waarin" 
+  },
+  { 
+    question: "Het heeft lang geregend, ... we niet verwacht hadden.", 
+    options: ["wat","dat","die","hetgeen"], 
+    correct: 0, 
+    explanation: "🟢 'Wat' verwijst naar de hele voorgaande zin.", 
+    tip: "💡 Wat = hele zin" 
+  },
+  { 
+    question: "De docent ... we les van krijgen, is streng.", 
+    options: ["die","van wie","wie","dat"], 
+    correct: 1, 
+    explanation: "🟢 'Les krijgen van' → 'van wie'.", 
+    tip: "💡 Van + persoon = van wie" 
+  },
+  { 
+    question: "De toren ... we de stad kunnen overzien, is oud.", 
+    options: ["waarvan","waarmee","waarvandaan","waarop"], 
+    correct: 2, 
+    explanation: "🟢 'Vanaf de toren' → 'waarvandaan'.", 
+    tip: "💡 Vanaf = waarvandaan" 
+  },
+  { 
+    question: "Het glas ... ik dronk, was leeg.", 
+    options: ["waaruit","waarmee","waar","waarvoor"], 
+    correct: 0, 
+    explanation: "🟢 'Drinken uit' → 'waaruit'.", 
+    tip: "💡 Uit + zaak = waaruit" 
+  },
+  { 
+    question: "Zijn houding, ... ik me aan ergerde, was arrogant.", 
+    options: ["waaraan","waarover","waarmee","waarvoor"], 
+    correct: 0, 
+    explanation: "🟢 'Zich ergeren aan' → 'waaraan'.", 
+    tip: "💡 Aan + zaak = waaraan" 
+  },
+  { 
+    question: "De speler ... we op hoopten, maakte een doelpunt.", 
+    options: ["waarop","op wie","die","wat"], 
+    correct: 1, 
+    explanation: "🟢 'Hopen op' → 'op wie' bij personen.", 
+    tip: "💡 Op + persoon = op wie" 
+  }
+],
+
+test: [
+  { question: "De man ... hier woont, is mijn buurman.", options: ["die","dat","wie","wat"], correct: 0, explanation: "🟢 De-woord = die." },
+  { question: "Het huis ... ik gekocht heb, is groot.", options: ["die","dat","wat","waar"], correct: 1, explanation: "🟢 Het-woord = dat." },
+  { question: "De kinderen ... in de tuin spelen, zijn vrolijk.", options: ["die","dat","wie","wat"], correct: 0, explanation: "🟢 Meervoud = die." },
+  { question: "Alles ... hij zei, was waar.", options: ["die","dat","wat","wie"], correct: 2, explanation: "🟢 Alles = wat." },
+  { question: "De vrouw met ... ik samenwerk, is aardig.", options: ["die","dat","wie","wat"], correct: 2, explanation: "🟢 Met + persoon = wie." },
+  { question: "Het dorp ... ik woon, is klein.", options: ["waar","waarin","dat","die"], correct: 1, explanation: "🟢 Wonen in = waarin." },
+  { question: "Dat is het mooiste schilderij ... ik gezien heb.", options: ["die","dat","wat","hetwelk"], correct: 2, explanation: "🟢 Overtreffend = wat." },
+  { question: "De pen ... ik schrijf, is nieuw.", options: ["waar","waarmee","waardoor","waarvoor"], correct: 1, explanation: "🟢 Met + zaak = waarmee." },
+  { question: "De dag ... ik jarig ben, is in mei.", options: ["wanneer","waar","die","dat"], correct: 3, explanation: "🟢 De dag = dat." },
+  { question: "De reden ... hij te laat kwam, is onbekend.", options: ["waarom","waarvoor","waardoor","waarmee"], correct: 0, explanation: "🟢 De reden waarom = vast." },
+  { question: "Het enige ... ik nodig heb, is liefde.", options: ["die","dat","wat","hetwelk"], correct: 2, explanation: "🟢 Het enige = wat." },
+  { question: "Zij is iemand ... je kunt vertrouwen.", options: ["op wie","die","dat","waarop"], correct: 0, explanation: "🟢 Op + persoon = op wie." },
+  { question: "De jongen ... vader dokter is, heet Jan.", options: ["wiens","wier","die","dat"], correct: 0, explanation: "🟢 Wiens = mannelijk bezit." },
+  { question: "Er is niets ... mij blijer maakt.", options: ["die","dat","wat","wie"], correct: 2, explanation: "🟢 Niets = wat." },
+  { question: "De manier ... hij het uitlegde, was duidelijk.", options: ["waarop","waarmee","waardoor","waarvoor"], correct: 0, explanation: "🟢 De manier waarop = vast." },
+  { question: "Het boek ... ik naar zocht, is gevonden.", options: ["waarnaar","waarvoor","waarmee","waarover"], correct: 0, explanation: "🟢 Naar + zaak = waarnaar." },
+  { question: "Het eerste ... je moet doen, is rustig ademhalen.", options: ["wat","dat","die","wie"], correct: 0, explanation: "🟢 Het eerste = wat." },
+  { question: "De persoon ... je naar vroeg, is hier.", options: ["die","dat","wie","naar wie"], correct: 3, explanation: "🟢 Naar + persoon = naar wie." },
+  { question: "De docent ... we les van krijgen, is streng.", options: ["die","van wie","wie","dat"], correct: 1, explanation: "🟢 Van + persoon = van wie." },
+  { question: "Het glas ... ik dronk, was leeg.", options: ["waaruit","waarmee","waar","waarvoor"], correct: 0, explanation: "🟢 Uit + zaak = waaruit." }
+]
     },
     24: { // Passieve zinnen
-      practice: [
-        { question: "Passief: 'De bakker bakt het brood.'", options: ["Het brood wordt gebakken door de bakker.","Het brood bakt door de bakker.","Het brood is gebakken door de bakker.","De bakker wordt gebakken."], correct: 0, explanation: "❌ Fout! Passief = worden + voltooid deelwoord.", tip: "💡 Actief: onderwerp doet. Passief: onderwerp ondergaat." },
-        { question: "'De brief ... gisteren verstuurd.'", options: ["wordt","is","werd","was"], correct: 1, explanation: "❌ Fout! Voltooide tijd passief = zijn + voltooid deelwoord.", tip: "💡 Tegenwoordig: wordt, verleden: werd, voltooid: is." },
-        { question: "Passief: 'Ze verven het huis.'", options: ["Het huis wordt geverfd.","Het huis verft.","Het huis is geverfd.","Het huis werd geverfd."], correct: 0, explanation: "❌ Fout! Tegenwoordige tijd → wordt.", tip: "💡 Wordt + voltooid deelwoord." },
-        { question: "Actief van: 'De taart is gebakken.'", options: ["Iemand bakt de taart.","De taart bakt.","Men heeft de taart gebakken.","De taart wordt gebakken."], correct: 2, explanation: "❌ Fout! Voltooid passief → actief: men heeft + voltooid deelwoord.", tip: "💡 Is gebakken = voltooid." },
-        { question: "'Het raam ... door de jongen.' (breken)", options: ["wordt gebroken","is gebroken","werd gebroken","was gebroken"], correct: 0, explanation: "❌ Fout! Tegenwoordige tijd → wordt.", tip: "💡 Wordt + voltooid deelwoord." }
-      ],
-      test: [
-        { question: "Passief: 'Hij schrijft de brief.'", options: ["De brief wordt geschreven.","De brief schrijft.","De brief is geschreven.","De brief werd geschreven."], correct: 0, explanation: "Tegenwoordig → wordt." },
-        { question: "'De auto ... gisteren gewassen.'", options: ["wordt","is","werd","was"], correct: 2, explanation: "Verleden → werd." },
-        { question: "Passief: 'Zij maken de taart.'", options: ["De taart wordt gemaakt.","De taart maakt.","De taart is gemaakt.","De taart werd gemaakt."], correct: 0, explanation: "Tegenwoordig → wordt." },
-        { question: "'Het boek ... al gelezen.'", options: ["wordt","is","werd","was"], correct: 1, explanation: "Voltooid → is." },
-        { question: "Passief: 'Men bouwt het huis.'", options: ["Het huis wordt gebouwd.","Het huis bouwt.","Het huis is gebouwd.","Het huis werd gebouwd."], correct: 0, explanation: "Tegenwoordig → wordt." },
-        { question: "'De deur ... net gesloten.'", options: ["wordt","is","werd","was"], correct: 1, explanation: "Voltooid → is." },
-        { question: "Passief: 'Hij repareert de fiets.'", options: ["De fiets wordt gerepareerd.","De fiets repareert.","De fiets is gerepareerd.","De fiets werd gerepareerd."], correct: 0, explanation: "Tegenwoordig → wordt." },
-        { question: "'Het eten ... al opgegeten.'", options: ["wordt","is","werd","was"], correct: 1, explanation: "Voltooid → is." },
-        { question: "Passief: 'Ze schilderen de muur.'", options: ["De muur wordt geschilderd.","De muur schildert.","De muur is geschilderd.","De muur werd geschilderd."], correct: 0, explanation: "Tegenwoordig → wordt." },
-        { question: "'De brief ... morgen verstuurd.'", options: ["wordt","is","zal worden","werd"], correct: 2, explanation: "Toekomst → zal worden." }
-      ]
+practice: [
+  { question: "Actief: De postbode brengt de brief. Passief: De brief ... door de postbode ...", options: ["wordt / gebracht","wordt / brengt","werd / gebracht","is / gebracht"], correct: 0, explanation: "🟢 Tegenwoordige tijd passief: ‘worden’ + voltooid deelwoord.", tip: "💡 OTT passief = wordt + VD" },
+  { question: "Actief: De schilder verft het huis. Passief: Het huis ... door de schilder ...", options: ["wordt / geverfd","werd / geverfd","is / verfd","wordt / verft"], correct: 0, explanation: "🟢 Tegenwoordig passief: ‘wordt’ + voltooid deelwoord ‘geverfd’.", tip: "💡 Het-woord + wordt + VD" },
+  { question: "Actief: De hond beet de man. Passief: De man ... door de hond ...", options: ["werd / gebeten","wordt / gebeten","is / gebeten","werd / beet"], correct: 0, explanation: "🟢 Verleden tijd passief: ‘werd’ + voltooid deelwoord.", tip: "💢 OVT passief = werd + VD" },
+  { question: "Actief: De krant heeft het artikel gepubliceerd. Passief: Het artikel ... door de krant ...", options: ["is / gepubliceerd","werd / gepubliceerd","wordt / gepubliceerd","was / gepubliceerd"], correct: 0, explanation: "🟢 Voltooid tegenwoordige tijd passief: ‘zijn’ + voltooid deelwoord.", tip: "💢 VTT passief = is + VD" },
+  { question: "Actief: De monteur repareert de auto. Passief: De auto ... door de monteur ...", options: ["wordt / gerepareerd","werd / gerepareerd","is / gerepareerd","wordt / repareert"], correct: 0, explanation: "🟢 Tegenwoordige tijd passief: wordt + gerepareerd.", tip: "💡 OTT passief = wordt + VD" },
+  { question: "Actief: De politie had de dief al gearresteerd. Passief: De dief ... door de politie al ...", options: ["was / gearresteerd","werd / gearresteerd","is / gearresteerd","had / gearresteerd"], correct: 0, explanation: "🟢 Voltooid verleden tijd passief: ‘was’ + voltooid deelwoord.", tip: "💢 VVT passief = was + VD" },
+  { question: "Actief: Men bouwt hier een nieuw winkelcentrum. Passief: Hier ... een nieuw winkelcentrum ...", options: ["wordt / gebouwd","wordt / bouwt","werd / gebouwd","is / gebouwd"], correct: 0, explanation: "🟢 Onpersoonlijk passief met ‘hier’: wordt gebouwd.", tip: "💡 Hier + wordt + VD" },
+  { question: "Actief: De minister zal de wet ondertekenen. Passief: De wet ... door de minister ...", options: ["zal / ondertekend worden","wordt / ondertekend","zal / ondertekenen","zal / ondertekend"], correct: 0, explanation: "🟢 Toekomende tijd passief: ‘zullen’ + VD + ‘worden’.", tip: "💡 Toekomst passief = zal + VD + worden" },
+  { question: "Actief: De leraar geeft de leerlingen een toets. Passief: De leerlingen ... een toets ... door de leraar.", options: ["krijgen / gegeven","worden / gegeven","werden / gegeven","zijn / gegeven"], correct: 0, explanation: "🟢 Receptief passief met meewerkend voorwerp: krijgen + VD.", tip: "💡 Receptief passief = krijgt + VD" },
+  { question: "Actief: De timmerman maakt een tafel. Passief: Een tafel ... door de timmerman ...", options: ["wordt / gemaakt","wordt / maakt","werd / gemaakt","is / gemaakt"], correct: 0, explanation: "🟢 Tegenwoordige tijd passief: wordt + gemaakt.", tip: "💡 OTT passief = wordt + VD" },
+  { question: "Actief: De hond heeft de kat opgegeten. Passief: De kat ... door de hond ...", options: ["is / opgegeten","werd / opgegeten","wordt / opgegeten","was / opgegeten"], correct: 0, explanation: "🟢 VTT passief: is + opgegeten.", tip: "💢 VTT passief = is + VD" },
+  { question: "Actief: De tuinman snoeit de bomen elk jaar. Passief: De bomen ... elk jaar door de tuinman ...", options: ["worden / gesnoeid","worden / snoeien","werden / gesnoeid","zijn / gesnoeid"], correct: 0, explanation: "🟢 Meervoud onderwerp → worden + gesnoeid.", tip: "💡 Meervoud + worden + VD" },
+  { question: "Actief: De brandweer had het vuur al geblust. Passief: Het vuur ... al door de brandweer ...", options: ["was / geblust","werd / geblust","is / geblust","had / geblust"], correct: 0, explanation: "🟢 VVT passief: was + geblust.", tip: "💢 VVT passief = was + VD" },
+  { question: "Actief: De docent legt de les uit. Passief: De les ... door de docent ...", options: ["wordt / uitgelegd","wordt / uitleggen","werd / uitgelegd","is / uitgelegd"], correct: 0, explanation: "🟢 OTT passief: wordt + uitgelegd.", tip: "💡 Scheidbaar ww: VD blijft aan elkaar" },
+  { question: "Actief: Ze hebben de deur geopend. Passief: De deur ... geopend.", options: ["is","wordt","werd","was"], correct: 0, explanation: "🟢 VTT passief: De deur is geopend.", tip: "💢 VTT passief = is + VD" },
+  { question: "Actief: De kok bereidt het diner. Passief: Het diner ... door de kok ...", options: ["wordt / bereid","wordt / bereidt","werd / bereid","is / bereid"], correct: 0, explanation: "🟢 OTT passief: wordt + bereid (voltooid deelwoord).", tip: "💡 Bereiden → bereid (geen ge-)" },
+  { question: "Actief: De bouwvakkers renoveerden het oude gebouw. Passief: Het oude gebouw ... door de bouwvakkers ...", options: ["werd / gerenoveerd","wordt / gerenoveerd","is / gerenoveerd","was / gerenoveerd"], correct: 0, explanation: "🟢 OVT passief: werd + gerenoveerd.", tip: "💢 OVT passief = werd + VD" },
+  { question: "Actief: Men zal het besluit morgen bekendmaken. Passief: Het besluit ... morgen bekendgemaakt.", options: ["zal worden","wordt","zal","werd"], correct: 0, explanation: "🟢 Toekomst passief: zal worden (bekendgemaakt).", tip: "💡 Toekomst = zal + worden" },
+  { question: "Actief: De schoonmaakster heeft de ramen gewassen. Passief: De ramen ... door de schoonmaakster ...", options: ["zijn / gewassen","worden / gewassen","werden / gewassen","waren / gewassen"], correct: 0, explanation: "🟢 VTT passief meervoud: zijn + gewassen.", tip: "💢 VTT meervoud = zijn + VD" },
+  { question: "Actief: De kinderen begroeten de clown. Passief: De clown ... door de kinderen ...", options: ["wordt / begroet","wordt / begroeten","werd / begroet","is / begroet"], correct: 0, explanation: "🟢 OTT passief: wordt + begroet.", tip: "💡 Begroeten → begroet (geen ge-)" },
+  { question: "Actief: De auteur schrijft een roman. Passief: Er ... een roman ... door de auteur.", options: ["wordt / geschreven","is / geschreven","werd / geschreven","wordt / schrijft"], correct: 0, explanation: "🟢 Onpersoonlijk passief met ‘er’: wordt geschreven.", tip: "💡 Er wordt + VD" },
+  { question: "Actief: De koning zal de prijs uitreiken. Passief: De prijs ... door de koning ...", options: ["zal / uitgereikt worden","zal / uitreiken","wordt / uitgereikt","zal worden / uitgereikt"], correct: 0, explanation: "🟢 Toekomst passief: zal uitgereikt worden.", tip: "💡 Toekomst = zal + VD + worden" },
+  { question: "Actief: De buurman had het pakje aangenomen. Passief: Het pakje ... door de buurman aangenomen.", options: ["was","werd","is","had"], correct: 0, explanation: "🟢 VVT passief: was aangenomen.", tip: "💢 VVT passief = was + VD" },
+  { question: "Actief: De regisseur maakt een film. Passief: Een film ... door de regisseur ...", options: ["wordt / gemaakt","wordt / maakt","is / gemaakt","werd / gemaakt"], correct: 0, explanation: "🟢 OTT passief: wordt gemaakt.", tip: "💡 OTT passief = wordt + VD" },
+  { question: "Actief: De lerares geeft antwoord. Passief: Er ... antwoord ... door de lerares.", options: ["wordt / gegeven","is / gegeven","werd / gegeven","wordt / geeft"], correct: 0, explanation: "🟢 Onpersoonlijk passief: wordt gegeven.", tip: "💡 Er wordt + VD" },
+  { question: "Actief: De hond heeft mijn schoen stukgebeten. Passief: Mijn schoen ... door de hond stukgebeten.", options: ["is","wordt","werd","was"], correct: 0, explanation: "🟢 VTT passief: is stukgebeten.", tip: "💢 VTT passief = is + VD" },
+  { question: "Actief: De journalist interviewt de minister. Passief: De minister ... door de journalist ...", options: ["wordt / geïnterviewd","wordt / interviewt","is / geïnterviewd","werd / geïnterviewd"], correct: 0, explanation: "🟢 OTT passief: wordt geïnterviewd.", tip: "💡 OTT passief = wordt + VD" },
+  { question: "Actief: De chef-kok had het menu samengesteld. Passief: Het menu ... door de chef-kok samengesteld.", options: ["was","werd","is","had"], correct: 0, explanation: "🟢 VVT passief: was samengesteld.", tip: "💢 VVT passief = was + VD" },
+  { question: "Actief: De chauffeur reed de auto in de garage. Passief: De auto ... door de chauffeur in de garage ...", options: ["werd / gereden","wordt / gereden","is / gereden","was / gereden"], correct: 0, explanation: "🟢 OVT passief: werd gereden.", tip: "💢 OVT passief = werd + VD" },
+  { question: "Actief: Ze zullen de kandidaten selecteren. Passief: De kandidaten ... door hen ...", options: ["zullen / geselecteerd worden","worden / geselecteerd","zullen / selecteren","zullen / geselecteerd"], correct: 0, explanation: "🟢 Toekomst passief meervoud: zullen geselecteerd worden.", tip: "💡 Toekomst = zullen + VD + worden" },
+  { question: "Actief: Iemand heeft mijn fiets gestolen. Passief: Mijn fiets ... gestolen.", options: ["is","wordt","werd","was"], correct: 0, explanation: "🟢 VTT passief: is gestolen.", tip: "💢 VTT passief = is + VD" },
+  { question: "Actief: De professor zal het onderzoek leiden. Passief: Het onderzoek ... door de professor ...", options: ["zal / geleid worden","wordt / geleid","zal / leiden","zal / geleid"], correct: 0, explanation: "🟢 Toekomst passief: zal geleid worden.", tip: "💡 Toekomst = zal + VD + worden" },
+  { question: "Actief: De verpleegster verzorgde de patiënt. Passief: De patiënt ... door de verpleegster ...", options: ["werd / verzorgd","wordt / verzorgd","is / verzorgd","was / verzorgd"], correct: 0, explanation: "🟢 OVT passief: werd verzorgd.", tip: "💢 OVT passief = werd + VD" },
+  { question: "Actief: Men verkoopt hier vers brood. Passief: Hier ... vers brood ...", options: ["wordt / verkocht","wordt / verkoopt","is / verkocht","werd / verkocht"], correct: 0, explanation: "🟢 Onpersoonlijk passief: wordt verkocht.", tip: "💡 Hier wordt + VD" },
+  { question: "Actief: De ondernemer had een nieuw bedrijf opgericht. Passief: Een nieuw bedrijf ... door de ondernemer opgericht.", options: ["was","werd","is","wordt"], correct: 0, explanation: "🟢 VVT passief: was opgericht.", tip: "💢 VVT passief = was + VD" },
+  { question: "Actief: De kunstenaar schildert een portret. Passief: Een portret ... door de kunstenaar ...", options: ["wordt / geschilderd","wordt / schildert","is / geschilderd","werd / geschilderd"], correct: 0, explanation: "🟢 OTT passief: wordt geschilderd.", tip: "💡 OTT passief = wordt + VD" },
+  { question: "Actief: De regering heeft de belasting verhoogd. Passief: De belasting ... door de regering ...", options: ["is / verhoogd","wordt / verhoogd","werd / verhoogd","was / verhoogd"], correct: 0, explanation: "🟢 VTT passief: is verhoogd.", tip: "💢 VTT passief = is + VD" },
+  { question: "Actief: De loodgieter repareert de lekkende kraan. Passief: De lekkende kraan ... door de loodgieter ...", options: ["wordt / gerepareerd","wordt / repareert","is / gerepareerd","werd / gerepareerd"], correct: 0, explanation: "🟢 OTT passief: wordt gerepareerd.", tip: "💡 OTT passief = wordt + VD" },
+  { question: "Actief: De directeur zal het contract ondertekenen. Passief: Het contract ... door de directeur ondertekend.", options: ["zal worden","wordt","zal","werd"], correct: 0, explanation: "🟢 Toekomst passief: zal worden ondertekend.", tip: "💡 Toekomst = zal + worden" },
+  { question: "Actief: De detective had de zaak opgelost. Passief: De zaak ... door de detective opgelost.", options: ["was","werd","is","wordt"], correct: 0, explanation: "🟢 VVT passief: was opgelost.", tip: "💢 VVT passief = was + VD" }
+],
+
+test: [
+  { question: "Passief: De brief ... door de postbode gebracht.", options: ["wordt","werd","is","was"], correct: 0, explanation: "🟢 OTT passief = wordt." },
+  { question: "Passief: Het huis ... door de schilder geverfd.", options: ["wordt","werd","is","was"], correct: 0, explanation: "🟢 OTT passief = wordt." },
+  { question: "Passief: De man ... door de hond gebeten.", options: ["werd","wordt","is","was"], correct: 0, explanation: "🟢 OVT passief = werd." },
+  { question: "Passief: Het artikel ... door de krant gepubliceerd.", options: ["is","werd","wordt","was"], correct: 0, explanation: "🟢 VTT passief = is." },
+  { question: "Passief: De dief ... door de politie gearresteerd.", options: ["was","werd","is","had"], correct: 0, explanation: "🟢 VVT passief = was." },
+  { question: "Passief: Hier ... een nieuw winkelcentrum gebouwd.", options: ["wordt","werd","is","bouwt"], correct: 0, explanation: "🟢 Onpersoonlijk = wordt." },
+  { question: "Passief: De wet ... ondertekend worden.", options: ["zal","wordt","zal worden","werd"], correct: 0, explanation: "🟢 Toekomst = zal." },
+  { question: "Passief: De leerlingen ... een toets gegeven.", options: ["krijgen","worden","werden","zijn"], correct: 0, explanation: "🟢 Receptief = krijgen." },
+  { question: "Passief: De bomen ... elk jaar gesnoeid.", options: ["worden","werden","zijn","snoeien"], correct: 0, explanation: "🟢 Meervoud OTT = worden." },
+  { question: "Passief: De les ... door de docent uitgelegd.", options: ["wordt","werd","is","uitleggen"], correct: 0, explanation: "🟢 OTT passief = wordt." },
+  { question: "Passief: De deur ... geopend.", options: ["is","wordt","werd","was"], correct: 0, explanation: "🟢 VTT passief = is." },
+  { question: "Passief: Het diner ... door de kok bereid.", options: ["wordt","werd","is","bereidt"], correct: 0, explanation: "🟢 OTT passief = wordt." },
+  { question: "Passief: Het oude gebouw ... gerenoveerd.", options: ["werd","wordt","is","was"], correct: 0, explanation: "🟢 OVT passief = werd." },
+  { question: "Passief: Het besluit ... bekendgemaakt.", options: ["zal worden","wordt","zal","werd"], correct: 0, explanation: "🟢 Toekomst = zal worden." },
+  { question: "Passief: De ramen ... gewassen.", options: ["zijn","worden","werden","waren"], correct: 0, explanation: "🟢 VTT meervoud = zijn." },
+  { question: "Passief: Er ... een roman geschreven.", options: ["wordt","is","werd","schrijft"], correct: 0, explanation: "🟢 Onpersoonlijk = wordt." },
+  { question: "Passief: Het pakje ... aangenomen.", options: ["was","werd","is","had"], correct: 0, explanation: "🟢 VVT passief = was." },
+  { question: "Passief: Mijn schoen ... stukgebeten.", options: ["is","wordt","werd","was"], correct: 0, explanation: "🟢 VTT passief = is." },
+  { question: "Passief: De auto ... gereden.", options: ["werd","wordt","is","was"], correct: 0, explanation: "🟢 OVT passief = werd." },
+  { question: "Passief: De zaak ... opgelost.", options: ["was","werd","is","wordt"], correct: 0, explanation: "🟢 VVT passief = was." }
+]
     },
     25: { // Conditionele zinnen
       practice: [
