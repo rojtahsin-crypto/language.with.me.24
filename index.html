@@ -20050,87 +20050,991 @@ test: [
       ]
     },
     10: { // Meervoud
-      practice: [
-        { question: "Meervoud van 'tafel'?", options: ["tafels","tafelen","tafel","tafeltjes"], correct: 0, explanation: "❌ Fout! Tafel → tafels.", tip: "💡 Meeste woorden = -en of -s." },
-        { question: "Meervoud van 'kind'?", options: ["kinden","kinderen","kinds","kinder"], correct: 1, explanation: "❌ Fout! Onregelmatig: kinderen.", tip: "💡 Kind → kinderen." },
-        { question: "Meervoud van 'auto'?", options: ["autos","auto's","autosen","autoen"], correct: 1, explanation: "❌ Fout! Klinker → -'s.", tip: "💡 Auto, radio, taxi → -'s." },
-        { question: "Meervoud van 'man'?", options: ["mans","mannen","manen","mans"], correct: 1, explanation: "❌ Fout! Onregelmatig: mannen.", tip: "💡 Man → mannen." },
-        { question: "Meervoud van 'huis'?", options: ["huizen","huisen","huizen","huis"], correct: 0, explanation: "❌ Fout! Huis → huizen.", tip: "💡 -s → -zen soms." }
-      ],
-      test: [
-        { question: "Meervoud van 'boek'?", options: ["boeken","boeks","boeken","boek"], correct: 0, explanation: "Boeken." },
-        { question: "Meervoud van 'vrouw'?", options: ["vrouwen","vrouws","vrouw","vrouws"], correct: 0, explanation: "Vrouwen." },
-        { question: "Meervoud van 'dag'?", options: ["dagen","dags","dag","dagen"], correct: 0, explanation: "Dagen." },
-        { question: "Meervoud van 'stad'?", options: ["steden","stads","stad","stads"], correct: 0, explanation: "Steden." },
-        { question: "Meervoud van 'ei'?", options: ["eieren","eis","ei","eieren"], correct: 0, explanation: "Eieren." },
-        { question: "Meervoud van 'pen'?", options: ["pennen","pens","pen","pens"], correct: 0, explanation: "Pennen." },
-        { question: "Meervoud van 'glas'?", options: ["glazen","glass","glas","glass"], correct: 0, explanation: "Glazen." },
-        { question: "Meervoud van 'schip'?", options: ["schepen","schips","schip","schips"], correct: 0, explanation: "Schepen." },
-        { question: "Meervoud van 'blad'?", options: ["bladen","blads","blad","blads"], correct: 0, explanation: "Bladen." },
-        { question: "Meervoud van 'been'?", options: ["benen","beens","been","beens"], correct: 0, explanation: "Benen." }
+practice: [
+  { 
+    question: "Wat is het meervoud van 'boek'?", 
+    options: ["boeken","boeks","boekens","boekeren"], 
+    correct: 0, 
+    explanation: "🟢 De meeste woorden krijgen -en in het meervoud.", 
+    tip: "💡 Boek → boeken (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'tafel'?", 
+    options: ["tafels","tafelen","tafel","tafelns"], 
+    correct: 0, 
+    explanation: "🟢 Woorden op -el krijgen vaak -s.", 
+    tip: "💡 Tafel → tafels (-s)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'kind'?", 
+    options: ["kinders","kinderen","kinden","kind"], 
+    correct: 1, 
+    explanation: "🟢 'Kind' is onregelmatig: krijgt -eren.", 
+    tip: "💡 Kind → kinderen (uitzondering)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'ei'?", 
+    options: ["eien","eis","eieren","eier"], 
+    correct: 2, 
+    explanation: "🟢 'Ei' krijgt -eren: eieren.", 
+    tip: "💡 Ei → eieren (-eren)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'foto'?", 
+    options: ["foto's","fotos","fotoën","fotoen"], 
+    correct: 0, 
+    explanation: "🟢 Woorden op -o krijgen apostrof + s.", 
+    tip: "💡 Foto → foto's ('s)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'huis'?", 
+    options: ["huizen","huisen","huises","huis"], 
+    correct: 0, 
+    explanation: "🟢 s→z bij meervoud: huis → huizen.", 
+    tip: "💡 Huis → huizen (s→z+en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'vis'?", 
+    options: ["vissen","vizen","visen","visses"], 
+    correct: 0, 
+    explanation: "🟢 Korte klinker → medeklinker verdubbelen.", 
+    tip: "💡 Vis → vissen (verdubbeling)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'dag'?", 
+    options: ["dagen","dage","daags","dagens"], 
+    correct: 0, 
+    explanation: "🟢 Lange klinker blijft lang + -en.", 
+    tip: "💡 Dag → dagen (lange klank)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'bad'?", 
+    options: ["baden","baddens","baaien","bad"], 
+    correct: 0, 
+    explanation: "🟢 Korte a blijft kort + -en.", 
+    tip: "💡 Bad → baden (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'stad'?", 
+    options: ["steden","staden","stads","stad"], 
+    correct: 0, 
+    explanation: "🟢 Onregelmatig: a→e klinkerverandering.", 
+    tip: "💡 Stad → steden (a→e)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'schip'?", 
+    options: ["schepen","schips","schippen","schip"], 
+    correct: 0, 
+    explanation: "🟢 Onregelmatig: i→e klinkerverandering.", 
+    tip: "💡 Schip → schepen (i→e)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'weg'?", 
+    options: ["wegen","weegs","weggen","wegens"], 
+    correct: 0, 
+    explanation: "🟢 Weg → wegen (g blijft g).", 
+    tip: "💡 Weg → wegen (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'pad' (de weg)?", 
+    options: ["paden","padden","pads","pad"], 
+    correct: 0, 
+    explanation: "🟢 'Pad' (weg) → paden.", 
+    tip: "💡 Pad → paden (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'brood'?", 
+    options: ["broden","broods","brood","broden"], 
+    correct: 0, 
+    explanation: "🟢 Brood → broden (d blijft d).", 
+    tip: "💡 Brood → broden (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'duif'?", 
+    options: ["duiven","duifes","duifen","duif"], 
+    correct: 0, 
+    explanation: "🟢 f→v bij meervoud: duif → duiven.", 
+    tip: "💡 Duif → duiven (f→v)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'brief'?", 
+    options: ["brieven","briefen","briefs","brieven"], 
+    correct: 0, 
+    explanation: "🟢 f→v + ie blijft: brief → brieven.", 
+    tip: "💡 Brief → brieven (f→v)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'nacht'?", 
+    options: ["nachten","nachts","nacht","nachten"], 
+    correct: 0, 
+    explanation: "🟢 Nacht → nachten (geen klankwissel).", 
+    tip: "💡 Nacht → nachten (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'gas'?", 
+    options: ["gassen","gasen","gasses","gas"], 
+    correct: 0, 
+    explanation: "🟢 Korte klinker → s verdubbelen.", 
+    tip: "💡 Gas → gassen (verdubbeling)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'café'?", 
+    options: ["cafés","café's","cafees","cafén"], 
+    correct: 1, 
+    explanation: "🟢 Woorden op -é krijgen apostrof + s.", 
+    tip: "💡 Café → café's ('s)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'baby'?", 
+    options: ["baby's","babies","babyen","babes"], 
+    correct: 0, 
+    explanation: "🟢 Woorden op -y krijgen apostrof + s.", 
+    tip: "💡 Baby → baby's ('s)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'optocht'?", 
+    options: ["optochten","optochts","optocht","optogt"], 
+    correct: 0, 
+    explanation: "🟢 Samenstelling → -en.", 
+    tip: "💡 Optocht → optochten (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'koe'?", 
+    options: ["koeien","koeën","koes","koe"], 
+    correct: 0, 
+    explanation: "🟢 'Koe' is onregelmatig: koeien.", 
+    tip: "💡 Koe → koeien (uitzondering)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'vlo'?", 
+    options: ["vlooien","vloën","vlo's","vloen"], 
+    correct: 0, 
+    explanation: "🟢 Vlo → vlooien (ooi → ooien).", 
+    tip: "💡 Vlo → vlooien (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'schoen'?", 
+    options: ["schoenen","schoens","schoen","schoenen"], 
+    correct: 0, 
+    explanation: "🟢 Schoen → schoenen (-en).", 
+    tip: "💡 Schoen → schoenen (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'hoed'?", 
+    options: ["hoeden","hoeds","hoed","hoedens"], 
+    correct: 0, 
+    explanation: "🟢 Hoed → hoeden (-en).", 
+    tip: "💡 Hoed → hoeden (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'rat'?", 
+    options: ["ratten","raten","rats","rat"], 
+    correct: 0, 
+    explanation: "🟢 Korte klinker → t verdubbelen.", 
+    tip: "💡 Rat → ratten (verdubbeling)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'bed'?", 
+    options: ["bedden","beden","beds","bed"], 
+    correct: 0, 
+    explanation: "🟢 Korte e → d verdubbelen.", 
+    tip: "💡 Bed → bedden (verdubbeling)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'lid' (persoon)?", 
+    options: ["leden","lidden","lits","lid"], 
+    correct: 0, 
+    explanation: "🟢 Onregelmatig: i→e klinkerverandering.", 
+    tip: "💡 Lid → leden (i→e)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'gemak'?", 
+    options: ["gemakken","gemaken","gemaks","gemak"], 
+    correct: 0, 
+    explanation: "🟢 Korte a → k verdubbelen.", 
+    tip: "💡 Gemak → gemakken (verdubbeling)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'as'?", 
+    options: ["assen","asen","as's","as"], 
+    correct: 0, 
+    explanation: "🟢 Korte klinker → s verdubbelen.", 
+    tip: "💡 As → assen (verdubbeling)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'tante'?", 
+    options: ["tantes","tanten","tant","tantes"], 
+    correct: 0, 
+    explanation: "🟢 Woorden op -e krijgen vaak -s.", 
+    tip: "💡 Tante → tantes (-s)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'paraplu'?", 
+    options: ["paraplu's","paraplus","parapluen","paraplun"], 
+    correct: 0, 
+    explanation: "🟢 Woorden op -u krijgen apostrof + s.", 
+    tip: "💡 Paraplu → paraplu's ('s)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'museum'?", 
+    options: ["musea","museums","museum's","museën"], 
+    correct: 0, 
+    explanation: "🟢 Latijnse woorden: museum → musea.", 
+    tip: "💡 Museum → musea (Latijn)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'cactus'?", 
+    options: ["cactussen","cacti","cactusen","cactus's"], 
+    correct: 0, 
+    explanation: "🟢 Vernederlandst: cactus → cactussen.", 
+    tip: "💡 Cactus → cactussen (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'hobby'?", 
+    options: ["hobby's","hobbies","hobbyen","hobbees"], 
+    correct: 0, 
+    explanation: "🟢 Woorden op -y krijgen apostrof + s.", 
+    tip: "💡 Hobby → hobby's ('s)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'zoon'?", 
+    options: ["zonen","zoons","zoon","zoonen"], 
+    correct: 0, 
+    explanation: "🟢 Zoon → zonen (standaardvorm).", 
+    tip: "💡 Zoon → zonen (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'weg' (de weg)?", 
+    options: ["wegen","weegs","weggen","weeg"], 
+    correct: 0, 
+    explanation: "🟢 Weg → wegen (-en).", 
+    tip: "💡 Weg → wegen (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'rund'?", 
+    options: ["runderen","runden","runds","rund"], 
+    correct: 0, 
+    explanation: "🟢 'Rund' krijgt -eren: runderen.", 
+    tip: "💡 Rund → runderen (-eren)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'middel'?", 
+    options: ["middelen","middels","middelens","midelen"], 
+    correct: 0, 
+    explanation: "🟢 Middel → middelen (-en).", 
+    tip: "💡 Middel → middelen (-en)" 
+  },
+  { 
+    question: "Wat is het meervoud van 'auto'?", 
+    options: ["auto's","autos","autoen","autoën"], 
+    correct: 0, 
+    explanation: "🟢 Woorden op -o krijgen apostrof + s.", 
+    tip: "💡 Auto → auto's ('s)" 
+  }
+],
+
+test: [
+  { question: "Meervoud van 'boek'?", options: ["boeken","boeks","boekens","boekeren"], correct: 0, explanation: "🟢 Boek → boeken." },
+  { question: "Meervoud van 'tafel'?", options: ["tafels","tafelen","tafel","tafelns"], correct: 0, explanation: "🟢 Tafel → tafels." },
+  { question: "Meervoud van 'kind'?", options: ["kinders","kinderen","kinden","kind"], correct: 1, explanation: "🟢 Kind → kinderen." },
+  { question: "Meervoud van 'ei'?", options: ["eien","eis","eieren","eier"], correct: 2, explanation: "🟢 Ei → eieren." },
+  { question: "Meervoud van 'foto'?", options: ["foto's","fotos","fotoën","fotoen"], correct: 0, explanation: "🟢 Foto → foto's." },
+  { question: "Meervoud van 'huis'?", options: ["huizen","huisen","huises","huis"], correct: 0, explanation: "🟢 Huis → huizen." },
+  { question: "Meervoud van 'vis'?", options: ["vissen","vizen","visen","visses"], correct: 0, explanation: "🟢 Vis → vissen." },
+  { question: "Meervoud van 'dag'?", options: ["dagen","dage","daags","dagens"], correct: 0, explanation: "🟢 Dag → dagen." },
+  { question: "Meervoud van 'stad'?", options: ["steden","staden","stads","stad"], correct: 0, explanation: "🟢 Stad → steden." },
+  { question: "Meervoud van 'schip'?", options: ["schepen","schips","schippen","schip"], correct: 0, explanation: "🟢 Schip → schepen." },
+  { question: "Meervoud van 'duif'?", options: ["duiven","duifes","duifen","duif"], correct: 0, explanation: "🟢 Duif → duiven." },
+  { question: "Meervoud van 'brief'?", options: ["brieven","briefen","briefs","brieven"], correct: 0, explanation: "🟢 Brief → brieven." },
+  { question: "Meervoud van 'café'?", options: ["cafés","café's","cafees","cafén"], correct: 1, explanation: "🟢 Café → café's." },
+  { question: "Meervoud van 'baby'?", options: ["baby's","babies","babyen","babes"], correct: 0, explanation: "🟢 Baby → baby's." },
+  { question: "Meervoud van 'koe'?", options: ["koeien","koeën","koes","koe"], correct: 0, explanation: "🟢 Koe → koeien." },
+  { question: "Meervoud van 'rat'?", options: ["ratten","raten","rats","rat"], correct: 0, explanation: "🟢 Rat → ratten." },
+  { question: "Meervoud van 'bed'?", options: ["bedden","beden","beds","bed"], correct: 0, explanation: "🟢 Bed → bedden." },
+  { question: "Meervoud van 'museum'?", options: ["musea","museums","museum's","museën"], correct: 0, explanation: "🟢 Museum → musea." },
+  { question: "Meervoud van 'hobby'?", options: ["hobby's","hobbies","hobbyen","hobbees"], correct: 0, explanation: "🟢 Hobby → hobby's." },
+  { question: "Meervoud van 'auto'?", options: ["auto's","autos","autoen","autoën"], correct: 0, explanation: "🟢 Auto → auto's." }
       ]
     },
     11: { // Verkleinwoorden
-      practice: [
-        { question: "Verkleinwoord van 'boom'?", options: ["boompje","boomje","boometje","boompken"], correct: 0, explanation: "❌ Fout! Na m → -pje.", tip: "💡 boom → boompje." },
-        { question: "Verkleinwoord van 'tafel'?", options: ["tafeltje","tafelje","tafeletje","tafelken"], correct: 0, explanation: "❌ Fout! -el → -tje.", tip: "💡 tafel → tafeltje." },
-        { question: "Verkleinwoord van 'koning'?", options: ["koninkje","koningje","koningetje","koningtje"], correct: 0, explanation: "❌ Fout! ng → nk + je.", tip: "💡 koning → koninkje." },
-        { question: "Verkleinwoord van 'blad'?", options: ["blaadje","bladje","bladetje","blatje"], correct: 0, explanation: "❌ Fout! aa wordt lang.", tip: "💡 blad → blaadje." },
-        { question: "Verkleinwoord van 'auto'?", options: ["autootje","autotje","auto'tje","autoken"], correct: 0, explanation: "❌ Fout! Extra o voor klank.", tip: "💡 auto → autootje." }
-      ],
-      test: [
-        { question: "Verkleinwoord van 'huis'?", options: ["huisje","huistje","huisken","huisie"], correct: 0, explanation: "huis → huisje." },
-        { question: "Verkleinwoord van 'glas'?", options: ["glaasje","glasje","glasetje","glassie"], correct: 0, explanation: "glas → glaasje." },
-        { question: "Verkleinwoord van 'ring'?", options: ["ringetje","ringje","rinkje","ringken"], correct: 0, explanation: "ring → ringetje." },
-        { question: "Verkleinwoord van 'kat'?", options: ["katje","kattje","kateje","katken"], correct: 0, explanation: "kat → katje." },
-        { question: "Verkleinwoord van 'bal'?", options: ["balletje","baltje","baletje","balken"], correct: 0, explanation: "bal → balletje." },
-        { question: "Verkleinwoord van 'stoel'?", options: ["stoeltje","stoelje","stoeletje","stoelken"], correct: 0, explanation: "stoel → stoeltje." },
-        { question: "Verkleinwoord van 'vogel'?", options: ["vogeltje","vogelje","vogeletje","vogelken"], correct: 0, explanation: "vogel → vogeltje." },
-        { question: "Verkleinwoord van 'bed'?", options: ["bedje","beddje","bedetje","bedken"], correct: 0, explanation: "bed → bedje." },
-        { question: "Verkleinwoord van 'pen'?", options: ["pennetje","penneke","pentje","penje"], correct: 0, explanation: "pen → pennetje." },
-        { question: "Verkleinwoord van 'fiets'?", options: ["fietsje","fietstje","fietsetje","fietske"], correct: 0, explanation: "fiets → fietsje." }
+practice: [
+  { 
+    question: "Wat is het verkleinwoord van 'boom'?", 
+    options: ["boompje","boomje","boometje","boompken"], 
+    correct: 0, 
+    explanation: "🟢 Na lange klinker + m → -pje.", 
+    tip: "💡 Boom → boompje (-pje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'hond'?", 
+    options: ["hondje","hondtje","hondken","hondie"], 
+    correct: 0, 
+    explanation: "🟢 Na -d → -je (d blijft d).", 
+    tip: "💡 Hond → hondje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'kat'?", 
+    options: ["katje","kattje","kateje","katken"], 
+    correct: 0, 
+    explanation: "🟢 Na -t → -je (t blijft t).", 
+    tip: "💡 Kat → katje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'huis'?", 
+    options: ["huisje","huistje","huisken","huisie"], 
+    correct: 0, 
+    explanation: "🟢 Na -s → -je.", 
+    tip: "💡 Huis → huisje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'man'?", 
+    options: ["mannetje","manje","mantje","manke"], 
+    correct: 0, 
+    explanation: "🟢 Korte klinker + n → n verdubbelen + -etje.", 
+    tip: "💡 Man → mannetje (-etje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'pen'?", 
+    options: ["pennetje","penje","pentje","penke"], 
+    correct: 0, 
+    explanation: "🟢 Korte klinker + n → n verdubbelen + -etje.", 
+    tip: "💡 Pen → pennetje (-etje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'kop'?", 
+    options: ["kopje","koptje","kopken","koppie"], 
+    correct: 0, 
+    explanation: "🟢 Na -p → -je.", 
+    tip: "💡 Kop → kopje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'ras'?", 
+    options: ["rasje","rastje","raske","rassie"], 
+    correct: 0, 
+    explanation: "🟢 Na -s → -je.", 
+    tip: "💡 Ras → rasje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'blad'?", 
+    options: ["bladje","blatje","bladken","blaadje"], 
+    correct: 0, 
+    explanation: "🟢 Na -d → -je.", 
+    tip: "💡 Blad → bladje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'lamp'?", 
+    options: ["lampje","lamptje","lampke","lampie"], 
+    correct: 0, 
+    explanation: "🟢 Na -p → -je.", 
+    tip: "💡 Lamp → lampje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'koning'?", 
+    options: ["koninkje","koningje","koningetje","koningtje"], 
+    correct: 0, 
+    explanation: "🟢 Woorden op -ing → -kje (g→k).", 
+    tip: "💡 Koning → koninkje (-kje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'tuin'?", 
+    options: ["tuintje","tuinje","tuinke","tuinie"], 
+    correct: 0, 
+    explanation: "🟢 Na -n → -tje.", 
+    tip: "💡 Tuin → tuintje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'fiets'?", 
+    options: ["fietsje","fietstje","fietske","fietse"], 
+    correct: 0, 
+    explanation: "🟢 Na -s → -je.", 
+    tip: "💡 Fiets → fietsje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'ring'?", 
+    options: ["ringetje","ringje","rinkje","ringken"], 
+    correct: 0, 
+    explanation: "🟢 Korte klinker + ng → -etje.", 
+    tip: "💡 Ring → ringetje (-etje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'eend'?", 
+    options: ["eendje","eentje","eendken","eendie"], 
+    correct: 0, 
+    explanation: "🟢 Na -d → -je.", 
+    tip: "💡 Eend → eendje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'pad' (de weg)?", 
+    options: ["padje","patje","padken","paadje"], 
+    correct: 0, 
+    explanation: "🟢 Na -d → -je.", 
+    tip: "💡 Pad → padje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'vriend'?", 
+    options: ["vriendje","vrientje","vriendken","vriendie"], 
+    correct: 0, 
+    explanation: "🟢 Na -d → -je.", 
+    tip: "💡 Vriend → vriendje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'juf'?", 
+    options: ["jufje","juffetje","jufken","juffie"], 
+    correct: 0, 
+    explanation: "🟢 Na -f → -je.", 
+    tip: "💡 Juf → jufje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'golf'?", 
+    options: ["golfje","golftje","golfken","golfie"], 
+    correct: 0, 
+    explanation: "🟢 Na -f → -je.", 
+    tip: "💡 Golf → golfje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'ei'?", 
+    options: ["eitje","eike","eietje","eije"], 
+    correct: 0, 
+    explanation: "🟢 Tweeklank → -tje.", 
+    tip: "💡 Ei → eitje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'auto'?", 
+    options: ["autootje","auto'tje","autoke","autotje"], 
+    correct: 0, 
+    explanation: "🟢 Woord op -o → klinker verlengen + -tje.", 
+    tip: "💡 Auto → autootje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'café'?", 
+    options: ["cafeetje","café'tje","cafeke","caféje"], 
+    correct: 0, 
+    explanation: "🟢 Woord op -é → accent vervalt + -tje.", 
+    tip: "💡 Café → cafeetje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'paraplu'?", 
+    options: ["parapluutje","paraplu'tje","parapluke","parapluutje"], 
+    correct: 0, 
+    explanation: "🟢 Woord op -u → klinker verlengen + -tje.", 
+    tip: "💡 Paraplu → parapluutje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'baby'?", 
+    options: ["baby'tje","babyje","babietje","babke"], 
+    correct: 0, 
+    explanation: "🟢 Woord op -y → apostrof + -tje.", 
+    tip: "💡 Baby → baby'tje ('tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'hobby'?", 
+    options: ["hobby'tje","hobbyje","hobbietje","hobke"], 
+    correct: 0, 
+    explanation: "🟢 Woord op -y → apostrof + -tje.", 
+    tip: "💡 Hobby → hobby'tje ('tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'lente'?", 
+    options: ["lentetje","lentje","lenteken","lente'tje"], 
+    correct: 0, 
+    explanation: "🟢 Woord op -e → e valt weg + -tje.", 
+    tip: "💡 Lente → lentetje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'straat'?", 
+    options: ["straatje","straatke","straattie","straate"], 
+    correct: 0, 
+    explanation: "🟢 Na -t → -je.", 
+    tip: "💡 Straat → straatje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'boer'?", 
+    options: ["boertje","boerje","boerke","boerie"], 
+    correct: 0, 
+    explanation: "🟢 Na -r → -tje.", 
+    tip: "💡 Boer → boertje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'deur'?", 
+    options: ["deurtje","deurje","deurke","deurie"], 
+    correct: 0, 
+    explanation: "🟢 Na -r → -tje.", 
+    tip: "💡 Deur → deurtje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'muis'?", 
+    options: ["muisje","muistje","muiske","muise"], 
+    correct: 0, 
+    explanation: "🟢 Na -s → -je.", 
+    tip: "💡 Muis → muisje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'vis'?", 
+    options: ["visje","vistje","viske","visie"], 
+    correct: 0, 
+    explanation: "🟢 Na -s → -je.", 
+    tip: "💡 Vis → visje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'bed'?", 
+    options: ["bedje","betje","bedken","bedie"], 
+    correct: 0, 
+    explanation: "🟢 Na -d → -je.", 
+    tip: "💡 Bed → bedje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'kip'?", 
+    options: ["kipje","kippetje","kipke","kippie"], 
+    correct: 0, 
+    explanation: "🟢 Na -p → -je.", 
+    tip: "💡 Kip → kipje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'schip'?", 
+    options: ["schipje","scheepje","schipke","schippie"], 
+    correct: 0, 
+    explanation: "🟢 Na -p → -je.", 
+    tip: "💡 Schip → schipje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'tomaat'?", 
+    options: ["tomaatje","tomaatke","tomatie","tomate"], 
+    correct: 0, 
+    explanation: "🟢 Na -t → -je.", 
+    tip: "💡 Tomaat → tomaatje (-je)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'foto'?", 
+    options: ["fotootje","foto'tje","fotoke","fototje"], 
+    correct: 0, 
+    explanation: "🟢 Woord op -o → klinker verlengen + -tje.", 
+    tip: "💡 Foto → fotootje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'menu'?", 
+    options: ["menuutje","menu'tje","menuke","menutje"], 
+    correct: 0, 
+    explanation: "🟢 Woord op -u → klinker verlengen + -tje.", 
+    tip: "💡 Menu → menuutje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'regen'?", 
+    options: ["regentje","regenje","reegentje","regen'tje"], 
+    correct: 0, 
+    explanation: "🟢 Woord op -en → -en valt weg + -tje.", 
+    tip: "💡 Regen → regentje (-tje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'bal'?", 
+    options: ["balletje","baltje","baletje","balke"], 
+    correct: 0, 
+    explanation: "🟢 Korte klinker + l → l verdubbelen + -etje.", 
+    tip: "💡 Bal → balletje (-etje)" 
+  },
+  { 
+    question: "Wat is het verkleinwoord van 'stoel'?", 
+    options: ["stoeltje","stoelje","stoeletje","stoelke"], 
+    correct: 0, 
+    explanation: "🟢 Na -l → -tje.", 
+    tip: "💡 Stoel → stoeltje (-tje)" 
+  }
+],
+
+test: [
+  { question: "Verkleinwoord van 'boom'?", options: ["boompje","boomje","boometje","boompken"], correct: 0, explanation: "🟢 Boom → boompje." },
+  { question: "Verkleinwoord van 'hond'?", options: ["hondje","hondtje","hondken","hondie"], correct: 0, explanation: "🟢 Hond → hondje." },
+  { question: "Verkleinwoord van 'kat'?", options: ["katje","kattje","kateje","katken"], correct: 0, explanation: "🟢 Kat → katje." },
+  { question: "Verkleinwoord van 'huis'?", options: ["huisje","huistje","huisken","huisie"], correct: 0, explanation: "🟢 Huis → huisje." },
+  { question: "Verkleinwoord van 'man'?", options: ["mannetje","manje","mantje","manke"], correct: 0, explanation: "🟢 Man → mannetje." },
+  { question: "Verkleinwoord van 'pen'?", options: ["pennetje","penje","pentje","penke"], correct: 0, explanation: "🟢 Pen → pennetje." },
+  { question: "Verkleinwoord van 'koning'?", options: ["koninkje","koningje","koningetje","koningtje"], correct: 0, explanation: "🟢 Koning → koninkje." },
+  { question: "Verkleinwoord van 'tuin'?", options: ["tuintje","tuinje","tuinke","tuinie"], correct: 0, explanation: "🟢 Tuin → tuintje." },
+  { question: "Verkleinwoord van 'ei'?", options: ["eitje","eike","eietje","eije"], correct: 0, explanation: "🟢 Ei → eitje." },
+  { question: "Verkleinwoord van 'auto'?", options: ["autootje","auto'tje","autoke","autotje"], correct: 0, explanation: "🟢 Auto → autootje." },
+  { question: "Verkleinwoord van 'baby'?", options: ["baby'tje","babyje","babietje","babke"], correct: 0, explanation: "🟢 Baby → baby'tje." },
+  { question: "Verkleinwoord van 'lente'?", options: ["lentetje","lentje","lenteken","lente'tje"], correct: 0, explanation: "🟢 Lente → lentetje." },
+  { question: "Verkleinwoord van 'boer'?", options: ["boertje","boerje","boerke","boerie"], correct: 0, explanation: "🟢 Boer → boertje." },
+  { question: "Verkleinwoord van 'bal'?", options: ["balletje","baltje","baletje","balke"], correct: 0, explanation: "🟢 Bal → balletje." },
+  { question: "Verkleinwoord van 'stoel'?", options: ["stoeltje","stoelje","stoeletje","stoelke"], correct: 0, explanation: "🟢 Stoel → stoeltje." },
+  { question: "Verkleinwoord van 'foto'?", options: ["fotootje","foto'tje","fotoke","fototje"], correct: 0, explanation: "🟢 Foto → fotootje." },
+  { question: "Verkleinwoord van 'menu'?", options: ["menuutje","menu'tje","menuke","menutje"], correct: 0, explanation: "🟢 Menu → menuutje." },
+  { question: "Verkleinwoord van 'regen'?", options: ["regentje","regenje","reegentje","regen'tje"], correct: 0, explanation: "🟢 Regen → regentje." },
+  { question: "Verkleinwoord van 'ring'?", options: ["ringetje","ringje","rinkje","ringken"], correct: 0, explanation: "🟢 Ring → ringetje." },
+  { question: "Verkleinwoord van 'glas'?", options: ["glaasje","glasje","glasetje","glassie"], correct: 0, explanation: "🟢 Glas → glaasje." }
       ]
     },
     12: { // Bijvoeglijke naamwoorden
-      practice: [
-        { question: "een ... huis (groot)", options: ["groot","grote","groten","groots"], correct: 0, explanation: "❌ Fout! het-woord onbepaald → geen -e.", tip: "💡 een groot huis, maar het grote huis." },
-        { question: "de ... auto (mooi)", options: ["mooi","mooie","mooien","moois"], correct: 1, explanation: "❌ Fout! de-woord → altijd -e.", tip: "💡 de mooie auto." },
-        { question: "een ... deur (open)", options: ["open","opene","openen","opens"], correct: 0, explanation: "❌ Fout! het-woord onbepaald → geen -e.", tip: "💡 een open deur." },
-        { question: "het ... boek (nieuw)", options: ["nieuw","nieuwe","nieuwen","nieuws"], correct: 1, explanation: "❌ Fout! bepaald het-woord → -e.", tip: "💡 het nieuwe boek." },
-        { question: "een ... vrouw (lief)", options: ["lief","lieve","lieven","liefs"], correct: 1, explanation: "❌ Fout! de-woord onbepaald → -e.", tip: "💡 een lieve vrouw." }
-      ],
-      test: [
-        { question: "het ... kind (klein)", options: ["klein","kleine","kleinen","kleins"], correct: 1, explanation: "bepaald → kleine." },
-        { question: "een ... man (oud)", options: ["oud","oude","ouden","ouds"], correct: 1, explanation: "de-woord → oude." },
-        { question: "de ... tafel (groot)", options: ["groot","grote","groten","groots"], correct: 1, explanation: "de-woord → grote." },
-        { question: "een ... huis (wit)", options: ["wit","witte","witten","wits"], correct: 0, explanation: "het-woord onbepaald → wit." },
-        { question: "het ... meisje (jong)", options: ["jong","jonge","jongen","jongs"], correct: 1, explanation: "bepaald → jonge." },
-        { question: "een ... dag (mooi)", options: ["mooi","mooie","mooien","moois"], correct: 1, explanation: "de-woord → mooie." },
-        { question: "de ... stad (groot)", options: ["groot","grote","groten","groots"], correct: 1, explanation: "de-woord → grote." },
-        { question: "een ... probleem (groot)", options: ["groot","grote","groten","groots"], correct: 0, explanation: "het-woord onbepaald → groot." },
-        { question: "het ... antwoord (juist)", options: ["juist","juiste","juisten","juists"], correct: 1, explanation: "bepaald → juiste." },
-        { question: "een ... idee (goed)", options: ["goed","goede","goeden","goeds"], correct: 1, explanation: "het-woord maar goed is uitzondering → goede." }
+practice: [
+  { 
+    question: "Een ... tafel (groot)", 
+    options: ["groot","grote","groots","groote"], 
+    correct: 1, 
+    explanation: "🟢 'Tafel' is de-woord → altijd -e, ook bij 'een'.", 
+    tip: "💡 De-woord = altijd +e" 
+  },
+  { 
+    question: "Het ... boek (mooi)", 
+    options: ["mooi","mooie","mooien","moois"], 
+    correct: 1, 
+    explanation: "🟢 Bepaald lidwoord 'het' → altijd -e.", 
+    tip: "💡 Het + BN = +e" 
+  },
+  { 
+    question: "Een ... kind (lief)", 
+    options: ["lief","lieve","lieven","liefs"], 
+    correct: 0, 
+    explanation: "🟢 'Kind' is het-woord, onbepaald → geen -e.", 
+    tip: "💡 Een + het-woord = geen -e" 
+  },
+  { 
+    question: "... soep (warm)", 
+    options: ["Warm","Warme","Warms","Warmen"], 
+    correct: 1, 
+    explanation: "🟢 'Soep' is de-woord → -e bij attributief gebruik.", 
+    tip: "💡 De-woord zonder lidwoord = +e" 
+  },
+  { 
+    question: "Een ... meisje (aardig)", 
+    options: ["aardig","aardige","aardigs","aardigen"], 
+    correct: 0, 
+    explanation: "🟢 'Meisje' is het-woord, onbepaald → geen -e.", 
+    tip: "💡 Meisje = het-woord" 
+  },
+  { 
+    question: "De ... auto (rood)", 
+    options: ["rood","rode","roods","roden"], 
+    correct: 1, 
+    explanation: "🟢 Bepaald lidwoord 'de' → altijd -e.", 
+    tip: "💡 De + BN = +e" 
+  },
+  { 
+    question: "... water (koud)", 
+    options: ["Koud","Koude","Kouds","Kouden"], 
+    correct: 0, 
+    explanation: "🟢 'Water' is het-woord, stofnaam zonder lidwoord → geen -e.", 
+    tip: "💡 Stofnaam + het-woord = geen -e" 
+  },
+  { 
+    question: "Een ... huis (nieuw)", 
+    options: ["nieuw","nieuwe","nieuws","nieuwen"], 
+    correct: 0, 
+    explanation: "🟢 'Huis' is het-woord, onbepaald → geen -e.", 
+    tip: "💡 Een + het-woord = geen -e" 
+  },
+  { 
+    question: "Het ... meisje (slim)", 
+    options: ["slim","slimme","slimms","slimmen"], 
+    correct: 1, 
+    explanation: "🟢 Bepaald lidwoord 'het' → -e, ook bij onzijdig.", 
+    tip: "💡 Het + BN = +e" 
+  },
+  { 
+    question: "... jongen (klein)", 
+    options: ["Klein","Kleine","Kleins","Kleinen"], 
+    correct: 1, 
+    explanation: "🟢 'Jongen' is de-woord → -e bij attributief gebruik.", 
+    tip: "💡 De-woord = +e" 
+  },
+  { 
+    question: "De ... huizen (groot)", 
+    options: ["groot","grote","groten","groots"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud krijgt altijd -e.", 
+    tip: "💡 Meervoud = altijd +e" 
+  },
+  { 
+    question: "Een ... appel (heerlijk)", 
+    options: ["heerlijk","heerlijke","heerlijks","heerlijken"], 
+    correct: 1, 
+    explanation: "🟢 'Appel' is de-woord → -e na 'een'.", 
+    tip: "💡 De-woord na een = +e" 
+  },
+  { 
+    question: "Het ... water (schoon)", 
+    options: ["schoon","schone","schoons","schonen"], 
+    correct: 1, 
+    explanation: "🟢 Bepaald 'het' → -e.", 
+    tip: "💡 Het + BN = +e" 
+  },
+  { 
+    question: "Een ... idee (goed)", 
+    options: ["goed","goede","goeds","goeden"], 
+    correct: 0, 
+    explanation: "🟢 'Idee' is het-woord, onbepaald → geen -e.", 
+    tip: "💡 Idee = het-woord" 
+  },
+  { 
+    question: "De ... straat (lang)", 
+    options: ["lang","lange","langs","langen"], 
+    correct: 1, 
+    explanation: "🟢 'Straat' is de-woord, bepaald → -e.", 
+    tip: "💡 De + BN = +e" 
+  },
+  { 
+    question: "... melk (vers)", 
+    options: ["Vers","Verse","Verss","Versen"], 
+    correct: 1, 
+    explanation: "🟢 'Melk' is de-woord → -e bij attributief gebruik.", 
+    tip: "💡 Melk = de-woord" 
+  },
+  { 
+    question: "Een ... boek (interessant)", 
+    options: ["interessant","interessante","interessants","interessanten"], 
+    correct: 0, 
+    explanation: "🟢 'Boek' is het-woord, onbepaald → geen -e.", 
+    tip: "💡 Een + het-woord = geen -e" 
+  },
+  { 
+    question: "De ... mensen (aardig)", 
+    options: ["aardig","aardige","aardigs","aardigen"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud krijgt altijd -e.", 
+    tip: "💡 Meervoud = +e" 
+  },
+  { 
+    question: "Een ... zomer (warm)", 
+    options: ["warm","warme","warms","warmen"], 
+    correct: 1, 
+    explanation: "🟢 'Zomer' is de-woord → -e na 'een'.", 
+    tip: "💡 De-woord = +e" 
+  },
+  { 
+    question: "Het ... weer (mooi)", 
+    options: ["mooi","mooie","moois","mooien"], 
+    correct: 1, 
+    explanation: "🟢 Bepaald 'het' → -e.", 
+    tip: "💡 Het + BN = +e" 
+  },
+  { 
+    question: "Een ... les (saai)", 
+    options: ["saai","saaie","saais","saaien"], 
+    correct: 1, 
+    explanation: "🟢 'Les' is de-woord → -e na 'een'.", 
+    tip: "💡 De-woord = +e" 
+  },
+  { 
+    question: "... brood (vers)", 
+    options: ["Vers","Verse","Verss","Versen"], 
+    correct: 0, 
+    explanation: "🟢 'Brood' is het-woord, stofnaam zonder lidwoord → geen -e.", 
+    tip: "💡 Stofnaam + het = geen -e" 
+  },
+  { 
+    question: "De ... hond (lief)", 
+    options: ["lief","lieve","liefs","lieven"], 
+    correct: 1, 
+    explanation: "🟢 Bepaald 'de' → -e.", 
+    tip: "💡 De + BN = +e" 
+  },
+  { 
+    question: "Een ... taak (moeilijk)", 
+    options: ["moeilijk","moeilijke","moeilijks","moeilijken"], 
+    correct: 1, 
+    explanation: "🟢 'Taak' is de-woord → -e na 'een'.", 
+    tip: "💡 De-woord = +e" 
+  },
+  { 
+    question: "Het ... kind (vrolijk)", 
+    options: ["vrolijk","vrolijke","vrolijks","vrolijken"], 
+    correct: 1, 
+    explanation: "🟢 Bepaald 'het' → -e.", 
+    tip: "💡 Het + BN = +e" 
+  },
+  { 
+    question: "De ... kamer (groot) – vergrotend", 
+    options: ["groter","grotere","grootste","groot"], 
+    correct: 1, 
+    explanation: "🟢 Vergrotende trap attributief: groter + e.", 
+    tip: "💡 Vergrotend + de = +e" 
+  },
+  { 
+    question: "Dit is de ... auto van allemaal (snel) – overtreffend", 
+    options: ["snelste","snelst","sneldere","snelt"], 
+    correct: 0, 
+    explanation: "🟢 Overtreffende trap: snelst + e.", 
+    tip: "💡 Overtreffend = -st + e" 
+  },
+  { 
+    question: "Mijn broer is ... dan ik (oud)", 
+    options: ["ouder","oudere","oudst","oud"], 
+    correct: 0, 
+    explanation: "🟢 Vergrotende trap predicatief: is ouder dan.", 
+    tip: "💡 Dan = vergrotend, geen -e" 
+  },
+  { 
+    question: "Dit boek is ... dan dat boek (goed)", 
+    options: ["goed","goede","beter","best"], 
+    correct: 2, 
+    explanation: "🟢 Onregelmatig: goed → beter → best.", 
+    tip: "💡 Goed → beter (onregelmatig)" 
+  },
+  { 
+    question: "Hij is de ... leerling (goed) – overtreffend", 
+    options: ["goedste","beste","betere","goed"], 
+    correct: 1, 
+    explanation: "🟢 Onregelmatig overtreffend: best + e.", 
+    tip: "💡 Goed → best (onregelmatig)" 
+  },
+  { 
+    question: "Zij is even ... als ik (lang)", 
+    options: ["lang","lange","langer","langst"], 
+    correct: 0, 
+    explanation: "🟢 Even...als → stellende trap, geen -e.", 
+    tip: "💡 Even...als = stellend" 
+  },
+  { 
+    question: "Een ... verhaal (spannend)", 
+    options: ["spannend","spannende","spannends","spannenden"], 
+    correct: 0, 
+    explanation: "🟢 'Verhaal' is het-woord, onbepaald → geen -e.", 
+    tip: "💡 Verhaal = het-woord" 
+  },
+  { 
+    question: "De ... man (oud)", 
+    options: ["oud","oude","ouds","ouden"], 
+    correct: 1, 
+    explanation: "🟢 Bepaald 'de' → -e.", 
+    tip: "💡 De + BN = +e" 
+  },
+  { 
+    question: "... bier (koud)", 
+    options: ["Koud","Koude","Kouds","Kouden"], 
+    correct: 0, 
+    explanation: "🟢 'Bier' is het-woord, stofnaam zonder lidwoord → geen -e.", 
+    tip: "💡 Bier = het-woord, stofnaam" 
+  },
+  { 
+    question: "De ... appels (rijk)", 
+    options: ["rijk","rijke","rijks","rijken"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud krijgt altijd -e.", 
+    tip: "💡 Meervoud = +e" 
+  },
+  { 
+    question: "Hij is ... dan zijn zus (slim)", 
+    options: ["slim","slimme","slimmer","slimst"], 
+    correct: 2, 
+    explanation: "🟢 Vergrotende trap: slim + er.", 
+    tip: "💡 Slim → slimmer" 
+  },
+  { 
+    question: "Dit is het ... museum (groot) – overtreffend", 
+    options: ["grootste","grotere","groot","groots"], 
+    correct: 0, 
+    explanation: "🟢 Overtreffende trap: grootst + e.", 
+    tip: "💡 Groot → grootst + e" 
+  },
+  { 
+    question: "Een ... verrassing (aangenaam)", 
+    options: ["aangenaam","aangename","aangenaams","aangenaamen"], 
+    correct: 1, 
+    explanation: "🟢 'Verrassing' is de-woord → -e na 'een'.", 
+    tip: "💡 De-woord = +e" 
+  },
+  { 
+    question: "Het ... huis van de straat (mooi) – overtreffend", 
+    options: ["mooist","mooiste","mooier","mooi"], 
+    correct: 1, 
+    explanation: "🟢 Overtreffende trap: mooist + e.", 
+    tip: "💡 Mooi → mooist + e" 
+  },
+  { 
+    question: "Zij heeft ... ogen (blauw)", 
+    options: ["blauw","blauwe","blauws","blauwen"], 
+    correct: 1, 
+    explanation: "🟢 Meervoud krijgt altijd -e.", 
+    tip: "💡 Meervoud = altijd +e" 
+  }
+],
+
+test: [
+  { question: "Een ... tafel (groot)", options: ["groot","grote","groots","groote"], correct: 1, explanation: "🟢 De-woord = +e." },
+  { question: "Het ... boek (mooi)", options: ["mooi","mooie","mooien","moois"], correct: 1, explanation: "🟢 Het + BN = +e." },
+  { question: "Een ... kind (lief)", options: ["lief","lieve","lieven","liefs"], correct: 0, explanation: "🟢 Een + het-woord = geen -e." },
+  { question: "... soep (warm)", options: ["Warm","Warme","Warms","Warmen"], correct: 1, explanation: "🟢 De-woord = +e." },
+  { question: "Een ... meisje (aardig)", options: ["aardig","aardige","aardigs","aardigen"], correct: 0, explanation: "🟢 Meisje = het-woord." },
+  { question: "De ... auto (rood)", options: ["rood","rode","roods","roden"], correct: 1, explanation: "🟢 De + BN = +e." },
+  { question: "De ... huizen (groot)", options: ["groot","grote","groten","groots"], correct: 1, explanation: "🟢 Meervoud = +e." },
+  { question: "Een ... appel (heerlijk)", options: ["heerlijk","heerlijke","heerlijks","heerlijken"], correct: 1, explanation: "🟢 Appel = de-woord." },
+  { question: "Het ... water (schoon)", options: ["schoon","schone","schoons","schonen"], correct: 1, explanation: "🟢 Het + BN = +e." },
+  { question: "Een ... idee (goed)", options: ["goed","goede","goeds","goeden"], correct: 0, explanation: "🟢 Idee = het-woord." },
+  { question: "De ... mensen (aardig)", options: ["aardig","aardige","aardigs","aardigen"], correct: 1, explanation: "🟢 Meervoud = +e." },
+  { question: "Het ... weer (mooi)", options: ["mooi","mooie","moois","mooien"], correct: 1, explanation: "🟢 Het + BN = +e." },
+  { question: "De ... kamer (groot) – vergrotend", options: ["groter","grotere","grootste","groot"], correct: 1, explanation: "🟢 Vergrotend + de = +e." },
+  { question: "Dit is de ... auto (snel) – overtreffend", options: ["snelste","snelst","sneldere","snelt"], correct: 0, explanation: "🟢 Overtreffend = -st + e." },
+  { question: "Mijn broer is ... dan ik (oud)", options: ["ouder","oudere","oudst","oud"], correct: 0, explanation: "🟢 Vergrotend predicatief." },
+  { question: "Dit boek is ... dan dat (goed)", options: ["goed","goede","beter","best"], correct: 2, explanation: "🟢 Goed → beter (onregelmatig)." },
+  { question: "Hij is de ... leerling (goed)", options: ["goedste","beste","betere","goed"], correct: 1, explanation: "🟢 Goed → best (onregelmatig)." },
+  { question: "Zij is even ... als ik (lang)", options: ["lang","lange","langer","langst"], correct: 0, explanation: "🟢 Even...als = stellend." },
+  { question: "De ... appels (rijk)", options: ["rijk","rijke","rijks","rijken"], correct: 1, explanation: "🟢 Meervoud = +e." },
+  { question: "Het ... huis van de straat (mooi)", options: ["mooist","mooiste","mooier","mooi"], correct: 1, explanation: "🟢 Overtreffend = -st + e." }
       ]
     },
     13: { // Trappen van vergelijking
-      practice: [
-        { question: "Hij is ... dan ik. (groot)", options: ["groot","groter","grootst","meest groot"], correct: 1, explanation: "❌ Fout! Vergrotende trap = -er.", tip: "💡 groot → groter → grootst." },
-        { question: "Zij is de ... van de klas. (slim)", options: ["slim","slimmer","slimst","meest slim"], correct: 2, explanation: "❌ Fout! Overtreffende trap = -st.", tip: "💡 slim → slimmer → slimst." },
-        { question: "Dit boek is ... dan dat. (interessant)", options: ["interessant","interessanter","interessantst","meest interessant"], correct: 3, explanation: "❌ Fout! Lang woord → meest + bn.", tip: "💡 interessant → meest interessant." },
-        { question: "Hij loopt ... dan jij. (snel)", options: ["snel","sneller","snelst","meest snel"], correct: 1, explanation: "❌ Fout! Vergrotende trap = -er.", tip: "💡 snel → sneller → snelst." },
-        { question: "Dit is het ... antwoord. (goed)", options: ["goed","beter","best","meest goed"], correct: 2, explanation: "❌ Fout! Onregelmatig: goed → beter → best.", tip: "💡 Onregelmatige trappen memoriseren." }
-      ],
-      test: [
-        { question: "Zij is ... dan haar zus. (mooi)", options: ["mooi","mooier","mooist","meest mooi"], correct: 1, explanation: "mooi → mooier." },
-        { question: "Hij is de ... leerling. (goed)", options: ["goed","beter","best","meest goed"], correct: 2, explanation: "goed → best." },
-        { question: "Deze taak is ... dan die. (moeilijk)", options: ["moeilijk","moeilijker","moeilijkst","meest moeilijk"], correct: 3, explanation: "Lang woord → meest." },
-        { question: "Hij is ... dan gisteren. (blij)", options: ["blij","blijer","blijst","meest blij"], correct: 1, explanation: "blij → blijer." },
-        { question: "Dit is het ... verhaal. (spannend)", options: ["spannend","spannender","spannendst","meest spannend"], correct: 3, explanation: "Lang woord → meest." },
-        { question: "Zij is ... dan ik. (jong)", options: ["jong","jonger","jongst","meest jong"], correct: 1, explanation: "jong → jonger." },
-        { question: "Hij is de ... van allen. (rijk)", options: ["rijk","rijker","rijkst","meest rijk"], correct: 2, explanation: "rijk → rijkst." },
-        { question: "Dit is ... dan dat. (duur)", options: ["duur","duurder","duurst","meest duur"], correct: 1, explanation: "duur → duurder." },
-        { question: "Zij is de ... persoon. (vriendelijk)", options: ["vriendelijk","vriendelijker","vriendelijkst","meest vriendelijk"], correct: 3, explanation: "Lang woord → meest." },
-        { question: "Hij is ... dan vorig jaar. (sterk)", options: ["sterk","sterker","sterkst","meest sterk"], correct: 1, explanation: "sterk → sterker." }
+practice: [
+  { question: "Jan is ... dan Piet. (oud)", options: ["oud","ouder","oudst","oude"], correct: 1, explanation: "🟢 Vergrotende trap: stellend + -er.", tip: "💡 oud → ouder → oudst" },
+  { question: "Dit is de ... auto van allemaal. (snel)", options: ["sneller","snelste","snel","snelle"], correct: 1, explanation: "🟢 Overtreffende trap attributief: -ste + -e.", tip: "💡 snel → snelste" },
+  { question: "Zij rent ... dan haar broer. (hard)", options: ["hard","hardst","harder","harde"], correct: 2, explanation: "🟢 Vergrotende trap: hard + -er.", tip: "💡 hard → harder → hardst" },
+  { question: "Dit is het ... boek dat ik ooit heb gelezen. (mooi)", options: ["mooier","mooiste","mooi","mooie"], correct: 1, explanation: "🟢 Overtreffend bij het-woord: het mooiste.", tip: "💡 mooi → mooiste" },
+  { question: "Mijn huis is ... dan jouw huis. (groot)", options: ["groot","grot","groter","grootst"], correct: 2, explanation: "🟢 Lange klinker + -er → groter.", tip: "💡 groot → groter → grootst" },
+  { question: "Zij is de ... van de klas. (slim)", options: ["slimst","slimste","slimmer","slimme"], correct: 1, explanation: "🟢 Overtreffend met 'de' → altijd -e.", tip: "💡 slim → slimste" },
+  { question: "Dit huis is even ... als dat huis. (duur)", options: ["duurder","duurst","duur","dure"], correct: 2, explanation: "🟢 'even...als' = stellende trap.", tip: "💡 Even...als = geen trap" },
+  { question: "Hij loopt ... dan ik. (langzaam)", options: ["langzamer","langzaamst","langzaam","langzame"], correct: 0, explanation: "🟢 Regelmatig: langzaam + -er.", tip: "💡 langzaam → langzamer" },
+  { question: "Zij is ... dan haar zus. (jong)", options: ["jong","jonger","jongst","jongste"], correct: 1, explanation: "🟢 Vergrotende trap: jong + -er.", tip: "💡 jong → jonger → jongst" },
+  { question: "Dit is de ... weg. (kort)", options: ["kortste","korter","kort","korte"], correct: 0, explanation: "🟢 Overtreffend attributief: kortste.", tip: "💡 kort → kortste" },
+  { question: "Mijn auto is ... dan de jouwe. (goedkoop)", options: ["goedkoper","goedkoopst","goedkoop","goedkope"], correct: 0, explanation: "🟢 Vergrotend: goedkoop + -er.", tip: "💡 goedkoop → goedkoper" },
+  { question: "Hij is de ... leerling van de school. (slecht)", options: ["slechtst","slechtste","slechter","slechte"], correct: 1, explanation: "🟢 Overtreffend met 'de' → slechtste.", tip: "💡 slecht → slechtste" },
+  { question: "Deze tas is ... dan die tas. (licht)", options: ["licht","lichter","lichtst","lichte"], correct: 1, explanation: "🟢 Vergrotend: licht + -er.", tip: "💡 licht → lichter → lichtst" },
+  { question: "Van alle vrienden is hij het .... (aardig)", options: ["aardigst","aardigste","aardiger","aardig"], correct: 0, explanation: "🟢 Na 'het' zonder zelfstandig naamwoord → geen -e.", tip: "💡 het aardigst (bijwoordelijk)" },
+  { question: "Zij zingt ... dan een nachtegaal. (mooi)", options: ["mooi","mooier","mooist","mooie"], correct: 1, explanation: "🟢 Vergrotend: mooi + -er.", tip: "💡 mooi → mooier" },
+  { question: "Dit is het ... restaurant van de stad. (goed)", options: ["goedste","beste","betere","goed"], correct: 1, explanation: "🟢 Onregelmatig: goed → beter → best.", tip: "💡 goed → beste (onregelmatig)" },
+  { question: "Hij is ... dan ik. (veel)", options: ["veel","meer","meest","vele"], correct: 1, explanation: "🟢 Onregelmatig: veel → meer → meest.", tip: "💡 veel → meer (onregelmatig)" },
+  { question: "Zij heeft de ... ervaring. (weinig)", options: ["weiniger","minst","minste","weinigste"], correct: 2, explanation: "🟢 Weinig → minder → minst. De minste ervaring.", tip: "💡 weinig → minste" },
+  { question: "Van alle jongens is hij de .... (lang)", options: ["langst","langste","langer","lange"], correct: 1, explanation: "🟢 Overtreffend met 'de' → langste.", tip: "💡 lang → langste" },
+  { question: "Dit is het ... dat ik kan doen. (weinig)", options: ["minst","minste","minder","weiniger"], correct: 0, explanation: "🟢 Na 'het' bijwoordelijk → geen -e.", tip: "💡 het minst (bijwoordelijk)" },
+  { question: "Hij werkt ... dan zijn collega. (hard)", options: ["hard","harder","hardst","harde"], correct: 1, explanation: "🟢 Vergrotend: hard + -er.", tip: "💡 hard → harder" },
+  { question: "Zij is ... dan haar vriend. (populair)", options: ["populairder","populair","populairst","populaire"], correct: 0, explanation: "🟢 Lange woorden: -er is toegestaan/standaard.", tip: "💡 populair → populairder" },
+  { question: "Dit is de ... film die ik ooit heb gezien. (slecht)", options: ["slechter","slechtst","slechtste","slechte"], correct: 2, explanation: "🟢 Overtreffend met 'de' → slechtste.", tip: "💡 slecht → slechtste" },
+  { question: "Zij is ... dan ik. (oud)", options: ["ouder","oudst","oud","oude"], correct: 0, explanation: "🟢 Vergrotend: oud + -er.", tip: "💡 oud → ouder" },
+  { question: "Van alle zussen is zij het .... (lief)", options: ["liefst","liefste","liever","lieve"], correct: 0, explanation: "🟢 Na 'het' zonder zelfstandig naamwoord → liefst.", tip: "💡 het liefst (bijwoordelijk)" },
+  { question: "Hij is ... dan zijn broer. (sterk)", options: ["sterk","sterker","sterkst","sterke"], correct: 1, explanation: "🟢 Vergrotend: sterk + -er.", tip: "💡 sterk → sterker" },
+  { question: "Deze trein is ... dan de bus. (snel)", options: ["snel","sneller","snelst","snelle"], correct: 1, explanation: "🟢 Vergrotend: snel + -er.", tip: "💡 snel → sneller" },
+  { question: "Dit is het ... moment. (geschikt)", options: ["geschikter","geschiktst","geschiktste","geschikte"], correct: 2, explanation: "🟢 Overtreffend bij het-woord → geschiktste.", tip: "💡 geschikt → geschiktste" },
+  { question: "Zij is de ... van de twee. (mooi)", options: ["mooiste","mooier","mooi","mooie"], correct: 0, explanation: "🟢 Bij twee opties: overtreffend is gebruikelijk.", tip: "💡 mooi → mooiste" },
+  { question: "Dit klinkt ... dan ik dacht. (goed)", options: ["goed","beter","best","goede"], correct: 1, explanation: "🟢 Onregelmatig: goed → beter.", tip: "💡 goed → beter" },
+  { question: "Hij is de ... van het team. (belangrijk)", options: ["belangrijkste","belangrijker","belangrijk","belangrijks"], correct: 0, explanation: "🟢 Overtreffend: belangrijkste.", tip: "💡 belangrijk → belangrijkste" },
+  { question: "Zij eet ... dan haar moeder. (graag)", options: ["graag","grager","liever","liefst"], correct: 2, explanation: "🟢 Onregelmatig: graag → liever → liefst.", tip: "💡 graag → liever (onregelmatig)" },
+  { question: "Dit is de ... oplossing. (eenvoudig)", options: ["eenvoudigste","eenvoudiger","eenvoudigst","eenvoudige"], correct: 0, explanation: "🟢 Overtreffend met 'de' → eenvoudigste.", tip: "💡 eenvoudig → eenvoudigste" },
+  { question: "Hij loopt ... van allemaal. (snel)", options: ["snelst","snelste","sneller","snel"], correct: 0, explanation: "🟢 Bijwoordelijk gebruik → zonder -e.", tip: "💡 het snelst (bijwoordelijk)" },
+  { question: "Jouw idee is ... dan het mijne. (slecht)", options: ["slecht","slechter","slechtst","slechte"], correct: 1, explanation: "🟢 Vergrotend: slecht + -er.", tip: "💡 slecht → slechter" },
+  { question: "Van alle boeken is dit .... (interessant)", options: ["het interessantst","de interessantste","de interessantere","het interessantere"], correct: 0, explanation: "🟢 Predicatief zonder zelfstandig naamwoord → het interessantst.", tip: "💡 interessant → het interessantst" },
+  { question: "Deze route is ... dan de andere. (lang)", options: ["lang","langer","langst","lange"], correct: 1, explanation: "🟢 Vergrotend: lang + -er.", tip: "💡 lang → langer" },
+  { question: "Hij is de ... van allemaal. (vriendelijk)", options: ["vriendelijkste","vriendelijker","vriendelijk","vriendelijks"], correct: 0, explanation: "🟢 Overtreffend met 'de' → vriendelijkste.", tip: "💡 vriendelijk → vriendelijkste" },
+  { question: "Zij zingt ... van allemaal. (mooi)", options: ["mooier","mooist","mooiste","mooi"], correct: 1, explanation: "🟢 Bijwoordelijk: het mooist.", tip: "💡 mooi → het mooist" },
+  { question: "Dit is ... dan ik verwachtte. (moeilijk)", options: ["moeilijker","moeilijkst","moeilijk","moeilijke"], correct: 0, explanation: "🟢 Vergrotend: moeilijk + -er.", tip: "💡 moeilijk → moeilijker" }
+],
+
+test: [
+  { question: "Jan is ... dan Piet. (oud)", options: ["oud","ouder","oudst","oude"], correct: 1, explanation: "🟢 oud → ouder." },
+  { question: "Dit is de ... auto van allemaal. (snel)", options: ["sneller","snelste","snel","snelle"], correct: 1, explanation: "🟢 snel → snelste." },
+  { question: "Zij rent ... dan haar broer. (hard)", options: ["hard","hardst","harder","harde"], correct: 2, explanation: "🟢 hard → harder." },
+  { question: "Dit huis is even ... als dat huis. (duur)", options: ["duurder","duurst","duur","dure"], correct: 2, explanation: "🟢 even...als = stellend." },
+  { question: "Hij loopt ... dan ik. (langzaam)", options: ["langzamer","langzaamst","langzaam","langzame"], correct: 0, explanation: "🟢 langzaam → langzamer." },
+  { question: "Dit is het ... boek dat ik ooit heb gelezen. (mooi)", options: ["mooier","mooiste","mooi","mooie"], correct: 1, explanation: "🟢 mooi → mooiste." },
+  { question: "Mijn auto is ... dan de jouwe. (goedkoop)", options: ["goedkoper","goedkoopst","goedkoop","goedkope"], correct: 0, explanation: "🟢 goedkoop → goedkoper." },
+  { question: "Hij is de ... leerling van de school. (slecht)", options: ["slechtst","slechtste","slechter","slechte"], correct: 1, explanation: "🟢 slecht → slechtste." },
+  { question: "Deze tas is ... dan die tas. (licht)", options: ["licht","lichter","lichtst","lichte"], correct: 1, explanation: "🟢 licht → lichter." },
+  { question: "Van alle vrienden is hij het .... (aardig)", options: ["aardigst","aardigste","aardiger","aardig"], correct: 0, explanation: "🟢 het aardigst." },
+  { question: "Dit is het ... restaurant van de stad. (goed)", options: ["goedste","beste","betere","goed"], correct: 1, explanation: "🟢 goed → beste (onregelmatig)." },
+  { question: "Hij is ... dan ik. (veel)", options: ["veel","meer","meest","vele"], correct: 1, explanation: "🟢 veel → meer (onregelmatig)." },
+  { question: "Zij heeft de ... ervaring. (weinig)", options: ["weiniger","minst","minste","weinigste"], correct: 2, explanation: "🟢 weinig → minste." },
+  { question: "Hij werkt ... dan zijn collega. (hard)", options: ["hard","harder","hardst","harde"], correct: 1, explanation: "🟢 hard → harder." },
+  { question: "Dit is de ... film die ik ooit heb gezien. (slecht)", options: ["slechter","slechtst","slechtste","slechte"], correct: 2, explanation: "🟢 slecht → slechtste." },
+  { question: "Dit klinkt ... dan ik dacht. (goed)", options: ["goed","beter","best","goede"], correct: 1, explanation: "🟢 goed → beter (onregelmatig)." },
+  { question: "Zij eet ... dan haar moeder. (graag)", options: ["graag","grager","liever","liefst"], correct: 2, explanation: "🟢 graag → liever (onregelmatig)." },
+  { question: "Hij loopt ... van allemaal. (snel)", options: ["snelst","snelste","sneller","snel"], correct: 0, explanation: "🟢 bijwoordelijk: snelst." },
+  { question: "Van alle boeken is dit .... (interessant)", options: ["het interessantst","de interessantste","de interessantere","het interessantere"], correct: 0, explanation: "🟢 predicatief: het interessantst." },
+  { question: "Dit is ... dan ik verwachtte. (moeilijk)", options: ["moeilijker","moeilijkst","moeilijk","moeilijke"], correct: 0, explanation: "🟢 moeilijk → moeilijker." }
       ]
     },
     14: { // Voorzetsels
