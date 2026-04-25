@@ -17136,8 +17136,443 @@ const TOPICS = {
     </div>
   `
 },
-    {id:41,t:"Pronoms personnels",d:"Persoonlijke voornaamwoorden – onderwerp, COD, COI, reflexief, tonisch."},
-    {id:42,t:"Possession & génitif",d:"Bezitsvormen – de, d', à, dont, possessieve voornaamwoorden."},
+{
+  id: 18,
+  t: "Les verbes pronominaux",
+  d: "Réfléchis • Réciproques • Essentiels • Accord du participe — maîtriser se + verbe",
+  content: `
+    <style>
+      .gw-wrap {
+        --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+        --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+        --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+        --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+        --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+        --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+        font-family: 'Nunito', sans-serif; color: var(--gw-text);
+        line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+      }
+      [data-theme="dark"] .gw-wrap {
+        --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+        --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+        --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+        --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+        --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+      }
+      .gw-wrap * { box-sizing: border-box; }
+
+      .gw-hero {
+        background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+        border: 1.5px solid var(--gw-border); border-radius: 22px;
+        padding: 28px 24px; margin-bottom: 24px; text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .gw-hero::before {
+        content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+        background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+        opacity: 0.1; border-radius: 50%; pointer-events: none;
+      }
+      .gw-hero h1 {
+        font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+        color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+      }
+      .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+      .gw-section {
+        background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+      .gw-section h2 {
+        font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+        padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+      }
+      .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+      .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+      .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+      .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+      .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+      .gw-section em { color: var(--gw-accent); font-style: italic; }
+      .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+      .gw-card {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+      }
+      .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+      .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+      .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+      .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+      .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+      .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+      .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+      [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+      [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+      .gw-badge {
+        display: inline-flex; align-items: center; padding: 5px 14px;
+        border-radius: 24px; font-weight: 700; font-size: 0.85em; margin: 4px 2px;
+        border: 1px solid transparent; transition: all 0.2s ease;
+      }
+      .gw-badge.refl { background: var(--gw-nl-bg); color: var(--gw-nl); border-color: var(--gw-nl-bo); }
+      .gw-badge.recip { background: var(--gw-fr-bg); color: var(--gw-fr); border-color: var(--gw-fr-bo); }
+      .gw-badge.ess { background: var(--gw-accent-bg); color: var(--gw-accent); border-color: var(--gw-accent-bo); }
+      .gw-badge.pass { background: var(--gw-bg3); color: var(--gw-text); border-color: var(--gw-border); }
+      .gw-badge.acc { background: var(--gw-warn-bg); color: var(--gw-warn-text); border-color: var(--gw-warn); }
+      .gw-badge.cod { background: var(--gw-bg3); color: var(--gw-text2); border-color: var(--gw-border); font-style: italic; }
+      .gw-badge.coi { background: var(--gw-bg3); color: var(--gw-text2); border-color: var(--gw-border); font-style: italic; }
+      .gw-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+      .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+      .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+      .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+      .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+      .gw-table tr:last-child td { border-bottom: none; }
+      .gw-table tr:hover { background: var(--gw-table-hover); }
+      .gw-table strong { color: var(--gw-accent); }
+
+      .gw-example {
+        background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+        padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+        font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+      }
+      .gw-note {
+        background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+        margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+      }
+      .gw-code {
+        background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+        font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+      }
+      .gw-summary {
+        background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+        border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      }
+      .gw-summary h3 { margin: 0 0 16px; color: var(--gw-accent); font-size: 1.3rem; font-weight: 700; }
+      .gw-summary ul { margin: 0 0 16px 28px; padding: 0; }
+      .gw-summary li { margin-bottom: 10px; line-height: 1.6; }
+
+      @media(max-width: 600px) {
+        .gw-hero h1 { font-size: 1.75rem; }
+        .gw-section { padding: 20px; }
+        .gw-table { font-size: 0.88em; }
+        .gw-table th, .gw-table td { padding: 10px 12px; }
+        .gw-card { padding: 18px; }
+      }
+    </style>
+
+    <div class="gw-wrap">
+      <div class="gw-hero">
+        <h1>🔄 Les Verbes Pronominaux</h1>
+        <p>Réfléchis • Réciproques • Essentiels • Accord — maîtriser se + verbe</p>
+      </div>
+
+      <div class="gw-section">
+        <p>Un verbe pronominal se conjugue avec un <strong>pronom réfléchi</strong> (<em>me, te, se, nous, vous, se</em>) de la même personne que le sujet. Ce pronom fait partie intégrante du verbe et se reconnaît à l'infinitif par la présence de <strong>se / s'</strong>.</p>
+        <div class="gw-example">
+          💬 <em>"Je <strong>me</strong> lave." (sujet je, pronom me)<br>
+          "Tu <strong>te</strong> prépares." • "Elle <strong>se</strong> souvient."</em>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📊 Les catégories de verbes pronominaux</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge refl">🔹 Réfléchis</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le sujet fait l'action <strong>sur lui-même</strong>. Le pronom est COD ou COI.<br><br>
+              💬 <em>"Je <strong>me</strong> lave." (je lave moi-même → me = COD)<br>
+              "Elle <strong>se</strong> maquille." • "Tu <strong>te</strong> laves les mains." (te = COI)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge recip">🔹 Réciproques</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Deux ou plusieurs sujets font l'action <strong>les uns sur les autres</strong>.<br><br>
+              💬 <em>"Ils <strong>se</strong> téléphonent tous les jours." (l'un à l'autre → COI)<br>
+              "Nous <strong>nous</strong> sommes rencontrés hier." (COD)<br>
+              "Elles <strong>se</strong> sont parlé." (COI)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge ess">🔹 Essentiellement pronominaux</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              N'existent <strong>qu'à la forme pronominale</strong> (on ne peut pas supprimer le pronom).<br><br>
+              💬 <em>s'en aller • se souvenir • se méfier • s'absenter • s'envoler • s'évanouir • se repentir • s'emparer</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title"><span class="gw-badge pass">🔹 Sens passif</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le sujet subit l'action (sans agent exprimé). Équivalent à une phrase passive.<br><br>
+              💬 <em>"Les mangas <strong>se vendent</strong> bien." (= sont vendus)<br>
+              "La Tour Eiffel <strong>se voit</strong> de loin." • "Cela <strong>ne se fait pas</strong>."</em>
+            </p>
+          </div>
+        </div>
+
+        <h3>🔄 Verbes accidentellement pronominaux (changement de sens)</h3>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Verbe non pronominal</th><th>Verbe pronominal</th></tr></thead>
+            <tbody>
+              <tr><td><em>apercevoir</em> (voir au loin)</td><td><em>s'apercevoir de</em> (se rendre compte)</td></tr>
+              <tr><td><em>douter</em> (avoir des doutes)</td><td><em>se douter de</em> (soupçonner)</td></tr>
+              <tr><td><em>passer</em> (aller d'un endroit à un autre)</td><td><em>se passer de</em> (se priver de)</td></tr>
+              <tr><td><em>servir</em> (être utile)</td><td><em>se servir de</em> (utiliser)</td></tr>
+              <tr><td><em>rendre</em> (restituer)</td><td><em>se rendre</em> (aller à, capituler)</td></tr>
+              <tr><td><em>tromper</em> (induire en erreur)</td><td><em>se tromper</em> (faire une erreur)</td></tr>
+              <tr><td><em>attendre</em> (rester jusqu'à l'arrivée)</td><td><em>s'attendre à</em> (prévoir)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔧 Conjugaison aux temps principaux</h2>
+        <p>Tous les verbes pronominaux utilisent <strong>l'auxiliaire être</strong> aux temps composés.</p>
+       
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Temps</th><th>Se laver</th><th>Se souvenir</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Présent</strong></td><td><em>je me lave, tu te laves, il se lave, nous nous lavons, vous vous lavez, ils se lavent</em></td><td><em>je me souviens, tu te souviens, il se souvient…</em></td></tr>
+              <tr><td><strong>Imparfait</strong></td><td><em>je me lavais, tu te lavais, il se lavait…</em></td><td><em>je me souvenais…</em></td></tr>
+              <tr><td><strong>Passé composé</strong></td><td><em>je me suis lavé(e), tu t'es lavé(e), il s'est lavé…</em></td><td><em>je me suis souvenu(e)…</em></td></tr>
+              <tr><td><strong>Futur simple</strong></td><td><em>je me laverai, tu te laveras…</em></td><td><em>je me souviendrai…</em></td></tr>
+              <tr><td><strong>Conditionnel</strong></td><td><em>je me laverais…</em></td><td><em>je me souviendrais…</em></td></tr>
+              <tr><td><strong>Subjonctif présent</strong></td><td><em>que je me lave, que nous nous lavions…</em></td><td><em>que je me souvienne…</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="gw-card gw-card--rule">
+          <div class="gw-card-title"><span class="gw-badge acc">Impératif</span></div>
+          <p style="margin:0; color:var(--gw-text)">
+            <table style="width:100%; font-size:0.95em;">
+              <tr><td><strong>Affirmatif</strong></td><td><em>Lave-<strong>toi</strong> ! • Lavons-<strong>nous</strong> ! • Lavez-<strong>vous</strong> !</em></td></tr>
+              <tr><td><strong>Négatif</strong></td><td><em>Ne <strong>te</strong> lave pas ! • Ne <strong>nous</strong> lavons pas ! • Ne <strong>vous</strong> lavez pas !</em></td></tr>
+              <tr><td><strong>Avec en</strong></td><td><em>Va-<strong>t'en</strong> ! • Allons-nous-en ! • Allez-vous-en !</em></td></tr>
+            </table>
+          </p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚖️ Accord du participe passé (règle essentielle)</h2>
+        <p>Les verbes pronominaux se conjuguant avec <strong>être</strong>, le participe passé <strong>n'obéit pas</strong> à la règle d'accord automatique avec le sujet. On analyse la fonction du pronom réfléchi.</p>
+       
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--rule">
+            <div class="gw-card-title"><span class="gw-badge cod">🔹 Pronom = COD (pas d'autre COD après)</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              → Accord avec le pronom (qui reprend le sujet).<br><br>
+              💬 <em>"Elle s'est <strong>lavée</strong>." (lavé quoi ? se = elle → COD → accord fém. sing.)<br>
+              "Ils se sont <strong>lavés</strong>." (masc. plur.)<br>
+              "Nous nous sommes <strong>rencontrées</strong>." (nous = femmes → fém. plur.)</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--rule">
+            <div class="gw-card-title"><span class="gw-badge coi">🔹 Pronom = COI (ou COD après le verbe)</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              → <strong>Pas d'accord</strong> (invariable, masc. sing. par défaut).<br><br>
+              💬 <em>"Elle s'est <strong>lavé</strong> les mains." (COD = les mains après → pas d'accord)<br>
+              "Ils se sont <strong>parlé</strong>." (parler à qqn → COI)<br>
+              "Nous nous sommes <strong>téléphoné</strong>." • "Elles se sont <strong>souri</strong>."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title"><span class="gw-badge ess">🔹 Essentiellement pronominaux</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Pour les verbes qui n'existent qu'à la forme pronominale, on fait généralement l'accord avec le sujet.<br><br>
+              💬 <em>"Elle s'est <strong>souvenue</strong> de toi." • "Ils se sont <strong>absentés</strong>." • "Elles se sont <strong>envolées</strong>."</em><br><br>
+              ⚠️ Exceptions invariables : <em>se rire de, se plaire à, se complaire, se déplaire</em> → <em>"Elles se sont ri de moi."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title"><span class="gw-badge acc">🔹 Participe + Infinitif</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le participe s'accorde avec le COD antéposé seulement si ce COD fait l'action de l'infinitif.<br><br>
+              💬 <em>"La pianiste que j'ai <strong>entendue</strong> jouer." (elle joue → accord)<br>
+              "La musique que j'ai <strong>entendu</strong> jouer." (la musique ne joue pas → invariable)</em>
+            </p>
+          </div>
+        </div>
+
+        <div class="gw-card gw-card--warn">
+          <div class="gw-card-title"><span class="gw-badge acc">⚠️ Cas particulier : « se faire » + infinitif</span></div>
+          <p style="margin:0; color:var(--gw-text)">
+            Le participe <strong>fait</strong> reste <strong>toujours invariable</strong> dans cette construction.<br><br>
+            💬 <em>"Elle s'est <strong>fait</strong> couper les cheveux." • "Ils se sont <strong>fait</strong> renvoyer." • "Elles se sont <strong>fait</strong> surprendre."</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📍 Place des pronoms (récapitulatif)</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Devant le verbe (sauf impératif +)</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Dans tous les modes/temps, le pronom réfléchi se place <strong>devant</strong> le verbe (ou l'auxiliaire).<br><br>
+              💬 <em>"Je <strong>me</strong> lave." • "Tu ne <strong>t'</strong>es pas réveillé."<br>
+              "Il faut que nous <strong>nous</strong> dépêchions." • "Se <strong>serait</strong>-elle trompée ?"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 À l'impératif affirmatif</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le pronom est <strong>après</strong> le verbe, avec trait d'union. <code>me/te</code> → <code>moi/toi</code> (sauf devant <code>en</code>).<br><br>
+              💬 <em>"Lave-<strong>toi</strong> !" • "Reposons-<strong>nous</strong> !" • "Souvenez-<strong>vous</strong> !"<br>
+              "Donne-<strong>t'</strong>en la peine !" • "Sers-<strong>toi</strong> un verre !"</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--check">
+            <div class="gw-card-title">🔹 Avec un infinitif</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le pronom réfléchi se place <strong>devant l'infinitif</strong>.<br><br>
+              💬 <em>"Je vais <strong>me</strong> coucher." • "Tu dois <strong>te</strong> dépêcher." • "Elle veut <strong>s'</strong>inscrire."</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>🔍 Verbes pronominaux particuliers</h2>
+        
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title"><span class="gw-badge pass">🔹 Sens passif avec « se »</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Le sujet n'est pas l'agent de l'action.<br><br>
+              💬 <em>"Cette robe <strong>se porte</strong> en été." (= elle est portée)<br>
+              "Les légumes <strong>se lavent</strong> à l'eau froide." • "Ce mot ne <strong>se dit</strong> plus."</em>
+            </p>
+          </div>
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title"><span class="gw-badge acc">🔹 « Se faire » + infinitif</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Valeur factitive (faire faire) ou passive.<br><br>
+              💬 <em>"Elle <strong>s'est fait</strong> couper les cheveux." (elle a demandé à qqn)<br>
+              "Il <strong>s'est fait</strong> voler son portefeuille." (passif : on lui a volé)<br><br>
+              ⚠️ <code>fait</code> reste toujours invariable !
+            </p>
+          </div>
+          <div class="gw-card gw-card--tip">
+            <div class="gw-card-title"><span class="gw-badge ess">🔹 « S'en aller »</span></div>
+            <p style="margin:0; color:var(--gw-text)">
+              Combine pronom réfléchi + pronom adverbial <code>en</code>.<br><br>
+              💬 <em>"Je m'en vais." • "Il s'en est allé." • "Va-t'en !"<br>
+              Accord : "Elle s'en est allée." • "Nous nous en sommes allés."</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>⚠️ Pièges à éviter</h2>
+        <div class="gw-grid-2" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0;">
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Ne pas oublier le pronom réfléchi</div>
+            <p style="margin:0; color:var(--gw-text)">
+              ❌ <em>"Je suis levé à 7h."</em><br>
+              ✅ <em>"Je <strong>me</strong> suis levé à 7h."</em><br><br>
+              💡 Le pronom réfléchi fait partie intégrante du verbe !
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Toujours l'auxiliaire ÊTRE</div>
+            <p style="margin:0; color:var(--gw-text)">
+              ❌ <em>"J'ai me lavé."</em><br>
+              ✅ <em>"Je <strong>me suis</strong> lavé."</em><br><br>
+              💡 Tous les verbes pronominaux se conjuguent avec <strong>être</strong> aux temps composés.
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Analyse du pronom pour l'accord</div>
+            <p style="margin:0; color:var(--gw-text)">
+              Ne pas tout accorder systématiquement !<br><br>
+              ❌ <em>"Elles se sont téléphonées."</em><br>
+              ✅ <em>"Elles se sont <strong>téléphoné</strong>." (COI → invariable)</em><br><br>
+              💡 Posez-vous : "Le pronom est-il COD ou COI ?"
+            </p>
+          </div>
+          <div class="gw-card gw-card--warn">
+            <div class="gw-card-title">🔹 Se souvenir vs Se rappeler</div>
+            <p style="margin:0; color:var(--gw-text)">
+              <em>se souvenir <strong>de</strong> qqch</em> / <em>se rappeler qqch</em> (sans <em>de</em>)<br><br>
+              ✅ <em>"Je me souviens <strong>de</strong> cette histoire."</em><br>
+              ✅ <em>"Je me rappelle cette histoire."</em><br>
+              ❌ <em>"Je me rappelle <strong>de</strong> cette histoire." (fautif mais courant)</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>📋 Tableau récapitulatif de l'accord (passé composé)</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Type</th><th>Exemple</th><th>Accord du participe</th></tr></thead>
+            <tbody>
+              <tr><td><span class="gw-badge refl">Réfléchi (pronom = COD)</span></td><td><em>Elle s'est lavée.</em></td><td>✅ Accord avec le sujet</td></tr>
+              <tr><td><span class="gw-badge coi">Réfléchi (pronom = COI)</span></td><td><em>Elle s'est lavé les mains.</em></td><td>❌ Invariable</td></tr>
+              <tr><td><span class="gw-badge recip">Réciproque (pronom = COD)</span></td><td><em>Ils se sont embrassés.</em></td><td>✅ Accord avec le sujet (pluriel)</td></tr>
+              <tr><td><span class="gw-badge coi">Réciproque (pronom = COI)</span></td><td><em>Ils se sont parlé.</em></td><td>❌ Invariable</td></tr>
+              <tr><td><span class="gw-badge ess">Essentiellement pronominal</span></td><td><em>Elle s'est souvenue.</em></td><td>✅ Accord avec le sujet (sauf exceptions)</td></tr>
+              <tr><td><span class="gw-badge pass">Sens passif</span></td><td><em>La leçon s'est bien passée.</em></td><td>✅ Accord avec le sujet</td></tr>
+              <tr><td><span class="gw-badge acc">Se faire + infinitif</span></td><td><em>Ils se sont fait renvoyer.</em></td><td>❌ <code>fait</code> toujours invariable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>💬 Exemples contrastifs : pronominal vs non pronominal</h2>
+        <div class="gw-table-wrap">
+          <table class="gw-table">
+            <thead><tr><th>Non pronominal</th><th>Pronominal</th></tr></thead>
+            <tbody>
+              <tr><td><em>J'ai <strong>lavé</strong> la voiture.</em> (laver qqch)</td><td><em>Je me suis <strong>lavé</strong> les mains.</em> (se laver qqch)</td></tr>
+              <tr><td><em>Elle a <strong>couché</strong> le bébé.</em> (mettre au lit)</td><td><em>Elle s'est <strong>couchée</strong> tôt.</em> (aller au lit)</td></tr>
+              <tr><td><em>Il a <strong>promené</strong> son chien.</em> (conduire)</td><td><em>Il s'est <strong>promené</strong> dans le parc.</em> (marcher)</td></tr>
+              <tr><td><em>Tu as <strong>aperçu</strong> Paul.</em> (voir)</td><td><em>Tu t'es <strong>aperçu</strong> de ton erreur.</em> (comprendre)</td></tr>
+              <tr><td><em>J'ai <strong>passé</strong> le sel.</em> (tendre)</td><td><em>Je me suis <strong>passé</strong> de sucre.</em> (se priver)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gw-section">
+        <h2>✏️ Exercices rapides</h2>
+        <div class="gw-example">
+          🔹 Conjuguez au passé composé : <em>(nous) se dépêcher</em> → <strong>Nous nous sommes dépêché(e)s.</strong><br>
+          🔹 Accordez : <em>Elles se sont (rencontrer) à la gare.</em> → <strong>rencontrées</strong> (réciproque COD)<br>
+          🔹 Accordez : <em>Ils se sont (écrire) de longues lettres.</em> → <strong>écrit</strong> (COI → invariable)<br>
+          🔹 Accordez : <em>Elle s'est (faire) couper les cheveux.</em> → <strong>fait</strong> (toujours invariable avec <em>se faire</em> + inf.)
+        </div>
+      </div>
+
+      <div class="gw-summary">
+        <h3>🧭 Résumé rapide</h3>
+        <ul>
+          <li><strong>Formation</strong> : sujet + pronom réfléchi (me/te/se/nous/vous/se) + verbe</li>
+          <li><strong>Auxiliaire</strong> : toujours <strong>être</strong> aux temps composés</li>
+          <li><span class="gw-badge refl">Réfléchis</span> : action sur soi-même | <span class="gw-badge recip">Réciproques</span> : action mutuelle</li>
+          <li><span class="gw-badge ess">Essentiels</span> : n'existent qu'avec <em>se</em> (se souvenir, s'en aller…)</li>
+          <li><strong>Accord PP</strong> : avec le sujet si pronom = COD | invariable si pronom = COI ou COD après</li>
+          <li><strong>« Se faire » + inf.</strong> : <code>fait</code> toujours invariable</li>
+          <li><strong>💡 Astuce</strong> → Pour l'accord : posez-vous "Le pronom réfléchi est-il COD ou COI ?" Si COD avant → accord. Si COI ou COD après → invariable.</li>
+        </ul>
+        <p style="margin-top:18px; opacity:0.95;">Besoin d'exercices supplémentaires ou d'éclaircissements sur un point particulier ? N'hésitez pas à demander ! 🚀</p>
+      </div>
+    </div>
+  `
+},    {id:42,t:"Possession & génitif",d:"Bezitsvormen – de, d', à, dont, possessieve voornaamwoorden."},
     {id:43,t:"Mots composés & liaisons",d:"Samenstellingen en verbindingen – koppelteken, vaste combinaties, liaison."},
     {id:44,t:"Analyse de la phrase",d:"Zinsontleding – onderwerp, lijdend/meewerkend voorwerp, bijwoordelijke bepalingen."},
     {id:45,t:"Interjections",d:"Tussenwerpsels – ah, oh, hé, aïe, zut, tiens."},
