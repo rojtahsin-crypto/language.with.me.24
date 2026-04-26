@@ -239,7 +239,11 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line
   .exp-box::before{left:.8rem;width:1.3rem;height:1.3rem;font-size:.72rem}
   .exp-toggle{width:1.75rem;height:1.75rem;font-size:.75rem;top:.5rem;right:.5rem}
 }
+  
 </style>
+<a href="ai-chat.html">
+<button style="position:fixed;bottom:30px;right:30px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:white;border:none;border-radius:50px;padding:16px 28px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 4px 25px rgba(79,70,229,0.5);z-index:9999;">🤖 AI Chat</button>
+</a>
 </head>
 <body>
 
@@ -24214,7 +24218,495 @@ content: `
     </div>
   </div>
 `},
-    {id:7,t:"Pronoms personnels I",d:"Persoonlijke voornaamwoorden I – onderwerp, COD, COI, reflexief, tonisch."},
+    {id: 6,
+t: "Pronoms personnels (Partie 1)",
+d: "Je, moi, le, lui, se… — formes et emplois fondamentaux, avec centaines d'exemples",
+content: `
+  <style>
+    .gw-wrap {
+      --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+      --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+      --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+      --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+      --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+      --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+      font-family: 'Nunito', sans-serif; color: var(--gw-text);
+      line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+    }
+    [data-theme="dark"] .gw-wrap {
+      --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+      --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+      --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+      --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+      --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+    }
+    .gw-wrap * { box-sizing: border-box; }
+
+    .gw-hero {
+      background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+      border: 1.5px solid var(--gw-border); border-radius: 22px;
+      padding: 28px 24px; margin-bottom: 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .gw-hero::before {
+      content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+      opacity: 0.1; border-radius: 50%; pointer-events: none;
+    }
+    .gw-hero h1 {
+      font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+      color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+    }
+    .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+    .gw-section {
+      background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+      border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+    .gw-section h2 {
+      font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+      padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+    }
+    .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+    .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+    .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+    .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+    .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+    .gw-section em { color: var(--gw-accent); font-style: italic; }
+    .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+    .gw-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+    }
+    .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+    .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+    .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+    .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+    .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+    .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+    [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+    [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+    .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+    .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+    .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+    .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+    .gw-table tr:last-child td { border-bottom: none; }
+    .gw-table tr:hover { background: var(--gw-table-hover); }
+    .gw-table strong { color: var(--gw-accent); }
+
+    .gw-example {
+      background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+      padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+      font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+    }
+    .gw-note {
+      background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+      margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+    }
+    .gw-code {
+      background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+      font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+    }
+
+    .gw-idiom-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+    }
+    .gw-idiom-title {
+      font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .gw-idiom-ex {
+      padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+    }
+    .gw-idiom-ex:last-child { border-bottom: none; }
+
+    @media(max-width: 600px) {
+      .gw-hero h1 { font-size: 1.75rem; }
+      .gw-section { padding: 20px; }
+      .gw-table { font-size: 0.88em; }
+      .gw-table th, .gw-table td { padding: 10px 12px; }
+      .gw-card { padding: 18px; }
+      .gw-idiom-title { font-size: 1.05rem; }
+    }
+  </style>
+
+  <div class="gw-wrap">
+    <div class="gw-hero">
+      <h1>👤 Pronoms Personnels — Partie 1</h1>
+      <p>Je, moi, le, lui, se… — formes et emplois fondamentaux, avec centaines d'exemples</p>
+    </div>
+
+    <div class="gw-section">
+      <p>Un <strong>pronom personnel</strong> est un mot qui <strong>remplace un nom ou un groupe nominal</strong> et qui indique une personne grammaticale (1<sup>ère</sup>, 2<sup>e</sup>, 3<sup>e</sup>), un genre, un nombre, ainsi qu'une fonction dans la phrase (sujet, complément, etc.).</p>
+      
+      <div class="gw-card gw-card--rule">
+        <div class="gw-card-title">📋 Les cinq séries de pronoms personnels :</div>
+        <ul style="margin:8px 0 0 20px;">
+          <li><strong>Pronoms sujets :</strong> <em>je, tu, il, elle, on, nous, vous, ils, elles</em></li>
+          <li><strong>Pronoms toniques (accentués) :</strong> <em>moi, toi, lui, elle, soi, nous, vous, eux, elles</em></li>
+          <li><strong>Pronoms COD (complément d'objet direct) :</strong> <em>me, te, le, la, nous, vous, les, se</em></li>
+          <li><strong>Pronoms COI (complément d'objet indirect) :</strong> <em>me, te, lui, nous, vous, leur, se</em></li>
+          <li><strong>Pronoms réfléchis :</strong> <em>me, te, se, nous, vous, se</em> (+ <em>soi</em> tonique)</li>
+        </ul>
+      </div>
+
+      <p>Dans ce <strong>premier volet</strong>, nous explorons les <strong>formes et emplois fondamentaux</strong>. Le volet II abordera la place des pronoms, la double pronominalisation, <em>y</em> et <em>en</em>, l'impératif, etc.</p>
+    </div>
+
+    <div class="gw-section">
+      <h2>1️⃣ Pronoms Personnels Sujets</h2>
+      <p>Ils remplacent le groupe sujet et s'accordent en personne, genre et nombre avec le verbe.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Personne</th><th>Singulier</th><th>Pluriel</th><th>Remarque</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1<sup>ère</sup></strong></td><td><strong>je</strong> (j' devant voyelle/h)</td><td><strong>nous</strong></td><td><em>J'arrive, j'habite</em></td></tr>
+            <tr><td><strong>2<sup>e</sup></strong></td><td><strong>tu</strong></td><td><strong>vous</strong></td><td><em>tu</em> = tutoiement ; <em>vous</em> = vouvoiement ou pluriel</td></tr>
+            <tr><td><strong>3<sup>e</sup> masc.</strong></td><td><strong>il</strong></td><td><strong>ils</strong></td><td></td></tr>
+            <tr><td><strong>3<sup>e</sup> fém.</strong></td><td><strong>elle</strong></td><td><strong>elles</strong></td><td></td></tr>
+            <tr><td><strong>3<sup>e</sup> indéfini</strong></td><td><strong>on</strong></td><td>–</td><td>Conjugaison 3<sup>e</sup> pers. sing. ; sens variable</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--tip" style="margin-top:16px;">
+        <div class="gw-card-title">💡 Les valeurs de « on » :</div>
+        <p style="margin:0;">
+          ✅ <strong>Indéfini général :</strong> <em><strong>On</strong> ne sait jamais.</em> (= les gens en général)<br>
+          ✅ <strong>Personne indéterminée :</strong> <em><strong>On</strong> frappe à la porte.</em> (= quelqu'un)<br>
+          ✅ <strong>« Nous » familier :</strong> <em><strong>On</strong> y va ?</em> (= Nous y allons ?)<br>
+          ✅ <strong>Passif implicite :</strong> <em><strong>On</strong> dit que…</em> (= Il est dit que…)
+        </p>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples d'usage</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>1<sup>ère</sup> pers. :</strong> <em><strong>Je</strong> suis fatigué. / <strong>Nous</strong> partons demain.</em></div>
+        <div class="gw-idiom-ex"><strong>2<sup>e</sup> pers. :</strong> <em><strong>Tu</strong> as raison. / <strong>Vous</strong> êtes magnifiques.</em></div>
+        <div class="gw-idiom-ex"><strong>3<sup>e</sup> pers. masc. :</strong> <em><strong>Il</strong> pleut. / <strong>Ils</strong> jouent au foot.</em></div>
+        <div class="gw-idiom-ex"><strong>3<sup>e</sup> pers. fém. :</strong> <em><strong>Elle</strong> chante bien. / <strong>Elles</strong> dansent ensemble.</em></div>
+        <div class="gw-idiom-ex"><strong>Indéfini :</strong> <em><strong>On</strong> frappe à la porte. / Ici, <strong>on</strong> parle français.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>2️⃣ Pronoms Toniques (Accentués) ✨</h2>
+      <p>Ils s'emploient <strong>seuls (sans verbe)</strong>, <strong>après une préposition</strong>, ou pour <strong>insister sur le sujet</strong>. Formes plus « lourdes » dérivées des pronoms sujets.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Personne</th><th>Singulier</th><th>Pluriel</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1<sup>ère</sup></strong></td><td><strong>moi</strong></td><td><strong>nous</strong></td></tr>
+            <tr><td><strong>2<sup>e</sup></strong></td><td><strong>toi</strong></td><td><strong>vous</strong></td></tr>
+            <tr><td><strong>3<sup>e</sup> masc.</strong></td><td><strong>lui</strong></td><td><strong>eux</strong></td></tr>
+            <tr><td><strong>3<sup>e</sup> fém.</strong></td><td><strong>elle</strong></td><td><strong>elles</strong></td></tr>
+            <tr><td><strong>Réfléchi</strong></td><td><strong>soi</strong></td><td>–</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📋 Emplois typiques</h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Emploi</th><th>Exemple</th><th>Explication</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Emploi seul (réponse)</strong></td><td><em>— Qui veut du café ? — <strong>Moi</strong>.</em></td><td>Réponse courte sans verbe</td></tr>
+            <tr><td><strong>Après <em>c'est / ce sont</em></strong></td><td><em>C'est <strong>moi</strong>. / Ce sont <strong>eux</strong>.</em></td><td>Identification</td></tr>
+            <tr><td><strong>Après une préposition</strong></td><td><em>avec <strong>toi</strong>, pour <strong>elle</strong>, sans <strong>nous</strong>, chez <strong>eux</strong></em></td><td>Toujours tonique après prép.</td></tr>
+            <tr><td><strong>Renforcement du sujet</strong></td><td><em><strong>Moi</strong>, je ne comprends pas. / <strong>Toi</strong>, tu viendras.</em></td><td>Insistance ou contraste</td></tr>
+            <tr><td><strong>Après un comparatif</strong></td><td><em>Il est plus grand que <strong>moi</strong>.</em></td><td>Comparaison avec pronom</td></tr>
+            <tr><td><strong>Expressions figées</strong></td><td><em>À <strong>moi</strong> ! / Chacun pour <strong>soi</strong>.</em></td><td>Locutions traditionnelles</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-idiom-card" style="margin-top:16px;">
+        <div class="gw-idiom-ex"><strong>Exemples variés :</strong><br>
+        <em>Je pense à <strong>lui</strong>. / Elle est assise à côté de <strong>nous</strong>. / <strong>Eux</strong>, ils aiment le chocolat ; <strong>elles</strong>, non. / Chacun chez <strong>soi</strong>.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>3️⃣ Pronoms COD (Complément d'Objet Direct) 🎯</h2>
+      <p>Ils remplacent un groupe nominal COD et se placent <strong>avant le verbe conjugué</strong> (sauf à l'impératif affirmatif — voir volet II).</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Personne</th><th>Singulier</th><th>Pluriel</th><th>Élision</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1<sup>ère</sup></strong></td><td><strong>me</strong></td><td><strong>nous</strong></td><td><em>m'</em> devant voyelle/h muet</td></tr>
+            <tr><td><strong>2<sup>e</sup></strong></td><td><strong>te</strong></td><td><strong>vous</strong></td><td><em>t'</em> devant voyelle/h muet</td></tr>
+            <tr><td><strong>3<sup>e</sup> masc.</strong></td><td><strong>le</strong></td><td rowspan="2"><strong>les</strong></td><td><em>l'</em> devant voyelle/h muet</td></tr>
+            <tr><td><strong>3<sup>e</sup> fém.</strong></td><td><strong>la</strong></td><td><em>l'</em> devant voyelle/h muet</td></tr>
+            <tr><td><strong>Réfléchi</strong></td><td><strong>se</strong></td><td><strong>se</strong></td><td><em>s'</em> devant voyelle/h muet</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples d'usage</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>1<sup>ère</sup>/2<sup>e</sup> pers. :</strong> <em>Tu <strong>m'</strong>aimes ? / Je <strong>t'</strong>écoute. / Il <strong>nous</strong> regarde. / Je <strong>vous</strong> remercie.</em></div>
+        <div class="gw-idiom-ex"><strong>3<sup>e</sup> pers. masc. :</strong> <em>Ce film, je <strong>l'</strong>ai vu hier. (<strong>le</strong> = le film)</em></div>
+        <div class="gw-idiom-ex"><strong>3<sup>e</sup> pers. fém. :</strong> <em>La chanson, je <strong>la</strong> connais. (<strong>la</strong> = la chanson)</em></div>
+        <div class="gw-idiom-ex"><strong>Pluriel :</strong> <em>Mes parents, je <strong>les</strong> appelle tous les jours. (<strong>les</strong> = mes parents)</em></div>
+        <div class="gw-idiom-ex"><strong>Réfléchi :</strong> <em>Elle <strong>se</strong> lave. (<strong>se</strong> = elle-même)</em></div>
+      </div>
+
+      <div class="gw-card gw-card--check" style="margin-top:16px;">
+        <div class="gw-card-title">✅ Accord du participe passé avec COD placé avant :</div>
+        <p style="margin:0;">
+          Au passé composé, si le COD (pronom) est placé <strong>avant</strong> le verbe, le participe passé s'accorde avec lui :<br>
+          ✅ <em>Les pommes ? Je <strong>les</strong> ai mangé<strong>es</strong>.</em> (les = pommes, fém. pl.)<br>
+          ✅ <em>Ce livre ? Je <strong>l'</strong>ai lu.</em> (l' = livre, masc. sing. → pas d'accord visible)<br>
+          ✅ <em>Ces lettres ? Je <strong>les</strong> ai écrit<strong>es</strong>.</em> (les = lettres, fém. pl.)
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>4️⃣ Pronoms COI (Complément d'Objet Indirect) 📬</h2>
+      <p>Ils remplacent un groupe nominal introduit par la préposition <strong>à</strong> et se placent aussi <strong>avant le verbe</strong>.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Personne</th><th>Singulier</th><th>Pluriel</th><th>Élision</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1<sup>ère</sup></strong></td><td><strong>me</strong></td><td><strong>nous</strong></td><td><em>m'</em> devant voyelle/h</td></tr>
+            <tr><td><strong>2<sup>e</sup></strong></td><td><strong>te</strong></td><td><strong>vous</strong></td><td><em>t'</em> devant voyelle/h</td></tr>
+            <tr><td><strong>3<sup>e</sup> (m. et f.)</strong></td><td><strong>lui</strong></td><td><strong>leur</strong></td><td>Pas d'élision</td></tr>
+            <tr><td><strong>Réfléchi</strong></td><td><strong>se</strong></td><td><strong>se</strong></td><td><em>s'</em> devant voyelle/h</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples d'usage</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>1<sup>ère</sup>/2<sup>e</sup> pers. :</strong> <em>Tu <strong>me</strong> manques. (= à moi) / Je <strong>te</strong> conseille de lire ce livre. (= à toi)</em></div>
+        <div class="gw-idiom-ex"><strong>3<sup>e</sup> pers. sing. :</strong> <em>Il <strong>lui</strong> sourit. (= à lui / à elle) / Elle <strong>lui</strong> téléphone. (invariable)</em></div>
+        <div class="gw-idiom-ex"><strong>Pluriel :</strong> <em>Ils <strong>leur</strong> ont offert des fleurs. (= à eux / à elles) / Le prof <strong>leur</strong> explique. (invariable)</em></div>
+        <div class="gw-idiom-ex"><strong>Réfléchi :</strong> <em>Elle <strong>se</strong> parle toute seule. (= à elle-même)</em></div>
+      </div>
+
+      <div class="gw-card gw-card--warn" style="margin-top:16px;">
+        <div class="gw-card-title">⚠️ Ne pas confondre :</div>
+        <p style="margin:0;">
+          ✅ <strong><em>leur</em> pronom COI</strong> (invariable) : <em>Je <strong>leur</strong> parle.</em> (= à eux/elles)<br>
+          ❌ <strong><em>leur(s)</em> adjectif possessif</strong> (variable) : <em>Ce sont <strong>leurs</strong> affaires.</em><br><br>
+          ✅ <strong><em>lui</em> COI singulier</strong> : <em>Je <strong>lui</strong> parle.</em> (= à une personne)<br>
+          ✅ <strong><em>leur</em> COI pluriel</strong> : <em>Je <strong>leur</strong> parle.</em> (= à plusieurs)
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>5️⃣ Pronoms Réfléchis 🔄</h2>
+      <p>Ils indiquent une action que le sujet fait <strong>sur lui-même</strong> (verbes pronominaux). Mêmes formes que COD/COI, sauf à la 3<sup>e</sup> personne et pour la forme tonique <em>soi</em>.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Personne</th><th>Forme réfléchie</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1<sup>ère</sup> sg.</strong></td><td><strong>me</strong> (m')</td><td><em>Je <strong>me</strong> lève tôt.</em></td></tr>
+            <tr><td><strong>2<sup>e</sup> sg.</strong></td><td><strong>te</strong> (t')</td><td><em>Tu <strong>t'</strong>habilles élégamment.</em></td></tr>
+            <tr><td><strong>3<sup>e</sup> sg.</strong></td><td><strong>se</strong> (s')</td><td><em>Il <strong>se</strong> douche. / Elle <strong>se</strong> sent bien.</em></td></tr>
+            <tr><td><strong>1<sup>ère</sup> pl.</strong></td><td><strong>nous</strong></td><td><em>Nous <strong>nous</strong> amusons.</em></td></tr>
+            <tr><td><strong>2<sup>e</sup> pl.</strong></td><td><strong>vous</strong></td><td><em>Vous <strong>vous</strong> trompez.</em></td></tr>
+            <tr><td><strong>3<sup>e</sup> pl.</strong></td><td><strong>se</strong> (s')</td><td><em>Ils <strong>se</strong> battent. / Elles <strong>se</strong> parlent.</em></td></tr>
+            <tr><td><strong>Tonique</strong></td><td><strong>soi</strong></td><td><em>On doit rester <strong>soi</strong>-même.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📋 Sens des verbes pronominaux</h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Type</th><th>Explication</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Réfléchi</strong></td><td>Action du sujet sur lui-même</td><td><em>Je <strong>me</strong> lave.</em> (= je lave moi-même)</td></tr>
+            <tr><td><strong>Réciproque</strong></td><td>Action mutuelle entre plusieurs sujets</td><td><em>Ils <strong>se</strong> téléphonent.</em> (= l'un à l'autre)</td></tr>
+            <tr><td><strong>Subjectif / Essentiel</strong></td><td>Le pronom fait partie du verbe, pas de sens « réflexif »</td><td><em>Il <strong>se</strong> souvient. / Elle <strong>s'</strong>évanouit.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>6️⃣ Distinguer COD et COI (1<sup>ère</sup> et 2<sup>e</sup> personnes) 🔍</h2>
+      <p>Pour <em>me, te, nous, vous</em>, les formes sont <strong>identiques</strong> pour COD et COI. C'est le sens et la construction du verbe qui indiquent la fonction.</p>
+      
+      <div class="gw-card gw-card--rule">
+        <div class="gw-card-title">📏 Astuce infaillible :</div>
+        <p style="margin:0;">
+          Remplacez la 1<sup>ère</sup>/2<sup>e</sup> personne par la 3<sup>e</sup> :<br>
+          ✅ Si on utilise <strong>le/la/les</strong> → c'était un <strong>COD</strong><br>
+          ✅ Si on utilise <strong>lui/leur</strong> → c'était un <strong>COI</strong><br><br>
+          🔸 <em>Tu <strong>me</strong> vois.</em> → <em>Tu <strong>le</strong> vois.</em> → <strong>COD</strong><br>
+          🔸 <em>Tu <strong>me</strong> parles.</em> → <em>Tu <strong>lui</strong> parles.</em> → <strong>COI</strong><br>
+          🔸 <em>Il <strong>nous</strong> cherche.</em> → <em>Il <strong>les</strong> cherche.</em> → <strong>COD</strong><br>
+          🔸 <em>Il <strong>nous</strong> donne un cadeau.</em> → <em>Il <strong>leur</strong> donne un cadeau.</em> → <strong>COI</strong>
+        </p>
+      </div>
+
+      <div class="gw-idiom-card" style="margin-top:16px;">
+        <div class="gw-idiom-ex"><strong>Exemples contrastés :</strong><br>
+        <em>Tu <strong>me</strong> vois. (COD) / Tu <strong>me</strong> parles. (COI)<br>
+        Je <strong>te</strong> cherche. (COD) / Je <strong>te</strong> téléphone. (COI)<br>
+        Il <strong>nous</strong> aide. (COD) / Il <strong>nous</strong> écrit. (COI)<br>
+        Elle <strong>vous</strong> félicite. (COD) / Elle <strong>vous</strong> répond. (COI)</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📊 Tableau Récapitulatif Complet</h2>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Fonction</th><th>1<sup>ère</sup> sg.</th><th>2<sup>e</sup> sg.</th><th>3<sup>e</sup> sg. m.</th><th>3<sup>e</sup> sg. f.</th><th>1<sup>ère</sup> pl.</th><th>2<sup>e</sup> pl.</th><th>3<sup>e</sup> pl. m.</th><th>3<sup>e</sup> pl. f.</th><th>Réfl.</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Sujet</strong></td><td>je (j')</td><td>tu</td><td>il</td><td>elle</td><td>nous</td><td>vous</td><td>ils</td><td>elles</td><td>–</td></tr>
+            <tr><td><strong>Tonique</strong></td><td>moi</td><td>toi</td><td>lui</td><td>elle</td><td>nous</td><td>vous</td><td>eux</td><td>elles</td><td>soi</td></tr>
+            <tr><td><strong>COD</strong></td><td>me (m')</td><td>te (t')</td><td>le (l')</td><td>la (l')</td><td>nous</td><td>vous</td><td>les</td><td>les</td><td>se (s')</td></tr>
+            <tr><td><strong>COI</strong></td><td>me (m')</td><td>te (t')</td><td>lui</td><td>lui</td><td>nous</td><td>vous</td><td>leur</td><td>leur</td><td>se (s')</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-note" style="margin-top:16px;">
+        <strong>Rappel d'élision :</strong> <em>me, te, le, la, se</em> → <em>m', t', l', s'</em> devant voyelle ou <em>h</em> muet.<br>
+        <em>nous, vous, les, leur, lui, eux, elles, moi, toi, soi</em> → jamais d'élision.
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>⚠️ Pièges &amp; Points d'Attention</h2>
+      
+      <div class="gw-card gw-card--warn">
+        <div class="gw-card-title">🚫 Erreurs fréquentes :</div>
+        <ul style="margin:8px 0 0 20px;">
+          <li><strong>Accord du participe passé avec COD avant :</strong><br>
+          ✅ <em>Je <strong>les</strong> ai vu<strong>es</strong>.</em> (les = filles) / ❌ <em>~~Je les ai vu.~~</em></li>
+          
+          <li><strong><em>leur</em> pronom vs adjectif :</strong><br>
+          ✅ <em>Je <strong>leur</strong> parle.</em> (pronom COI, invariable)<br>
+          ✅ <em>Ce sont <strong>leurs</strong> livres.</em> (adjectif possessif, variable)<br>
+          ❌ <em>~~Je leurs parle.~~</em> / <em>~~Ce sont leur livres.~~</em></li>
+          
+          <li><strong><em>lui</em> singulier vs <em>leur</em> pluriel :</strong><br>
+          ✅ <em>Je <strong>lui</strong> parle.</em> (1 personne) / ✅ <em>Je <strong>leur</strong> parle.</em> (plusieurs)<br>
+          ❌ <em>~~Je lui parle (à eux).~~</em></li>
+          
+          <li><strong>Élision incorrecte :</strong><br>
+          ✅ <em>Je <strong>m'</strong>appelle, je <strong>l'</strong>aime, il <strong>s'</strong>habille</em><br>
+          ❌ <em>~~Je m'appelle à toi.~~</em> (pas d'élision avec <em>nous, vous, les, leur</em>)</li>
+          
+          <li><strong><em>C'est moi</em> (pas ~~c'est je~~) :</strong><br>
+          ✅ <em>C'est <strong>moi</strong>, c'est <strong>toi</strong>, c'est <strong>lui</strong>…</em> (toujours tonique après <em>c'est</em>)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📚 Énormément d'Exemples en Contexte</h2>
+      
+      <h3>🔹 Pronoms sujets</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Je</strong> travaille dans cette entreprise. / <strong>Tu</strong> me manques.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Il</strong> fait beau. / <strong>Elle</strong> adore les roses. / <strong>On</strong> va au cinéma ?</em></div>
+        <div class="gw-idiom-ex"><em><strong>Nous</strong> habitons à Lyon. / <strong>Vous</strong> avez de la chance.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Ils</strong> sont en retard. / <strong>Elles</strong> préparent le dîner.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Pronoms toniques</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Ce livre est à <strong>moi</strong>. / Viens avec <strong>moi</strong>. / <strong>Toi</strong>, tu es très calme.</em></div>
+        <div class="gw-idiom-ex"><em>J'ai confiance en <strong>lui</strong>. / Nous pensons souvent à <strong>elle</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>C'est <strong>nous</strong> qui avons raison. / Chez <strong>vous</strong>, il fait chaud.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Eux</strong>, ils ne sont pas d'accord. / <strong>Elles</strong>, elles préfèrent rester. / Chacun chez <strong>soi</strong>.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Pronoms COD</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Ce cahier, tu <strong>le</strong> ranges. / Cette robe, je <strong>la</strong> trouve jolie.</em></div>
+        <div class="gw-idiom-ex"><em>Ces perles, je <strong>les</strong> adore. / Tu <strong>m'</strong>as vu hier. / Je <strong>t'</strong>ai écouté.</em></div>
+        <div class="gw-idiom-ex"><em>Il <strong>nous</strong> aide beaucoup. / Je <strong>vous</strong> félicite. / Elle <strong>s'</strong>est blessée.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Pronoms COI</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Tu <strong>me</strong> manques. (= à moi) / Je <strong>te</strong> conseille de lire ce livre. (= à toi)</em></div>
+        <div class="gw-idiom-ex"><em>Il <strong>lui</strong> sourit. (= à lui/elle) / Elle <strong>nous</strong> écrit chaque semaine. (= à nous)</em></div>
+        <div class="gw-idiom-ex"><em>Je <strong>vous</strong> apprends la nouvelle. (= à vous) / Le prof <strong>leur</strong> explique. (= à eux/elles)</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Pronoms réfléchis</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Réfléchi :</strong> <em>Je <strong>me</strong> lave. / Tu <strong>te</strong> reposes. / Il <strong>se</strong> douche.</em></div>
+        <div class="gw-idiom-ex"><strong>Réciproque :</strong> <em>Ils <strong>se</strong> téléphonent tous les jours. (= l'un à l'autre)</em></div>
+        <div class="gw-idiom-ex"><strong>Subjectif :</strong> <em>Je <strong>me</strong> souviens de ce jour. / Taisez-<strong>vous</strong> !</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Au téléphone / en conversation</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>— <strong>Je</strong> suis bien chez M. Dubois ? — Oui, c'est <strong>moi</strong>-même.</em></div>
+        <div class="gw-idiom-ex"><em>Il <strong>te</strong> demande au téléphone. / Passe-<strong>lui</strong> le combiné !</em></div>
+        <div class="gw-idiom-ex"><em>— <strong>Tu</strong> as vu ce film ? — Oui, <strong>je l'</strong>ai trouvé génial.</em></div>
+        <div class="gw-idiom-ex"><em>Marie, je <strong>lui</strong> ai offert un livre, mais je ne <strong>lui</strong> ai pas encore donné.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Nous</strong>, on adore voyager, mais <strong>eux</strong> préfèrent rester chez <strong>eux</strong>.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📝 Exercices : Choisis le Bon Pronom</h2>
+      <p><strong>Consigne :</strong> Complète avec le pronom personnel correct.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>1.</strong> <em>___ suis fatigué.</em><br><em>Réponse : <strong>Je</strong> (sujet 1<sup>ère</sup> pers. sing.)</em></div>
+        <div class="gw-idiom-ex"><strong>2.</strong> <em>C'est ___ qui l'ai fait.</em><br><em>Réponse : <strong>moi</strong> (tonique après <em>c'est</em>)</em></div>
+        <div class="gw-idiom-ex"><strong>3.</strong> <em>Ce film, je ___ ai vu hier.</em><br><em>Réponse : <strong>l'</strong> (COD masc. sing., élision)</em></div>
+        <div class="gw-idiom-ex"><strong>4.</strong> <em>Tu ___ manques. (= à moi)</em><br><em>Réponse : <strong>me</strong> (COI 1<sup>ère</sup> pers.)</em></div>
+        <div class="gw-idiom-ex"><strong>5.</strong> <em>Il ___ sourit. (= à elle)</em><br><em>Réponse : <strong>lui</strong> (COI 3<sup>e</sup> pers., invariable)</em></div>
+        <div class="gw-idiom-ex"><strong>6.</strong> <em>Elle ___ lave. (= elle-même)</em><br><em>Réponse : <strong>se</strong> (réfléchi 3<sup>e</sup> pers.)</em></div>
+        <div class="gw-idiom-ex"><strong>7.</strong> <em>Ils ___ ont offert des fleurs. (= à eux)</em><br><em>Réponse : <strong>leur</strong> (COI 3<sup>e</sup> pers. pl., invariable)</em></div>
+        <div class="gw-idiom-ex"><strong>8.</strong> <em>___, tu viendras avec moi. (insistance)</em><br><em>Réponse : <strong>Toi</strong> (tonique pour renforcer le sujet)</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>💡 Conseils pour Maîtriser les Pronoms Personnels</h2>
+      <ol>
+        <li><strong>Identifie la fonction :</strong> Sujet ? COD ? COI ? Réfléchi ? Cela guide ton choix de pronom.</li>
+        <li><strong>Vérifie l'antécédent :</strong> Genre et nombre du nom remplacé → accord du pronom (surtout COD 3<sup>e</sup> pers.).</li>
+        <li><strong>Mémorise les élisions :</strong> <em>me/te/le/la/se</em> → <em>m'/t'/l'/s'</em> devant voyelle ou <em>h</em> muet.</li>
+        <li><strong>Utilise l'astuce 3<sup>e</sup> personne :</strong> Pour distinguer COD/COI avec <em>me/te/nous/vous</em>, remplace par <em>le/lui</em> etc.</li>
+        <li><strong>Retiens les invariables :</strong> <em>lui, leur, soi, nous, vous, eux, elles</em> ne s'élident jamais.</li>
+        <li><strong>Pratique avec des phrases courtes :</strong> Remplace systématiquement les noms par des pronoms pour t'entraîner.</li>
+        <li><strong>Lis à voix haute :</strong> L'oreille détecte souvent les erreurs d'accord ou de place.</li>
+      </ol>
+    </div>
+
+    <div class="gw-summary">
+      <h3>✨ Récapitulatif en 7 Points</h3>
+      <ul>
+        <li><strong>Sujets :</strong> <em>je, tu, il/elle/on, nous, vous, ils/elles</em> → accord avec le verbe</li>
+        <li><strong>Toniques :</strong> <em>moi, toi, lui/elle, soi, nous, vous, eux/elles</em> → après prép., <em>c'est</em>, insistance</li>
+        <li><strong>COD :</strong> <em>me, te, le/la, nous, vous, les, se</em> → avant le verbe, accord du participe passé si avant</li>
+        <li><strong>COI :</strong> <em>me, te, lui, nous, vous, leur, se</em> → remplace <em>à + personne</em>, <em>lui/leur</em> invariables</li>
+        <li><strong>Réfléchis :</strong> <em>me, te, se, nous, vous</em> (+ <em>soi</em> tonique) → action sur soi-même ou réciproque</li>
+        <li><strong>Élision :</strong> <em>m', t', l', s'</em> devant voyelle/<em>h</em> ; <em>nous, vous, les, leur, lui</em> jamais</li>
+        <li><strong>Pièges :</strong> <em>leur</em> (pronom invariable) vs <em>leur(s)</em> (possessif variable) ; <em>c'est moi</em> (pas ~~c'est je~~)</li>
+      </ul>
+      <p style="margin-top:18px; opacity:0.95;">Maîtriser les pronoms personnels, c'est savoir remplacer avec justesse et fluidité. Que tu dises <em>Je l'aime</em>, <em>Il lui parle</em>, <em>Elle se souvient</em> ou <em>C'est moi</em> : avec ces formes et ces règles, tes phrases seront précises, naturelles et élégantes. Et rappelle-toi : <em>"Les pronoms sont les miroirs de la phrase — ils reflètent avec justesse ce qu'on veut dire."</em> 👤🇫🇷</p>
+      <p style="margin-top:12px; font-style:italic; color:var(--gw-text2);">🔜 <strong>Partie 2 à venir :</strong> Place des pronoms, doubles pronoms, <em>y</em> et <em>en</em>, impératif, ordre des pronoms…</p>
+    </div>
+  </div>
+`},
     {id:8,t:"Pronoms personnels II",d:"Persoonlijke voornaamwoorden II – y en en: vervanging en plaats."},
     {id:9,t:"Doubles pronoms",d:"Dubbele voornaamwoorden vóór het werkwoord – je le lui donne, ontkenning, inversie."},
     {id:10,t:"Pronoms à l'impératif",d:"Voornaamwoorden na gebiedende wijs – donne-le-moi, vas-y."},
