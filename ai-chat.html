@@ -10,95 +10,101 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg:       #f0f2f7;
-  --panel:    #ffffff;
-  --panel2:   #f7f8fc;
-  --border:   rgba(0,0,0,.07);
-  --text:     #111827;
-  --text2:    #6b7280;
-  --text3:    #9ca3af;
-  --shadow:   0 2px 8px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
-  --shadow-m: 0 8px 24px rgba(0,0,0,.09), 0 2px 8px rgba(0,0,0,.05);
-  --shadow-l: 0 20px 48px rgba(0,0,0,.12), 0 4px 12px rgba(0,0,0,.06);
+  /* ═══════════════════════════════════════════════════════
+     🎨 JOUW KLEUREN - LIGHT MODE
+     ═══════════════════════════════════════════════════════ */
+  --bg:       #faf8f3;        /* Zacht crème */
+  --panel:    #f2ede0;        /* Warme kaart */
+  --panel2:   #ebe4d1;        /* Hover staat */
+  --border:   rgba(28,26,22,.12);
+  --text:     #1c1a16;        /* Diep bruin-zwart */
+  --text2:    #5a5040;        /* Subtiele subtekst */
+  --text3:    #9a8e78;        /* Muted accent */
+  --accent:   #059669;        /* Jouw groen */
+  --accent-hover: #047857;
+  --accent-light: #d1fae5;
+  
+  --shadow:   0 2px 12px rgba(28,26,22,.08), 0 1px 4px rgba(28,26,22,.05);
+  --shadow-m: 0 8px 28px rgba(28,26,22,.12), 0 2px 10px rgba(28,26,22,.08);
+  --shadow-l: 0 20px 52px rgba(28,26,22,.18), 0 4px 16px rgba(28,26,22,.1);
+  
   --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
   --serif: 'Lora', Georgia, serif;
   --r: 16px; --rs: 10px;
   --ease: cubic-bezier(.4,0,.2,1);
 }
 
-/* dark */
+/* ═══════════════════════════════════════════════════════
+   🌙 DARK MODE - JOUW KLEUREN
+   ═══════════════════════════════════════════════════════ */
 [data-theme=dark] {
-  --bg:     #0e1117;
-  --panel:  #161b27;
-  --panel2: #1c2235;
-  --border: rgba(255,255,255,.06);
-  --text:   #f1f5f9;
-  --text2:  #94a3b8;
-  --text3:  #475569;
-  --shadow:   0 2px 8px rgba(0,0,0,.4);
-  --shadow-m: 0 8px 24px rgba(0,0,0,.5);
-  --shadow-l: 0 20px 48px rgba(0,0,0,.6);
+  --bg:       #131109;        /* Diep bruin */
+  --panel:    #1c1912;        /* Kaart donker */
+  --panel2:   #252116;        /* Hover donker */
+  --border:   rgba(240,234,216,.1);
+  --text:     #f0ead8;        /* Warm wit */
+  --text2:    #d4c8a8;
+  --text3:    #b8a88a;
+  --accent:   #10b981;        /* Helderder groen voor contrast */
+  --accent-hover: #059669;
+  --accent-light: rgba(16,185,129,.15);
+  
+  --shadow:   0 2px 12px rgba(0,0,0,.4), 0 1px 4px rgba(0,0,0,.3);
+  --shadow-m: 0 8px 28px rgba(0,0,0,.5), 0 2px 10px rgba(0,0,0,.4);
+  --shadow-l: 0 20px 52px rgba(0,0,0,.6), 0 4px 16px rgba(0,0,0,.5);
 }
 
 html, body { height: 100%; overflow: hidden; }
-
 body {
   font-family: var(--sans);
   background: var(--bg);
   color: var(--text);
   display: flex;
   flex-direction: column;
-  transition: background .3s, color .3s;
+  transition: background .3s var(--ease), color .3s var(--ease);
 }
+
+/* Skip link */
+.skip-link {
+  position: absolute; top: -40px; left: 0;
+  background: var(--panel); padding: 8px 16px;
+  z-index: 1000; color: var(--text);
+  text-decoration: none; border-radius: 0 0 var(--rs) var(--rs);
+  transition: top .2s; font-weight: 600; font-size: .85rem;
+}
+.skip-link:focus { top: 0; outline: 2px solid var(--accent); }
 
 /* ── TOPBAR ── */
 .topbar {
-  height: 60px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  padding: 0 1.25rem;
-  gap: .85rem;
-  background: var(--panel);
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  z-index: 100;
+  height: 60px; flex-shrink: 0; display: flex;
+  align-items: center; padding: 0 1.25rem; gap: .85rem;
+  background: var(--panel); border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow); z-index: 100;
 }
-
 .back-link {
   display: flex; align-items: center; gap: .35rem;
-  padding: .4rem .85rem;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--rs);
-  color: var(--text2);
-  font-size: .78rem; font-weight: 600;
-  text-decoration: none;
-  transition: all .18s var(--ease);
-  flex-shrink: 0;
-  white-space: nowrap;
+  padding: .4rem .85rem; background: var(--bg);
+  border: 1px solid var(--border); border-radius: var(--rs);
+  color: var(--text2); font-size: .78rem; font-weight: 600;
+  text-decoration: none; transition: all .18s var(--ease);
+  flex-shrink: 0; white-space: nowrap;
 }
 .back-link:hover { color: var(--text); border-color: var(--text3); background: var(--panel2); }
 
-.teacher-chip {
-  flex: 1; min-width: 0;
-  display: flex; align-items: center; gap: .65rem;
-}
+.teacher-chip { flex: 1; min-width: 0; display: flex; align-items: center; gap: .65rem; }
 .t-ava {
   width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.05rem;
-  position: relative;
+  font-size: 1.05rem; position: relative;
 }
 .t-ava::after {
   content: ''; position: absolute; bottom: 1px; right: 1px;
-  width: 9px; height: 9px; background: #22c55e;
+  width: 9px; height: 9px; background: var(--accent);
   border-radius: 50%; border: 2px solid var(--panel);
 }
 .t-meta { min-width: 0; }
 .t-name {
-  font-family: var(--serif);
-  font-size: 1rem; line-height: 1.2;
+  font-family: var(--serif); font-size: 1rem; line-height: 1.2;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .t-online {
@@ -106,201 +112,119 @@ body {
   display: flex; align-items: center; gap: .28rem; margin-top: 1px;
 }
 .online-dot {
-  width: 6px; height: 6px; background: #22c55e;
+  width: 6px; height: 6px; background: var(--accent);
   border-radius: 50%; animation: onlinePulse 2.5s ease infinite;
 }
 @keyframes onlinePulse { 0%,100%{opacity:1} 50%{opacity:.3} }
 
-.topbar-end { display: flex; gap: .4rem; flex-shrink: 0; }
+.topbar-end { display: flex; gap: .4rem; flex-shrink: 0; align-items: center; }
 .topbtn {
   width: 35px; height: 35px; border-radius: var(--rs);
   border: 1px solid var(--border); background: var(--bg);
-  color: var(--text2); font-size: .9rem;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--text2); font-size: .9rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
   transition: all .18s var(--ease);
 }
 .topbtn:hover { background: var(--panel2); color: var(--text); border-color: var(--text3); }
 
-/* ══════════════════════════════════════════
-   LANGUAGE SELECTOR — completely redesigned
-   Each language = its own card with flag,
-   name, and unique accent colour
-══════════════════════════════════════════ */
-.lang-section {
-  flex-shrink: 0;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  padding: .85rem 1.25rem;
-}
-
-.lang-grid {
-  display: flex;
-  gap: .55rem;
-  flex-wrap: wrap;
-  max-width: 820px;
-  margin: 0 auto;
-}
-
-/* each language card */
-.lcard {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .45rem .9rem;
+/* Message counter badge */
+.msg-counter {
+  display: flex; align-items: center; gap: .4rem;
+  padding: .35rem .7rem;
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
   border-radius: 50px;
-  border: 1.5px solid transparent;
-  background: var(--panel);
-  cursor: pointer;
-  transition: all .2s var(--ease);
-  box-shadow: var(--shadow);
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
+  font-size: .75rem; font-weight: 600;
+  color: var(--accent);
 }
-.lcard::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: var(--lc, transparent);
-  opacity: 0;
-  transition: opacity .2s;
+[data-theme=dark] .msg-counter {
+  background: rgba(16,185,129,.12);
+  color: #6ee7b7;
 }
-.lcard:hover::before { opacity: 1; }
-.lcard:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-m);
-  border-color: var(--lborder, var(--border));
+.msg-counter.warning {
+  background: rgba(245,158,11,.15);
+  border-color: #f59e0b;
+  color: #b45309;
 }
-.lcard.active {
-  background: var(--lactive, #f0fdf4);
-  border-color: var(--lborder, #86efac);
-  box-shadow: 0 4px 16px var(--lglow, rgba(0,200,100,.15)), var(--shadow);
-  transform: translateY(-1px);
-}
-.lcard.active::before { opacity: 1; }
-
-.lcard .flag { font-size: 1.35rem; line-height: 1; flex-shrink: 0; position: relative; z-index: 1; }
-.lcard .lname {
-  font-size: .8rem; font-weight: 700;
-  position: relative; z-index: 1;
-  white-space: nowrap;
-  color: var(--text2);
-  transition: color .2s;
-}
-.lcard.active .lname { color: var(--ltext, #166534); }
-.lcard:hover .lname  { color: var(--ltext, var(--text)); }
-
-/* ── per-language colour tokens ── */
-.lcard[data-l=nl] {
-  --lc:       rgba(255,138,0,.06);
-  --lactive:  #fff7ed;
-  --lborder:  #fb923c;
-  --lglow:    rgba(251,146,60,.2);
-  --ltext:    #9a3412;
-}
-.lcard[data-l=en] {
-  --lc:       rgba(59,130,246,.06);
-  --lactive:  #eff6ff;
-  --lborder:  #60a5fa;
-  --lglow:    rgba(96,165,250,.2);
-  --ltext:    #1e40af;
-}
-.lcard[data-l=fr] {
-  --lc:       rgba(99,102,241,.06);
-  --lactive:  #eef2ff;
-  --lborder:  #818cf8;
-  --lglow:    rgba(129,140,248,.2);
-  --ltext:    #3730a3;
-}
-.lcard[data-l=de] {
-  --lc:       rgba(234,179,8,.06);
-  --lactive:  #fefce8;
-  --lborder:  #facc15;
-  --lglow:    rgba(250,204,21,.25);
-  --ltext:    #713f12;
-}
-.lcard[data-l=es] {
-  --lc:       rgba(239,68,68,.06);
-  --lactive:  #fef2f2;
-  --lborder:  #f87171;
-  --lglow:    rgba(248,113,113,.2);
-  --ltext:    #991b1b;
-}
-.lcard[data-l=it] {
-  --lc:       rgba(34,197,94,.06);
-  --lactive:  #f0fdf4;
-  --lborder:  #4ade80;
-  --lglow:    rgba(74,222,128,.2);
-  --ltext:    #14532d;
-}
-.lcard[data-l=pt] {
-  --lc:       rgba(20,184,166,.06);
-  --lactive:  #f0fdfa;
-  --lborder:  #2dd4bf;
-  --lglow:    rgba(45,212,191,.2);
-  --ltext:    #134e4a;
-}
-.lcard[data-l=ar] {
-  --lc:       rgba(168,85,247,.06);
-  --lactive:  #faf5ff;
-  --lborder:  #c084fc;
-  --lglow:    rgba(192,132,252,.2);
-  --ltext:    #581c87;
-}
-.lcard[data-l=tr] {
-  --lc:       rgba(236,72,153,.06);
-  --lactive:  #fdf2f8;
-  --lborder:  #f472b6;
-  --lglow:    rgba(244,114,182,.2);
-  --ltext:    #831843;
+.msg-counter.exhausted {
+  background: rgba(239,68,68,.15);
+  border-color: #ef4444;
+  color: #991b1b;
 }
 
-/* dark overrides for active cards */
-[data-theme=dark] .lcard { background: var(--panel); }
-[data-theme=dark] .lcard[data-l=nl].active { background: rgba(251,146,60,.12); }
-[data-theme=dark] .lcard[data-l=en].active { background: rgba(96,165,250,.12); }
-[data-theme=dark] .lcard[data-l=fr].active { background: rgba(129,140,248,.12); }
-[data-theme=dark] .lcard[data-l=de].active { background: rgba(250,204,21,.12); }
-[data-theme=dark] .lcard[data-l=es].active { background: rgba(248,113,113,.12); }
-[data-theme=dark] .lcard[data-l=it].active { background: rgba(74,222,128,.12); }
-[data-theme=dark] .lcard[data-l=pt].active { background: rgba(45,212,191,.12); }
-[data-theme=dark] .lcard[data-l=ar].active { background: rgba(192,132,252,.12); }
-[data-theme=dark] .lcard[data-l=tr].active { background: rgba(244,114,182,.12); }
-[data-theme=dark] .lcard.active .lname,
-[data-theme=dark] .lcard:hover .lname { filter: brightness(1.6); }
+/* ── LANGUAGE SELECTOR (Dropdown) ── */
+.lang-section {
+  flex-shrink: 0; background: var(--bg);
+  border-bottom: 1px solid var(--border); padding: .75rem 1.25rem;
+  display: flex; justify-content: center; position: relative;
+}
+.lang-trigger {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .5rem 1rem; background: var(--panel);
+  border: 1.5px solid var(--border); border-radius: 50px;
+  cursor: pointer; transition: all .2s var(--ease);
+  box-shadow: var(--shadow); font-family: var(--sans);
+  font-weight: 600; font-size: .85rem; color: var(--text);
+  min-width: 180px; justify-content: space-between;
+}
+.lang-trigger:hover { border-color: var(--text3); box-shadow: var(--shadow-m); transform: translateY(-1px); }
+.lang-trigger[aria-expanded="true"] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(5,150,105,.15);
+}
+.lang-trigger .current-flag { font-size: 1.4rem; line-height: 1; }
+.lang-trigger .current-name { flex: 1; text-align: left; }
+.lang-trigger .chevron { font-size: .9rem; transition: transform .2s var(--ease); color: var(--text3); }
+.lang-trigger[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+
+.lang-dropdown {
+  position: absolute; top: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%) scaleY(0); transform-origin: top center;
+  background: var(--panel); border: 1.5px solid var(--border);
+  border-radius: var(--r); box-shadow: var(--shadow-l);
+  padding: .5rem; min-width: 220px; max-width: calc(100vw - 2rem);
+  z-index: 50; opacity: 0; visibility: hidden;
+  transition: transform .2s var(--ease), opacity .15s var(--ease), visibility .15s;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: .35rem;
+}
+.lang-dropdown.open { transform: translateX(-50%) scaleY(1); opacity: 1; visibility: visible; }
+
+.lang-option {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .5rem .75rem; border-radius: var(--rs);
+  border: 1.5px solid transparent; background: transparent;
+  cursor: pointer; transition: all .15s var(--ease);
+  font-family: var(--sans); font-size: .82rem; font-weight: 500;
+  color: var(--text2); text-align: left; white-space: nowrap;
+}
+.lang-option:hover { background: var(--panel2); border-color: var(--border); color: var(--text); transform: translateX(2px); }
+.lang-option.active {
+  background: var(--accent-light); border-color: var(--accent);
+  color: var(--accent); font-weight: 600;
+}
+.lang-option .flag { font-size: 1.2rem; line-height: 1; }
+
+.lang-overlay { position: fixed; inset: 0; z-index: 40; background: transparent; display: none; }
+.lang-overlay.active { display: block; }
 
 /* ── CHAT AREA ── */
-.chat-shell {
-  flex: 1; overflow: hidden;
-  display: flex; flex-direction: column;
-}
+.chat-shell { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
 .chat-inner {
-  flex: 1; overflow: hidden;
-  display: flex; flex-direction: column;
-  max-width: 800px; width: 100%;
-  margin: 0 auto; padding: 0 1.25rem;
+  flex: 1; overflow: hidden; display: flex; flex-direction: column;
+  max-width: 800px; width: 100%; margin: 0 auto; padding: 0 1.25rem;
 }
 
-/* messages */
 .msgs {
-  flex: 1; overflow-y: auto;
-  display: flex; flex-direction: column;
-  gap: 1rem;
-  padding: 1.4rem 0 .8rem;
-  scroll-behavior: smooth;
+  flex: 1; overflow-y: auto; display: flex; flex-direction: column;
+  gap: 1rem; padding: 1.4rem 0 .8rem; scroll-behavior: smooth;
 }
 .msgs::-webkit-scrollbar { width: 4px; }
 .msgs::-webkit-scrollbar-track { background: transparent; }
 .msgs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 
-.msg {
-  display: flex; gap: .7rem;
-  max-width: 78%;
-  animation: msgPop .3s cubic-bezier(.34,1.5,.64,1) both;
-}
-@keyframes msgPop {
-  from { opacity:0; transform:translateY(14px) scale(.96); }
-  to   { opacity:1; transform:none; }
-}
+.msg { display: flex; gap: .7rem; max-width: 78%; animation: msgPop .3s var(--ease) both; }
+@keyframes msgPop { from { opacity:0; transform:translateY(14px) scale(.96); } to { opacity:1; transform:none; } }
 .msg.user { align-self: flex-end; flex-direction: row-reverse; }
 
 .av {
@@ -308,54 +232,51 @@ body {
   display: flex; align-items: center; justify-content: center;
   font-size: .85rem; flex-shrink: 0; margin-top: 3px;
 }
-.msg.bot .av  { box-shadow: var(--shadow); }
-.msg.user .av { background: #1e293b; color: #f1f5f9; box-shadow: var(--shadow); }
+.msg.bot .av { box-shadow: var(--shadow); }
+.msg.user .av { background: var(--text); color: var(--bg); box-shadow: var(--shadow); }
 
-.mbody { display: flex; flex-direction: column; gap: .3rem; }
+.mbody { display: flex; flex-direction: column; gap: .25rem; }
 
 .bubble {
-  padding: .82rem 1.05rem;
-  border-radius: 16px;
+  padding: .82rem 1.05rem; border-radius: 16px;
   font-size: .89rem; line-height: 1.7;
   word-wrap: break-word; white-space: pre-wrap;
 }
 .msg.bot .bubble {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  color: var(--text);
-  border-radius: 4px 16px 16px 16px;
-  box-shadow: var(--shadow);
+  background: var(--panel); border: 1px solid var(--border);
+  color: var(--text); border-radius: 4px 16px 16px 16px; box-shadow: var(--shadow);
 }
 .msg.user .bubble {
-  background: #1e293b;
-  color: #f1f5f9;
-  border-radius: 16px 4px 16px 16px;
-  box-shadow: var(--shadow-m);
+  background: var(--accent); color: white;
+  border-radius: 16px 4px 16px 16px; box-shadow: var(--shadow-m);
 }
 
-/* listen btn */
+.msg-meta {
+  display: flex; justify-content: flex-end; gap: .5rem;
+  font-size: .7rem; color: var(--text3); margin-top: 2px;
+}
+.msg.user .msg-meta { justify-content: flex-start; }
+.msg-time { font-variant-numeric: tabular-nums; }
+.msg-status { opacity: .7; }
+
 .listen-btn {
-  align-self: flex-start;
-  display: flex; align-items: center; gap: .3rem;
-  padding: .2rem .65rem;
-  background: transparent;
+  align-self: flex-start; display: flex; align-items: center; gap: .3rem;
+  padding: .2rem .65rem; background: transparent;
   border: 1px solid var(--border); border-radius: 50px;
-  color: var(--text3);
-  font-family: var(--sans); font-size: .72rem; font-weight: 600;
-  cursor: pointer; transition: all .18s var(--ease);
+  color: var(--text3); font-family: var(--sans);
+  font-size: .72rem; font-weight: 600; cursor: pointer;
+  transition: all .18s var(--ease);
 }
-.listen-btn:hover  { border-color: var(--laccentc,#22c55e); color: var(--laccentc,#22c55e); background: var(--laccent-bg,#f0fdf4); }
-.listen-btn.playing{ border-color: var(--laccentc,#22c55e); color: var(--laccentc,#22c55e); background: var(--laccent-bg,#f0fdf4); }
+.listen-btn:hover, .listen-btn.playing {
+  border-color: var(--accent); color: var(--accent);
+  background: var(--accent-light);
+}
 
-/* typing */
 .typing-row { display: flex; gap: .7rem; animation: msgPop .25s ease both; }
 .typ-bbl {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 4px 16px 16px 16px;
-  padding: .9rem 1.1rem;
-  display: flex; align-items: center; gap: 5px;
-  box-shadow: var(--shadow);
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 4px 16px 16px 16px; padding: .9rem 1.1rem;
+  display: flex; align-items: center; gap: 5px; box-shadow: var(--shadow);
 }
 .dot {
   width: 7px; height: 7px; border-radius: 50%;
@@ -366,58 +287,50 @@ body {
 .dot:nth-child(3){ animation-delay:.3s; }
 @keyframes dotAnim { 0%,80%,100%{transform:translateY(0);opacity:.3} 40%{transform:translateY(-6px);opacity:1} }
 
-/* suggestions */
 .sugs {
-  flex-shrink: 0;
-  display: flex; gap: .4rem; flex-wrap: wrap;
-  padding: .35rem 0 .65rem;
-  transition: opacity .2s;
+  flex-shrink: 0; display: flex; gap: .4rem; flex-wrap: wrap;
+  padding: .35rem 0 .65rem; transition: opacity .2s;
 }
 .sug {
-  padding: .3rem .85rem;
-  background: var(--panel);
+  padding: .3rem .85rem; background: var(--panel);
   border: 1px solid var(--border); border-radius: 50px;
   color: var(--text2); font-family: var(--sans);
-  font-size: .77rem; font-weight: 600;
-  cursor: pointer; transition: all .18s var(--ease);
-  white-space: nowrap;
+  font-size: .77rem; font-weight: 600; cursor: pointer;
+  transition: all .18s var(--ease); white-space: nowrap;
 }
 .sug:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow);
-  border-color: var(--lborder-active, #94a3b8);
-  color: var(--ltext-active, var(--text));
-  background: var(--lbg-active, var(--panel2));
+  transform: translateY(-1px); box-shadow: var(--shadow);
+  border-color: var(--accent); color: var(--accent);
+  background: var(--accent-light);
 }
 
-/* input */
+/* Input area */
 .input-bar {
-  flex-shrink: 0;
-  display: flex; align-items: flex-end; gap: .6rem;
-  padding: .75rem 0 1rem;
-  border-top: 1px solid var(--border);
+  flex-shrink: 0; display: flex; align-items: flex-end; gap: .6rem;
+  padding: .75rem 0 1rem; border-top: 1px solid var(--border);
 }
 .inp-shell {
   flex: 1; display: flex; align-items: flex-end; gap: .45rem;
-  background: var(--panel);
-  border: 1.5px solid var(--border); border-radius: 16px;
-  padding: .55rem .75rem;
+  background: var(--panel); border: 1.5px solid var(--border);
+  border-radius: 16px; padding: .55rem .75rem;
   transition: border-color .2s, box-shadow .2s;
 }
 .inp-shell:focus-within {
-  border-color: var(--focus-color, #94a3b8);
-  box-shadow: 0 0 0 3px var(--focus-ring, rgba(148,163,184,.15));
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(5,150,105,.15);
 }
 .mic-btn {
   width: 30px; height: 30px; border-radius: 8px;
   border: 1px solid var(--border); background: var(--bg);
-  color: var(--text3); font-size: .9rem;
-  cursor: pointer; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
+  color: var(--text3); font-size: .9rem; cursor: pointer;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
   transition: all .18s var(--ease);
 }
 .mic-btn:hover { background: var(--panel2); color: var(--text); }
-.mic-btn.rec { background: rgba(239,68,68,.1); border-color: #ef4444; color: #ef4444; animation: recPulse 1.2s ease infinite; }
+.mic-btn.rec {
+  background: rgba(239,68,68,.12); border-color: #ef4444; color: #ef4444;
+  animation: recPulse 1.2s ease infinite;
+}
 @keyframes recPulse { 0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.3)} 50%{box-shadow:0 0 0 5px rgba(239,68,68,0)} }
 
 #chatInp {
@@ -428,225 +341,419 @@ body {
 }
 #chatInp::placeholder { color: var(--text3); }
 
+.char-counter {
+  font-size: .7rem; color: var(--text3);
+  text-align: right; padding: .2rem .5rem 0; transition: color .2s;
+}
+.char-counter.warn { color: #b45309; }
+.char-counter.error { color: #ef4444; font-weight: 600; }
+
 .send-btn {
-  width: 44px; height: 44px; border-radius: 13px;
-  border: none; flex-shrink: 0;
-  color: #fff; cursor: pointer;
+  width: 44px; height: 44px; border-radius: 13px; border: none;
+  flex-shrink: 0; color: #fff; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: all .2s var(--ease);
-  background: var(--send-bg, linear-gradient(135deg,#22c55e,#16a34a));
-  box-shadow: 0 4px 16px var(--send-glow, rgba(34,197,94,.3));
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  box-shadow: 0 4px 16px rgba(5,150,105,.3);
 }
-.send-btn:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 8px 24px var(--send-glow, rgba(34,197,94,.4)); }
+.send-btn:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 8px 24px rgba(5,150,105,.4); }
 .send-btn:active { transform: scale(.97); }
+.send-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.send-btn.loading { pointer-events: none; opacity: .7; }
+.send-btn.loading::after {
+  content: ""; width: 16px; height: 16px;
+  border: 2px solid transparent; border-top-color: white;
+  border-radius: 50%; animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── RESPONSIVE ── */
+/* RTL support */
+[dir="rtl"] .msg.user { flex-direction: row; }
+[dir="rtl"] .msg.user .bubble { border-radius: 16px 16px 4px 16px; }
+[dir="rtl"] .msg.bot .bubble { border-radius: 16px 16px 16px 4px; }
+[dir="rtl"] .listen-btn { flex-direction: row-reverse; }
+[dir="rtl"] .inp-shell { flex-direction: row-reverse; }
+[dir="rtl"] .msg-meta { justify-content: flex-start; }
+[dir="rtl"] .msg.user .msg-meta { justify-content: flex-end; }
+[dir="rtl"] .lang-trigger { flex-direction: row-reverse; }
+[dir="rtl"] .lang-trigger .current-name { text-align: right; }
+
+/* ═══════════════════════════════════════════════════════
+   💰 PAYWALL MODAL
+   ═══════════════════════════════════════════════════════ */
+.paywall-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(28,26,22,.6);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem; animation: fadeIn .2s var(--ease);
+}
+[data-theme=dark] .paywall-overlay { background: rgba(0,0,0,.7); }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.paywall-modal {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  box-shadow: var(--shadow-l);
+  max-width: 420px; width: 100%;
+  padding: 1.5rem;
+  animation: slideUp .3s var(--ease) both;
+}
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+.paywall-header {
+  text-align: center; padding-bottom: 1rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem;
+}
+.paywall-header .owl { font-size: 3rem; margin-bottom: .5rem; display: block; }
+.paywall-header h3 {
+  font-family: var(--serif); font-size: 1.4rem; margin: 0; color: var(--text);
+}
+.paywall-header p { margin: .5rem 0 0; color: var(--text2); font-size: .9rem; }
+
+.paywall-stats {
+  display: flex; justify-content: center; gap: 1.5rem;
+  padding: 1rem; background: var(--panel2);
+  border-radius: var(--rs); margin-bottom: 1rem;
+}
+.stat { text-align: center; }
+.stat-num { font-size: 1.5rem; font-weight: 700; color: var(--accent); display: block; }
+.stat-label { font-size: .8rem; color: var(--text3); }
+
+.pricing-options { display: grid; gap: .75rem; margin-bottom: 1.25rem; }
+
+.pricing-card {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .9rem 1.1rem; background: var(--bg);
+  border: 2px solid var(--border); border-radius: var(--rs);
+  cursor: pointer; transition: all .15s var(--ease);
+}
+.pricing-card:hover, .pricing-card.selected {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  transform: translateX(4px);
+}
+.pricing-card.selected { box-shadow: 0 4px 12px rgba(5,150,105,.2); }
+
+.pricing-info strong { display: block; font-size: 1.1rem; color: var(--text); }
+.pricing-info span { font-size: .85rem; color: var(--text2); }
+.pricing-price {
+  font-size: 1.3rem; font-weight: 700; color: var(--accent);
+  white-space: nowrap;
+}
+.pricing-card.popular { position: relative; }
+.pricing-card.popular::before {
+  content: "🔥 Meest gekozen";
+  position: absolute; top: -10px; right: 12px;
+  background: var(--accent); color: white;
+  font-size: .7rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 20px;
+}
+
+.paywall-cta {
+  display: grid; gap: .6rem;
+}
+.paywall-btn {
+  width: 100%; padding: .85rem 1.2rem;
+  border: none; border-radius: var(--rs);
+  font-family: var(--sans); font-size: 1rem; font-weight: 600;
+  cursor: pointer; transition: all .18s var(--ease);
+  display: flex; align-items: center; justify-content: center; gap: .5rem;
+}
+.paywall-btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: white; box-shadow: 0 4px 16px rgba(5,150,105,.3);
+}
+.paywall-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(5,150,105,.4);
+}
+.paywall-btn.secondary {
+  background: var(--panel2); color: var(--text2);
+  border: 1px solid var(--border);
+}
+.paywall-btn.secondary:hover {
+  background: var(--panel); color: var(--text);
+  border-color: var(--text3);
+}
+
+.paywall-footer {
+  text-align: center; padding-top: 1rem;
+  border-top: 1px solid var(--border); margin-top: .5rem;
+  font-size: .8rem; color: var(--text3);
+}
+.paywall-footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.paywall-footer a:hover { text-decoration: underline; }
+
+/* Responsive */
 @media (max-width:640px) {
   .topbar { padding:0 .85rem; height:56px; }
   .chat-inner { padding:0 .85rem; }
   .msg { max-width:88%; }
   .bubble { font-size:.86rem; }
-  .lcard .lname { display:none; }
-  .lcard { padding:.45rem .65rem; }
-  .lcard .flag { font-size:1.5rem; }
-  .lang-section { padding:.65rem .85rem; }
-  .lang-grid { gap:.4rem; }
+  .lang-section { padding:.6rem .85rem; }
+  .lang-trigger { min-width: 140px; padding: .45rem .85rem; font-size: .8rem; }
+  .lang-trigger .current-name { display: none; }
+  .lang-dropdown { grid-template-columns: repeat(3, 1fr); min-width: 280px; padding: .4rem; gap: .25rem; }
+  .lang-option { padding: .4rem .6rem; font-size: .78rem; }
+  .lang-option .flag { font-size: 1.3rem; }
+  .paywall-modal { padding: 1.25rem; }
+  .pricing-card { padding: .8rem 1rem; }
+  .pricing-info strong { font-size: 1rem; }
+  .pricing-price { font-size: 1.2rem; }
 }
 @media (max-width:360px) {
   .back-link span { display:none; }
   .back-link { padding:.4rem .6rem; }
+  .lang-dropdown { grid-template-columns: repeat(2, 1fr); }
+  .paywall-stats { gap: 1rem; flex-wrap: wrap; }
 }
 
-button:focus-visible, a:focus-visible, #chatInp:focus-visible {
-  outline: 2px solid #22c55e; outline-offset: 2px;
+/* Focus states */
+button:focus-visible, a:focus-visible, #chatInp:focus-visible, .lang-trigger:focus-visible, .lang-option:focus-visible, .sug:focus-visible, .pricing-card:focus-visible, .paywall-btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(5,150,105,.15);
 }
-@media(prefers-reduced-motion:reduce){ *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
+  }
+}
 </style>
 </head>
 <body>
 
+<a href="#chatInp" class="skip-link">Ga naar chat</a>
+
 <!-- TOPBAR -->
 <header class="topbar">
-  <a href="index.html" class="back-link" title="Back to home">
+  <a href="index.html" class="back-link" title="Terug naar home">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-    <span>Back</span>
+    <span>Terug</span>
   </a>
   <div class="teacher-chip">
-    <div class="t-ava" id="tAva">🎓</div>
+    <div class="t-ava" id="tAva" role="img" aria-label="Teacher avatar">🎓</div>
     <div class="t-meta">
       <div class="t-name" id="tName">Juf Emma</div>
       <div class="t-online"><span class="online-dot"></span><span id="tStat">Online · Nederlandse Lerares</span></div>
     </div>
   </div>
   <div class="topbar-end">
-    <button class="topbtn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+    <!-- Message counter -->
+    <div class="msg-counter" id="msgCounter" title="Berichten gebruikt">
+      <span>📨</span><span id="msgCount">0</span>/15 gratis
+    </div>
+    <button class="topbtn" id="themeBtn" onclick="toggleTheme()" title="Thema wisselen" aria-label="Wissel tussen licht en donker thema">🌙</button>
   </div>
 </header>
 
 <!-- LANGUAGE SELECTOR -->
 <div class="lang-section">
-  <div class="lang-grid" role="group" aria-label="Choose language">
-    <button class="lcard active" data-l="nl" onclick="setLang('nl')">
-      <span class="flag">🇳🇱</span><span class="lname">Nederlands</span>
-    </button>
-    <button class="lcard" data-l="en" onclick="setLang('en')">
-      <span class="flag">🇬🇧</span><span class="lname">English</span>
-    </button>
-    <button class="lcard" data-l="fr" onclick="setLang('fr')">
-      <span class="flag">🇫🇷</span><span class="lname">Français</span>
-    </button>
-    <button class="lcard" data-l="de" onclick="setLang('de')">
-      <span class="flag">🇩🇪</span><span class="lname">Deutsch</span>
-    </button>
-    <button class="lcard" data-l="es" onclick="setLang('es')">
-      <span class="flag">🇪🇸</span><span class="lname">Español</span>
-    </button>
-    <button class="lcard" data-l="it" onclick="setLang('it')">
-      <span class="flag">🇮🇹</span><span class="lname">Italiano</span>
-    </button>
-    <button class="lcard" data-l="pt" onclick="setLang('pt')">
-      <span class="flag">🇵🇹</span><span class="lname">Português</span>
-    </button>
-    <button class="lcard" data-l="ar" onclick="setLang('ar')">
-      <span class="flag">🇸🇦</span><span class="lname">عربي</span>
-    </button>
-    <button class="lcard" data-l="tr" onclick="setLang('tr')">
-      <span class="flag">🇹🇷</span><span class="lname">Türkçe</span>
-    </button>
+  <button class="lang-trigger" id="langTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="langDropdown" aria-label="Kies een taal">
+    <span class="current-flag" id="currentFlag">🇳🇱</span>
+    <span class="current-name" id="currentName">Nederlands</span>
+    <span class="chevron" aria-hidden="true">▼</span>
+  </button>
+  <div class="lang-dropdown" id="langDropdown" role="menu" aria-label="Beschikbare talen">
+    <button class="lang-option active" data-l="nl" role="menuitem" aria-pressed="true"><span class="flag" aria-hidden="true">🇳🇱</span><span>Nederlands</span></button>
+    <button class="lang-option" data-l="en" role="menuitem" aria-pressed="false"><span class="flag" aria-hidden="true">🇬🇧</span><span>English</span></button>
+    <button class="lang-option" data-l="fr" role="menuitem" aria-pressed="false"><span class="flag" aria-hidden="true">🇫🇷</span><span>Français</span></button>
+    <button class="lang-option" data-l="de" role="menuitem" aria-pressed="false"><span class="flag" aria-hidden="true">🇩🇪</span><span>Deutsch</span></button>
+    <button class="lang-option" data-l="es" role="menuitem" aria-pressed="false"><span class="flag" aria-hidden="true">🇪🇸</span><span>Español</span></button>
+    <button class="lang-option" data-l="it" role="menuitem" aria-pressed="false"><span class="flag" aria-hidden="true">🇮🇹</span><span>Italiano</span></button>
+    <button class="lang-option" data-l="pt" role="menuitem" aria-pressed="false"><span class="flag" aria-hidden="true">🇵🇹</span><span>Português</span></button>
+    <button class="lang-option" data-l="ar" role="menuitem" aria-pressed="false"><span class="flag" aria-hidden="true">🇸🇦</span><span>عربي</span></button>
+    <button class="lang-option" data-l="tr" role="menuitem" aria-pressed="false"><span class="flag" aria-hidden="true">🇹🇷</span><span>Türkçe</span></button>
   </div>
+  <div class="lang-overlay" id="langOverlay"></div>
 </div>
 
 <!-- CHAT -->
 <div class="chat-shell">
   <div class="chat-inner">
-    <div class="msgs" id="msgs" aria-live="polite"></div>
-    <div class="sugs" id="sugs"></div>
+    <div class="msgs" id="msgs" role="log" aria-live="polite" aria-relevant="additions" aria-label="Chatgeschiedenis"></div>
+    <div class="sugs" id="sugs" aria-label="Suggesties"></div>
     <div class="input-bar">
       <div class="inp-shell">
-        <button class="mic-btn" id="micBtn" onclick="toggleMic()" aria-label="Voice input">🎤</button>
-        <textarea id="chatInp" rows="1"
-          onkeydown="handleKey(event)"
-          oninput="autoResize(this)"
-          aria-label="Message"
-          placeholder="Typ je bericht…"></textarea>
+        <button class="mic-btn" id="micBtn" onclick="toggleMic()" aria-label="Spraakinput" aria-pressed="false">🎤</button>
+        <textarea id="chatInp" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)" aria-label="Bericht" placeholder="Typ je bericht…" maxlength="500"></textarea>
       </div>
-      <button class="send-btn" id="sendBtn" onclick="sendMsg()" aria-label="Send">
+      <button class="send-btn" id="sendBtn" onclick="sendMsg()" aria-label="Verzenden">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
+    </div>
+    <div class="char-counter" id="charCounter"><span id="charCount">0</span>/500</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     💰 PAYWALL MODAL (Hidden by default)
+     ═══════════════════════════════════════════════════════ -->
+<div id="paywallOverlay" class="paywall-overlay" hidden>
+  <div class="paywall-modal" role="dialog" aria-modal="true" aria-labelledby="paywall-title">
+    <div class="paywall-header">
+      <span class="owl" aria-hidden="true">🦉</span>
+      <h3 id="paywall-title">Je gratis proefperiode is voorbij!</h3>
+      <p>Je hebt 15 berichten gratis gebruikt. Wil je doorgaan met LinguaAI?</p>
+    </div>
+    
+    <div class="paywall-stats">
+      <div class="stat">
+        <span class="stat-num" id="usedCount">15</span>
+        <span class="stat-label">Berichten gebruikt</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Met abonnement</span>
+      </div>
+    </div>
+    
+    <div class="pricing-options" role="radiogroup" aria-label="Kies een abonnement">
+      <label class="pricing-card" tabindex="0" role="radio" aria-checked="false" data-plan="monthly">
+        <div class="pricing-info">
+          <strong>Maandelijks</strong>
+          <span>Flexibel, opzegbaar</span>
+        </div>
+        <span class="pricing-price">€3/maand</span>
+      </label>
+      <label class="pricing-card popular" tabindex="0" role="radio" aria-checked="true" data-plan="yearly">
+        <div class="pricing-info">
+          <strong>Jaarlijks</strong>
+          <span>2 maanden gratis!</span>
+        </div>
+        <span class="pricing-price">€30/jaar</span>
+      </label>
+    </div>
+    
+    <div class="paywall-cta">
+      <button class="paywall-btn primary" id="subscribeBtn">
+        ✨ Start nu — <span id="ctaPrice">€30/jaar</span>
+      </button>
+      <button class="paywall-btn secondary" id="maybeLaterBtn">Misschien later</button>
+    </div>
+    
+    <div class="paywall-footer">
+      🔒 Veilige betaling via Stripe • 7 dagen geld-terug-garantie<br>
+      <a href="#" onclick="alert('Privacybeleid komt hier'); return false;">Privacybeleid</a> • 
+      <a href="#" onclick="alert('Voorwaarden komen hier'); return false;">Voorwaarden</a>
     </div>
   </div>
 </div>
 
 <script>
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ⚠️  PUT YOUR ANTHROPIC API KEY BELOW
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const API_KEY = 'YOUR_ANTHROPIC_API_KEY';
+// ═══════════════════════════════════════════════════════
+// 🔐 API KEY SETUP
+// ═══════════════════════════════════════════════════════
+let API_KEY = localStorage.getItem('linguaai_api_key') || '';
+if (!API_KEY) {
+  const key = prompt('🔑 Voer je Anthropic API key in:\n\nhttps://console.anthropic.com\n\n⚠️ Wordt lokaal opgeslagen.');
+  if (key && key.trim().startsWith('sk-ant-')) {
+    API_KEY = key.trim();
+    localStorage.setItem('linguaai_api_key', API_KEY);
+    alert('✅ API key opgeslagen!');
+  } else if (key !== null) { alert('⚠️ Ongeldige key.'); }
+}
 
-/* ── per-language accent colours for dynamic UI elements ── */
+// ═══════════════════════════════════════════════════════
+// 💰 PRICING & MESSAGE LIMIT
+// ═══════════════════════════════════════════════════════
+const FREE_MESSAGES = 15;
+const PRICING = {
+  monthly: { price: 3, period: 'maand', label: '€3/maand' },
+  yearly: { price: 30, period: 'jaar', label: '€30/jaar', popular: true }
+};
+
+let messageCount = parseInt(localStorage.getItem('lingua_msg_count') || '0');
+let isSubscribed = localStorage.getItem('lingua_subscribed') === 'true';
+let selectedPlan = 'yearly'; // Default selected
+
+// ═══════════════════════════════════════════════════════
+// 🎨 ACCENT COLORS PER TAAL
+// ═══════════════════════════════════════════════════════
 const ACCENTS = {
   nl: { color:'#ea580c', bg:'#fff7ed', ring:'rgba(234,88,12,.15)', send:'linear-gradient(135deg,#f97316,#ea580c)', glow:'rgba(234,88,12,.3)', focus:'#f97316' },
   en: { color:'#2563eb', bg:'#eff6ff', ring:'rgba(37,99,235,.15)', send:'linear-gradient(135deg,#3b82f6,#2563eb)', glow:'rgba(37,99,235,.3)', focus:'#3b82f6' },
   fr: { color:'#4f46e5', bg:'#eef2ff', ring:'rgba(79,70,229,.15)', send:'linear-gradient(135deg,#6366f1,#4f46e5)', glow:'rgba(79,70,229,.3)', focus:'#6366f1' },
-  de: { color:'#b45309', bg:'#fefce8', ring:'rgba(180,83,9,.15)',  send:'linear-gradient(135deg,#f59e0b,#d97706)', glow:'rgba(245,158,11,.35)', focus:'#d97706' },
+  de: { color:'#b45309', bg:'#fefce8', ring:'rgba(180,83,9,.15)', send:'linear-gradient(135deg,#f59e0b,#d97706)', glow:'rgba(245,158,11,.35)', focus:'#d97706' },
   es: { color:'#dc2626', bg:'#fef2f2', ring:'rgba(220,38,38,.15)', send:'linear-gradient(135deg,#ef4444,#dc2626)', glow:'rgba(220,38,38,.3)', focus:'#ef4444' },
   it: { color:'#16a34a', bg:'#f0fdf4', ring:'rgba(22,163,74,.15)', send:'linear-gradient(135deg,#22c55e,#16a34a)', glow:'rgba(34,197,94,.3)', focus:'#22c55e' },
   pt: { color:'#0f766e', bg:'#f0fdfa', ring:'rgba(15,118,110,.15)', send:'linear-gradient(135deg,#14b8a6,#0f766e)', glow:'rgba(20,184,166,.3)', focus:'#14b8a6' },
   ar: { color:'#7c3aed', bg:'#faf5ff', ring:'rgba(124,58,237,.15)', send:'linear-gradient(135deg,#a855f7,#7c3aed)', glow:'rgba(168,85,247,.3)', focus:'#a855f7' },
-  tr: { color:'#be185d', bg:'#fdf2f8', ring:'rgba(190,24,93,.15)',  send:'linear-gradient(135deg,#ec4899,#be185d)', glow:'rgba(236,72,153,.3)', focus:'#ec4899' },
+  tr: { color:'#be185d', bg:'#fdf2f8', ring:'rgba(190,24,93,.15)', send:'linear-gradient(135deg,#ec4899,#be185d)', glow:'rgba(236,72,153,.3)', focus:'#ec4899' },
 };
 
+// ═══════════════════════════════════════════════════════
+// 🌍 TAAL CONFIGURATIES
+// ═══════════════════════════════════════════════════════
 const LANGS = {
-  nl:{
-    name:'Juf Emma', stat:'Online · Nederlandse Lerares',
-    ph:'Typ je bericht…', voice:'nl-NL',
-    listen:'Luister', stop:'Stop',
+  nl:{ name:'Juf Emma', stat:'Online · Nederlandse Lerares', ph:'Typ je bericht…', voice:'nl-NL', listen:'Luister', stop:'Stop',
     sugs:['Verbeter mijn zin','Leer me een uitdrukking','Gewoon een gesprekje','Leg de/het uit','Hoe zeg ik...?'],
-    greet:"Hallo lieverd! 👋 Ik ben Juf Emma, jouw vriendelijke Nederlandse lerares. Wat wil je vandaag oefenen — grammatica, woordenschat, of gewoon een gezellig gesprekje? 😊",
-    sys:`Je bent Juf Emma, een warme Nederlandse lerares op LinguaAI.
-REGELS: Houd antwoorden KORT (2-4 zinnen). Verbeter fouten ZACHTJES in je antwoord. Eindig met ÉÉN vervolgvraag. Wees warm, grappig, bemoedigend. Pas complexiteit aan op niveau van de leerling.`
+    greet:"Hallo lieverd! 👋 Ik ben Juf Emma. Wat wil je vandaag oefenen? 😊",
+    sys:`Je bent Juf Emma, een warme Nederlandse lerares op LinguaAI. REGELS: KORT (2-4 zinnen). ZACHTJES verbeteren. ÉÉN vervolgvraag. Warm, grappig, bemoedigend.`
   },
-  en:{
-    name:'Ms. Grace', stat:'Online · English Teacher',
-    ph:'Ask anything or say hi…', voice:'en-GB',
-    listen:'Listen', stop:'Stop',
-    sugs:['Correct my sentence','Phrasal verb please!','Let\'s just chat','Explain present perfect','How do I say...?'],
-    greet:"Hello! 👋 I'm Ms. Grace, your English teacher here at LinguaAI. What shall we work on today — grammar, vocabulary, or just a lovely chat? ✨",
-    sys:`You are Ms. Grace, a warm brilliant British English teacher on LinguaAI.
-RULES: Keep replies SHORT (2-4 sentences). Correct mistakes GENTLY inside your reply. End with ONE follow-up question. Be warm, witty, encouraging. Use British English. Auto-adapt to student level.`
+  en:{ name:'Ms. Grace', stat:'Online · English Teacher', ph:'Ask anything…', voice:'en-GB', listen:'Listen', stop:'Stop',
+    sugs:['Correct my sentence','Phrasal verb please!','Let\'s chat','Explain grammar','How do I say...?'],
+    greet:"Hello! 👋 I'm Ms. Grace. What shall we practice today? ✨",
+    sys:`You are Ms. Grace, warm British English teacher. RULES: SHORT replies (2-4 sentences). Gentle corrections. ONE follow-up question. Warm, witty, encouraging.`
   },
-  fr:{
-    name:'Prof. Claire', stat:'En ligne · Professeure de Français',
-    ph:'Écrivez votre message…', voice:'fr-FR',
-    listen:'Écouter', stop:'Arrêter',
-    sugs:['Corrige ma phrase','Une expression SVP','Une conversation','Le subjonctif','Comment dire...?'],
-    greet:"Bonjour ! 👋 Je suis Prof. Claire, ta professeure de français sur LinguaAI. Qu'est-ce qu'on pratique aujourd'hui ? ✨",
-    sys:`Tu es Prof. Claire, une professeure de français chaleureuse sur LinguaAI.
-RÈGLES: Réponses COURTES (2-4 phrases). Corrige les erreurs DOUCEMENT dans ta réponse. Termine avec UNE question. Sois chaleureuse, enthousiaste, encourageante. Adapte la complexité au niveau.`
+  fr:{ name:'Prof. Claire', stat:'En ligne · Professeure', ph:'Écrivez…', voice:'fr-FR', listen:'Écouter', stop:'Arrêter',
+    sugs:['Corrige ma phrase','Une expression','Conversation','Le subjonctif','Comment dire...?'],
+    greet:"Bonjour! 👋 Je suis Prof. Claire. Qu'est-ce qu'on pratique? ✨",
+    sys:`Tu es Prof. Claire, professeure chaleureuse. RÉGLES: Réponses COURTES. Corrections DOUCES. UNE question. Chaleureuse, enthousiaste.`
   },
-  de:{
-    name:'Frau Schmidt', stat:'Online · Deutschlehrerin',
-    ph:'Schreib deine Nachricht…', voice:'de-DE',
-    listen:'Anhören', stop:'Stopp',
-    sugs:['Satz korrigieren','Neue Redewendung','Einfach reden','Dativ erklären','Wie sagt man...?'],
-    greet:"Hallo! 👋 Ich bin Frau Schmidt, deine Deutschlehrerin auf LinguaAI. Was üben wir heute — Grammatik, Wortschatz oder ein lockeres Gespräch? ✨",
-    sys:`Du bist Frau Schmidt, eine herzliche Deutschlehrerin auf LinguaAI.
-REGELN: Antworten KURZ (2-4 Sätze). Fehler SANFT innerhalb korrigieren. Mit EINER Folgefrage enden. Herzlich, geduldig, begeistert sein. Komplexität anpassen.`
+  de:{ name:'Frau Schmidt', stat:'Online · Deutschlehrerin', ph:'Schreib…', voice:'de-DE', listen:'Anhören', stop:'Stopp',
+    sugs:['Satz korrigieren','Redewendung','Reden','Dativ','Wie sagt man...?'],
+    greet:"Hallo! 👋 Ich bin Frau Schmidt. Was üben wir heute? ✨",
+    sys:`Du bist Frau Schmidt, herzliche Deutschlehrerin. REGELN: KURZE Antworten. Fehler SANFT korrigieren. EINE Folgefrage. Herzlich, geduldig.`
   },
-  es:{
-    name:'Profa. Lucía', stat:'En línea · Profesora de Español',
-    ph:'Escribe tu mensaje…', voice:'es-ES',
-    listen:'Escuchar', stop:'Parar',
-    sugs:['Corrige mi frase','Una expresión por favor','Solo charlar','El subjuntivo','¿Cómo se dice...?'],
-    greet:"¡Hola! 👋 Soy la Profa. Lucía, tu profesora de español en LinguaAI. ¿Qué practicamos hoy? ✨",
-    sys:`Eres Profa. Lucía, una profesora de español cariñosa en LinguaAI.
-REGLAS: Respuestas BREVES (2-4 oraciones). Corrige errores SUAVEMENTE dentro. Termina con UNA pregunta. Cálida, entusiasta, alentadora. Adapta complejidad al nivel.`
+  es:{ name:'Profa. Lucía', stat:'En línea · Profesora', ph:'Escribe…', voice:'es-ES', listen:'Escuchar', stop:'Parar',
+    sugs:['Corrige mi frase','Expresión','Charlar','Subjuntivo','¿Cómo se dice...?'],
+    greet:"¡Hola! 👋 Soy Profa. Lucía. ¿Qué practicamos hoy? ✨",
+    sys:`Eres Profa. Lucía, profesora cariñosa. REGLAS: Respuestas BREVES. Correcciones SUAVES. UNA pregunta. Cálida, entusiasta.`
   },
-  it:{
-    name:'Prof.ssa Sofia', stat:'Online · Insegnante di Italiano',
-    ph:'Scrivi il tuo messaggio…', voice:'it-IT',
-    listen:'Ascolta', stop:'Ferma',
-    sugs:['Correggi la mia frase','Un\'espressione per favore','Solo chiacchierare','Il congiuntivo','Come si dice...?'],
-    greet:"Ciao! 👋 Sono la Prof.ssa Sofia, la tua insegnante di italiano su LinguaAI. Cosa pratichiamo oggi? ✨",
-    sys:`Sei la Prof.ssa Sofia, un'insegnante di italiano affettuosa su LinguaAI.
-REGOLE: Risposte BREVI (2-4 frasi). Correggi gli errori GENTILMENTE dentro. Termina con UNA domanda. Calorosa, entusiasta, incoraggiante. Adatta la complessità.`
+  it:{ name:'Prof.ssa Sofia', stat:'Online · Insegnante', ph:'Scrivi…', voice:'it-IT', listen:'Ascolta', stop:'Ferma',
+    sugs:['Correggi frase','Espressione','Chiacchierare','Congiuntivo','Come si dice...?'],
+    greet:"Ciao! 👋 Sono Prof.ssa Sofia. Cosa pratichiamo? ✨",
+    sys:`Sei Prof.ssa Sofia, insegnante affettuosa. REGOLE: Risposte BREVI. Errori GENTILI. UNA domanda. Calorosa, incoraggiante.`
   },
-  pt:{
-    name:'Prof.ª Ana', stat:'Online · Professora de Português',
-    ph:'Escreva sua mensagem…', voice:'pt-PT',
-    listen:'Ouvir', stop:'Parar',
-    sugs:['Corrija minha frase','Uma expressão por favor','Só conversar','O subjuntivo','Como se diz...?'],
-    greet:"Olá! 👋 Sou a Prof.ª Ana, sua professora de português no LinguaAI. O que praticamos hoje? ✨",
-    sys:`Você é a Prof.ª Ana, uma professora de português carinhosa no LinguaAI.
-REGRAS: Respostas BREVES (2-4 frases). Corrija erros GENTILMENTE dentro. Termine com UMA pergunta. Calorosa, entusiasta, encorajadora. Adapte a complexidade.`
+  pt:{ name:'Prof.ª Ana', stat:'Online · Professora', ph:'Escreva…', voice:'pt-PT', listen:'Ouvir', stop:'Parar',
+    sugs:['Corrija frase','Expressão','Conversar','Subjuntivo','Como se diz...?'],
+    greet:"Olá! 👋 Sou Prof.ª Ana. O que praticamos? ✨",
+    sys:`Você é Prof.ª Ana, professora carinhosa. REGRAS: Respostas BREVES. Erros GENTIS. UMA pergunta. Calorosa, encorajadora.`
   },
-  ar:{
-    name:'الأستاذة نور', stat:'متصلة · معلمة اللغة العربية',
-    ph:'اكتب رسالتك هنا…', voice:'ar-SA',
-    listen:'استمع', stop:'إيقاف',
-    sugs:['صحح جملتي','تعبير من فضلك','محادثة عادية','اشرح قاعدة','كيف أقول...؟'],
-    greet:"مرحباً! 👋 أنا الأستاذة نور، معلمتك للغة العربية على LinguaAI. ماذا تريد أن تتدرب عليه اليوم؟ ✨",
-    sys:`أنتِ الأستاذة نور، معلمة عربية دافئة على LinguaAI.
-القواعد: ردود قصيرة (2-4 جمل). صححي الأخطاء بلطف داخل الرد. انتهي بسؤال واحد. دافئة ومشجعة. استخدمي الفصحى. تكيفي مع مستوى المتعلم.`
+  ar:{ name:'الأستاذة نور', stat:'متصلة · معلمة', ph:'اكتب…', voice:'ar-SA', listen:'استمع', stop:'إيقاف',
+    sugs:['صحح جملتي','تعبير','محادثة','قاعدة','كيف أقول...؟'],
+    greet:"مرحباً! 👋 أنا الأستاذة نور. ماذا تتدرب اليوم؟ ✨",
+    sys:`أنتِ الأستاذة نور، معلمة دافئة. القواعد: ردود قصيرة. تصحيح بلطف. سؤال واحد. دافئة، مشجعة.`
   },
-  tr:{
-    name:'Öğretmen Ayşe', stat:'Çevrimiçi · Türkçe Öğretmeni',
-    ph:'Mesajını yaz…', voice:'tr-TR',
-    listen:'Dinle', stop:'Dur',
-    sugs:['Cümleyi düzelt','Deyim öğret','Sadece sohbet','Gramer açıkla','Nasıl derim...?'],
-    greet:"Merhaba! 👋 Ben Öğretmen Ayşe, LinguaAI'daki Türkçe öğretmeninim. Bugün ne üzerinde çalışmak istersin? ✨",
-    sys:`Sen Öğretmen Ayşe, LinguaAI'daki sıcak bir Türkçe öğretmenisin.
-KURALLAR: Yanıtlar KISA (2-4 cümle). Hataları NAZIKÇE yanıt içinde düzelt. BİR takip sorusuyla bitir. Sıcak, cesaretlendirici ol. Seviyeye göre uyarla.`
+  tr:{ name:'Öğretmen Ayşe', stat:'Çevrimiçi · Öğretmen', ph:'Yaz…', voice:'tr-TR', listen:'Dinle', stop:'Dur',
+    sugs:['Cümle düzelt','Deyim','Sohbet','Gramer','Nasıl derim...?'],
+    greet:"Merhaba! 👋 Ben Öğretmen Ayşe. Ne çalışalım? ✨",
+    sys:`Sen Öğretmen Ayşe, sıcak öğretmen. KURALLAR: KISA yanıtlar. Hataları NAZİKÇE. BİR soru. Sıcak, cesaretlendirici.`
   }
 };
 
-/* ── STATE ── */
-let lang='nl', hist=[], loading=false,
-    recog=null, recording=false,
-    ttsU=null, greeted=false, dark=false;
+// ═══════════════════════════════════════════════════════
+// 📦 STATE
+// ═══════════════════════════════════════════════════════
+let lang='nl', hist=[], loading=false, recog=null, recording=false,
+    ttsU=null, greeted=false, dark=false, retryCount=0, MAX_RETRIES=2,
+    langDropdownOpen = false;
 
-/* ── INIT ── */
+// ═══════════════════════════════════════════════════════
+// 🚀 INIT
+// ═══════════════════════════════════════════════════════
 window.addEventListener('DOMContentLoaded', () => {
+  updateConnectionStatus(navigator.onLine);
+  window.addEventListener('online', () => updateConnectionStatus(true));
+  window.addEventListener('offline', () => {
+    updateConnectionStatus(false);
+    if(!loading && !isPaywallActive()) addBotMsg('⚠️ Je bent offline.', false);
+  });
+
   const p = new URLSearchParams(location.search);
   const saved = p.get('lang') || localStorage.getItem('llang') || 'nl';
   lang = LANGS[saved] ? saved : 'nl';
@@ -658,14 +765,177 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('themeBtn').textContent = '☀️';
   }
 
+  initLangDropdown();
+  initPricing();
+  updateMessageCounter();
   applyLang(lang);
-  setTimeout(sendGreeting, 380);
+  
+  if (isPaywallActive() && messageCount >= FREE_MESSAGES && !isSubscribed) {
+    showPaywall();
+  } else {
+    setTimeout(sendGreeting, 380);
+  }
 });
 
-/* ── LANGUAGE ── */
+function updateConnectionStatus(online) {
+  // Optional: implement visual indicator if needed
+}
+
+// ═══════════════════════════════════════════════════════
+// 💰 PRICING / PAYWALL FUNCTIONS
+// ═══════════════════════════════════════════════════════
+function initPricing() {
+  const cards = document.querySelectorAll('.pricing-card');
+  const subscribeBtn = document.getElementById('subscribeBtn');
+  const maybeLaterBtn = document.getElementById('maybeLaterBtn');
+  const ctaPrice = document.getElementById('ctaPrice');
+
+  // Plan selection
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      selectedPlan = card.dataset.plan;
+      cards.forEach(c => {
+        c.classList.remove('selected');
+        c.setAttribute('aria-checked', 'false');
+      });
+      card.classList.add('selected');
+      card.setAttribute('aria-checked', 'true');
+      ctaPrice.textContent = PRICING[selectedPlan].label;
+    });
+    
+    // Keyboard support
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  // Subscribe button
+  subscribeBtn.addEventListener('click', () => {
+    // In production: redirect to Stripe checkout
+    const plan = PRICING[selectedPlan];
+    if (confirm(`🎉 Bedankt!\n\nJe kiest voor: ${plan.label}\n\nIn een echte app zou je nu doorverwezen worden naar een veilige betalingspagina.\n\nVoor deze demo: abonnement activeren?`)) {
+      activateSubscription();
+    }
+  });
+
+  // Maybe later
+  maybeLaterBtn.addEventListener('click', () => {
+    hidePaywall();
+    addBotMsg('💭 Geen probleem! Je kunt later altijd nog upgraden. Voor nu kun je je eerdere gesprekken nog bekijken. 🦉', false);
+    // Disable sending but allow reading
+    document.getElementById('sendBtn').disabled = true;
+    document.getElementById('chatInp').placeholder = 'Upgrade om verder te chatten…';
+  });
+}
+
+function isPaywallActive() {
+  return messageCount >= FREE_MESSAGES && !isSubscribed;
+}
+
+function showPaywall() {
+  document.getElementById('paywallOverlay').hidden = false;
+  document.getElementById('usedCount').textContent = messageCount;
+  document.body.style.overflow = 'hidden'; // Prevent background scroll
+}
+
+function hidePaywall() {
+  document.getElementById('paywallOverlay').hidden = true;
+  document.body.style.overflow = '';
+}
+
+function activateSubscription() {
+  isSubscribed = true;
+  localStorage.setItem('lingua_subscribed', 'true');
+  hidePaywall();
+  addBotMsg('🎉 Welkom bij LinguaAI Premium! 🦉✨\n\nJe hebt nu onbeperkt toegang tot alle functies. Veel plezier met leren! 💚', false);
+  document.getElementById('sendBtn').disabled = false;
+  document.getElementById('chatInp').placeholder = LANGS[lang].ph;
+  // Update counter display
+  updateMessageCounter();
+}
+
+function updateMessageCounter() {
+  const counter = document.getElementById('msgCounter');
+  const countEl = document.getElementById('msgCount');
+  countEl.textContent = Math.min(messageCount, FREE_MESSAGES);
+  
+  counter.classList.remove('warning', 'exhausted');
+  if (isSubscribed) {
+    counter.innerHTML = '<span>✨</span>Premium';
+    counter.style.background = 'var(--accent-light)';
+    counter.style.borderColor = 'var(--accent)';
+  } else if (messageCount >= FREE_MESSAGES) {
+    counter.classList.add('exhausted');
+  } else if (messageCount >= 12) {
+    counter.classList.add('warning');
+  }
+}
+
+function incrementMessageCount() {
+  if (isSubscribed) return; // Unlimited for subscribers
+  messageCount++;
+  localStorage.setItem('lingua_msg_count', messageCount.toString());
+  updateMessageCounter();
+  
+  if (messageCount >= FREE_MESSAGES && !isSubscribed) {
+    setTimeout(showPaywall, 500);
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// 🌍 LANGUAGE FUNCTIONS
+// ═══════════════════════════════════════════════════════
+function initLangDropdown() {
+  const trigger = document.getElementById('langTrigger');
+  const dropdown = document.getElementById('langDropdown');
+  const overlay = document.getElementById('langOverlay');
+  const options = dropdown.querySelectorAll('.lang-option');
+
+  trigger.addEventListener('click', (e) => { e.stopPropagation(); toggleLangDropdown(); });
+  overlay.addEventListener('click', closeLangDropdown);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && langDropdownOpen) { closeLangDropdown(); trigger.focus(); } });
+  
+  options.forEach(opt => {
+    opt.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const l = opt.dataset.l;
+      if (l !== lang) { setLang(l); }
+      closeLangDropdown();
+      trigger.focus();
+    });
+  });
+  
+  document.addEventListener('click', (e) => {
+    if (langDropdownOpen && !dropdown.contains(e.target) && e.target !== trigger) closeLangDropdown();
+  });
+}
+
+function toggleLangDropdown() {
+  langDropdownOpen = !langDropdownOpen;
+  const trigger = document.getElementById('langTrigger');
+  const dropdown = document.getElementById('langDropdown');
+  const overlay = document.getElementById('langOverlay');
+  trigger.setAttribute('aria-expanded', langDropdownOpen);
+  dropdown.classList.toggle('open', langDropdownOpen);
+  overlay.classList.toggle('active', langDropdownOpen);
+  dropdown.querySelectorAll('.lang-option').forEach(opt => {
+    opt.setAttribute('aria-pressed', opt.dataset.l === lang);
+  });
+}
+
+function closeLangDropdown() {
+  langDropdownOpen = false;
+  document.getElementById('langTrigger').setAttribute('aria-expanded', 'false');
+  document.getElementById('langDropdown').classList.remove('open');
+  document.getElementById('langOverlay').classList.remove('active');
+}
+
 function setLang(l) {
   if (lang===l) return;
-  lang=l; hist=[]; greeted=false;
+  lang=l; hist=[]; greeted=false; retryCount=0;
   document.getElementById('msgs').innerHTML='';
   hideSugs(false);
   applyLang(l);
@@ -674,42 +944,44 @@ function setLang(l) {
 }
 
 function applyLang(l) {
-  const c = LANGS[l];
-  const a = ACCENTS[l];
-
-  // update header
+  const c = LANGS[l], a = ACCENTS[l];
   document.getElementById('tName').textContent = c.name;
-  document.getElementById('tStat').textContent  = c.stat;
+  document.getElementById('tStat').textContent = c.stat;
   document.getElementById('chatInp').placeholder = c.ph;
   document.title = `${c.name} — LinguaAI`;
+  
+  document.getElementById('currentFlag').textContent = document.querySelector(`.lang-option[data-l="${l}"] .flag`).textContent;
+  document.getElementById('currentName').textContent = document.querySelector(`.lang-option[data-l="${l}"]`).textContent.trim().replace(/[\u{1F1E6}-\u{1F1FF}]/gu, '').trim();
+  
+  document.querySelectorAll('.lang-option').forEach(opt => {
+    const active = opt.dataset.l === l;
+    opt.classList.toggle('active', active);
+    opt.setAttribute('aria-pressed', active);
+  });
 
-  // update active chip
-  document.querySelectorAll('.lcard').forEach(b => b.classList.toggle('active', b.dataset.l===l));
-
-  // apply accent colours via CSS vars on root
   const root = document.documentElement;
-  root.style.setProperty('--focus-color', a.focus);
-  root.style.setProperty('--focus-ring',  a.ring);
-  root.style.setProperty('--send-bg',     a.send);
-  root.style.setProperty('--send-glow',   a.glow);
-  root.style.setProperty('--laccentc',    a.color);
-  root.style.setProperty('--laccent-bg',  a.bg);
-  root.style.setProperty('--lborder-active', a.color);
-  root.style.setProperty('--ltext-active',   a.color);
-  root.style.setProperty('--lbg-active',     a.bg);
+  root.style.setProperty('--focus-color', a.focus || '#059669');
+  root.style.setProperty('--focus-ring', a.ring || 'rgba(5,150,105,.15)');
+  root.style.setProperty('--send-bg', `linear-gradient(135deg,var(--accent),var(--accent-hover))`);
+  root.style.setProperty('--send-glow', 'rgba(5,150,105,.3)');
+  root.style.setProperty('--laccentc', a.color || 'var(--accent)');
+  root.style.setProperty('--laccent-bg', a.bg || 'var(--accent-light)');
+  root.style.setProperty('--lborder-active', a.color || 'var(--accent)');
+  root.style.setProperty('--ltext-active', a.color || 'var(--accent)');
+  root.style.setProperty('--lbg-active', a.bg || 'var(--accent-light)');
 
-  // colour the teacher avatar ring
   const av = document.getElementById('tAva');
-  av.style.background = `linear-gradient(135deg,${a.color},${a.color}bb)`;
-  av.style.boxShadow  = `0 0 0 3px ${a.bg}`;
+  av.style.background = `linear-gradient(135deg,var(--accent),var(--accent-hover))`;
+  av.style.boxShadow = `0 0 0 3px var(--accent-light)`;
 
-  // RTL for Arabic
-  document.getElementById('chatInp').style.direction = l==='ar' ? 'rtl' : 'ltr';
-
+  const isRTL = l==='ar';
+  document.getElementById('chatInp').style.direction = isRTL ? 'rtl' : 'ltr';
+  document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+  
   renderSugs(c.sugs);
+  updateCharCounter();
 }
 
-/* ── THEME ── */
 function toggleTheme() {
   dark = !dark;
   document.body.setAttribute('data-theme', dark ? 'dark' : '');
@@ -717,15 +989,15 @@ function toggleTheme() {
   localStorage.setItem('ltheme', dark ? 'dark' : '');
 }
 
-/* ── SUGGESTIONS ── */
 function renderSugs(arr) {
   const w = document.getElementById('sugs');
   w.style.opacity='1'; w.style.pointerEvents='';
-  w.innerHTML = arr.map(s=>`<button class="sug" onclick="useSug(this)">${s}</button>`).join('');
+  w.innerHTML = arr.map(s=>`<button class="sug" onclick="useSug(this)" role="option">${esc(s)}</button>`).join('');
 }
 function useSug(btn) {
+  if (isPaywallActive()) { showPaywall(); return; }
   const inp = document.getElementById('chatInp');
-  inp.value = btn.textContent; autoResize(inp); sendMsg();
+  inp.value = btn.textContent; autoResize(inp); updateCharCounter(); sendMsg();
 }
 function hideSugs(fade=true) {
   const s = document.getElementById('sugs');
@@ -733,23 +1005,33 @@ function hideSugs(fade=true) {
   else { s.innerHTML=''; }
 }
 
-/* ── GREETING ── */
 function sendGreeting() {
   if (greeted) return; greeted=true;
   addBotMsg(LANGS[lang].greet, false);
 }
 
-/* ── SEND ── */
+// ═══════════════════════════════════════════════════════
+// 📤 SEND MESSAGE
+// ═══════════════════════════════════════════════════════
 async function sendMsg() {
+  if (isPaywallActive()) { showPaywall(); return; }
+  
   const inp = document.getElementById('chatInp');
   const text = inp.value.trim();
-  if (!text || loading) return;
-  inp.value=''; inp.style.height='26px';
-  hideSugs();
+  if (!text || loading || !API_KEY) return;
+  
+  if (!API_KEY.startsWith('sk-ant-')) {
+    addBotMsg('⚠️ Ongeldige API key.', false); return;
+  }
 
+  inp.value=''; inp.style.height='26px'; hideSugs(); updateCharCounter();
   addUserMsg(text);
   hist.push({ role:'user', content:text });
+  incrementMessageCount(); // ← Count this message
+  
   loading=true;
+  const sendBtn = document.getElementById('sendBtn');
+  sendBtn.classList.add('loading'); sendBtn.disabled = true;
   const tid = addTyping();
 
   try {
@@ -762,103 +1044,106 @@ async function sendMsg() {
         'anthropic-version':'2023-06-01',
         'anthropic-dangerous-direct-browser-access':'true'
       },
-      body: JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:450,
-        system: c.sys,
-        messages: hist
-      })
+      body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:450, system: c.sys, messages: hist })
     });
+    
+    if (!res.ok) { const errData = await res.json().catch(()=>({})); throw new Error(errData.error?.message || `HTTP ${res.status}`); }
     const data = await res.json();
     if (data.error) throw new Error(data.error.message || 'API error');
+    
     const reply = data.content?.[0]?.text || '(no response)';
-    removeTyping(tid);
-    addBotMsg(reply, true);
+    removeTyping(tid); addBotMsg(reply, true);
     hist.push({ role:'assistant', content:reply });
     if (hist.length > 28) hist = hist.slice(-28);
+    retryCount = 0;
+    
   } catch(err) {
-    removeTyping(tid);
-    const isAuth = /auth|key/i.test(err.message||'');
-    addBotMsg(isAuth
-      ? '⚠️ Invalid API key. Open ai-chat.html and replace YOUR_ANTHROPIC_API_KEY with your key from console.anthropic.com'
-      : '⚠️ Connection error. Check your API key and internet connection.', false);
-    console.error(err);
+    removeTyping(tid); console.error('API Error:', err);
+    if (retryCount < MAX_RETRIES && !/auth|key|401|403/i.test(err.message)) {
+      retryCount++; addBotMsg(`🔄 Poging ${retryCount}/${MAX_RETRIES}...`, false);
+      setTimeout(() => { hist.pop(); sendMsg(); }, 1500 * retryCount); return;
+    }
+    const isAuth = /auth|key|401|403/i.test(err.message);
+    addBotMsg(isAuth ? '🔑 Ongeldige API key.' : '⚠️ Verbindingsfout.', false);
+  } finally {
+    loading=false; sendBtn.classList.remove('loading'); sendBtn.disabled = false;
   }
-  loading=false;
 }
 
-/* ── DOM ── */
+// ═══════════════════════════════════════════════════════
+// 💬 MESSAGES
+// ═══════════════════════════════════════════════════════
 function addUserMsg(text) {
-  const w = document.getElementById('msgs');
-  const d = document.createElement('div');
-  d.className='msg user';
-  d.innerHTML=`<div class="av" style="background:#1e293b;color:#f1f5f9">👤</div><div class="mbody"><div class="bubble">${esc(text)}</div></div>`;
+  const w = document.getElementById('msgs'); const d = document.createElement('div');
+  d.className='msg user'; const time = new Date().toLocaleTimeString(lang, {hour:'2-digit', minute:'2-digit'});
+  d.innerHTML=`<div class="av" style="background:var(--text);color:var(--bg)" role="img" aria-label="Jij">👤</div>
+    <div class="mbody"><div class="bubble">${esc(text)}</div>
+    <div class="msg-meta"><time class="msg-time" datetime="${new Date().toISOString()}">${time}</time><span class="msg-status">✓✓</span></div></div>`;
   w.appendChild(d); scrollDn();
 }
 
 function addBotMsg(text, speak=true) {
-  const w = document.getElementById('msgs');
-  const d = document.createElement('div');
-  d.className='msg bot';
-  const a = ACCENTS[lang];
-  const sid = 'sp'+Date.now();
-  const lbl = LANGS[lang].listen;
-  d.innerHTML=`
-    <div class="av" style="background:linear-gradient(135deg,${a.color},${a.color}bb);box-shadow:0 2px 10px ${a.ring}">🎓</div>
-    <div class="mbody">
-      <div class="bubble">${esc(text)}</div>
-      ${speak?`<button class="listen-btn" id="${sid}" onclick="speakMsg(this,'${escA(text)}')" aria-label="${lbl}">🔊 ${lbl}</button>`:''}
-    </div>`;
+  const w = document.getElementById('msgs'); const d = document.createElement('div');
+  d.className='msg bot'; const a = ACCENTS[lang]; const sid = 'sp'+Date.now();
+  const lbl = LANGS[lang].listen; const time = new Date().toLocaleTimeString(lang, {hour:'2-digit', minute:'2-digit'});
+  d.innerHTML=`<div class="av" style="background:linear-gradient(135deg,var(--accent),var(--accent-hover));box-shadow:0 2px 10px rgba(5,150,105,.2)" role="img" aria-label="${LANGS[lang].name}">🎓</div>
+    <div class="mbody"><div class="bubble">${esc(text)}</div>
+    <div class="msg-meta"><time class="msg-time" datetime="${new Date().toISOString()}">${time}</time>
+    ${speak?`<button class="listen-btn" id="${sid}" onclick="speakMsg(this,'${escA(text)}')" aria-label="${lbl}">🔊 ${lbl}</button>`:''}</div></div>`;
   w.appendChild(d); scrollDn();
 }
 
 function addTyping() {
-  const w = document.getElementById('msgs');
-  const id = 'ty'+Date.now();
-  const d = document.createElement('div');
-  d.className='typing-row'; d.id=id;
-  d.innerHTML=`<div class="av" style="background:linear-gradient(135deg,${ACCENTS[lang].color},${ACCENTS[lang].color}bb)">🎓</div><div class="typ-bbl"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>`;
+  const w = document.getElementById('msgs'); const id = 'ty'+Date.now(); const d = document.createElement('div');
+  d.className='typing-row'; d.id=id; d.role='status';
+  d.innerHTML=`<div class="av" style="background:linear-gradient(135deg,var(--accent),var(--accent-hover))">🎓</div>
+    <div class="typ-bbl"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>`;
   w.appendChild(d); scrollDn(); return id;
 }
 function removeTyping(id) { const e=document.getElementById(id); if(e) e.remove(); }
 function scrollDn() { const m=document.getElementById('msgs'); m.scrollTop=m.scrollHeight; }
 
-/* ── TTS ── */
+// ═══════════════════════════════════════════════════════
+// 🔊 TTS / 🎤 STT
+// ═══════════════════════════════════════════════════════
 function speakMsg(btn, text) {
-  if (ttsU) {
-    speechSynthesis.cancel(); ttsU=null;
-    document.querySelectorAll('.listen-btn.playing').forEach(b=>{b.classList.remove('playing');resetLBtn(b);});
-    if (btn._on) { btn._on=false; return; }
-  }
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang=LANGS[lang].voice; u.rate=0.9; u.pitch=1.05;
-  ttsU=u; btn.classList.add('playing');
-  btn.textContent=`⏹ ${LANGS[lang].stop}`; btn._on=true;
+  if (!('speechSynthesis' in window)) { alert('Spraakafspeling niet ondersteund.'); return; }
+  if (ttsU) { speechSynthesis.cancel(); ttsU=null; document.querySelectorAll('.listen-btn.playing').forEach(b=>{b.classList.remove('playing');resetLBtn(b);}); if(btn._on){btn._on=false;return;} }
+  const u = new SpeechSynthesisUtterance(text); u.lang=LANGS[lang].voice; u.rate=0.9; u.pitch=1.05;
+  ttsU=u; btn.classList.add('playing'); btn.textContent=`⏹ ${LANGS[lang].stop}`; btn._on=true;
   u.onend = () => { btn.classList.remove('playing'); resetLBtn(btn); btn._on=false; ttsU=null; };
+  u.onerror = () => { resetLBtn(btn); btn._on=false; ttsU=null; };
   speechSynthesis.speak(u);
 }
 function resetLBtn(btn) { btn.textContent=`🔊 ${LANGS[lang].listen}`; }
 
-/* ── MIC ── */
 function toggleMic() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { alert('Voice input needs Chrome or Edge.'); return; }
+  if (!SR) { alert('Spraakinput vereist Chrome/Edge/Safari.'); return; }
   if (recording) { recog?.stop(); return; }
-  recog = new SR();
-  recog.lang=LANGS[lang].voice; recog.interimResults=false; recog.maxAlternatives=1;
+  recog = new SR(); recog.lang=LANGS[lang].voice; recog.interimResults=false; recog.maxAlternatives=1;
   const mic = document.getElementById('micBtn');
-  recog.onstart  = ()=>{recording=true;mic.classList.add('rec');mic.textContent='⏹';mic.setAttribute('aria-label','Stop');};
-  recog.onresult = e=>{document.getElementById('chatInp').value=e.results[0][0].transcript;autoResize(document.getElementById('chatInp'));};
-  recog.onend    = ()=>{recording=false;mic.classList.remove('rec');mic.textContent='🎤';mic.setAttribute('aria-label','Voice input');if(document.getElementById('chatInp').value.trim())sendMsg();};
-  recog.onerror  = ()=>{recording=false;mic.classList.remove('rec');mic.textContent='🎤';};
-  recog.start();
+  recog.onstart = ()=>{recording=true;mic.classList.add('rec');mic.textContent='⏹';mic.setAttribute('aria-label','Stop');mic.setAttribute('aria-pressed','true');};
+  recog.onresult = e=>{ const inp=document.getElementById('chatInp'); inp.value = inp.value ? inp.value+' '+e.results[0][0].transcript : e.results[0][0].transcript; autoResize(inp); updateCharCounter(); };
+  recog.onend = ()=>{recording=false;mic.classList.remove('rec');mic.textContent='🎤';mic.setAttribute('aria-label','Spraakinput');mic.setAttribute('aria-pressed','false'); if(document.getElementById('chatInp').value.trim() && !isPaywallActive()) sendMsg(); };
+  recog.onerror = ()=>{recording=false;mic.classList.remove('rec');mic.textContent='🎤';};
+  try { recog.start(); } catch(e) { console.error('Mic error:', e); }
 }
 
-/* ── UTILS ── */
-function handleKey(e) { if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();} }
-function autoResize(el){ el.style.height='26px'; el.style.height=Math.min(el.scrollHeight,110)+'px'; }
+// ═══════════════════════════════════════════════════════
+// 🔧 UTILS
+// ═══════════════════════════════════════════════════════
+function handleKey(e) { if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); sendMsg(); } }
+function autoResize(el){ el.style.height='26px'; el.style.height=Math.min(el.scrollHeight,110)+'px'; updateCharCounter(); }
+function updateCharCounter() {
+  const inp=document.getElementById('chatInp'), counter=document.getElementById('charCount'), wrap=document.getElementById('charCounter');
+  if(!counter||!wrap) return; const len=inp.value.length, max=parseInt(inp.maxLength)||500; counter.textContent=len;
+  wrap.classList.remove('warn','error'); if(len>=max)wrap.classList.add('error'); else if(len>=max*0.9)wrap.classList.add('warn');
+  document.getElementById('sendBtn').disabled = len===0 || len>max || loading || isPaywallActive();
+}
 function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/\n/g,'<br>'); }
 function escA(t){ return String(t).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,' ').substring(0,300); }
+function debounce(func,wait){ let timeout; return function(...args){ const later=()=>{clearTimeout(timeout);func(...args)}; clearTimeout(timeout); timeout=setTimeout(later,wait); }; }
 </script>
 </body>
 </html>
