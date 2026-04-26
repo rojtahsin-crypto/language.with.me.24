@@ -720,8 +720,7 @@
     <script>
         // ========== CONFIGURATIE ==========
         // Vervang dit met je eigen Google Client ID van https://console.cloud.google.com/
-        const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
-        
+        const GOOGLE_CLIENT_ID = '';        
         // ========== FLAG GENERATOR ==========
         const flagClasses = [
             'flag-kurdistan', 'flag-nl', 'flag-usa', 'flag-uk', 
@@ -1055,18 +1054,45 @@
         }
 
         // ========== VIEW MANAGEMENT ==========
-        function showLoggedInView(user) {
-            document.getElementById('authView').style.display = 'none';
-            document.getElementById('loggedInView').classList.add('active');
-
-            if (user) {
-                document.getElementById('userEmailDisplay').textContent = user.email;
-                if (user.picture) {
-                    const avatar = document.querySelector('.user-avatar');
-                    avatar.innerHTML = `<img src="${user.picture}" alt="${user.name}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`;
-                }
-            }
+// 🔥 فەنکشنی تەواو - کۆپی بکە و پێشووەکە بسڕەوە
+function showLoggedInView(user) {
+    // 1️⃣ داتای بەکارهێنەر بپارێزە
+    localStorage.setItem('lingua_user', JSON.stringify({
+        email: user.email,
+        name: user.name || user.email?.split('@')[0] || 'Gebruiker',
+        provider: user.provider || 'email',
+        picture: user.picture,
+        loginTime: new Date().toISOString()
+    }));
+    
+    // 2️⃣ نیشاندانی پەیجی "سەرکەوتوو"
+    document.getElementById('authView').style.display = 'none';
+    document.getElementById('loggedInView').classList.add('active');
+    
+    // 3️⃣ نوێکردنەوەی ناوی بەکارهێنەر
+    if (user) {
+        document.getElementById('userEmailDisplay').textContent = user.email;
+        if (user.picture) {
+            const avatar = document.querySelector('.user-avatar');
+            avatar.innerHTML = `<img src="${user.picture}" alt="${user.name}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`;
         }
+    }
+    
+    // 4️⃣ 🚀 ڕیڕەکت بکە بۆ پەیجی چات (دوای 1 چرکە)
+    setTimeout(() => {
+        // 🔐 پشکنین: ئەگەر پەیجی چات هەبوو، بڕۆ بۆی
+        // ئەگەر نا، پەیامێک نیشان بدە
+        const chatPage = 'ai-chat.html'; // ← ناوی پەیجی چاتەکەت لێرە بنووسە
+        
+        // هەوڵ بدە بچێتە پەیجی چات
+        window.location.href = chatPage;
+        
+        // ئەگەر پەیجەکە نەبوو، ئەمە ڕوودەدات (بۆ تاقیکردنەوە):
+        // setTimeout(() => {
+        //     alert('🚀 دەچین بۆ چات!\n\n(لە پرۆژەی ڕاستەقینەدا، ئەمە دەچێتە ' + chatPage + ')');
+        // }, 500);
+    }, 1000); // 1000ms = 1 چرکە
+}
 
         function showAuthView() {
             document.getElementById('authView').style.display = 'block';
