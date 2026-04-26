@@ -1145,6 +1145,15 @@ function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').rep
 function escA(t){ return String(t).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,' ').substring(0,300); }
 function debounce(func,wait){ let timeout; return function(...args){ const later=()=>{clearTimeout(timeout);func(...args)}; clearTimeout(timeout); timeout=setTimeout(later,wait); }; }
 </script>
+<script>
+// 🔐 Auth Check - ئەگەر نەچووبێتە ژوورەوە، بگەڕێوە بۆ لۆگین
+(function() {
+    const user = localStorage.getItem('lingua_user');
+    if (!user) {
+        window.location.href = 'index.html';
+    }
+})();
+</script>
 
 <script src="login.html"></script>
 
