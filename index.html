@@ -6,6 +6,8 @@
     <title>LinguaAI - Login & Sign Up</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         :root {
             --bg-light: #faf8f3;
@@ -34,6 +36,7 @@
             width: 100%; height: 100%;
             z-index: 0;
             overflow: hidden;
+            pointer-events: none;
         }
 
         .flag {
@@ -52,42 +55,15 @@
             background: linear-gradient(135deg, #e31e24 33%, #ffffff 33%, #ffffff 66%, #059669 66%);
             box-shadow: 0 0 20px rgba(5, 150, 105, 0.3);
         }
-
-        .flag-nl {
-            background: linear-gradient(to bottom, #ae1c28 33%, #ffffff 33%, #ffffff 66%, #21468b 66%);
-        }
-
-        .flag-usa {
-            background: linear-gradient(135deg, #3c3b6e 40%, #b22234 40%);
-        }
-
-        .flag-uk {
-            background: linear-gradient(135deg, #012169 50%, #ffffff 50%);
-        }
-
-        .flag-de {
-            background: linear-gradient(to bottom, #000000 33%, #dd0000 33%, #dd0000 66%, #ffce00 66%);
-        }
-
-        .flag-fr {
-            background: linear-gradient(to right, #0055a4 33%, #ffffff 33%, #ffffff 66%, #ef4135 66%);
-        }
-
-        .flag-tr {
-            background: #e30a17;
-        }
-
-        .flag-iq {
-            background: linear-gradient(to bottom, #ce1126 33%, #ffffff 33%, #ffffff 66%, #000000 66%);
-        }
-
-        .flag-be {
-            background: linear-gradient(to right, #000000 33%, #fdda24 33%, #fdda24 66%, #ef3340 66%);
-        }
-
-        .flag-se {
-            background: #006aa7;
-        }
+        .flag-nl { background: linear-gradient(to bottom, #ae1c28 33%, #ffffff 33%, #ffffff 66%, #21468b 66%); }
+        .flag-usa { background: linear-gradient(135deg, #3c3b6e 40%, #b22234 40%); }
+        .flag-uk { background: linear-gradient(135deg, #012169 50%, #ffffff 50%); }
+        .flag-de { background: linear-gradient(to bottom, #000000 33%, #dd0000 33%, #dd0000 66%, #ffce00 66%); }
+        .flag-fr { background: linear-gradient(to right, #0055a4 33%, #ffffff 33%, #ffffff 66%, #ef4135 66%); }
+        .flag-tr { background: #e30a17; }
+        .flag-iq { background: linear-gradient(to bottom, #ce1126 33%, #ffffff 33%, #ffffff 66%, #000000 66%); }
+        .flag-be { background: linear-gradient(to right, #000000 33%, #fdda24 33%, #fdda24 66%, #ef3340 66%); }
+        .flag-se { background: #006aa7; }
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.6; }
@@ -109,6 +85,7 @@
             border-radius: 4px;
             animation: wave 3s infinite ease-in-out;
             transform-origin: left center;
+            pointer-events: none;
         }
 
         body.light-mode { background: var(--bg-light); color: var(--text-light); }
@@ -206,13 +183,8 @@
             position: relative;
         }
 
-        body.light-mode .tabs {
-            background: rgba(28, 26, 22, 0.04);
-        }
-
-        body.dark-mode .tabs {
-            background: rgba(240, 234, 216, 0.06);
-        }
+        body.light-mode .tabs { background: rgba(28, 26, 22, 0.04); }
+        body.dark-mode .tabs { background: rgba(240, 234, 216, 0.06); }
 
         .tab-btn {
             flex: 1;
@@ -229,13 +201,8 @@
             background: transparent;
         }
 
-        body.light-mode .tab-btn {
-            color: rgba(28, 26,22,0.5);
-        }
-
-        body.dark-mode .tab-btn {
-            color: rgba(240, 234, 216, 0.5);
-        }
+        body.light-mode .tab-btn { color: rgba(28, 26,22,0.5); }
+        body.dark-mode .tab-btn { color: rgba(240, 234, 216, 0.5); }
 
         .tab-btn.active {
             background: var(--accent);
@@ -266,13 +233,8 @@
             letter-spacing: 0.5px;
         }
 
-        body.light-mode .form-label {
-            color: rgba(28, 26, 22, 0.7);
-        }
-
-        body.dark-mode .form-label {
-            color: rgba(240, 234, 216, 0.7);
-        }
+        body.light-mode .form-label { color: rgba(28, 26, 22, 0.7); }
+        body.dark-mode .form-label { color: rgba(240, 234, 216, 0.7); }
 
         .input-wrapper { position: relative; }
 
@@ -451,14 +413,9 @@
         }
 
         body.light-mode .divider::before,
-        body.light-mode .divider::after {
-            background: rgba(28, 26,22,0.15);
-        }
-
+        body.light-mode .divider::after { background: rgba(28, 26,22,0.15); }
         body.dark-mode .divider::before,
-        body.dark-mode .divider::after {
-            background: rgba(240, 234, 216, 0.15);
-        }
+        body.dark-mode .divider::after { background: rgba(240, 234, 216, 0.15); }
 
         .divider span { padding: 0 16px; }
 
@@ -564,6 +521,7 @@
             background: var(--accent);
             opacity: 0;
             animation: sparkleAnim 3s infinite ease-in-out;
+            pointer-events: none;
         }
 
         @keyframes sparkleAnim {
@@ -600,8 +558,37 @@
         }
 
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Google Sign-In Button Styling */
+        #googleSignInBtn {
+            width: 100%;
+            margin-top: 12px;
+        }
+        
+        .gsi-material-button {
+            width: 100% !important;
+            border-radius: 12px !important;
+            padding: 12px !important;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 13px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .error-message.show { display: block; }
+
+        .success-message {
+            color: #10b981;
+            font-size: 13px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .success-message.show { display: block; }
     </style>
-<base target="_blank">
 </head>
 <body class="light-mode">
     <div class="flags-container" id="flagsContainer"></div>
@@ -638,6 +625,7 @@
                             <i class="fas fa-envelope input-icon"></i>
                             <input type="email" class="form-input" placeholder="naam@voorbeeld.com" id="loginEmail">
                         </div>
+                        <div class="error-message" id="loginEmailError">Voer een geldig e-mailadres in</div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Wachtwoord</label>
@@ -646,6 +634,7 @@
                             <input type="password" class="form-input password-input" placeholder="Je wachtwoord" id="loginPassword">
                             <i class="fas fa-eye toggle-password" onclick="togglePassword('loginPassword', this)"></i>
                         </div>
+                        <div class="error-message" id="loginPasswordError">Wachtwoord is verplicht</div>
                     </div>
                     <div class="form-options">
                         <label class="remember-me" onclick="toggleCheckbox(this)">
@@ -669,6 +658,7 @@
                             <i class="fas fa-user input-icon"></i>
                             <input type="text" class="form-input" placeholder="Je naam" id="signupName">
                         </div>
+                        <div class="error-message" id="signupNameError">Naam is verplicht</div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">E-mailadres</label>
@@ -676,6 +666,7 @@
                             <i class="fas fa-envelope input-icon"></i>
                             <input type="email" class="form-input" placeholder="naam@voorbeeld.com" id="signupEmail">
                         </div>
+                        <div class="error-message" id="signupEmailError">Voer een geldig e-mailadres in</div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Wachtwoord</label>
@@ -684,6 +675,7 @@
                             <input type="password" class="form-input password-input" placeholder="Kies een sterk wachtwoord" id="signupPassword">
                             <i class="fas fa-eye toggle-password" onclick="togglePassword('signupPassword', this)"></i>
                         </div>
+                        <div class="error-message" id="signupPasswordError">Minimaal 6 karakters</div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Bevestig wachtwoord</label>
@@ -692,6 +684,7 @@
                             <input type="password" class="form-input password-input" placeholder="Herhaal wachtwoord" id="signupConfirm">
                             <i class="fas fa-eye toggle-password" onclick="togglePassword('signupConfirm', this)"></i>
                         </div>
+                        <div class="error-message" id="signupConfirmError">Wachtwoorden komen niet overeen</div>
                     </div>
                     <button class="btn btn-primary" onclick="handleSignup()">
                         <i class="fas fa-user-plus"></i>
@@ -703,15 +696,8 @@
                     <span>of ga verder met</span>
                 </div>
 
-                <button class="btn btn-google" onclick="handleGoogleAuth()">
-                    <svg width="20" height="20" viewBox="0 0 24 24">
-                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                    </svg>
-                    Doorgaan met Google
-                </button>
+                <!-- Google Sign-In Button Container -->
+                <div id="googleSignInBtn"></div>
             </div>
 
             <div class="logged-in-view" id="loggedInView">
@@ -732,6 +718,11 @@
     </div>
 
     <script>
+        // ========== CONFIGURATIE ==========
+        // Vervang dit met je eigen Google Client ID van https://console.cloud.google.com/
+        const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
+        
+        // ========== FLAG GENERATOR ==========
         const flagClasses = [
             'flag-kurdistan', 'flag-nl', 'flag-usa', 'flag-uk', 
             'flag-de', 'flag-fr', 'flag-tr', 'flag-iq', 
@@ -785,6 +776,7 @@
             }
         }
 
+        // ========== THEME TOGGLE ==========
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
 
@@ -800,6 +792,7 @@
             }
         });
 
+        // ========== TABS ==========
         const tabBtns = document.querySelectorAll('.tab-btn');
         const formSections = document.querySelectorAll('.form-section');
 
@@ -810,9 +803,14 @@
                 btn.classList.add('active');
                 formSections.forEach(s => s.classList.remove('active'));
                 document.getElementById(tab + 'Form').classList.add('active');
+                // Hide all messages when switching tabs
+                document.querySelectorAll('.error-message, .success-message').forEach(el => {
+                    el.classList.remove('show');
+                });
             });
         });
 
+        // ========== PASSWORD TOGGLE ==========
         function togglePassword(inputId, icon) {
             const input = document.getElementById(inputId);
             if (input.type === 'password') {
@@ -826,11 +824,13 @@
             }
         }
 
+        // ========== CHECKBOX TOGGLE ==========
         function toggleCheckbox(label) {
             const checkbox = label.querySelector('.custom-checkbox');
             checkbox.classList.toggle('checked');
         }
 
+        // ========== LOADING ==========
         function showLoading() {
             document.getElementById('loadingOverlay').classList.add('active');
         }
@@ -839,48 +839,101 @@
             document.getElementById('loadingOverlay').classList.remove('active');
         }
 
-        async function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
+        // ========== VALIDATION ==========
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
 
-            if (!email || !password) {
-                alert('Vul alle velden in');
-                return;
+        function showError(inputId, errorId) {
+            const input = document.getElementById(inputId);
+            const error = document.getElementById(errorId);
+            input.style.borderColor = '#ef4444';
+            error.classList.add('show');
+        }
+
+        function clearError(inputId, errorId) {
+            const input = document.getElementById(inputId);
+            const error = document.getElementById(errorId);
+            input.style.borderColor = 'transparent';
+            error.classList.remove('show');
+        }
+
+        // ========== LOGIN ==========
+        async function handleLogin() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            let hasError = false;
+
+            // Clear previous errors
+            clearError('loginEmail', 'loginEmailError');
+            clearError('loginPassword', 'loginPasswordError');
+
+            // Validate
+            if (!isValidEmail(email)) {
+                showError('loginEmail', 'loginEmailError');
+                hasError = true;
             }
+            if (!password) {
+                showError('loginPassword', 'loginPasswordError');
+                hasError = true;
+            }
+
+            if (hasError) return;
 
             showLoading();
 
             try {
+                // Simuleer API call - vervang door echte backend call
                 const response = await simulateApiRequest('/auth/login', { email, password });
 
                 if (response.success) {
                     showLoggedInView(response.user);
+                    showSuccess('loginEmail', 'loginEmailError', 'Succesvol ingelogd!');
                 } else {
-                    alert(response.error || 'Inloggen mislukt');
+                    showError('loginPassword', 'loginPasswordError');
+                    document.getElementById('loginPasswordError').textContent = response.error || 'Inloggen mislukt';
                 }
             } catch (error) {
                 console.error('Login fout:', error);
-                alert('Er ging iets mis. Probeer het later opnieuw.');
+                showError('loginPassword', 'loginPasswordError');
+                document.getElementById('loginPasswordError').textContent = 'Er ging iets mis. Probeer het later opnieuw.';
             } finally {
                 hideLoading();
             }
         }
 
+        // ========== SIGNUP ==========
         async function handleSignup() {
-            const name = document.getElementById('signupName').value;
-            const email = document.getElementById('signupEmail').value;
+            const name = document.getElementById('signupName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
             const password = document.getElementById('signupPassword').value;
             const confirm = document.getElementById('signupConfirm').value;
+            let hasError = false;
 
-            if (!name || !email || !password || !confirm) {
-                alert('Vul alle velden in');
-                return;
+            // Clear previous errors
+            ['signupName', 'signupEmail', 'signupPassword', 'signupConfirm'].forEach(id => {
+                clearError(id, id + 'Error');
+            });
+
+            // Validate
+            if (!name) {
+                showError('signupName', 'signupNameError');
+                hasError = true;
             }
-
+            if (!isValidEmail(email)) {
+                showError('signupEmail', 'signupEmailError');
+                hasError = true;
+            }
+            if (password.length < 6) {
+                showError('signupPassword', 'signupPasswordError');
+                hasError = true;
+            }
             if (password !== confirm) {
-                alert('Wachtwoorden komen niet overeen');
-                return;
+                showError('signupConfirm', 'signupConfirmError');
+                hasError = true;
             }
+
+            if (hasError) return;
 
             showLoading();
 
@@ -890,55 +943,128 @@
                 if (response.success) {
                     showLoggedInView(response.user);
                 } else {
-                    alert(response.error || 'Registratie mislukt');
+                    showError('signupEmail', 'signupEmailError');
+                    document.getElementById('signupEmailError').textContent = response.error || 'Registratie mislukt';
                 }
             } catch (error) {
                 console.error('Registratie fout:', error);
-                alert('Er ging iets mis. Probeer het later opnieuw.');
+                showError('signupEmail', 'signupEmailError');
+                document.getElementById('signupEmailError').textContent = 'Er ging iets mis. Probeer het later opnieuw.';
             } finally {
                 hideLoading();
             }
         }
 
-        async function handleGoogleAuth() {
+        // ========== GOOGLE SIGN-IN ==========
+        function handleGoogleCallback(response) {
             showLoading();
-
+            
             try {
-                await simulateApiRequest('/auth/google', {});
-
+                // Decode JWT token om gebruikersinfo te krijgen
+                const payload = decodeJwtResponse(response.credential);
+                
+                // Simuleer backend verificatie
                 setTimeout(() => {
                     hideLoading();
-                    showLoggedInView({ email: 'gebruiker@gmail.com', name: 'Google Gebruiker' });
-                }, 1500);
+                    showLoggedInView({
+                        email: payload.email,
+                        name: payload.name,
+                        picture: payload.picture,
+                        provider: 'google'
+                    });
+                }, 1000);
             } catch (error) {
                 console.error('Google login fout:', error);
                 hideLoading();
-                alert('Google login mislukt');
+                alert('Google login mislukt. Probeer het opnieuw.');
             }
         }
 
+        function decodeJwtResponse(token) {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        }
+
+        function initGoogleSignIn() {
+            if (typeof google === 'undefined') {
+                console.warn('Google Identity Services niet geladen. Controleer je internetverbinding.');
+                return;
+            }
+
+            google.accounts.id.initialize({
+                client_id: GOOGLE_CLIENT_ID,
+                callback: handleGoogleCallback,
+                auto_select: false,
+                cancel_on_tap_outside: true
+            });
+
+            google.accounts.id.renderButton(
+                document.getElementById('googleSignInBtn'),
+                {
+                    theme: body.classList.contains('dark-mode') ? 'filled_black' : 'outline',
+                    size: 'large',
+                    width: '100%',
+                    text: 'continue_with',
+                    shape: 'rectangular',
+                    logo_alignment: 'left'
+                }
+            );
+
+            // Update button theme when theme changes
+            const observer = new MutationObserver(() => {
+                google.accounts.id.renderButton(
+                    document.getElementById('googleSignInBtn'),
+                    {
+                        theme: body.classList.contains('dark-mode') ? 'filled_black' : 'outline',
+                        size: 'large',
+                        width: '100%',
+                        text: 'continue_with',
+                        shape: 'rectangular',
+                        logo_alignment: 'left'
+                    }
+                );
+            });
+            observer.observe(body, { attributes: true, attributeFilter: ['class'] });
+        }
+
+        // ========== LOGOUT ==========
         async function handleLogout() {
             showLoading();
 
             try {
+                // Sign out from Google if signed in with Google
+                if (typeof google !== 'undefined') {
+                    google.accounts.id.disableAutoSelect();
+                }
+                
                 await simulateApiRequest('/auth/logout', {});
-
                 hideLoading();
                 showAuthView();
 
+                // Clear form inputs
                 document.querySelectorAll('input').forEach(input => input.value = '');
+                document.querySelectorAll('.custom-checkbox').forEach(cb => cb.classList.remove('checked'));
             } catch (error) {
                 console.error('Logout fout:', error);
                 hideLoading();
             }
         }
 
+        // ========== VIEW MANAGEMENT ==========
         function showLoggedInView(user) {
             document.getElementById('authView').style.display = 'none';
             document.getElementById('loggedInView').classList.add('active');
 
-            if (user && user.email) {
+            if (user) {
                 document.getElementById('userEmailDisplay').textContent = user.email;
+                if (user.picture) {
+                    const avatar = document.querySelector('.user-avatar');
+                    avatar.innerHTML = `<img src="${user.picture}" alt="${user.name}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`;
+                }
             }
         }
 
@@ -947,17 +1073,28 @@
             document.getElementById('loggedInView').classList.remove('active');
         }
 
+        function showSuccess(inputId, errorId, message) {
+            const errorEl = document.getElementById(errorId);
+            errorEl.textContent = message;
+            errorEl.style.color = '#10b981';
+            errorEl.classList.add('show');
+            setTimeout(() => {
+                errorEl.classList.remove('show');
+                errorEl.style.color = '';
+            }, 3000);
+        }
+
+        // ========== API SIMULATION ==========
         async function simulateApiRequest(endpoint, data) {
             return new Promise((resolve) => {
                 setTimeout(() => {
                     console.log(`API Simulatie: ${endpoint}`, data);
-
                     resolve({
                         success: true,
                         user: {
                             id: Math.random().toString(36).substr(2, 9),
                             email: data.email,
-                            name: data.name || data.email.split('@')[0],
+                            name: data.name || data.email?.split('@')[0] || 'Gebruiker',
                             role: 'user',
                             createdAt: new Date().toISOString()
                         }
@@ -966,9 +1103,76 @@
             });
         }
 
-        generateFlags();
-        generateParticles();
-        generateSparkles();
+        // ========== INPUT EVENT LISTENERS ==========
+        // Clear errors on input
+        ['loginEmail', 'loginPassword', 'signupName', 'signupEmail', 'signupPassword', 'signupConfirm'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', () => clearError(id, id + 'Error'));
+                input.addEventListener('blur', () => {
+                    if (!input.value && id.includes('login')) {
+                        if (id === 'loginEmail' && !isValidEmail(input.value)) {
+                            showError(id, id + 'Error');
+                        } else if (id === 'loginPassword' && !input.value) {
+                            showError(id, id + 'Error');
+                        }
+                    }
+                });
+            }
+        });
+
+        // ========== INITIALIZATION ==========
+        function init() {
+            generateFlags();
+            generateParticles();
+            generateSparkles();
+            
+            // Initialize Google Sign-In after library loads
+            if (typeof google !== 'undefined') {
+                initGoogleSignIn();
+            } else {
+                // Fallback: show styled button that triggers simulation
+                const fallbackBtn = document.createElement('button');
+                fallbackBtn.className = 'btn btn-google';
+                fallbackBtn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" style="margin-right:10px">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    Doorgaan met Google
+                `;
+                fallbackBtn.onclick = () => {
+                    showLoading();
+                    setTimeout(() => {
+                        hideLoading();
+                        showLoggedInView({ 
+                            email: 'gebruiker@gmail.com', 
+                            name: 'Google Gebruiker',
+                            picture: null,
+                            provider: 'google'
+                        });
+                    }, 1500);
+                };
+                document.getElementById('googleSignInBtn').appendChild(fallbackBtn);
+            }
+
+            // Check for saved theme
+            const savedTheme = localStorage.getItem('lingua-theme');
+            if (savedTheme === 'dark') {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        }
+
+        // Start app when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
     </script>
 </body>
 </html>
