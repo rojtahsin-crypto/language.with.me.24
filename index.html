@@ -2,12 +2,10 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>LinguaAI - Login & Sign Up</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Identity Services -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         :root {
             --bg-light: #faf8f3;
@@ -15,21 +13,30 @@
             --accent: #059669;
             --bg-dark: #131109;
             --text-dark: #f0ead8;
-            --card-light: rgba(255, 255, 255, 0.85);
-            --card-dark: rgba(28, 26, 22, 0.85);
+            --card-light: rgba(255, 255, 255, 0.92);
+            --card-dark: rgba(28, 26, 22, 0.92);
             --shadow-light: 0 8px 32px rgba(28, 26, 22, 0.12);
             --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
-            overflow: hidden;
+            min-height: 100dvh; /* dynamic viewport height for mobile */
+            overflow-y: auto;
+            overflow-x: hidden;
             position: relative;
+            -webkit-overflow-scrolling: touch;
         }
 
+        /* ========== ANIMATED FLAGS ========== */
         .flags-container {
             position: fixed;
             top: 0; left: 0;
@@ -41,13 +48,11 @@
 
         .flag {
             position: absolute;
-            width: 80px; height: 53px;
+            width: 70px; height: 47px;
             border-radius: 4px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             animation: float 20s infinite ease-in-out;
-            opacity: 0.7;
-            background-size: cover;
-            background-position: center;
+            opacity: 0.5;
             filter: saturate(0.8);
         }
 
@@ -66,10 +71,10 @@
         .flag-se { background: #006aa7; }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.6; }
-            25% { transform: translateY(-30px) rotate(3deg) scale(1.05); opacity: 0.8; }
-            50% { transform: translateY(-15px) rotate(-2deg) scale(0.95); opacity: 0.7; }
-            75% { transform: translateY(-40px) rotate(1deg) scale(1.02); opacity: 0.9; }
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.4; }
+            25% { transform: translateY(-30px) rotate(3deg) scale(1.05); opacity: 0.6; }
+            50% { transform: translateY(-15px) rotate(-2deg) scale(0.95); opacity: 0.5; }
+            75% { transform: translateY(-40px) rotate(1deg) scale(1.02); opacity: 0.7; }
         }
 
         @keyframes wave {
@@ -85,7 +90,6 @@
             border-radius: 4px;
             animation: wave 3s infinite ease-in-out;
             transform-origin: left center;
-            pointer-events: none;
         }
 
         body.light-mode { background: var(--bg-light); color: var(--text-light); }
@@ -95,21 +99,25 @@
             position: relative;
             z-index: 10;
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         .auth-card {
-            width: 100%; max-width: 480px;
+            width: 100%;
+            max-width: 480px;
             border-radius: 24px;
-            padding: 48px 40px;
+            padding: 40px 32px;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             transition: all 0.4s ease;
+            margin-top: 20px;
+            margin-bottom: 40px;
         }
 
         body.light-mode .auth-card {
@@ -131,6 +139,7 @@
             background: linear-gradient(90deg, var(--accent), #10b981, var(--accent));
             background-size: 200% 100%;
             animation: shimmer 3s infinite;
+            border-radius: 24px 24px 0 0;
         }
 
         @keyframes shimmer {
@@ -140,18 +149,18 @@
 
         .card-header {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         .logo-icon {
-            width: 64px; height: 64px;
+            width: 56px; height: 56px;
             border-radius: 16px;
             background: linear-gradient(135deg, var(--accent), #10b981);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px; color: white;
+            margin: 0 auto 16px;
+            font-size: 24px; color: white;
             box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
             animation: pulse 2s infinite;
         }
@@ -162,14 +171,14 @@
         }
 
         .card-header h1 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 800;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             letter-spacing: -0.5px;
         }
 
         .card-header p {
-            font-size: 15px;
+            font-size: 14px;
             opacity: 0.7;
             font-weight: 400;
         }
@@ -177,10 +186,9 @@
         .tabs {
             display: flex;
             gap: 8px;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             padding: 4px;
             border-radius: 12px;
-            position: relative;
         }
 
         body.light-mode .tabs { background: rgba(28, 26, 22, 0.04); }
@@ -188,7 +196,7 @@
 
         .tab-btn {
             flex: 1;
-            padding: 12px 16px;
+            padding: 10px 14px;
             border: none;
             border-radius: 10px;
             font-size: 14px;
@@ -196,8 +204,6 @@
             font-family: inherit;
             cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
             background: transparent;
         }
 
@@ -222,13 +228,13 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .form-group { margin-bottom: 20px; }
+        .form-group { margin-bottom: 16px; }
 
         .form-label {
             display: block;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -240,16 +246,17 @@
 
         .input-icon {
             position: absolute;
-            left: 16px; top: 50%;
+            left: 14px; top: 50%;
             transform: translateY(-50%);
-            font-size: 16px;
+            font-size: 15px;
             opacity: 0.5;
             transition: all 0.3s ease;
+            pointer-events: none;
         }
 
         .form-input {
             width: 100%;
-            padding: 14px 16px 14px 48px;
+            padding: 12px 14px 12px 44px;
             border-radius: 12px;
             border: 2px solid transparent;
             font-size: 15px;
@@ -257,6 +264,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
             outline: none;
+            -webkit-appearance: none;
         }
 
         body.light-mode .form-input {
@@ -282,23 +290,24 @@
 
         .toggle-password {
             position: absolute;
-            right: 16px; top: 50%;
+            right: 14px; top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
             opacity: 0.5;
             transition: all 0.3s ease;
-            font-size: 16px;
+            font-size: 15px;
+            padding: 8px;
         }
 
         .toggle-password:hover { opacity: 1; color: var(--accent); }
 
-        .password-input { padding-right: 48px; }
+        .password-input { padding-right: 44px; }
 
         .form-options {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             font-size: 13px;
         }
 
@@ -307,6 +316,7 @@
             align-items: center;
             gap: 8px;
             cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .custom-checkbox {
@@ -317,7 +327,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            position: relative;
+            flex-shrink: 0;
         }
 
         .custom-checkbox.checked { background: var(--accent); }
@@ -336,13 +346,14 @@
             text-decoration: none;
             font-weight: 600;
             transition: opacity 0.3s;
+            white-space: nowrap;
         }
 
         .forgot-link:hover { opacity: 0.8; text-decoration: underline; }
 
         .btn {
             width: 100%;
-            padding: 14px 24px;
+            padding: 12px 20px;
             border-radius: 12px;
             border: none;
             font-size: 15px;
@@ -356,6 +367,8 @@
             gap: 10px;
             position: relative;
             overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         .btn-primary {
@@ -369,7 +382,7 @@
             box-shadow: 0 8px 24px rgba(5, 150, 105, 0.4);
         }
 
-        .btn-primary:active { transform: translateY(0); }
+        .btn-primary:active { transform: translateY(0) scale(0.98); }
 
         .btn-google {
             background: transparent;
@@ -394,12 +407,12 @@
             background: rgba(5, 150, 105, 0.05);
         }
 
-        .btn-google img { width: 20px; height: 20px; }
+        .btn-google svg { flex-shrink: 0; }
 
         .divider {
             display: flex;
             align-items: center;
-            margin: 24px 0;
+            margin: 20px 0;
             font-size: 13px;
             font-weight: 500;
             opacity: 0.5;
@@ -417,22 +430,23 @@
         body.dark-mode .divider::before,
         body.dark-mode .divider::after { background: rgba(240, 234, 216, 0.15); }
 
-        .divider span { padding: 0 16px; }
+        .divider span { padding: 0 16px; white-space: nowrap; }
 
         .theme-toggle {
             position: fixed;
-            top: 24px; right: 24px;
+            top: 20px; right: 20px;
             z-index: 100;
-            width: 48px; height: 48px;
+            width: 44px; height: 44px;
             border-radius: 50%;
             border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            -webkit-tap-highlight-color: transparent;
         }
 
         body.light-mode .theme-toggle {
@@ -446,6 +460,7 @@
         }
 
         .theme-toggle:hover { transform: scale(1.1) rotate(15deg); }
+        .theme-toggle:active { transform: scale(0.95); }
 
         .logged-in-view {
             display: none;
@@ -456,27 +471,27 @@
         .logged-in-view.active { display: block; }
 
         .user-avatar {
-            width: 80px; height: 80px;
+            width: 72px; height: 72px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--accent), #10b981);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 32px; color: white;
+            margin: 0 auto 16px;
+            font-size: 28px; color: white;
             box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
         }
 
         .welcome-text {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .user-email {
             font-size: 14px;
             opacity: 0.7;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .logout-btn {
@@ -529,12 +544,6 @@
             50% { transform: scale(1); opacity: 0.6; }
         }
 
-        @media (max-width: 520px) {
-            .auth-card { padding: 32px 24px; border-radius: 20px; }
-            .card-header h1 { font-size: 24px; }
-            .flag { width: 50px; height: 33px; }
-        }
-
         .loading-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -559,36 +568,67 @@
 
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* Google Sign-In Button Styling */
-        #googleSignInBtn {
-            width: 100%;
-            margin-top: 12px;
-        }
-        
-        .gsi-material-button {
-            width: 100% !important;
-            border-radius: 12px !important;
-            padding: 12px !important;
-        }
-
         .error-message {
             color: #ef4444;
-            font-size: 13px;
+            font-size: 12px;
             margin-top: 4px;
             display: none;
+            padding-left: 4px;
         }
 
         .error-message.show { display: block; }
 
-        .success-message {
-            color: #10b981;
-            font-size: 13px;
-            margin-top: 4px;
-            display: none;
+        /* ========== MOBILE FIXES ========== */
+        @media (max-width: 520px) {
+            .main-container {
+                padding: 20px 16px;
+                align-items: flex-start;
+            }
+
+            .auth-card {
+                padding: 28px 20px;
+                border-radius: 20px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+
+            .card-header h1 { font-size: 22px; }
+            .card-header p { font-size: 13px; }
+
+            .logo-icon {
+                width: 48px; height: 48px;
+                font-size: 20px;
+            }
+
+            .flag { width: 50px; height: 33px; }
+
+            .form-group { margin-bottom: 14px; }
+            .form-input { padding: 11px 12px 11px 40px; font-size: 16px; }
+            .input-icon { left: 12px; font-size: 14px; }
+            .toggle-password { right: 12px; }
+            .password-input { padding-right: 40px; }
+
+            .btn { padding: 12px 16px; font-size: 15px; }
+            .tab-btn { padding: 10px 12px; font-size: 13px; }
+
+            .theme-toggle {
+                width: 40px; height: 40px;
+                font-size: 16px;
+                top: 16px; right: 16px;
+            }
         }
 
-        .success-message.show { display: block; }
+        /* Fix for iOS Safari bottom bar */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                min-height: -webkit-fill-available;
+            }
+            .main-container {
+                min-height: -webkit-fill-available;
+            }
+        }
     </style>
+<base target="_blank">
 </head>
 <body class="light-mode">
     <div class="flags-container" id="flagsContainer"></div>
@@ -623,7 +663,7 @@
                         <label class="form-label">E-mailadres</label>
                         <div class="input-wrapper">
                             <i class="fas fa-envelope input-icon"></i>
-                            <input type="email" class="form-input" placeholder="naam@voorbeeld.com" id="loginEmail">
+                            <input type="email" class="form-input" placeholder="naam@voorbeeld.com" id="loginEmail" inputmode="email" autocomplete="email">
                         </div>
                         <div class="error-message" id="loginEmailError">Voer een geldig e-mailadres in</div>
                     </div>
@@ -631,7 +671,7 @@
                         <label class="form-label">Wachtwoord</label>
                         <div class="input-wrapper">
                             <i class="fas fa-lock input-icon"></i>
-                            <input type="password" class="form-input password-input" placeholder="Je wachtwoord" id="loginPassword">
+                            <input type="password" class="form-input password-input" placeholder="Je wachtwoord" id="loginPassword" autocomplete="current-password">
                             <i class="fas fa-eye toggle-password" onclick="togglePassword('loginPassword', this)"></i>
                         </div>
                         <div class="error-message" id="loginPasswordError">Wachtwoord is verplicht</div>
@@ -656,7 +696,7 @@
                         <label class="form-label">Volledige naam</label>
                         <div class="input-wrapper">
                             <i class="fas fa-user input-icon"></i>
-                            <input type="text" class="form-input" placeholder="Je naam" id="signupName">
+                            <input type="text" class="form-input" placeholder="Je naam" id="signupName" autocomplete="name">
                         </div>
                         <div class="error-message" id="signupNameError">Naam is verplicht</div>
                     </div>
@@ -664,7 +704,7 @@
                         <label class="form-label">E-mailadres</label>
                         <div class="input-wrapper">
                             <i class="fas fa-envelope input-icon"></i>
-                            <input type="email" class="form-input" placeholder="naam@voorbeeld.com" id="signupEmail">
+                            <input type="email" class="form-input" placeholder="naam@voorbeeld.com" id="signupEmail" inputmode="email" autocomplete="email">
                         </div>
                         <div class="error-message" id="signupEmailError">Voer een geldig e-mailadres in</div>
                     </div>
@@ -672,7 +712,7 @@
                         <label class="form-label">Wachtwoord</label>
                         <div class="input-wrapper">
                             <i class="fas fa-lock input-icon"></i>
-                            <input type="password" class="form-input password-input" placeholder="Kies een sterk wachtwoord" id="signupPassword">
+                            <input type="password" class="form-input password-input" placeholder="Kies een sterk wachtwoord" id="signupPassword" autocomplete="new-password">
                             <i class="fas fa-eye toggle-password" onclick="togglePassword('signupPassword', this)"></i>
                         </div>
                         <div class="error-message" id="signupPasswordError">Minimaal 6 karakters</div>
@@ -681,7 +721,7 @@
                         <label class="form-label">Bevestig wachtwoord</label>
                         <div class="input-wrapper">
                             <i class="fas fa-shield-alt input-icon"></i>
-                            <input type="password" class="form-input password-input" placeholder="Herhaal wachtwoord" id="signupConfirm">
+                            <input type="password" class="form-input password-input" placeholder="Herhaal wachtwoord" id="signupConfirm" autocomplete="new-password">
                             <i class="fas fa-eye toggle-password" onclick="togglePassword('signupConfirm', this)"></i>
                         </div>
                         <div class="error-message" id="signupConfirmError">Wachtwoorden komen niet overeen</div>
@@ -696,8 +736,15 @@
                     <span>of ga verder met</span>
                 </div>
 
-                <!-- Google Sign-In Button Container -->
-                <div id="googleSignInBtn"></div>
+                <button class="btn btn-google" onclick="handleGoogleLogin()">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    Doorgaan met Google
+                </button>
             </div>
 
             <div class="logged-in-view" id="loggedInView">
@@ -718,10 +765,7 @@
     </div>
 
     <script>
-        // ========== CONFIGURATIE ==========
-        // Vervang dit met je eigen Google Client ID van https://console.cloud.google.com/
-        const GOOGLE_CLIENT_ID = '';        
-        // ========== FLAG GENERATOR ==========
+        // ========== FLAGS ==========
         const flagClasses = [
             'flag-kurdistan', 'flag-nl', 'flag-usa', 'flag-uk', 
             'flag-de', 'flag-fr', 'flag-tr', 'flag-iq', 
@@ -732,7 +776,7 @@
         function generateFlags() {
             const container = document.getElementById('flagsContainer');
             const isMobile = window.innerWidth < 768;
-            const count = isMobile ? 12 : 24;
+            const count = isMobile ? 8 : 16;
 
             for (let i = 0; i < count; i++) {
                 const flag = document.createElement('div');
@@ -741,20 +785,20 @@
                 flag.style.top = `${Math.random() * 90}%`;
                 flag.style.animationDelay = `${Math.random() * 20}s`;
                 flag.style.animationDuration = `${15 + Math.random() * 15}s`;
-                flag.style.transform = `scale(${0.6 + Math.random() * 0.8})`;
+                flag.style.transform = `scale(${0.5 + Math.random() * 0.6})`;
                 container.appendChild(flag);
             }
         }
 
         function generateParticles() {
             const container = document.getElementById('particles');
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 20; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.animationDelay = `${Math.random() * 15}s`;
                 particle.style.animationDuration = `${10 + Math.random() * 20}s`;
-                particle.style.width = `${2 + Math.random() * 6}px`;
+                particle.style.width = `${2 + Math.random() * 4}px`;
                 particle.style.height = particle.style.width;
                 container.appendChild(particle);
             }
@@ -762,20 +806,20 @@
 
         function generateSparkles() {
             const container = document.getElementById('flagsContainer');
-            for (let i = 0; i < 40; i++) {
+            for (let i = 0; i < 25; i++) {
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
                 sparkle.style.left = `${Math.random() * 100}%`;
                 sparkle.style.top = `${Math.random() * 100}%`;
                 sparkle.style.animationDelay = `${Math.random() * 5}s`;
                 sparkle.style.animationDuration = `${2 + Math.random() * 4}s`;
-                sparkle.style.width = `${3 + Math.random() * 8}px`;
+                sparkle.style.width = `${3 + Math.random() * 6}px`;
                 sparkle.style.height = sparkle.style.width;
                 container.appendChild(sparkle);
             }
         }
 
-        // ========== THEME TOGGLE ==========
+        // ========== THEME ==========
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
 
@@ -784,10 +828,12 @@
                 body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
                 themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('lingua-theme', 'dark');
             } else {
                 body.classList.remove('dark-mode');
                 body.classList.add('light-mode');
                 themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('lingua-theme', 'light');
             }
         });
 
@@ -802,14 +848,11 @@
                 btn.classList.add('active');
                 formSections.forEach(s => s.classList.remove('active'));
                 document.getElementById(tab + 'Form').classList.add('active');
-                // Hide all messages when switching tabs
-                document.querySelectorAll('.error-message, .success-message').forEach(el => {
-                    el.classList.remove('show');
-                });
+                document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
             });
         });
 
-        // ========== PASSWORD TOGGLE ==========
+        // ========== UTILITIES ==========
         function togglePassword(inputId, icon) {
             const input = document.getElementById(inputId);
             if (input.type === 'password') {
@@ -823,13 +866,11 @@
             }
         }
 
-        // ========== CHECKBOX TOGGLE ==========
         function toggleCheckbox(label) {
             const checkbox = label.querySelector('.custom-checkbox');
             checkbox.classList.toggle('checked');
         }
 
-        // ========== LOADING ==========
         function showLoading() {
             document.getElementById('loadingOverlay').classList.add('active');
         }
@@ -838,23 +879,18 @@
             document.getElementById('loadingOverlay').classList.remove('active');
         }
 
-        // ========== VALIDATION ==========
         function isValidEmail(email) {
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         }
 
         function showError(inputId, errorId) {
-            const input = document.getElementById(inputId);
-            const error = document.getElementById(errorId);
-            input.style.borderColor = '#ef4444';
-            error.classList.add('show');
+            document.getElementById(inputId).style.borderColor = '#ef4444';
+            document.getElementById(errorId).classList.add('show');
         }
 
         function clearError(inputId, errorId) {
-            const input = document.getElementById(inputId);
-            const error = document.getElementById(errorId);
-            input.style.borderColor = 'transparent';
-            error.classList.remove('show');
+            document.getElementById(inputId).style.borderColor = 'transparent';
+            document.getElementById(errorId).classList.remove('show');
         }
 
         // ========== LOGIN ==========
@@ -863,11 +899,9 @@
             const password = document.getElementById('loginPassword').value;
             let hasError = false;
 
-            // Clear previous errors
             clearError('loginEmail', 'loginEmailError');
             clearError('loginPassword', 'loginPasswordError');
 
-            // Validate
             if (!isValidEmail(email)) {
                 showError('loginEmail', 'loginEmailError');
                 hasError = true;
@@ -882,12 +916,9 @@
             showLoading();
 
             try {
-                // Simuleer API call - vervang door echte backend call
                 const response = await simulateApiRequest('/auth/login', { email, password });
-
                 if (response.success) {
                     showLoggedInView(response.user);
-                    showSuccess('loginEmail', 'loginEmailError', 'Succesvol ingelogd!');
                 } else {
                     showError('loginPassword', 'loginPasswordError');
                     document.getElementById('loginPasswordError').textContent = response.error || 'Inloggen mislukt';
@@ -909,12 +940,10 @@
             const confirm = document.getElementById('signupConfirm').value;
             let hasError = false;
 
-            // Clear previous errors
             ['signupName', 'signupEmail', 'signupPassword', 'signupConfirm'].forEach(id => {
                 clearError(id, id + 'Error');
             });
 
-            // Validate
             if (!name) {
                 showError('signupName', 'signupNameError');
                 hasError = true;
@@ -938,7 +967,6 @@
 
             try {
                 const response = await simulateApiRequest('/auth/register', { name, email, password });
-
                 if (response.success) {
                     showLoggedInView(response.user);
                 } else {
@@ -954,24 +982,19 @@
             }
         }
 
-        // ========== GOOGLE SIGN-IN ==========
-        function handleGoogleCallback(response) {
+        // ========== GOOGLE LOGIN ==========
+        async function handleGoogleLogin() {
             showLoading();
-            
+
             try {
-                // Decode JWT token om gebruikersinfo te krijgen
-                const payload = decodeJwtResponse(response.credential);
-                
-                // Simuleer backend verificatie
+                // Simuleer Google login
                 setTimeout(() => {
                     hideLoading();
                     showLoggedInView({
-                        email: payload.email,
-                        name: payload.name,
-                        picture: payload.picture,
-                        provider: 'google'
+                        email: 'gebruiker@gmail.com',
+                        name: 'Google Gebruiker'
                     });
-                }, 1000);
+                }, 1500);
             } catch (error) {
                 console.error('Google login fout:', error);
                 hideLoading();
@@ -979,72 +1002,13 @@
             }
         }
 
-        function decodeJwtResponse(token) {
-            const base64Url = token.split('.')[1];
-            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-            return JSON.parse(jsonPayload);
-        }
-
-        function initGoogleSignIn() {
-            if (typeof google === 'undefined') {
-                console.warn('Google Identity Services niet geladen. Controleer je internetverbinding.');
-                return;
-            }
-
-            google.accounts.id.initialize({
-                client_id: GOOGLE_CLIENT_ID,
-                callback: handleGoogleCallback,
-                auto_select: false,
-                cancel_on_tap_outside: true
-            });
-
-            google.accounts.id.renderButton(
-                document.getElementById('googleSignInBtn'),
-                {
-                    theme: body.classList.contains('dark-mode') ? 'filled_black' : 'outline',
-                    size: 'large',
-                    width: '100%',
-                    text: 'continue_with',
-                    shape: 'rectangular',
-                    logo_alignment: 'left'
-                }
-            );
-
-            // Update button theme when theme changes
-            const observer = new MutationObserver(() => {
-                google.accounts.id.renderButton(
-                    document.getElementById('googleSignInBtn'),
-                    {
-                        theme: body.classList.contains('dark-mode') ? 'filled_black' : 'outline',
-                        size: 'large',
-                        width: '100%',
-                        text: 'continue_with',
-                        shape: 'rectangular',
-                        logo_alignment: 'left'
-                    }
-                );
-            });
-            observer.observe(body, { attributes: true, attributeFilter: ['class'] });
-        }
-
         // ========== LOGOUT ==========
         async function handleLogout() {
             showLoading();
-
             try {
-                // Sign out from Google if signed in with Google
-                if (typeof google !== 'undefined') {
-                    google.accounts.id.disableAutoSelect();
-                }
-                
                 await simulateApiRequest('/auth/logout', {});
                 hideLoading();
                 showAuthView();
-
-                // Clear form inputs
                 document.querySelectorAll('input').forEach(input => input.value = '');
                 document.querySelectorAll('.custom-checkbox').forEach(cb => cb.classList.remove('checked'));
             } catch (error) {
@@ -1054,146 +1018,67 @@
         }
 
         // ========== VIEW MANAGEMENT ==========
-// 🔥 فەنکشنی تەواو - کۆپی بکە و پێشووەکە بسڕەوە
-function showLoggedInView(user) {
-    // 1️⃣ داتای بەکارهێنەر بپارێزە
-    localStorage.setItem('lingua_user', JSON.stringify({
-        email: user.email,
-        name: user.name || user.email?.split('@')[0] || 'Gebruiker',
-        provider: user.provider || 'email',
-        picture: user.picture,
-        loginTime: new Date().toISOString()
-    }));
-    
-    // 2️⃣ نیشاندانی پەیجی "سەرکەوتوو"
-    document.getElementById('authView').style.display = 'none';
-    document.getElementById('loggedInView').classList.add('active');
-    
-    // 3️⃣ نوێکردنەوەی ناوی بەکارهێنەر
-    if (user) {
-        document.getElementById('userEmailDisplay').textContent = user.email;
-        if (user.picture) {
-            const avatar = document.querySelector('.user-avatar');
-            avatar.innerHTML = `<img src="${user.picture}" alt="${user.name}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`;
+        function showLoggedInView(user) {
+            document.getElementById('authView').style.display = 'none';
+            document.getElementById('loggedInView').classList.add('active');
+            if (user && user.email) {
+                document.getElementById('userEmailDisplay').textContent = user.email;
+            }
+            // Scroll naar boven
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    }
-    
-    // 4️⃣ 🚀 ڕیڕەکت بکە بۆ پەیجی چات (دوای 1 چرکە)
-    setTimeout(() => {
-        // 🔐 پشکنین: ئەگەر پەیجی چات هەبوو، بڕۆ بۆی
-        // ئەگەر نا، پەیامێک نیشان بدە
-        const chatPage = 'ai-chat.html'; // ← ناوی پەیجی چاتەکەت لێرە بنووسە
-        
-        // هەوڵ بدە بچێتە پەیجی چات
-        window.location.href = chatPage;
-        
-        // ئەگەر پەیجەکە نەبوو، ئەمە ڕوودەدات (بۆ تاقیکردنەوە):
-        // setTimeout(() => {
-        //     alert('🚀 دەچین بۆ چات!\n\n(لە پرۆژەی ڕاستەقینەدا، ئەمە دەچێتە ' + chatPage + ')');
-        // }, 500);
-    }, 1000); // 1000ms = 1 چرکە
-}
 
         function showAuthView() {
             document.getElementById('authView').style.display = 'block';
             document.getElementById('loggedInView').classList.remove('active');
-        }
-
-        function showSuccess(inputId, errorId, message) {
-            const errorEl = document.getElementById(errorId);
-            errorEl.textContent = message;
-            errorEl.style.color = '#10b981';
-            errorEl.classList.add('show');
-            setTimeout(() => {
-                errorEl.classList.remove('show');
-                errorEl.style.color = '';
-            }, 3000);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // ========== API SIMULATION ==========
         async function simulateApiRequest(endpoint, data) {
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    console.log(`API Simulatie: ${endpoint}`, data);
+                    console.log('API:', endpoint, data);
                     resolve({
                         success: true,
                         user: {
                             id: Math.random().toString(36).substr(2, 9),
                             email: data.email,
-                            name: data.name || data.email?.split('@')[0] || 'Gebruiker',
-                            role: 'user',
-                            createdAt: new Date().toISOString()
+                            name: data.name || (data.email ? data.email.split('@')[0] : 'Gebruiker'),
+                            role: 'user'
                         }
                     });
                 }, 1500);
             });
         }
 
-        // ========== INPUT EVENT LISTENERS ==========
-        // Clear errors on input
-        ['loginEmail', 'loginPassword', 'signupName', 'signupEmail', 'signupPassword', 'signupConfirm'].forEach(id => {
-            const input = document.getElementById(id);
-            if (input) {
-                input.addEventListener('input', () => clearError(id, id + 'Error'));
-                input.addEventListener('blur', () => {
-                    if (!input.value && id.includes('login')) {
-                        if (id === 'loginEmail' && !isValidEmail(input.value)) {
-                            showError(id, id + 'Error');
-                        } else if (id === 'loginPassword' && !input.value) {
-                            showError(id, id + 'Error');
-                        }
-                    }
-                });
-            }
-        });
-
-        // ========== INITIALIZATION ==========
+        // ========== INIT ==========
         function init() {
             generateFlags();
             generateParticles();
             generateSparkles();
-            
-            // Initialize Google Sign-In after library loads
-            if (typeof google !== 'undefined') {
-                initGoogleSignIn();
-            } else {
-                // Fallback: show styled button that triggers simulation
-                const fallbackBtn = document.createElement('button');
-                fallbackBtn.className = 'btn btn-google';
-                fallbackBtn.innerHTML = `
-                    <svg width="20" height="20" viewBox="0 0 24 24" style="margin-right:10px">
-                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                    </svg>
-                    Doorgaan met Google
-                `;
-                fallbackBtn.onclick = () => {
-                    showLoading();
-                    setTimeout(() => {
-                        hideLoading();
-                        showLoggedInView({ 
-                            email: 'gebruiker@gmail.com', 
-                            name: 'Google Gebruiker',
-                            picture: null,
-                            provider: 'google'
-                        });
-                    }, 1500);
-                };
-                document.getElementById('googleSignInBtn').appendChild(fallbackBtn);
-            }
 
-            // Check for saved theme
+            // Restore theme
             const savedTheme = localStorage.getItem('lingua-theme');
             if (savedTheme === 'dark') {
                 body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
                 themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             }
+
+            // Clear errors on input
+            document.querySelectorAll('input').forEach(input => {
+                input.addEventListener('input', function() {
+                    const errorId = this.id + 'Error';
+                    const errorEl = document.getElementById(errorId);
+                    if (errorEl) {
+                        this.style.borderColor = 'transparent';
+                        errorEl.classList.remove('show');
+                    }
+                });
+            });
         }
 
-        // Start app when DOM is ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', init);
         } else {
