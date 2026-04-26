@@ -21325,12 +21325,2895 @@ content: `
 `}
   ],
   fr:[
-    {id:1,t:"Articles",d:"Bepaald, onbepaald en delend lidwoord – le, la, les, un, une, des, du, de la."},
-    {id:2,t:"Adjectifs",d:"Bijvoeglijke naamwoorden – vorm, plaats, geslacht, getal, kleuren."},
-    {id:3,t:"Pronoms possessifs",d:"Bezittelijke voornaamwoorden – le mien, la tienne, les leurs."},
-    {id:4,t:"Pronoms démonstratifs",d:"Aanwijzende voornaamwoorden – celui, celle, ceux, celles, ceci, cela."},
-    {id:5,t:"Pronoms relatifs",d:"Betrekkelijke voornaamwoorden – qui, que, dont, où, lequel."},
-    {id:6,t:"Pronoms indéfinis",d:"Onbepaalde voornaamwoorden – quelqu'un, rien, tout, chacun."},
+    {id: 1,
+t: "Articles",
+d: "Bepaald, onbepaald en delend lidwoord – le, la, les, un, une, des, du, de la.",
+content: `
+  <style>
+    .gw-wrap {
+      --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+      --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+      --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+      --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+      --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+      --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+      font-family: 'Nunito', sans-serif; color: var(--gw-text);
+      line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+    }
+    [data-theme="dark"] .gw-wrap {
+      --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+      --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+      --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+      --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+      --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+    }
+    .gw-wrap * { box-sizing: border-box; }
+
+    .gw-hero {
+      background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+      border: 1.5px solid var(--gw-border); border-radius: 22px;
+      padding: 28px 24px; margin-bottom: 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .gw-hero::before {
+      content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+      opacity: 0.1; border-radius: 50%; pointer-events: none;
+    }
+    .gw-hero h1 {
+      font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+      color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+    }
+    .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+    .gw-section {
+      background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+      border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+    .gw-section h2 {
+      font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+      padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+    }
+    .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+    .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+    .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+    .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+    .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+    .gw-section em { color: var(--gw-accent); font-style: italic; }
+    .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+    .gw-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+    }
+    .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+    .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+    .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+    .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+    .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+    .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+    [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+    [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+    .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+    .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+    .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+    .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+    .gw-table tr:last-child td { border-bottom: none; }
+    .gw-table tr:hover { background: var(--gw-table-hover); }
+    .gw-table strong { color: var(--gw-accent); }
+
+    .gw-example {
+      background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+      padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+      font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+    }
+    .gw-note {
+      background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+      margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+    }
+    .gw-code {
+      background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+      font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+    }
+
+    .gw-idiom-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+    }
+    .gw-idiom-title {
+      font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .gw-idiom-ex {
+      padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+    }
+    .gw-idiom-ex:last-child { border-bottom: none; }
+
+    @media(max-width: 600px) {
+      .gw-hero h1 { font-size: 1.75rem; }
+      .gw-section { padding: 20px; }
+      .gw-table { font-size: 0.88em; }
+      .gw-table th, .gw-table td { padding: 10px 12px; }
+      .gw-card { padding: 18px; }
+      .gw-idiom-title { font-size: 1.05rem; }
+    }
+  </style>
+
+  <div class="gw-wrap">
+    <div class="gw-hero">
+      <h1>🇫🇷 Les Articles en Français</h1>
+      <p>Défini, indéfini, partitif — le, la, les, un, une, des, du, de la, de l'</p>
+    </div>
+
+    <div class="gw-section">
+      <p>En français, presque chaque nom est précédé d'un <strong>article</strong>. L'article indique le genre (masculin/féminin), le nombre (singulier/pluriel) et le degré de détermination (précis ou non) du nom.</p>
+      <p>Il existe <strong>trois types principaux</strong> d'articles :</p>
+      <ul>
+        <li><strong>L'article défini :</strong> le, la, les, l' → chose/personne précise ou générale</li>
+        <li><strong>L'article indéfini :</strong> un, une, des → chose/personne non précisée</li>
+        <li><strong>L'article partitif :</strong> du, de la, de l', des → quantité indéterminée de matière/abstraction</li>
+      </ul>
+      <div class="gw-card gw-card--tip">
+        <div class="gw-card-title">💡 Astuce rapide :</div>
+        <p style="margin:0;">
+          ✅ <strong>Défini</strong> = je sais de quoi on parle<br>
+          ✅ <strong>Indéfini</strong> = c'est nouveau, pas précis<br>
+          ✅ <strong>Partitif</strong> = une partie de quelque chose qu'on ne compte pas
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>1️⃣ L'Article Défini : le, la, les, l'</h2>
+      <p>Il désigne une chose ou une personne <strong>précise, connue, unique ou générale</strong>.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Genre / Nombre</th><th>Article</th><th>Exemple</th><th>Remarque</th></tr></thead>
+          <tbody>
+            <tr><td>Masculin singulier</td><td><strong>le</strong></td><td><em>le livre</em></td><td>Devant consonne</td></tr>
+            <tr><td>Féminin singulier</td><td><strong>la</strong></td><td><em>la table</em></td><td>Devant consonne</td></tr>
+            <tr><td>Devant voyelle / h muet</td><td><strong>l'</strong></td><td><em>l'arbre, l'homme, l'heure</em></td><td>Élision obligatoire</td></tr>
+            <tr><td>Pluriel (m. et f.)</td><td><strong>les</strong></td><td><em>les livres, les tables</em></td><td>Toujours "les" au pluriel</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples d'usage</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Chose précise :</strong> <em><strong>Le</strong> livre que tu m'as prêté est passionnant.</em></div>
+        <div class="gw-idiom-ex"><strong>Chose unique :</strong> <em><strong>Le</strong> soleil brille. <strong>La</strong> lune est pleine.</em></div>
+        <div class="gw-idiom-ex"><strong>Vérité générale :</strong> <em><strong>L'</strong>amitié est précieuse. <strong>La</strong> musique adoucit les mœurs.</em></div>
+        <div class="gw-idiom-ex"><strong>Peuple / catégorie :</strong> <em><strong>Les</strong> Français parlent français. <strong>Les</strong> chats sont indépendants.</em></div>
+        <div class="gw-idiom-ex"><strong>Goût / préférence :</strong> <em>J'aime <strong>le</strong> chocolat. Elle préfère <strong>la</strong> mer.</em></div>
+        <div class="gw-idiom-ex"><strong>Parties du corps :</strong> <em>Il a mal à <strong>la</strong> tête. Elle se lave <strong>les</strong> mains.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔗 Contractions avec "à" et "de"</h3>
+      <p>Quand l'article défini suit les prépositions <strong>à</strong> ou <strong>de</strong>, il se contracte :</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Préposition + article</th><th>Forme contractée</th><th>Exemple</th><th>Traduction</th></tr></thead>
+          <tbody>
+            <tr><td><strong>à + le</strong></td><td><strong>au</strong></td><td><em>Je vais au cinéma.</em></td><td>à + le cinéma</td></tr>
+            <tr><td><strong>à + les</strong></td><td><strong>aux</strong></td><td><em>Il parle aux enfants.</em></td><td>à + les enfants</td></tr>
+            <tr><td><strong>de + le</strong></td><td><strong>du</strong></td><td><em>Je viens du marché.</em></td><td>de + le marché</td></tr>
+            <tr><td><strong>de + les</strong></td><td><strong>des</strong></td><td><em>Les livres des élèves.</em></td><td>de + les élèves</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--check">
+        <div class="gw-card-title">⚠️ Pas de contraction avec :</div>
+        <p style="margin:0;">
+          ✅ <strong>à + la</strong> → <em>Je vais à la gare.</em><br>
+          ✅ <strong>à + l'</strong> → <em>Il pense à l'avenir.</em><br>
+          ✅ <strong>de + la</strong> → <em>Elle vient de la bibliothèque.</em><br>
+          ✅ <strong>de + l'</strong> → <em>Il sort de l'école.</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>2️⃣ L'Article Indéfini : un, une, des</h2>
+      <p>Il désigne une chose ou une personne <strong>non précisée, non encore identifiée, ou une parmi d'autres</strong>.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Genre / Nombre</th><th>Article</th><th>Exemple</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td>Masculin singulier</td><td><strong>un</strong></td><td><em>un garçon</em></td><td>Un parmi d'autres</td></tr>
+            <tr><td>Féminin singulier</td><td><strong>une</strong></td><td><em>une fille</em></td><td>Une parmi d'autres</td></tr>
+            <tr><td>Pluriel (m. et f.)</td><td><strong>des</strong></td><td><em>des garçons, des filles</em></td><td>Plusieurs, non précisés</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples d'usage</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Introduction nouvelle :</strong> <em>J'ai acheté <strong>un</strong> livre. (un livre quelconque)</em></div>
+        <div class="gw-idiom-ex"><strong>Idée soudaine :</strong> <em>Elle a <strong>une</strong> idée géniale !</em></div>
+        <div class="gw-idiom-ex"><strong>Présence indéfinie :</strong> <em>Il y a <strong>des</strong> étoiles dans le ciel.</em></div>
+        <div class="gw-idiom-ex"><strong>Offre / demande :</strong> <em>Tu veux <strong>un</strong> café ? Donne-moi <strong>une</strong> pomme.</em></div>
+        <div class="gw-idiom-ex"><strong>Observation :</strong> <em>J'ai vu <strong>une</strong> souris dans la cuisine. <strong>Des</strong> touristes visitent le musée.</em></div>
+        <div class="gw-idiom-ex"><strong>Profession (avec "c'est") :</strong> <em>C'est <strong>un</strong> médecin. C'est <strong>une</strong> avocate.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">⚠️ Après une négation</h3>
+      <p>Après <strong>ne…pas, ne…jamais, ne…plus</strong>, les articles indéfinis <em>un, une, des</em> deviennent généralement <strong>de</strong> (ou <strong>d'</strong>).</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Affirmatif</th><th>Négatif</th><th>Règle</th></tr></thead>
+          <tbody>
+            <tr><td><em>J'ai <strong>un</strong> livre.</em></td><td><em>Je n'ai pas <strong>de</strong> livre.</em></td><td>un → de</td></tr>
+            <tr><td><em>Elle a <strong>une</strong> idée.</em></td><td><em>Elle n'a pas <strong>d'</strong>idée.</em></td><td>une → d' (devant voyelle)</td></tr>
+            <tr><td><em>Il y a <strong>des</strong> problèmes.</em></td><td><em>Il n'y a pas <strong>de</strong> problèmes.</em></td><td>des → de</td></tr>
+            <tr><td><em>Nous avons <strong>des</strong> amis.</em></td><td><em>Nous n'avons pas <strong>d'</strong>amis.</em></td><td>des → d' (devant voyelle)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--tip">
+        <div class="gw-card-title">💡 Exception importante :</div>
+        <p style="margin:0;">
+          Si la négation porte sur <strong>l'identité</strong> ou <strong>l'existence même</strong>, on garde l'article indéfini :<br>
+          ✅ <em>Ce n'est pas <strong>un</strong> problème.</em> (ce n'est pas un problème, c'est autre chose)<br>
+          ✅ <em>Il n'a pas trouvé <strong>une</strong> solution, mais <strong>la</strong> solution.</em><br>
+          ✅ <em>Je ne cherche pas <strong>des</strong> ennuis, je les fuis !</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>3️⃣ L'Article Partitif : du, de la, de l', des</h2>
+      <p>Il désigne une <strong>quantité indéterminée</strong> d'une chose qu'on ne peut pas compter (masse, matière, abstraction). En néerlandais, il n'y a souvent pas d'article équivalent.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Genre / Nombre</th><th>Article</th><th>Exemple</th><th>Type de nom</th></tr></thead>
+          <tbody>
+            <tr><td>Masculin singulier</td><td><strong>du</strong></td><td><em>du pain</em></td><td>Matière non comptable</td></tr>
+            <tr><td>Féminin singulier</td><td><strong>de la</strong></td><td><em>de la confiture</em></td><td>Matière non comptable</td></tr>
+            <tr><td>Devant voyelle / h muet</td><td><strong>de l'</strong></td><td><em>de l'eau, de l'huile</em></td><td>Élision obligatoire</td></tr>
+            <tr><td>Pluriel (aliments, matières)</td><td><strong>des</strong></td><td><em>des épinards, des pâtes</em></td><td>Aliments au pluriel</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples d'usage</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Aliments / boissons :</strong> <em>Je mange <strong>du</strong> fromage. Elle boit <strong>de la</strong> limonade.</em></div>
+        <div class="gw-idiom-ex"><strong>Matières :</strong> <em>Il faut acheter <strong>de l'</strong>huile d'olive. Nous prenons <strong>des</strong> pâtes ce soir.</em></div>
+        <div class="gw-idiom-ex"><strong>Abstractions :</strong> <em>Il a <strong>du</strong> courage. Elle montre <strong>de la</strong> patience.</em></div>
+        <div class="gw-idiom-ex"><strong>Phénomènes naturels :</strong> <em>Il y a <strong>de la</strong> neige sur la route. Nous avons <strong>de l'</strong>orage.</em></div>
+        <div class="gw-idiom-ex"><strong>Activités :</strong> <em>J'écoute <strong>de la</strong> musique. Il fait <strong>du</strong> sport.</em></div>
+        <div class="gw-idiom-ex"><strong>Ressources :</strong> <em>Nous avons <strong>de l'</strong>argent. Il manque <strong>du</strong> temps.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">⚠️ Après une négation</h3>
+      <p>Comme pour l'indéfini, l'article partitif devient <strong>de</strong> (ou <strong>d'</strong>) après une négation :</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Affirmatif</th><th>Négatif</th><th>Explication</th></tr></thead>
+          <tbody>
+            <tr><td><em>Je mange <strong>du</strong> pain.</em></td><td><em>Je ne mange pas <strong>de</strong> pain.</em></td><td>Partitif → de</td></tr>
+            <tr><td><em>Elle boit <strong>de la</strong> bière.</em></td><td><em>Elle ne boit jamais <strong>de</strong> bière.</em></td><td>Partitif → de</td></tr>
+            <tr><td><em>Il veut <strong>de l'</strong>argent.</em></td><td><em>Il n'a pas <strong>d'</strong>argent.</em></td><td>Partitif → d' (voyelle)</td></tr>
+            <tr><td><em>Nous prenons <strong>des</strong> légumes.</em></td><td><em>Nous ne prenons pas <strong>de</strong> légumes.</em></td><td>Partitif pluriel → de</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📏 Après une expression de quantité</h3>
+      <p>Après <strong>beaucoup de, peu de, un peu de, trop de, assez de, un kilo de…</strong>, on utilise <strong>de</strong> sans article :</p>
+      
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>beaucoup <strong>de</strong> bruit</em> (pas ~~du bruit~~)</div>
+        <div class="gw-idiom-ex"><em>un litre <strong>de</strong> lait</em></div>
+        <div class="gw-idiom-ex"><em>un peu <strong>d'</strong>espoir</em></div>
+        <div class="gw-idiom-ex"><em>trop <strong>de</strong> sel</em></div>
+        <div class="gw-idiom-ex"><em>assez <strong>d'</strong>argent</em></div>
+        <div class="gw-idiom-ex"><em>une tasse <strong>de</strong> thé</em></div>
+        <div class="gw-idiom-ex"><em>un kilo <strong>de</strong> tomates</em></div>
+      </div>
+
+      <div class="gw-card gw-card--rule" style="margin-top:16px;">
+        <div class="gw-card-title">✅ Exceptions (on garde l'article) :</div>
+        <p style="margin:0;">
+          Certains mots comme <em>bien, la plupart, une partie</em> gardent l'article défini :<br>
+          ✅ <em>bien <strong>du</strong> plaisir</em><br>
+          ✅ <em>la plupart <strong>des</strong> gens</em><br>
+          ✅ <em>une partie <strong>de la</strong> population</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>4️⃣ Attention à la confusion avec "des" 🔍</h2>
+      <p>Le mot <strong>des</strong> peut avoir trois fonctions différentes — ne les confonds pas !</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Type</th><th>Exemple</th><th>Analyse</th><th>Signification</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Indéfini pluriel</strong></td><td><em>Je mange <strong>des</strong> pommes.</em></td><td>Article indéfini</td><td>Un certain nombre de pommes (comptables)</td></tr>
+            <tr><td><strong>Partitif pluriel</strong></td><td><em>Je mange <strong>des</strong> épinards.</em></td><td>Article partitif</td><td>Une quantité d'épinards (aliment non comptable)</td></tr>
+            <tr><td><strong>Contraction de + les</strong></td><td><em>Les cahiers <strong>des</strong> élèves.</em></td><td>de + les</td><td>Les cahiers appartenant aux élèves</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--tip">
+        <div class="gw-card-title">💡 Comment distinguer ?</div>
+        <p style="margin:0;">
+          Pose-toi la question : <strong>"Est-ce que je peux compter ?"</strong><br>
+          ✅ <em>des pommes</em> → on peut dire "une pomme, deux pommes" → indéfini<br>
+          ✅ <em>des épinards</em> → on ne dit pas "un épinard" (en général) → partitif<br>
+          ✅ <em>des élèves</em> après un nom → possession → contraction de+les
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>5️⃣ Tableau Récapitulatif Complet 📊</h2>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Usage</th><th>Masc. sing.</th><th>Fém. sing.</th><th>Devant voyelle/h</th><th>Pluriel</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Défini</strong></td><td>le (l')</td><td>la (l')</td><td>l'</td><td>les</td></tr>
+            <tr><td><strong>Défini + à</strong></td><td>au</td><td>à la</td><td>à l'</td><td>aux</td></tr>
+            <tr><td><strong>Défini + de</strong></td><td>du</td><td>de la</td><td>de l'</td><td>des</td></tr>
+            <tr><td><strong>Indéfini</strong></td><td>un</td><td>une</td><td>un/une</td><td>des</td></tr>
+            <tr><td><strong>Partitif</strong></td><td>du</td><td>de la</td><td>de l'</td><td>des</td></tr>
+            <tr><td><strong>Partitif après négation</strong></td><td>de / d'</td><td>de / d'</td><td>de / d'</td><td>de / d'</td></tr>
+            <tr><td><strong>Après quantité</strong></td><td>de / d'</td><td>de / d'</td><td>de / d'</td><td>de / d'</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>6️⃣ Liste d'Exemples Supplémentaires Classés 📚</h2>
+      
+      <h3>🔹 Défini</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Le</strong> chien aboie. <strong>La</strong> maison est grande.</em></div>
+        <div class="gw-idiom-ex"><em><strong>L'</strong>histoire commence ici. <strong>Les</strong> fenêtres sont ouvertes.</em></div>
+        <div class="gw-idiom-ex"><em>J'adore <strong>le</strong> cinéma. Elle déteste <strong>la</strong> violence.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Les</strong> enfants aiment <strong>les</strong> jeux.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Défini contracté</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Je vais <strong>au</strong> travail. Il s'adresse <strong>aux</strong> spectateurs.</em></div>
+        <div class="gw-idiom-ex"><em>Nous parlons <strong>du</strong> temps. Les clés <strong>des</strong> voitures.</em></div>
+        <div class="gw-idiom-ex"><em>Elle pense <strong>à l'</strong>avenir. Il vient <strong>de l'</strong>étranger.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Indéfini</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Un</strong> oiseau chante. <strong>Une</strong> femme arrive.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Des</strong> enfants crient. Donne-moi <strong>un</strong> stylo.</em></div>
+        <div class="gw-idiom-ex"><em>C'est <strong>une</strong> bonne idée. Il y a <strong>des</strong> erreurs.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Partitif</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Je bois <strong>du</strong> lait. Elle achète <strong>de la</strong> farine.</em></div>
+        <div class="gw-idiom-ex"><em>Nous voudrions <strong>de l'</strong>eau. Ils mangent <strong>des</strong> céréales.</em></div>
+        <div class="gw-idiom-ex"><em>Il a <strong>du</strong> talent. Elle montre <strong>de la</strong> volonté.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Négation</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Je n'ai pas <strong>de</strong> frère. Elle ne met jamais <strong>de</strong> robe.</em></div>
+        <div class="gw-idiom-ex"><em>Nous ne voulons pas <strong>de</strong> pain. Il n'y a plus <strong>d'</strong>espoir.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Quantité</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Un verre <strong>de</strong> vin. Un peu <strong>de</strong> crème.</em></div>
+        <div class="gw-idiom-ex"><em>Beaucoup <strong>de</strong> gens. Trop <strong>de</strong> bruit.</em></div>
+        <div class="gw-idiom-ex"><em>Assez <strong>d'</strong>exercice. Un kilo <strong>de</strong> tomates.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>7️⃣ L'Article Zéro (Absence d'Article) ⚪</h2>
+      <p>Il existe des cas où on n'utilise <strong>aucun article</strong> en français :</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Cas</th><th>Exemple</th><th>Explication</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Profession (avec "être")</strong></td><td><em>Il est avocat. Elle est médecin.</em></td><td>Pas d'article après "être" pour la profession</td></tr>
+            <tr><td><strong>Expressions avec "avoir"</strong></td><td><em>J'ai faim / soif / peur / raison.</em></td><td>Expressions figées sans article</td></tr>
+            <tr><td><strong>Après certaines prépositions</strong></td><td><em>sans crainte, par pitié, avec courage</em></td><td>Expressions abstraites figées</td></tr>
+            <tr><td><strong>Énumérations / titres</strong></td><td><em>Titre : "Nouvelle découverte scientifique"</em></td><td>Style télégraphique, listes</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--warn">
+        <div class="gw-card-title">⚠️ Attention :</div>
+        <p style="margin:0;">
+          Avec <strong>"c'est"</strong>, on utilise l'article indéfini pour la profession :<br>
+          ✅ <em>Il est avocat.</em> (après "être")<br>
+          ✅ <em>C'est <strong>un</strong> avocat.</em> (après "c'est")<br><br>
+          De même : <em>Elle est professeur.</em> mais <em>C'est <strong>une</strong> professeure.</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>⚠️ Erreurs Fréquentes à Éviter</h2>
+      <div class="gw-card gw-card--warn">
+        <div class="gw-card-title">🚫 Faux vs. ✅ Juste :</div>
+        <ul style="margin:8px 0 0 20px;">
+          <li>❌ <em>~~Je veux du des pommes.~~</em> → ✅ <em>Je veux <strong>des</strong> pommes.</em> (indéfini pluriel)</li>
+          <li>❌ <em>~~Je ne mange pas du pain.~~</em> → ✅ <em>Je ne mange pas <strong>de</strong> pain.</em> (négation → de)</li>
+          <li>❌ <em>~~Il a beaucoup du courage.~~</em> → ✅ <em>Il a beaucoup <strong>de</strong> courage.</em> (quantité → de)</li>
+          <li>❌ <em>~~Je vais à le cinéma.~~</em> → ✅ <em>Je vais <strong>au</strong> cinéma.</em> (à+le = au)</li>
+          <li>❌ <em>~~Elle est une médecin.~~</em> → ✅ <em>Elle est médecin.</em> (profession après "être")</li>
+          <li>❌ <em>~~J'ai la faim.~~</em> → ✅ <em>J'ai faim.</em> (expression figée sans article)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📝 Exercices : Choisis le Bon Article</h2>
+      <p><strong>Consigne :</strong> Complète avec le, la, les, l', un, une, des, du, de la, de l' ou de/d'.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>1.</strong> <em>J'achète ___ pain et ___ fromage.</em><br><em>Réponse : <strong>du</strong> pain, <strong>du</strong> fromage (partitif)</em></div>
+        <div class="gw-idiom-ex"><strong>2.</strong> <em>Elle n'a pas ___ amis.</em><br><em>Réponse : <strong>d'</strong>amis (négation + voyelle)</em></div>
+        <div class="gw-idiom-ex"><strong>3.</strong> <em>Nous allons ___ cinéma ce soir.</em><br><em>Réponse : <strong>au</strong> cinéma (à+le)</em></div>
+        <div class="gw-idiom-ex"><strong>4.</strong> <em>Il boit beaucoup ___ eau.</em><br><em>Réponse : <strong>d'</strong>eau (quantité + voyelle)</em></div>
+        <div class="gw-idiom-ex"><strong>5.</strong> <em>C'est ___ médecin très compétent.</em><br><em>Réponse : <strong>un</strong> médecin (après "c'est")</em></div>
+        <div class="gw-idiom-ex"><strong>6.</strong> <em>Les clés ___ voitures sont perdues.</em><br><em>Réponse : <strong>des</strong> voitures (de+les)</em></div>
+        <div class="gw-idiom-ex"><strong>7.</strong> <em>Je ne mange jamais ___ viande.</em><br><em>Réponse : <strong>de</strong> viande (négation + partitif)</em></div>
+        <div class="gw-idiom-ex"><strong>8.</strong> <em>Il parle ___ élèves avec patience.</em><br><em>Réponse : <strong>aux</strong> élèves (à+les)</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>💡 Conseils pour Maîtriser les Articles</h2>
+      <ol>
+        <li><strong>Pose-toi la question :</strong> "Est-ce précis ou non ?" → défini ou indéfini/partitif</li>
+        <li><strong>Peut-on compter ?</strong> → oui : indéfini / non : partitif</li>
+        <li><strong>Après une négation :</strong> un/une/des/du/de la → de/d' (sauf exception d'identité)</li>
+        <li><strong>Après une quantité :</strong> toujours de/d' (beaucoup de, un peu de…)</li>
+        <li><strong>à/de + le/les :</strong> apprends les contractions par cœur (au, aux, du, des)</li>
+        <li><strong>Lis à voix haute :</strong> l'oreille aide à sentir ce qui "sonne juste"</li>
+        <li><strong>Note les exceptions :</strong> professions après "être", expressions figées</li>
+      </ol>
+    </div>
+
+    <div class="gw-summary">
+      <h3>✨ Récapitulatif en 7 Points</h3>
+      <ul>
+        <li><strong>Défini (le/la/les/l') :</strong> chose précise, connue, générale → <em>le soleil, la musique</em></li>
+        <li><strong>Indéfini (un/une/des) :</strong> chose non précisée → <em>un livre, des idées</em></li>
+        <li><strong>Partitif (du/de la/de l'/des) :</strong> quantité de matière/abstraction → <em>du pain, de la patience</em></li>
+        <li><strong>Contractions :</strong> à+le=au, à+les=aux, de+le=du, de+les=des</li>
+        <li><strong>Négation :</strong> un/une/des/partitif → de/d' (sauf si on nie l'identité)</li>
+        <li><strong>Quantité :</strong> toujours de/d' après beaucoup de, un peu de, trop de…</li>
+        <li><strong>Article zéro :</strong> professions après "être", expressions figées (avoir faim)</li>
+      </ul>
+      <p style="margin-top:18px; opacity:0.95;">Maîtriser les articles, c'est maîtriser la précision en français. Que tu parles de <em>la</em> vie en général, d'<em>un</em> moment précis, ou que tu veuilles <em>du</em> courage pour avancer : avec ces règles, tes phrases seront justes et naturelles. Et rappelle-toi : <em>"On apprend une langue pas à pas — et chaque article bien placé est un pas de plus."</em> 🇫🇷✨</p>
+    </div>
+  </div>
+`},
+    {id: 2,
+t: "Adjectifs",
+d: "Accord, place, comparatifs, superlatifs — les adjectifs français expliqués avec des centaines d'exemples",
+content: `
+  <style>
+    .gw-wrap {
+      --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+      --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+      --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+      --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+      --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+      --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+      font-family: 'Nunito', sans-serif; color: var(--gw-text);
+      line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+    }
+    [data-theme="dark"] .gw-wrap {
+      --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+      --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+      --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+      --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+      --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+    }
+    .gw-wrap * { box-sizing: border-box; }
+
+    .gw-hero {
+      background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+      border: 1.5px solid var(--gw-border); border-radius: 22px;
+      padding: 28px 24px; margin-bottom: 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .gw-hero::before {
+      content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+      opacity: 0.1; border-radius: 50%; pointer-events: none;
+    }
+    .gw-hero h1 {
+      font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+      color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+    }
+    .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+    .gw-section {
+      background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+      border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+    .gw-section h2 {
+      font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+      padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+    }
+    .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+    .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+    .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+    .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+    .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+    .gw-section em { color: var(--gw-accent); font-style: italic; }
+    .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+    .gw-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+    }
+    .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+    .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+    .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+    .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+    .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+    .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+    [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+    [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+    .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+    .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+    .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+    .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+    .gw-table tr:last-child td { border-bottom: none; }
+    .gw-table tr:hover { background: var(--gw-table-hover); }
+    .gw-table strong { color: var(--gw-accent); }
+
+    .gw-example {
+      background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+      padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+      font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+    }
+    .gw-note {
+      background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+      margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+    }
+    .gw-code {
+      background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+      font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+    }
+
+    .gw-idiom-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+    }
+    .gw-idiom-title {
+      font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .gw-idiom-ex {
+      padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+    }
+    .gw-idiom-ex:last-child { border-bottom: none; }
+
+    @media(max-width: 600px) {
+      .gw-hero h1 { font-size: 1.75rem; }
+      .gw-section { padding: 20px; }
+      .gw-table { font-size: 0.88em; }
+      .gw-table th, .gw-table td { padding: 10px 12px; }
+      .gw-card { padding: 18px; }
+      .gw-idiom-title { font-size: 1.05rem; }
+    }
+  </style>
+
+  <div class="gw-wrap">
+    <div class="gw-hero">
+      <h1>✨ Les Adjectifs en Français</h1>
+      <p>Accord, place, comparatifs, superlatifs — expliqué avec des centaines d'exemples</p>
+    </div>
+
+    <div class="gw-section">
+      <p>Un <strong>adjectif</strong> est un mot qui donne une information sur un nom ou un pronom. Il peut exprimer une qualité, une couleur, une taille, une nationalité, un état, etc.</p>
+      <p>En français, l'adjectif <strong>s'accorde en genre (masculin/féminin) et en nombre (singulier/pluriel)</strong> avec le nom qu'il qualifie.</p>
+      <div class="gw-card gw-card--rule">
+        <div class="gw-card-title">📏 La règle d'or :</div>
+        <p style="margin:0;"><strong>Adjectif = miroir du nom</strong><br>
+        Même genre, même nombre → l'adjectif reflète le nom qu'il décrit.<br>
+        ✅ <em>un grand arbre</em> (masc. sing.) / <em>une grande maison</em> (fém. sing.)<br>
+        ✅ <em>des arbres grands</em> (masc. pl.) / <em>des maisons grandes</em> (fém. pl.)</p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>1️⃣ Formation du Féminin des Adjectifs</h2>
+      
+      <h3>🔹 Règle générale : ajouter -e</h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Masculin</th><th>Féminin</th><th>Exemple masculin</th><th>Exemple féminin</th></tr></thead>
+          <tbody>
+            <tr><td>grand</td><td>grand<strong>e</strong></td><td>un grand arbre</td><td>une grand<strong>e</strong> maison</td></tr>
+            <tr><td>petit</td><td>petit<strong>e</strong></td><td>un petit chien</td><td>une petit<strong>e</strong> souris</td></tr>
+            <tr><td>joli</td><td>joli<strong>e</strong></td><td>un joli tableau</td><td>une joli<strong>e</strong> fleur</td></tr>
+            <tr><td>intelligent</td><td>intelligent<strong>e</strong></td><td>un homme intelligent</td><td>une femme intelligent<strong>e</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Cas particuliers</h3>
+      
+      <h4>1. Masculin en -e → féminin identique</h4>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Adjectif</th><th>Exemple masculin</th><th>Exemple féminin</th></tr></thead>
+          <tbody>
+            <tr><td>rouge</td><td>un vélo rouge</td><td>une robe rouge</td></tr>
+            <tr><td>jeune</td><td>un jeune homme</td><td>une jeune femme</td></tr>
+            <tr><td>calme</td><td>un enfant calme</td><td>une personne calme</td></tr>
+            <tr><td>facile</td><td>un exercice facile</td><td>une tâche facile</td></tr>
+            <tr><td>triste</td><td>un film triste</td><td>une chanson triste</td></tr>
+            <tr><td>magnifique</td><td>un paysage magnifique</td><td>une vue magnifique</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>2. Masculin en -er → féminin en -ère</h4>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Masculin</th><th>Féminin</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>premier</td><td>première</td><td>le premier jour / la première fois</td></tr>
+            <tr><td>étranger</td><td>étrangère</td><td>un pays étranger / une langue étrangère</td></tr>
+            <tr><td>cher</td><td>chère</td><td>un bijou cher / une robe chère</td></tr>
+            <tr><td>léger</td><td>légère</td><td>un sac léger / une valise légère</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>3. Masculin en -f → féminin en -ve</h4>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Masculin</th><th>Féminin</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>neuf</td><td>neuve</td><td>un appartement neuf / une maison neuve</td></tr>
+            <tr><td>vif</td><td>vive</td><td>un enfant vif / une intelligence vive</td></tr>
+            <tr><td>sportif</td><td>sportive</td><td>un garçon sportif / une fille sportive</td></tr>
+            <tr><td>actif</td><td>active</td><td>un membre actif / une participation active</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>4. Masculin en -eux → féminin en -euse</h4>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Masculin</th><th>Féminin</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>heureux</td><td>heureuse</td><td>un homme heureux / une femme heureuse</td></tr>
+            <tr><td>curieux</td><td>curieuse</td><td>un chat curieux / une question curieuse</td></tr>
+            <tr><td>courageux</td><td>courageuse</td><td>un soldat courageux / une décision courageuse</td></tr>
+            <tr><td>malheureux</td><td>malheureuse</td><td>un événement malheureux / une situation malheureuse</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>5. Masculin en -teur → féminin en -trice ou -teuse</h4>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Type</th><th>Masculin</th><th>Féminin</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>-teur → -trice</td><td>directeur</td><td>directrice</td><td>un directeur / une directrice</td></tr>
+            <tr><td>-teur → -trice</td><td>acteur</td><td>actrice</td><td>un acteur / une actrice</td></tr>
+            <tr><td>-teur → -teuse</td><td>menteur</td><td>menteuse</td><td>un élève menteur / une élève menteuse</td></tr>
+            <tr><td>-teur → -teuse</td><td>travailleur</td><td>travailleuse</td><td>un homme travailleur / une femme travailleuse</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>6. Doublement de la consonne + -e</h4>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Masculin</th><th>Féminin</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>bon</td><td>bonne</td><td>un bon repas / une bonne idée</td></tr>
+            <tr><td>ancien</td><td>ancienne</td><td>un ancien élève / une ancienne tradition</td></tr>
+            <tr><td>euro<strong>p</strong>éen</td><td>europé<strong>nn</strong>e</td><td>un pays européen / une culture européenne</td></tr>
+            <tr><td>cruel</td><td>cruelle</td><td>un geste cruel / une décision cruelle</td></tr>
+            <tr><td>gentil</td><td>gentille</td><td>un garçon gentil / une fille gentille</td></tr>
+            <tr><td>gros</td><td>grosse</td><td>un gros chien / une grosse erreur</td></tr>
+            <tr><td>bas</td><td>basse</td><td>un mur bas / une voix basse</td></tr>
+            <tr><td>épais</td><td>épaisse</td><td>un mur épais / une couche épaisse</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>7. Terminaisons irrégulières (à mémoriser)</h4>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Masculin</th><th>Féminin</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>beau</td><td>belle</td><td>un beau jardin / une belle fleur</td></tr>
+            <tr><td>nouveau</td><td>nouvelle</td><td>un nouveau film / une nouvelle élève</td></tr>
+            <tr><td>vieux</td><td>vieille</td><td>un vieux monsieur / une vieille dame</td></tr>
+            <tr><td>fou</td><td>folle</td><td>un rêve fou / une idée folle</td></tr>
+            <tr><td>mou</td><td>molle</td><td>un oreiller mou / une pâte molle</td></tr>
+            <tr><td>blanc</td><td>blanche</td><td>un mur blanc / une porte blanche</td></tr>
+            <tr><td>sec</td><td>sèche</td><td>un temps sec / une saison sèche</td></tr>
+            <tr><td>frais</td><td>fraîche</td><td>un vent frais / une boisson fraîche</td></tr>
+            <tr><td>long</td><td>longue</td><td>un long voyage / une longue histoire</td></tr>
+            <tr><td>public</td><td>publique</td><td>un jardin public / une école publique</td></tr>
+            <tr><td>turc</td><td>turque</td><td>un café turc / une femme turque</td></tr>
+            <tr><td>grec</td><td>grecque</td><td>un philosophe grec / une île grecque</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>2️⃣ Formation du Pluriel des Adjectifs</h2>
+      
+      <h3>🔹 Règle générale : ajouter -s</h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Singulier</th><th>Pluriel</th><th>Exemple singulier</th><th>Exemple pluriel</th></tr></thead>
+          <tbody>
+            <tr><td>grand</td><td>grand<strong>s</strong></td><td>un grand bâtiment</td><td>de grand<strong>s</strong> bâtiments</td></tr>
+            <tr><td>petite</td><td>petite<strong>s</strong></td><td>une petite erreur</td><td>de petite<strong>s</strong> erreurs</td></tr>
+            <tr><td>bleu</td><td>bleu<strong>s</strong></td><td>un ciel bleu</td><td>des yeux bleu<strong>s</strong></td></tr>
+            <tr><td>intéressant</td><td>intéressant<strong>s</strong></td><td>un livre intéressant</td><td>des livres intéressant<strong>s</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>🔹 Cas particuliers</h3>
+      
+      <h4>1. Singulier en -s ou -x → pluriel identique</h4>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Adjectif</th><th>Exemple singulier</th><th>Exemple pluriel</th></tr></thead>
+          <tbody>
+            <tr><td>gros</td><td>un gros chien</td><td>de gros chiens</td></tr>
+            <tr><td>heureux</td><td>un homme heureux</td><td>des gens heureux</td></tr>
+            <tr><td>vieux</td><td>un vieux livre</td><td>de vieux livres</td></tr>
+            <tr><td>doux</td><td>un climat doux</td><td>des températures douces</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>2. Masculin en -eau → pluriel en -eaux</h4>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Singulier</th><th>Pluriel</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>beau</td><td>beaux</td><td>un beau tableau / de beaux tableaux</td></tr>
+            <tr><td>nouveau</td><td>nouveaux</td><td>un nouveau projet / de nouveaux projets</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>3. Masculin en -al → généralement pluriel en -aux</h4>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Singulier</th><th>Pluriel</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>normal</td><td>normaux</td><td>un comportement normal / des comportements normaux</td></tr>
+            <tr><td>international</td><td>internationaux</td><td>un vol international / des vols internationaux</td></tr>
+            <tr><td>spécial</td><td>spéciaux</td><td>un événement spécial / des événements spéciaux</td></tr>
+            <tr><td>amical</td><td>amicaux</td><td>un conseil amical / des conseils amicaux</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--warn" style="margin-top:16px;">
+        <div class="gw-card-title">⚠️ Exceptions en -al → -als (pas -aux) :</div>
+        <p style="margin:0;">
+          <em>banal → banals</em> | <em>fatal → fatals</em> | <em>naval → navals</em> | <em>glacial → glacials</em><br>
+          Exemple : <em>des commentaires banals</em> (pas ~~banaux~~)
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>3️⃣ La Place de l'Adjectif 📍</h2>
+      <p>En français, la place de l'adjectif varie. <strong>Règle générale : après le nom</strong>, mais il y a des exceptions importantes.</p>
+      
+      <h3>🔹 Adjectifs qui se placent APRÈS le nom (la majorité)</h3>
+      <p>Ce sont en général les adjectifs de couleur, forme, nationalité, religion, catégorie, et les adjectifs longs.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Catégorie</th><th>Exemples</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Couleur</strong></td><td><em>une voiture <strong>rouge</strong>, un ciel <strong>bleu</strong>, des yeux <strong>verts</strong></em></td></tr>
+            <tr><td><strong>Forme</strong></td><td><em>une table <strong>ronde</strong>, un bâtiment <strong>carré</strong>, une rue <strong>droite</strong></em></td></tr>
+            <tr><td><strong>Nationalité</strong></td><td><em>un acteur <strong>français</strong>, une cuisine <strong>italienne</strong>, des étudiants <strong>espagnols</strong></em></td></tr>
+            <tr><td><strong>Religion / Catégorie</strong></td><td><em>un monument <strong>catholique</strong>, une politique <strong>économique</strong>, un problème <strong>technique</strong></em></td></tr>
+            <tr><td><strong>Adjectifs longs</strong></td><td><em>une soirée <strong>agréable</strong>, un film <strong>intéressant</strong>, une femme <strong>intelligente</strong></em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Adjectifs qui se placent AVANT le nom (BAGS)</h3>
+      <p>Un petit groupe d'adjectifs courts et très courants se placent devant. Astuce : <strong>BAGS</strong> (Beauté, Âge, Bonté, Taille).</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Catégorie</th><th>Adjectifs</th><th>Exemples</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Beauté</strong></td><td>beau, joli, laid, moche</td><td><em>une <strong>belle</strong> journée, un <strong>joli</strong> sourire</em></td></tr>
+            <tr><td><strong>Âge</strong></td><td>jeune, vieux, nouveau, ancien</td><td><em>un <strong>jeune</strong> homme, une <strong>vieille</strong> maison</em></td></tr>
+            <tr><td><strong>Bonté</strong></td><td>bon, mauvais, gentil, méchant</td><td><em>un <strong>bon</strong> repas, une <strong>mauvaise</strong> nouvelle</em></td></tr>
+            <tr><td><strong>Taille</strong></td><td>grand, petit, long, court, gros, mince</td><td><em>un <strong>grand</strong> arbre, une <strong>petite</strong> fille</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--tip" style="margin-top:16px;">
+        <div class="gw-card-title">💡 Attention : changement de sens selon la place !</div>
+        <p style="margin:0;">
+          <strong>ancien</strong> : <em>un <strong>ancien</strong> hôpital</em> (qui n'est plus un hôpital) vs <em>un hôpital <strong>ancien</strong></em> (très vieux)<br>
+          <strong>propre</strong> : <em>ma <strong>propre</strong> chambre</em> (à moi) vs <em>une chambre <strong>propre</strong></em> (nettoyée)<br>
+          <strong>cher</strong> : <em>mon <strong>cher</strong> ami</em> (apprécié) vs <em>un vêtement <strong>cher</strong></em> (coûteux)<br>
+          <strong>grand</strong> : <em>un <strong>grand</strong> homme</em> (célèbre) vs <em>un homme <strong>grand</strong></em> (de grande taille)
+        </p>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Adjectifs avant OU après (nuance de sens)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Avant = subjectif/figuré</strong> | <strong>Après = objectif/littéral</strong></div>
+        <div class="gw-idiom-ex"><em>un <strong>pauvre</strong> enfant</em> (malheureux) vs <em>un enfant <strong>pauvre</strong></em> (sans argent)</div>
+        <div class="gw-idiom-ex"><em>un <strong>simple</strong> problème</em> (seulement un problème) vs <em>un problème <strong>simple</strong></em> (facile)</div>
+        <div class="gw-idiom-ex"><em>un <strong>brave</strong> homme</em> (bon, honnête) vs <em>un homme <strong>brave</strong></em> (courageux)</div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>4️⃣ Comparatif et Superlatif 📊</h2>
+      
+      <h3>🔹 Le comparatif</h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Type</th><th>Structure</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Supériorité</strong></td><td><strong>plus</strong> + adj. + <strong>que</strong></td><td><em>Il est <strong>plus grand que</strong> moi.</em></td></tr>
+            <tr><td><strong>Infériorité</strong></td><td><strong>moins</strong> + adj. + <strong>que</strong></td><td><em>Il est <strong>moins grand que</strong> moi.</em></td></tr>
+            <tr><td><strong>Égalité</strong></td><td><strong>aussi</strong> + adj. + <strong>que</strong></td><td><em>Il est <strong>aussi grand que</strong> moi.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--rule" style="margin-top:16px;">
+        <div class="gw-card-title">⚠️ Exceptions : bon et mauvais</div>
+        <p style="margin:0;">
+          ✅ <em>bon</em> → comparatif : <strong>meilleur</strong> (pas ~~plus bon~~)<br>
+          ✅ <em>mauvais</em> → comparatif : <strong>pire</strong> ou <em>plus mauvais</em><br><br>
+          Exemples :<br>
+          <em>Ce gâteau est <strong>meilleur</strong> que le tien.</em><br>
+          <em>La situation est <strong>pire</strong> qu'avant.</em>
+        </p>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Le superlatif</h3>
+      <p>On met <strong>le / la / les</strong> devant le comparatif.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Type</th><th>Structure</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Supériorité</strong></td><td><strong>le/la/les plus</strong> + adj.</td><td><em>C'est <strong>le plus beau</strong> jour de ma vie.</em></td></tr>
+            <tr><td><strong>Infériorité</strong></td><td><strong>le/la/les moins</strong> + adj.</td><td><em>Voici <strong>la chambre la moins chère</strong> de l'hôtel.</em></td></tr>
+            <tr><td><strong>Meilleur (de bon)</strong></td><td><strong>le/la/les meilleur(e)(s)</strong></td><td><em>C'est <strong>le meilleur</strong> film de l'année.</em></td></tr>
+            <tr><td><strong>Pire (de mauvais)</strong></td><td><strong>le/la/les pire(s)</strong></td><td><em>C'est la <strong>pire</strong> expérience possible.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-example" style="margin-top:16px;">
+        ✨ <strong>Place du superlatif :</strong><br>
+        L'adjectif au superlatif suit les règles normales de place, mais on peut répéter l'article si l'adjectif suit le nom :<br>
+        ✅ <em>l'homme <strong>le plus riche</strong> du monde</em><br>
+        ✅ <em><strong>le plus riche</strong> homme du monde</em> (plus rare)
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>5️⃣ Accords Particuliers et Pièges ⚠️</h2>
+      
+      <h3>🔹 Adjectifs de couleur</h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Type</th><th>Règle</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Couleur simple</strong></td><td>S'accorde normalement</td><td><em>des yeux <strong>verts</strong>, une robe <strong>bleue</strong></em></td></tr>
+            <tr><td><strong>Nom utilisé comme couleur</strong></td><td><strong>Invariable</strong> (marron, orange, olive, crème…)</td><td><em>des chaussures <strong>marron</strong>, des jupes <strong>orange</strong></em></td></tr>
+            <tr><td><strong>Couleur composée</strong></td><td><strong>Invariable</strong> (les deux éléments)</td><td><em>des yeux <strong>bleu clair</strong>, une chemise <strong>vert foncé</strong></em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Adjectifs de nationalité</h3>
+      <p>Ils s'accordent normalement, mais attention aux formes irrégulières :</p>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Pays</th><th>Masculin</th><th>Féminin</th><th>Pluriel m.</th><th>Pluriel f.</th></tr></thead>
+          <tbody>
+            <tr><td>France</td><td>français</td><td>française</td><td>français</td><td>françaises</td></tr>
+            <tr><td>Belgique</td><td>belge</td><td>belge</td><td>belges</td><td>belges</td></tr>
+            <tr><td>Espagne</td><td>espagnol</td><td>espagnole</td><td>espagnols</td><td>espagnoles</td></tr>
+            <tr><td>Italie</td><td>italien</td><td>italienne</td><td>italiens</td><td>italiennes</td></tr>
+            <tr><td>États-Unis</td><td>américain</td><td>américaine</td><td>américains</td><td>américaines</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Adjectifs en -gu</h3>
+      <div class="gw-note">
+        Orthographe traditionnelle : <em>aigu → aiguë</em>, <em>ambigu → ambiguë</em><br>
+        Nouvelle orthographe (1990) : <em>aigu → aigüe</em>, <em>ambigu → ambigüe</em><br>
+        Les deux formes sont acceptées.
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>6️⃣ Liste d'Adjectifs Fréquents avec Exemples 📚</h2>
+      
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Taille :</strong> <em>grand/grande</em> → un grand appartement / une grande décision / de grandes vacances</div>
+        <div class="gw-idiom-ex"><strong>Taille :</strong> <em>petit/petite</em> → un petit enfant / une petite erreur / de petites attentions</div>
+        <div class="gw-idiom-ex"><strong>Qualité :</strong> <em>bon/bonne</em> → un bon moment / une bonne idée / de bonnes nouvelles</div>
+        <div class="gw-idiom-ex"><strong>Qualité :</strong> <em>mauvais/mauvaise</em> → un mauvais temps / une mauvaise habitude / de mauvais résultats</div>
+        <div class="gw-idiom-ex"><strong>Beauté :</strong> <em>beau/belle</em> → un beau paysage / une belle histoire / de beaux souvenirs</div>
+        <div class="gw-idiom-ex"><strong>Nouveauté :</strong> <em>nouveau/nouvelle</em> → un nouveau téléphone / une nouvelle loi / de nouveaux amis</div>
+        <div class="gw-idiom-ex"><strong>Âge :</strong> <em>vieux/vieille</em> → un vieux livre / une vieille voiture / de vieux meubles</div>
+        <div class="gw-idiom-ex"><strong>Âge :</strong> <em>jeune</em> → un jeune musicien / une jeune femme / des jeunes talents</div>
+        <div class="gw-idiom-ex"><strong>Dimension :</strong> <em>long/longue</em> → un long discours / une longue marche / de longues files d'attente</div>
+        <div class="gw-idiom-ex"><strong>Dimension :</strong> <em>court/courte</em> → un court trajet / une courte pause / des courtes vacances</div>
+        <div class="gw-idiom-ex"><strong>Poids :</strong> <em>gros/grosse</em> → un gros chien / une grosse erreur / de gros travaux</div>
+        <div class="gw-idiom-ex"><strong>Apparence :</strong> <em>mince</em> → un homme mince / une fille mince / des tranches minces</div>
+        <div class="gw-idiom-ex"><strong>Apparence :</strong> <em>joli/jolie</em> → un joli cadeau / une jolie robe / de jolis yeux</div>
+        <div class="gw-idiom-ex"><strong>Caractère :</strong> <em>gentil/gentille</em> → un gentil voisin / une gentille attention / des gens gentils</div>
+        <div class="gw-idiom-ex"><strong>Caractère :</strong> <em>méchant/méchante</em> → un chien méchant / une blague méchante / des paroles méchantes</div>
+        <div class="gw-idiom-ex"><strong>Émotion :</strong> <em>heureux/heureuse</em> → un hasard heureux / une coïncidence heureuse / des jours heureux</div>
+        <div class="gw-idiom-ex"><strong>Émotion :</strong> <em>triste</em> → un film triste / une chanson triste / des nouvelles tristes</div>
+        <div class="gw-idiom-ex"><strong>Intérêt :</strong> <em>intéressant/intéressante</em> → un livre intéressant / une discussion intéressante / des idées intéressantes</div>
+        <div class="gw-idiom-ex"><strong>Difficulté :</strong> <em>difficile</em> → un examen difficile / une épreuve difficile / des choix difficiles</div>
+        <div class="gw-idiom-ex"><strong>Facilité :</strong> <em>facile</em> → un exercice facile / une solution facile / des mots faciles</div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>7️⃣ Tableau Récapitulatif des Formes Clés 📊</h2>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Masculin</th><th>Féminin</th><th>Pluriel m.</th><th>Pluriel f.</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>grand</td><td>grande</td><td>grands</td><td>grandes</td><td>un grand arbre / de grandes maisons</td></tr>
+            <tr><td>petit</td><td>petite</td><td>petits</td><td>petites</td><td>un petit chien / de petites souris</td></tr>
+            <tr><td>beau</td><td>belle</td><td>beaux</td><td>belles</td><td>un beau jardin / de belles fleurs</td></tr>
+            <tr><td>nouveau</td><td>nouvelle</td><td>nouveaux</td><td>nouvelles</td><td>un nouveau projet / de nouvelles idées</td></tr>
+            <tr><td>vieux</td><td>vieille</td><td>vieux</td><td>vieilles</td><td>un vieux livre / de vieilles traditions</td></tr>
+            <tr><td>bon</td><td>bonne</td><td>bons</td><td>bonnes</td><td>un bon repas / de bonnes nouvelles</td></tr>
+            <tr><td>heureux</td><td>heureuse</td><td>heureux</td><td>heureuses</td><td>un homme heureux / des femmes heureuses</td></tr>
+            <tr><td>sportif</td><td>sportive</td><td>sportifs</td><td>sportives</td><td>un garçon sportif / des filles sportives</td></tr>
+            <tr><td>blanc</td><td>blanche</td><td>blancs</td><td>blanches</td><td>un mur blanc / des portes blanches</td></tr>
+            <tr><td>long</td><td>longue</td><td>longs</td><td>longues</td><td>un long voyage / de longues histoires</td></tr>
+            <tr><td>frais</td><td>fraîche</td><td>frais</td><td>fraîches</td><td>un vent frais / des boissons fraîches</td></tr>
+            <tr><td>sec</td><td>sèche</td><td>secs</td><td>sèches</td><td>un temps sec / des saisons sèches</td></tr>
+            <tr><td>public</td><td>publique</td><td>publics</td><td>publiques</td><td>un jardin public / des écoles publiques</td></tr>
+            <tr><td>étranger</td><td>étrangère</td><td>étrangers</td><td>étrangères</td><td>un pays étranger / des langues étrangères</td></tr>
+            <tr><td>italien</td><td>italienne</td><td>italiens</td><td>italiennes</td><td>un monument italien / des villas italiennes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>⚠️ Erreurs Fréquentes à Éviter</h2>
+      <div class="gw-card gw-card--warn">
+        <div class="gw-card-title">🚫 Faux vs. ✅ Juste :</div>
+        <ul style="margin:8px 0 0 20px;">
+          <li>❌ <em>~~une maison grand~~</em> → ✅ <em>une maison <strong>grande</strong></em> (accord féminin)</li>
+          <li>❌ <em>~~des yeux vert~~</em> → ✅ <em>des yeux <strong>verts</strong></em> (accord pluriel)</li>
+          <li>❌ <em>~~une robe marrons~~</em> → ✅ <em>une robe <strong>marron</strong></em> (couleur-nom = invariable)</li>
+          <li>❌ <em>~~plus bon~~</em> → ✅ <em><strong>meilleur</strong></em> (comparatif irrégulier de bon)</li>
+          <li>❌ <em>~~un ancien professeur</em> (vieux) → ✅ <em>un professeur <strong>ancien</strong></em> (vieux) vs <em>un <strong>ancien</strong> professeur</em> (ex)</li>
+          <li>❌ <em>~~la plus belle fleur du monde~~</em> → ✅ <em><strong>la plus belle</strong> fleur du monde</em> (article répété si adjectif après)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📝 Exercices : Choisis la Bonne Forme</h2>
+      <p><strong>Consigne :</strong> Complète avec la forme correcte de l'adjectif entre parenthèses.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>1.</strong> <em>Une maison ___ (blanc).</em><br><em>Réponse : <strong>blanche</strong> (féminin singulier)</em></div>
+        <div class="gw-idiom-ex"><strong>2.</strong> <em>Des yeux ___ (vert).</em><br><em>Réponse : <strong>verts</strong> (masculin pluriel)</em></div>
+        <div class="gw-idiom-ex"><strong>3.</strong> <em>Un film ___ (nouveau).</em><br><em>Réponse : <strong>nouveau</strong> (masculin singulier devant consonne)</em></div>
+        <div class="gw-idiom-ex"><strong>4.</strong> <em>Une ___ (beau) journée.</em><br><em>Réponse : <strong>belle</strong> (féminin singulier)</em></div>
+        <div class="gw-idiom-ex"><strong>5.</strong> <em>Des chaussures ___ (marron).</em><br><em>Réponse : <strong>marron</strong> (invariable : nom utilisé comme couleur)</em></div>
+        <div class="gw-idiom-ex"><strong>6.</strong> <em>Ce gâteau est ___ (bon) que le tien.</em><br><em>Réponse : <strong>meilleur</strong> (comparatif irrégulier)</em></div>
+        <div class="gw-idiom-ex"><strong>7.</strong> <em>C'est la ___ (intéressant) idée que j'aie entendue.</em><br><em>Réponse : <strong>plus intéressante</strong> (superlatif + accord féminin)</em></div>
+        <div class="gw-idiom-ex"><strong>8.</strong> <em>Un ___ (ancien) ami m'a appelé.</em><br><em>Réponse : <strong>ancien</strong> (avant le nom = ex-ami)</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>💡 Conseils pour Maîtriser les Adjectifs</h2>
+      <ol>
+        <li><strong>Accorde toujours :</strong> Genre + Nombre → l'adjectif suit le nom comme un miroir.</li>
+        <li><strong>Mémorise les irréguliers :</strong> beau/belle, nouveau/nouvelle, vieux/vieille, bon/bonne…</li>
+        <li><strong>Place BAGS devant :</strong> Beauté, Âge, Bonté, Taille → avant le nom.</li>
+        <li><strong>Couleurs : attention !</strong> marron/orange/olive = invariables ; bleu-vert = invariable.</li>
+        <li><strong>Comparatifs irréguliers :</strong> bon → meilleur ; mauvais → pire.</li>
+        <li><strong>Lis à voix haute :</strong> l'oreille aide à sentir ce qui "sonne juste".</li>
+        <li><strong>Note les exceptions :</strong> ancien/propre/cher changent de sens selon la place.</li>
+      </ol>
+    </div>
+
+    <div class="gw-summary">
+      <h3>✨ Récapitulatif en 7 Points</h3>
+      <ul>
+        <li><strong>Accord :</strong> Adjectif = miroir du nom (même genre, même nombre)</li>
+        <li><strong>Féminin :</strong> -e général, mais -ère, -ve, -euse, -trice, double consonne, irréguliers</li>
+        <li><strong>Pluriel :</strong> -s général, mais -x identique, -eaux, -aux pour -al</li>
+        <li><strong>Place :</strong> Après le nom (majorité) ; avant pour BAGS (Beauté, Âge, Bonté, Taille)</li>
+        <li><strong>Comparatif :</strong> plus/moins/aussi + adj. + que ; bon → meilleur ; mauvais → pire</li>
+        <li><strong>Superlatif :</strong> le/la/les plus/moins + adj. ; le/la/les meilleur(e)(s)</li>
+        <li><strong>Pièges :</strong> Couleurs-noms invariables ; ancien/propre/cher changent de sens selon la place</li>
+      </ul>
+      <p style="margin-top:18px; opacity:0.95;">Maîtriser les adjectifs, c'est donner de la couleur, de la précision et de la nuance à ton français. Que tu décrives <em>une belle journée</em>, <em>un problème difficile</em> ou <em>le meilleur gâteau du monde</em> : avec ces règles, tes phrases seront justes, riches et naturelles. Et rappelle-toi : <em>"Un adjectif bien accordé, c'est comme une touche de peinture sur un tableau — ça fait toute la différence."</em> 🎨🇫🇷</p>
+    </div>
+  </div>
+`},
+    {id: 3,
+t: "Pronoms possessifs",
+d: "Le mien, la tienne, les leurs — remplacer un nom en indiquant l'appartenance, avec centaines d'exemples",
+content: `
+  <style>
+    .gw-wrap {
+      --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+      --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+      --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+      --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+      --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+      --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+      font-family: 'Nunito', sans-serif; color: var(--gw-text);
+      line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+    }
+    [data-theme="dark"] .gw-wrap {
+      --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+      --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+      --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+      --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+      --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+    }
+    .gw-wrap * { box-sizing: border-box; }
+
+    .gw-hero {
+      background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+      border: 1.5px solid var(--gw-border); border-radius: 22px;
+      padding: 28px 24px; margin-bottom: 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .gw-hero::before {
+      content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+      opacity: 0.1; border-radius: 50%; pointer-events: none;
+    }
+    .gw-hero h1 {
+      font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+      color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+    }
+    .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+    .gw-section {
+      background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+      border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+    .gw-section h2 {
+      font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+      padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+    }
+    .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+    .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+    .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+    .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+    .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+    .gw-section em { color: var(--gw-accent); font-style: italic; }
+    .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+    .gw-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+    }
+    .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+    .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+    .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+    .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+    .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+    .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+    [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+    [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+    .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+    .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+    .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+    .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+    .gw-table tr:last-child td { border-bottom: none; }
+    .gw-table tr:hover { background: var(--gw-table-hover); }
+    .gw-table strong { color: var(--gw-accent); }
+
+    .gw-example {
+      background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+      padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+      font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+    }
+    .gw-note {
+      background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+      margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+    }
+    .gw-code {
+      background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+      font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+    }
+
+    .gw-idiom-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+    }
+    .gw-idiom-title {
+      font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .gw-idiom-ex {
+      padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+    }
+    .gw-idiom-ex:last-child { border-bottom: none; }
+
+    @media(max-width: 600px) {
+      .gw-hero h1 { font-size: 1.75rem; }
+      .gw-section { padding: 20px; }
+      .gw-table { font-size: 0.88em; }
+      .gw-table th, .gw-table td { padding: 10px 12px; }
+      .gw-card { padding: 18px; }
+      .gw-idiom-title { font-size: 1.05rem; }
+    }
+  </style>
+
+  <div class="gw-wrap">
+    <div class="gw-hero">
+      <h1>🔑 Les Pronoms Possessifs</h1>
+      <p>Le mien, la tienne, les leurs — remplacer un nom en indiquant l'appartenance</p>
+    </div>
+
+    <div class="gw-section">
+      <p>Un <strong>pronom possessif</strong> est un mot qui remplace un nom en indiquant à qui appartient la chose ou la personne. Contrairement à l'<strong>adjectif possessif</strong> qui accompagne un nom (<em>mon livre</em>), le pronom possessif est utilisé <strong>seul, sans le nom</strong>.</p>
+      
+      <div class="gw-card gw-card--rule">
+        <div class="gw-card-title">📋 Différence clé :</div>
+        <p style="margin:0;">
+          ✅ <strong>Adjectif possessif :</strong> accompagne un nom<br>
+          <em><strong>Mon</strong> téléphone est cassé.</em><br><br>
+          ✅ <strong>Pronom possessif :</strong> remplace le nom<br>
+          <em>Le <strong>mien</strong> est cassé.</em> (le mien = mon téléphone)
+        </p>
+      </div>
+
+      <div class="gw-card gw-card--tip" style="margin-top:16px;">
+        <div class="gw-card-title">💡 Accord du pronom possessif :</div>
+        <p style="margin:0;">
+          Le pronom possessif s'accorde en <strong>genre et en nombre</strong> avec le <em>nom qu'il remplace</em>,<br>
+          et sa <strong>personne</strong> indique le <em>possesseur</em>.<br><br>
+          ✅ <em>Tu as une voiture. Voici <strong>la mienne</strong>.</em><br>
+          (la mienne = ma voiture → féminin singulier, possesseur = je)
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>1️⃣ Les Formes du Pronom Possessif</h2>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Possesseur</th><th>Masc. sing.</th><th>Fém. sing.</th><th>Masc. pl.</th><th>Fém. pl.</th></tr></thead>
+          <tbody>
+            <tr><td><strong>je</strong></td><td><strong>le mien</strong></td><td><strong>la mienne</strong></td><td><strong>les miens</strong></td><td><strong>les miennes</strong></td></tr>
+            <tr><td><strong>tu</strong></td><td><strong>le tien</strong></td><td><strong>la tienne</strong></td><td><strong>les tiens</strong></td><td><strong>les tiennes</strong></td></tr>
+            <tr><td><strong>il/elle</strong></td><td><strong>le sien</strong></td><td><strong>la sienne</strong></td><td><strong>les siens</strong></td><td><strong>les siennes</strong></td></tr>
+            <tr><td><strong>nous</strong></td><td><strong>le nôtre</strong></td><td><strong>la nôtre</strong></td><td><strong>les nôtres</strong></td><td><strong>les nôtres</strong></td></tr>
+            <tr><td><strong>vous</strong></td><td><strong>le vôtre</strong></td><td><strong>la vôtre</strong></td><td><strong>les vôtres</strong></td><td><strong>les vôtres</strong></td></tr>
+            <tr><td><strong>ils/elles</strong></td><td><strong>le leur</strong></td><td><strong>la leur</strong></td><td><strong>les leurs</strong></td><td><strong>les leurs</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--warn" style="margin-top:16px;">
+        <div class="gw-card-title">⚠️ Points importants :</div>
+        <ul style="margin:8px 0 0 20px;">
+          <li>Tous les pronoms possessifs sont précédés de l'article défini <strong>le, la, les</strong></li>
+          <li><strong>le nôtre / la nôtre / les nôtres</strong> et <strong>le vôtre / la vôtre / les vôtres</strong> prennent un accent circonflexe sur le <strong>ô</strong> pour les distinguer des adjectifs <em>notre / votre</em></li>
+          <li>À la 3e personne du pluriel : <strong>le leur / la leur / les leurs</strong> — <em>les leurs</em> prend un <strong>-s</strong> au pluriel</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>2️⃣ Utilisation et Accord 🎯</h2>
+      <p>Le pronom possessif s'accorde en <strong>genre et en nombre</strong> avec le nom qu'il remplace, et sa <strong>personne</strong> indique le possesseur.</p>
+      
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Tu as une voiture.</strong> → Voici <strong>la mienne</strong>.<br><small>(la mienne = ma voiture → féminin singulier)</small></div>
+        <div class="gw-idiom-ex"><strong>J'ai mes clés.</strong> → Où sont <strong>les tiennes</strong> ?<br><small>(les tiennes = tes clés → féminin pluriel)</small></div>
+        <div class="gw-idiom-ex"><strong>Elle a un frère.</strong> → <strong>Le sien</strong> habite à Lyon.<br><small>(le sien = son frère → masculin singulier)</small></div>
+        <div class="gw-idiom-ex"><strong>Nous avons une maison.</strong> → <strong>La nôtre</strong> est plus grande.<br><small>(la nôtre = notre maison → féminin singulier)</small></div>
+        <div class="gw-idiom-ex"><strong>Vous avez des bagages ?</strong> → <strong>Les vôtres</strong> sont là-bas.<br><small>(les vôtres = vos bagages → pluriel)</small></div>
+        <div class="gw-idiom-ex"><strong>Ils ont des problèmes.</strong> → <strong>Les leurs</strong> sont plus graves.<br><small>(les leurs = leurs problèmes → pluriel)</small></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>3️⃣ Contractions avec « à » et « de » 🔗</h2>
+      <p>Comme avec les articles définis, il y a des <strong>contractions</strong> lorsque le pronom possessif est précédé de <strong>à</strong> ou de <strong>de</strong>.</p>
+      
+      <h3>🔹 Avec <em>à</em></h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Combinaison</th><th>Forme contractée</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>à + le mien</strong></td><td><strong>au mien</strong></td><td><em>Je pense au mien.</em></td></tr>
+            <tr><td><strong>à + les miens</strong></td><td><strong>aux miens</strong></td><td><em>Je parle aux miens.</em></td></tr>
+            <tr><td><strong>à + la tienne</strong></td><td><strong>à la tienne</strong></td><td><em>Je pense à la tienne.</em> (pas de contraction avec <em>la</em>)</td></tr>
+            <tr><td><strong>à + les siennes</strong></td><td><strong>aux siennes</strong></td><td><em>Je m'intéresse aux siennes.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Avec <em>de</em></h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Combinaison</th><th>Forme contractée</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>de + le tien</strong></td><td><strong>du tien</strong></td><td><em>Il parle du tien.</em></td></tr>
+            <tr><td><strong>de + les tiennes</strong></td><td><strong>des tiennes</strong></td><td><em>Je me souviens des tiennes.</em></td></tr>
+            <tr><td><strong>de + la nôtre</strong></td><td><strong>de la nôtre</strong></td><td><em>Il parle de la nôtre.</em> (pas de contraction)</td></tr>
+            <tr><td><strong>de + les leurs</strong></td><td><strong>des leurs</strong></td><td><em>Ils sont fiers des leurs.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples en contexte</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Je pense à mon avenir. Penses-tu <strong>au tien</strong> ?</em> (à + le tien)</div>
+        <div class="gw-idiom-ex"><em>Elle parle de son travail. Il parle <strong>du sien</strong> par contre.</em> (de + le sien)</div>
+        <div class="gw-idiom-ex"><em>Nous sommes fiers de nos enfants. Ils sont fiers <strong>des leurs</strong>.</em> (de + les leurs)</div>
+        <div class="gw-idiom-ex"><em>Je m'intéresse à ta collection. Lui, il s'intéresse <strong>à la sienne</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Tu te souviens de tes vacances ? Moi, je me souviens <strong>des miennes</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Il a écrit à ses parents. Écris-tu <strong>aux tiens</strong> ?</em> (à + les tiens)</div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>4️⃣ Pronoms Possessifs pour les Choses Abstraites 💭</h2>
+      <p>Le pronom possessif peut renvoyer à des noms abstraits, pas seulement à des objets concrets.</p>
+      
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Avis / opinion :</strong> <em>Mon avis est différent. <strong>Le tien</strong> est tout aussi valable.</em></div>
+        <div class="gw-idiom-ex"><strong>Opinion :</strong> <em>Sa opinion compte beaucoup pour moi. <strong>La vôtre</strong> aussi.</em></div>
+        <div class="gw-idiom-ex"><strong>Idées :</strong> <em>Mes idées sont claires. Je ne connais pas <strong>les siennes</strong>.</em></div>
+        <div class="gw-idiom-ex"><strong>Courage :</strong> <em>Leur courage est admirable. <strong>Le nôtre</strong> est aussi grand.</em></div>
+        <div class="gw-idiom-ex"><strong>Patience :</strong> <em>Ta patience est exceptionnelle. <strong>La leur</strong> semble infinie.</em></div>
+        <div class="gw-idiom-ex"><strong>Méthode :</strong> <em>Sa méthode est efficace. Je préfère <strong>la sienne</strong>.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>5️⃣ « Être à » + Pronom Possessif 🏠</h2>
+      <p>Pour exprimer l'appartenance, on utilise souvent <strong>être à + pronom tonique</strong> (<em>moi, toi, lui…</em>), mais on peut aussi utiliser le pronom possessif pour éviter la répétition.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Avec « être à »</th><th>Avec pronom possessif</th></tr></thead>
+          <tbody>
+            <tr><td><em>Ce livre est à moi.</em></td><td><em>Il n'est pas à toi, il est <strong>le mien</strong>.</em></td></tr>
+            <tr><td><em>Cette robe est à Julie.</em></td><td><em>Elle est <strong>la sienne</strong>.</em></td></tr>
+            <tr><td><em>Ces clés sont à mon frère.</em></td><td><em>Ce sont <strong>les siennes</strong>.</em></td></tr>
+            <tr><td><em>La voiture devant la maison est à mes parents.</em></td><td><em><strong>La nôtre</strong> est garée plus loin.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--check" style="margin-top:16px;">
+        <div class="gw-card-title">✅ Forme standard (recommandée) :</div>
+        <p style="margin:0;">
+          <em>C'est <strong>le mien</strong>.</em><br>
+          <em>Ce ne sont pas <strong>les tiens</strong>, mais <strong>les miens</strong>.</em><br><br>
+          ⚠️ <strong>Insistance familière</strong> (à éviter en langage soutenu) :<br>
+          <em>Ce livre-là, c'est le mien à moi.</em> (redondant)
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>6️⃣ Avec un Groupe Nominal Introduit par « de »</h2>
+      <p>Quand le nom que l'on veut remplacer est introduit par <em>de</em> dans une construction possessive, le pronom possessif peut simplifier la phrase.</p>
+      
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Le chien de mon voisin aboie. <strong>Le mien</strong> est calme.</em><br><small>(le mien = mon chien)</small></div>
+        <div class="gw-idiom-ex"><em>J'ai reçu la lettre de Pierre. As-tu reçu <strong>la tienne</strong> ?</em><br><small>(la tienne = ta lettre)</small></div>
+        <div class="gw-idiom-ex"><em>Les jouets des enfants sont éparpillés. <strong>Les nôtres</strong> sont rangés.</em><br><small>(les nôtres = nos jouets)</small></div>
+        <div class="gw-idiom-ex"><em>La voiture de Marie est rouge. <strong>La sienne</strong> est bleue.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>7️⃣ Avec « l'un(e) de », « quelques-uns/unes de »</h2>
+      <p>On peut combiner les pronoms possessifs avec des expressions partitives.</p>
+      
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Voici mes livres. Prenez <strong>un des miens</strong> si vous voulez.</em></div>
+        <div class="gw-idiom-ex"><em>J'ai goûté à vos gâteaux. J'en ai aimé <strong>quelques-uns des vôtres</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Parmi ses amis, <strong>certains des tiens</strong> sont très sympathiques.</em></div>
+        <div class="gw-idiom-ex"><em>J'ai invité des collègues. <strong>Deux des nôtres</strong> viendront aussi.</em></div>
+        <div class="gw-idiom-ex"><em>Elle a plusieurs robes. J'aime bien <strong>une des siennes</strong>.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>8️⃣ Dans les Comparaisons ⚖️</h2>
+      <p>On utilise souvent le pronom possessif dans une phrase comparative pour éviter une répétition.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Comparaison</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Supériorité</strong></td><td><em>Ta maison est plus grande que <strong>la mienne</strong>.</em></td></tr>
+            <tr><td><strong>Infériorité</strong></td><td><em>Mon travail est moins intéressant que <strong>le tien</strong>.</em></td></tr>
+            <tr><td><strong>Égalité</strong></td><td><em>Ses idées sont aussi bonnes que <strong>les vôtres</strong>.</em></td></tr>
+            <tr><td><strong>Meilleur</strong></td><td><em>Nos vacances étaient meilleures que <strong>les leurs</strong>.</em></td></tr>
+            <tr><td><strong>Plus rapide</strong></td><td><em>Leur voiture est plus rapide que <strong>la nôtre</strong>.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>⚠️ Remarques Importantes et Erreurs à Éviter</h2>
+      
+      <div class="gw-card gw-card--warn">
+        <div class="gw-card-title">🚫 Ne pas confondre :</div>
+        <ul style="margin:8px 0 0 20px;">
+          <li><strong>Adjectif possessif <em>leur</em></strong> (sans -s) vs <strong>pronom possessif <em>le leur / les leurs</em></strong><br>
+          ✅ Adjectif : <em>Ils ont amené <strong>leur</strong> chien.</em> (adjectif, singulier)<br>
+          ✅ Pronom : <em>Ils ont amené <strong>le leur</strong>.</em> / <em>Ils ont amené <strong>les leurs</strong>.</em></li>
+          
+          <li><strong>Accent circonflexe sur <em>nôtre / vôtre</em></strong><br>
+          ✅ Déterminant : <em><strong>Notre</strong> maison est là.</em> (pas d'accent)<br>
+          ✅ Pronom : <em><strong>La nôtre</strong> est plus grande.</em> (accent circonflexe)</li>
+          
+          <li><strong>Accord avec le nom remplacé</strong><br>
+          ✅ <em>J'ai perdu mes clés. → J'ai perdu <strong>les miennes</strong>.</em> (clés = féminin pluriel)<br>
+          ✅ <em>Il a cassé son jouet. → Il a cassé <strong>le sien</strong>.</em> (jouet = masculin singulier)<br>
+          ✅ <em>Nous aimons nos parents. → Nous aimons <strong>les nôtres</strong>.</em> (parents = pluriel)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📊 Tableau Récapitulatif avec Exemples</h2>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Possesseur</th><th>Masc. sing.</th><th>Fém. sing.</th><th>Pluriel</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>je</strong></td><td>le mien</td><td>la mienne</td><td>les miens / les miennes</td><td><em>Ton frère est venu ; <strong>le mien</strong> aussi.</em></td></tr>
+            <tr><td><strong>tu</strong></td><td>le tien</td><td>la tienne</td><td>les tiens / les tiennes</td><td><em>Voici mes cahiers ; où sont <strong>les tiens</strong> ?</em></td></tr>
+            <tr><td><strong>il/elle</strong></td><td>le sien</td><td>la sienne</td><td>les siens / les siennes</td><td><em>Sa valise est lourde ; <strong>la sienne</strong> aussi.</em></td></tr>
+            <tr><td><strong>nous</strong></td><td>le nôtre</td><td>la nôtre</td><td>les nôtres</td><td><em>Notre équipe a gagné ; <strong>la nôtre</strong> aussi.</em></td></tr>
+            <tr><td><strong>vous</strong></td><td>le vôtre</td><td>la vôtre</td><td>les vôtres</td><td><em>Mes parents sont ici ; <strong>les vôtres</strong> sont partis.</em></td></tr>
+            <tr><td><strong>ils/elles</strong></td><td>le leur</td><td>la leur</td><td>les leurs</td><td><em>Leurs enfants sont sages ; <strong>les leurs</strong> le sont aussi.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📚 Énormément d'Exemples en Contexte</h2>
+      
+      <h3>🔹 1ère personne du singulier (je)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Ton jardin est beau. <strong>Le mien</strong> est plus sauvage.</em></div>
+        <div class="gw-idiom-ex"><em>J'ai oublié ma montre. Est-ce que je peux emprunter la tienne ? Non, prends plutôt <strong>la mienne</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Ses amis sont sportifs. <strong>Les miens</strong> préfèrent la lecture.</em></div>
+        <div class="gw-idiom-ex"><em>Mon avis est différent. <strong>Le tien</strong> est tout aussi valable.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 2ème personne du singulier (tu)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Mon stylo est rouge. <strong>Le tien</strong> est bleu.</em></div>
+        <div class="gw-idiom-ex"><em>Ma voiture est en panne. <strong>La tienne</strong> marche bien.</em></div>
+        <div class="gw-idiom-ex"><em>Mes résultats sont décevants. Heureusement que <strong>les tiens</strong> sont bons.</em></div>
+        <div class="gw-idiom-ex"><em>J'ai apporté mes affaires. N'oublie pas <strong>les tiennes</strong>.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 3ème personne du singulier (il/elle)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Pierre a perdu son portefeuille. Marie a retrouvé <strong>le sien</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Leur chien aboie tout le temps. <strong>Le sien</strong> est très calme.</em></div>
+        <div class="gw-idiom-ex"><em>Il a ses propres problèmes. Elle a <strong>les siens</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Sa méthode est efficace. Je préfère <strong>la sienne</strong>.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 1ère personne du pluriel (nous)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Votre appartement est bien situé. <strong>Le nôtre</strong> est plus excentré.</em></div>
+        <div class="gw-idiom-ex"><em>Leurs enfants jouent dans la cour. <strong>Les nôtres</strong> sont à l'école.</em></div>
+        <div class="gw-idiom-ex"><em>Votre proposition est intéressante. <strong>La nôtre</strong> est différente.</em></div>
+        <div class="gw-idiom-ex"><em>Ce sont vos bagages ? <strong>Les nôtres</strong> sont déjà dans le train.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 2ème personne du pluriel (vous)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Notre pays a une longue histoire. <strong>Le vôtre</strong> aussi.</em></div>
+        <div class="gw-idiom-ex"><em>Mes informations sont confidentielles. <strong>Les vôtres</strong> le sont également.</em></div>
+        <div class="gw-idiom-ex"><em>Nous défendons nos idées. Défendez <strong>les vôtres</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Notre équipe est prête. <strong>La vôtre</strong> doit se préparer.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 3ème personne du pluriel (ils/elles)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Nos valises sont bouclées. <strong>Les leurs</strong> sont encore ouvertes.</em></div>
+        <div class="gw-idiom-ex"><em>Tes outils sont dans l'atelier. <strong>Les leurs</strong> sont dans le garage.</em></div>
+        <div class="gw-idiom-ex"><em>Votre maison est ancienne. <strong>La leur</strong> est moderne.</em></div>
+        <div class="gw-idiom-ex"><em>J'ai lu ton rapport. J'attends de lire <strong>le leur</strong>.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Avec des prépositions</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Pense à tes examens. Lui, il ne pense qu'<strong>au sien</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Elle parle de ses enfants. Nous parlons <strong>des nôtres</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Je vais chez mes grands-parents. Vas-tu chez <strong>les tiens</strong> ?</em></div>
+        <div class="gw-idiom-ex"><em>Il revient de ses vacances. Nous, on ne part qu'<strong>aux nôtres</strong> le mois prochain.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📝 Exercices : Choisis le Bon Pronom Possessif</h2>
+      <p><strong>Consigne :</strong> Complète avec le pronom possessif correct.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>1.</strong> <em>Ton livre est intéressant. ___ (le mien / la mienne) aussi.</em><br><em>Réponse : <strong>Le mien</strong> (livre = masculin singulier)</em></div>
+        <div class="gw-idiom-ex"><strong>2.</strong> <em>Mes clés sont perdues. Où sont ___ (les tiens / les tiennes) ?</em><br><em>Réponse : <strong>les tiennes</strong> (clés = féminin pluriel)</em></div>
+        <div class="gw-idiom-ex"><strong>3.</strong> <em>Notre maison est grande. ___ (La nôtre / La notre) est plus petite.</em><br><em>Réponse : <strong>La nôtre</strong> (accent circonflexe sur ô pour le pronom)</em></div>
+        <div class="gw-idiom-ex"><strong>4.</strong> <em>Leur chien est calme. ___ (Le leur / Leurs) aboie tout le temps.</em><br><em>Réponse : <strong>Le leur</strong> (chien = masculin singulier)</em></div>
+        <div class="gw-idiom-ex"><strong>5.</strong> <em>Je pense à mon avenir. Penses-tu ___ (au tien / à la tienne) ?</em><br><em>Réponse : <strong>au tien</strong> (à + le tien = au tien)</em></div>
+        <div class="gw-idiom-ex"><strong>6.</strong> <em>Ses idées sont claires. Je ne connais pas ___ (les siens / les siennes).</em><br><em>Réponse : <strong>les siennes</strong> (idées = féminin pluriel)</em></div>
+        <div class="gw-idiom-ex"><strong>7.</strong> <em>Vos enfants sont sages. ___ (Les nôtres / Les notres) aussi.</em><br><em>Réponse : <strong>Les nôtres</strong> (accent circonflexe)</em></div>
+        <div class="gw-idiom-ex"><strong>8.</strong> <em>Il parle de son travail. Elle parle ___ (du sien / de la sienne).</em><br><em>Réponse : <strong>du sien</strong> (travail = masculin singulier)</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>💡 Conseils pour Maîtriser les Pronoms Possessifs</h2>
+      <ol>
+        <li><strong>Identifie le nom remplacé :</strong> Quel est le genre et le nombre du nom sous-entendu ?</li>
+        <li><strong>Identifie le possesseur :</strong> Qui possède ? je, tu, il, nous, vous, ils ?</li>
+        <li><strong>Mémorise les formes avec accent :</strong> <em>nôtre / vôtre</em> (pronoms) vs <em>notre / votre</em> (adjectifs)</li>
+        <li><strong>Apprends les contractions :</strong> à+le=au, de+le=du, à+les=aux, de+les=des</li>
+        <li><strong>Pratique avec des phrases courtes :</strong> Remplace systématiquement les noms par des pronoms possessifs</li>
+        <li><strong>Lis à voix haute :</strong> L'oreille aide à sentir ce qui "sonne juste"</li>
+        <li><strong>Note les exceptions :</strong> <em>les leurs</em> prend un -s au pluriel, contrairement à l'adjectif <em>leur</em></li>
+      </ol>
+    </div>
+
+    <div class="gw-summary">
+      <h3>✨ Récapitulatif en 6 Points</h3>
+      <ul>
+        <li><strong>Pronom vs Adjectif :</strong> Le pronom possessif remplace le nom ; l'adjectif l'accompagne</li>
+        <li><strong>Accord :</strong> Genre et nombre du <em>nom remplacé</em> ; personne du <em>possesseur</em></li>
+        <li><strong>Formes clés :</strong> le mien/la mienne/les miens/les miennes, le tien…, le sien…, le nôtre/la nôtre/les nôtres, le vôtre/la vôtre/les vôtres, le leur/la leur/les leurs</li>
+        <li><strong>Contractions :</strong> à+le=au, de+le=du, à+les=aux, de+les=des (pas de contraction avec la/l')</li>
+        <li><strong>Accent circonflexe :</strong> <em>nôtre / vôtre</em> (pronoms) pour distinguer de <em>notre / votre</em> (adjectifs)</li>
+        <li><strong>Pluriel de leur :</strong> <em>les leurs</em> prend un -s (contrairement à l'adjectif <em>leur</em>)</li>
+      </ul>
+      <p style="margin-top:18px; opacity:0.95;">Maîtriser les pronoms possessifs, c'est savoir exprimer l'appartenance avec précision et élégance. Que tu parles de <em>ton livre</em> ou du <strong>mien</strong>, de <em>leur maison</em> ou de <strong>la nôtre</strong> : avec ces règles, tes phrases seront justes, fluides et naturelles. Et rappelle-toi : <em>"Ce qui est à toi est le tien, ce qui est à moi est le mien — et avec les pronoms possessifs, tu sais toujours lequel est lequel !"</em> 🔑🇫🇷</p>
+    </div>
+  </div>
+`},
+    {id: 3,
+t: "Pronoms démonstratifs",
+d: "Celui, celle, ceux, celles, ceci, cela — montrer et désigner avec précision, avec centaines d'exemples",
+content: `
+  <style>
+    .gw-wrap {
+      --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+      --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+      --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+      --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+      --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+      --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+      font-family: 'Nunito', sans-serif; color: var(--gw-text);
+      line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+    }
+    [data-theme="dark"] .gw-wrap {
+      --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+      --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+      --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+      --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+      --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+    }
+    .gw-wrap * { box-sizing: border-box; }
+
+    .gw-hero {
+      background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+      border: 1.5px solid var(--gw-border); border-radius: 22px;
+      padding: 28px 24px; margin-bottom: 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .gw-hero::before {
+      content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+      opacity: 0.1; border-radius: 50%; pointer-events: none;
+    }
+    .gw-hero h1 {
+      font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+      color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+    }
+    .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+    .gw-section {
+      background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+      border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+    .gw-section h2 {
+      font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+      padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+    }
+    .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+    .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+    .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+    .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+    .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+    .gw-section em { color: var(--gw-accent); font-style: italic; }
+    .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+    .gw-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+    }
+    .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+    .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+    .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+    .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+    .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+    .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+    [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+    [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+    .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+    .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+    .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+    .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+    .gw-table tr:last-child td { border-bottom: none; }
+    .gw-table tr:hover { background: var(--gw-table-hover); }
+    .gw-table strong { color: var(--gw-accent); }
+
+    .gw-example {
+      background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+      padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+      font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+    }
+    .gw-note {
+      background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+      margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+    }
+    .gw-code {
+      background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+      font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+    }
+
+    .gw-idiom-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+    }
+    .gw-idiom-title {
+      font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .gw-idiom-ex {
+      padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+    }
+    .gw-idiom-ex:last-child { border-bottom: none; }
+
+    @media(max-width: 600px) {
+      .gw-hero h1 { font-size: 1.75rem; }
+      .gw-section { padding: 20px; }
+      .gw-table { font-size: 0.88em; }
+      .gw-table th, .gw-table td { padding: 10px 12px; }
+      .gw-card { padding: 18px; }
+      .gw-idiom-title { font-size: 1.05rem; }
+    }
+  </style>
+
+  <div class="gw-wrap">
+    <div class="gw-hero">
+      <h1>👉 Les Pronoms Démonstratifs</h1>
+      <p>Celui, celle, ceux, celles, ceci, cela — montrer et désigner avec précision</p>
+    </div>
+
+    <div class="gw-section">
+      <p>Un <strong>pronom démonstratif</strong> est un mot qui <strong>remplace un nom</strong> (ou un groupe nominal) pour <strong>montrer</strong> ou <strong>désigner</strong> une personne, un animal ou une chose.</p>
+      
+      <div class="gw-card gw-card--rule">
+        <div class="gw-card-title">📋 Deux grandes catégories :</div>
+        <ul style="margin:8px 0 0 20px;">
+          <li><strong>Formes simples :</strong> <em>celui, celle, ceux, celles</em> → toujours suivies d'un complément</li>
+          <li><strong>Formes composées :</strong> <em>celui-ci, celui-là, celle-ci, celle-là…</em> → peuvent s'employer seules</li>
+        </ul>
+      </div>
+
+      <div class="gw-card gw-card--tip" style="margin-top:16px;">
+        <div class="gw-card-title">💡 Accord du pronom démonstratif :</div>
+        <p style="margin:0;">
+          Le pronom démonstratif s'accorde en <strong>genre et en nombre</strong> avec le <em>nom qu'il remplace</em>.<br><br>
+          ✅ <em>Tu as une voiture. <strong>Celle</strong> que tu vois est rouge.</em><br>
+          (celle = ta voiture → féminin singulier)
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>1️⃣ Les Formes Simples</h2>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Genre / Nombre</th><th>Pronom</th><th>Exemple</th><th>Remarque</th></tr></thead>
+          <tbody>
+            <tr><td>Masculin singulier</td><td><strong>celui</strong></td><td><em><strong>Celui</strong> qui parle est mon père.</em></td><td>Toujours suivi d'un complément</td></tr>
+            <tr><td>Féminin singulier</td><td><strong>celle</strong></td><td><em><strong>Celle</strong> que tu vois est ma sœur.</em></td><td>Toujours suivi d'un complément</td></tr>
+            <tr><td>Masculin pluriel</td><td><strong>ceux</strong></td><td><em><strong>Ceux</strong> qui étudient réussissent.</em></td><td>Toujours suivi d'un complément</td></tr>
+            <tr><td>Féminin pluriel</td><td><strong>celles</strong></td><td><em><strong>Celles</strong> qui dansent sont mes amies.</em></td><td>Toujours suivi d'un complément</td></tr>
+            <tr><td>Neutre</td><td><strong>ce / c'</strong></td><td><em><strong>C'</strong>est important. <strong>Ce</strong> qui me plaît, c'est la musique.</em></td><td>Invariable, très fréquent</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--warn" style="margin-top:16px;">
+        <div class="gw-card-title">⚠️ Règle essentielle :</div>
+        <p style="margin:0;">
+          Les formes simples (<em>celui, celle, ceux, celles</em>) ne s'emploient <strong>jamais seules</strong>.<br>
+          Elles doivent toujours être suivies :<br>
+          ✅ d'une <strong>proposition relative</strong> (<em>qui, que, dont, où…</em>)<br>
+          ✅ ou d'un <strong>complément introduit par <em>de</em></strong><br><br>
+          ❌ <em>~~Je veux celui.~~</em> → ✅ <em>Je veux <strong>celui-ci</strong>.</em> ou <em>Je veux <strong>celui de Pierre</strong>.</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>2️⃣ Les Formes Composées : -ci et -là 🎯</h2>
+      <p>Pour indiquer la <strong>proximité</strong> (dans l'espace ou dans le temps) ou l'<strong>éloignement</strong>, on ajoute les particules <strong>-ci</strong> (proche) et <strong>-là</strong> (loin).</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Genre / Nombre</th><th>Proximité (-ci)</th><th>Éloignement (-là)</th></tr></thead>
+          <tbody>
+            <tr><td>Masculin singulier</td><td><strong>celui-ci</strong></td><td><strong>celui-là</strong></td></tr>
+            <tr><td>Féminin singulier</td><td><strong>celle-ci</strong></td><td><strong>celle-là</strong></td></tr>
+            <tr><td>Masculin pluriel</td><td><strong>ceux-ci</strong></td><td><strong>ceux-là</strong></td></tr>
+            <tr><td>Féminin pluriel</td><td><strong>celles-ci</strong></td><td><strong>celles-là</strong></td></tr>
+            <tr><td>Neutre</td><td><strong>ceci</strong></td><td><strong>cela / ça</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples d'usage</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Choix entre deux objets :</strong> <em>Tu veux quel livre ? <strong>Celui-ci</strong> ou <strong>celui-là</strong> ?</em></div>
+        <div class="gw-idiom-ex"><strong>Comparaison :</strong> <em>Regarde ces deux robes : j'aime bien <strong>celle-ci</strong>, mais <strong>celle-là</strong> est plus chic.</em></div>
+        <div class="gw-idiom-ex"><strong>Aliments :</strong> <em><strong>Ceux-ci</strong> sont mûrs, <strong>ceux-là</strong> ne le sont pas encore.</em></div>
+        <div class="gw-idiom-ex"><strong>Vêtements :</strong> <em><strong>Celles-ci</strong> sont en solde, <strong>celles-là</strong> sont au prix normal.</em></div>
+        <div class="gw-idiom-ex"><strong>Neutre :</strong> <em><strong>Ceci</strong> est mon travail, <strong>cela</strong> (ou <strong>ça</strong>) est le tien.</em></div>
+      </div>
+
+      <div class="gw-card gw-card--tip" style="margin-top:16px;">
+        <div class="gw-card-title">💡 Nuances de -ci et -là :</div>
+        <p style="margin:0;">
+          ✅ <strong>-ci</strong> = ce qui est <em>proche</em> (dans l'espace, le temps, ou ce qui va suivre)<br>
+          ✅ <strong>-là</strong> = ce qui est <em>éloigné</em> (dans l'espace, le temps, ou ce qui précède)<br><br>
+          ⚠️ Dans la langue courante, <strong>-là</strong> tend à s'employer partout, surtout à l'oral :<br>
+          <em>Donne-moi celui-là.</em> (même si l'objet est proche)
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>3️⃣ Emploi des Formes Simples 🔗</h2>
+      
+      <h3>🔹 Avec une proposition relative</h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Pronom + relatif</th><th>Exemple</th><th>Traduction implicite</th></tr></thead>
+          <tbody>
+            <tr><td><strong>celui qui</strong></td><td><em><strong>Celui qui</strong> m'a téléphoné est mon patron.</em></td><td>l'homme qui…</td></tr>
+            <tr><td><strong>celle que</strong></td><td><em><strong>Celle que</strong> tu as rencontrée hier est ma cousine.</em></td><td>la femme que…</td></tr>
+            <tr><td><strong>ceux qui</strong></td><td><em><strong>Ceux qui</strong> veulent participer doivent s'inscrire.</em></td><td>les hommes qui…</td></tr>
+            <tr><td><strong>celles dont</strong></td><td><em><strong>Celles dont</strong> je t'ai parlé sont en vente ici.</em></td><td>les femmes dont…</td></tr>
+            <tr><td><strong>ce qui</strong></td><td><em><strong>Ce qui</strong> m'inquiète, c'est le silence.</em></td><td>la chose qui…</td></tr>
+            <tr><td><strong>ce que</strong></td><td><em><strong>Ce que</strong> je pense n'a pas d'importance.</em></td><td>la chose que…</td></tr>
+            <tr><td><strong>ce dont</strong></td><td><em><strong>Ce dont</strong> j'ai besoin, c'est de vacances.</em></td><td>la chose dont…</td></tr>
+            <tr><td><strong>ce à quoi</strong></td><td><em><strong>Ce à quoi</strong> il pense est totalement fou.</em></td><td>la chose à quoi…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Avec un complément en <em>de</em></h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Mon ordinateur est en panne, <strong>celui de</strong> mon frère marche bien.</em><br><small>(celui de = mon ordinateur de → l'ordinateur de mon frère)</small></div>
+        <div class="gw-idiom-ex"><em>Sa voiture est rouge ; <strong>celle de</strong> sa femme est blanche.</em><br><small>(celle de = la voiture de)</small></div>
+        <div class="gw-idiom-ex"><em>Les résultats de Pierre sont bons, <strong>ceux de</strong> Paul sont moins bons.</em><br><small>(ceux de = les résultats de)</small></div>
+        <div class="gw-idiom-ex"><em>Mes affaires sont rangées ; <strong>celles de</strong> ma sœur traînent partout.</em><br><small>(celles de = les affaires de)</small></div>
+        <div class="gw-idiom-ex"><em>Je préfère ton opinion à <strong>celle de</strong> Marc.</em><br><small>(celle de = l'opinion de)</small></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>4️⃣ Emploi des Formes Composées ✨</h2>
+      <p>Les formes composées peuvent s'employer <strong>seules</strong> (sans être suivies d'un complément). Elles servent à désigner directement quelque chose en pointant, ou à faire une distinction entre deux éléments.</p>
+      
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Désignation directe :</strong> <em><strong>Celui-ci</strong> est magnifique !</em> (en montrant un objet)</div>
+        <div class="gw-idiom-ex"><strong>Opposition :</strong> <em>Regarde ces deux téléphones : <strong>celui-ci</strong> est cher, <strong>celui-là</strong> est bon marché.</em></div>
+        <div class="gw-idiom-ex"><strong>Préférence :</strong> <em>Je préfère <strong>celles-ci</strong> aux autres.</em></div>
+        <div class="gw-idiom-ex"><strong>Offre :</strong> <em>Vous voulez des bonbons ? Prenez <strong>ceux-ci</strong>, ils sont excellents.</em></div>
+        <div class="gw-idiom-ex"><strong>Annonce / reprise :</strong> <em><strong>Ceci</strong> est important. <strong>Cela</strong> dit, je ne suis pas convaincu.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🕐 Nuance temporelle avec -ci / -là</h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Expression</th><th>Sens</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ces jours-ci</strong></td><td>les jours récents ou à venir</td><td><em>Je le verrai ces jours-ci.</em></td></tr>
+            <tr><td><strong>ces jours-là</strong></td><td>des jours lointains (passés)</td><td><em>Il pleuvait beaucoup ces jours-là.</em></td></tr>
+            <tr><td><strong>en ce temps-ci</strong></td><td>de nos jours</td><td><em>En ce temps-ci, tout va vite.</em></td></tr>
+            <tr><td><strong>en ce temps-là</strong></td><td>jadis, autrefois</td><td><em>En ce temps-là, on écrivait des lettres.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>5️⃣ Les Formes Neutres : ce, ceci, cela, ça 🌀</h2>
+      <p>Le neutre ne renvoie ni à une personne ni à une chose précise, mais à une <strong>idée</strong>, une <strong>phrase</strong>, un <strong>concept</strong>.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Forme</th><th>Usage principal</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ce / c'</strong></td><td>Sujet du verbe <em>être</em> ou suivi d'un relatif</td><td><em><strong>C'</strong>est une bonne idée. <strong>Ce</strong> qui est sûr, c'est que je serai là.</em></td></tr>
+            <tr><td><strong>ceci</strong></td><td>Annonce ce qui va suivre (proximité)</td><td><em>Retenez bien <strong>ceci</strong> : la sécurité avant tout.</em></td></tr>
+            <tr><td><strong>cela</strong></td><td>Reprend ce qui précède (éloignement)</td><td><em>Il a plu toute la journée ; <strong>cela</strong> m'a empêché de sortir.</em></td></tr>
+            <tr><td><strong>ça</strong></td><td>Forme courante de <em>cela</em> (oral, informel)</td><td><em><strong>Ça</strong> va ? <strong>Ça</strong> m'est égal.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples avec <em>ce / c'</em></h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>C'</strong>est dommage.</em> | <em><strong>Ce</strong> sont mes amis.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Ce</strong> qui se passe est incroyable.</em> | <em><strong>Ce</strong> qu'il a dit est faux.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Ce</strong> à quoi je tiens le plus, c'est ma famille.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Ce</strong> dont je me souviens, c'est le parfum des fleurs.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples avec <em>ceci / cela / ça</em></h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Annonce (ceci) :</strong> <em>Écoutez bien <strong>ceci</strong> : ne sortez pas sans parapluie.</em></div>
+        <div class="gw-idiom-ex"><strong>Reprise (cela) :</strong> <em>Il m'a menti, et <strong>cela</strong> m'a beaucoup blessé.</em></div>
+        <div class="gw-idiom-ex"><strong>Oral (ça) :</strong> <em>Donne-moi <strong>ça</strong> tout de suite !</em> | <em><strong>Ça</strong> y est !</em></div>
+        <div class="gw-idiom-ex"><strong>Expression :</strong> <em><strong>C'est-à-dire</strong> que je ne suis pas d'accord.</em> | <em><strong>Malgré cela</strong>, il faut continuer.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>6️⃣ Opposition et Sélection ⚖️</h2>
+      <p>Très souvent, on utilise les démonstratifs pour <strong>opposer</strong> deux personnes ou deux choses, ou pour <strong>sélectionner</strong> un élément parmi plusieurs.</p>
+      
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Deux solutions :</strong> <em>Il y a deux solutions : <strong>celle-ci</strong> est rapide mais risquée, <strong>celle-là</strong> est plus sûre mais plus lente.</em></div>
+        <div class="gw-idiom-ex"><strong>Sélection implicite :</strong> <em>De ces deux élèves, <strong>celui</strong> qui a le mieux travaillé réussira.</em></div>
+        <div class="gw-idiom-ex"><strong>Choix parmi plusieurs :</strong> <em>J'ai goûté tous les fromages, <strong>ceux-là</strong> sont vraiment délicieux.</em></div>
+        <div class="gw-idiom-ex"><strong>Comparaison de versions :</strong> <em>Il y a plusieurs versions du logiciel : <strong>celle-ci</strong> est gratuite, <strong>celle-là</strong> est payante.</em></div>
+        <div class="gw-idiom-ex"><strong>Tri :</strong> <em>On a examiné toutes les offres ; <strong>celles-ci</strong> ne nous conviennent pas, <strong>celles-là</strong> sont acceptables.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>⚠️ Attention : Ne Pas Confondre !</h2>
+      
+      <h3>🔹 Pronom démonstratif vs Adjectif démonstratif</h3>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Adjectif démonstratif</th><th>Pronom démonstratif</th><th>Différence</th></tr></thead>
+          <tbody>
+            <tr><td><em><strong>Ce</strong> livre est intéressant.</em></td><td><em><strong>Celui-ci</strong> est intéressant.</em></td><td>Adjectif + nom vs pronom seul</td></tr>
+            <tr><td><em><strong>Cette</strong> chaise est confortable.</em></td><td><em><strong>Celle-là</strong> est confortable.</em></td><td>Adjectif accompagne / pronom remplace</td></tr>
+            <tr><td><em><strong>Ces</strong> fleurs sentent bon.</em></td><td><em><strong>Celles-ci</strong> sentent bon.</em></td><td>Adjectif = déterminant / pronom = substitut</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Formes simples : toujours suivies d'un complément</h3>
+      <div class="gw-card gw-card--warn">
+        <div class="gw-card-title">🚫 Erreurs fréquentes :</div>
+        <ul style="margin:8px 0 0 20px;">
+          <li>❌ <em>~~Je veux celui.~~</em> → ✅ <em>Je veux <strong>celui-ci</strong>.</em> ou <em>Je veux <strong>celui de Pierre</strong>.</em></li>
+          <li>❌ <em>~~Celle est belle.~~</em> → ✅ <em><strong>Celle-ci</strong> est belle.</em> ou <em><strong>Celle que</strong> tu vois est belle.</em></li>
+          <li>❌ <em>~~Ceux sont partis.~~</em> → ✅ <em><strong>Ceux qui</strong> sont partis.</em> ou <em><strong>Ceux-là</strong> sont partis.</em></li>
+        </ul>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Ceci vs Cela : annonce vs reprise</h3>
+      <div class="gw-card gw-card--check">
+        <div class="gw-card-title">✅ Astuce mémoire :</div>
+        <p style="margin:0;">
+          <strong>ceci</strong> = ce qui suit (comme <em>-ci</em> = proche) → annonce<br>
+          <strong>cela</strong> = ce qui précède (comme <em>-là</em> = loin) → reprise<br><br>
+          ✅ <em>Retenez bien <strong>ceci</strong> : travaillez régulièrement.</em> (annonce)<br>
+          ✅ <em>Il a travaillé régulièrement. <strong>Cela</strong> a porté ses fruits.</em> (reprise)
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📊 Tableau Récapitulatif Complet</h2>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Genre / Nombre</th><th>Forme simple</th><th>Forme composée (-ci)</th><th>Forme composée (-là)</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>Masc. sing.</td><td>celui</td><td>celui-ci</td><td>celui-là</td><td><em>Celui qui parle / Celui-ci est beau</em></td></tr>
+            <tr><td>Fém. sing.</td><td>celle</td><td>celle-ci</td><td>celle-là</td><td><em>Celle que je vois / Celle-là me plaît</em></td></tr>
+            <tr><td>Masc. pl.</td><td>ceux</td><td>ceux-ci</td><td>ceux-là</td><td><em>Ceux qui étudient / Ceux-ci sont mûrs</em></td></tr>
+            <tr><td>Fém. pl.</td><td>celles</td><td>celles-ci</td><td>celles-là</td><td><em>Celles dont je parle / Celles-ci sont en solde</em></td></tr>
+            <tr><td>Neutre</td><td>ce / c'</td><td>ceci</td><td>cela / ça</td><td><em>C'est important / Ceci est mon avis / Ça va ?</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📚 Énormément d'Exemples en Contexte</h2>
+      
+      <h3>🔹 Avec proposition relative</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>J'aime beaucoup le film <strong>celui que</strong> tu m'as conseillé.</em></div>
+        <div class="gw-idiom-ex"><em>La fille <strong>celle qui</strong> habite à côté est très sympa.</em></div>
+        <div class="gw-idiom-ex"><em>Les exercices <strong>ceux qui</strong> sont trop faciles ne m'intéressent pas.</em></div>
+        <div class="gw-idiom-ex"><em>Les fleurs <strong>celles que</strong> tu m'as offertes sont magnifiques.</em></div>
+        <div class="gw-idiom-ex"><em>Je n'ai pas compris <strong>ce que</strong> tu as dit.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Ce qui</strong> se passe est incroyable.</em></div>
+        <div class="gw-idiom-ex"><em>Dis-moi <strong>ce dont</strong> tu as besoin.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Avec <em>de</em></h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Mon vélo est vieux, <strong>celui de</strong> mon voisin est tout neuf.</em></div>
+        <div class="gw-idiom-ex"><em>Ta robe est jolie, mais <strong>celle de</strong> Marie est plus élégante.</em></div>
+        <div class="gw-idiom-ex"><em>Les enfants de ma sœur sont sages, au contraire de <strong>ceux de</strong> mon frère.</em></div>
+        <div class="gw-idiom-ex"><em>J'ai perdu mes écouteurs ; puis-je emprunter <strong>ceux de</strong> Pierre ?</em></div>
+        <div class="gw-idiom-ex"><em>Je préfère ton opinion à <strong>celle de</strong> Marc.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Avec -ci / -là</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Vous préférez quel dessert ? <strong>Celui-ci</strong> au chocolat ou <strong>celui-là</strong> aux fruits ?</em></div>
+        <div class="gw-idiom-ex"><em>Cette robe est jolie, mais <strong>celle-là</strong> te va mieux.</em></div>
+        <div class="gw-idiom-ex"><em>Range-moi ces dossiers : <strong>ceux-ci</strong> dans le tiroir, <strong>ceux-là</strong> sur le bureau.</em></div>
+        <div class="gw-idiom-ex"><em>Parmi toutes ces photos, <strong>celles-ci</strong> sont les plus réussies.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Ceci</strong> est mon numéro de téléphone, appelez-moi.</em></div>
+        <div class="gw-idiom-ex"><em>Il m'a menti, et <strong>cela</strong> m'a beaucoup blessé.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Avec le neutre</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Tout <strong>ceci</strong> doit rester entre nous.</em></div>
+        <div class="gw-idiom-ex"><em>Comment peut-on expliquer <strong>cela</strong> ?</em></div>
+        <div class="gw-idiom-ex"><em>Ne t'inquiète pas, <strong>ça</strong> va s'arranger.</em></div>
+        <div class="gw-idiom-ex"><em><strong>C'</strong>est la vie !</em> | <em><strong>Ça</strong> y est !</em> | <em><strong>C'est-à-dire</strong> que…</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📝 Exercices : Choisis le Bon Pronom Démonstratif</h2>
+      <p><strong>Consigne :</strong> Complète avec le pronom démonstratif correct.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>1.</strong> <em>Ton livre est intéressant. ___ (Celui / Celui-ci) que tu m'as prêté aussi.</em><br><em>Réponse : <strong>Celui</strong> (forme simple + proposition relative "que tu m'as prêté")</em></div>
+        <div class="gw-idiom-ex"><strong>2.</strong> <em>Tu veux quelle pomme ? ___ (Celle / Celle-ci) ou celle-là ?</em><br><em>Réponse : <strong>Celle-ci</strong> (forme composée, désignation directe)</em></div>
+        <div class="gw-idiom-ex"><strong>3.</strong> <em>Mon ordinateur est en panne. ___ (Celui / Celui de) mon frère marche bien.</em><br><em>Réponse : <strong>Celui de</strong> (forme simple + complément en "de")</em></div>
+        <div class="gw-idiom-ex"><strong>4.</strong> <em>___ (Ce / Ceci) qui m'inquiète, c'est le silence.</em><br><em>Réponse : <strong>Ce</strong> (neutre + proposition relative "qui m'inquiète")</em></div>
+        <div class="gw-idiom-ex"><strong>5.</strong> <em>Retenez bien ___ (ceci / cela) : la sécurité avant tout.</em><br><em>Réponse : <strong>ceci</strong> (annonce de ce qui suit)</em></div>
+        <div class="gw-idiom-ex"><strong>6.</strong> <em>Il a plu toute la journée ; ___ (ceci / cela) m'a empêché de sortir.</em><br><em>Réponse : <strong>cela</strong> (reprise de ce qui précède)</em></div>
+        <div class="gw-idiom-ex"><strong>7.</strong> <em>Les résultats de Pierre sont bons, ___ (ceux / ceux de) Paul sont moins bons.</em><br><em>Réponse : <strong>ceux de</strong> (forme simple + complément en "de")</em></div>
+        <div class="gw-idiom-ex"><strong>8.</strong> <em>___ (Celles / Celles-ci) que tu as choisies sont parfaites.</em><br><em>Réponse : <strong>Celles</strong> (forme simple + proposition relative "que tu as choisies")</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>💡 Conseils pour Maîtriser les Pronoms Démonstratifs</h2>
+      <ol>
+        <li><strong>Identifie le nom remplacé :</strong> Quel est le genre et le nombre du nom sous-entendu ?</li>
+        <li><strong>Formes simples = toujours un complément :</strong> <em>celui/celle/ceux/celles</em> → suivi de <em>qui/que/dont/de…</em></li>
+        <li><strong>Formes composées = peuvent être seules :</strong> <em>celui-ci/celle-là…</em> → désignation directe</li>
+        <li><strong>-ci = proche / -là = loin :</strong> dans l'espace, le temps, ou le discours</li>
+        <li><strong>Neutre :</strong> <em>ce/c'</em> avec <em>être</em> ou relatif ; <em>ceci</em> annonce ; <em>cela/ça</em> reprend</li>
+        <li><strong>Lis à voix haute :</strong> l'oreille aide à sentir ce qui "sonne juste"</li>
+        <li><strong>Pratique avec des phrases courtes :</strong> Remplace systématiquement les noms par des démonstratifs</li>
+      </ol>
+    </div>
+
+    <div class="gw-summary">
+      <h3>✨ Récapitulatif en 7 Points</h3>
+      <ul>
+        <li><strong>Pronom vs Adjectif :</strong> Le pronom remplace le nom ; l'adjectif l'accompagne (<em>ce livre</em> vs <em>celui-ci</em>)</li>
+        <li><strong>Formes simples :</strong> <em>celui, celle, ceux, celles</em> → toujours suivies d'un complément (<em>qui, de…</em>)</li>
+        <li><strong>Formes composées :</strong> <em>celui-ci, celle-là…</em> → peuvent s'employer seules pour désigner</li>
+        <li><strong>-ci / -là :</strong> proximité vs éloignement (espace, temps, discours)</li>
+        <li><strong>Neutre :</strong> <em>ce/c'</em> (avec <em>être</em> ou relatif) ; <em>ceci</em> (annonce) ; <em>cela/ça</em> (reprise)</li>
+        <li><strong>Accord :</strong> Genre et nombre du <em>nom remplacé</em>, pas du possesseur</li>
+        <li><strong>Erreurs à éviter :</strong> <em>~~Je veux celui~~</em> → ✅ <em>Je veux celui-ci</em> ou <em>celui de Pierre</em></li>
+      </ul>
+      <p style="margin-top:18px; opacity:0.95;">Maîtriser les pronoms démonstratifs, c'est savoir montrer, désigner et opposer avec précision. Que tu pointes <em>celui-ci</em>, que tu compares <em>celle-là</em> à <em>celle-ci</em>, ou que tu reprennes une idée avec <em>cela</em> : avec ces règles, tes phrases seront claires, fluides et naturelles. Et rappelle-toi : <em>"Ce qui compte, c'est de savoir montrer ce qu'on veut — et avec les démonstratifs, tu pointes toujours juste !"</em> 👉🇫🇷</p>
+    </div>
+  </div>
+`},
+    {id: 4,
+t: "Pronoms relatifs",
+d: "Qui, que, dont, où, lequel — relier des idées avec précision, avec centaines d'exemples",
+content: `
+  <style>
+    .gw-wrap {
+      --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+      --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+      --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+      --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+      --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+      --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+      font-family: 'Nunito', sans-serif; color: var(--gw-text);
+      line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+    }
+    [data-theme="dark"] .gw-wrap {
+      --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+      --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+      --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+      --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+      --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+    }
+    .gw-wrap * { box-sizing: border-box; }
+
+    .gw-hero {
+      background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+      border: 1.5px solid var(--gw-border); border-radius: 22px;
+      padding: 28px 24px; margin-bottom: 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .gw-hero::before {
+      content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+      opacity: 0.1; border-radius: 50%; pointer-events: none;
+    }
+    .gw-hero h1 {
+      font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+      color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+    }
+    .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+    .gw-section {
+      background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+      border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+    .gw-section h2 {
+      font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+      padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+    }
+    .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+    .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+    .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+    .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+    .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+    .gw-section em { color: var(--gw-accent); font-style: italic; }
+    .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+    .gw-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+    }
+    .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+    .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+    .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+    .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+    .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+    .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+    [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+    [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+    .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+    .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+    .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+    .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+    .gw-table tr:last-child td { border-bottom: none; }
+    .gw-table tr:hover { background: var(--gw-table-hover); }
+    .gw-table strong { color: var(--gw-accent); }
+
+    .gw-example {
+      background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+      padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+      font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+    }
+    .gw-note {
+      background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+      margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+    }
+    .gw-code {
+      background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+      font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+    }
+
+    .gw-idiom-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+    }
+    .gw-idiom-title {
+      font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .gw-idiom-ex {
+      padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+    }
+    .gw-idiom-ex:last-child { border-bottom: none; }
+
+    @media(max-width: 600px) {
+      .gw-hero h1 { font-size: 1.75rem; }
+      .gw-section { padding: 20px; }
+      .gw-table { font-size: 0.88em; }
+      .gw-table th, .gw-table td { padding: 10px 12px; }
+      .gw-card { padding: 18px; }
+      .gw-idiom-title { font-size: 1.05rem; }
+    }
+  </style>
+
+  <div class="gw-wrap">
+    <div class="gw-hero">
+      <h1>🔗 Les Pronoms Relatifs</h1>
+      <p>Qui, que, dont, où, lequel — relier des idées avec précision, avec centaines d'exemples</p>
+    </div>
+
+    <div class="gw-section">
+      <p>Un <strong>pronom relatif</strong> est un mot qui <strong>relie une proposition subordonnée relative</strong> à un nom ou un pronom (l'<strong>antécédent</strong>) qu'il remplace dans la subordonnée. Il permet d'éviter une répétition et d'apporter une information supplémentaire.</p>
+      <div class="gw-card gw-card--rule">
+        <div class="gw-card-title">📋 Exemple de transformation :</div>
+        <p style="margin:0;">
+          🔸 <em>J'ai lu un livre. <strong>Ce livre</strong> est passionnant.</em><br>
+          🔹 <em>J'ai lu un livre <strong>qui</strong> est passionnant.</em><br>
+          Le pronom relatif remplace l'antécédent et assume une fonction grammaticale dans la relative.
+        </p>
+      </div>
+      <p>Les principaux pronoms relatifs français sont :</p>
+      <ul>
+        <li><strong>Formes simples :</strong> <em>qui, que, quoi, dont, où</em></li>
+        <li><strong>Formes composées :</strong> <em>lequel, laquelle, lesquels, lesquelles</em> (et leurs contractions avec <em>à</em> et <em>de</em>)</li>
+      </ul>
+    </div>
+
+    <div class="gw-section">
+      <h2>1️⃣ Les Formes Simples</h2>
+      
+      <h3>🔹 QUI (sujet ou complément prépositionnel pour une personne)</h3>
+      <p><strong>Fonction :</strong> sujet du verbe de la relative. Peut aussi être complément après une préposition (pour une personne).</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Usage</th><th>Exemples</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Sujet</strong></td><td><em>La femme <strong>qui</strong> parle est ma tante.</em><br><em>J'ai un ami <strong>qui</strong> habite à Paris.</em><br><em>Le chien <strong>qui</strong> aboie ne mord pas.</em></td></tr>
+            <tr><td><strong>Après préposition (personne)</strong></td><td><em>La personne <strong>avec qui</strong> je travaille est compétente.</em><br><em>L'homme <strong>sur qui</strong> tu comptes est fiable.</em><br><em>Les amis <strong>chez qui</strong> nous allons sont accueillants.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 QUE (complément d'objet direct)</h3>
+      <p><strong>Fonction :</strong> complément d'objet direct (COD) du verbe de la relative. Devient <em>qu'</em> devant voyelle ou <em>h</em> muet.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Le livre <strong>que</strong> je lis est passionnant.</em></div>
+        <div class="gw-idiom-ex"><em>La robe <strong>que</strong> tu portes est magnifique.</em></div>
+        <div class="gw-idiom-ex"><em>Les films <strong>que</strong> nous avons vus étaient ennuyeux.</em></div>
+        <div class="gw-idiom-ex"><em>La pomme <strong>qu'</strong>il mange. / L'ami <strong>qu'</strong>il a invité.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 DONT (complément introduit par <em>de</em>)</h3>
+      <p><strong>Fonction :</strong> remplace un complément introduit par <em>de</em> (possession, origine, sujet de discussion, etc.).</p>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Type de complément</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Parler de qqn/qch</strong></td><td><em>Le garçon <strong>dont</strong> je t'ai parlé est arrivé.</em></td></tr>
+            <tr><td><strong>Possession</strong></td><td><em>La femme <strong>dont</strong> le mari est médecin habite ici.</em></td></tr>
+            <tr><td><strong>Se souvenir / avoir besoin / être responsable de</strong></td><td><em>C'est une histoire <strong>dont</strong> je me souviendrai.</em> | <em>Voici le projet <strong>dont</strong> il est responsable.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 OÙ (lieu ou temps)</h3>
+      <p><strong>Fonction :</strong> remplace un complément de lieu ou de temps. Peut être précédé de <em>de</em> ou <em>par</em>.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Lieu :</strong> <em>La ville <strong>où</strong> je suis né est magnifique.</em> | <em>La maison <strong>où</strong> il habite est ancienne.</em></div>
+        <div class="gw-idiom-ex"><strong>Temps :</strong> <em>Le jour <strong>où</strong> je l'ai rencontrée était pluvieux.</em> | <em>C'était l'année <strong>où</strong> tout a changé.</em></div>
+        <div class="gw-idiom-ex"><strong>Avec préposition :</strong> <em>La région <strong>d'où</strong> il est originaire.</em> | <em>La fenêtre <strong>par où</strong> passe le chat.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 QUOI (neutre, après préposition)</h3>
+      <p><strong>Fonction :</strong> s'emploie après une préposition, avec un antécédent indéfini (<em>quelque chose, rien, ce…</em>) ou une phrase entière.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Il n'y a rien <strong>à quoi</strong> je puisse penser.</em></div>
+        <div class="gw-idiom-ex"><em>Donne-moi quelque chose <strong>sur quoi</strong> écrire.</em></div>
+        <div class="gw-idiom-ex"><em>C'est ce <strong>à quoi</strong> je réfléchissais.</em></div>
+        <div class="gw-idiom-ex"><em>Il a reçu une promotion, <strong>grâce à quoi</strong> il peut acheter une maison.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>2️⃣ Les Formes Composées : Lequel, Laquelle… 📐</h2>
+      <p>Les formes composées s'emploient principalement <strong>après une préposition</strong> pour remplacer un antécédent <strong>non humain</strong> ou pour éviter une ambiguïté. Elles s'accordent en genre et en nombre avec l'antécédent.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Préposition</th><th>Masc. sg.</th><th>Fém. sg.</th><th>Masc. pl.</th><th>Fém. pl.</th></tr></thead>
+          <tbody>
+            <tr><td><strong>(base)</strong></td><td><strong>lequel</strong></td><td><strong>laquelle</strong></td><td><strong>lesquels</strong></td><td><strong>lesquelles</strong></td></tr>
+            <tr><td><strong>à</strong></td><td>auquel</td><td>à laquelle</td><td>auxquels</td><td>auxquelles</td></tr>
+            <tr><td><strong>de</strong></td><td>duquel</td><td>de laquelle</td><td>desquels</td><td>desquelles</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px;">📚 Exemples d'usage</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>La réunion <strong>à laquelle</strong> j'ai assisté était intéressante.</em></div>
+        <div class="gw-idiom-ex"><em>La table <strong>sur laquelle</strong> tu poses ton verre est bancale.</em></div>
+        <div class="gw-idiom-ex"><em>Les outils <strong>avec lesquels</strong> il travaille sont modernes.</em></div>
+        <div class="gw-idiom-ex"><em>Les raisons <strong>pour lesquelles</strong> je suis parti sont personnelles.</em></div>
+      </div>
+
+      <div class="gw-card gw-card--tip">
+        <div class="gw-card-title">💡 Personne vs Chose après préposition :</div>
+        <p style="margin:0;">
+          ✅ Pour les personnes : <em>avec qui, à qui, pour qui</em> (très courant)<br>
+          ✅ Pour les choses : <em>avec lequel, à laquelle, dont</em><br>
+          ⚠️ On utilise parfois <em>lequel</em> avec une personne pour lever une ambiguïté :<br>
+          <em>Les collègues <strong>parmi lesquels</strong> se cache un espion…</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>3️⃣ Pronoms Relatifs Neutres : Ce qui, Ce que, Ce dont… 🌀</h2>
+      <p>Ces formes combinent le pronom démonstratif neutre <strong>ce</strong> avec un relatif. Elles signifient « la chose qui/que/dont… » et remplacent un antécédent absent.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Forme</th><th>Fonction</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ce qui</strong></td><td>Sujet</td><td><em><strong>Ce qui</strong> m'étonne, c'est son silence.</em></td></tr>
+            <tr><td><strong>ce que</strong></td><td>COD</td><td><em>Comprends-tu <strong>ce que</strong> je dis ?</em></td></tr>
+            <tr><td><strong>ce dont</strong></td><td>Complément de <em>de</em></td><td><em>Dis-moi <strong>ce dont</strong> tu as besoin.</em></td></tr>
+            <tr><td><strong>ce à quoi</strong></td><td>Complément de <em>à</em></td><td><em><strong>Ce à quoi</strong> je pense ne te regarde pas.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-idiom-card" style="margin-top:16px;">
+        <div class="gw-idiom-ex"><strong>Avec d'autres prépositions :</strong><br>
+        <em><strong>Ce sur quoi</strong> nous travaillons est top secret.</em><br>
+        <em>Je vais te montrer <strong>ce avec quoi</strong> on a fabriqué ça.</em><br>
+        <em><strong>Ce pour quoi</strong> il s'est battu était juste.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>⚠️ Pièges Courants &amp; Conseils</h2>
+      
+      <div class="gw-card gw-card--warn">
+        <div class="gw-card-title">🚫 Ne pas confondre QUI et QUE :</div>
+        <p style="margin:0;">
+          ✅ <strong>QUI</strong> = sujet du verbe qui suit<br>
+          <em>L'homme <strong>qui</strong> m'a vu.</em> (il a vu)<br><br>
+          ✅ <strong>QUE</strong> = COD<br>
+          <em>L'homme <strong>que</strong> j'ai vu.</em> (j'ai vu l'homme)
+        </p>
+      </div>
+
+      <div class="gw-card gw-card--check" style="margin-top:12px;">
+        <div class="gw-card-title">✅ Dont vs Duquel :</div>
+        <p style="margin:0;">
+          En général, <em>dont</em> est préféré. On utilise <em>duquel, de laquelle</em> après une locution prépositive (<em>à côté de, au fond de…</em>) ou pour éviter une ambiguïté.<br>
+          ✅ <em>La maison <strong>dont</strong> le toit est rouge.</em><br>
+          ✅ <em>La maison <strong>à côté de laquelle</strong> il y a un arbre.</em> (pas ~~à côté dont~~)
+        </p>
+      </div>
+
+      <div class="gw-card gw-card--rule" style="margin-top:12px;">
+        <div class="gw-card-title">📌 Où ne s'emploie PAS pour les personnes :</div>
+        <p style="margin:0;">
+          Pour une personne, on utilise <em>chez qui, à qui, etc.</em><br>
+          ✅ <em>La personne <strong>chez qui</strong> je loge.</em> (pas <em>~~où je loge~~</em> si c'est une personne)
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📊 Tableau Récapitulatif des Fonctions</h2>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Fonction</th><th>Personne</th><th>Chose</th><th>Neutre / Phrase</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Sujet</strong></td><td>qui</td><td>qui</td><td>ce qui</td></tr>
+            <tr><td><strong>COD</strong></td><td>que</td><td>que</td><td>ce que</td></tr>
+            <tr><td><strong>Compl. de <em>de</em></strong></td><td>dont / de qui</td><td>dont</td><td>ce dont</td></tr>
+            <tr><td><strong>Compl. de <em>à</em></strong></td><td>à qui / auquel</td><td>auquel, à laquelle…</td><td>ce à quoi</td></tr>
+            <tr><td><strong>Autre prép.</strong></td><td>prép. + qui / lequel</td><td>prép. + lequel</td><td>ce + prép. + quoi</td></tr>
+            <tr><td><strong>Lieu / Temps</strong></td><td>chez qui</td><td>où / d'où / par où</td><td>là où</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📚 Énormément d'Exemples Classés par Pronom</h2>
+      
+      <h3>🔹 QUI (sujet &amp; prép.)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Le collègue <strong>qui</strong> t'a aidé est très gentil.</em></div>
+        <div class="gw-idiom-ex"><em>La machine <strong>qui</strong> fait ce bruit doit être réparée.</em></div>
+        <div class="gw-idiom-ex"><em>Les gens <strong>avec qui</strong> je sors sont sympas.</em></div>
+        <div class="gw-idiom-ex"><em>L'étudiant <strong>de qui</strong> je tiens ces infos est sérieux.</em> (plus rare, normalement <em>dont</em>)</div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 QUE (COD)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>La lettre <strong>que</strong> tu m'as envoyée m'a fait plaisir.</em></div>
+        <div class="gw-idiom-ex"><em>Le gâteau <strong>que</strong> j'ai préparé est au chocolat.</em></div>
+        <div class="gw-idiom-ex"><em>Les chansons <strong>qu'</strong>elle chante sont magnifiques.</em></div>
+        <div class="gw-idiom-ex"><em>As-tu vu le film <strong>qu'</strong>il a recommandé ?</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 DONT (compl. de <em>de</em>)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Le livre <strong>dont</strong> je t'ai parlé est en librairie.</em></div>
+        <div class="gw-idiom-ex"><em>La personne <strong>dont</strong> il est amoureux habite en Italie.</em></div>
+        <div class="gw-idiom-ex"><em>Les outils <strong>dont</strong> on a besoin sont dans l'atelier.</em></div>
+        <div class="gw-idiom-ex"><em>C'est une occasion <strong>dont</strong> il faut profiter.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 OÙ (lieu / temps)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>La boulangerie <strong>où</strong> je vais chaque matin est fermée.</em></div>
+        <div class="gw-idiom-ex"><em>L'époque <strong>où</strong> nous vivons est passionnante.</em></div>
+        <div class="gw-idiom-ex"><em>La région <strong>d'où</strong> je viens est réputée pour son vin.</em></div>
+        <div class="gw-idiom-ex"><em>Le chemin <strong>par où</strong> nous sommes passés est dangereux.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 LEQUEL / LAQUELLE (après prép.)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>La chaise <strong>sur laquelle</strong> tu es assis est cassée.</em></div>
+        <div class="gw-idiom-ex"><em>Les documents <strong>auxquels</strong> tu fais référence sont confidentiels.</em></div>
+        <div class="gw-idiom-ex"><em>Les raisons <strong>pour lesquelles</strong> j'ai démissionné sont multiples.</em></div>
+        <div class="gw-idiom-ex"><em>L'affaire <strong>dans laquelle</strong> il est impliqué est grave.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 CE QUI / CE QUE / CE DONT</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Ce qui</strong> me fascine, c'est sa mémoire.</em></div>
+        <div class="gw-idiom-ex"><em>Je ne comprends pas <strong>ce qu'</strong>elle attend de moi.</em></div>
+        <div class="gw-idiom-ex"><em>Explique-moi <strong>ce dont</strong> il s'agit dans ce chapitre.</em></div>
+        <div class="gw-idiom-ex"><em>As-tu saisi <strong>ce à quoi</strong> je faisais allusion ?</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📝 Exercices : Choisis le Bon Pronom Relatif</h2>
+      <p><strong>Consigne :</strong> Complète avec le pronom relatif correct.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>1.</strong> <em>La femme ___ parle est ma tante.</em><br><em>Réponse : <strong>qui</strong> (sujet du verbe "parle")</em></div>
+        <div class="gw-idiom-ex"><strong>2.</strong> <em>Le livre ___ je lis est passionnant.</em><br><em>Réponse : <strong>que</strong> (COD du verbe "lis")</em></div>
+        <div class="gw-idiom-ex"><strong>3.</strong> <em>Le garçon ___ je t'ai parlé est arrivé.</em><br><em>Réponse : <strong>dont</strong> (parler <strong>de</strong> qqn)</em></div>
+        <div class="gw-idiom-ex"><strong>4.</strong> <em>La ville ___ je suis né est magnifique.</em><br><em>Réponse : <strong>où</strong> (lieu)</em></div>
+        <div class="gw-idiom-ex"><strong>5.</strong> <em>La table ___ tu poses ton verre est bancale.</em><br><em>Réponse : <strong>sur laquelle</strong> (préposition + chose)</em></div>
+        <div class="gw-idiom-ex"><strong>6.</strong> <em>___ m'étonne, c'est son silence.</em><br><em>Réponse : <strong>Ce qui</strong> (sujet neutre)</em></div>
+        <div class="gw-idiom-ex"><strong>7.</strong> <em>Dis-moi ___ tu as besoin.</em><br><em>Réponse : <strong>ce dont</strong> (avoir besoin <strong>de</strong> + neutre)</em></div>
+        <div class="gw-idiom-ex"><strong>8.</strong> <em>La réunion ___ j'ai assisté était longue.</em><br><em>Réponse : <strong>à laquelle</strong> (assister <strong>à</strong> + chose)</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>💡 Conseils pour Maîtriser les Relatifs</h2>
+      <ol>
+        <li><strong>Identifie la fonction :</strong> Le relatif est-il sujet ? COD ? Complément de <em>de/à</em> ? Lieu/temps ?</li>
+        <li><strong>Repère le verbe de la relative :</strong> Quel mot manque avant/après ? (<em>qui</em> = sujet, <em>que</em> = COD, etc.)</li>
+        <li><strong>Vérifie l'antécédent :</strong> Personne ou chose ? Singulier ou pluriel ? Cela détermine <em>qui/lequel</em> et les accords.</li>
+        <li><strong>Mémorise les prépositions :</strong> <em>parler de → dont</em> | <em>penser à → à qui / auquel / ce à quoi</em> | <em>assister à → auquel</em></li>
+        <li><strong>Utilise "ce" pour l'abstrait :</strong> Quand il n'y a pas de nom précis, utilise <em>ce qui, ce que, ce dont</em>.</li>
+        <li><strong>Lis à voix haute :</strong> L'oreille détecte souvent les erreurs de liaison ou de fonction.</li>
+      </ol>
+    </div>
+
+    <div class="gw-summary">
+      <h3>✨ Récapitulatif en 6 Points</h3>
+      <ul>
+        <li><strong>QUI</strong> = sujet (ou personne après prép.) → <em>L'homme qui parle</em></li>
+        <li><strong>QUE</strong> = COD → <em>Le livre que je lis</em></li>
+        <li><strong>DONT</strong> = complément de <em>de</em> → <em>Le film dont je parle</em></li>
+        <li><strong>OÙ</strong> = lieu ou temps → <em>La ville où je vis</em></li>
+        <li><strong>LEQUEL / AUQUEL</strong> = après prép. (souvent chose) → <em>La table sur laquelle</em></li>
+        <li><strong>CE QUI / CE QUE / CE DONT</strong> = neutre, sans antécédent précis → <em>Ce qui compte</em></li>
+      </ul>
+      <p style="margin-top:18px; opacity:0.95;">Maîtriser les pronoms relatifs, c'est relier tes idées avec fluidité et précision. Que tu décrives <em>la personne qui t'a aidé</em>, <em>l'endroit où tu es né</em>, ou <em>ce dont tu rêves</em> : avec ces règles, tes phrases seront structurées, élégantes et naturelles. Et rappelle-toi : <em>"Les mots sont comme des maillons ; les relatifs sont la chaîne qui les rend solides."</em> 🔗🇫🇷</p>
+    </div>
+  </div>
+`},
+    {id: 5,
+t: "Pronoms indéfinis",
+d: "Tout, quelqu'un, rien, chacun, on… — exprimer l'indétermination avec précision, avec centaines d'exemples",
+content: `
+  <style>
+    .gw-wrap {
+      --gw-bg: var(--bg); --gw-bg2: var(--bg2); --gw-bg3: var(--bg3);
+      --gw-text: var(--text); --gw-text2: var(--text2); --gw-text3: var(--text3);
+      --gw-border: var(--border); --gw-accent: var(--accent); --gw-accent-bg: var(--acbg);
+      --gw-nl: var(--nl); --gw-nl-bg: var(--nlbg); --gw-nl-bo: var(--nlbo);
+      --gw-fr: var(--fr); --gw-fr-bg: var(--frbg); --gw-fr-bo: var(--frbo);
+      --gw-warn: #d97706; --gw-warn-bg: #fffbeb; --gw-warn-text: #92400e;
+      font-family: 'Nunito', sans-serif; color: var(--gw-text);
+      line-height: 1.65; max-width: 920px; margin: 0 auto; padding: 6px;
+    }
+    [data-theme="dark"] .gw-wrap {
+      --gw-warn-bg: #2c1e0a; --gw-warn-text: #fbbf24; --gw-warn: #b45309;
+      --gw-nl-bg: rgba(232, 89, 12, 0.15); --gw-nl-bo: rgba(232, 89, 12, 0.4); --gw-nl: #fb923c;
+      --gw-fr-bg: rgba(79, 70, 229, 0.15); --gw-fr-bo: rgba(79, 70, 229, 0.4); --gw-fr: #a5b4fc;
+      --gw-accent-bg: rgba(5, 150, 105, 0.15); --gw-accent-bo: rgba(5, 150, 105, 0.4); --gw-accent: #6ee7b7;
+      --gw-card-hover: rgba(255,255,255,0.04); --gw-table-hover: rgba(255,255,255,0.06);
+    }
+    .gw-wrap * { box-sizing: border-box; }
+
+    .gw-hero {
+      background: linear-gradient(135deg, var(--gw-accent-bg) 0%, var(--gw-bg2) 100%);
+      border: 1.5px solid var(--gw-border); border-radius: 22px;
+      padding: 28px 24px; margin-bottom: 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .gw-hero::before {
+      content: ''; position: absolute; top: -40%; right: -40%; width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--gw-accent) 0%, transparent 70%);
+      opacity: 0.1; border-radius: 50%; pointer-events: none;
+    }
+    .gw-hero h1 {
+      font-family: 'Libre Baskerville', serif; font-size: 2.1rem; margin: 0 0 10px;
+      color: var(--gw-text); font-weight: 800; letter-spacing: -0.02em; position: relative;
+    }
+    .gw-hero p { color: var(--gw-text2); margin: 0; font-weight: 500; font-size: 1.08rem; position: relative; }
+
+    .gw-section {
+      background: var(--gw-bg2); border: 1.5px solid var(--gw-border);
+      border-radius: 20px; padding: 26px 28px; margin-bottom: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .gw-section:hover { box-shadow: 0 8px 30px var(--shadow); transform: translateY(-3px); }
+    .gw-section h2 {
+      font-family: 'Libre Baskerville', serif; font-size: 1.55rem; margin: 0 0 22px;
+      padding-bottom: 14px; border-bottom: 2px solid var(--gw-border); color: var(--gw-text);
+    }
+    .gw-section h3 { color: var(--gw-accent); font-size: 1.3rem; margin: 28px 0 14px; font-weight: 700; }
+    .gw-section h4 { margin: 20px 0 10px; font-weight: 700; color: var(--gw-text); font-size: 1.05rem; }
+    .gw-section p { margin: 0 0 14px; color: var(--gw-text); }
+    .gw-section ul, .gw-section ol { margin: 10px 0 18px 28px; padding: 0; }
+    .gw-section li { margin-bottom: 8px; color: var(--gw-text); line-height: 1.6; }
+    .gw-section em { color: var(--gw-accent); font-style: italic; }
+    .gw-section strong { font-weight: 800; color: var(--gw-text); }
+
+    .gw-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 22px; margin: 20px 0; color: var(--gw-text);
+    }
+    .gw-card--rule { border-left: 5px solid var(--gw-accent); background: var(--gw-accent-bg); }
+    .gw-card--warn { background: var(--gw-warn-bg); border: 1.5px solid var(--gw-warn); }
+    .gw-card--check { background: linear-gradient(145deg, var(--gw-bg), var(--gw-bg2)); }
+    .gw-card--tip { border-left: 5px solid var(--gw-fr); background: var(--gw-fr-bg); }
+    .gw-card-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .gw-card ul { margin: 10px 0 0 22px !important; padding: 0 !important; }
+    .gw-card li { margin-bottom: 6px !important; font-weight: 500; }
+    [data-theme="dark"] .gw-card { background: var(--gw-bg3); }
+    [data-theme="dark"] .gw-card--check { background: var(--gw-bg2); }
+
+    .gw-table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 16px; border: 1.5px solid var(--gw-border); }
+    .gw-table { width: 100%; border-collapse: collapse; font-size: 0.94em; background: var(--gw-bg); min-width: 500px; }
+    .gw-table th, .gw-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--gw-border); }
+    .gw-table th { background: var(--gw-bg3); font-weight: 800; color: var(--gw-text); position: sticky; top: 0; }
+    .gw-table tr:last-child td { border-bottom: none; }
+    .gw-table tr:hover { background: var(--gw-table-hover); }
+    .gw-table strong { color: var(--gw-accent); }
+
+    .gw-example {
+      background: var(--gw-bg3); border-left: 4px solid var(--gw-accent);
+      padding: 16px 18px; border-radius: 0 12px 12px 0; margin: 18px 0;
+      font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--gw-text);
+    }
+    .gw-note {
+      background: var(--gw-bg3); border-radius: 12px; padding: 14px 16px;
+      margin: 16px 0; font-size: 0.95em; color: var(--gw-text2); border: 1px solid var(--gw-border);
+    }
+    .gw-code {
+      background: var(--gw-bg3); padding: 3px 8px; border-radius: 6px;
+      font-family: monospace; font-weight: 700; color: var(--gw-accent); font-size: 0.95em;
+    }
+
+    .gw-idiom-card {
+      background: var(--gw-bg); border: 1.5px solid var(--gw-border);
+      border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+    }
+    .gw-idiom-title {
+      font-weight: 800; font-size: 1.1rem; color: var(--gw-text);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .gw-idiom-ex {
+      padding: 8px 0; border-bottom: 1px dashed var(--gw-border);
+    }
+    .gw-idiom-ex:last-child { border-bottom: none; }
+
+    @media(max-width: 600px) {
+      .gw-hero h1 { font-size: 1.75rem; }
+      .gw-section { padding: 20px; }
+      .gw-table { font-size: 0.88em; }
+      .gw-table th, .gw-table td { padding: 10px 12px; }
+      .gw-card { padding: 18px; }
+      .gw-idiom-title { font-size: 1.05rem; }
+    }
+  </style>
+
+  <div class="gw-wrap">
+    <div class="gw-hero">
+      <h1>❓ Les Pronoms Indéfinis</h1>
+      <p>Tout, quelqu'un, rien, chacun, on… — exprimer l'indétermination avec précision</p>
+    </div>
+
+    <div class="gw-section">
+      <p>Un <strong>pronom indéfini</strong> est un mot qui <strong>remplace une personne ou une chose</strong> que l'on ne peut pas ou que l'on ne veut pas identifier précisément. Il exprime une idée vague de quantité, d'identité, de totalité ou d'absence.</p>
+      <div class="gw-card gw-card--rule">
+        <div class="gw-card-title">📋 Caractéristiques clés :</div>
+        <ul style="margin:8px 0 0 20px;">
+          <li>S'utilise <strong>seul, sans nom</strong> (contrairement à l'adjectif indéfini)</li>
+          <li>Exprime une idée de <em>quantité, totalité, absence ou indétermination</em></li>
+          <li>S'accorde en genre et/ou en nombre selon le cas</li>
+        </ul>
+      </div>
+      <p>Les principaux pronoms indéfinis français :</p>
+      <ul>
+        <li><strong>Totalité :</strong> <em>tout, toute, tous, toutes</em></li>
+        <li><strong>Personnes :</strong> <em>quelqu'un, personne, chacun, on, autrui</em></li>
+        <li><strong>Choses :</strong> <em>quelque chose, rien</em></li>
+        <li><strong>Quantité :</strong> <em>aucun, plusieurs, certains, d'autres</em></li>
+        <li><strong>Indifférenciation :</strong> <em>n'importe qui/quoi, quiconque</em></li>
+        <li><strong>Littéraire :</strong> <em>tel, maint</em></li>
+      </ul>
+    </div>
+
+    <div class="gw-section">
+      <h2>1️⃣ TOUT, TOUTE, TOUS, TOUTES (Totalité) 🌟</h2>
+      <p>« Tout » et ses variantes signifient <strong>« l'ensemble des choses ou des personnes »</strong>.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Genre / Nombre</th><th>Pronom</th><th>Prononciation</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>Masculin singulier (neutre)</td><td><strong>tout</strong></td><td>tou (t prononcé)</td><td><em><strong>Tout</strong> est prêt.</em></td></tr>
+            <tr><td>Féminin singulier</td><td><strong>toute</strong></td><td>toute</td><td><em>Elle a mangé <strong>toute</strong> la tarte.</em> (adjectif) / <em><strong>Toute</strong> est perdue.</em> (rare, pronom)</td></tr>
+            <tr><td>Masculin pluriel</td><td><strong>tous</strong></td><td>tou<strong>ss</strong> (s prononcé)</td><td><em><strong>Tous</strong> sont invités.</em></td></tr>
+            <tr><td>Féminin pluriel</td><td><strong>toutes</strong></td><td>toutes</td><td><em><strong>Toutes</strong> sont magnifiques.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Neutre (tout) :</strong> <em><strong>Tout</strong> va bien. / <strong>Tout</strong> est de ma faute.</em></div>
+        <div class="gw-idiom-ex"><strong>Masculin pluriel (tous) :</strong> <em><strong>Tous</strong> pour un, un pour tous. / J'ai acheté des fruits ; <strong>tous</strong> étaient mûrs.</em></div>
+        <div class="gw-idiom-ex"><strong>Féminin pluriel (toutes) :</strong> <em>Elles sont <strong>toutes</strong> arrivées. / Merci à <strong>toutes</strong>.</em></div>
+        <div class="gw-idiom-ex"><strong>Renforcement :</strong> <em>Merci à <strong>tous et à toutes</strong>.</em></div>
+      </div>
+
+      <div class="gw-card gw-card--tip" style="margin-top:16px;">
+        <div class="gw-card-title">💡 Prononciation de « tous » :</div>
+        <p style="margin:0;">
+          ✅ <strong>Pronom</strong> : <em>Ils sont <strong>touss</strong> là.</em> (le -s se prononce)<br>
+          ✅ <strong>Adjectif</strong> devant consonne : <em><strong>Tous</strong> les hommes</em> (le -s est muet)<br>
+          ✅ <strong>Adjectif</strong> devant voyelle : <em><strong>Tous</strong> les amis</em> (liaison : tou-z-les)
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>2️⃣ Quelqu'un / Personne (Personnes) 👤</h2>
+      
+      <h3>🔹 Quelqu'un (personne indéterminée)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Quelqu'un</strong> a sonné à la porte.</em></div>
+        <div class="gw-idiom-ex"><em>J'attends <strong>quelqu'un</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Y a-t-il <strong>quelqu'un</strong> pour m'aider ?</em></div>
+        <div class="gw-idiom-ex"><em><strong>Quelqu'un</strong> de sérieux doit s'en occuper.</em> (suivi de <em>de + adj. masc.</em>)</div>
+        <div class="gw-idiom-ex"><em>Je cherche <strong>quelqu'un d'autre</strong>.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Personne (absence de personne)</h3>
+      <p>Toujours au singulier, souvent avec <em>ne</em>.</p>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Structure</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><em>ne + verbe + personne</em></td><td><em>Je ne vois <strong>personne</strong>.</em></td></tr>
+            <tr><td><em>personne + ne + verbe</em></td><td><em><strong>Personne</strong> n'est venu.</em> | <em><strong>Personne</strong> ne sait la réponse.</em></td></tr>
+            <tr><td><em>avec préposition</em></td><td><em>Je ne l'ai dit à <strong>personne</strong>.</em> | <em>Il est parti sans que <strong>personne</strong> le sache.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>3️⃣ Quelque chose / Rien (Choses) 📦</h2>
+      
+      <h3>🔹 Quelque chose (chose indéterminée)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>J'ai <strong>quelque chose</strong> à te dire.</em></div>
+        <div class="gw-idiom-ex"><em>Tu as besoin de <strong>quelque chose</strong> ?</em></div>
+        <div class="gw-idiom-ex"><em><strong>Quelque chose</strong> ne va pas.</em></div>
+        <div class="gw-idiom-ex"><em>C'est <strong>quelque chose</strong> de merveilleux.</em> (<em>de + adj. masc.</em>)</div>
+        <div class="gw-idiom-ex"><em>Il lui est arrivé <strong>quelque chose</strong> d'extraordinaire.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Rien (absence de chose)</h3>
+      <p>Toujours au singulier, souvent avec <em>ne</em>.</p>
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Structure</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><em>ne + verbe + rien</em></td><td><em>Je ne vois <strong>rien</strong>.</em> | <em>Il n'y a <strong>rien</strong> à manger.</em></td></tr>
+            <tr><td><em>rien + ne + verbe</em></td><td><em><strong>Rien</strong> n'est impossible.</em> | <em><strong>Rien</strong> ne sert de courir.</em></td></tr>
+            <tr><td><em>avec préposition / infinitif</em></td><td><em>Ça ne sert à <strong>rien</strong>.</em> | <em>Il est parti sans <strong>rien</strong> dire.</em></td></tr>
+            <tr><td><em>rien de + adj.</em></td><td><em><strong>Rien</strong> de tel ne m'est jamais arrivé.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>4️⃣ Chacun / Chacune (Distribution) 🎁</h2>
+      <p>Signifient <strong>« chaque personne » ou « chaque chose »</strong>. S'accordent en genre. Verbe toujours au singulier.</p>
+      
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Chacun</strong> a ses propres problèmes.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Chacun</strong> fait ce qui lui plaît.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Chacune</strong> de ces robes est unique.</em></div>
+        <div class="gw-idiom-ex"><em>Ils sont entrés l'un après l'autre, <strong>chacun</strong> portant un cadeau.</em></div>
+        <div class="gw-idiom-ex"><em>Ces exercices sont difficiles, <strong>chacun</strong> demande de la réflexion.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Tout un chacun</strong> peut participer.</em> (expression = tout le monde)</div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>5️⃣ Aucun / Aucune (Quantité nulle) 🚫</h2>
+      <p>Signifient <strong>« pas un seul », « nul »</strong>. Employés avec <em>ne</em> (généralement). Verbe au singulier.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Structure</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><em>aucun(e) + ne + verbe</em></td><td><em><strong>Aucun</strong> ne m'a plu.</em> | <em><strong>Aucune</strong> de ces solutions n'est acceptable.</em></td></tr>
+            <tr><td><em>ne + verbe + aucun(e)</em></td><td><em>Je n'ai aimé <strong>aucun</strong> de ses films.</em></td></tr>
+            <tr><td><em>avec « d'entre »</em></td><td><em><strong>Aucun</strong> d'entre vous n'a répondu.</em></td></tr>
+            <tr><td><em>pronom seul</em></td><td><em>J'ai testé plusieurs méthodes ; <strong>aucune</strong> n'a fonctionné.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>6️⃣ Plusieurs / Certains / D'autres (Quantité partielle) 🔢</h2>
+      
+      <h3>🔹 Plusieurs (nombre indéfini &gt; 1)</h3>
+      <p>Invariable. Désigne un nombre indéfini (plus d'un).</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Plusieurs</strong> ont déjà répondu.</em></div>
+        <div class="gw-idiom-ex"><em>J'ai essayé <strong>plusieurs</strong> de ces gâteaux.</em></div>
+        <div class="gw-idiom-ex"><em>Parmi les invités, <strong>plusieurs</strong> sont repartis tôt.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Plusieurs</strong> d'entre nous viendront.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Certains / Certaines (un sous-ensemble)</h3>
+      <p>Désignent une partie d'un ensemble, sans préciser laquelle.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Certains</strong> préfèrent le thé.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Certaines</strong> sont plus douées que d'autres.</em></div>
+        <div class="gw-idiom-ex"><em>J'ai entendu <strong>certains</strong> de ses propos.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Certaines</strong> de ces idées sont brillantes.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 D'autres (opposition / différence)</h3>
+      <p>Marquent une opposition avec un premier groupe.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Des gens arrivaient, <strong>d'autres</strong> repartaient.</em></div>
+        <div class="gw-idiom-ex"><em>Certaines pommes sont mûres, <strong>d'autres</strong> ne le sont pas.</em></div>
+        <div class="gw-idiom-ex"><em>Si cette solution ne vous plaît pas, il y en a <strong>d'autres</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Certains enfants jouent, <strong>d'autres</strong> lisent.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>7️⃣ ON (Indéfini personnel) 👥</h2>
+      <p>Pronom personnel indéfini très courant. Verbe conjugué à la 3e personne du singulier.</p>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Valeur de « on »</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Les gens en général</strong></td><td><em><strong>On</strong> ne sait jamais. / Ici, <strong>on</strong> parle français.</em></td></tr>
+            <tr><td><strong>Personne indéterminée</strong></td><td><em><strong>On</strong> sonne à la porte. / <strong>On</strong> m'a dit que le film était excellent.</em></td></tr>
+            <tr><td><strong>« Nous » (familier)</strong></td><td><em>Alors, <strong>on</strong> va au ciné ? / Qu'est-ce qu'<strong>on</strong> mange ce soir ?</em></td></tr>
+            <tr><td><strong>Forme passive implicite</strong></td><td><em><strong>On</strong> ne doit pas mentir. (= Il ne faut pas mentir)</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gw-card gw-card--warn" style="margin-top:16px;">
+        <div class="gw-card-title">⚠️ Ne pas confondre :</div>
+        <p style="margin:0;">
+          ✅ <strong>On</strong> (pronom) : <em><strong>On</strong> a faim.</em><br>
+          ❌ <strong>Ont</strong> (verbe avoir) : <em>Ils <strong>ont</strong> faim.</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>8️⃣ N'importe qui / N'importe quoi (Indifférenciation) 🎲</h2>
+      <p>Marquent l'<strong>indifférence ou l'absence totale de restriction</strong>.</p>
+      
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>Personnes :</strong> <em>Tu peux inviter <strong>n'importe qui</strong>. / Il parle à <strong>n'importe qui</strong>. / <strong>N'importe qui</strong> peut le faire.</em></div>
+        <div class="gw-idiom-ex"><strong>Choses :</strong> <em>Il achète <strong>n'importe quoi</strong>. / Ne fais pas <strong>n'importe quoi</strong>. / Achète du pain ou <strong>n'importe quoi</strong>.</em></div>
+        <div class="gw-idiom-ex"><strong>Variantes :</strong> <em>n'importe lequel / laquelle</em> | <em>n'importe où</em> | <em>n'importe quand</em> | <em>n'importe comment</em></div>
+        <div class="gw-idiom-ex"><strong>Expression :</strong> <em>Ce n'est pas <strong>n'importe qui</strong> ! (= c'est une personne importante)</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>9️⃣ Pronoms Littéraires &amp; Soutenus 📜</h2>
+      
+      <h3>🔹 Quiconque (« toute personne qui »)</h3>
+      <p>Presque toujours sujet d'une proposition relative. Assez formel.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Quiconque</strong> a lu ce livre l'a aimé.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Quiconque</strong> enfreint la règle sera puni.</em></div>
+        <div class="gw-idiom-ex"><em>Je connais cela mieux que <strong>quiconque</strong>.</em> (= mieux que n'importe qui)</div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Autrui (« les autres personnes »)</h3>
+      <p>Invariable, ne s'emploie pas comme sujet. Complément d'objet indirect ou après préposition.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Il faut respecter le bien d'<strong>autrui</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Ne fais pas à <strong>autrui</strong> ce que tu ne voudrais pas qu'on te fît.</em></div>
+        <div class="gw-idiom-ex"><em>Il est dévoué à <strong>autrui</strong>.</em></div>
+        <div class="gw-idiom-ex"><em>Aimer son prochain, c'est aimer <strong>autrui</strong>.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Tel / Telle (« un certain, une personne indéterminée »)</h3>
+      <p>S'accorde en genre et en nombre. Souvent dans des proverbes ou tournures figées.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Tel</strong> qui rit vendredi, dimanche pleurera.</em> (proverbe)</div>
+        <div class="gw-idiom-ex"><em>J'ai entendu dire par <strong>tel</strong> que la réunion était annulée.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Telle</strong> est la vie. / <strong>Tel</strong> est mon avis.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Maint / Mainte (« beaucoup de, plus d'un »)</h3>
+      <p>Registre soutenu ou littéraire.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em><strong>Maints</strong> savants l'ont étudié.</em> (= plusieurs)</div>
+        <div class="gw-idiom-ex"><em>En <strong>mainte</strong> occasion, il s'est distingué.</em></div>
+        <div class="gw-idiom-ex"><em><strong>Maintes</strong> fois je vous l'ai dit.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📊 Tableau Récapitulatif</h2>
+      
+      <div class="gw-table-wrap">
+        <table class="gw-table">
+          <thead><tr><th>Pronom</th><th>Signification</th><th>Exemple</th><th>Remarque</th></tr></thead>
+          <tbody>
+            <tr><td><strong>tout / tous / toutes</strong></td><td>totalité</td><td><em>Tous sont venus.</em></td><td>tous = prononcé « touss »</td></tr>
+            <tr><td><strong>quelqu'un</strong></td><td>personne indéterminée</td><td><em>Quelqu'un frappe.</em></td><td>+ de + adj. masc. : <em>quelqu'un de gentil</em></td></tr>
+            <tr><td><strong>personne</strong></td><td>absence de personne</td><td><em>Je ne vois personne.</em></td><td>toujours avec <em>ne</em> (sauf exceptions)</td></tr>
+            <tr><td><strong>quelque chose</strong></td><td>chose indéterminée</td><td><em>J'ai quelque chose pour toi.</em></td><td>+ de + adj. masc. : <em>quelque chose d'intéressant</em></td></tr>
+            <tr><td><strong>rien</strong></td><td>absence de chose</td><td><em>Il n'y a rien.</em></td><td>toujours avec <em>ne</em> (sauf exceptions)</td></tr>
+            <tr><td><strong>chacun / chacune</strong></td><td>chaque élément</td><td><em>Chacun a son opinion.</em></td><td>verbe au singulier</td></tr>
+            <tr><td><strong>aucun / aucune</strong></td><td>pas un seul</td><td><em>Aucun n'est parfait.</em></td><td>verbe au singulier</td></tr>
+            <tr><td><strong>plusieurs</strong></td><td>nombre indéfini (&gt;1)</td><td><em>Plusieurs ont accepté.</em></td><td>invariable</td></tr>
+            <tr><td><strong>certains / certaines</strong></td><td>une partie</td><td><em>Certains dorment.</em></td><td>s'accorde en genre/nombre</td></tr>
+            <tr><td><strong>d'autres</strong></td><td>autres éléments</td><td><em>D'autres viendront.</em></td><td>marque l'opposition</td></tr>
+            <tr><td><strong>on</strong></td><td>indéfini, général, « nous »</td><td><em>On verra.</em></td><td>verbe 3e pers. sing.</td></tr>
+            <tr><td><strong>n'importe qui/quoi</strong></td><td>indifférenciation</td><td><em>N'importe qui peut entrer.</em></td><td>absence de restriction</td></tr>
+            <tr><td><strong>quiconque</strong></td><td>toute personne qui (formel)</td><td><em>Quiconque trichera sera exclu.</em></td><td>sujet d'une relative</td></tr>
+            <tr><td><strong>autrui</strong></td><td>les autres (formel)</td><td><em>Respecter autrui.</em></td><td>complément, jamais sujet</td></tr>
+            <tr><td><strong>tel / telle</strong></td><td>un tel, une certaine personne</td><td><em>Tel est pris qui croyait prendre.</em></td><td>s'accorde en genre/nombre</td></tr>
+            <tr><td><strong>maint / mainte</strong></td><td>plusieurs (littéraire)</td><td><em>En mainte occasion.</em></td><td>registre soutenu</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>⚠️ Pièges Courants &amp; Conseils</h2>
+      
+      <div class="gw-card gw-card--warn">
+        <div class="gw-card-title">🚫 Erreurs fréquentes :</div>
+        <ul style="margin:8px 0 0 20px;">
+          <li><strong>Accord de « tout » :</strong><br>
+          ✅ <em>Tout est prêt.</em> (neutre, invariable)<br>
+          ✅ <em>Ils sont tous là.</em> (prononcé « touss »)<br>
+          ❌ <em>~~Ils sont tout là.~~</em></li>
+          
+          <li><strong>Négation avec « personne / rien » :</strong><br>
+          ✅ <em>Je ne vois personne.</em> | <em>Rien n'est impossible.</em><br>
+          ✅ <em>Il est parti sans rien dire.</em><br>
+          ❌ <em>~~Je vois personne.~~</em> (sauf oral très familier)</li>
+          
+          <li><strong>Adjectif après « quelqu'un / quelque chose » :</strong><br>
+          ✅ <em>quelqu'un de gentil</em> | <em>quelque chose d'intéressant</em><br>
+          ❌ <em>~~quelqu'un gentille~~</em> | <em>~~quelque chose intéressante~~</em><br>
+          → Toujours <strong>de + adjectif masculin singulier</strong></li>
+          
+          <li><strong>Verbe avec « aucun » :</strong><br>
+          ✅ <em>Aucun de ces livres n'est facile.</em> (singulier)<br>
+          ❌ <em>~~Aucun de ces livres ne sont faciles.~~</em></li>
+          
+          <li><strong>On vs Ont :</strong><br>
+          ✅ <em>On a faim.</em> (pronom) | <em>Ils ont faim.</em> (verbe avoir)<br>
+          ❌ <em>~~Ont a faim.~~</em> | <em>~~Ils on faim.~~</em></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📚 Énormément d'Exemples en Contexte</h2>
+      
+      <h3>🔹 Tout / tous / toutes</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Tout est bien qui finit bien.</em> | <em>Tous pour un, un pour tous.</em></div>
+        <div class="gw-idiom-ex"><em>Elles sont toutes parties avant la fin.</em></div>
+        <div class="gw-idiom-ex"><em>Merci à tous et à toutes pour votre attention.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Quelqu'un / personne</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Quelqu'un a laissé son parapluie.</em> | <em>Personne n'a répondu à mon message.</em></div>
+        <div class="gw-idiom-ex"><em>Y a-t-il quelqu'un dans la salle ?</em> | <em>Elle ne se confie à personne.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Quelque chose / rien</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>J'ai oublié quelque chose à la maison.</em> | <em>Il ne s'intéresse à rien.</em></div>
+        <div class="gw-idiom-ex"><em>Quelque chose me dit que tu as raison.</em> | <em>Rien de ce qu'il a dit n'était vrai.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Chacun / aucun</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Chacun doit apporter son pique-nique.</em> | <em>Ces cravates coûtent 20 euros chacune.</em></div>
+        <div class="gw-idiom-ex"><em>Aucun de nous n'est parfait.</em> | <em>Aucune de ces propositions ne me convient.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Plusieurs / certains / d'autres</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Plusieurs ont essayé, peu ont réussi.</em> | <em>J'ai visité plusieurs de ces pays.</em></div>
+        <div class="gw-idiom-ex"><em>Certains pensent que c'est facile.</em> | <em>Certaines de ces chansons sont des chefs-d'œuvre.</em></div>
+        <div class="gw-idiom-ex"><em>Certains aiment le sucré, d'autres le salé.</em> | <em>Il y en a d'autres.</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 On / n'importe qui</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>On ne peut pas plaire à tout le monde.</em> | <em>On m'a dit que le film était excellent.</em></div>
+        <div class="gw-idiom-ex"><em>Alors, on s'en va ?</em> | <em>Ne laisse pas entrer n'importe qui.</em></div>
+        <div class="gw-idiom-ex"><em>Il ferait n'importe quoi pour de l'argent.</em> | <em>Ce n'est pas n'importe qui !</em></div>
+      </div>
+
+      <h3 style="margin-top:24px;">🔹 Littéraire (quiconque, autrui, tel, maint)</h3>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><em>Quiconque a enfreint la loi sera poursuivi.</em> | <em>Il est plus rapide que quiconque.</em></div>
+        <div class="gw-idiom-ex"><em>Le respect d'autrui est fondamental.</em> | <em>Ne pas convoiter le bien d'autrui.</em></div>
+        <div class="gw-idiom-ex"><em>Tel est mon avis.</em> | <em>Maintes et maintes fois, je vous l'ai répété.</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>📝 Exercices : Choisis le Bon Pronom Indéfini</h2>
+      <p><strong>Consigne :</strong> Complète avec le pronom indéfini correct.</p>
+      <div class="gw-idiom-card">
+        <div class="gw-idiom-ex"><strong>1.</strong> <em>___ a sonné à la porte.</em><br><em>Réponse : <strong>Quelqu'un</strong> (personne indéterminée)</em></div>
+        <div class="gw-idiom-ex"><strong>2.</strong> <em>Je ne vois ___.</em><br><em>Réponse : <strong>personne</strong> (absence de personne + négation)</em></div>
+        <div class="gw-idiom-ex"><strong>3.</strong> <em>J'ai ___ à te dire.</em><br><em>Réponse : <strong>quelque chose</strong> (chose indéterminée)</em></div>
+        <div class="gw-idiom-ex"><strong>4.</strong> <em>___ n'est impossible.</em><br><em>Réponse : <strong>Rien</strong> (absence de chose + négation inversée)</em></div>
+        <div class="gw-idiom-ex"><strong>5.</strong> <em>___ doit apporter son pique-nique.</em><br><em>Réponse : <strong>Chacun</strong> (distribution, verbe au singulier)</em></div>
+        <div class="gw-idiom-ex"><strong>6.</strong> <em>___ de ces solutions n'est acceptable.</em><br><em>Réponse : <strong>Aucune</strong> (quantité nulle + féminin)</em></div>
+        <div class="gw-idiom-ex"><strong>7.</strong> <em>___ ont déjà répondu.</em><br><em>Réponse : <strong>Plusieurs</strong> (nombre indéfini &gt; 1, invariable)</em></div>
+        <div class="gw-idiom-ex"><strong>8.</strong> <em>___, on va au ciné ?</em><br><em>Réponse : <strong>Alors</strong> ou <strong>On</strong> (selon sens : « nous » familier)</em></div>
+        <div class="gw-idiom-ex"><strong>9.</strong> <em>Tu peux inviter ___.</em><br><em>Réponse : <strong>n'importe qui</strong> (indifférenciation)</em></div>
+        <div class="gw-idiom-ex"><strong>10.</strong> <em>Il faut respecter le bien d'___.</em><br><em>Réponse : <strong>autrui</strong> (les autres, registre soutenu)</em></div>
+      </div>
+    </div>
+
+    <div class="gw-section">
+      <h2>💡 Conseils pour Maîtriser les Indéfinis</h2>
+      <ol>
+        <li><strong>Identifie le référent :</strong> Personne ? Chose ? Quantité ? Totalité ? Cela guide ton choix.</li>
+        <li><strong>Vérifie la négation :</strong> <em>personne / rien / aucun</em> s'emploient généralement avec <em>ne</em>.</li>
+        <li><strong>Accord après « quelqu'un / quelque chose » :</strong> Toujours <em>de + adjectif masculin singulier</em>.</li>
+        <li><strong>Prononciation de « tous » :</strong> Pronom → « touss » ; adjectif devant consonne → « tou » muet.</li>
+        <li><strong>« On » = 3e personne du singulier :</strong> Le verbe se conjugue comme avec <em>il/elle</em>.</li>
+        <li><strong>Registre :</strong> <em>quiconque, autrui, maint</em> sont littéraires ; privilégie <em>n'importe qui, les autres, plusieurs</em> à l'oral.</li>
+        <li><strong>Lis à voix haute :</strong> L'oreille détecte souvent les erreurs d'accord ou de sens.</li>
+      </ol>
+    </div>
+
+    <div class="gw-summary">
+      <h3>✨ Récapitulatif en 7 Points</h3>
+      <ul>
+        <li><strong>Totalité :</strong> <em>tout / tous / toutes</em> → <em>Tous sont venus.</em></li>
+        <li><strong>Personnes :</strong> <em>quelqu'un</em> (indéterminé) / <em>personne</em> (absence, + ne) / <em>chacun</em> (distribution)</li>
+        <li><strong>Choses :</strong> <em>quelque chose</em> (indéterminé) / <em>rien</em> (absence, + ne)</li>
+        <li><strong>Quantité :</strong> <em>aucun</em> (nul, + ne) / <em>plusieurs</em> (&gt;1) / <em>certains / d'autres</em> (partie / opposition)</li>
+        <li><strong>Indéfini personnel :</strong> <em>on</em> (gens en général, « nous » familier) → verbe au singulier</li>
+        <li><strong>Indifférenciation :</strong> <em>n'importe qui/quoi</em> (absence de restriction)</li>
+        <li><strong>Pièges :</strong> <em>quelqu'un de + adj. masc.</em> | <em>tous</em> prononcé « touss » | <em>on ≠ ont</em></li>
+      </ul>
+      <p style="margin-top:18px; opacity:0.95;">Maîtriser les pronoms indéfinis, c'est savoir exprimer l'imprécis avec précision. Que tu parles de <em>quelqu'un</em> qui frappe, de <em>rien</em> qui ne va, ou de <em>tous</em> ceux qui t'écoutent : avec ces règles, tes phrases seront nuancées, justes et naturelles. Et rappelle-toi : <em>"Dans l'indétermination, il y a une certitude — celle de savoir choisir le bon pronom !"</em> ❓🇫🇷</p>
+    </div>
+  </div>
+`},
     {id:7,t:"Pronoms personnels I",d:"Persoonlijke voornaamwoorden I – onderwerp, COD, COI, reflexief, tonisch."},
     {id:8,t:"Pronoms personnels II",d:"Persoonlijke voornaamwoorden II – y en en: vervanging en plaats."},
     {id:9,t:"Doubles pronoms",d:"Dubbele voornaamwoorden vóór het werkwoord – je le lui donne, ontkenning, inversie."},
