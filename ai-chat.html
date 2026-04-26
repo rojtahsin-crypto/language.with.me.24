@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>LinguaAI — Chat Widget Demo</title>
+<title>LinguaAI — AI Chat Teacher</title>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -165,9 +165,9 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 <body>
 
 <div class="demo-hint">
-  <strong>LinguaAI — Chat Widget</strong>
-  کلیک بکە لەسەر دوگمەی سەوزەی ئاستەوەی ئەراستە بۆ چاتکردن لەگەڵ AI مامۆستا<br><br>
-  <span style="font-size:.8rem;opacity:.7">این کد دابنێ لە وێبسایتەکەت</span>
+  <strong>LinguaAI — AI Chat Teacher</strong>
+  Click the green bubble to start chatting with your AI language teacher<br><br>
+  <span style="font-size:.8rem;opacity:.7">Place this file in your website folder</span>
 </div>
 
 <!-- ═══ CHAT BUBBLE ═══ -->
@@ -221,7 +221,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 // ══════════════════════════════════════════
 // CONFIG
 // ══════════════════════════════════════════
-const API_KEY = 'YOUR_ANTHROPIC_API_KEY'; // ← کلیلەکەت ئەمجا دابنێ
+const API_KEY = 'YOUR_ANTHROPIC_API_KEY'; // ← Replace with your actual API key
 
 let chatLang = 'en';
 let panelOpen = false;
@@ -234,7 +234,6 @@ let greeted = false;
 const LANG_CFG = {
   en: {
     flag:'🇬🇧', code:'EN',
-
     teacherName:'Ms. Grace',
     status:'Online — ready to help',
     placeholder:'Type your message...',
@@ -347,7 +346,6 @@ function setLang(l) {
     b.classList.toggle('active', ['en','nl','fr','ar','de','es','tr'][i]===l);
   });
   document.getElementById('langPicker').classList.remove('show');
-  // reset chat
   chatHistory = [];
   document.getElementById('cpMsgs').innerHTML = '';
   greeted = false;
@@ -383,7 +381,6 @@ async function sendMsg() {
   addMsg('user', text);
   chatHistory.push({role:'user', content:text});
 
-  // typing indicator
   const typId = addTyping();
 
   try {
@@ -408,7 +405,6 @@ async function sendMsg() {
     removeTyping(typId);
     addMsg('bot', reply, true);
     chatHistory.push({role:'assistant', content:reply});
-    // keep history short
     if(chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
   } catch(e) {
     removeTyping(typId);
@@ -511,7 +507,6 @@ function toggleMic() {
     isRecording = false;
     document.getElementById('micBtn').classList.remove('recording');
     document.getElementById('micBtn').textContent = '🎤';
-    // auto send if got text
     if(document.getElementById('chatInp').value.trim()) sendMsg();
   };
   recognition.onerror = ()=>{
