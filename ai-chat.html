@@ -1,830 +1,864 @@
-<!-- ═══════════════════════════════════════════════════════
-     🦉 LINGO — AI Design Assistant Widget
-     ═══════════════════════════════════════════════════════ -->
-<div id="lingo-widget" hidden>
-  
-  <!-- Floating mascot button -->
-  <button id="lingo-toggle" aria-label="Ask Lingo for design help" title="Design help">
-    <span class="lingo-mascot" aria-hidden="true">🦉</span>
-    <span class="lingo-badge">New</span>
-  </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Teacher — LinguaAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;1,500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <!-- Chat panel -->
-  <div id="lingo-panel" role="dialog" aria-modal="true" aria-labelledby="lingo-title" hidden>
-    
-    <!-- Header -->
-    <div class="lingo-header">
-      <div class="lingo-identity">
-        <span class="lingo-mascot large" aria-hidden="true">🦉</span>
-        <div>
-          <h3 id="lingo-title">Lingo</h3>
-          <p class="lingo-subtitle">Your friendly design buddy ✨</p>
-        </div>
+:root {
+  --bg:       #f0f2f7;
+  --panel:    #ffffff;
+  --panel2:   #f7f8fc;
+  --border:   rgba(0,0,0,.07);
+  --text:     #111827;
+  --text2:    #6b7280;
+  --text3:    #9ca3af;
+  --shadow:   0 2px 8px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+  --shadow-m: 0 8px 24px rgba(0,0,0,.09), 0 2px 8px rgba(0,0,0,.05);
+  --shadow-l: 0 20px 48px rgba(0,0,0,.12), 0 4px 12px rgba(0,0,0,.06);
+  --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --serif: 'Lora', Georgia, serif;
+  --r: 16px; --rs: 10px;
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+
+/* dark */
+[data-theme=dark] {
+  --bg:     #0e1117;
+  --panel:  #161b27;
+  --panel2: #1c2235;
+  --border: rgba(255,255,255,.06);
+  --text:   #f1f5f9;
+  --text2:  #94a3b8;
+  --text3:  #475569;
+  --shadow:   0 2px 8px rgba(0,0,0,.4);
+  --shadow-m: 0 8px 24px rgba(0,0,0,.5);
+  --shadow-l: 0 20px 48px rgba(0,0,0,.6);
+}
+
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  transition: background .3s, color .3s;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem;
+  gap: .85rem;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
+
+.back-link {
+  display: flex; align-items: center; gap: .35rem;
+  padding: .4rem .85rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--rs);
+  color: var(--text2);
+  font-size: .78rem; font-weight: 600;
+  text-decoration: none;
+  transition: all .18s var(--ease);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.back-link:hover { color: var(--text); border-color: var(--text3); background: var(--panel2); }
+
+.teacher-chip {
+  flex: 1; min-width: 0;
+  display: flex; align-items: center; gap: .65rem;
+}
+.t-ava {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.05rem;
+  position: relative;
+}
+.t-ava::after {
+  content: ''; position: absolute; bottom: 1px; right: 1px;
+  width: 9px; height: 9px; background: #22c55e;
+  border-radius: 50%; border: 2px solid var(--panel);
+}
+.t-meta { min-width: 0; }
+.t-name {
+  font-family: var(--serif);
+  font-size: 1rem; line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.t-online {
+  font-size: .7rem; font-weight: 600; color: var(--text3);
+  display: flex; align-items: center; gap: .28rem; margin-top: 1px;
+}
+.online-dot {
+  width: 6px; height: 6px; background: #22c55e;
+  border-radius: 50%; animation: onlinePulse 2.5s ease infinite;
+}
+@keyframes onlinePulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+.topbar-end { display: flex; gap: .4rem; flex-shrink: 0; }
+.topbtn {
+  width: 35px; height: 35px; border-radius: var(--rs);
+  border: 1px solid var(--border); background: var(--bg);
+  color: var(--text2); font-size: .9rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all .18s var(--ease);
+}
+.topbtn:hover { background: var(--panel2); color: var(--text); border-color: var(--text3); }
+
+/* ══════════════════════════════════════════
+   LANGUAGE SELECTOR — completely redesigned
+   Each language = its own card with flag,
+   name, and unique accent colour
+══════════════════════════════════════════ */
+.lang-section {
+  flex-shrink: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: .85rem 1.25rem;
+}
+
+.lang-grid {
+  display: flex;
+  gap: .55rem;
+  flex-wrap: wrap;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* each language card */
+.lcard {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .45rem .9rem;
+  border-radius: 50px;
+  border: 1.5px solid transparent;
+  background: var(--panel);
+  cursor: pointer;
+  transition: all .2s var(--ease);
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.lcard::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--lc, transparent);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.lcard:hover::before { opacity: 1; }
+.lcard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-m);
+  border-color: var(--lborder, var(--border));
+}
+.lcard.active {
+  background: var(--lactive, #f0fdf4);
+  border-color: var(--lborder, #86efac);
+  box-shadow: 0 4px 16px var(--lglow, rgba(0,200,100,.15)), var(--shadow);
+  transform: translateY(-1px);
+}
+.lcard.active::before { opacity: 1; }
+
+.lcard .flag { font-size: 1.35rem; line-height: 1; flex-shrink: 0; position: relative; z-index: 1; }
+.lcard .lname {
+  font-size: .8rem; font-weight: 700;
+  position: relative; z-index: 1;
+  white-space: nowrap;
+  color: var(--text2);
+  transition: color .2s;
+}
+.lcard.active .lname { color: var(--ltext, #166534); }
+.lcard:hover .lname  { color: var(--ltext, var(--text)); }
+
+/* ── per-language colour tokens ── */
+.lcard[data-l=nl] {
+  --lc:       rgba(255,138,0,.06);
+  --lactive:  #fff7ed;
+  --lborder:  #fb923c;
+  --lglow:    rgba(251,146,60,.2);
+  --ltext:    #9a3412;
+}
+.lcard[data-l=en] {
+  --lc:       rgba(59,130,246,.06);
+  --lactive:  #eff6ff;
+  --lborder:  #60a5fa;
+  --lglow:    rgba(96,165,250,.2);
+  --ltext:    #1e40af;
+}
+.lcard[data-l=fr] {
+  --lc:       rgba(99,102,241,.06);
+  --lactive:  #eef2ff;
+  --lborder:  #818cf8;
+  --lglow:    rgba(129,140,248,.2);
+  --ltext:    #3730a3;
+}
+.lcard[data-l=de] {
+  --lc:       rgba(234,179,8,.06);
+  --lactive:  #fefce8;
+  --lborder:  #facc15;
+  --lglow:    rgba(250,204,21,.25);
+  --ltext:    #713f12;
+}
+.lcard[data-l=es] {
+  --lc:       rgba(239,68,68,.06);
+  --lactive:  #fef2f2;
+  --lborder:  #f87171;
+  --lglow:    rgba(248,113,113,.2);
+  --ltext:    #991b1b;
+}
+.lcard[data-l=it] {
+  --lc:       rgba(34,197,94,.06);
+  --lactive:  #f0fdf4;
+  --lborder:  #4ade80;
+  --lglow:    rgba(74,222,128,.2);
+  --ltext:    #14532d;
+}
+.lcard[data-l=pt] {
+  --lc:       rgba(20,184,166,.06);
+  --lactive:  #f0fdfa;
+  --lborder:  #2dd4bf;
+  --lglow:    rgba(45,212,191,.2);
+  --ltext:    #134e4a;
+}
+.lcard[data-l=ar] {
+  --lc:       rgba(168,85,247,.06);
+  --lactive:  #faf5ff;
+  --lborder:  #c084fc;
+  --lglow:    rgba(192,132,252,.2);
+  --ltext:    #581c87;
+}
+.lcard[data-l=tr] {
+  --lc:       rgba(236,72,153,.06);
+  --lactive:  #fdf2f8;
+  --lborder:  #f472b6;
+  --lglow:    rgba(244,114,182,.2);
+  --ltext:    #831843;
+}
+
+/* dark overrides for active cards */
+[data-theme=dark] .lcard { background: var(--panel); }
+[data-theme=dark] .lcard[data-l=nl].active { background: rgba(251,146,60,.12); }
+[data-theme=dark] .lcard[data-l=en].active { background: rgba(96,165,250,.12); }
+[data-theme=dark] .lcard[data-l=fr].active { background: rgba(129,140,248,.12); }
+[data-theme=dark] .lcard[data-l=de].active { background: rgba(250,204,21,.12); }
+[data-theme=dark] .lcard[data-l=es].active { background: rgba(248,113,113,.12); }
+[data-theme=dark] .lcard[data-l=it].active { background: rgba(74,222,128,.12); }
+[data-theme=dark] .lcard[data-l=pt].active { background: rgba(45,212,191,.12); }
+[data-theme=dark] .lcard[data-l=ar].active { background: rgba(192,132,252,.12); }
+[data-theme=dark] .lcard[data-l=tr].active { background: rgba(244,114,182,.12); }
+[data-theme=dark] .lcard.active .lname,
+[data-theme=dark] .lcard:hover .lname { filter: brightness(1.6); }
+
+/* ── CHAT AREA ── */
+.chat-shell {
+  flex: 1; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.chat-inner {
+  flex: 1; overflow: hidden;
+  display: flex; flex-direction: column;
+  max-width: 800px; width: 100%;
+  margin: 0 auto; padding: 0 1.25rem;
+}
+
+/* messages */
+.msgs {
+  flex: 1; overflow-y: auto;
+  display: flex; flex-direction: column;
+  gap: 1rem;
+  padding: 1.4rem 0 .8rem;
+  scroll-behavior: smooth;
+}
+.msgs::-webkit-scrollbar { width: 4px; }
+.msgs::-webkit-scrollbar-track { background: transparent; }
+.msgs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+
+.msg {
+  display: flex; gap: .7rem;
+  max-width: 78%;
+  animation: msgPop .3s cubic-bezier(.34,1.5,.64,1) both;
+}
+@keyframes msgPop {
+  from { opacity:0; transform:translateY(14px) scale(.96); }
+  to   { opacity:1; transform:none; }
+}
+.msg.user { align-self: flex-end; flex-direction: row-reverse; }
+
+.av {
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .85rem; flex-shrink: 0; margin-top: 3px;
+}
+.msg.bot .av  { box-shadow: var(--shadow); }
+.msg.user .av { background: #1e293b; color: #f1f5f9; box-shadow: var(--shadow); }
+
+.mbody { display: flex; flex-direction: column; gap: .3rem; }
+
+.bubble {
+  padding: .82rem 1.05rem;
+  border-radius: 16px;
+  font-size: .89rem; line-height: 1.7;
+  word-wrap: break-word; white-space: pre-wrap;
+}
+.msg.bot .bubble {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 4px 16px 16px 16px;
+  box-shadow: var(--shadow);
+}
+.msg.user .bubble {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-radius: 16px 4px 16px 16px;
+  box-shadow: var(--shadow-m);
+}
+
+/* listen btn */
+.listen-btn {
+  align-self: flex-start;
+  display: flex; align-items: center; gap: .3rem;
+  padding: .2rem .65rem;
+  background: transparent;
+  border: 1px solid var(--border); border-radius: 50px;
+  color: var(--text3);
+  font-family: var(--sans); font-size: .72rem; font-weight: 600;
+  cursor: pointer; transition: all .18s var(--ease);
+}
+.listen-btn:hover  { border-color: var(--laccentc,#22c55e); color: var(--laccentc,#22c55e); background: var(--laccent-bg,#f0fdf4); }
+.listen-btn.playing{ border-color: var(--laccentc,#22c55e); color: var(--laccentc,#22c55e); background: var(--laccent-bg,#f0fdf4); }
+
+/* typing */
+.typing-row { display: flex; gap: .7rem; animation: msgPop .25s ease both; }
+.typ-bbl {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px 16px 16px 16px;
+  padding: .9rem 1.1rem;
+  display: flex; align-items: center; gap: 5px;
+  box-shadow: var(--shadow);
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--text3); opacity: .4;
+  animation: dotAnim 1.1s ease infinite;
+}
+.dot:nth-child(2){ animation-delay:.15s; }
+.dot:nth-child(3){ animation-delay:.3s; }
+@keyframes dotAnim { 0%,80%,100%{transform:translateY(0);opacity:.3} 40%{transform:translateY(-6px);opacity:1} }
+
+/* suggestions */
+.sugs {
+  flex-shrink: 0;
+  display: flex; gap: .4rem; flex-wrap: wrap;
+  padding: .35rem 0 .65rem;
+  transition: opacity .2s;
+}
+.sug {
+  padding: .3rem .85rem;
+  background: var(--panel);
+  border: 1px solid var(--border); border-radius: 50px;
+  color: var(--text2); font-family: var(--sans);
+  font-size: .77rem; font-weight: 600;
+  cursor: pointer; transition: all .18s var(--ease);
+  white-space: nowrap;
+}
+.sug:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+  border-color: var(--lborder-active, #94a3b8);
+  color: var(--ltext-active, var(--text));
+  background: var(--lbg-active, var(--panel2));
+}
+
+/* input */
+.input-bar {
+  flex-shrink: 0;
+  display: flex; align-items: flex-end; gap: .6rem;
+  padding: .75rem 0 1rem;
+  border-top: 1px solid var(--border);
+}
+.inp-shell {
+  flex: 1; display: flex; align-items: flex-end; gap: .45rem;
+  background: var(--panel);
+  border: 1.5px solid var(--border); border-radius: 16px;
+  padding: .55rem .75rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+.inp-shell:focus-within {
+  border-color: var(--focus-color, #94a3b8);
+  box-shadow: 0 0 0 3px var(--focus-ring, rgba(148,163,184,.15));
+}
+.mic-btn {
+  width: 30px; height: 30px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--bg);
+  color: var(--text3); font-size: .9rem;
+  cursor: pointer; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .18s var(--ease);
+}
+.mic-btn:hover { background: var(--panel2); color: var(--text); }
+.mic-btn.rec { background: rgba(239,68,68,.1); border-color: #ef4444; color: #ef4444; animation: recPulse 1.2s ease infinite; }
+@keyframes recPulse { 0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.3)} 50%{box-shadow:0 0 0 5px rgba(239,68,68,0)} }
+
+#chatInp {
+  flex: 1; background: transparent; border: none; outline: none;
+  font-family: var(--sans); font-size: .89rem; color: var(--text);
+  resize: none; min-height: 26px; max-height: 110px; overflow-y: auto;
+  line-height: 1.55;
+}
+#chatInp::placeholder { color: var(--text3); }
+
+.send-btn {
+  width: 44px; height: 44px; border-radius: 13px;
+  border: none; flex-shrink: 0;
+  color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s var(--ease);
+  background: var(--send-bg, linear-gradient(135deg,#22c55e,#16a34a));
+  box-shadow: 0 4px 16px var(--send-glow, rgba(34,197,94,.3));
+}
+.send-btn:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 8px 24px var(--send-glow, rgba(34,197,94,.4)); }
+.send-btn:active { transform: scale(.97); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:640px) {
+  .topbar { padding:0 .85rem; height:56px; }
+  .chat-inner { padding:0 .85rem; }
+  .msg { max-width:88%; }
+  .bubble { font-size:.86rem; }
+  .lcard .lname { display:none; }
+  .lcard { padding:.45rem .65rem; }
+  .lcard .flag { font-size:1.5rem; }
+  .lang-section { padding:.65rem .85rem; }
+  .lang-grid { gap:.4rem; }
+}
+@media (max-width:360px) {
+  .back-link span { display:none; }
+  .back-link { padding:.4rem .6rem; }
+}
+
+button:focus-visible, a:focus-visible, #chatInp:focus-visible {
+  outline: 2px solid #22c55e; outline-offset: 2px;
+}
+@media(prefers-reduced-motion:reduce){ *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <a href="index.html" class="back-link" title="Back to home">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    <span>Back</span>
+  </a>
+  <div class="teacher-chip">
+    <div class="t-ava" id="tAva">🎓</div>
+    <div class="t-meta">
+      <div class="t-name" id="tName">Juf Emma</div>
+      <div class="t-online"><span class="online-dot"></span><span id="tStat">Online · Nederlandse Lerares</span></div>
+    </div>
+  </div>
+  <div class="topbar-end">
+    <button class="topbtn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  </div>
+</header>
+
+<!-- LANGUAGE SELECTOR -->
+<div class="lang-section">
+  <div class="lang-grid" role="group" aria-label="Choose language">
+    <button class="lcard active" data-l="nl" onclick="setLang('nl')">
+      <span class="flag">🇳🇱</span><span class="lname">Nederlands</span>
+    </button>
+    <button class="lcard" data-l="en" onclick="setLang('en')">
+      <span class="flag">🇬🇧</span><span class="lname">English</span>
+    </button>
+    <button class="lcard" data-l="fr" onclick="setLang('fr')">
+      <span class="flag">🇫🇷</span><span class="lname">Français</span>
+    </button>
+    <button class="lcard" data-l="de" onclick="setLang('de')">
+      <span class="flag">🇩🇪</span><span class="lname">Deutsch</span>
+    </button>
+    <button class="lcard" data-l="es" onclick="setLang('es')">
+      <span class="flag">🇪🇸</span><span class="lname">Español</span>
+    </button>
+    <button class="lcard" data-l="it" onclick="setLang('it')">
+      <span class="flag">🇮🇹</span><span class="lname">Italiano</span>
+    </button>
+    <button class="lcard" data-l="pt" onclick="setLang('pt')">
+      <span class="flag">🇵🇹</span><span class="lname">Português</span>
+    </button>
+    <button class="lcard" data-l="ar" onclick="setLang('ar')">
+      <span class="flag">🇸🇦</span><span class="lname">عربي</span>
+    </button>
+    <button class="lcard" data-l="tr" onclick="setLang('tr')">
+      <span class="flag">🇹🇷</span><span class="lname">Türkçe</span>
+    </button>
+  </div>
+</div>
+
+<!-- CHAT -->
+<div class="chat-shell">
+  <div class="chat-inner">
+    <div class="msgs" id="msgs" aria-live="polite"></div>
+    <div class="sugs" id="sugs"></div>
+    <div class="input-bar">
+      <div class="inp-shell">
+        <button class="mic-btn" id="micBtn" onclick="toggleMic()" aria-label="Voice input">🎤</button>
+        <textarea id="chatInp" rows="1"
+          onkeydown="handleKey(event)"
+          oninput="autoResize(this)"
+          aria-label="Message"
+          placeholder="Typ je bericht…"></textarea>
       </div>
-      <button id="lingo-close" aria-label="Close chat">✕</button>
-    </div>
-
-    <!-- Messages area -->
-    <div id="lingo-messages" class="lingo-messages" aria-live="polite">
-      <!-- Welcome message -->
-      <div class="lingo-msg lingo-bot">
-        <div class="lingo-avatar">🦉</div>
-        <div class="lingo-bubble">
-          <p>Hey there, designer! 👋 I'm <strong>Lingo</strong>, your friendly design companion for LinguaAI.</p>
-          <p>I know everything about your site's style — colors, fonts, spacing, you name it! 💚</p>
-          <p><em>Ask me things like:</em></p>
-          <ul>
-            <li>"What color should my button be?"</li>
-            <li>"How do I make this section feel warmer?"</li>
-            <li>"What font works best for headings?"</li>
-          </ul>
-          <p class="lingo-cheer">You've got this! What shall we create together? 🎨</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quick suggestions -->
-    <div class="lingo-sugs" id="lingo-sugs">
-      <button class="lingo-sug" data-prompt="What's the best color for a call-to-action button?">🎨 CTA button colors</button>
-      <button class="lingo-sug" data-prompt="How should I style a new card component?">🃏 Card styling tips</button>
-      <button class="lingo-sug" data-prompt="What fonts should I use for headings vs body text?">🔤 Font pairing help</button>
-      <button class="lingo-sug" data-prompt="How do I make my design feel more welcoming?">💛 Make it warmer</button>
-    </div>
-
-    <!-- Input area -->
-    <div class="lingo-input-bar">
-      <textarea id="lingo-input" rows="1" placeholder="Ask Lingo anything about design…" aria-label="Your question"></textarea>
-      <button id="lingo-send" aria-label="Send question">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <button class="send-btn" id="sendBtn" onclick="sendMsg()" aria-label="Send">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
     </div>
   </div>
 </div>
 
-<style>
-/* ═══════════════════════════════════════════════════════
-   LINGO WIDGET STYLES — Matches your LinguaAI design
-   ═══════════════════════════════════════════════════════ */
-
-/* CSS Variables — synced with your site */
-#lingo-widget {
-  --lingo-bg: #faf8f3;
-  --lingo-card: #f2ede0;
-  --lingo-card-hover: #ebe4d1;
-  --lingo-text: #1c1a16;
-  --lingo-text-light: #5a5040;
-  --lingo-text-muted: #9a8e78;
-  --lingo-accent: #059669;
-  --lingo-accent-hover: #047857;
-  --lingo-orange: #e8590c;
-  --lingo-border: rgba(28,26,22,0.08);
-  --lingo-shadow: 0 4px 20px rgba(28,26,22,0.12), 0 2px 6px rgba(28,26,22,0.08);
-  --lingo-shadow-lg: 0 12px 40px rgba(28,26,22,0.18), 0 4px 12px rgba(28,26,22,0.1);
-  --lingo-radius: 16px;
-  --lingo-radius-sm: 10px;
-  --lingo-font-title: 'Libre Baskerville', Georgia, serif;
-  --lingo-font-body: 'Nunito', system-ui, sans-serif;
-  --lingo-transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  font-family: var(--lingo-font-body);
-  color: var(--lingo-text);
-  line-height: 1.6;
-}
-
-/* Dark mode support */
-[data-theme="dark"] #lingo-widget,
-body.dark #lingo-widget {
-  --lingo-bg: #131109;
-  --lingo-card: #1c1912;
-  --lingo-card-hover: #252116;
-  --lingo-text: #f0ead8;
-  --lingo-text-light: #d4c8a8;
-  --lingo-text-muted: #b8a88a;
-  --lingo-border: rgba(240,234,216,0.1);
-  --lingo-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3);
-  --lingo-shadow-lg: 0 12px 40px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.4);
-}
-
-/* Floating mascot button */
-#lingo-toggle {
-  position: relative;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: none;
-  background: linear-gradient(135deg, var(--lingo-accent), var(--lingo-accent-hover));
-  color: white;
-  font-size: 1.8rem;
-  cursor: pointer;
-  box-shadow: var(--lingo-shadow-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform var(--lingo-transition), box-shadow var(--lingo-transition);
-  animation: lingoFloat 3s ease-in-out infinite;
-}
-#lingo-toggle:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 16px 48px rgba(5,150,105,0.4);
-}
-#lingo-toggle:active { transform: scale(0.98); }
-
-@keyframes lingoFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.lingo-badge {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  background: var(--lingo-orange);
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 20px;
-  animation: lingoPulse 2s ease infinite;
-}
-@keyframes lingoPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(0.95); }
-}
-
-.lingo-mascot {
-  font-size: 1.8rem;
-  transition: transform 0.2s;
-}
-#lingo-toggle:hover .lingo-mascot { transform: scale(1.1) rotate(5deg); }
-.lingo-mascot.large { font-size: 2.2rem; }
-
-/* Chat panel */
-#lingo-panel {
-  position: absolute;
-  bottom: 80px;
-  right: 0;
-  width: 360px;
-  max-width: calc(100vw - 40px);
-  background: var(--lingo-bg);
-  border: 1px solid var(--lingo-border);
-  border-radius: var(--lingo-radius);
-  box-shadow: var(--lingo-shadow-lg);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  animation: lingoSlideUp 0.3s var(--lingo-transition) both;
-}
-@keyframes lingoSlideUp {
-  from { opacity: 0; transform: translateY(20px) scale(0.98); }
-  to { opacity: 1; transform: none; }
-}
-
-/* Header */
-.lingo-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.25rem;
-  background: var(--lingo-card);
-  border-bottom: 1px solid var(--lingo-border);
-}
-.lingo-identity {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.lingo-identity h3 {
-  font-family: var(--lingo-font-title);
-  font-size: 1.1rem;
-  margin: 0;
-  color: var(--lingo-text);
-}
-.lingo-subtitle {
-  font-size: 0.8rem;
-  color: var(--lingo-text-light);
-  margin: 2px 0 0;
-}
-#lingo-close {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background: transparent;
-  color: var(--lingo-text-muted);
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background var(--lingo-transition), color var(--lingo-transition);
-}
-#lingo-close:hover {
-  background: var(--lingo-card-hover);
-  color: var(--lingo-text);
-}
-
-/* Messages */
-.lingo-messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-height: 400px;
-  scroll-behavior: smooth;
-}
-.lingo-messages::-webkit-scrollbar { width: 4px; }
-.lingo-messages::-webkit-scrollbar-thumb { background: var(--lingo-border); border-radius: 10px; }
-
-.lingo-msg {
-  display: flex;
-  gap: 0.75rem;
-  max-width: 92%;
-  animation: lingoMsgPop 0.25s var(--lingo-transition) both;
-}
-@keyframes lingoMsgPop {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: none; }
-}
-.lingo-msg.lingo-user {
-  align-self: flex-end;
-  flex-direction: row-reverse;
-}
-
-.lingo-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--lingo-accent), var(--lingo-accent-hover));
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.lingo-msg.lingo-user .lingo-avatar {
-  background: linear-gradient(135deg, #6b7280, #4b5563);
-}
-
-.lingo-bubble {
-  background: var(--lingo-card);
-  border: 1px solid var(--lingo-border);
-  border-radius: var(--lingo-radius-sm);
-  padding: 0.85rem 1rem;
-  font-size: 0.92rem;
-  line-height: 1.65;
-}
-.lingo-msg.lingo-user .lingo-bubble {
-  background: var(--lingo-accent);
-  color: white;
-  border-color: var(--lingo-accent-hover);
-  border-radius: var(--lingo-radius-sm) var(--lingo-radius-sm) 4px var(--lingo-radius-sm);
-}
-.lingo-bubble p { margin: 0 0 0.5rem; }
-.lingo-bubble p:last-child { margin-bottom: 0; }
-.lingo-bubble ul {
-  margin: 0.5rem 0;
-  padding-left: 1.25rem;
-}
-.lingo-bubble li { margin: 0.25rem 0; }
-.lingo-cheer {
-  font-style: italic;
-  color: var(--lingo-accent);
-  margin-top: 0.75rem !important;
-  font-weight: 600;
-}
-.lingo-msg.lingo-user .lingo-cheer { color: rgba(255,255,255,0.95); }
-
-/* Suggestions */
-.lingo-sugs {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  padding: 0.5rem 1.25rem 0.75rem;
-  border-top: 1px solid var(--lingo-border);
-  background: var(--lingo-card);
-}
-.lingo-sug {
-  padding: 0.35rem 0.85rem;
-  background: var(--lingo-bg);
-  border: 1px solid var(--lingo-border);
-  border-radius: 50px;
-  color: var(--lingo-text-light);
-  font-family: var(--lingo-font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--lingo-transition);
-  white-space: nowrap;
-}
-.lingo-sug:hover {
-  background: var(--lingo-accent);
-  border-color: var(--lingo-accent-hover);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(5,150,105,0.25);
-}
-
-/* Input */
-.lingo-input-bar {
-  display: flex;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem 1rem;
-  border-top: 1px solid var(--lingo-border);
-  background: var(--lingo-bg);
-}
-#lingo-input {
-  flex: 1;
-  background: var(--lingo-card);
-  border: 1px solid var(--lingo-border);
-  border-radius: var(--lingo-radius-sm);
-  padding: 0.65rem 0.9rem;
-  font-family: var(--lingo-font-body);
-  font-size: 0.92rem;
-  color: var(--lingo-text);
-  resize: none;
-  min-height: 44px;
-  max-height: 120px;
-  line-height: 1.5;
-  transition: border-color var(--lingo-transition), box-shadow var(--lingo-transition);
-}
-#lingo-input:focus {
-  outline: none;
-  border-color: var(--lingo-accent);
-  box-shadow: 0 0 0 3px rgba(5,150,105,0.15);
-}
-#lingo-input::placeholder { color: var(--lingo-text-muted); }
-
-#lingo-send {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--lingo-radius-sm);
-  border: none;
-  background: linear-gradient(135deg, var(--lingo-accent), var(--lingo-accent-hover));
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform var(--lingo-transition), box-shadow var(--lingo-transition);
-  flex-shrink: 0;
-}
-#lingo-send:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(5,150,105,0.35);
-}
-#lingo-send:active { transform: scale(0.98); }
-#lingo-send:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Typing indicator */
-.lingo-typing {
-  display: flex;
-  gap: 0.75rem;
-  padding: 0.5rem 0;
-}
-.lingo-typing .lingo-bubble {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 0.75rem 1rem;
-}
-.lingo-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--lingo-text-muted);
-  opacity: 0.5;
-  animation: lingoDot 1.2s ease infinite;
-}
-.lingo-dot:nth-child(2) { animation-delay: 0.15s; }
-.lingo-dot:nth-child(3) { animation-delay: 0.3s; }
-@keyframes lingoDot {
-  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
-  40% { transform: translateY(-5px); opacity: 1; }
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-  #lingo-widget { bottom: 12px; right: 12px; }
-  #lingo-toggle { width: 56px; height: 56px; font-size: 1.6rem; }
-  #lingo-panel { 
-    width: calc(100vw - 24px); 
-    bottom: 70px; 
-    right: 0;
-    max-height: calc(100vh - 100px);
-  }
-  .lingo-messages { max-height: 320px; }
-}
-
-/* Accessibility focus states */
-#lingo-toggle:focus-visible,
-#lingo-close:focus-visible,
-.lingo-sug:focus-visible,
-#lingo-send:focus-visible,
-#lingo-input:focus-visible {
-  outline: 3px solid var(--lingo-accent);
-  outline-offset: 2px;
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  #lingo-toggle, .lingo-sug, #lingo-send, .lingo-msg, #lingo-panel {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-</style>
-
 <script>
-// ═══════════════════════════════════════════════════════
-// 🦉 LINGO — AI Design Assistant Logic
-// ═══════════════════════════════════════════════════════
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ⚠️  PUT YOUR ANTHROPIC API KEY BELOW
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const API_KEY = 'YOUR_ANTHROPIC_API_KEY';
 
-// 🔑 API KEY SETUP — Replace with your OpenAI/Anthropic key
-// For OpenAI: const LINGO_API_KEY = 'sk-...';
-// For Anthropic: const LINGO_API_KEY = 'sk-ant-...';
-const LINGO_API_KEY = localStorage.getItem('lingo_api_key') || '';
-const LINGO_API_PROVIDER = 'anthropic'; // 'openai' or 'anthropic'
-
-// 🎨 YOUR DESIGN SYSTEM — Lingo's knowledge base
-const DESIGN_SYSTEM = {
-  siteName: 'LinguaAI',
-  vibe: 'Minimalist, warm, friendly, with a classic touch. Think cozy library meets modern app.',
-  
-  // Color palettes
-  colors: {
-    light: {
-      background: '#faf8f3',
-      card: '#f2ede0',
-      cardHover: '#ebe4d1',
-      text: '#1c1a16',
-      textLight: '#5a5040',
-      textMuted: '#9a8e78',
-      accent: {
-        green: '#059669',
-        orange: '#e8590c',
-        indigo: '#4f46e5'
-      }
-    },
-    dark: {
-      background: '#131109',
-      card: '#1c1912',
-      text: '#f0ead8',
-      textLight: '#d4c8a8',
-      textMuted: '#b8a88a'
-    }
-  },
-  
-  // Typography
-  fonts: {
-    title: { family: "'Libre Baskerville', Georgia, serif", weight: '400-700', use: 'Headings, titles, elegant text' },
-    body: { family: "'Nunito', system-ui, sans-serif", weight: '400-700', use: 'Body text, buttons, UI elements' }
-  },
-  
-  // Spacing & layout
-  spacing: {
-    radius: '16px (large, friendly)',
-    radiusSm: '10px (buttons, small elements)',
-    shadow: 'Soft, layered shadows for depth without harshness',
-    transition: '0.28s cubic-bezier(0.4, 0, 0.2, 1) for smooth interactions'
-  },
-  
-  // Interaction patterns
-  interactions: {
-    hover: 'Cards lift slightly: translateY(-7px) with enhanced shadow',
-    focus: 'Clear 3px accent outline with subtle glow',
-    active: 'Gentle scale(0.98) for tactile feedback'
-  },
-  
-  // Design principles
-  principles: [
-    'Warmth first: Use cream backgrounds and soft greens to feel inviting',
-    'Clarity: High contrast for readability, especially in dark mode',
-    'Consistency: Reuse components and spacing values throughout',
-    'Delight: Subtle animations and encouraging microcopy',
-    'Accessibility: Always test color contrast and keyboard navigation'
-  ]
+/* ── per-language accent colours for dynamic UI elements ── */
+const ACCENTS = {
+  nl: { color:'#ea580c', bg:'#fff7ed', ring:'rgba(234,88,12,.15)', send:'linear-gradient(135deg,#f97316,#ea580c)', glow:'rgba(234,88,12,.3)', focus:'#f97316' },
+  en: { color:'#2563eb', bg:'#eff6ff', ring:'rgba(37,99,235,.15)', send:'linear-gradient(135deg,#3b82f6,#2563eb)', glow:'rgba(37,99,235,.3)', focus:'#3b82f6' },
+  fr: { color:'#4f46e5', bg:'#eef2ff', ring:'rgba(79,70,229,.15)', send:'linear-gradient(135deg,#6366f1,#4f46e5)', glow:'rgba(79,70,229,.3)', focus:'#6366f1' },
+  de: { color:'#b45309', bg:'#fefce8', ring:'rgba(180,83,9,.15)',  send:'linear-gradient(135deg,#f59e0b,#d97706)', glow:'rgba(245,158,11,.35)', focus:'#d97706' },
+  es: { color:'#dc2626', bg:'#fef2f2', ring:'rgba(220,38,38,.15)', send:'linear-gradient(135deg,#ef4444,#dc2626)', glow:'rgba(220,38,38,.3)', focus:'#ef4444' },
+  it: { color:'#16a34a', bg:'#f0fdf4', ring:'rgba(22,163,74,.15)', send:'linear-gradient(135deg,#22c55e,#16a34a)', glow:'rgba(34,197,94,.3)', focus:'#22c55e' },
+  pt: { color:'#0f766e', bg:'#f0fdfa', ring:'rgba(15,118,110,.15)', send:'linear-gradient(135deg,#14b8a6,#0f766e)', glow:'rgba(20,184,166,.3)', focus:'#14b8a6' },
+  ar: { color:'#7c3aed', bg:'#faf5ff', ring:'rgba(124,58,237,.15)', send:'linear-gradient(135deg,#a855f7,#7c3aed)', glow:'rgba(168,85,247,.3)', focus:'#a855f7' },
+  tr: { color:'#be185d', bg:'#fdf2f8', ring:'rgba(190,24,93,.15)',  send:'linear-gradient(135deg,#ec4899,#be185d)', glow:'rgba(236,72,153,.3)', focus:'#ec4899' },
 };
 
-// 💬 LINGO'S PERSONALITY PROMPT
-const LINGO_SYSTEM_PROMPT = `You are Lingo, a warm, energetic, and encouraging AI design companion for the LinguaAI language learning website.
-
-🎨 YOUR KNOWLEDGE:
-You have complete knowledge of LinguaAI's design system:
-${JSON.stringify(DESIGN_SYSTEM, null, 2)}
-
-✨ YOUR PERSONALITY:
-- Talk like a supportive, enthusiastic friend who loves design
-- Use phrases like: "Great question!", "You're doing amazing!", "Let's make this beautiful together! 💚"
-- Include 1-2 relevant emojis per message (🎨✨💚🦉🌟)
-- Keep explanations simple and jargon-free
-- Always end with encouragement or a gentle follow-up question
-- Celebrate the user's ideas before offering suggestions
-
-🗣️ YOUR STYLE:
-- Start with a warm greeting or acknowledgment
-- Praise good ideas genuinely
-- Explain design tips in everyday language
-- When suggesting colors/fonts, include the exact values from the design system
-- If unsure, say "Hmm, let me think about that..." and offer your best friendly guess
-
-🚫 WHAT TO AVOID:
-- Don't be overly technical or lecture-y
-- Don't suggest colors/fonts outside the approved palette unless asked
-- Don't write essays — keep replies to 3-5 short paragraphs max
-
-Remember: You're not just a tool, you're a design buddy! Make every interaction feel like chatting with a friend who genuinely wants to help them create something beautiful.`;
-
-// 🧠 STATE
-let lingoOpen = false;
-let lingoHistory = [];
-let lingoLoading = false;
-
-// 🎯 DOM ELEMENTS
-const lingo = {
-  widget: document.getElementById('lingo-widget'),
-  toggle: document.getElementById('lingo-toggle'),
-  panel: document.getElementById('lingo-panel'),
-  close: document.getElementById('lingo-close'),
-  messages: document.getElementById('lingo-messages'),
-  input: document.getElementById('lingo-input'),
-  send: document.getElementById('lingo-send'),
-  sugs: document.getElementById('lingo-sugs'),
-};
-
-// 🚀 INIT
-document.addEventListener('DOMContentLoaded', () => {
-  // Show widget after short delay
-  setTimeout(() => { lingo.widget.hidden = false; }, 1500);
-  
-  // Event listeners
-  lingo.toggle.addEventListener('click', toggleLingo);
-  lingo.close.addEventListener('click', toggleLingo);
-  lingo.send.addEventListener('click', sendLingoMessage);
-  lingo.input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendLingoMessage();
-    }
-  });
-  
-  // Suggestion buttons
-  lingo.sugs.addEventListener('click', (e) => {
-    if (e.target.classList.contains('lingo-sug')) {
-      lingo.input.value = e.target.dataset.prompt;
-      autoResizeLingoInput();
-      sendLingoMessage();
-    }
-  });
-  
-  // Auto-resize input
-  lingo.input.addEventListener('input', autoResizeLingoInput);
-  
-  // Close panel when clicking outside (on mobile)
-  document.addEventListener('click', (e) => {
-    if (lingoOpen && !lingo.panel.contains(e.target) && e.target !== lingo.toggle) {
-      // Optional: close on outside click
-      // toggleLingo();
-    }
-  });
-  
-  // Request API key if not set
-  if (!LINGO_API_KEY) {
-    setTimeout(() => {
-      if (confirm("🦉 Hey! Lingo needs an API key to work.\n\nWould you like to set it up now?")) {
-        setupLingoApiKey();
-      }
-    }, 3000);
+const LANGS = {
+  nl:{
+    name:'Juf Emma', stat:'Online · Nederlandse Lerares',
+    ph:'Typ je bericht…', voice:'nl-NL',
+    listen:'Luister', stop:'Stop',
+    sugs:['Verbeter mijn zin','Leer me een uitdrukking','Gewoon een gesprekje','Leg de/het uit','Hoe zeg ik...?'],
+    greet:"Hallo lieverd! 👋 Ik ben Juf Emma, jouw vriendelijke Nederlandse lerares. Wat wil je vandaag oefenen — grammatica, woordenschat, of gewoon een gezellig gesprekje? 😊",
+    sys:`Je bent Juf Emma, een warme Nederlandse lerares op LinguaAI.
+REGELS: Houd antwoorden KORT (2-4 zinnen). Verbeter fouten ZACHTJES in je antwoord. Eindig met ÉÉN vervolgvraag. Wees warm, grappig, bemoedigend. Pas complexiteit aan op niveau van de leerling.`
+  },
+  en:{
+    name:'Ms. Grace', stat:'Online · English Teacher',
+    ph:'Ask anything or say hi…', voice:'en-GB',
+    listen:'Listen', stop:'Stop',
+    sugs:['Correct my sentence','Phrasal verb please!','Let\'s just chat','Explain present perfect','How do I say...?'],
+    greet:"Hello! 👋 I'm Ms. Grace, your English teacher here at LinguaAI. What shall we work on today — grammar, vocabulary, or just a lovely chat? ✨",
+    sys:`You are Ms. Grace, a warm brilliant British English teacher on LinguaAI.
+RULES: Keep replies SHORT (2-4 sentences). Correct mistakes GENTLY inside your reply. End with ONE follow-up question. Be warm, witty, encouraging. Use British English. Auto-adapt to student level.`
+  },
+  fr:{
+    name:'Prof. Claire', stat:'En ligne · Professeure de Français',
+    ph:'Écrivez votre message…', voice:'fr-FR',
+    listen:'Écouter', stop:'Arrêter',
+    sugs:['Corrige ma phrase','Une expression SVP','Une conversation','Le subjonctif','Comment dire...?'],
+    greet:"Bonjour ! 👋 Je suis Prof. Claire, ta professeure de français sur LinguaAI. Qu'est-ce qu'on pratique aujourd'hui ? ✨",
+    sys:`Tu es Prof. Claire, une professeure de français chaleureuse sur LinguaAI.
+RÈGLES: Réponses COURTES (2-4 phrases). Corrige les erreurs DOUCEMENT dans ta réponse. Termine avec UNE question. Sois chaleureuse, enthousiaste, encourageante. Adapte la complexité au niveau.`
+  },
+  de:{
+    name:'Frau Schmidt', stat:'Online · Deutschlehrerin',
+    ph:'Schreib deine Nachricht…', voice:'de-DE',
+    listen:'Anhören', stop:'Stopp',
+    sugs:['Satz korrigieren','Neue Redewendung','Einfach reden','Dativ erklären','Wie sagt man...?'],
+    greet:"Hallo! 👋 Ich bin Frau Schmidt, deine Deutschlehrerin auf LinguaAI. Was üben wir heute — Grammatik, Wortschatz oder ein lockeres Gespräch? ✨",
+    sys:`Du bist Frau Schmidt, eine herzliche Deutschlehrerin auf LinguaAI.
+REGELN: Antworten KURZ (2-4 Sätze). Fehler SANFT innerhalb korrigieren. Mit EINER Folgefrage enden. Herzlich, geduldig, begeistert sein. Komplexität anpassen.`
+  },
+  es:{
+    name:'Profa. Lucía', stat:'En línea · Profesora de Español',
+    ph:'Escribe tu mensaje…', voice:'es-ES',
+    listen:'Escuchar', stop:'Parar',
+    sugs:['Corrige mi frase','Una expresión por favor','Solo charlar','El subjuntivo','¿Cómo se dice...?'],
+    greet:"¡Hola! 👋 Soy la Profa. Lucía, tu profesora de español en LinguaAI. ¿Qué practicamos hoy? ✨",
+    sys:`Eres Profa. Lucía, una profesora de español cariñosa en LinguaAI.
+REGLAS: Respuestas BREVES (2-4 oraciones). Corrige errores SUAVEMENTE dentro. Termina con UNA pregunta. Cálida, entusiasta, alentadora. Adapta complejidad al nivel.`
+  },
+  it:{
+    name:'Prof.ssa Sofia', stat:'Online · Insegnante di Italiano',
+    ph:'Scrivi il tuo messaggio…', voice:'it-IT',
+    listen:'Ascolta', stop:'Ferma',
+    sugs:['Correggi la mia frase','Un\'espressione per favore','Solo chiacchierare','Il congiuntivo','Come si dice...?'],
+    greet:"Ciao! 👋 Sono la Prof.ssa Sofia, la tua insegnante di italiano su LinguaAI. Cosa pratichiamo oggi? ✨",
+    sys:`Sei la Prof.ssa Sofia, un'insegnante di italiano affettuosa su LinguaAI.
+REGOLE: Risposte BREVI (2-4 frasi). Correggi gli errori GENTILMENTE dentro. Termina con UNA domanda. Calorosa, entusiasta, incoraggiante. Adatta la complessità.`
+  },
+  pt:{
+    name:'Prof.ª Ana', stat:'Online · Professora de Português',
+    ph:'Escreva sua mensagem…', voice:'pt-PT',
+    listen:'Ouvir', stop:'Parar',
+    sugs:['Corrija minha frase','Uma expressão por favor','Só conversar','O subjuntivo','Como se diz...?'],
+    greet:"Olá! 👋 Sou a Prof.ª Ana, sua professora de português no LinguaAI. O que praticamos hoje? ✨",
+    sys:`Você é a Prof.ª Ana, uma professora de português carinhosa no LinguaAI.
+REGRAS: Respostas BREVES (2-4 frases). Corrija erros GENTILMENTE dentro. Termine com UMA pergunta. Calorosa, entusiasta, encorajadora. Adapte a complexidade.`
+  },
+  ar:{
+    name:'الأستاذة نور', stat:'متصلة · معلمة اللغة العربية',
+    ph:'اكتب رسالتك هنا…', voice:'ar-SA',
+    listen:'استمع', stop:'إيقاف',
+    sugs:['صحح جملتي','تعبير من فضلك','محادثة عادية','اشرح قاعدة','كيف أقول...؟'],
+    greet:"مرحباً! 👋 أنا الأستاذة نور، معلمتك للغة العربية على LinguaAI. ماذا تريد أن تتدرب عليه اليوم؟ ✨",
+    sys:`أنتِ الأستاذة نور، معلمة عربية دافئة على LinguaAI.
+القواعد: ردود قصيرة (2-4 جمل). صححي الأخطاء بلطف داخل الرد. انتهي بسؤال واحد. دافئة ومشجعة. استخدمي الفصحى. تكيفي مع مستوى المتعلم.`
+  },
+  tr:{
+    name:'Öğretmen Ayşe', stat:'Çevrimiçi · Türkçe Öğretmeni',
+    ph:'Mesajını yaz…', voice:'tr-TR',
+    listen:'Dinle', stop:'Dur',
+    sugs:['Cümleyi düzelt','Deyim öğret','Sadece sohbet','Gramer açıkla','Nasıl derim...?'],
+    greet:"Merhaba! 👋 Ben Öğretmen Ayşe, LinguaAI'daki Türkçe öğretmeninim. Bugün ne üzerinde çalışmak istersin? ✨",
+    sys:`Sen Öğretmen Ayşe, LinguaAI'daki sıcak bir Türkçe öğretmenisin.
+KURALLAR: Yanıtlar KISA (2-4 cümle). Hataları NAZIKÇE yanıt içinde düzelt. BİR takip sorusuyla bitir. Sıcak, cesaretlendirici ol. Seviyeye göre uyarla.`
   }
+};
+
+/* ── STATE ── */
+let lang='nl', hist=[], loading=false,
+    recog=null, recording=false,
+    ttsU=null, greeted=false, dark=false;
+
+/* ── INIT ── */
+window.addEventListener('DOMContentLoaded', () => {
+  const p = new URLSearchParams(location.search);
+  const saved = p.get('lang') || localStorage.getItem('llang') || 'nl';
+  lang = LANGS[saved] ? saved : 'nl';
+
+  const th = localStorage.getItem('ltheme');
+  if (th==='dark' || (!th && matchMedia('(prefers-color-scheme:dark)').matches)) {
+    dark = true;
+    document.body.setAttribute('data-theme','dark');
+    document.getElementById('themeBtn').textContent = '☀️';
+  }
+
+  applyLang(lang);
+  setTimeout(sendGreeting, 380);
 });
 
-// 🔓 API KEY SETUP
-function setupLingoApiKey() {
-  const key = prompt(
-    `🔑 Set up Lingo's API key\n\n` +
-    `1. Get your key from:\n` +
-    `   • Anthropic: https://console.anthropic.com\n` +
-    `   • OpenAI: https://platform.openai.com\n\n` +
-    `2. Paste it below (starts with 'sk-ant-' or 'sk-'):\n\n` +
-    `⚠️ This is stored locally in your browser only.`
-  );
-  
-  if (key && key.trim().startsWith('sk-')) {
-    localStorage.setItem('lingo_api_key', key.trim());
-    alert('✅ Lingo is ready! Start asking design questions. 🎨');
-    location.reload();
-  } else if (key !== null) {
-    alert('⚠️ Invalid key format. Lingo will work once a valid key is set.');
-  }
+/* ── LANGUAGE ── */
+function setLang(l) {
+  if (lang===l) return;
+  lang=l; hist=[]; greeted=false;
+  document.getElementById('msgs').innerHTML='';
+  hideSugs(false);
+  applyLang(l);
+  localStorage.setItem('llang', l);
+  setTimeout(sendGreeting, 160);
 }
 
-// 🔄 TOGGLE CHAT
-function toggleLingo() {
-  lingoOpen = !lingoOpen;
-  lingo.panel.hidden = !lingoOpen;
-  lingo.toggle.setAttribute('aria-expanded', lingoOpen);
-  
-  if (lingoOpen) {
-    // Focus input when opening
-    setTimeout(() => lingo.input.focus(), 100);
-    // Hide badge after first open
-    const badge = lingo.toggle.querySelector('.lingo-badge');
-    if (badge) badge.style.display = 'none';
-  }
+function applyLang(l) {
+  const c = LANGS[l];
+  const a = ACCENTS[l];
+
+  // update header
+  document.getElementById('tName').textContent = c.name;
+  document.getElementById('tStat').textContent  = c.stat;
+  document.getElementById('chatInp').placeholder = c.ph;
+  document.title = `${c.name} — LinguaAI`;
+
+  // update active chip
+  document.querySelectorAll('.lcard').forEach(b => b.classList.toggle('active', b.dataset.l===l));
+
+  // apply accent colours via CSS vars on root
+  const root = document.documentElement;
+  root.style.setProperty('--focus-color', a.focus);
+  root.style.setProperty('--focus-ring',  a.ring);
+  root.style.setProperty('--send-bg',     a.send);
+  root.style.setProperty('--send-glow',   a.glow);
+  root.style.setProperty('--laccentc',    a.color);
+  root.style.setProperty('--laccent-bg',  a.bg);
+  root.style.setProperty('--lborder-active', a.color);
+  root.style.setProperty('--ltext-active',   a.color);
+  root.style.setProperty('--lbg-active',     a.bg);
+
+  // colour the teacher avatar ring
+  const av = document.getElementById('tAva');
+  av.style.background = `linear-gradient(135deg,${a.color},${a.color}bb)`;
+  av.style.boxShadow  = `0 0 0 3px ${a.bg}`;
+
+  // RTL for Arabic
+  document.getElementById('chatInp').style.direction = l==='ar' ? 'rtl' : 'ltr';
+
+  renderSugs(c.sugs);
 }
 
-// ✍️ AUTO-RESIZE INPUT
-function autoResizeLingoInput() {
-  lingo.input.style.height = '44px';
-  lingo.input.style.height = Math.min(lingo.input.scrollHeight, 120) + 'px';
+/* ── THEME ── */
+function toggleTheme() {
+  dark = !dark;
+  document.body.setAttribute('data-theme', dark ? 'dark' : '');
+  document.getElementById('themeBtn').textContent = dark ? '☀️' : '🌙';
+  localStorage.setItem('ltheme', dark ? 'dark' : '');
 }
 
-// 💬 ADD MESSAGE TO CHAT
-function addLingoMessage(text, isUser = false) {
-  const msg = document.createElement('div');
-  msg.className = `lingo-msg ${isUser ? 'lingo-user' : 'lingo-bot'}`;
-  
-  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  
-  msg.innerHTML = `
-    <div class="lingo-avatar">${isUser ? '👤' : '🦉'}</div>
-    <div class="lingo-bubble">
-      ${text.replace(/\n/g, '<br>')}
-      <div style="font-size:0.75rem;opacity:0.7;margin-top:0.5rem;text-align:right">${time}</div>
-    </div>
-  `;
-  
-  lingo.messages.appendChild(msg);
-  scrollToBottomLingo();
-  return msg;
+/* ── SUGGESTIONS ── */
+function renderSugs(arr) {
+  const w = document.getElementById('sugs');
+  w.style.opacity='1'; w.style.pointerEvents='';
+  w.innerHTML = arr.map(s=>`<button class="sug" onclick="useSug(this)">${s}</button>`).join('');
+}
+function useSug(btn) {
+  const inp = document.getElementById('chatInp');
+  inp.value = btn.textContent; autoResize(inp); sendMsg();
+}
+function hideSugs(fade=true) {
+  const s = document.getElementById('sugs');
+  if (fade) { s.style.opacity='0'; s.style.pointerEvents='none'; }
+  else { s.innerHTML=''; }
 }
 
-// ⏳ SHOW TYPING INDICATOR
-function showLingoTyping() {
-  const typing = document.createElement('div');
-  typing.className = 'lingo-msg lingo-bot lingo-typing';
-  typing.id = 'lingo-typing';
-  typing.innerHTML = `
-    <div class="lingo-avatar">🦉</div>
-    <div class="lingo-bubble">
-      <span class="lingo-dot"></span>
-      <span class="lingo-dot"></span>
-      <span class="lingo-dot"></span>
-    </div>
-  `;
-  lingo.messages.appendChild(typing);
-  scrollToBottomLingo();
-  return typing;
+/* ── GREETING ── */
+function sendGreeting() {
+  if (greeted) return; greeted=true;
+  addBotMsg(LANGS[lang].greet, false);
 }
 
-function removeLingoTyping() {
-  const typing = document.getElementById('lingo-typing');
-  if (typing) typing.remove();
-}
+/* ── SEND ── */
+async function sendMsg() {
+  const inp = document.getElementById('chatInp');
+  const text = inp.value.trim();
+  if (!text || loading) return;
+  inp.value=''; inp.style.height='26px';
+  hideSugs();
 
-function scrollToBottomLingo() {
-  lingo.messages.scrollTop = lingo.messages.scrollHeight;
-}
+  addUserMsg(text);
+  hist.push({ role:'user', content:text });
+  loading=true;
+  const tid = addTyping();
 
-// 📤 SEND MESSAGE TO AI
-async function sendLingoMessage() {
-  const text = lingo.input.value.trim();
-  if (!text || lingoLoading || !LINGO_API_KEY) return;
-  
-  // Add user message
-  addLingoMessage(esc(text), true);
-  lingoHistory.push({ role: 'user', content: text });
-  
-  // Clear input
-  lingo.input.value = '';
-  autoResizeLingoInput();
-  lingo.send.disabled = true;
-  lingoLoading = true;
-  
-  // Show typing
-  showLingoTyping();
-  
   try {
-    const response = await callLingoAPI(text);
-    removeLingoTyping();
-    
-    // Format and add bot response
-    const formatted = formatLingoResponse(response);
-    addLingoMessage(formatted, false);
-    lingoHistory.push({ role: 'assistant', content: response });
-    
-    // Keep history manageable
-    if (lingoHistory.length > 20) lingoHistory = lingoHistory.slice(-20);
-    
-  } catch (error) {
-    removeLingoTyping();
-    console.error('Lingo API error:', error);
-    
-    const isAuth = /auth|key|401|403/i.test(error.message);
-    addLingoMessage(
-      isAuth 
-        ? `🔑 Oops! API key issue. <button onclick="setupLingoApiKey()" style="background:none;border:none;color:var(--lingo-accent);cursor:pointer;text-decoration:underline;font:inherit">Update key</button>`
-        : `🦉 Hmm, I had a little hiccup. Please check your connection and try again! 💚`,
-      false
-    );
-  } finally {
-    lingoLoading = false;
-    lingo.send.disabled = false;
-    lingo.input.focus();
-  }
-}
-
-// 🌐 CALL AI API (Anthropic or OpenAI)
-async function callLingoAPI(userMessage) {
-  const messages = [
-    { role: 'system', content: LINGO_SYSTEM_PROMPT },
-    ...lingoHistory.slice(-10), // Last 10 messages for context
-    { role: 'user', content: userMessage }
-  ];
-  
-  if (LINGO_API_PROVIDER === 'anthropic') {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': LINGO_API_KEY,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
+    const c = LANGS[lang];
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key': API_KEY,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 600,
-        messages: messages.filter(m => m.role !== 'system'),
-        system: LINGO_SYSTEM_PROMPT
+        model:'claude-sonnet-4-20250514',
+        max_tokens:450,
+        system: c.sys,
+        messages: hist
       })
     });
-    
-    if (!response.ok) {
-      const err = await response.json().catch(() => ({}));
-      throw new Error(err.error?.message || `HTTP ${response.status}`);
-    }
-    
-    const data = await response.json();
-    return data.content?.[0]?.text || 'I\'m here to help! What design question can I answer for you? 🎨';
-    
-  } else {
-    // OpenAI fallback
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${LINGO_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'gpt-4o-mini',
-        max_tokens: 600,
-        messages: messages
-      })
-    });
-    
-    if (!response.ok) {
-      const err = await response.json().catch(() => ({}));
-      throw new Error(err.error?.message || `HTTP ${response.status}`);
-    }
-    
-    const data = await response.json();
-    return data.choices?.[0]?.message?.content || 'I\'m here to help! What design question can I answer for you? 🎨';
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message || 'API error');
+    const reply = data.content?.[0]?.text || '(no response)';
+    removeTyping(tid);
+    addBotMsg(reply, true);
+    hist.push({ role:'assistant', content:reply });
+    if (hist.length > 28) hist = hist.slice(-28);
+  } catch(err) {
+    removeTyping(tid);
+    const isAuth = /auth|key/i.test(err.message||'');
+    addBotMsg(isAuth
+      ? '⚠️ Invalid API key. Open ai-chat.html and replace YOUR_ANTHROPIC_API_KEY with your key from console.anthropic.com'
+      : '⚠️ Connection error. Check your API key and internet connection.', false);
+    console.error(err);
   }
+  loading=false;
 }
 
-// ✨ FORMAT LINGO'S RESPONSE (add subtle styling)
-function formatLingoResponse(text) {
-  // Convert **bold** to <strong>
-  text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  // Convert *italic* to <em>
-  text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
-  // Convert bullet lists
-  text = text.replace(/^- (.*?)(?=\n\n|\n-|$)/gm, '<li>$1</li>');
-  text = text.replace(/(<li>.*?<\/li>)+/gs, match => `<ul style="margin:0.5rem 0;padding-left:1.25rem">${match}</ul>`);
-  return text;
+/* ── DOM ── */
+function addUserMsg(text) {
+  const w = document.getElementById('msgs');
+  const d = document.createElement('div');
+  d.className='msg user';
+  d.innerHTML=`<div class="av" style="background:#1e293b;color:#f1f5f9">👤</div><div class="mbody"><div class="bubble">${esc(text)}</div></div>`;
+  w.appendChild(d); scrollDn();
 }
 
-// 🔒 ESCAPE HTML
-function esc(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
+function addBotMsg(text, speak=true) {
+  const w = document.getElementById('msgs');
+  const d = document.createElement('div');
+  d.className='msg bot';
+  const a = ACCENTS[lang];
+  const sid = 'sp'+Date.now();
+  const lbl = LANGS[lang].listen;
+  d.innerHTML=`
+    <div class="av" style="background:linear-gradient(135deg,${a.color},${a.color}bb);box-shadow:0 2px 10px ${a.ring}">🎓</div>
+    <div class="mbody">
+      <div class="bubble">${esc(text)}</div>
+      ${speak?`<button class="listen-btn" id="${sid}" onclick="speakMsg(this,'${escA(text)}')" aria-label="${lbl}">🔊 ${lbl}</button>`:''}
+    </div>`;
+  w.appendChild(d); scrollDn();
 }
 
-// 🎨 EXPOSE FOR BUTTONS IN ERROR MESSAGES
-window.setupLingoApiKey = setupLingoApiKey;
+function addTyping() {
+  const w = document.getElementById('msgs');
+  const id = 'ty'+Date.now();
+  const d = document.createElement('div');
+  d.className='typing-row'; d.id=id;
+  d.innerHTML=`<div class="av" style="background:linear-gradient(135deg,${ACCENTS[lang].color},${ACCENTS[lang].color}bb)">🎓</div><div class="typ-bbl"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>`;
+  w.appendChild(d); scrollDn(); return id;
+}
+function removeTyping(id) { const e=document.getElementById(id); if(e) e.remove(); }
+function scrollDn() { const m=document.getElementById('msgs'); m.scrollTop=m.scrollHeight; }
+
+/* ── TTS ── */
+function speakMsg(btn, text) {
+  if (ttsU) {
+    speechSynthesis.cancel(); ttsU=null;
+    document.querySelectorAll('.listen-btn.playing').forEach(b=>{b.classList.remove('playing');resetLBtn(b);});
+    if (btn._on) { btn._on=false; return; }
+  }
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang=LANGS[lang].voice; u.rate=0.9; u.pitch=1.05;
+  ttsU=u; btn.classList.add('playing');
+  btn.textContent=`⏹ ${LANGS[lang].stop}`; btn._on=true;
+  u.onend = () => { btn.classList.remove('playing'); resetLBtn(btn); btn._on=false; ttsU=null; };
+  speechSynthesis.speak(u);
+}
+function resetLBtn(btn) { btn.textContent=`🔊 ${LANGS[lang].listen}`; }
+
+/* ── MIC ── */
+function toggleMic() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { alert('Voice input needs Chrome or Edge.'); return; }
+  if (recording) { recog?.stop(); return; }
+  recog = new SR();
+  recog.lang=LANGS[lang].voice; recog.interimResults=false; recog.maxAlternatives=1;
+  const mic = document.getElementById('micBtn');
+  recog.onstart  = ()=>{recording=true;mic.classList.add('rec');mic.textContent='⏹';mic.setAttribute('aria-label','Stop');};
+  recog.onresult = e=>{document.getElementById('chatInp').value=e.results[0][0].transcript;autoResize(document.getElementById('chatInp'));};
+  recog.onend    = ()=>{recording=false;mic.classList.remove('rec');mic.textContent='🎤';mic.setAttribute('aria-label','Voice input');if(document.getElementById('chatInp').value.trim())sendMsg();};
+  recog.onerror  = ()=>{recording=false;mic.classList.remove('rec');mic.textContent='🎤';};
+  recog.start();
+}
+
+/* ── UTILS ── */
+function handleKey(e) { if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();} }
+function autoResize(el){ el.style.height='26px'; el.style.height=Math.min(el.scrollHeight,110)+'px'; }
+function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/\n/g,'<br>'); }
+function escA(t){ return String(t).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,' ').substring(0,300); }
 </script>
-<!-- ═══════════════════════════════════════════════════════
-     END LINGO WIDGET
-     ═══════════════════════════════════════════════════════ -->
+</body>
+</html>
